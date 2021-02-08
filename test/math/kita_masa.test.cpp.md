@@ -1,0 +1,164 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: math/kita_masa.hpp
+    title: "\u304D\u305F\u307E\u3055\u6CD5"
+  - icon: ':question:'
+    path: math/modint.hpp
+    title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: true
+  _pathExtension: cpp
+  _verificationStatusIcon: ':x:'
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    IGNORE: ''
+    IGNORE_IF_CLANG: ''
+    IGNORE_IF_GCC: ''
+    document_title: "\u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5"
+    links:
+    - https://atcoder.jp/contests/tdpc/tasks/tdpc_fibonacci
+  bundledCode: "#line 1 \"test/math/kita_masa.test.cpp\"\n/*\r\n * @brief \u6570\u5B66\
+    /\u304D\u305F\u307E\u3055\u6CD5\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"\
+    https://atcoder.jp/contests/tdpc/tasks/tdpc_fibonacci\"\r\n\r\n#include <iostream>\r\
+    \n#include <vector>\r\n#line 2 \"math/modint.hpp\"\n// #include <algorithm>\r\n\
+    #include <cassert>\r\n#line 5 \"math/modint.hpp\"\n#include <utility>\r\n#line\
+    \ 7 \"math/modint.hpp\"\n\r\n// template <int MOD>\r\n// struct MInt {\r\n// \
+    \  unsigned val;\r\n//   MInt(): val(0) {}\r\n//   MInt(long long x) : val(x >=\
+    \ 0 ? x % MOD : x % MOD + MOD) {}\r\n//   static int get_mod() { return MOD; }\r\
+    \n//   static void set_mod(int divisor) { assert(divisor == MOD); }\r\n//   MInt\
+    \ pow(long long exponent) const {\r\n//     MInt tmp = *this, res = 1;\r\n// \
+    \    while (exponent > 0) {\r\n//       if (exponent & 1) res *= tmp;\r\n//  \
+    \     tmp *= tmp;\r\n//       exponent >>= 1;\r\n//     }\r\n//     return res;\r\
+    \n//   }\r\n//   MInt &operator+=(const MInt &x) { if((val += x.val) >= MOD) val\
+    \ -= MOD; return *this; }\r\n//   MInt &operator-=(const MInt &x) { if((val +=\
+    \ MOD - x.val) >= MOD) val -= MOD; return *this; }\r\n//   MInt &operator*=(const\
+    \ MInt &x) { val = static_cast<unsigned long long>(val) * x.val % MOD; return\
+    \ *this; }\r\n//   MInt &operator/=(const MInt &x) {\r\n//     // assert(std::__gcd(static_cast<int>(x.val),\
+    \ MOD) == 1);\r\n//     unsigned a = x.val, b = MOD; int u = 1, v = 0;\r\n// \
+    \    while (b) {\r\n//       unsigned tmp = a / b;\r\n//       std::swap(a -=\
+    \ tmp * b, b);\r\n//       std::swap(u -= tmp * v, v);\r\n//     }\r\n//     return\
+    \ *this *= u;\r\n//   }\r\n//   bool operator==(const MInt &x) const { return\
+    \ val == x.val; }\r\n//   bool operator!=(const MInt &x) const { return val !=\
+    \ x.val; }\r\n//   bool operator<(const MInt &x) const { return val < x.val; }\r\
+    \n//   bool operator<=(const MInt &x) const { return val <= x.val; }\r\n//   bool\
+    \ operator>(const MInt &x) const { return val > x.val; }\r\n//   bool operator>=(const\
+    \ MInt &x) const { return val >= x.val; }\r\n//   MInt &operator++() { if (++val\
+    \ == MOD) val = 0; return *this; }\r\n//   MInt operator++(int) { MInt res = *this;\
+    \ ++*this; return res; }\r\n//   MInt &operator--() { val = (val == 0 ? MOD :\
+    \ val) - 1; return *this; }\r\n//   MInt operator--(int) { MInt res = *this; --*this;\
+    \ return res; }\r\n//   MInt operator+() const { return *this; }\r\n//   MInt\
+    \ operator-() const { return MInt(val ? MOD - val : 0); }\r\n//   MInt operator+(const\
+    \ MInt &x) const { return MInt(*this) += x; }\r\n//   MInt operator-(const MInt\
+    \ &x) const { return MInt(*this) -= x; }\r\n//   MInt operator*(const MInt &x)\
+    \ const { return MInt(*this) *= x; }\r\n//   MInt operator/(const MInt &x) const\
+    \ { return MInt(*this) /= x; }\r\n//   friend std::ostream &operator<<(std::ostream\
+    \ &os, const MInt &x) { return os << x.val; }\r\n//   friend std::istream &operator>>(std::istream\
+    \ &is, MInt &x) { long long val; is >> val; x = MInt(val); return is; }\r\n//\
+    \ };\r\n// namespace std { template <int MOD> MInt<MOD> abs(const MInt<MOD> &x)\
+    \ { return x; } }\r\n// template <int MOD>\r\n// struct Combinatorics {\r\n//\
+    \   using ModInt = MInt<MOD>;\r\n//   int val;  // \"val!\" and \"mod\" must be\
+    \ disjoint.\r\n//   std::vector<ModInt> fact, fact_inv, inv;\r\n//   Combinatorics(int\
+    \ val = 10000000) : val(val), fact(val + 1), fact_inv(val + 1), inv(val + 1) {\r\
+    \n//     fact[0] = 1;\r\n//     for (int i = 1; i <= val; ++i) fact[i] = fact[i\
+    \ - 1] * i;\r\n//     fact_inv[val] = ModInt(1) / fact[val];\r\n//     for (int\
+    \ i = val; i > 0; --i) fact_inv[i - 1] = fact_inv[i] * i;\r\n//     for (int i\
+    \ = 1; i <= val; ++i) inv[i] = fact[i - 1] * fact_inv[i];\r\n//   }\r\n//   ModInt\
+    \ nCk(int n, int k) const {\r\n//     if (n < 0 || n < k || k < 0) return 0;\r\
+    \n//     assert(n <= val && k <= val);\r\n//     return fact[n] * fact_inv[k]\
+    \ * fact_inv[n - k];\r\n//   }\r\n//   ModInt nPk(int n, int k) const {\r\n//\
+    \     if (n < 0 || n < k || k < 0) return 0;\r\n//     assert(n <= val);\r\n//\
+    \     return fact[n] * fact_inv[n - k];\r\n//   }\r\n//   ModInt nHk(int n, int\
+    \ k) const {\r\n//     if (n < 0 || k < 0) return 0;\r\n//     return k == 0 ?\
+    \ 1 : nCk(n + k - 1, k);\r\n//   }\r\n// };\r\n\r\nstruct ModInt {\r\n  unsigned\
+    \ val;\r\n  ModInt(): val(0) {}\r\n  ModInt(long long x) : val(x >= 0 ? x % mod()\
+    \ : x % mod() + mod()) {}\r\n  static int get_mod() { return mod(); }\r\n  static\
+    \ void set_mod(int divisor) { mod() = divisor; }\r\n  ModInt pow(long long exponent)\
+    \ const {\r\n    ModInt tmp = *this, res = 1;\r\n    while (exponent > 0) {\r\n\
+    \      if (exponent & 1) res *= tmp;\r\n      tmp *= tmp;\r\n      exponent >>=\
+    \ 1;\r\n    }\r\n    return res;\r\n  }\r\n  ModInt &operator+=(const ModInt &x)\
+    \ { if((val += x.val) >= mod()) val -= mod(); return *this; }\r\n  ModInt &operator-=(const\
+    \ ModInt &x) { if((val += mod() - x.val) >= mod()) val -= mod(); return *this;\
+    \ }\r\n  ModInt &operator*=(const ModInt &x) { val = static_cast<unsigned long\
+    \ long>(val) * x.val % mod(); return *this; }\r\n  ModInt &operator/=(const ModInt\
+    \ &x) {\r\n    // assert(std::__gcd(static_cast<int>(x.val), mod()) == 1);\r\n\
+    \    unsigned a = x.val, b = mod(); int u = 1, v = 0;\r\n    while (b) {\r\n \
+    \     unsigned tmp = a / b;\r\n      std::swap(a -= tmp * b, b);\r\n      std::swap(u\
+    \ -= tmp * v, v);\r\n    }\r\n    return *this *= u;\r\n  }\r\n  bool operator==(const\
+    \ ModInt &x) const { return val == x.val; }\r\n  bool operator!=(const ModInt\
+    \ &x) const { return val != x.val; }\r\n  bool operator<(const ModInt &x) const\
+    \ { return val < x.val; }\r\n  bool operator<=(const ModInt &x) const { return\
+    \ val <= x.val; }\r\n  bool operator>(const ModInt &x) const { return val > x.val;\
+    \ }\r\n  bool operator>=(const ModInt &x) const { return val >= x.val; }\r\n \
+    \ ModInt &operator++() { if (++val == mod()) val = 0; return *this; }\r\n  ModInt\
+    \ operator++(int) { ModInt res = *this; ++*this; return res; }\r\n  ModInt &operator--()\
+    \ { val = (val == 0 ? mod() : val) - 1; return *this; }\r\n  ModInt operator--(int)\
+    \ { ModInt res = *this; --*this; return res; }\r\n  ModInt operator+() const {\
+    \ return *this; }\r\n  ModInt operator-() const { return ModInt(val ? mod() -\
+    \ val : 0); }\r\n  ModInt operator+(const ModInt &x) const { return ModInt(*this)\
+    \ += x; }\r\n  ModInt operator-(const ModInt &x) const { return ModInt(*this)\
+    \ -= x; }\r\n  ModInt operator*(const ModInt &x) const { return ModInt(*this)\
+    \ *= x; }\r\n  ModInt operator/(const ModInt &x) const { return ModInt(*this)\
+    \ /= x; }\r\n  friend std::ostream &operator<<(std::ostream &os, const ModInt\
+    \ &x) { return os << x.val; }\r\n  friend std::istream &operator>>(std::istream\
+    \ &is, ModInt &x) { long long val; is >> val; x = ModInt(val); return is; }\r\n\
+    private:\r\n  static int &mod() { static int divisor = 0; return divisor; }\r\n\
+    };\r\nnamespace std { ModInt abs(const ModInt &x) { return x; } }\r\nstruct Combinatorics\
+    \ {\r\n  int val;  // \"val!\" and \"mod\" must be disjoint.\r\n  std::vector<ModInt>\
+    \ fact, fact_inv, inv;\r\n  Combinatorics(int val = 10000000) : val(val), fact(val\
+    \ + 1), fact_inv(val + 1), inv(val + 1) {\r\n    fact[0] = 1;\r\n    for (int\
+    \ i = 1; i <= val; ++i) fact[i] = fact[i - 1] * i;\r\n    fact_inv[val] = ModInt(1)\
+    \ / fact[val];\r\n    for (int i = val; i > 0; --i) fact_inv[i - 1] = fact_inv[i]\
+    \ * i;\r\n    for (int i = 1; i <= val; ++i) inv[i] = fact[i - 1] * fact_inv[i];\r\
+    \n  }\r\n  ModInt nCk(int n, int k) const {\r\n    if (n < 0 || n < k || k < 0)\
+    \ return 0;\r\n    assert(n <= val && k <= val);\r\n    return fact[n] * fact_inv[k]\
+    \ * fact_inv[n - k];\r\n  }\r\n  ModInt nPk(int n, int k) const {\r\n    if (n\
+    \ < 0 || n < k || k < 0) return 0;\r\n    assert(n <= val);\r\n    return fact[n]\
+    \ * fact_inv[n - k];\r\n  }\r\n  ModInt nHk(int n, int k) const {\r\n    if (n\
+    \ < 0 || k < 0) return 0;\r\n    return k == 0 ? 1 : nCk(n + k - 1, k);\r\n  }\r\
+    \n};\r\n#line 2 \"math/kita_masa.hpp\"\n#include <algorithm>\r\n#line 4 \"math/kita_masa.hpp\"\
+    \n\r\ntemplate <typename T>\r\nT kita_masa(const std::vector<T> &c, const std::vector<T>\
+    \ &a, long long n) {\r\n  int k = c.size();\r\n  std::vector<T> coefficient((k\
+    \ << 1) - 1, 0);\r\n  coefficient[0] = 1;\r\n  int now = 0;\r\n  std::vector<std::vector<T>>\
+    \ base(2, std::vector<T>((k << 1) - 1, 0));\r\n  base[now][1] = 1;\r\n  for (;\
+    \ n > 0; n >>= 1) {\r\n    if (n & 1) {\r\n      fill(base[now ^ 1].begin(), base[now\
+    \ ^ 1].end(), 0);\r\n      for (int i = 0; i < k; ++i) for (int j = 0; j < k;\
+    \ ++j) base[now ^ 1][i + j] += coefficient[i] * base[now][j];\r\n      fill(coefficient.begin(),\
+    \ coefficient.end(), 0);\r\n      for (int i = (k << 1) - 2; i >= k; --i) {\r\n\
+    \        coefficient[i] += base[now ^ 1][i];\r\n        for (int j = 0; j < k;\
+    \ ++j) coefficient[i - k + j] += coefficient[i] * c[j];\r\n      }\r\n      for\
+    \ (int i = 0; i < k; ++i) coefficient[i] += base[now ^ 1][i];\r\n    }\r\n   \
+    \ fill(base[now ^ 1].begin(), base[now ^ 1].end(), 0);\r\n    for (int i = 0;\
+    \ i < k; ++i) for (int j = 0; j < k; ++j) base[now ^ 1][i + j] += base[now][i]\
+    \ * base[now][j];\r\n    now ^= 1;\r\n    for (int i = (k << 1) - 2; i >= k; --i)\
+    \ for (int j = 0; j < k; ++j) base[now][i - k + j] += base[now][i] * c[j];\r\n\
+    \  }\r\n  T res = 0;\r\n  for (int i = 0; i < k; ++i) res += coefficient[i] *\
+    \ a[i];\r\n  return res;\r\n}\r\n#line 11 \"test/math/kita_masa.test.cpp\"\n\r\
+    \nint main() {\r\n  ModInt::set_mod(1000000007);\r\n  int k, n;\r\n  std::cin\
+    \ >> k >> n;\r\n  std::vector<ModInt> c(k, 1), a(k, 1);\r\n  std::cout << kita_masa(c,\
+    \ a, n - 1) << '\\n';\r\n  return 0;\r\n}\r\n"
+  code: "/*\r\n * @brief \u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5\r\n */\r\n#define\
+    \ IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/tdpc/tasks/tdpc_fibonacci\"\
+    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../math/modint.hpp\"\
+    \r\n#include \"../../math/kita_masa.hpp\"\r\n\r\nint main() {\r\n  ModInt::set_mod(1000000007);\r\
+    \n  int k, n;\r\n  std::cin >> k >> n;\r\n  std::vector<ModInt> c(k, 1), a(k,\
+    \ 1);\r\n  std::cout << kita_masa(c, a, n - 1) << '\\n';\r\n  return 0;\r\n}\r\
+    \n"
+  dependsOn:
+  - math/modint.hpp
+  - math/kita_masa.hpp
+  isVerificationFile: true
+  path: test/math/kita_masa.test.cpp
+  requiredBy: []
+  timestamp: '2021-02-09 04:38:15+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
+  verifiedWith: []
+documentation_of: test/math/kita_masa.test.cpp
+layout: document
+redirect_from:
+- /verify/test/math/kita_masa.test.cpp
+- /verify/test/math/kita_masa.test.cpp.html
+title: "\u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5"
+---
