@@ -32,19 +32,19 @@ Knuth's Algorithm D
 - 乗算の高速化
   - http://xn--w6q13e505b.jp/method/mult.html
   - http://fussy.web.fc2.com/algo/math3_mult.htm
-    - ショーンハーゲ・ストラッセン法 (Schönhage–Strassen algorithm)
-      - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%BB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%82%BB%E3%83%B3%E6%B3%95
-      - https://qiita.com/peria/items/fbdd52768b4659823d88
-      - http://poset.jp/ompa/node5.html
-      - https://qiita.com/peria/items/19e37b192cb62bdbc3a1
-      - https://cookies.hatenablog.jp/entry/2018/12/18/092106
-      - https://pisan-dub.jp/doc/2011/20110201001/2000/20000819001/0.pdf
-    - Toom-Cook 法 (Toom-3)
-      - https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication
-      - http://xn--w6q13e505b.jp/method/toomcook.html
-      - https://azapen6.hatenablog.com/entry/2014/04/11/235315
-      - https://www.mk-mode.com/blog/2013/04/29/cpp-big-multiply-toom-cook-3/
-      - http://poset.jp/ompa/node4.html#SECTION00044000000000000000
+  - ショーンハーゲ・ストラッセン法 (Schönhage–Strassen algorithm)
+    - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%BB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%82%BB%E3%83%B3%E6%B3%95
+    - https://qiita.com/peria/items/fbdd52768b4659823d88
+    - http://poset.jp/ompa/node5.html
+    - https://qiita.com/peria/items/19e37b192cb62bdbc3a1
+    - https://cookies.hatenablog.jp/entry/2018/12/18/092106
+    - https://pisan-dub.jp/doc/2011/20110201001/2000/20000819001/0.pdf
+  - Toom-Cook 法 (Toom-3)
+    - https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication
+    - http://xn--w6q13e505b.jp/method/toomcook.html
+    - https://azapen6.hatenablog.com/entry/2014/04/11/235315
+    - https://www.mk-mode.com/blog/2013/04/29/cpp-big-multiply-toom-cook-3/
+    - http://poset.jp/ompa/node4.html#SECTION00044000000000000000
 - 階乗
   - http://fussy.web.fc2.com/algo/math2_bignum.htm
 - ニュートン-ラプソン除算 (Newton-Raphson division)

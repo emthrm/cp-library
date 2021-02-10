@@ -24,7 +24,7 @@ $xy$ 平面上の直線集合 $L$ を考える．
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`CHT<T>(is_minimized = true)`|CHT||
+|`CHT<T>(is_minimized = true)`|convex hull trick||
 |`add(a, b)`|直線 $f(x) = ax + b$ を追加する．|傾きには単調性が必要である．|
 |`query(x)`|$\min \text{/} \max \lbrace \,f(x) \mid f \in L \rbrace$||
 |`monotone_inc_query(x)`|$x$ が単調増加している場合の `query(x)`||

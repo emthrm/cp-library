@@ -20,7 +20,7 @@ $\langle O(N), O(\log{N}) \rangle$
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における取得クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
 |`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}}$|存在しない場合は $-1$ となる．|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
 
 `T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
 

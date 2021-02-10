@@ -25,12 +25,10 @@ $$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BinomialCoefficients(mod, val = 10000000)`|二項係数を考える|$a! \perp \mathrm{mod}$|
+|`BinomialCoefficients(mod, val = 10000000)`|二項係数を考える|$a! \perp \mathrm{mod}$ (e.g. $0 \leq a < \mathrm{mod}$ を満たす素数)|
 |`fact[i]`|$i!$|
 |`fact_inv[i]`|$\frac{1}{i!}$|
 |`query(n, k)`|$\binom{n}{k}$|
-
-e.g. $0 \leq a < \mathrm{mod}$ を満たす素数
 
 - $n$ は巨大
 
