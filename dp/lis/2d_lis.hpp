@@ -5,19 +5,19 @@
 
 #pragma once
 #include <algorithm>
+#include <iterator>
 #include <utility>
 #include <vector>
 
 template <typename T>
-int lis_2d(const std::vector<std::pair<T, T>> &a, const T TINF) {
-  std::vector<std::pair<T, T>> b(a);
-  int n = b.size();
-  for (int i = 0; i < n; ++i) b[i].second = -b[i].second;
-  std::sort(b.begin(), b.end());
+int lis_2d(std::vector<std::pair<T, T>> a, const T TINF) {
+  int n = a.size();
+  for (int i = 0; i < n; ++i) a[i].second = -a[i].second;
+  std::sort(a.begin(), a.end());
   std::vector<T> check(n, TINF);
-  for (std::pair<T, T> pr : b) {
+  for (const std::pair<T, T> &pr : a) {
     T tmp = -pr.second;
     *std::lower_bound(check.begin(), check.end(), tmp) = tmp;
   }
-  return std::lower_bound(check.begin(), check.end(), TINF) - check.begin();
+  return std::distance(check.begin(), std::lower_bound(check.begin(), check.end(), TINF));
 }

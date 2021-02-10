@@ -6,6 +6,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <map>
 #include <queue>
 #include <set>
@@ -38,7 +39,8 @@ int main() {
     graph[b[i]].emplace_back(a[i]);
     if (c[a[i]] == c[b[i]]) {
       int g = c[a[i]];
-      int u = std::lower_bound(group[g].begin(), group[g].end(), a[i]) - group[g].begin(), v = std::lower_bound(group[g].begin(), group[g].end(), b[i]) - group[g].begin();
+      int u = std::distance(group[g].begin(), std::lower_bound(group[g].begin(), group[g].end(), a[i]));
+      int v = std::distance(group[g].begin(), std::lower_bound(group[g].begin(), group[g].end(), b[i]));
       subgraph[g][u].emplace_back(u, v);
       subgraph[g][v].emplace_back(v, u);
     }

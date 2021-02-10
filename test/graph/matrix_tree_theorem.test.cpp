@@ -6,6 +6,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 #include "../../math/modint.hpp"
 #include "../../graph/edge.hpp"
@@ -29,7 +30,7 @@ int main() {
   costs.erase(std::unique(costs.begin(), costs.end()), costs.end());
   std::vector<std::vector<Edge<int>>> divided(costs.size());
   for (int i = 0; i < m; ++i) {
-    divided[std::lower_bound(costs.begin(), costs.end(), edges[i].cost) - costs.begin()].emplace_back(edges[i]);
+    divided[std::distance(costs.begin(), std::lower_bound(costs.begin(), costs.end(), edges[i].cost))].emplace_back(edges[i]);
   }
   UnionFind uf(n);
   long long cost = 0;
@@ -54,8 +55,8 @@ int main() {
     UnionFind span(sz);
     for (Edge<int> &e : divided[i]) {
       if (e.src != e.dst) {
-        e.src = std::lower_bound(vers.begin(), vers.end(), e.src) - vers.begin();
-        e.dst = std::lower_bound(vers.begin(), vers.end(), e.dst) - vers.begin();
+        e.src = std::distance(vers.begin(), std::lower_bound(vers.begin(), vers.end(), e.src));
+        e.dst = std::distance(vers.begin(), std::lower_bound(vers.begin(), vers.end(), e.dst));
         span.unite(e.src, e.dst);
       }
     }
@@ -74,8 +75,8 @@ int main() {
         comp.erase(std::unique(comp.begin(), comp.end()), comp.end());
         std::vector<std::vector<Edge<int>>> graph(comp.size());
         for (Edge<int> &e : divided2[j]) {
-          e.src = std::lower_bound(comp.begin(), comp.end(), e.src) - comp.begin();
-          e.dst = std::lower_bound(comp.begin(), comp.end(), e.dst) - comp.begin();
+          e.src = std::distance(comp.begin(), std::lower_bound(comp.begin(), comp.end(), e.src));
+          e.dst = std::distance(comp.begin(), std::lower_bound(comp.begin(), comp.end(), e.dst));
           graph[e.src].emplace_back(e.src, e.dst, e.cost);
           graph[e.dst].emplace_back(e.dst, e.src, e.cost);
         }

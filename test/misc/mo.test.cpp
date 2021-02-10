@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 #include "../../data_structure/bit/bit.hpp"
 #include "../../misc/mo.hpp"
@@ -45,7 +46,9 @@ int main() {
   std::sort(tmp.begin(), tmp.end());
   tmp.erase(std::unique(tmp.begin(), tmp.end()), tmp.end());
   m = tmp.size();
-  for (int i = 0; i < n; ++i) a[i] = std::lower_bound(tmp.begin(), tmp.end(), a[i]) - tmp.begin();
+  for (int i = 0; i < n; ++i) {
+    a[i] = std::distance(tmp.begin(), std::lower_bound(tmp.begin(), tmp.end(), a[i]));
+  }
   std::vector<int> left(q), right(q);
   for (int i = 0; i < q; ++i) std::cin >> left[i] >> right[i];
   Mo mo(left, right);

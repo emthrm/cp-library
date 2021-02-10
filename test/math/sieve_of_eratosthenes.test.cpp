@@ -6,6 +6,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <vector>
 #include "../../math/sieve_of_eratosthenes.hpp"
 
@@ -17,6 +18,8 @@ int main() {
     if (table[i]) primes.emplace_back(i);
   }
   int n;
-  while (std::cin >> n) std::cout << std::upper_bound(primes.begin(), primes.end(), n) - primes.begin() << '\n';
+  while (std::cin >> n) {
+    std::cout << std::distance(primes.begin(), std::upper_bound(primes.begin(), primes.end(), n)) << '\n';
+  }
   return 0;
 }

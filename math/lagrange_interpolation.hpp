@@ -5,12 +5,13 @@
 
 #pragma once
 #include <algorithm>
+#include <iterator>
 #include <vector>
 
 template <typename T>
 T lagrange_interpolation(const std::vector<T> &x, const std::vector<T> &y, T t) {
   auto it = std::find(x.begin(), x.end(), t);
-  if (it != x.end()) return y[it - x.begin()];
+  if (it != x.end()) return y[std::distance(x.begin(), it)];
   int n = x.size();
   T res = 0;
   for (int i = 0; i < n; ++i) {

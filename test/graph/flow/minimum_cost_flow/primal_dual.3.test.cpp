@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <limits>
 #include <tuple>
 #include <vector>
@@ -43,7 +44,7 @@ int main() {
     for (int i = 0; i < n - 1; ++i) {
       int sz = m[i].size();
       for (int j = 0; j < sz; ++j) {
-        int idx = std::lower_bound(arrive[i].begin(), arrive[i].end(), m[i][j].y) - arrive[i].begin();
+        int idx = std::distance(arrive[i].begin(), std::lower_bound(arrive[i].begin(), arrive[i].end(), m[i][j].y));
         pd.add_edge(cur + j, cur + sz + idx, 1, m[i][j].c);
       }
       cur += sz;

@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <limits>
 #include <vector>
 #include "../../../../graph/flow/minimum_cost_flow/primal_dual.hpp"
@@ -25,8 +26,8 @@ int main() {
   const int s = n + m, t = n + m + 1;
   for (int i = 0; i < n; ++i) {
     pd.add_edge(s, i, 1, 0);
-    pd.add_edge(i, n + (std::lower_bound(v.begin(), v.end(), a[i]) - v.begin()), 1, -b[i]);
-    pd.add_edge(i, n + (std::lower_bound(v.begin(), v.end(), b[i]) - v.begin()), 1, -a[i]);
+    pd.add_edge(i, n + std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), a[i])), 1, -b[i]);
+    pd.add_edge(i, n + std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), b[i])), 1, -a[i]);
   }
   for (int i = 0; i < m; ++i) pd.add_edge(n + i, t, 1, 0);
   std::cout << -pd.minimum_cost_flow(s, t) << '\n';

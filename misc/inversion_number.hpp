@@ -1,5 +1,6 @@
 #pragma once
 #include <algorithm>
+#include <iterator>
 #include <vector>
 #include "../data_structure/bit/bit.hpp"
 
@@ -12,7 +13,7 @@ long long inversion_number(const std::vector<T> &a) {
   BIT<int> bit(comp.size());
   long long res = 0;
   for (int i = 0; i < n; ++i) {
-    int idx = std::lower_bound(comp.begin(), comp.end(), a[i]) - comp.begin();
+    int idx = std::distance(comp.begin(), std::lower_bound(comp.begin(), comp.end(), a[i]));
     res += i - bit.sum(idx + 1);
     bit.add(idx, 1);
   }

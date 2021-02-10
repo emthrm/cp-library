@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <cassert>
+#include <iterator>
 #include <utility>
 #include <vector>
 
@@ -37,7 +38,8 @@ struct LiChaoTree {
       a = -a;
       b = -b;
     }
-    int l = std::lower_bound(xs.begin(), xs.end(), left) - xs.begin(), r = std::lower_bound(xs.begin(), xs.end(), right) - xs.begin();
+    int l = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(), left));
+    int r = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(), right));
     int len, node_l = l, node_r = r;
     for (l += n, r += n, len = 1; l < r; l >>= 1, r >>= 1, len <<= 1) {
       if (l & 1) {
@@ -54,7 +56,7 @@ struct LiChaoTree {
   }
 
   T query(T x) const {
-    int node = std::lower_bound(xs.begin(), xs.end(), x) - xs.begin();
+    int node = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(), x));
     node += n;
     T res = dat[node].f(x);
     while (node >>= 1) {
