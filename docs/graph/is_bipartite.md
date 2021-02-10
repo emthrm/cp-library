@@ -22,7 +22,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color}$ は各頂点の色 $-1$/$1$ でなければならない．|
+|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color} \in \{0, 1\}^N$ は各頂点の色を表す．|
 
 
 ## 参考

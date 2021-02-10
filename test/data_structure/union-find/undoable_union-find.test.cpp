@@ -65,7 +65,7 @@ int main() {
       id[e] = cur;
       new_c.emplace_back(i);
       new_c.emplace_back(i);
-      mp[{i, cur, -1}] = n++;
+      mp[{i, cur, 0}] = n++;
       mp[{i, cur, 1}] = n++;
       std::queue<int> que({e});
       while (!que.empty()) {
