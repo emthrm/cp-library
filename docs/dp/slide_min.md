@@ -13,12 +13,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`slide_min(a, len)`|$A$ における長さ $\mathrm{len}$ のスライド最小値|
-
-
-## 備考
-
-スライド最大値を求める場合，16行目の `a[deq.back()] >= a[i]` を `a[deq.back()] <= a[i]` とすればよい．
+|`slide_min(a, len, is_minimized = true)`|$A$ における長さ $\mathrm{len}$ のスライド最小値|
 
 
 ## 参考
