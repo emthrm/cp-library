@@ -10,7 +10,7 @@
 #include "../../data_structure/segment_tree/segment_tree.hpp"
 
 template <typename T>
-int lis_rmq(const std::vector<T> &a, const T TINF) {
+int lis_rmq(const std::vector<T> &a, const T TINF, bool is_strict = true) {
   int n = a.size();
   std::vector<T> b(a);
   std::sort(b.begin(), b.end());
@@ -25,7 +25,7 @@ int lis_rmq(const std::vector<T> &a, const T TINF) {
   rmq.set(0, 0);
   for (int i = 0; i < n; ++i) {
     int idx = std::lower_bound(b.begin(), b.end(), a[i]) - b.begin() + 1;
-    rmq.set(idx, rmq.get(0, idx) - 1);
+    rmq.set(idx, rmq.get(0, is_strict ? idx : idx + 1) - 1);
   }
   return -rmq.get(0, b.size() + 1);
 }
