@@ -6,14 +6,14 @@
 #include <iostream>
 #include <set>
 #include <vector>
-#include "../../graph/rotation.hpp"
+#include "../../graph/rotate.hpp"
 
 int main() {
   int h, w;
   std::cin >> h >> w;
   std::vector<std::vector<char>> c(h, std::vector<char>(w));
   for (int i = 0; i < h; ++i) for (int j = 0; j < w; ++j) std::cin >> c[i][j];
-  c = rot(c, 45);
+  c = rotate(c, 45);
   h = c.size();
   w = c.front().size();
   std::set<int> hor, ver;

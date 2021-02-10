@@ -1,6 +1,6 @@
 ---
 title: 回転 (rotation)
-documentation_of: graph/rotation.hpp
+documentation_of: graph/rotate.hpp
 ---
 
 点の回転は
@@ -20,7 +20,7 @@ $O(WH)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`rotate(grid, angle)`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle}$ は $45 \text{/} 90$ でなければならない．|
+|`rotate(grid, angle, 基準 = ' ')`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \{45, 90\}$|
 
 
 ## Verified
