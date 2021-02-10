@@ -26,7 +26,7 @@ struct Basis {
     int idx = n - std::distance(msb.rbegin(), std::upper_bound(msb.rbegin(), msb.rend(), m));
     v.emplace(v.begin() + idx, val);
     msb.emplace(msb.begin() + idx, m);
-    for (int i = n; i > idx; --i) {
+    for (int i = idx + 1; i <= n; ++i) {
       if (v[idx][msb[i]]) v[idx] ^= v[i];
     }
     for (int i = idx - 1; i >= 0; --i) {
@@ -34,8 +34,6 @@ struct Basis {
     }
     return true;
   }
-
-  bool add(long long val) { return add(std::bitset<D>(val)); }
 
   int rank() const { return v.size(); }
 

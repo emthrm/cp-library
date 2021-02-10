@@ -30,4 +30,4 @@ $O(ND)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/2416/review/4235348/emthrm/C++14
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/2416/review/5214392/emthrm/C++17
