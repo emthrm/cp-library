@@ -30,7 +30,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`montmort<T>(val)`|モンモール数 $a_n \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`montmort<T>(n)`|モンモール数 $a_i \ (1 \leq i \leq n)$ の数表|
 
 
 ## 参考

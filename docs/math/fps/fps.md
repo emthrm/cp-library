@@ -84,7 +84,7 @@ documentation_of: math/fps/fps.hpp
 |`operator!=(x)`|$f \neq x$ であるか．||
 |`operator+()`|$+{f}$||
 |`operator-()`|$-{f}$||
-|`horner(val)`|$f(\mathrm{val})$||
+|`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`integral()`|$\int{f}$||
 |`exp(deg = n)`|$\exp(f)$|$[x^0]f = 0$|

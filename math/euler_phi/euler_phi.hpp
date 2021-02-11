@@ -6,15 +6,15 @@
 #pragma once
 #include <cassert>
 
-long long euler_phi(long long val) {
-  assert(val >= 1);
-  long long res = val;
-  for (long long i = 2; i * i <= val; ++i) {
-    if (val % i == 0) {
+long long euler_phi(long long n) {
+  assert(n >= 1);
+  long long res = n;
+  for (long long i = 2; i * i <= n; ++i) {
+    if (n % i == 0) {
       res -= res / i;
-      while (val % i == 0) val /= i;
+      while (n % i == 0) n /= i;
     }
   }
-  if (val > 1) res -= res / val;
+  if (n > 1) res -= res / n;
   return res;
 }

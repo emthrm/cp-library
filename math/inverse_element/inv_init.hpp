@@ -6,10 +6,10 @@
 #pragma once
 #include <vector>
 
-std::vector<long long> inv_init(int val, int mod) {
-  std::vector<long long> inv(val + 1, 0);
+std::vector<long long> inv_init(int n, int mod) {
+  std::vector<long long> inv(n + 1, 0);
   inv[1] = 1;
-  for (int i = 2; i <= val; ++i) {
+  for (int i = 2; i <= n; ++i) {
     inv[i] = mod - inv[mod % i] * (mod / i) % mod;
     if (inv[i] == mod) inv[i] = 0;
   }

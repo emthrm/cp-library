@@ -15,8 +15,8 @@ $\langle O(N\log{\log{N}}), O(\log{N}) \rangle$
 
 ||説明|
 |:--:|:--:|
-|`osa_k(val = 10000000)`|$\mathrm{val}$ 以下における osa_k 法 を考える．|
-|`query(val)`|$\mathrm{val}$ の素因数分解|
+|`osa_k(n = 10000000)`|$n$ 以下における osa_k 法 を考える．|
+|`query(n)`|$n$ の素因数分解|
 
 
 ## 参考

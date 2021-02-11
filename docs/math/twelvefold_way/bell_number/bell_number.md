@@ -44,7 +44,7 @@ $$B(x) = e^{e^x - 1}$$
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init_with_fps<T>(val)`|ベル数 $B_n \ (0 \leq n \leq \mathrm{val})$ の数表|
+|`bell_number_init_with_fps<T>(n)`|ベル数 $B_i \ (0 \leq i \leq n)$ の数表|
 
 
 ## 参考

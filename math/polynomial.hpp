@@ -45,7 +45,7 @@ struct Polynomial {
     for (T &e : co) e *= x;
     return *this;
   }
-  Polynomial &operator*=(const Polynomial &x) { return *this = mul<T>(co, x.co); }
+  Polynomial &operator*=(const Polynomial &x) { return *this = get_mul()(co, x.co); }
   Polynomial &operator/=(T x) {
     assert(x != 0);
     T inv_x = static_cast<T>(1) / x;
@@ -94,9 +94,9 @@ struct Polynomial {
   Polynomial operator/(const Polynomial &x) const { return Polynomial(*this) /= x; }
   Polynomial operator%(const Polynomial &x) const { return Polynomial(*this) %= x; }
   Polynomial operator<<(int n) const { return Polynomial(*this) <<= n; }
-  T horner(T val) const {
+  T horner(T x) const {
     T res = static_cast<T>(0);
-    for (int i = static_cast<int>(co.size()) - 1; i >= 0; --i) (res *= val) += co[i];
+    for (int i = static_cast<int>(co.size()) - 1; i >= 0; --i) (res *= x) += co[i];
     return res;
   }
   Polynomial differential() const {
@@ -134,7 +134,7 @@ struct Polynomial {
       ex[i] = pow_c * inv_fact[i];
       pow_c *= c;
     }
-    std::vector<T> conv = mul<T>(g, ex);
+    std::vector<T> conv = get_mul()(g, ex);
     Polynomial res(n - 1);
     for (int i = 0; i < n; ++i) res[i] = conv[n - 1 - i] * inv_fact[i];
     return res;

@@ -1,9 +1,9 @@
 #pragma once
 
-bool is_prime(long long val) {
-  if (val <= 1) return false;
-  for (long long i = 2; i * i <= val; ++i) {
-    if (val % i == 0) return false;
+bool is_prime(long long n) {
+  if (n <= 1) return false;
+  for (long long i = 2; i * i <= n; ++i) {
+    if (n % i == 0) return false;
   }
   return true;
 }

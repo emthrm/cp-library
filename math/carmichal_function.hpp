@@ -6,20 +6,20 @@
 #pragma once
 #include "lcm.hpp"
 
-long long carmichal_function(long long val) {
+long long carmichal_function(long long n) {
   long long res = 1;
-  if (val % 8 == 0) val >>= 1;
-  for (long long i = 2; i * i <= val; ++i) {
-    if (val % i == 0) {
-      val /= i;
+  if (n % 8 == 0) n >>= 1;
+  for (long long i = 2; i * i <= n; ++i) {
+    if (n % i == 0) {
+      n /= i;
       long long phi = i - 1;
-      while (val % i == 0) {
-        val /= i;
+      while (n % i == 0) {
+        n /= i;
         phi *= i;
       }
       res = __lcm(res, phi);
     }
   }
-  if (val > 1) res = __lcm(res, val - 1);
+  if (n > 1) res = __lcm(res, n - 1);
   return res;
 }

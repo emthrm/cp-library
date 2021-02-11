@@ -102,9 +102,9 @@ struct FPS {
   FPS operator%(const FPS &x) const { return FPS(*this) %= x; }
   FPS operator<<(int n) const { return FPS(*this) <<= n; }
   FPS operator>>(int n) const { return FPS(*this) >>= n; }
-  T horner(T val) const {
+  T horner(T x) const {
     T res = 0;
-    for (int i = static_cast<int>(co.size()) - 1; i >= 0; --i) (res *= val) += co[i];
+    for (int i = static_cast<int>(co.size()) - 1; i >= 0; --i) (res *= x) += co[i];
     return res;
   }
   FPS differential() const {

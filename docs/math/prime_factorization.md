@@ -13,7 +13,7 @@ $O(\sqrt{N})$
 
 ||説明|
 |:--:|:--:|
-|`prime_factorization(val)`|$\mathrm{val}$ の素因数分解|
+|`prime_factorization(n)`|$n$ の素因数分解|
 
 
 ## 参考

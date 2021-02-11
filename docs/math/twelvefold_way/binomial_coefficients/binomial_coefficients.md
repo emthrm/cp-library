@@ -19,7 +19,7 @@ $$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)
 
 ||説明|
 |:--:|:--:|
-|`pascal<T>(val)`|$\mathrm{val}$ 段のパスカルの三角形|
+|`pascal<T>(n)`|$n$ 段のパスカルの三角形|
 
 - 二項係数
 

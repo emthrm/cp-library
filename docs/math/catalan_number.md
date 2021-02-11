@@ -28,7 +28,7 @@ $O(N)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`catalan_number(val, Combinatorics)`|カタラン数 $c_n \ (0 \leq n \leq \mathrm{val})$ の数表|`Combinatorics` は $\mathrm{val} + 1$ 以上で定義されていなければならない．|
+|`catalan_number(n, Combinatorics)`|カタラン数 $c_i \ (0 \leq i \leq n)$ の数表|`Combinatorics` は $n + 1$ 以上で定義されていなければならない．|
 
 
 ## 参考

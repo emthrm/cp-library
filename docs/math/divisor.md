@@ -13,7 +13,7 @@ $O(\sqrt{N})$
 
 ||説明|
 |:--:|:--:|
-|`divisor(val)`|$\mathrm{val}$ の約数|
+|`divisor(n)`|$n$ の約数|
 
 
 ## 参考

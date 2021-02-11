@@ -10,7 +10,7 @@ documentation_of: game/grundy_number.hpp
 
 ||説明|
 |:--:|:--:|
-|`grundy_number(val, trans)`|遷移 $\mathrm{trans}$ のときの $\mathrm{val}$ 個の山の Grundy 数|
+|`grundy_number(n, trans)`|遷移 $\mathrm{trans}$ のときの $n$ 個の山の Grundy 数|
 
 
 ## 参考

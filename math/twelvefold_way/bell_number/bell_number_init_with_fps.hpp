@@ -8,14 +8,14 @@
 #include "../../fps/fps.hpp"
 
 template <typename T>
-std::vector<T> bell_number_init_with_fps(int val) {
-  FPS<T> bell(val);
+std::vector<T> bell_number_init_with_fps(int n) {
+  FPS<T> bell(n);
   bell[1] = 1;
-  bell = bell.exp(val);
+  bell = bell.exp(n);
   bell[0] -= 1;
-  bell = bell.exp(val);
+  bell = bell.exp(n);
   T fact = 1;
-  for (int i = 0; i <= val; ++i) {
+  for (int i = 0; i <= n; ++i) {
     bell[i] *= fact;
     fact *= i + 1;
   }

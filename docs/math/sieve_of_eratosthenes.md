@@ -15,7 +15,7 @@ $O(N\log{\log{N}})$
 
 ||説明|
 |:--:|:--:|
-|`sieve_of_eratosthenes(val)`|$n \ (0 \leq n \leq \mathrm{val})$ が素数であるか．|
+|`sieve_of_eratosthenes(n)`|$i \ (0 \leq i \leq \mathrm{n})$ が素数であるか．|
 
 
 ## 参考

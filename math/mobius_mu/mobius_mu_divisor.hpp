@@ -8,21 +8,21 @@
 #include <vector>
 
 template <typename T>
-std::map<T, int> mobius_mu_divisor(T val) {
+std::map<T, int> mobius_mu_divisor(T n) {
   std::vector<T> primes;
-  for (T i = 2; i * i <= val; ++i) {
-    if (val % i == 0) {
+  for (T i = 2; i * i <= n; ++i) {
+    if (n % i == 0) {
       primes.emplace_back(i);
-      while (val % i == 0) val /= i;
+      while (n % i == 0) n /= i;
     }
   }
-  if (val != 1) primes.emplace_back(val);
-  int n = primes.size();
+  if (n != 1) primes.emplace_back(n);
+  int p = primes.size();
   std::map<T, int> mu;
-  for (int i = 0; i < (1 << n); ++i) {
+  for (int i = 0; i < (1 << p); ++i) {
     int cnt = 0;
     T di = 1;
-    for (int j = 0; j < n; ++j) {
+    for (int j = 0; j < p; ++j) {
       if (i >> j & 1) {
         ++cnt;
         di *= primes[j];

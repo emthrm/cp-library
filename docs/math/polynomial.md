@@ -43,7 +43,7 @@ documentation_of: math/polynomial.hpp
 |`operator!=(x)`|$f \neq x$ であるか．||
 |`operator+()`|$+{f}$||
 |`operator-()`|$-{f}$||
-|`horner(val)`|$f(\mathrm{val})$||
+|`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`integral()`|$\int{f}$||
 |`pow(exponent)`|$f^{\mathrm{exponent}}$||
