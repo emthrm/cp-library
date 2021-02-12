@@ -15,7 +15,7 @@ $N$ 変数 $M$ 節 のとき $O(N + M)$．
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`TwoSat(n)`|$N$ 変数の 2-SAT を考える．|軽量版では `TwoSatLight(n)` である．|
+|`TwoSat(n)`|$N$ 変数の 2-SAT を考える．||
 |`negate(x)`|$\neg x$ を表す頂点番号||
 |`add_or(x, y)`|$x \vee y$ を追加する．||
 |`add_if(x, y)`|$x \Rightarrow y$ を追加する．||
@@ -33,5 +33,4 @@ $N$ 変数 $M$ 節 のとき $O(N + M)$．
 
 ## Verified
 
-- https://judge.yosupo.jp/submission/2712
-- [軽量版](https://judge.yosupo.jp/submission/2711)
+- https://judge.yosupo.jp/submission/2711
