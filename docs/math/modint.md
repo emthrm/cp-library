@@ -45,3 +45,5 @@ documentation_of: math/modint.hpp
   - http://dec9ue.hatenablog.com/entry/2013/04/25/003258
 - 実行時 ModInt の高速化
   - https://twitter.com/risujiroh/status/1302857570462228483
+- $\bmod 998244353$ の高速化
+  - https://twitter.com/semiexp/status/1350829360169644035

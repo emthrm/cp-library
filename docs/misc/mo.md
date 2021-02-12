@@ -45,6 +45,8 @@ $1$回あたりの伸縮に $O(\alpha)$ かかるとおくと $O(Q\log{Q} + \alp
   - https://lumakernel.github.io/ecasdqina/algorithm/Mo3D
   - https://codeforces.com/blog/entry/43230
   - https://codeforces.com/blog/entry/55574
+  - https://codeforces.com/contest/1476/problem/G
+  - https://twitter.com/SSRS_cp/status/1355193120204312576
 
 
 ## Verified

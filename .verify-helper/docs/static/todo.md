@@ -333,6 +333,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
 
 ## ToDo
 - https://www.slideshare.net/kazumamikami1/ss-16964389
+- https://speakerdeck.com/shibh308/wen-zi-lie-suo-yin-towen-zi-lie-ya-suo
 - Shift-and アルゴリズム
   - https://ja.wikipedia.org/wiki/Bitap%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
   - http://www.prefield.com/algorithm/string/shift_and.html
