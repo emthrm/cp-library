@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: math/fps/faulhaber_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/fps/faulhaber_with_fps.test.cpp

@@ -23,8 +23,9 @@
 ||説明|備考|
 |:--:|:--:|:--:|
 |`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
-|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
+|`inf`|$\infty$||
 |`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達不可能ならば $\infty$ となる．|
+|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
 |`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
 
 - Dijkstra 法
@@ -32,6 +33,7 @@
 ||説明|備考|
 |:--:|:--:|:--:|
 |`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
+|`inf`|$\infty$||
 |`build(s)`|始点 $s$ の単一始点最短路||
 |`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
 
@@ -77,6 +79,8 @@ Dijkstra 法
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
+- $O(\sqrt{N} M \log{C})$
+  - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
 
 
 ## Verified

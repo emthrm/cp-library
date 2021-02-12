@@ -154,13 +154,12 @@ $$\min \begin{pmatrix} d_{(1, 2)} = 2 \\ d_{(2, 3)} = 1 \\ P = 3 \end{pmatrix}^{
 
 ## ToDo
 
+- http://topcoder.g.hatena.ne.jp/Mi_Sawa/20140311
+- http://topcoder.g.hatena.ne.jp/Mi_Sawa/20140319
+- http://topcoder.g.hatena.ne.jp/Mi_Sawa/20140320
 - 単体法 (simplex method): 線形計画問題を解くアルゴリズムの一種である．
   - https://www.hamayanhamayan.com/entry/2017/05/31/131424
   - https://github.com/spaghetti-source/algorithm/blob/master/math/SimplexMethodLP.cc
   - http://www.prefield.com/algorithm/math/two_stage_simplex.html
   - https://www.mk-mode.com/blog/2014/02/21/cpp-linear-programming-by-simplex/#
   - https://yukicoder.me/submissions/53246
-- TopCoder 部
-  - http://topcoder.g.hatena.ne.jp/Mi_Sawa/20140311
-  - http://topcoder.g.hatena.ne.jp/Mi_Sawa/20140319
-  - http://topcoder.g.hatena.ne.jp/Mi_Sawa/20140320

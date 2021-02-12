@@ -13,8 +13,8 @@ data:
     links: []
   bundledCode: "#line 2 \"dp/mongedp.hpp\"\n#include <algorithm>\r\n#include <vector>\r\
     \n\r\ntemplate <typename Fn, typename T>\r\nT mongedp(int n, Fn cost, const T\
-    \ TINF) {\r\n  if (n == 0) return 0;\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
-    \ TINF));\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\r\
+    \ inf) {\r\n  if (n == 0) return 0;\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
+    \ inf));\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\r\
     \n  for (int i = 0; i < n; ++i) {\r\n    dp[i][i] = 0;\r\n    argmin[i][i] = i;\r\
     \n  }\r\n  for (int width = 1; width < n; ++width) {\r\n    for (int i = 0; i\
     \ + width < n; ++i) {\r\n      int j = i + width, right = std::min(j - 1, argmin[i\
@@ -23,9 +23,9 @@ data:
     \ > tmp) {\r\n          dp[i][j] = tmp;\r\n          argmin[i][j] = k;\r\n   \
     \     }\r\n      }\r\n    }\r\n  }\r\n  return dp[0][n - 1];\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename Fn, typename T>\r\nT mongedp(int n, Fn cost, const T TINF) {\r\n \
-    \ if (n == 0) return 0;\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
-    \ TINF));\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\r\
+    \ <typename Fn, typename T>\r\nT mongedp(int n, Fn cost, const T inf) {\r\n  if\
+    \ (n == 0) return 0;\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
+    \ inf));\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\r\
     \n  for (int i = 0; i < n; ++i) {\r\n    dp[i][i] = 0;\r\n    argmin[i][i] = i;\r\
     \n  }\r\n  for (int width = 1; width < n; ++width) {\r\n    for (int i = 0; i\
     \ + width < n; ++i) {\r\n      int j = i + width, right = std::min(j - 1, argmin[i\
@@ -37,7 +37,7 @@ data:
   isVerificationFile: false
   path: dp/mongedp.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dp/mongedp.test.cpp

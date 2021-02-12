@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/sqrt_decomposition.test.cpp
     title: "\u305D\u306E\u4ED6/\u5E73\u65B9\u5206\u5272"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/sqrt_decomposition.hpp\"\n#include <cmath>\r\n#include\
@@ -29,14 +29,14 @@ data:
     \ val);\r\n      }\r\n    } else {\r\n      for (int i = l; i < r; ++i) partial_update(i,\
     \ val);\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_query(int\
     \ idx, T &val);\r\n\r\n  template <typename T> void total_query(int idx, T &val);\r\
-    \n\r\n  template <typename T>\r\n  T query(int l, int r, const T UNITY) {\r\n\
-    \    int l_b = l / b, r_b = (r - 1) / b;\r\n    T res = UNITY;\r\n    if (l_b\
-    \ < r_b) {\r\n      if (l == left[l_b]) {\r\n        total_query(l_b, res);\r\n\
-    \      } else {\r\n        for (int i = l; i < right[l_b]; ++i) partial_query(i,\
-    \ res);\r\n      }\r\n      for (int i = l_b + 1; i < r_b; ++i) total_query(i,\
-    \ res);\r\n      if (r == right[r_b]) {\r\n        total_query(r_b, res);\r\n\
-    \      } else {\r\n        for (int i = left[r_b]; i < r; ++i) partial_query(i,\
-    \ res);\r\n      }\r\n    } else {\r\n      for (int i = l; i < r; ++i) partial_query(i,\
+    \n\r\n  template <typename T>\r\n  T query(int l, int r, const T ID) {\r\n   \
+    \ int l_b = l / b, r_b = (r - 1) / b;\r\n    T res = ID;\r\n    if (l_b < r_b)\
+    \ {\r\n      if (l == left[l_b]) {\r\n        total_query(l_b, res);\r\n     \
+    \ } else {\r\n        for (int i = l; i < right[l_b]; ++i) partial_query(i, res);\r\
+    \n      }\r\n      for (int i = l_b + 1; i < r_b; ++i) total_query(i, res);\r\n\
+    \      if (r == right[r_b]) {\r\n        total_query(r_b, res);\r\n      } else\
+    \ {\r\n        for (int i = left[r_b]; i < r; ++i) partial_query(i, res);\r\n\
+    \      }\r\n    } else {\r\n      for (int i = l; i < r; ++i) partial_query(i,\
     \ res);\r\n    }\r\n    return res;\r\n  }\r\n};\r\n"
   code: "#pragma once\r\n#include <cmath>\r\n#include <vector>\r\n\r\nstruct SqrtDecomposition\
     \ {\r\n  int b, n;\r\n  std::vector<int> left, right;\r\n  std::vector<bool> need_to_be_eval;\r\
@@ -56,21 +56,21 @@ data:
     \n      for (int i = l; i < r; ++i) partial_update(i, val);\r\n    }\r\n  }\r\n\
     \r\n  template <typename T> void partial_query(int idx, T &val);\r\n\r\n  template\
     \ <typename T> void total_query(int idx, T &val);\r\n\r\n  template <typename\
-    \ T>\r\n  T query(int l, int r, const T UNITY) {\r\n    int l_b = l / b, r_b =\
-    \ (r - 1) / b;\r\n    T res = UNITY;\r\n    if (l_b < r_b) {\r\n      if (l ==\
-    \ left[l_b]) {\r\n        total_query(l_b, res);\r\n      } else {\r\n       \
-    \ for (int i = l; i < right[l_b]; ++i) partial_query(i, res);\r\n      }\r\n \
-    \     for (int i = l_b + 1; i < r_b; ++i) total_query(i, res);\r\n      if (r\
-    \ == right[r_b]) {\r\n        total_query(r_b, res);\r\n      } else {\r\n   \
-    \     for (int i = left[r_b]; i < r; ++i) partial_query(i, res);\r\n      }\r\n\
-    \    } else {\r\n      for (int i = l; i < r; ++i) partial_query(i, res);\r\n\
-    \    }\r\n    return res;\r\n  }\r\n};\r\n"
+    \ T>\r\n  T query(int l, int r, const T ID) {\r\n    int l_b = l / b, r_b = (r\
+    \ - 1) / b;\r\n    T res = ID;\r\n    if (l_b < r_b) {\r\n      if (l == left[l_b])\
+    \ {\r\n        total_query(l_b, res);\r\n      } else {\r\n        for (int i\
+    \ = l; i < right[l_b]; ++i) partial_query(i, res);\r\n      }\r\n      for (int\
+    \ i = l_b + 1; i < r_b; ++i) total_query(i, res);\r\n      if (r == right[r_b])\
+    \ {\r\n        total_query(r_b, res);\r\n      } else {\r\n        for (int i\
+    \ = left[r_b]; i < r; ++i) partial_query(i, res);\r\n      }\r\n    } else {\r\
+    \n      for (int i = l; i < r; ++i) partial_query(i, res);\r\n    }\r\n    return\
+    \ res;\r\n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: misc/sqrt_decomposition.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-13 04:45:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/sqrt_decomposition.test.cpp
 documentation_of: misc/sqrt_decomposition.hpp

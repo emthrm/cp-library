@@ -29,14 +29,14 @@ data:
     \u90E8\u5206\u5217\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../dp/lis/lis.hpp\"\
     \r\n\r\nint main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<int> a(n);\r\
-    \n  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\n  std::cout << lis(a, std::numeric_limits<int>::max()).size()\
+    \n  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\n  std::cout << lis(a).size()\
     \ << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - dp/lis/lis.hpp
   isVerificationFile: true
   path: test/dp/lis/lis.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dp/lis/lis.test.cpp

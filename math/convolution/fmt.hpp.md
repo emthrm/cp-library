@@ -24,15 +24,15 @@ data:
     links: []
   bundledCode: "#line 2 \"math/convolution/fmt.hpp\"\n#include <vector>\r\n\r\ntemplate\
     \ <typename T>\r\nstd::vector<T> fmt(std::vector<T> a, bool is_superset, const\
-    \ T UNITY = 0) {\r\n  int n = a.size(), p = 1;\r\n  while ((1 << p) < n) ++p;\r\
-    \n  n = 1 << p;\r\n  a.resize(n, UNITY);\r\n  if (is_superset) {\r\n    for (int\
-    \ i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) ==\
-    \ 0) a[j] -= a[j | i];\r\n    }\r\n  } else {\r\n    for (int i = 1; i < n; i\
-    \ <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j | i] -=\
-    \ a[j];\r\n    }\r\n  }\r\n  return a;\r\n}\r\n"
+    \ T ID = 0) {\r\n  int n = a.size(), p = 1;\r\n  while ((1 << p) < n) ++p;\r\n\
+    \  n = 1 << p;\r\n  a.resize(n, ID);\r\n  if (is_superset) {\r\n    for (int i\
+    \ = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0)\
+    \ a[j] -= a[j | i];\r\n    }\r\n  } else {\r\n    for (int i = 1; i < n; i <<=\
+    \ 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j | i] -= a[j];\r\
+    \n    }\r\n  }\r\n  return a;\r\n}\r\n"
   code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ fmt(std::vector<T> a, bool is_superset, const T UNITY = 0) {\r\n  int n = a.size(),\
-    \ p = 1;\r\n  while ((1 << p) < n) ++p;\r\n  n = 1 << p;\r\n  a.resize(n, UNITY);\r\
+    \ fmt(std::vector<T> a, bool is_superset, const T ID = 0) {\r\n  int n = a.size(),\
+    \ p = 1;\r\n  while ((1 << p) < n) ++p;\r\n  n = 1 << p;\r\n  a.resize(n, ID);\r\
     \n  if (is_superset) {\r\n    for (int i = 1; i < n; i <<= 1) for (int j = 0;\
     \ j < n; ++j) {\r\n      if ((j & i) == 0) a[j] -= a[j | i];\r\n    }\r\n  } else\
     \ {\r\n    for (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n \
@@ -42,9 +42,9 @@ data:
   isVerificationFile: false
   path: math/convolution/fmt.hpp
   requiredBy:
-  - math/convolution/or_convolution.hpp
   - math/convolution/and_convolution.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  - math/convolution/or_convolution.hpp
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/fmt.test.cpp

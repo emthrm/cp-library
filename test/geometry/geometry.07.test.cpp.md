@@ -20,13 +20,13 @@ data:
   bundledCode: "#line 1 \"test/geometry/geometry.07.test.cpp\"\n/*\r\n * @brief \u8A08\
     \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u7DDA\u5206\u3068\u5186\
     \u306E\u4EA4\u5DEE\u5224\u5B9A)\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2276\"\
-    \r\n#define ERROR \"1e-6\"\r\n\r\n#include <algorithm>\r\n#include <iostream>\r\
-    \n#include <tuple>\r\n#include <utility>\r\n#include <vector>\r\n#line 3 \"geometry/geometry.hpp\"\
-    \n#include <cassert>\r\n#include <cmath>\r\n#include <functional>\r\n#line 7 \"\
-    geometry/geometry.hpp\"\n#include <limits>\r\n#line 10 \"geometry/geometry.hpp\"\
+    \r\n#define ERROR \"1e-6\"\r\n\r\n#include <algorithm>\r\n#include <iomanip>\r\
+    \n#include <iostream>\r\n#include <limits>\r\n#include <tuple>\r\n#include <utility>\r\
+    \n#include <vector>\r\n#line 3 \"geometry/geometry.hpp\"\n#include <cassert>\r\
+    \n#include <cmath>\r\n#include <functional>\r\n#line 10 \"geometry/geometry.hpp\"\
     \n\r\nnamespace geometry {\r\nusing Real = double;\r\nconstexpr long double PI\
-    \ = 3.14159265358979323846;\r\n\r\nint sgn(Real x) {\r\n  constexpr Real EPS =\
-    \ 1e-8;\r\n  return x > EPS ? 1 : x < -EPS ? -1 : 0;\r\n}\r\n\r\nReal degree_to_radian(Real\
+    \ = 3.14159265358979323846;\r\n\r\nint sgn(Real x) {\r\n  static constexpr Real\
+    \ EPS = 1e-8;\r\n  return x > EPS ? 1 : x < -EPS ? -1 : 0;\r\n}\r\n\r\nReal degree_to_radian(Real\
     \ d) { return d * PI / 180; }\r\nReal radian_to_degree(Real r) { return r * 180\
     \ / PI; }\r\n\r\nstruct Point {\r\n  Real x, y;\r\n  Point(Real x = 0, Real y\
     \ = 0) : x(x), y(y) {}\r\n  Real abs() const { return std::sqrt(norm()); }\r\n\
@@ -225,27 +225,27 @@ data:
     \ j : i) += 1) %= n;\r\n    Real tmp = (a[j] - a[i]).norm();\r\n    if (sgn(tmp\
     \ - max_norm) == 1) {\r\n      max_norm = tmp;\r\n      max_i = i; max_j = j;\r\
     \n    }\r\n  } while (i != high || j != low);\r\n  return {a[max_i], a[max_j]};\r\
-    \n}\r\n}  // geometry\r\n#line 13 \"test/geometry/geometry.07.test.cpp\"\n\r\n\
-    int main() {\r\n  constexpr int INF = 0x3f3f3f3f;\r\n  int n, k;\r\n  std::cin\
-    \ >> n >> k;\r\n  std::vector<geometry::Circle> people(n);\r\n  for (int i = 0;\
-    \ i < n; ++i) {\r\n    geometry::Point p;\r\n    double r;\r\n    std::cin >>\
-    \ p >> r;\r\n    people[i] = geometry::Circle(p, r);\r\n  }\r\n  std::vector<double>\
-    \ l(n), r(n), comp;\r\n  for (int i = 0; i < n; ++i) {\r\n    std::vector<geometry::Point>\
-    \ t = geometry::tangency(people[i], geometry::Point(0, 0));\r\n    l[i] = t[0].arg();\
-    \ r[i] = t[1].arg();\r\n    if (l[i] > r[i]) std::swap(l[i], r[i]);\r\n    if\
-    \ (r[i] > geometry::PI && geometry::has_intersected(people[i], geometry::Segment(geometry::Point(0,\
-    \ 0), geometry::Point(2415, 0)))) {\r\n      std::swap(l[i], r[i]);\r\n      l[i]\
-    \ = 0;\r\n    } else {\r\n      if (l[i] < 0) l[i] = 0;\r\n      if (r[i] > geometry::PI)\
-    \ r[i] = geometry::PI;\r\n    }\r\n    if (l[i] < geometry::PI) {\r\n      comp.emplace_back(l[i]);\r\
-    \n      comp.emplace_back(r[i]);\r\n    }\r\n  }\r\n  std::vector<bool> use(n,\
-    \ true);\r\n  for (int i = 0; i < n; ++i) {\r\n    if (l[i] >= geometry::PI) use[i]\
-    \ = false;\r\n    if (!use[i]) continue;\r\n    for (int j = 0; j < n; ++j) {\r\
-    \n      if (j != i && l[i] <= l[j] && r[j] <= r[i]) use[j] = false;\r\n    }\r\
-    \n  }\r\n  std::vector<std::pair<double, double>> ball;\r\n  for (int i = 0; i\
-    \ < n; ++i) {\r\n    if (use[i]) ball.emplace_back(l[i], r[i]);\r\n  }\r\n  n\
-    \ = ball.size();\r\n  if (n == 0) {\r\n    std::cout << 0 << '\\n';\r\n    return\
-    \ 0;\r\n  }\r\n  std::sort(ball.begin(), ball.end());\r\n  std::vector<std::vector<std::vector<double>>>\
-    \ dp(n, std::vector<std::vector<double>>(k + 1, std::vector<double>(2, -INF)));\r\
+    \n}\r\n}  // geometry\r\n#line 15 \"test/geometry/geometry.07.test.cpp\"\n\r\n\
+    int main() {\r\n  int n, k;\r\n  std::cin >> n >> k;\r\n  std::vector<geometry::Circle>\
+    \ people(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    geometry::Point p;\r\n\
+    \    double r;\r\n    std::cin >> p >> r;\r\n    people[i] = geometry::Circle(p,\
+    \ r);\r\n  }\r\n  std::vector<double> l(n), r(n), comp;\r\n  for (int i = 0; i\
+    \ < n; ++i) {\r\n    std::vector<geometry::Point> t = geometry::tangency(people[i],\
+    \ geometry::Point(0, 0));\r\n    l[i] = t[0].arg(); r[i] = t[1].arg();\r\n   \
+    \ if (l[i] > r[i]) std::swap(l[i], r[i]);\r\n    if (r[i] > geometry::PI && geometry::has_intersected(people[i],\
+    \ geometry::Segment(geometry::Point(0, 0), geometry::Point(2415, 0)))) {\r\n \
+    \     std::swap(l[i], r[i]);\r\n      l[i] = 0;\r\n    } else {\r\n      if (l[i]\
+    \ < 0) l[i] = 0;\r\n      if (r[i] > geometry::PI) r[i] = geometry::PI;\r\n  \
+    \  }\r\n    if (l[i] < geometry::PI) {\r\n      comp.emplace_back(l[i]);\r\n \
+    \     comp.emplace_back(r[i]);\r\n    }\r\n  }\r\n  std::vector<bool> use(n, true);\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    if (l[i] >= geometry::PI) use[i] = false;\r\
+    \n    if (!use[i]) continue;\r\n    for (int j = 0; j < n; ++j) {\r\n      if\
+    \ (j != i && l[i] <= l[j] && r[j] <= r[i]) use[j] = false;\r\n    }\r\n  }\r\n\
+    \  std::vector<std::pair<double, double>> ball;\r\n  for (int i = 0; i < n; ++i)\
+    \ {\r\n    if (use[i]) ball.emplace_back(l[i], r[i]);\r\n  }\r\n  n = ball.size();\r\
+    \n  if (n == 0) {\r\n    std::cout << 0 << '\\n';\r\n    return 0;\r\n  }\r\n\
+    \  std::sort(ball.begin(), ball.end());\r\n  std::vector<std::vector<std::vector<double>>>\
+    \ dp(n, std::vector<std::vector<double>>(k + 1, std::vector<double>(2, std::numeric_limits<double>::lowest())));\r\
     \n  dp[0][0][false] = 0;\r\n  dp[0][1][true] = ball[0].second - ball[0].first;\r\
     \n  for (int i = 1; i < n; ++i) {\r\n    double left, right; std::tie(left, right)\
     \ = ball[i];\r\n    int x = i - 1;\r\n    while (x >= 0 && ball[i].first <= ball[x].second)\
@@ -259,33 +259,34 @@ data:
     \ {\r\n        dp[i][j][false] = std::max(dp[i - 1][j][false], dp[i - 1][j][true]);\r\
     \n      }\r\n    }\r\n  }\r\n  double ans = 0;\r\n  for (int y = 0; y <= k; ++y)\
     \ for (int z = 0; z < 2; ++z) {\r\n    if (dp[n - 1][y][z] > ans) ans = dp[n -\
-    \ 1][y][z];\r\n  }\r\n  std::cout << ans / geometry::PI << '\\n';\r\n  return\
-    \ 0;\r\n}\r\n"
+    \ 1][y][z];\r\n  }\r\n  std::cout << std::fixed << std::setprecision(7) << ans\
+    \ / geometry::PI << '\\n';\r\n  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
     \ (\u7DDA\u5206\u3068\u5186\u306E\u4EA4\u5DEE\u5224\u5B9A)\r\n */\r\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2276\"\r\n#define\
-    \ ERROR \"1e-6\"\r\n\r\n#include <algorithm>\r\n#include <iostream>\r\n#include\
-    \ <tuple>\r\n#include <utility>\r\n#include <vector>\r\n#include \"../../geometry/geometry.hpp\"\
-    \r\n\r\nint main() {\r\n  constexpr int INF = 0x3f3f3f3f;\r\n  int n, k;\r\n \
-    \ std::cin >> n >> k;\r\n  std::vector<geometry::Circle> people(n);\r\n  for (int\
-    \ i = 0; i < n; ++i) {\r\n    geometry::Point p;\r\n    double r;\r\n    std::cin\
-    \ >> p >> r;\r\n    people[i] = geometry::Circle(p, r);\r\n  }\r\n  std::vector<double>\
-    \ l(n), r(n), comp;\r\n  for (int i = 0; i < n; ++i) {\r\n    std::vector<geometry::Point>\
-    \ t = geometry::tangency(people[i], geometry::Point(0, 0));\r\n    l[i] = t[0].arg();\
-    \ r[i] = t[1].arg();\r\n    if (l[i] > r[i]) std::swap(l[i], r[i]);\r\n    if\
-    \ (r[i] > geometry::PI && geometry::has_intersected(people[i], geometry::Segment(geometry::Point(0,\
-    \ 0), geometry::Point(2415, 0)))) {\r\n      std::swap(l[i], r[i]);\r\n      l[i]\
-    \ = 0;\r\n    } else {\r\n      if (l[i] < 0) l[i] = 0;\r\n      if (r[i] > geometry::PI)\
-    \ r[i] = geometry::PI;\r\n    }\r\n    if (l[i] < geometry::PI) {\r\n      comp.emplace_back(l[i]);\r\
-    \n      comp.emplace_back(r[i]);\r\n    }\r\n  }\r\n  std::vector<bool> use(n,\
-    \ true);\r\n  for (int i = 0; i < n; ++i) {\r\n    if (l[i] >= geometry::PI) use[i]\
-    \ = false;\r\n    if (!use[i]) continue;\r\n    for (int j = 0; j < n; ++j) {\r\
-    \n      if (j != i && l[i] <= l[j] && r[j] <= r[i]) use[j] = false;\r\n    }\r\
-    \n  }\r\n  std::vector<std::pair<double, double>> ball;\r\n  for (int i = 0; i\
-    \ < n; ++i) {\r\n    if (use[i]) ball.emplace_back(l[i], r[i]);\r\n  }\r\n  n\
-    \ = ball.size();\r\n  if (n == 0) {\r\n    std::cout << 0 << '\\n';\r\n    return\
-    \ 0;\r\n  }\r\n  std::sort(ball.begin(), ball.end());\r\n  std::vector<std::vector<std::vector<double>>>\
-    \ dp(n, std::vector<std::vector<double>>(k + 1, std::vector<double>(2, -INF)));\r\
+    \ ERROR \"1e-6\"\r\n\r\n#include <algorithm>\r\n#include <iomanip>\r\n#include\
+    \ <iostream>\r\n#include <limits>\r\n#include <tuple>\r\n#include <utility>\r\n\
+    #include <vector>\r\n#include \"../../geometry/geometry.hpp\"\r\n\r\nint main()\
+    \ {\r\n  int n, k;\r\n  std::cin >> n >> k;\r\n  std::vector<geometry::Circle>\
+    \ people(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    geometry::Point p;\r\n\
+    \    double r;\r\n    std::cin >> p >> r;\r\n    people[i] = geometry::Circle(p,\
+    \ r);\r\n  }\r\n  std::vector<double> l(n), r(n), comp;\r\n  for (int i = 0; i\
+    \ < n; ++i) {\r\n    std::vector<geometry::Point> t = geometry::tangency(people[i],\
+    \ geometry::Point(0, 0));\r\n    l[i] = t[0].arg(); r[i] = t[1].arg();\r\n   \
+    \ if (l[i] > r[i]) std::swap(l[i], r[i]);\r\n    if (r[i] > geometry::PI && geometry::has_intersected(people[i],\
+    \ geometry::Segment(geometry::Point(0, 0), geometry::Point(2415, 0)))) {\r\n \
+    \     std::swap(l[i], r[i]);\r\n      l[i] = 0;\r\n    } else {\r\n      if (l[i]\
+    \ < 0) l[i] = 0;\r\n      if (r[i] > geometry::PI) r[i] = geometry::PI;\r\n  \
+    \  }\r\n    if (l[i] < geometry::PI) {\r\n      comp.emplace_back(l[i]);\r\n \
+    \     comp.emplace_back(r[i]);\r\n    }\r\n  }\r\n  std::vector<bool> use(n, true);\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    if (l[i] >= geometry::PI) use[i] = false;\r\
+    \n    if (!use[i]) continue;\r\n    for (int j = 0; j < n; ++j) {\r\n      if\
+    \ (j != i && l[i] <= l[j] && r[j] <= r[i]) use[j] = false;\r\n    }\r\n  }\r\n\
+    \  std::vector<std::pair<double, double>> ball;\r\n  for (int i = 0; i < n; ++i)\
+    \ {\r\n    if (use[i]) ball.emplace_back(l[i], r[i]);\r\n  }\r\n  n = ball.size();\r\
+    \n  if (n == 0) {\r\n    std::cout << 0 << '\\n';\r\n    return 0;\r\n  }\r\n\
+    \  std::sort(ball.begin(), ball.end());\r\n  std::vector<std::vector<std::vector<double>>>\
+    \ dp(n, std::vector<std::vector<double>>(k + 1, std::vector<double>(2, std::numeric_limits<double>::lowest())));\r\
     \n  dp[0][0][false] = 0;\r\n  dp[0][1][true] = ball[0].second - ball[0].first;\r\
     \n  for (int i = 1; i < n; ++i) {\r\n    double left, right; std::tie(left, right)\
     \ = ball[i];\r\n    int x = i - 1;\r\n    while (x >= 0 && ball[i].first <= ball[x].second)\
@@ -299,14 +300,14 @@ data:
     \ {\r\n        dp[i][j][false] = std::max(dp[i - 1][j][false], dp[i - 1][j][true]);\r\
     \n      }\r\n    }\r\n  }\r\n  double ans = 0;\r\n  for (int y = 0; y <= k; ++y)\
     \ for (int z = 0; z < 2; ++z) {\r\n    if (dp[n - 1][y][z] > ans) ans = dp[n -\
-    \ 1][y][z];\r\n  }\r\n  std::cout << ans / geometry::PI << '\\n';\r\n  return\
-    \ 0;\r\n}\r\n"
+    \ 1][y][z];\r\n  }\r\n  std::cout << std::fixed << std::setprecision(7) << ans\
+    \ / geometry::PI << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - geometry/geometry.hpp
   isVerificationFile: true
   path: test/geometry/geometry.07.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.07.test.cpp

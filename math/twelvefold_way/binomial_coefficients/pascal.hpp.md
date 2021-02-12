@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u30D1\u30B9\
       \u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/binomial_coefficients/binomial_coefficients.md
     document_title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
@@ -25,16 +25,16 @@ data:
   code: "/**\r\n * @brief \u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62\r\n * @docs\
     \ docs/math/twelvefold_way/binomial_coefficients/binomial_coefficients.md\r\n\
     \ */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\n\
-    std::vector<std::vector<T>> pascal(int val) {\r\n  std::vector<std::vector<T>>\
-    \ c(val + 1, std::vector<T>(val + 1, 0));\r\n  for (int i = 0; i <= val; ++i)\
-    \ {\r\n    c[i][0] = 1;\r\n    for (int j = 1; j <= i; ++j) c[i][j] = c[i - 1][j\
-    \ - 1] + c[i - 1][j];\r\n  }\r\n  return c;\r\n}\r\n"
+    std::vector<std::vector<T>> pascal(int n) {\r\n  std::vector<std::vector<T>> c(n\
+    \ + 1, std::vector<T>(n + 1, 0));\r\n  for (int i = 0; i <= n; ++i) {\r\n    c[i][0]\
+    \ = 1;\r\n    for (int j = 1; j <= i; ++j) c[i][j] = c[i - 1][j - 1] + c[i - 1][j];\r\
+    \n  }\r\n  return c;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/twelvefold_way/binomial_coefficients/pascal.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
 documentation_of: math/twelvefold_way/binomial_coefficients/pascal.hpp
@@ -65,18 +65,16 @@ $$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)
 
 ||説明|
 |:--:|:--:|
-|`pascal<T>(val)`|$\mathrm{val}$ 段のパスカルの三角形|
+|`pascal<T>(n)`|$n$ 段のパスカルの三角形|
 
 - 二項係数
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BinomialCoefficients(mod, val = 10000000)`|二項係数を考える|$a! \perp \mathrm{mod}$|
+|`BinomialCoefficients(mod, val = 10000000)`|二項係数を考える|$a! \perp \mathrm{mod}$ (e.g. $0 \leq a < \mathrm{mod}$ を満たす素数)|
 |`fact[i]`|$i!$|
 |`fact_inv[i]`|$\frac{1}{i!}$|
 |`query(n, k)`|$\binom{n}{k}$|
-
-e.g. $0 \leq a < \mathrm{mod}$ を満たす素数
 
 - $n$ は巨大
 

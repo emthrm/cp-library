@@ -28,6 +28,9 @@ data:
       \u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range sum query and\
       \ range update query)"
   - icon: ':heavy_check_mark:'
+    path: test/graph/light/tree/lca_euler_tour.test.cpp
+    title: test/graph/light/tree/lca_euler_tour.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lca_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
@@ -51,11 +54,11 @@ data:
     \ once\r\n#include <algorithm>\r\n// #include <cassert>\r\n#include <limits>\r\
     \n#include <vector>\r\n\r\ntemplate <typename T>\r\nstruct LazySegmentTree {\r\
     \n  using Monoid = typename T::Monoid;\r\n  using OperatorMonoid = typename T::OperatorMonoid;\r\
-    \n\r\n  LazySegmentTree(int n) : LazySegmentTree(std::vector<Monoid>(n, T::m_unity()))\
+    \n\r\n  LazySegmentTree(int n) : LazySegmentTree(std::vector<Monoid>(n, T::m_id()))\
     \ {}\r\n\r\n  LazySegmentTree(const std::vector<Monoid> &a) : n(a.size()) {\r\n\
     \    while ((1 << height) < n) ++height;\r\n    p2 = 1 << height;\r\n    lazy.assign(p2,\
-    \ T::o_unity());\r\n    dat.assign(p2 << 1, T::m_unity());\r\n    for (int i =\
-    \ 0; i < n; ++i) dat[i + p2] = a[i];\r\n    for (int i = p2 - 1; i > 0; --i) dat[i]\
+    \ T::o_id());\r\n    dat.assign(p2 << 1, T::m_id());\r\n    for (int i = 0; i\
+    \ < n; ++i) dat[i + p2] = a[i];\r\n    for (int i = p2 - 1; i > 0; --i) dat[i]\
     \ = T::m_merge(dat[i << 1], dat[(i << 1) + 1]);\r\n  }\r\n\r\n  void set(int idx,\
     \ const Monoid val) {\r\n    idx += p2;\r\n    for (int i = height; i > 0; --i)\
     \ propagate(idx >> i);\r\n    dat[idx] = val;\r\n    for (int i = 1; i <= height;\
@@ -75,11 +78,11 @@ data:
     \n    }\r\n    for (int i = left >> (left_ctz + 1); i > 0; i >>= 1) dat[i] = T::m_merge(dat[i\
     \ << 1], dat[(i << 1) + 1]);\r\n    for (int i = right >> (right_ctz + 1); i >\
     \ 0; i >>= 1) dat[i] = T::m_merge(dat[i << 1], dat[(i << 1) + 1]);\r\n  }\r\n\r\
-    \n  Monoid get(int left, int right) {\r\n    if (right <= left) return T::m_unity();\r\
+    \n  Monoid get(int left, int right) {\r\n    if (right <= left) return T::m_id();\r\
     \n    left += p2;\r\n    right += p2;\r\n    int left_ctz = __builtin_ctz(left);\r\
     \n    for (int i = height; i > left_ctz; --i) propagate(left >> i);\r\n    int\
     \ right_ctz = __builtin_ctz(right);\r\n    for (int i = height; i > right_ctz;\
-    \ --i) propagate(right >> i);\r\n    Monoid l_res = T::m_unity(), r_res = T::m_unity();\r\
+    \ --i) propagate(right >> i);\r\n    Monoid l_res = T::m_id(), r_res = T::m_id();\r\
     \n    for (; left < right; left >>= 1, right >>= 1) {\r\n      if (left & 1) l_res\
     \ = T::m_merge(l_res, dat[left++]);\r\n      if (right & 1) r_res = T::m_merge(dat[--right],\
     \ r_res);\r\n    }\r\n    return T::m_merge(l_res, r_res);\r\n  }\r\n\r\n  Monoid\
@@ -87,83 +90,83 @@ data:
     \ height; i > 0; --i) propagate(node >> i);\r\n    return dat[node];\r\n  }\r\n\
     \r\n  template <typename G>\r\n  int find_right(int left, G g) {\r\n    if (left\
     \ >= n) return n;\r\n    left += p2;\r\n    for (int i = height; i > 0; --i) propagate(left\
-    \ >> i);\r\n    Monoid val = T::m_unity();\r\n    do {\r\n      while (!(left\
-    \ & 1)) left >>= 1;\r\n      Monoid nx = T::m_merge(val, dat[left]);\r\n     \
-    \ if (!g(nx)) {\r\n        while (left < p2) {\r\n          propagate(left);\r\
-    \n          left <<= 1;\r\n          nx = T::m_merge(val, dat[left]);\r\n    \
-    \      if (g(nx)) {\r\n            val = nx;\r\n            ++left;\r\n      \
-    \    }\r\n        }\r\n        return left - p2;\r\n      }\r\n      val = nx;\r\
-    \n      ++left;\r\n    } while (__builtin_popcount(left) > 1);\r\n    return n;\r\
-    \n  }\r\n\r\n  template <typename G>\r\n  int find_left(int right, G g) {\r\n\
-    \    if (right <= 0) return -1;\r\n    right += p2;\r\n    for (int i = height;\
-    \ i > 0; --i) propagate((right - 1) >> i);\r\n    Monoid val = T::m_unity();\r\
-    \n    do {\r\n      --right;\r\n      while (right > 1 && (right & 1)) right >>=\
-    \ 1;\r\n      Monoid nx = T::m_merge(dat[right], val);\r\n      if (!g(nx)) {\r\
-    \n        while (right < p2) {\r\n          propagate(right);\r\n          right\
-    \ = (right << 1) + 1;\r\n          nx = T::m_merge(dat[right], val);\r\n     \
-    \     if (g(nx)) {\r\n            val = nx;\r\n            --right;\r\n      \
-    \    }\r\n        }\r\n        return right - p2;\r\n      }\r\n      val = nx;\r\
-    \n    } while (__builtin_popcount(right) > 1);\r\n    return -1;\r\n  }\r\n\r\n\
-    private:\r\n  int n, p2, height = 0;\r\n  std::vector<Monoid> dat;\r\n  std::vector<OperatorMonoid>\
+    \ >> i);\r\n    Monoid val = T::m_id();\r\n    do {\r\n      while (!(left & 1))\
+    \ left >>= 1;\r\n      Monoid nx = T::m_merge(val, dat[left]);\r\n      if (!g(nx))\
+    \ {\r\n        while (left < p2) {\r\n          propagate(left);\r\n         \
+    \ left <<= 1;\r\n          nx = T::m_merge(val, dat[left]);\r\n          if (g(nx))\
+    \ {\r\n            val = nx;\r\n            ++left;\r\n          }\r\n       \
+    \ }\r\n        return left - p2;\r\n      }\r\n      val = nx;\r\n      ++left;\r\
+    \n    } while (__builtin_popcount(left) > 1);\r\n    return n;\r\n  }\r\n\r\n\
+    \  template <typename G>\r\n  int find_left(int right, G g) {\r\n    if (right\
+    \ <= 0) return -1;\r\n    right += p2;\r\n    for (int i = height; i > 0; --i)\
+    \ propagate((right - 1) >> i);\r\n    Monoid val = T::m_id();\r\n    do {\r\n\
+    \      --right;\r\n      while (right > 1 && (right & 1)) right >>= 1;\r\n   \
+    \   Monoid nx = T::m_merge(dat[right], val);\r\n      if (!g(nx)) {\r\n      \
+    \  while (right < p2) {\r\n          propagate(right);\r\n          right = (right\
+    \ << 1) + 1;\r\n          nx = T::m_merge(dat[right], val);\r\n          if (g(nx))\
+    \ {\r\n            val = nx;\r\n            --right;\r\n          }\r\n      \
+    \  }\r\n        return right - p2;\r\n      }\r\n      val = nx;\r\n    } while\
+    \ (__builtin_popcount(right) > 1);\r\n    return -1;\r\n  }\r\n\r\nprivate:\r\n\
+    \  int n, p2, height = 0;\r\n  std::vector<Monoid> dat;\r\n  std::vector<OperatorMonoid>\
     \ lazy;\r\n\r\n  void sub_apply(int idx, const OperatorMonoid &val) {\r\n    dat[idx]\
     \ = T::apply(dat[idx], val);\r\n    if (idx < p2) lazy[idx] = T::o_merge(lazy[idx],\
     \ val);\r\n  }\r\n\r\n  void propagate(int idx) {\r\n    // assert(1 <= idx &&\
     \ idx < p2);\r\n    sub_apply(idx << 1, lazy[idx]);\r\n    sub_apply((idx << 1)\
-    \ + 1, lazy[idx]);\r\n    lazy[idx] = T::o_unity();\r\n  }\r\n};\r\n\r\nnamespace\
+    \ + 1, lazy[idx]);\r\n    lazy[idx] = T::o_id();\r\n  }\r\n};\r\n\r\nnamespace\
     \ monoid {\r\ntemplate <typename T>\r\nstruct RangeMinimumAndUpdateQuery {\r\n\
-    \  using Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr T m_unity()\
-    \ { return std::numeric_limits<T>::max(); }\r\n  static constexpr T o_unity()\
-    \ { return std::numeric_limits<T>::max(); }\r\n  static T m_merge(const T &a,\
-    \ const T &b) { return std::min(a, b); }\r\n  static T o_merge(const T &a, const\
-    \ T &b) { return b == o_unity() ? a : b; }\r\n  static T apply(const T &a, const\
-    \ T &b) { return b == o_unity()? a : b; }\r\n};\r\n\r\ntemplate <typename T>\r\
-    \nstruct RangeMaximumAndUpdateQuery {\r\n  using Monoid = T;\r\n  using OperatorMonoid\
-    \ = T;\r\n  static constexpr T m_unity() { return std::numeric_limits<T>::min();\
-    \ }\r\n  static constexpr T o_unity() { return std::numeric_limits<T>::min();\
-    \ }\r\n  static T m_merge(const T &a, const T &b) { return std::max(a, b); }\r\
-    \n  static T o_merge(const T &a, const T &b) { return b == o_unity() ? a : b;\
-    \ }\r\n  static T apply(const T &a, const T &b) { return b == o_unity()? a : b;\
-    \ }\r\n};\r\n\r\ntemplate <typename T, T TINF>\r\nstruct RangeMinimumAndAddQuery\
+    \  using Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr T m_id()\
+    \ { return std::numeric_limits<T>::max(); }\r\n  static constexpr T o_id() { return\
+    \ std::numeric_limits<T>::max(); }\r\n  static T m_merge(const T &a, const T &b)\
+    \ { return std::min(a, b); }\r\n  static T o_merge(const T &a, const T &b) { return\
+    \ b == o_id() ? a : b; }\r\n  static T apply(const T &a, const T &b) { return\
+    \ b == o_id()? a : b; }\r\n};\r\n\r\ntemplate <typename T>\r\nstruct RangeMaximumAndUpdateQuery\
     \ {\r\n  using Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr\
-    \ T m_unity() { return TINF; }\r\n  static constexpr T o_unity() { return 0; }\r\
-    \n  static T m_merge(const T &a, const T &b) { return std::min(a, b); }\r\n  static\
-    \ T o_merge(const T &a, const T &b) { return a + b; }\r\n  static T apply(const\
-    \ T &a, const T &b) { return a + b; }\r\n};\r\n\r\ntemplate <typename T, T TINF>\r\
-    \nstruct RangeMaximumAndAddQuery {\r\n  using Monoid = T;\r\n  using OperatorMonoid\
-    \ = T;\r\n  static constexpr T m_unity() { return -TINF; }\r\n  static constexpr\
-    \ T o_unity() { return 0; }\r\n  static T m_merge(const T &a, const T &b) { return\
-    \ std::max(a, b); }\r\n  static T o_merge(const T &a, const T &b) { return a +\
-    \ b; }\r\n  static T apply(const T &a, const T &b) { return a + b; }\r\n};\r\n\
-    \r\ntemplate <typename T>\r\nstruct RangeSumAndUpdateQuery {\r\n  struct Node\
-    \ {\r\n    T sum;\r\n    int len;\r\n  };\r\n  static std::vector<Node> init(int\
-    \ n) { return std::vector<Node>(n, Node{0, 1}); }\r\n  using Monoid = Node;\r\n\
-    \  using OperatorMonoid = T;\r\n  static constexpr Node m_unity() { return {0,\
-    \ 0}; }\r\n  static constexpr T o_unity() { return std::numeric_limits<T>::max();\
+    \ T m_id() { return std::numeric_limits<T>::lowest(); }\r\n  static constexpr\
+    \ T o_id() { return std::numeric_limits<T>::lowest(); }\r\n  static T m_merge(const\
+    \ T &a, const T &b) { return std::max(a, b); }\r\n  static T o_merge(const T &a,\
+    \ const T &b) { return b == o_id() ? a : b; }\r\n  static T apply(const T &a,\
+    \ const T &b) { return b == o_id()? a : b; }\r\n};\r\n\r\ntemplate <typename T,\
+    \ T INF>\r\nstruct RangeMinimumAndAddQuery {\r\n  using Monoid = T;\r\n  using\
+    \ OperatorMonoid = T;\r\n  static constexpr T m_id() { return INF; }\r\n  static\
+    \ constexpr T o_id() { return 0; }\r\n  static T m_merge(const T &a, const T &b)\
+    \ { return std::min(a, b); }\r\n  static T o_merge(const T &a, const T &b) { return\
+    \ a + b; }\r\n  static T apply(const T &a, const T &b) { return a + b; }\r\n};\r\
+    \n\r\ntemplate <typename T, T INF>\r\nstruct RangeMaximumAndAddQuery {\r\n  using\
+    \ Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr T m_id() {\
+    \ return -INF; }\r\n  static constexpr T o_id() { return 0; }\r\n  static T m_merge(const\
+    \ T &a, const T &b) { return std::max(a, b); }\r\n  static T o_merge(const T &a,\
+    \ const T &b) { return a + b; }\r\n  static T apply(const T &a, const T &b) {\
+    \ return a + b; }\r\n};\r\n\r\ntemplate <typename T>\r\nstruct RangeSumAndUpdateQuery\
+    \ {\r\n  struct Node {\r\n    T sum;\r\n    int len;\r\n  };\r\n  static std::vector<Node>\
+    \ init(int n) { return std::vector<Node>(n, Node{0, 1}); }\r\n  using Monoid =\
+    \ Node;\r\n  using OperatorMonoid = T;\r\n  static constexpr Node m_id() { return\
+    \ {0, 0}; }\r\n  static constexpr T o_id() { return std::numeric_limits<T>::max();\
     \ }\r\n  static Node m_merge(const Node &a, const Node &b) { return Node{a.sum\
     \ + b.sum, a.len + b.len}; }\r\n  static T o_merge(const T &a, const T &b) { return\
-    \ b == o_unity() ? a : b; }\r\n  static Node apply(const Node &a, const T &b)\
-    \ { return Node{b == o_unity() ? a.sum : b * a.len, a.len}; }\r\n};\r\n\r\ntemplate\
-    \ <typename T>\r\nstruct RangeSumAndAddQuery {\r\n  struct Node {\r\n    T sum;\r\
-    \n    int len;\r\n  };\r\n  static std::vector<Node> init(int n) { return std::vector<Node>(n,\
+    \ b == o_id() ? a : b; }\r\n  static Node apply(const Node &a, const T &b) { return\
+    \ Node{b == o_id() ? a.sum : b * a.len, a.len}; }\r\n};\r\n\r\ntemplate <typename\
+    \ T>\r\nstruct RangeSumAndAddQuery {\r\n  struct Node {\r\n    T sum;\r\n    int\
+    \ len;\r\n  };\r\n  static std::vector<Node> init(int n) { return std::vector<Node>(n,\
     \ Node{0, 1}); }\r\n  using Monoid = Node;\r\n  using OperatorMonoid = T;\r\n\
-    \  static constexpr Node m_unity() { return {0, 0}; }\r\n  static constexpr T\
-    \ o_unity() { return 0; }\r\n  static Node m_merge(const Node &a, const Node &b)\
-    \ { return Node{a.sum + b.sum, a.len + b.len}; }\r\n  static T o_merge(const T\
-    \ &a, const T &b) { return a + b; }\r\n  static Node apply(const Node &a, const\
-    \ T &b) { return Node{a.sum + b * a.len, a.len}; }\r\n};\r\n}  // monoid\r\n"
+    \  static constexpr Node m_id() { return {0, 0}; }\r\n  static constexpr T o_id()\
+    \ { return 0; }\r\n  static Node m_merge(const Node &a, const Node &b) { return\
+    \ Node{a.sum + b.sum, a.len + b.len}; }\r\n  static T o_merge(const T &a, const\
+    \ T &b) { return a + b; }\r\n  static Node apply(const Node &a, const T &b) {\
+    \ return Node{a.sum + b * a.len, a.len}; }\r\n};\r\n}  // monoid\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/segment_tree/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/lca_euler_tour.test.cpp
   - test/data_structure/segment_tree/range_sum_query_and_range_add_query.test.cpp
+  - test/data_structure/segment_tree/range_sum_query_and_range_update_query.test.cpp
   - test/data_structure/segment_tree/range_minimum_query_and_range_update_query.test.cpp
   - test/data_structure/segment_tree/lazy_segment_tree.test.cpp
   - test/data_structure/segment_tree/range_minimum_query_and_range_add_query.test.cpp
-  - test/data_structure/segment_tree/range_sum_query_and_range_update_query.test.cpp
+  - test/graph/tree/lca_euler_tour.test.cpp
+  - test/graph/light/tree/lca_euler_tour.test.cpp
 documentation_of: data_structure/segment_tree/lazy_segment_tree.hpp
 layout: document
 redirect_from:
@@ -193,14 +196,14 @@ $\langle O(N), O(\log{N}) \rangle$
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における取得クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
 |`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}}$|存在しない場合は $-1$ となる．|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
 
 `T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
 
 ||説明|
 |:--:|:--:|
 |`T::Monoid`|モノイド|
-|`T::unity()`|単位元|
+|`T::id()`|単位元|
 |`T::merge(a, b)`||
 
 - 遅延評価セグメント木
@@ -223,8 +226,8 @@ $\langle O(N), O(\log{N}) \rangle$
 |:--:|:--:|
 |`T::Monoid`|モノイド|
 |`T::OperatorMonoid`|作用素モノイド|
-|`T::m_unity()`|モノイドの単位元|
-|`T::o_unity()`|作用素モノイドの単位元|
+|`T::m_id()`|モノイドの単位元|
+|`T::o_id()`|作用素モノイドの単位元|
 |`T::m_merge(a, b)`||
 |`T::o_merge(a, b)`||
 |`T::apply(a, b)`||
@@ -283,6 +286,8 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
 - segment tree beats
+  - https://rsm9.hatenablog.com/entry/2021/02/01/220408
+  - https://twitter.com/fuppy_kyopro/status/1356599033439997952
   - https://codeforces.com/blog/entry/57319
   - https://hackmd.io/@a4YdmMWJSTa0aHKUX3wNcA/S1MJhbSLV
   - https://smijake3.hatenablog.com/entry/2019/04/28/021457
@@ -292,9 +297,13 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/tjkendev/segment-tree-beats
   - https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_1.html
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
+  - https://onlinejudge.u-aizu.ac.jp/problems/0427
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
+- 区間等差数列加算区間最小値クエリ
+  - https://twitter.com/yosupot/status/1104175527923986432
+  - https://twitter.com/kuma_program/status/1358762477589155840
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 

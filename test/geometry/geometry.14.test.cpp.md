@@ -23,8 +23,8 @@ data:
     \n#include <cassert>\r\n#include <cmath>\r\n#include <functional>\r\n#line 7 \"\
     geometry/geometry.hpp\"\n#include <limits>\r\n#include <utility>\r\n#include <vector>\r\
     \n\r\nnamespace geometry {\r\nusing Real = double;\r\nconstexpr long double PI\
-    \ = 3.14159265358979323846;\r\n\r\nint sgn(Real x) {\r\n  constexpr Real EPS =\
-    \ 1e-8;\r\n  return x > EPS ? 1 : x < -EPS ? -1 : 0;\r\n}\r\n\r\nReal degree_to_radian(Real\
+    \ = 3.14159265358979323846;\r\n\r\nint sgn(Real x) {\r\n  static constexpr Real\
+    \ EPS = 1e-8;\r\n  return x > EPS ? 1 : x < -EPS ? -1 : 0;\r\n}\r\n\r\nReal degree_to_radian(Real\
     \ d) { return d * PI / 180; }\r\nReal radian_to_degree(Real r) { return r * 180\
     \ / PI; }\r\n\r\nstruct Point {\r\n  Real x, y;\r\n  Point(Real x = 0, Real y\
     \ = 0) : x(x), y(y) {}\r\n  Real abs() const { return std::sqrt(norm()); }\r\n\
@@ -239,7 +239,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.14.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.14.test.cpp

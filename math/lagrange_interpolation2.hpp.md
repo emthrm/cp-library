@@ -49,8 +49,8 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/lagrange_interpolation2.test.cpp
   - test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp
+  - test/math/lagrange_interpolation2.test.cpp
 documentation_of: math/lagrange_interpolation2.hpp
 layout: document
 redirect_from:

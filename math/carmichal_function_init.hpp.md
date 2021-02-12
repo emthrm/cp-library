@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/lcm.hpp
     title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
   - icon: ':question:'
@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: math/carmichal_function_init.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/carmichal_function_init.hpp
@@ -78,7 +78,7 @@ $$a^{\lambda(n)} \equiv 1 \pmod{n}$$
 
 ||説明|
 |:--:|:--:|
-|`carmichal_function(val)`|$\lambda(\mathrm{val})$|
+|`carmichal_function(n)`|$\lambda(n)$|
 
 - 数表
 

@@ -30,24 +30,23 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"math/sieve_of_eratosthenes.hpp\"\n#include <vector>\r\n\r\
-    \nstd::vector<bool> sieve_of_eratosthenes(int val) {\r\n  std::vector<bool> res(val\
-    \ + 1, true);\r\n  res[0] = false;\r\n  if (val >= 1) res[1] = false;\r\n  for\
-    \ (int i = 2; i * i <= val; ++i) {\r\n    if (res[i]) {\r\n      for (int j =\
-    \ i * i; j <= val; j += i) res[j] = false;\r\n    }\r\n  }\r\n  return res;\r\n\
-    }\r\n"
+    \nstd::vector<bool> sieve_of_eratosthenes(int n) {\r\n  std::vector<bool> res(n\
+    \ + 1, true);\r\n  res[0] = false;\r\n  if (n >= 1) res[1] = false;\r\n  for (int\
+    \ i = 2; i * i <= n; ++i) {\r\n    if (res[i]) {\r\n      for (int j = i * i;\
+    \ j <= n; j += i) res[j] = false;\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <vector>\r\n\r\nstd::vector<bool> sieve_of_eratosthenes(int\
-    \ val) {\r\n  std::vector<bool> res(val + 1, true);\r\n  res[0] = false;\r\n \
-    \ if (val >= 1) res[1] = false;\r\n  for (int i = 2; i * i <= val; ++i) {\r\n\
-    \    if (res[i]) {\r\n      for (int j = i * i; j <= val; j += i) res[j] = false;\r\
-    \n    }\r\n  }\r\n  return res;\r\n}\r\n"
+    \ n) {\r\n  std::vector<bool> res(n + 1, true);\r\n  res[0] = false;\r\n  if (n\
+    \ >= 1) res[1] = false;\r\n  for (int i = 2; i * i <= n; ++i) {\r\n    if (res[i])\
+    \ {\r\n      for (int j = i * i; j <= n; j += i) res[j] = false;\r\n    }\r\n\
+    \  }\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/sieve_of_eratosthenes.hpp
   requiredBy:
-  - math/euler_phi/euler_phi_init2.hpp
   - math/carmichal_function_init.hpp
+  - math/euler_phi/euler_phi_init2.hpp
   - math/mobius_mu/mobius_mu_init2.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/sieve_of_eratosthenes.test.cpp
@@ -70,7 +69,7 @@ $O(N\log{\log{N}})$
 
 ||説明|
 |:--:|:--:|
-|`sieve_of_eratosthenes(val)`|$n \ (0 \leq n \leq \mathrm{val})$ が素数であるか．|
+|`sieve_of_eratosthenes(n)`|$i \ (0 \leq i \leq \mathrm{n})$ が素数であるか．|
 
 
 ## 参考

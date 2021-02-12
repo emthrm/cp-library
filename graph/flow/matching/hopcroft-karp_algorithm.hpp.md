@@ -150,7 +150,7 @@ title: Hopcroft-Karp algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`WeightedBipartiteMatching<T>(left, right, ∞)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
+|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
 |`add_edge(src, dst, cost)`|コスト $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
 |`solve()`|重み付き最大マッチング||
 |`matching()`|マッチング相手|存在しない場合は $-1$ となる．|

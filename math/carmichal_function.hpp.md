@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/lcm.hpp
     title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
   _extendedRequiredBy: []
@@ -22,18 +22,18 @@ data:
     \ math/carmichal_function.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\r\n * @docs\
     \ docs/math/carmichal_function.md\r\n */\r\n\r\n#pragma once\r\n#include \"lcm.hpp\"\
-    \r\n\r\nlong long carmichal_function(long long val) {\r\n  long long res = 1;\r\
-    \n  if (val % 8 == 0) val >>= 1;\r\n  for (long long i = 2; i * i <= val; ++i)\
-    \ {\r\n    if (val % i == 0) {\r\n      val /= i;\r\n      long long phi = i -\
-    \ 1;\r\n      while (val % i == 0) {\r\n        val /= i;\r\n        phi *= i;\r\
-    \n      }\r\n      res = __lcm(res, phi);\r\n    }\r\n  }\r\n  if (val > 1) res\
-    \ = __lcm(res, val - 1);\r\n  return res;\r\n}\r\n"
+    \r\n\r\nlong long carmichal_function(long long n) {\r\n  long long res = 1;\r\n\
+    \  if (n % 8 == 0) n >>= 1;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n\
+    \    if (n % i == 0) {\r\n      n /= i;\r\n      long long phi = i - 1;\r\n  \
+    \    while (n % i == 0) {\r\n        n /= i;\r\n        phi *= i;\r\n      }\r\
+    \n      res = __lcm(res, phi);\r\n    }\r\n  }\r\n  if (n > 1) res = __lcm(res,\
+    \ n - 1);\r\n  return res;\r\n}\r\n"
   dependsOn:
   - math/lcm.hpp
   isVerificationFile: false
   path: math/carmichal_function.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/carmichal_function.hpp
@@ -65,7 +65,7 @@ $$a^{\lambda(n)} \equiv 1 \pmod{n}$$
 
 ||説明|
 |:--:|:--:|
-|`carmichal_function(val)`|$\lambda(\mathrm{val})$|
+|`carmichal_function(n)`|$\lambda(n)$|
 
 - 数表
 

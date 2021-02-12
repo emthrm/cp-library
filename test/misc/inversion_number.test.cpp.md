@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: data_structure/bit/bit.hpp
     title: binary indexed tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (\u53CD\u8EE2\u6570 / inversion number)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
@@ -41,8 +41,8 @@ data:
   isVerificationFile: true
   path: test/misc/inversion_number.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-02-13 04:45:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/misc/inversion_number.test.cpp
 layout: document

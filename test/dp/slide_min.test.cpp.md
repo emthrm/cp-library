@@ -21,9 +21,10 @@ data:
     \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#line 2 \"dp/slide_min.hpp\"\
     \n#include <deque>\r\n#line 4 \"dp/slide_min.hpp\"\n\r\ntemplate <typename T>\r\
-    \nstd::vector<T> slide_min(const std::vector<T> &a, int len) {\r\n  int n = a.size();\r\
-    \n  std::vector<T> res(n - len + 1);\r\n  std::deque<T> deq;\r\n  for (int i =\
-    \ 0; i < n; ++i) {\r\n    while (!deq.empty() && a[deq.back()] >= a[i]) deq.pop_back();\r\
+    \nstd::vector<T> slide_min(const std::vector<T> &a, int len, bool is_minimized\
+    \ = true) {\r\n  int n = a.size();\r\n  std::vector<T> res(n - len + 1);\r\n \
+    \ std::deque<T> deq;\r\n  for (int i = 0; i < n; ++i) {\r\n    while (!deq.empty()\
+    \ && !(is_minimized ? a[deq.back()] < a[i] : a[deq.back()] > a[i])) deq.pop_back();\r\
     \n    deq.emplace_back(i);\r\n    if (i + 1 >= len) {\r\n      int left = i +\
     \ 1 - len;\r\n      res[left] = a[deq.front()];\r\n      if (deq.front() == left)\
     \ deq.pop_front();\r\n    }\r\n  }\r\n  return res;\r\n}\r\n#line 9 \"test/dp/slide_min.test.cpp\"\
@@ -43,7 +44,7 @@ data:
   isVerificationFile: true
   path: test/dp/slide_min.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 02:20:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dp/slide_min.test.cpp

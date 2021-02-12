@@ -28,18 +28,17 @@ data:
     \ dp/lis/2d_lis.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/LIS/2\u6B21\u5143 LIS\r\n\
     \ */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/abc038/tasks/abc038_d\"\
-    \r\n\r\n#include <iostream>\r\n#include <limits>\r\n#include <utility>\r\n#include\
-    \ <vector>\r\n#include \"../../../dp/lis/2d_lis.hpp\"\r\n\r\nint main() {\r\n\
-    \  int n;\r\n  std::cin >> n;\r\n  std::vector<std::pair<int, int>> wh(n);\r\n\
-    \  for (int i = 0; i < n; ++i) std::cin >> wh[i].first >> wh[i].second;\r\n  std::cout\
-    \ << lis_2d(wh, std::numeric_limits<int>::max()) << '\\n';\r\n  return 0;\r\n\
-    }\r\n"
+    \r\n\r\n#include <iostream>\r\n#include <utility>\r\n#include <vector>\r\n#include\
+    \ \"../../../dp/lis/2d_lis.hpp\"\r\n\r\nint main() {\r\n  int n;\r\n  std::cin\
+    \ >> n;\r\n  std::vector<std::pair<int, int>> wh(n);\r\n  for (int i = 0; i <\
+    \ n; ++i) std::cin >> wh[i].first >> wh[i].second;\r\n  std::cout << lis_2d(wh)\
+    \ << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - dp/lis/2d_lis.hpp
   isVerificationFile: true
   path: test/dp/lis/2d_lis.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/dp/lis/2d_lis.test.cpp

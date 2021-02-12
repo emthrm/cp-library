@@ -13,25 +13,26 @@ data:
     links: []
   bundledCode: "#line 2 \"dp/slide_min.hpp\"\n#include <deque>\r\n#include <vector>\r\
     \n\r\ntemplate <typename T>\r\nstd::vector<T> slide_min(const std::vector<T> &a,\
-    \ int len) {\r\n  int n = a.size();\r\n  std::vector<T> res(n - len + 1);\r\n\
-    \  std::deque<T> deq;\r\n  for (int i = 0; i < n; ++i) {\r\n    while (!deq.empty()\
-    \ && a[deq.back()] >= a[i]) deq.pop_back();\r\n    deq.emplace_back(i);\r\n  \
-    \  if (i + 1 >= len) {\r\n      int left = i + 1 - len;\r\n      res[left] = a[deq.front()];\r\
-    \n      if (deq.front() == left) deq.pop_front();\r\n    }\r\n  }\r\n  return\
-    \ res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <deque>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<T> slide_min(const std::vector<T> &a, int len) {\r\n  int\
-    \ n = a.size();\r\n  std::vector<T> res(n - len + 1);\r\n  std::deque<T> deq;\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    while (!deq.empty() && a[deq.back()]\
-    \ >= a[i]) deq.pop_back();\r\n    deq.emplace_back(i);\r\n    if (i + 1 >= len)\
+    \ int len, bool is_minimized = true) {\r\n  int n = a.size();\r\n  std::vector<T>\
+    \ res(n - len + 1);\r\n  std::deque<T> deq;\r\n  for (int i = 0; i < n; ++i) {\r\
+    \n    while (!deq.empty() && !(is_minimized ? a[deq.back()] < a[i] : a[deq.back()]\
+    \ > a[i])) deq.pop_back();\r\n    deq.emplace_back(i);\r\n    if (i + 1 >= len)\
     \ {\r\n      int left = i + 1 - len;\r\n      res[left] = a[deq.front()];\r\n\
     \      if (deq.front() == left) deq.pop_front();\r\n    }\r\n  }\r\n  return res;\r\
     \n}\r\n"
+  code: "#pragma once\r\n#include <deque>\r\n#include <vector>\r\n\r\ntemplate <typename\
+    \ T>\r\nstd::vector<T> slide_min(const std::vector<T> &a, int len, bool is_minimized\
+    \ = true) {\r\n  int n = a.size();\r\n  std::vector<T> res(n - len + 1);\r\n \
+    \ std::deque<T> deq;\r\n  for (int i = 0; i < n; ++i) {\r\n    while (!deq.empty()\
+    \ && !(is_minimized ? a[deq.back()] < a[i] : a[deq.back()] > a[i])) deq.pop_back();\r\
+    \n    deq.emplace_back(i);\r\n    if (i + 1 >= len) {\r\n      int left = i +\
+    \ 1 - len;\r\n      res[left] = a[deq.front()];\r\n      if (deq.front() == left)\
+    \ deq.pop_front();\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dp/slide_min.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 02:20:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dp/slide_min.test.cpp
@@ -50,12 +51,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`slide_min(a, len)`|$A$ における長さ $\mathrm{len}$ のスライド最小値|
-
-
-## 備考
-
-スライド最大値を求める場合，16行目の `a[deq.back()] >= a[i]` を `a[deq.back()] <= a[i]` とすればよい．
+|`slide_min(a, len, is_minimized = true)`|$A$ における長さ $\mathrm{len}$ のスライド最小値|
 
 
 ## 参考

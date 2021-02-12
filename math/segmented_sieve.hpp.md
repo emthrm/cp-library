@@ -50,7 +50,7 @@ $O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?
 
 ||説明|
 |:--:|:--:|
-|`segmented_sieve(low, high)`|$n \ (\mathrm{low} \leq n < \mathrm{high})$ が素数であるか．|
+|`segmented_sieve(low, high)`|$i \ (\mathrm{low} \leq i < \mathrm{high})$ が素数であるか．|
 
 
 ## 参考

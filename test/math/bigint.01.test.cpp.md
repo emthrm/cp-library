@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: graph/flow/matching/weighted_bipartite_matching.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\
       \u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -13,9 +13,9 @@ data:
     title: "\u591A\u500D\u9577\u6574\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679
@@ -55,8 +55,8 @@ data:
   isVerificationFile: true
   path: test/math/bigint.01.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-02-13 06:42:09+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/bigint.01.test.cpp
 layout: document

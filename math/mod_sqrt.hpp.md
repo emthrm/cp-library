@@ -14,12 +14,12 @@ data:
     path: test/math/fps/fps.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/quadratic_residue.md
     document_title: "\u5E73\u65B9\u5270\u4F59"
@@ -52,7 +52,7 @@ data:
   path: math/mod_sqrt.hpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_sqrt.test.cpp
   - test/math/fps/fps.6.test.cpp

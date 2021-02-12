@@ -25,28 +25,29 @@ data:
     \ graph/shortest_path/bellman-ford.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\n * @brief Bellman-Ford \u6CD5\n * @docs docs/graph/shortest_path/sssp.md\n\
-    \ */\n\n#pragma once\n#include <algorithm>\n#include <cassert>\n#include <vector>\n\
-    #include \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct BellmanFord {\n\
-    \  std::vector<CostType> dist;\n\n  BellmanFord(const std::vector<std::vector<Edge<CostType>>>\
-    \ &graph, const CostType CINF) : graph(graph), CINF(CINF) {}\n\n  bool has_negative_cycle(int\
-    \ s) {\n    is_built = true;\n    int n = graph.size();\n    dist.assign(n, CINF);\n\
-    \    dist[s] = 0;\n    prev.assign(n, -1);\n    for (int step = 0; step < n; ++step)\
-    \ {\n      bool is_updated = false;\n      for (int i = 0; i < n; ++i) {\n   \
-    \     if (dist[i] == CINF) continue;\n        for (const Edge<CostType> &e : graph[i])\
-    \ {\n          if (dist[e.dst] > dist[i] + e.cost) {\n            dist[e.dst]\
-    \ = dist[i] + e.cost;\n            prev[e.dst] = i;\n            is_updated =\
-    \ true;\n          }\n        }\n      }\n      if (!is_updated) return false;\n\
-    \    }\n    return true;\n  }\n\n  std::vector<int> build_path(int t) const {\n\
-    \    assert(is_built);\n    std::vector<int> res;\n    for (; t != -1; t = prev[t])\
-    \ res.emplace_back(t);\n    std::reverse(res.begin(), res.end());\n    return\
-    \ res;\n  }\n\nprivate:\n  bool is_built = false;\n  std::vector<std::vector<Edge<CostType>>>\
-    \ graph;\n  const CostType CINF;\n  std::vector<int> prev;\n};\n"
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <cassert>\n#include <limits>\n\
+    #include <vector>\n#include \"../edge.hpp\"\n\ntemplate <typename CostType>\n\
+    struct BellmanFord {\n  const CostType inf;\n  std::vector<CostType> dist;\n\n\
+    \  BellmanFord(const std::vector<std::vector<Edge<CostType>>> &graph,\n      \
+    \        const CostType inf = std::numeric_limits<CostType>::max())\n  : graph(graph),\
+    \ inf(inf) {}\n\n  bool has_negative_cycle(int s) {\n    is_built = true;\n  \
+    \  int n = graph.size();\n    dist.assign(n, inf);\n    dist[s] = 0;\n    prev.assign(n,\
+    \ -1);\n    for (int step = 0; step < n; ++step) {\n      bool is_updated = false;\n\
+    \      for (int i = 0; i < n; ++i) {\n        if (dist[i] == inf) continue;\n\
+    \        for (const Edge<CostType> &e : graph[i]) {\n          if (dist[e.dst]\
+    \ > dist[i] + e.cost) {\n            dist[e.dst] = dist[i] + e.cost;\n       \
+    \     prev[e.dst] = i;\n            is_updated = true;\n          }\n        }\n\
+    \      }\n      if (!is_updated) return false;\n    }\n    return true;\n  }\n\
+    \n  std::vector<int> build_path(int t) const {\n    assert(is_built);\n    std::vector<int>\
+    \ res;\n    for (; t != -1; t = prev[t]) res.emplace_back(t);\n    std::reverse(res.begin(),\
+    \ res.end());\n    return res;\n  }\n\nprivate:\n  bool is_built = false;\n  std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n  std::vector<int> prev;\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/shortest_path/bellman-ford.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/shortest_path/bellman-ford.test.cpp
@@ -82,8 +83,9 @@ title: "Bellman-Ford \u6CD5"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
-|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
+|`inf`|$\infty$||
 |`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達不可能ならば $\infty$ となる．|
+|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
 |`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
 
 - Dijkstra 法
@@ -91,6 +93,7 @@ title: "Bellman-Ford \u6CD5"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
+|`inf`|$\infty$||
 |`build(s)`|始点 $s$ の単一始点最短路||
 |`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
 
@@ -136,6 +139,8 @@ Dijkstra 法
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
+- $O(\sqrt{N} M \log{C})$
+  - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
 
 
 ## Verified

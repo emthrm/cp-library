@@ -38,6 +38,3 @@ title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
 ||説明|
 |:--:|:--:|
 |`split(s, before, after)`|$\mathrm{before}$ を $\mathrm{after}$ に置換した文字列 $S$|
-
-
-## Verified

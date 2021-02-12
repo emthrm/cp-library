@@ -28,17 +28,16 @@ data:
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <vector>\r\n#include \"fzt.hpp\"\r\n#include \"fmt.hpp\"\r\n\r\ntemplate\
     \ <typename T>\r\nstd::vector<T> or_convolution(const std::vector<T> &a, const\
-    \ std::vector<T> &b, const T UNITY = 0) {\r\n  std::vector<T> fzt_a = fzt(a, false,\
-    \ UNITY), fzt_b = fzt(b, false, UNITY);\r\n  int n = fzt_a.size();\r\n  for (int\
-    \ i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return fmt(fzt_a, false);\r\n\
-    }\r\n"
+    \ std::vector<T> &b, const T ID = 0) {\r\n  std::vector<T> fzt_a = fzt(a, false,\
+    \ ID), fzt_b = fzt(b, false, ID);\r\n  int n = fzt_a.size();\r\n  for (int i =\
+    \ 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return fmt(fzt_a, false);\r\n}\r\n"
   dependsOn:
   - math/convolution/fzt.hpp
   - math/convolution/fmt.hpp
   isVerificationFile: false
   path: math/convolution/or_convolution.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/convolution/or_convolution.hpp
@@ -115,6 +114,19 @@ $O(N\log{N})$
 - 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する．
   - http://noshi91.hatenablog.com/entry/2018/12/27/121649
   - https://github.com/drken1215/algorithm/blob/master/MathAlgebra/fast_gcd_convolution.cpp
+- subset convolution
+  - https://github.com/yosupo06/library-checker-problems/issues/297
+  - https://judge.yosupo.jp/problem/subset_convolution
+  - https://twitter.com/noshi91/status/1315347967990140928
+  - https://twitter.com/noshi91/status/1315504267927584768
+  - https://twitter.com/beet_aizu/status/1339049679728779264
+  - https://twitter.com/noshi91/status/1339077655715430401
+  - https://atcoder.jp/contests/xmascon20/tasks/xmascon20_h
+  - https://twitter.com/heno_code/status/1342124587849400320
+  - https://twitter.com/tpyneriver/status/1356095139035242497
+  - https://twitter.com/gmm_tea/status/1355754279751938053
+  - https://twitter.com/Ryuhei_Mori/status/1356074005447340035
+  - https://twitter.com/noshi91/status/1356075579896811523
 
 
 ## Verified

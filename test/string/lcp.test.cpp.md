@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/sparse_table.hpp
     title: sparse table
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/lcp.hpp
     title: longest common prefix
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/suffix_array.hpp
     title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (suffix array)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
@@ -99,7 +99,7 @@ data:
   path: test/string/lcp.test.cpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/lcp.test.cpp
 layout: document

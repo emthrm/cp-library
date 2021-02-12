@@ -6,14 +6,14 @@ data:
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind.md
     document_title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
@@ -44,8 +44,8 @@ data:
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
 documentation_of: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/ntt.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':question:'
@@ -11,7 +11,7 @@ data:
     path: math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 (\u4E8C\u5206\u7D2F\u4E57\u6CD5\
       , \u30D0\u30A4\u30CA\u30EA\u6CD5)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   - icon: ':question:'
@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: test/math/fps/fps.6.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/fps/fps.6.test.cpp

@@ -84,6 +84,7 @@ $O(K^2 \log{N})$
 
 ## ToDo
 
+- https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
 - 高速きたまさ法
   - http://misawa.github.io/others/fast_kitamasa_method.html
   - https://yukicoder.me/problems/no/215/editorial

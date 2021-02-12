@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: math/bigint.hpp
     title: "\u591A\u500D\u9577\u6574\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/binomial_coefficients/pascal.hpp
     title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/420
@@ -45,8 +45,8 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
 layout: document

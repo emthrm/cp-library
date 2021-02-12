@@ -6,12 +6,12 @@ data:
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/partition_function.md
     document_title: "\u5206\u5272\u6570 $n = m$ \u7248"
@@ -27,18 +27,17 @@ data:
   code: "/**\r\n * @brief \u5206\u5272\u6570 $n = m$ \u7248\r\n * @docs docs/math/twelvefold_way/partition_function.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../fps/fps.hpp\"\r\
     \n\r\ntemplate <typename T>\r\nstd::vector<T> partition_function_init_with_fps(int\
-    \ val) {\r\n  FPS<T> fps(val);\r\n  fps[0] = 1;\r\n  for (int i = 1; i <= val;\
-    \ ++i) {\r\n    long long idx = (3LL * i + 1) * i / 2;\r\n    if (idx <= val)\
-    \ fps[idx] += i & 1 ? -1 : 1;\r\n    idx = (3LL * i - 1) * i / 2;\r\n    if (idx\
-    \ <= val) fps[idx] += i & 1 ? -1 : 1;\r\n  }\r\n  return fps.inv(val).co;\r\n\
-    }\r\n"
+    \ n) {\r\n  FPS<T> fps(n);\r\n  fps[0] = 1;\r\n  for (int i = 1; i <= n; ++i)\
+    \ {\r\n    long long idx = (3LL * i + 1) * i / 2;\r\n    if (idx <= n) fps[idx]\
+    \ += i & 1 ? -1 : 1;\r\n    idx = (3LL * i - 1) * i / 2;\r\n    if (idx <= n)\
+    \ fps[idx] += i & 1 ? -1 : 1;\r\n  }\r\n  return fps.inv(n).co;\r\n}\r\n"
   dependsOn:
   - math/fps/fps.hpp
   isVerificationFile: false
   path: math/twelvefold_way/partition_function_init_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
 documentation_of: math/twelvefold_way/partition_function_init_with_fps.hpp
@@ -79,7 +78,7 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ||説明|
 |:--:|:--:|
-|`partition_function_init_with_fps<T>(val)`|$n = m$ のときの分割数の数表|
+|`partition_function_init_with_fps<T>(n)`|$n = m$ のときの分割数の数表|
 
 
 ## 参考

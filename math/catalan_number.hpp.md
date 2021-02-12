@@ -111,21 +111,21 @@ data:
     \ * fact_inv[n - k];\r\n  }\r\n  ModInt nHk(int n, int k) const {\r\n    if (n\
     \ < 0 || k < 0) return 0;\r\n    return k == 0 ? 1 : nCk(n + k - 1, k);\r\n  }\r\
     \n};\r\n#line 5 \"math/catalan_number.hpp\"\n\r\nstd::vector<ModInt> catalan_number(int\
-    \ val, const Combinatorics &com) {\r\n  assert(val + 1 <= com.val);\r\n  std::vector<ModInt>\
-    \ catalan(val + 1);\r\n  catalan[0] = 1;\r\n  for (int i = 0; i < val; ++i) catalan[i\
+    \ n, const Combinatorics &com) {\r\n  assert(n + 1 <= com.val);\r\n  std::vector<ModInt>\
+    \ catalan(n + 1);\r\n  catalan[0] = 1;\r\n  for (int i = 0; i < n; ++i) catalan[i\
     \ + 1] = catalan[i] * com.inv[i + 2] * 2 * (2 * i + 1);\r\n  return catalan;\r\
     \n}\r\n"
   code: "#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n#include \"modint.hpp\"\
-    \r\n\r\nstd::vector<ModInt> catalan_number(int val, const Combinatorics &com)\
-    \ {\r\n  assert(val + 1 <= com.val);\r\n  std::vector<ModInt> catalan(val + 1);\r\
-    \n  catalan[0] = 1;\r\n  for (int i = 0; i < val; ++i) catalan[i + 1] = catalan[i]\
-    \ * com.inv[i + 2] * 2 * (2 * i + 1);\r\n  return catalan;\r\n}\r\n"
+    \r\n\r\nstd::vector<ModInt> catalan_number(int n, const Combinatorics &com) {\r\
+    \n  assert(n + 1 <= com.val);\r\n  std::vector<ModInt> catalan(n + 1);\r\n  catalan[0]\
+    \ = 1;\r\n  for (int i = 0; i < n; ++i) catalan[i + 1] = catalan[i] * com.inv[i\
+    \ + 2] * 2 * (2 * i + 1);\r\n  return catalan;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   isVerificationFile: false
   path: math/catalan_number.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/catalan_number.test.cpp
@@ -159,7 +159,7 @@ $O(N)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`catalan_number(val, Combinatorics)`|カタラン数 $c_n \ (0 \leq n \leq \mathrm{val})$ の数表|`Combinatorics` は $\mathrm{val} + 1$ 以上で定義されていなければならない．|
+|`catalan_number(n, Combinatorics)`|カタラン数 $c_i \ (0 \leq i \leq n)$ の数表|`Combinatorics` は $n + 1$ 以上で定義されていなければならない．|
 
 
 ## 参考

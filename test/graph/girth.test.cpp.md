@@ -35,18 +35,19 @@ data:
     \ line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u5185\u5468\r\n */\r\n#define IGNORE\r\
     \n#define PROBLEM \"https://yukicoder.me/problems/no/1320\"\r\n\r\n#include <iostream>\r\
-    \n#include <vector>\r\n#include \"../../graph/girth_in_undirected_graph.hpp\"\r\
-    \n#include \"../../graph/girth_in_directed_graph.hpp\"\r\n\r\nint main() {\r\n\
-    \  constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\r\n  int t, n, m;\r\n  std::cin\
-    \ >> t >> n >> m;\r\n  if (t == 0) {\r\n    std::vector<Edge<long long>> edges;\r\
-    \n    while (m--) {\r\n      int u, v, w;\r\n      std::cin >> u >> v >> w;\r\n\
-    \      --u; --v;\r\n      edges.emplace_back(u, v, w);\r\n    }\r\n    long long\
-    \ ans = girth_in_undirected_graph(n, edges, LINF);\r\n    std::cout << (ans ==\
-    \ LINF ? -1 : ans) << '\\n';\r\n  } else if (t == 1) {\r\n    std::vector<std::vector<Edge<long\
-    \ long>>> graph(n);\r\n    while (m--) {\r\n      int u, v, w;\r\n      std::cin\
-    \ >> u >> v >> w;\r\n      --u; --v;\r\n      graph[u].emplace_back(u, v, w);\r\
-    \n    }\r\n    long long ans = girth_in_directed_graph(graph, LINF);\r\n    std::cout\
-    \ << (ans == LINF ? -1 : ans) << '\\n';\r\n  }\r\n  return 0;\r\n}\r\n"
+    \n#include <limits>\r\n#include <vector>\r\n#include \"../../graph/girth_in_undirected_graph.hpp\"\
+    \r\n#include \"../../graph/girth_in_directed_graph.hpp\"\r\n\r\nint main() {\r\
+    \n  constexpr long long LINF = std::numeric_limits<long long>::max();\r\n  int\
+    \ t, n, m;\r\n  std::cin >> t >> n >> m;\r\n  if (t == 0) {\r\n    std::vector<Edge<long\
+    \ long>> edges;\r\n    while (m--) {\r\n      int u, v, w;\r\n      std::cin >>\
+    \ u >> v >> w;\r\n      --u; --v;\r\n      edges.emplace_back(u, v, w);\r\n  \
+    \  }\r\n    long long ans = girth_in_undirected_graph(n, edges, LINF);\r\n   \
+    \ std::cout << (ans == LINF ? -1 : ans) << '\\n';\r\n  } else if (t == 1) {\r\n\
+    \    std::vector<std::vector<Edge<long long>>> graph(n);\r\n    while (m--) {\r\
+    \n      int u, v, w;\r\n      std::cin >> u >> v >> w;\r\n      --u; --v;\r\n\
+    \      graph[u].emplace_back(u, v, w);\r\n    }\r\n    long long ans = girth_in_directed_graph(graph,\
+    \ LINF);\r\n    std::cout << (ans == LINF ? -1 : ans) << '\\n';\r\n  }\r\n  return\
+    \ 0;\r\n}\r\n"
   dependsOn:
   - graph/girth_in_undirected_graph.hpp
   - graph/edge.hpp
@@ -54,7 +55,7 @@ data:
   isVerificationFile: true
   path: test/graph/girth.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/girth.test.cpp

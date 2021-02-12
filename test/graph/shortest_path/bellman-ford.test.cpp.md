@@ -30,24 +30,23 @@ data:
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford\
     \ \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
-    \r\n\r\n#include <iostream>\r\n#include <limits>\r\n#include <vector>\r\n#include\
-    \ \"../../../graph/edge.hpp\"\r\n#include \"../../../graph/shortest_path/bellman-ford.hpp\"\
-    \r\n\r\nint main() {\r\n  constexpr long long LINF = std::numeric_limits<long\
-    \ long>::max();\r\n  int v, e, r;\r\n  std::cin >> v >> e >> r;\r\n  std::vector<std::vector<Edge<long\
+    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../graph/edge.hpp\"\
+    \r\n#include \"../../../graph/shortest_path/bellman-ford.hpp\"\r\n\r\nint main()\
+    \ {\r\n  int v, e, r;\r\n  std::cin >> v >> e >> r;\r\n  std::vector<std::vector<Edge<long\
     \ long>>> graph(v);\r\n  for (int i = 0; i < e; ++i) {\r\n    int s, t, d;\r\n\
     \    std::cin >> s >> t >> d;\r\n    graph[s].emplace_back(s, t, d);\r\n  }\r\n\
-    \  BellmanFord<long long> bf(graph, LINF);\r\n  if (bf.has_negative_cycle(r))\
-    \ {\r\n    std::cout << \"NEGATIVE CYCLE\\n\";\r\n    return 0;\r\n  }\r\n  for\
-    \ (int i = 0; i < v; ++i) {\r\n    if (bf.dist[i] == LINF) {\r\n      std::cout\
-    \ << \"INF\\n\";\r\n    } else {\r\n      std::cout << bf.dist[i] << '\\n';\r\n\
-    \    }\r\n  }\r\n  return 0;\r\n}\r\n"
+    \  BellmanFord<long long> bf(graph);\r\n  if (bf.has_negative_cycle(r)) {\r\n\
+    \    std::cout << \"NEGATIVE CYCLE\\n\";\r\n    return 0;\r\n  }\r\n  for (int\
+    \ i = 0; i < v; ++i) {\r\n    if (bf.dist[i] == bf.inf) {\r\n      std::cout <<\
+    \ \"INF\\n\";\r\n    } else {\r\n      std::cout << bf.dist[i] << '\\n';\r\n \
+    \   }\r\n  }\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - graph/edge.hpp
   - graph/shortest_path/bellman-ford.hpp
   isVerificationFile: true
   path: test/graph/shortest_path/bellman-ford.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/shortest_path/bellman-ford.test.cpp

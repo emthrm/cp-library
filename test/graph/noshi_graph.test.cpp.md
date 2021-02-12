@@ -46,10 +46,9 @@ data:
     \ r, w;\r\n      std::cin >> l >> r >> w;\r\n      --l; --r;\r\n      if (t ==\
     \ 2) {\r\n        graph.add_edge(v, v + 1, l, r + 1, w);\r\n      } else if (t\
     \ == 3) {\r\n        graph.add_edge(l, r + 1, v, v + 1, w);\r\n      }\r\n   \
-    \ }\r\n  }\r\n  constexpr long long LINF = std::numeric_limits<long long>::max();\r\
-    \n  std::vector<long long> ans = Dijkstra<long long>(graph.graph, LINF).build(s);\r\
-    \n  for (int i = 0; i < n; ++i) std::cout << (ans[i] == LINF ? -1 : ans[i]) <<\
-    \ \" \\n\"[i + 1 == n];\r\n  return 0;\r\n}\r\n"
+    \ }\r\n  }\r\n  Dijkstra<long long> dij(graph.graph);\r\n  std::vector<long long>\
+    \ ans = dij.build(s);\r\n  for (int i = 0; i < n; ++i) std::cout << (ans[i] ==\
+    \ dij.inf ? -1 : ans[i]) << \" \\n\"[i + 1 == n];\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - graph/noshi_graph.hpp
   - graph/edge.hpp
@@ -57,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/graph/noshi_graph.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/noshi_graph.test.cpp

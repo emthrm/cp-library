@@ -110,13 +110,13 @@ title: "Ford-Fulkerson \u6CD5"
 
 - 辺 $e = (u, v)$ の容量を $c$ だけ減らす．
 
-  - $e.cap \geq c$ のとき
+  - $\mathrm{e.cap} \geq c$ のとき
 
-    $e.cap -= c$ とするだけでよい
+    $\mathrm{e.cap} -= c$ とするだけでよい
 
-  - $e.cap < c$ のとき
+  - $\mathrm{e.cap} < c$ のとき
 
-    $c -= e.cap,\ e.cap = 0$ とする．残余グラフにおける $u$ から $v$ までの最大流を $c^{\prime}$ とおく．
+    $c -= \mathrm{e.cap},\ \mathrm{e.cap} = 0$ とする．残余グラフにおける $u$ から $v$ までの最大流を $c^{\prime}$ とおく．
 
     - $c^{\prime} \geq c$ のとき
 

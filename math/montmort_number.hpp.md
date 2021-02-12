@@ -3,30 +3,29 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/montmort_number.test.cpp
     title: "\u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/montmort_number.hpp\"\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> montmort_number(int val) {\r\n  std::vector<T>\
-    \ montmort(val + 1, 0);\r\n  if (val >= 0) montmort[0] = 1;\r\n  for (int i =\
-    \ 2; i <= val; ++i) montmort[i] = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\r\
-    \n  return montmort;\r\n}\r\n"
+    \ <typename T>\r\nstd::vector<T> montmort_number(int n) {\r\n  std::vector<T>\
+    \ montmort(n + 1, 0);\r\n  if (n >= 0) montmort[0] = 1;\r\n  for (int i = 2; i\
+    \ <= n; ++i) montmort[i] = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\r\n\
+    \  return montmort;\r\n}\r\n"
   code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ montmort_number(int val) {\r\n  std::vector<T> montmort(val + 1, 0);\r\n  if\
-    \ (val >= 0) montmort[0] = 1;\r\n  for (int i = 2; i <= val; ++i) montmort[i]\
-    \ = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\r\n  return montmort;\r\n}\r\
-    \n"
+    \ montmort_number(int n) {\r\n  std::vector<T> montmort(n + 1, 0);\r\n  if (n\
+    \ >= 0) montmort[0] = 1;\r\n  for (int i = 2; i <= n; ++i) montmort[i] = (montmort[i\
+    \ - 1] + montmort[i - 2]) * (i - 1);\r\n  return montmort;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/montmort_number.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/montmort_number.test.cpp
 documentation_of: math/montmort_number.hpp
@@ -61,7 +60,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`montmort<T>(val)`|モンモール数 $a_n \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`montmort<T>(n)`|モンモール数 $a_i \ (1 \leq i \leq n)$ の数表|
 
 
 ## 参考

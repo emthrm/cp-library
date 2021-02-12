@@ -89,9 +89,7 @@ $ax \equiv 1 \pmod{m}$ を満たす $x = a^{-1}$．
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inv_init(val, mod)`|$\mathrm{val}$ 以下の逆元の数表|$a! \perp \mathrm{mod}$|
-
-e.g. $0 \leq a < \mathrm{mod}$ を満たす素数
+|`inv_init(n, mod)`|$n$ 以下の逆元の数表|$n! \perp \mathrm{mod}$ (e.g. $0 \leq n < \mathrm{mod}$ を満たす素数)|
 
 
 ## 参考

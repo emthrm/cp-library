@@ -25,19 +25,19 @@ data:
   code: "/**\r\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\r\
     \n * @docs docs/math/mobius_mu/mobius_mu.md\r\n */\r\n\r\n#pragma once\r\n#include\
     \ <map>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::map<T, int>\
-    \ mobius_mu_divisor(T val) {\r\n  std::vector<T> primes;\r\n  for (T i = 2; i\
-    \ * i <= val; ++i) {\r\n    if (val % i == 0) {\r\n      primes.emplace_back(i);\r\
-    \n      while (val % i == 0) val /= i;\r\n    }\r\n  }\r\n  if (val != 1) primes.emplace_back(val);\r\
-    \n  int n = primes.size();\r\n  std::map<T, int> mu;\r\n  for (int i = 0; i <\
-    \ (1 << n); ++i) {\r\n    int cnt = 0;\r\n    T di = 1;\r\n    for (int j = 0;\
-    \ j < n; ++j) {\r\n      if (i >> j & 1) {\r\n        ++cnt;\r\n        di *=\
+    \ mobius_mu_divisor(T n) {\r\n  std::vector<T> primes;\r\n  for (T i = 2; i *\
+    \ i <= n; ++i) {\r\n    if (n % i == 0) {\r\n      primes.emplace_back(i);\r\n\
+    \      while (n % i == 0) n /= i;\r\n    }\r\n  }\r\n  if (n != 1) primes.emplace_back(n);\r\
+    \n  int p = primes.size();\r\n  std::map<T, int> mu;\r\n  for (int i = 0; i <\
+    \ (1 << p); ++i) {\r\n    int cnt = 0;\r\n    T di = 1;\r\n    for (int j = 0;\
+    \ j < p; ++j) {\r\n      if (i >> j & 1) {\r\n        ++cnt;\r\n        di *=\
     \ primes[j];\r\n      }\r\n    }\r\n    mu[di] = (cnt & 1 ? -1 : 1);\r\n  }\r\n\
     \  return mu;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_divisor.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_divisor.test.cpp
@@ -84,25 +84,25 @@ $$f(n) = \sum_{d \mid n} g(d) \Leftrightarrow g(n) = \sum_{d \mid n} \mu \left(\
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu(val)`|$\mu(\mathrm{val})$|
+|`mobius_mu(n)`|$\mu(n)$|
 
 - 約数版
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`mobius_mu_divisor(val)`|$\lbrace (\mathrm{val} \text{ の約数 } d, \mu(d)) \rbrace$|キーとして存在しない場合は $\mathrm{val}$ の約数でないか値 $0$ である．|
+|`mobius_mu_divisor(n)`|$\lbrace n \text{ の約数 } d, \mu(d)) \rbrace$|キーとして存在しない場合は $n$ の約数でないか値 $0$ である．|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu_init(val)`|メビウス関数 $\mu(n) \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`mobius_mu_init(n)`|メビウス関数 $\mu(i) \ (1 \leq i \leq n)$ の数表|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(n) \ (\mathrm{low} \leq n < \mathrm{high})$ の数表|
+|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(i) \ (\mathrm{low} \leq i < \mathrm{high})$ の数表|
 
 
 ## 参考

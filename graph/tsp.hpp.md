@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: graph/edge.hpp
+    title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -12,31 +15,35 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"graph/tsp.hpp\"\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nT tsp(const std::vector<std::vector<T>> &graph, T TINF) {\r\n  int n =\
-    \ graph.size();\r\n  if (n == 1) return 0;\r\n  std::vector<std::vector<T>> dp(1\
-    \ << n, std::vector<T>(n, TINF));\r\n  dp[1][0] = 0;\r\n  for (int i = 1; i <\
-    \ (1 << n); ++i) for (int j = 0; j < n; ++j) {\r\n    if (dp[i][j] == TINF) continue;\r\
-    \n    for (int k = 0; k < n; ++k) {\r\n      if (!(i >> k & 1) && dp[i][j] + graph[j][k]\
-    \ < dp[i | (1 << k)][k]) {\r\n        dp[i | (1 << k)][k] = dp[i][j] + graph[j][k];\r\
-    \n      }\r\n    }\r\n  }\r\n  T res = TINF;\r\n  for (int j = 1; j < n; ++j)\
-    \ {\r\n    if (dp[(1 << n) - 1][j] + graph[j][0] < res) res = dp[(1 << n) - 1][j]\
-    \ + graph[j][0];\r\n  }\r\n  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nT tsp(const\
-    \ std::vector<std::vector<T>> &graph, T TINF) {\r\n  int n = graph.size();\r\n\
-    \  if (n == 1) return 0;\r\n  std::vector<std::vector<T>> dp(1 << n, std::vector<T>(n,\
-    \ TINF));\r\n  dp[1][0] = 0;\r\n  for (int i = 1; i < (1 << n); ++i) for (int\
-    \ j = 0; j < n; ++j) {\r\n    if (dp[i][j] == TINF) continue;\r\n    for (int\
-    \ k = 0; k < n; ++k) {\r\n      if (!(i >> k & 1) && dp[i][j] + graph[j][k] <\
-    \ dp[i | (1 << k)][k]) {\r\n        dp[i | (1 << k)][k] = dp[i][j] + graph[j][k];\r\
-    \n      }\r\n    }\r\n  }\r\n  T res = TINF;\r\n  for (int j = 1; j < n; ++j)\
-    \ {\r\n    if (dp[(1 << n) - 1][j] + graph[j][0] < res) res = dp[(1 << n) - 1][j]\
-    \ + graph[j][0];\r\n  }\r\n  return res;\r\n}\r\n"
-  dependsOn: []
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
+    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
+  code: "#pragma once\r\n#include <limits>\r\n#include <numeric>\r\n#include <vector>\r\
+    \n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nCostType tsp(const\
+    \ std::vector<std::vector<Edge<CostType>>> &graph, const CostType inf = std::numeric_limits<CostType>::max())\
+    \ {\r\n  int n = graph.size();\r\n  if (n == 1) return 0;\r\n  std::vector<std::vector<CostType>>\
+    \ dp(1 << n, std::vector<CostType>(n, inf));\r\n  dp[1][0] = 0;\r\n  for (int\
+    \ i = 1; i < (1 << n); ++i) for (int j = 0; j < n; ++j) {\r\n    if (dp[i][j]\
+    \ == inf) continue;\r\n    for (const Edge<CostType> &e : graph[j]) {\r\n    \
+    \  if (i >> e.dst & 1) continue;\r\n      CostType tmp = dp[i][j] + e.cost;\r\n\
+    \      if (tmp < dp[i | (1 << e.dst)][e.dst]) dp[i | (1 << e.dst)][e.dst] = tmp;\r\
+    \n    }\r\n  }\r\n  CostType res = inf;\r\n  for (int j = 1; j < n; ++j) {\r\n\
+    \    if (dp[(1 << n) - 1][j] == inf) continue;\r\n    for (const Edge<CostType>\
+    \ &e : graph[j]) {\r\n      if (e.dst == 0) {\r\n        CostType tmp = dp[(1\
+    \ << n) - 1][j] + e.cost;\r\n        if (tmp < res) res = tmp;\r\n      }\r\n\
+    \    }\r\n  }\r\n  return res;\r\n}\r\n"
+  dependsOn:
+  - graph/edge.hpp
   isVerificationFile: false
   path: graph/tsp.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tsp.test.cpp
@@ -78,4 +85,4 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/4082476/emthrm/C++14
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/5219970/emthrm/C++17

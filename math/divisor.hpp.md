@@ -2,39 +2,38 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/divisor.hpp\"\n#include <algorithm>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstd::vector<T> divisor(T val) {\r\n  std::vector<T>\
-    \ res;\r\n  for (T i = 1; i * i <= val; ++i) {\r\n    if (val % i == 0) {\r\n\
-    \      res.emplace_back(i);\r\n      if (i * i != val) res.emplace_back(val /\
-    \ i);\r\n    }\r\n  }\r\n  std::sort(res.begin(), res.end());\r\n  return res;\r\
-    \n}\r\n"
+    \n\r\ntemplate <typename T>\r\nstd::vector<T> divisor(T n) {\r\n  std::vector<T>\
+    \ res;\r\n  for (T i = 1; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n    \
+    \  res.emplace_back(i);\r\n      if (i * i != n) res.emplace_back(n / i);\r\n\
+    \    }\r\n  }\r\n  std::sort(res.begin(), res.end());\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> divisor(T val) {\r\n  std::vector<T> res;\r\n\
-    \  for (T i = 1; i * i <= val; ++i) {\r\n    if (val % i == 0) {\r\n      res.emplace_back(i);\r\
-    \n      if (i * i != val) res.emplace_back(val / i);\r\n    }\r\n  }\r\n  std::sort(res.begin(),\
+    \ <typename T>\r\nstd::vector<T> divisor(T n) {\r\n  std::vector<T> res;\r\n \
+    \ for (T i = 1; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n      res.emplace_back(i);\r\
+    \n      if (i * i != n) res.emplace_back(n / i);\r\n    }\r\n  }\r\n  std::sort(res.begin(),\
     \ res.end());\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/divisor.hpp
   requiredBy:
   - math/is_primitive_root.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/divisor.test.cpp
   - test/math/is_primitive_root.test.cpp
@@ -53,7 +52,7 @@ $O(\sqrt{N})$
 
 ||説明|
 |:--:|:--:|
-|`divisor(val)`|$\mathrm{val}$ の約数|
+|`divisor(n)`|$n$ の約数|
 
 
 ## 参考

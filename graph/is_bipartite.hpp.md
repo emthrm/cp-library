@@ -30,22 +30,22 @@ data:
   code: "#pragma once\r\n#include <functional>\r\n#include <vector>\r\n#include \"\
     edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nbool is_bipartite(const std::vector<std::vector<Edge<CostType>>>\
     \ &graph, std::vector<int> &color) {\r\n  int n = graph.size();\r\n  color.assign(n,\
-    \ 0);\r\n  std::function<bool(int, int)> dfs = [&graph, &color, &dfs](int ver,\
+    \ -1);\r\n  std::function<bool(int, int)> dfs = [&graph, &color, &dfs](int ver,\
     \ int now) -> bool {\r\n    color[ver] = now;\r\n    for (const Edge<CostType>\
-    \ &e : graph[ver]) {\r\n      if (color[e.dst] == now || (color[e.dst] == 0 &&\
-    \ !dfs(e.dst, -now))) return false;\r\n    }\r\n    return true;\r\n  };\r\n \
-    \ for (int i = 0; i < n; ++i) {\r\n    if (color[i] == 0 && !dfs(i, 1)) return\
+    \ &e : graph[ver]) {\r\n      if (color[e.dst] == now || (color[e.dst] == -1 &&\
+    \ !dfs(e.dst, now ^ 1))) return false;\r\n    }\r\n    return true;\r\n  };\r\n\
+    \  for (int i = 0; i < n; ++i) {\r\n    if (color[i] == -1 && !dfs(i, 0)) return\
     \ false;\r\n  }\r\n  return true;\r\n}\r\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/is_bipartite.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 00:27:09+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/graph/is_bipartite.test.cpp
   - test/data_structure/union-find/undoable_union-find.test.cpp
+  - test/graph/is_bipartite.test.cpp
 documentation_of: graph/is_bipartite.hpp
 layout: document
 title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
@@ -70,7 +70,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color}$ は各頂点の色 $-1$/$1$ でなければならない．|
+|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color} \in \{0, 1\}^N$ は各頂点の色を表す．|
 
 
 ## 参考

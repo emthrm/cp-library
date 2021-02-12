@@ -29,19 +29,18 @@ data:
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
     \u6D41/\u4E3B\u53CC\u5BFE\u6CD5 (minimum_cost_flow(s, t, flow))\r\n */\r\n#define\
     \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
-    \r\n\r\n#include <iostream>\r\n#include <limits>\r\n#include \"../../../../graph/flow/minimum_cost_flow/primal_dual.hpp\"\
-    \r\n\r\nint main() {\r\n  constexpr int INF = std::numeric_limits<int>::max();\r\
-    \n  int v, e, f;\r\n  std::cin >> v >> e >> f;\r\n  PrimalDual<int, int> pd(v,\
-    \ INF, INF);\r\n  while (e--) {\r\n    int u, v, c, d;\r\n    std::cin >> u >>\
+    \r\n\r\n#include <iostream>\r\n#include \"../../../../graph/flow/minimum_cost_flow/primal_dual.hpp\"\
+    \r\n\r\nint main() {\r\n  int v, e, f;\r\n  std::cin >> v >> e >> f;\r\n  PrimalDual<int,\
+    \ int> pd(v);\r\n  while (e--) {\r\n    int u, v, c, d;\r\n    std::cin >> u >>\
     \ v >> c >> d;\r\n    pd.add_edge(u, v, c, d);\r\n  }\r\n  int ans = pd.minimum_cost_flow(0,\
-    \ v - 1, f);\r\n  std::cout << (ans == INF ? -1 : ans) << '\\n';\r\n  return 0;\r\
-    \n}\r\n"
+    \ v - 1, f);\r\n  std::cout << (ans == pd.uinf ? -1 : ans) << '\\n';\r\n  return\
+    \ 0;\r\n}\r\n"
   dependsOn:
   - graph/flow/minimum_cost_flow/primal_dual.hpp
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp

@@ -3,33 +3,33 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/prime_factorization.test.cpp
     title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/prime_factorization.hpp\"\n#include <utility>\r\n#include\
     \ <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<std::pair<T, int>> prime_factorization(T\
-    \ val) {\r\n  std::vector<std::pair<T, int>> res;\r\n  for (T i = 2; i * i <=\
-    \ val; ++i) {\r\n    if (val % i != 0) continue;\r\n    int exponent = 0;\r\n\
-    \    while (val % i == 0) {\r\n      ++exponent;\r\n      val /= i;\r\n    }\r\
-    \n    res.emplace_back(i, exponent);\r\n  }\r\n  if (val != 1) res.emplace_back(val,\
-    \ 1);\r\n  return res;\r\n}\r\n"
+    \ n) {\r\n  std::vector<std::pair<T, int>> res;\r\n  for (T i = 2; i * i <= n;\
+    \ ++i) {\r\n    if (n % i != 0) continue;\r\n    int exponent = 0;\r\n    while\
+    \ (n % i == 0) {\r\n      ++exponent;\r\n      n /= i;\r\n    }\r\n    res.emplace_back(i,\
+    \ exponent);\r\n  }\r\n  if (n != 1) res.emplace_back(n, 1);\r\n  return res;\r\
+    \n}\r\n"
   code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<std::pair<T, int>> prime_factorization(T val) {\r\n  std::vector<std::pair<T,\
-    \ int>> res;\r\n  for (T i = 2; i * i <= val; ++i) {\r\n    if (val % i != 0)\
-    \ continue;\r\n    int exponent = 0;\r\n    while (val % i == 0) {\r\n      ++exponent;\r\
-    \n      val /= i;\r\n    }\r\n    res.emplace_back(i, exponent);\r\n  }\r\n  if\
-    \ (val != 1) res.emplace_back(val, 1);\r\n  return res;\r\n}\r\n"
+    \ T>\r\nstd::vector<std::pair<T, int>> prime_factorization(T n) {\r\n  std::vector<std::pair<T,\
+    \ int>> res;\r\n  for (T i = 2; i * i <= n; ++i) {\r\n    if (n % i != 0) continue;\r\
+    \n    int exponent = 0;\r\n    while (n % i == 0) {\r\n      ++exponent;\r\n \
+    \     n /= i;\r\n    }\r\n    res.emplace_back(i, exponent);\r\n  }\r\n  if (n\
+    \ != 1) res.emplace_back(n, 1);\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/prime_factorization.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/prime_factorization.test.cpp
 documentation_of: math/prime_factorization.hpp
@@ -47,7 +47,7 @@ $O(\sqrt{N})$
 
 ||説明|
 |:--:|:--:|
-|`prime_factorization(val)`|$\mathrm{val}$ の素因数分解|
+|`prime_factorization(n)`|$n$ の素因数分解|
 
 
 ## 参考

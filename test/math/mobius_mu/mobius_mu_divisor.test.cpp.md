@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu/mobius_mu_divisor.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mobius_mu/mobius_mu_divisor.test.cpp

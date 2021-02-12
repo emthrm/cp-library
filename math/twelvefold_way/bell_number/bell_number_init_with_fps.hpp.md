@@ -24,17 +24,17 @@ data:
   code: "/**\r\n * @brief \u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248\r\n\
     \ * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\n */\r\n\r\n#pragma\
     \ once\r\n#include <vector>\r\n#include \"../../fps/fps.hpp\"\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> bell_number_init_with_fps(int val) {\r\n  FPS<T>\
-    \ bell(val);\r\n  bell[1] = 1;\r\n  bell = bell.exp(val);\r\n  bell[0] -= 1;\r\
-    \n  bell = bell.exp(val);\r\n  T fact = 1;\r\n  for (int i = 0; i <= val; ++i)\
-    \ {\r\n    bell[i] *= fact;\r\n    fact *= i + 1;\r\n  }\r\n  return bell.co;\r\
-    \n}\r\n"
+    \ <typename T>\r\nstd::vector<T> bell_number_init_with_fps(int n) {\r\n  FPS<T>\
+    \ bell(n);\r\n  bell[1] = 1;\r\n  bell = bell.exp(n);\r\n  bell[0] -= 1;\r\n \
+    \ bell = bell.exp(n);\r\n  T fact = 1;\r\n  for (int i = 0; i <= n; ++i) {\r\n\
+    \    bell[i] *= fact;\r\n    fact *= i + 1;\r\n  }\r\n  return bell.co;\r\n}\r\
+    \n"
   dependsOn:
   - math/fps/fps.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
@@ -90,7 +90,7 @@ $$B(x) = e^{e^x - 1}$$
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init_with_fps<T>(val)`|ベル数 $B_n \ (0 \leq n \leq \mathrm{val})$ の数表|
+|`bell_number_init_with_fps<T>(n)`|ベル数 $B_i \ (0 \leq i \leq n)$ の数表|
 
 
 ## 参考

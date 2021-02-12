@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/mp.1.test.cpp
-    title: "\u6587\u5B57\u5217/MP \u6CD5 (`match(t)`)"
+    title: "\u6587\u5B57\u5217/MP \u6CD5 (match(t))"
   - icon: ':x:'
     path: test/string/mp.2.test.cpp
     title: "\u6587\u5B57\u5217/MP \u6CD5 (period(idx))"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/string/kmp.md
     document_title: "MP \u6CD5"
@@ -42,10 +42,10 @@ data:
   path: string/mp.hpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/string/mp.2.test.cpp
   - test/string/mp.1.test.cpp
+  - test/string/mp.2.test.cpp
 documentation_of: string/mp.hpp
 layout: document
 redirect_from:

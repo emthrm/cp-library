@@ -20,7 +20,7 @@ $$a^{\lambda(n)} \equiv 1 \pmod{n}$$
 
 ||説明|
 |:--:|:--:|
-|`carmichal_function(val)`|$\lambda(\mathrm{val})$|
+|`carmichal_function(n)`|$\lambda(n)$|
 
 - 数表
 

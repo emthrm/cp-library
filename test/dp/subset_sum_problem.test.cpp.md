@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: dp/subset_sum_problem.hpp
     title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/ntt.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':question:'
@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/dp/subset_sum_problem.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dp/subset_sum_problem.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/matrix/binary_matrix/binary_matrix.hpp
     title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
   _extendedRequiredBy: []
@@ -89,10 +89,10 @@ data:
     \ j = 1; j <= (1 << (N / 2)); ++j) {\r\n    long long val = 0;  // M^((2^18)j)\
     \ A\r\n    for (int bit = 0; bit < N; ++bit) val |= static_cast<long long>(mha[bit][0])\
     \ << (N - 1 - bit);\r\n    auto it = std::lower_bound(mx.begin(), mx.end(), std::make_pair(val,\
-    \ std::numeric_limits<int>::min()));\r\n    if (it != mx.end() && it->first ==\
-    \ val) {  // M^i X = M^((2^18)j) A \u3092\u6E80\u305F\u3059 i, j \u304C\u5B58\u5728\
-    \u3059\u308B\u5834\u5408\r\n      // M \u304C\u6B63\u5247?\u306A\u3089\u3070 X\
-    \ = M((2^18)j-i) A \u304C\u6210\u308A\u7ACB\u3064\uFF0E\r\n      // \u3057\u304B\
+    \ std::numeric_limits<int>::lowest()));\r\n    if (it != mx.end() && it->first\
+    \ == val) {  // M^i X = M^((2^18)j) A \u3092\u6E80\u305F\u3059 i, j \u304C\u5B58\
+    \u5728\u3059\u308B\u5834\u5408\r\n      // M \u304C\u6B63\u5247?\u306A\u3089\u3070\
+    \ X = M((2^18)j-i) A \u304C\u6210\u308A\u7ACB\u3064\uFF0E\r\n      // \u3057\u304B\
     \u3057\u305D\u3046\u3067\u306A\u3044\u5834\u5408\u306B\u4E0A\u5F0F\u304C\u6210\
     \u308A\u7ACB\u3064\u3068\u306F\u9650\u3089\u306A\u3044\u305F\u3081\uFF0C\u5B9F\
     \u969B\u306B\u8A08\u7B97\u3092\u884C\u3046\uFF0E\r\n      long long ans = (1LL\
@@ -108,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/math/matrix/binary_matrix/binary_matrix.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/matrix/binary_matrix/binary_matrix.test.cpp

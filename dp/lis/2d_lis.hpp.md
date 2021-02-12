@@ -21,19 +21,19 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ dp/lis/2d_lis.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief 2\u6B21\u5143 LIS\r\n * @docs docs/dp/lis/lis.md\r\n */\r\
-    \n\r\n#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nint lis_2d(const std::vector<std::pair<T, T>> &a,\
-    \ const T TINF) {\r\n  std::vector<std::pair<T, T>> b(a);\r\n  int n = b.size();\r\
-    \n  for (int i = 0; i < n; ++i) b[i].second = -b[i].second;\r\n  std::sort(b.begin(),\
-    \ b.end());\r\n  std::vector<T> check(n, TINF);\r\n  for (std::pair<T, T> pr :\
-    \ b) {\r\n    T tmp = -pr.second;\r\n    *std::lower_bound(check.begin(), check.end(),\
-    \ tmp) = tmp;\r\n  }\r\n  return std::lower_bound(check.begin(), check.end(),\
-    \ TINF) - check.begin();\r\n}\r\n"
+    \n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
+    \ <limits>\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename\
+    \ T>\r\nint lis_2d(std::vector<std::pair<T, T>> a) {\r\n  const T inf = std::numeric_limits<T>::max();\r\
+    \n  int n = a.size();\r\n  for (int i = 0; i < n; ++i) a[i].second = -a[i].second;\r\
+    \n  std::sort(a.begin(), a.end());\r\n  std::vector<T> check(n, inf);\r\n  for\
+    \ (const std::pair<T, T> &pr : a) {\r\n    T tmp = -pr.second;\r\n    *std::lower_bound(check.begin(),\
+    \ check.end(), tmp) = tmp;\r\n  }\r\n  return std::distance(check.begin(), std::lower_bound(check.begin(),\
+    \ check.end(), inf));\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dp/lis/2d_lis.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/dp/lis/2d_lis.test.cpp
@@ -60,21 +60,19 @@ $O(N\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`lis(a, ∞)`|$A$ の最長増加部分列|
-
-最長非減少部分列を求めるには `lower_bound` → `upper_bound`，最長減少部分列を求めるには元の列を逆にしたものの最長増加部分列を求めればよい．
+|`lis(a, 広義単調増加か? = true)`|$A$ の最長増加部分列|
 
 - 2次元 LIS
 
 ||説明|
 |:--:|:--:|
-|`lis_2d(a, ∞)`|2次元配列 $A$ の最長増加部分列|
+|`lis_2d(a)`|2次元配列 $A$ の最長増加部分列|
 
 - 最長増加部分列 RMQ 版
 
 ||説明|
 |:--:|:--:|
-|`lis_rmq(a, ∞)`|$A$ の最長増加部分列長|
+|`lis_rmq(a, 広義単調増加か? = true)`|$A$ の最長増加部分列長|
 
 
 ## 参考

@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_init2.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
@@ -91,25 +91,25 @@ $$f(n) = \sum_{d \mid n} g(d) \Leftrightarrow g(n) = \sum_{d \mid n} \mu \left(\
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu(val)`|$\mu(\mathrm{val})$|
+|`mobius_mu(n)`|$\mu(n)$|
 
 - 約数版
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`mobius_mu_divisor(val)`|$\lbrace (\mathrm{val} \text{ の約数 } d, \mu(d)) \rbrace$|キーとして存在しない場合は $\mathrm{val}$ の約数でないか値 $0$ である．|
+|`mobius_mu_divisor(n)`|$\lbrace n \text{ の約数 } d, \mu(d)) \rbrace$|キーとして存在しない場合は $n$ の約数でないか値 $0$ である．|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu_init(val)`|メビウス関数 $\mu(n) \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`mobius_mu_init(n)`|メビウス関数 $\mu(i) \ (1 \leq i \leq n)$ の数表|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(n) \ (\mathrm{low} \leq n < \mathrm{high})$ の数表|
+|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(i) \ (\mathrm{low} \leq i < \mathrm{high})$ の数表|
 
 
 ## 参考

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/mo.hpp\"\n#include <algorithm>\r\n#include <cmath>\r\
@@ -43,7 +43,7 @@ data:
   path: misc/mo.hpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/mo.test.cpp
 documentation_of: misc/mo.hpp
@@ -93,6 +93,8 @@ $1$回あたりの伸縮に $O(\alpha)$ かかるとおくと $O(Q\log{Q} + \alp
   - https://lumakernel.github.io/ecasdqina/algorithm/Mo3D
   - https://codeforces.com/blog/entry/43230
   - https://codeforces.com/blog/entry/55574
+  - https://codeforces.com/contest/1476/problem/G
+  - https://twitter.com/SSRS_cp/status/1355193120204312576
 
 
 ## Verified

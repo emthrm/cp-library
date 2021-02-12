@@ -24,19 +24,19 @@ data:
     \ math/lagrange_interpolation.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
     \u7248\r\n * @docs docs/math/lagrange_interpolation.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nT\
-    \ lagrange_interpolation(const std::vector<T> &x, const std::vector<T> &y, T t)\
-    \ {\r\n  auto it = std::find(x.begin(), x.end(), t);\r\n  if (it != x.end()) return\
-    \ y[it - x.begin()];\r\n  int n = x.size();\r\n  T res = 0;\r\n  for (int i =\
-    \ 0; i < n; ++i) {\r\n    T den = t - x[i];\r\n    for (int j = 0; j < n; ++j)\
-    \ {\r\n      if (j != i) den *= x[i] - x[j];\r\n    }\r\n    res += y[i] / den;\r\
-    \n  }\r\n  for (int i = 0; i < n; ++i) res *= t - x[i];\r\n  return res;\r\n}\r\
-    \n"
+    \n#include <algorithm>\r\n#include <iterator>\r\n#include <vector>\r\n\r\ntemplate\
+    \ <typename T>\r\nT lagrange_interpolation(const std::vector<T> &x, const std::vector<T>\
+    \ &y, T t) {\r\n  auto it = std::find(x.begin(), x.end(), t);\r\n  if (it != x.end())\
+    \ return y[std::distance(x.begin(), it)];\r\n  int n = x.size();\r\n  T res =\
+    \ 0;\r\n  for (int i = 0; i < n; ++i) {\r\n    T den = t - x[i];\r\n    for (int\
+    \ j = 0; j < n; ++j) {\r\n      if (j != i) den *= x[i] - x[j];\r\n    }\r\n \
+    \   res += y[i] / den;\r\n  }\r\n  for (int i = 0; i < n; ++i) res *= t - x[i];\r\
+    \n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 04:31:13+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/lagrange_interpolation.test.cpp

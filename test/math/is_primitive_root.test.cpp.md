@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/ntt.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/divisor.hpp
     title: "\u7D04\u6570\u5217\u6319"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':question:'
@@ -19,9 +19,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/931
@@ -62,8 +62,8 @@ data:
   isVerificationFile: true
   path: test/math/is_primitive_root.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/is_primitive_root.test.cpp
 layout: document

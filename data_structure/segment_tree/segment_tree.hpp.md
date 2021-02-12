@@ -40,40 +40,40 @@ data:
   code: "/**\n * @brief \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n * @docs docs/data_structure/segment_tree/segment_tree.md\n\
     \ */\n\n#pragma once\n#include <limits>\n#include <vector>\n\ntemplate <typename\
     \ T>\nstruct SegmentTree {\n  using Monoid = typename T::Monoid;\n\n  SegmentTree(int\
-    \ n) : SegmentTree(std::vector<Monoid>(n, T::unity())) {}\n\n  SegmentTree(const\
+    \ n) : SegmentTree(std::vector<Monoid>(n, T::id())) {}\n\n  SegmentTree(const\
     \ std::vector<Monoid> &a) : n(a.size()) {\n    while (p2 < n) p2 <<= 1;\n    dat.assign(p2\
-    \ << 1, T::unity());\n    for (int i = 0; i < n; ++i) dat[i + p2] = a[i];\n  \
-    \  for (int i = p2 - 1; i > 0; --i) dat[i] = T::merge(dat[i << 1], dat[(i << 1)\
-    \ + 1]);\n  }\n\n  void set(int idx, Monoid val) {\n    idx += p2;\n    dat[idx]\
-    \ = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx << 1], dat[(idx <<\
-    \ 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const {\n    Monoid l_res\
-    \ = T::unity(), r_res = T::unity();\n    for (left += p2, right += p2; left <\
-    \ right; left >>= 1, right >>= 1) {\n      if (left & 1) l_res = T::merge(l_res,\
-    \ dat[left++]);\n      if (right & 1) r_res = T::merge(dat[--right], r_res);\n\
-    \    }\n    return T::merge(l_res, r_res);\n  }\n\n  Monoid operator[](const int\
-    \ idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
-    \ left, G g) {\n    if (left >= n) return n;\n    Monoid val = T::unity();\n \
-    \   left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n      Monoid\
-    \ nx = T::merge(val, dat[left]);\n      if (!g(nx)) {\n        while (left < p2)\
-    \ {\n          left <<= 1;\n          nx = T::merge(val, dat[left]);\n       \
-    \   if (g(nx)) {\n            val = nx;\n            ++left;\n          }\n  \
-    \      }\n        return left - p2;\n      }\n      val = nx;\n      ++left;\n\
-    \    } while (__builtin_popcount(left) > 1);\n    return n;\n  }\n\n  template\
-    \ <typename G>\n  int find_left(int right, G g) {\n    if (right <= 0) return\
-    \ -1;\n    Monoid val = T::unity();\n    right += p2;\n    do {\n      --right;\n\
-    \      while (right > 1 && (right & 1)) right >>= 1;\n      Monoid nx = T::merge(dat[right],\
-    \ val);\n      if (!g(nx)) {\n        while (right < p2) {\n          right =\
-    \ (right << 1) + 1;\n          nx = T::merge(dat[right], val);\n          if (g(nx))\
-    \ {\n            val = nx;\n            --right;\n          }\n        }\n   \
-    \     return right - p2;\n      }\n      val = nx;\n    } while (__builtin_popcount(right)\
-    \ > 1);\n    return -1;\n  }\n\nprivate:\n  int n, p2 = 1;\n  std::vector<Monoid>\
-    \ dat;\n};\n\nnamespace monoid {\ntemplate <typename T>\nstruct RangeMinimumQuery\
-    \ {\n  using Monoid = T;\n  static constexpr T unity() { return std::numeric_limits<T>::max();\
-    \ }\n  static T merge(const T &a, const T &b) { return std::min(a, b); }\n};\n\
-    \ntemplate <typename T>\nstruct RangeMaximumQuery {\n  using Monoid = T;\n  static\
-    \ constexpr T unity() { return std::numeric_limits<T>::min(); }\n  static T merge(const\
+    \ << 1, T::id());\n    for (int i = 0; i < n; ++i) dat[i + p2] = a[i];\n    for\
+    \ (int i = p2 - 1; i > 0; --i) dat[i] = T::merge(dat[i << 1], dat[(i << 1) + 1]);\n\
+    \  }\n\n  void set(int idx, Monoid val) {\n    idx += p2;\n    dat[idx] = val;\n\
+    \    while (idx >>= 1) dat[idx] = T::merge(dat[idx << 1], dat[(idx << 1) + 1]);\n\
+    \  }\n\n  Monoid get(int left, int right) const {\n    Monoid l_res = T::id(),\
+    \ r_res = T::id();\n    for (left += p2, right += p2; left < right; left >>= 1,\
+    \ right >>= 1) {\n      if (left & 1) l_res = T::merge(l_res, dat[left++]);\n\
+    \      if (right & 1) r_res = T::merge(dat[--right], r_res);\n    }\n    return\
+    \ T::merge(l_res, r_res);\n  }\n\n  Monoid operator[](const int idx) const { return\
+    \ dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int left, G g)\
+    \ {\n    if (left >= n) return n;\n    Monoid val = T::id();\n    left += p2;\n\
+    \    do {\n      while (!(left & 1)) left >>= 1;\n      Monoid nx = T::merge(val,\
+    \ dat[left]);\n      if (!g(nx)) {\n        while (left < p2) {\n          left\
+    \ <<= 1;\n          nx = T::merge(val, dat[left]);\n          if (g(nx)) {\n \
+    \           val = nx;\n            ++left;\n          }\n        }\n        return\
+    \ left - p2;\n      }\n      val = nx;\n      ++left;\n    } while (__builtin_popcount(left)\
+    \ > 1);\n    return n;\n  }\n\n  template <typename G>\n  int find_left(int right,\
+    \ G g) {\n    if (right <= 0) return -1;\n    Monoid val = T::id();\n    right\
+    \ += p2;\n    do {\n      --right;\n      while (right > 1 && (right & 1)) right\
+    \ >>= 1;\n      Monoid nx = T::merge(dat[right], val);\n      if (!g(nx)) {\n\
+    \        while (right < p2) {\n          right = (right << 1) + 1;\n         \
+    \ nx = T::merge(dat[right], val);\n          if (g(nx)) {\n            val = nx;\n\
+    \            --right;\n          }\n        }\n        return right - p2;\n  \
+    \    }\n      val = nx;\n    } while (__builtin_popcount(right) > 1);\n    return\
+    \ -1;\n  }\n\nprivate:\n  int n, p2 = 1;\n  std::vector<Monoid> dat;\n};\n\nnamespace\
+    \ monoid {\ntemplate <typename T>\nstruct RangeMinimumQuery {\n  using Monoid\
+    \ = T;\n  static constexpr T id() { return std::numeric_limits<T>::max(); }\n\
+    \  static T merge(const T &a, const T &b) { return std::min(a, b); }\n};\n\ntemplate\
+    \ <typename T>\nstruct RangeMaximumQuery {\n  using Monoid = T;\n  static constexpr\
+    \ T id() { return std::numeric_limits<T>::lowest(); }\n  static T merge(const\
     \ T &a, const T &b) { return std::max(a, b); }\n};\n\ntemplate <typename T>\n\
-    struct RangeSumQuery {\n  using Monoid = T;\n  static constexpr T unity() { return\
+    struct RangeSumQuery {\n  using Monoid = T;\n  static constexpr T id() { return\
     \ 0; }\n  static T merge(const T &a, const T &b) { return a + b; }\n};\n}  //\
     \ monoid\n"
   dependsOn: []
@@ -81,13 +81,13 @@ data:
   path: data_structure/segment_tree/segment_tree.hpp
   requiredBy:
   - dp/lis/lis_rmq.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dp/lis/lis_rmq.test.cpp
   - test/data_structure/segment_tree/segment_tree.test.cpp
-  - test/data_structure/segment_tree/range_sum_query.test.cpp
   - test/data_structure/segment_tree/range_minimum_query.test.cpp
+  - test/data_structure/segment_tree/range_sum_query.test.cpp
+  - test/dp/lis/lis_rmq.test.cpp
 documentation_of: data_structure/segment_tree/segment_tree.hpp
 layout: document
 redirect_from:
@@ -117,14 +117,14 @@ $\langle O(N), O(\log{N}) \rangle$
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における取得クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
 |`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}}$|存在しない場合は $-1$ となる．|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
 
 `T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
 
 ||説明|
 |:--:|:--:|
 |`T::Monoid`|モノイド|
-|`T::unity()`|単位元|
+|`T::id()`|単位元|
 |`T::merge(a, b)`||
 
 - 遅延評価セグメント木
@@ -147,8 +147,8 @@ $\langle O(N), O(\log{N}) \rangle$
 |:--:|:--:|
 |`T::Monoid`|モノイド|
 |`T::OperatorMonoid`|作用素モノイド|
-|`T::m_unity()`|モノイドの単位元|
-|`T::o_unity()`|作用素モノイドの単位元|
+|`T::m_id()`|モノイドの単位元|
+|`T::o_id()`|作用素モノイドの単位元|
 |`T::m_merge(a, b)`||
 |`T::o_merge(a, b)`||
 |`T::apply(a, b)`||
@@ -207,6 +207,8 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
 - segment tree beats
+  - https://rsm9.hatenablog.com/entry/2021/02/01/220408
+  - https://twitter.com/fuppy_kyopro/status/1356599033439997952
   - https://codeforces.com/blog/entry/57319
   - https://hackmd.io/@a4YdmMWJSTa0aHKUX3wNcA/S1MJhbSLV
   - https://smijake3.hatenablog.com/entry/2019/04/28/021457
@@ -216,9 +218,13 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/tjkendev/segment-tree-beats
   - https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_1.html
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
+  - https://onlinejudge.u-aizu.ac.jp/problems/0427
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
+- 区間等差数列加算区間最小値クエリ
+  - https://twitter.com/yosupot/status/1104175527923986432
+  - https://twitter.com/kuma_program/status/1358762477589155840
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 

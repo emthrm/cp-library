@@ -14,7 +14,7 @@ data:
   bundledCode: "#line 2 \"graph/shortest_path/warshall-floyd.hpp\"\n#include <set>\r\
     \n#include <vector>\r\n\r\ntemplate <typename T>\r\nstruct WarshallFloyd {\r\n\
     \  std::vector<std::vector<T>> graph, dist;\r\n\r\n  WarshallFloyd(const std::vector<std::vector<T>>\
-    \ &graph, const T TINF) : graph(graph), dist(graph), TINF(TINF) {\r\n    n = graph.size();\r\
+    \ &graph, const T inf) : graph(graph), dist(graph), inf(inf) {\r\n    n = graph.size();\r\
     \n    internal.assign(n, std::vector<int>(n, -1));\r\n    for (int k = 0; k <\
     \ n; ++k) for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) {\r\n      if\
     \ (dist[i][j] > dist[i][k] + dist[k][j]) {\r\n        dist[i][j] = dist[i][k]\
@@ -33,9 +33,9 @@ data:
     \n    costs.clear();\r\n  }\r\n\r\n  bool has_negative_cycle() const {\r\n   \
     \ for (int i = 0; i < n; ++i) {\r\n      if (dist[i][i] < 0) return true;\r\n\
     \    }\r\n    return false;\r\n  }\r\n\r\n  std::vector<int> build_path(int s,\
-    \ int t) const {\r\n    std::vector<int> res;\r\n    if (dist[s][t] != TINF) {\r\
+    \ int t) const {\r\n    std::vector<int> res;\r\n    if (dist[s][t] != inf) {\r\
     \n      build_path(s, t, res);\r\n      res.emplace_back(t);\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n\r\nprivate:\r\n  const T TINF;\r\n  int n;\r\n  std::vector<std::vector<int>>\
+    \ res;\r\n  }\r\n\r\nprivate:\r\n  const T inf;\r\n  int n;\r\n  std::vector<std::vector<int>>\
     \ internal;\r\n  std::vector<int> srcs, dsts;\r\n  std::vector<T> costs;\r\n\r\
     \n  void build_path(int s, int t, std::vector<int> &path) const {\r\n    int k\
     \ = internal[s][t];\r\n    if (k == -1) {\r\n      path.emplace_back(s);\r\n \
@@ -43,8 +43,8 @@ data:
     \n    }\r\n  }\r\n};\r\n"
   code: "#pragma once\r\n#include <set>\r\n#include <vector>\r\n\r\ntemplate <typename\
     \ T>\r\nstruct WarshallFloyd {\r\n  std::vector<std::vector<T>> graph, dist;\r\
-    \n\r\n  WarshallFloyd(const std::vector<std::vector<T>> &graph, const T TINF)\
-    \ : graph(graph), dist(graph), TINF(TINF) {\r\n    n = graph.size();\r\n    internal.assign(n,\
+    \n\r\n  WarshallFloyd(const std::vector<std::vector<T>> &graph, const T inf) :\
+    \ graph(graph), dist(graph), inf(inf) {\r\n    n = graph.size();\r\n    internal.assign(n,\
     \ std::vector<int>(n, -1));\r\n    for (int k = 0; k < n; ++k) for (int i = 0;\
     \ i < n; ++i) for (int j = 0; j < n; ++j) {\r\n      if (dist[i][j] > dist[i][k]\
     \ + dist[k][j]) {\r\n        dist[i][j] = dist[i][k] + dist[k][j];\r\n       \
@@ -63,10 +63,10 @@ data:
     \n\r\n  bool has_negative_cycle() const {\r\n    for (int i = 0; i < n; ++i) {\r\
     \n      if (dist[i][i] < 0) return true;\r\n    }\r\n    return false;\r\n  }\r\
     \n\r\n  std::vector<int> build_path(int s, int t) const {\r\n    std::vector<int>\
-    \ res;\r\n    if (dist[s][t] != TINF) {\r\n      build_path(s, t, res);\r\n  \
-    \    res.emplace_back(t);\r\n    }\r\n    return res;\r\n  }\r\n\r\nprivate:\r\
-    \n  const T TINF;\r\n  int n;\r\n  std::vector<std::vector<int>> internal;\r\n\
-    \  std::vector<int> srcs, dsts;\r\n  std::vector<T> costs;\r\n\r\n  void build_path(int\
+    \ res;\r\n    if (dist[s][t] != inf) {\r\n      build_path(s, t, res);\r\n   \
+    \   res.emplace_back(t);\r\n    }\r\n    return res;\r\n  }\r\n\r\nprivate:\r\n\
+    \  const T inf;\r\n  int n;\r\n  std::vector<std::vector<int>> internal;\r\n \
+    \ std::vector<int> srcs, dsts;\r\n  std::vector<T> costs;\r\n\r\n  void build_path(int\
     \ s, int t, std::vector<int> &path) const {\r\n    int k = internal[s][t];\r\n\
     \    if (k == -1) {\r\n      path.emplace_back(s);\r\n    } else {\r\n      build_path(s,\
     \ k, path);\r\n      build_path(k, t, path);\r\n    }\r\n  }\r\n};\r\n"
@@ -74,7 +74,7 @@ data:
   isVerificationFile: false
   path: graph/shortest_path/warshall-floyd.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/shortest_path/warshall-floyd.test.cpp

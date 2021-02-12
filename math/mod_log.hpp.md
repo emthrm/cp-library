@@ -7,12 +7,12 @@ data:
       , \u30D0\u30A4\u30CA\u30EA\u6CD5)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/mod_log.test.cpp
     title: "\u6570\u5B66/\u96E2\u6563\u5BFE\u6570\u554F\u984C"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/mod_log.hpp\"\n#include <cmath>\r\n#include <map>\r\
@@ -53,7 +53,7 @@ data:
   path: math/mod_log.hpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_log.test.cpp
 documentation_of: math/mod_log.hpp

@@ -36,7 +36,7 @@ data:
   isVerificationFile: false
   path: math/inverse_element/mod_inv_phi.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/inverse_element/mod_inv_phi.hpp
@@ -92,9 +92,7 @@ $ax \equiv 1 \pmod{m}$ を満たす $x = a^{-1}$．
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inv_init(val, mod)`|$\mathrm{val}$ 以下の逆元の数表|$a! \perp \mathrm{mod}$|
-
-e.g. $0 \leq a < \mathrm{mod}$ を満たす素数
+|`inv_init(n, mod)`|$n$ 以下の逆元の数表|$n! \perp \mathrm{mod}$ (e.g. $0 \leq n < \mathrm{mod}$ を満たす素数)|
 
 
 ## 参考

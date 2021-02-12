@@ -2,20 +2,20 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/fps/polynomial_interpolation.hpp
     title: "\u591A\u9805\u5F0F\u88DC\u9593"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/fps/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/fps/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/fps/multipoint_evaluation.hpp\"\n#include <vector>\r\
@@ -45,10 +45,10 @@ data:
   requiredBy:
   - math/fps/polynomial_interpolation.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fps/polynomial_interpolation.test.cpp
   - test/math/fps/multipoint_evaluation.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
 documentation_of: math/fps/multipoint_evaluation.hpp
 layout: document
 title: multipoint evaluation

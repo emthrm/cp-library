@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/graph/is_bipartite.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 00:27:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/is_bipartite.test.cpp

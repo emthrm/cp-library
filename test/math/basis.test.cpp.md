@@ -51,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/math/basis.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 02:56:42+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/basis.test.cpp

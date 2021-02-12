@@ -22,20 +22,23 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ dp/lis/lis.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\r\n * @docs docs/dp/lis/lis.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n\
-    template <typename T>\r\nstd::vector<T> lis(const std::vector<T> &a, const T TINF)\
-    \ {\r\n  int n = a.size();\r\n  std::vector<T> check(n, TINF);\r\n  std::vector<int>\
-    \ idx(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    idx[i] = std::lower_bound(check.begin(),\
-    \ check.end(), a[i]) - check.begin();\r\n    check[idx[i]] = a[i];\r\n  }\r\n\
-    \  int res_sz = std::lower_bound(check.begin(), check.end(), TINF) - check.begin();\r\
-    \n  std::vector<T> res(res_sz--);\r\n  for (int i = n - 1; res_sz >= 0 && i >=\
-    \ 0; --i) {\r\n    if (idx[i] == res_sz) res[res_sz--] = a[i];\r\n  }\r\n  return\
-    \ res;\r\n}\r\n"
+    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
+    \ <limits>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
+    \ lis(const std::vector<T> &a, bool is_strict = true) {\r\n  const T inf = std::numeric_limits<T>::max();\r\
+    \n  int n = a.size();\r\n  std::vector<T> check(n, inf);\r\n  std::vector<int>\
+    \ idx(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    if (is_strict) {\r\n     \
+    \ idx[i] = std::distance(check.begin(), std::lower_bound(check.begin(), check.end(),\
+    \ a[i]));\r\n    } else {\r\n      idx[i] = std::distance(check.begin(), std::upper_bound(check.begin(),\
+    \ check.end(), a[i]));\r\n    }\r\n    check[idx[i]] = a[i];\r\n  }\r\n  int res_sz\
+    \ = std::distance(check.begin(), std::lower_bound(check.begin(), check.end(),\
+    \ inf));\r\n  std::vector<T> res(res_sz--);\r\n  for (int i = n - 1; res_sz >=\
+    \ 0 && i >= 0; --i) {\r\n    if (idx[i] == res_sz) res[res_sz--] = a[i];\r\n \
+    \ }\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dp/lis/lis.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dp/lis/lis.test.cpp
@@ -62,21 +65,19 @@ $O(N\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`lis(a, ∞)`|$A$ の最長増加部分列|
-
-最長非減少部分列を求めるには `lower_bound` → `upper_bound`，最長減少部分列を求めるには元の列を逆にしたものの最長増加部分列を求めればよい．
+|`lis(a, 広義単調増加か? = true)`|$A$ の最長増加部分列|
 
 - 2次元 LIS
 
 ||説明|
 |:--:|:--:|
-|`lis_2d(a, ∞)`|2次元配列 $A$ の最長増加部分列|
+|`lis_2d(a)`|2次元配列 $A$ の最長増加部分列|
 
 - 最長増加部分列 RMQ 版
 
 ||説明|
 |:--:|:--:|
-|`lis_rmq(a, ∞)`|$A$ の最長増加部分列長|
+|`lis_rmq(a, 広義単調増加か? = true)`|$A$ の最長増加部分列長|
 
 
 ## 参考

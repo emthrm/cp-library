@@ -24,32 +24,33 @@ data:
     \ a non-first line\n"
   code: "/**\r\n * @brief \u4E3B\u53CC\u5BFE\u6CD52\r\n * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <functional>\r\n\
-    #include <queue>\r\n#include <tuple>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T, typename U>\r\nstruct PrimalDual2 {\r\n  struct Edge\
-    \ {\r\n    int dst, rev;\r\n    T cap;\r\n    U cost;\r\n    Edge(int dst, T cap,\
-    \ U cost, int rev) : dst(dst), cap(cap), cost(cost), rev(rev) {}\r\n  };\r\n\r\
-    \n  std::vector<std::vector<Edge>> graph;\r\n\r\n  PrimalDual2(int n, const T\
-    \ TINF, const U UINF) : n(n), UINF(UINF), graph(n + 2), d(n + 2, 0) {}\r\n\r\n\
-    \  void add_edge(int src, int dst, T cap, U cost) {\r\n    if (cost < 0) {\r\n\
-    \      d[src] -= cap;\r\n      d[dst] += cap;\r\n      res += cost * cap;\r\n\
-    \      std::swap(src, dst);\r\n      cost = -cost;\r\n    }\r\n    graph[src].emplace_back(dst,\
-    \ cap, cost, graph[dst].size());\r\n    graph[dst].emplace_back(src, 0, -cost,\
-    \ graph[src].size() - 1);\r\n  }\r\n\r\n  U minimum_cost_flow() {\r\n    T flow\
-    \ = 0;\r\n    for (int i = 0; i < n; ++i) {\r\n      if (d[i] > 0) {\r\n     \
-    \   add_edge(n, i, d[i], 0);\r\n        flow += d[i];\r\n      } else if (d[i]\
-    \ < 0) {\r\n        add_edge(i, n + 1, -d[i], 0);\r\n      }\r\n    }\r\n    std::vector<int>\
+    #include <limits>\r\n#include <queue>\r\n#include <tuple>\r\n#include <utility>\r\
+    \n#include <vector>\r\n\r\ntemplate <typename T, typename U>\r\nstruct PrimalDual2\
+    \ {\r\n  struct Edge {\r\n    int dst, rev;\r\n    T cap;\r\n    U cost;\r\n \
+    \   Edge(int dst, T cap, U cost, int rev) : dst(dst), cap(cap), cost(cost), rev(rev)\
+    \ {}\r\n  };\r\n\r\n  const U uinf;\r\n  std::vector<std::vector<Edge>> graph;\r\
+    \n\r\n  PrimalDual2(int n, const U uinf = std::numeric_limits<U>::max()) : n(n),\
+    \ uinf(uinf), graph(n + 2), d(n + 2, 0) {}\r\n\r\n  void add_edge(int src, int\
+    \ dst, T cap, U cost) {\r\n    if (cost < 0) {\r\n      d[src] -= cap;\r\n   \
+    \   d[dst] += cap;\r\n      res += cost * cap;\r\n      std::swap(src, dst);\r\
+    \n      cost = -cost;\r\n    }\r\n    graph[src].emplace_back(dst, cap, cost,\
+    \ graph[dst].size());\r\n    graph[dst].emplace_back(src, 0, -cost, graph[src].size()\
+    \ - 1);\r\n  }\r\n\r\n  U minimum_cost_flow() {\r\n    T flow = 0;\r\n    for\
+    \ (int i = 0; i < n; ++i) {\r\n      if (d[i] > 0) {\r\n        add_edge(n, i,\
+    \ d[i], 0);\r\n        flow += d[i];\r\n      } else if (d[i] < 0) {\r\n     \
+    \   add_edge(i, n + 1, -d[i], 0);\r\n      }\r\n    }\r\n    std::vector<int>\
     \ prev_v(n + 2, -1), prev_e(n + 2, -1);\r\n    std::vector<U> potential(n + 2,\
     \ 0), dist(n + 2);\r\n    std::priority_queue<Pui, std::vector<Pui>, std::greater<Pui>>\
     \ que;\r\n    while (flow > 0) {\r\n      std::fill(dist.begin(), dist.end(),\
-    \ UINF);\r\n      dist[n] = 0;\r\n      que.emplace(0, n);\r\n      while (!que.empty())\
+    \ uinf);\r\n      dist[n] = 0;\r\n      que.emplace(0, n);\r\n      while (!que.empty())\
     \ {\r\n        U fst; int ver; std::tie(fst, ver) = que.top(); que.pop();\r\n\
     \        if (dist[ver] < fst) continue;\r\n        for (int i = 0; i < graph[ver].size();\
     \ ++i) {\r\n          Edge &e = graph[ver][i];\r\n          U nx = dist[ver] +\
     \ e.cost + potential[ver] - potential[e.dst];\r\n          if (e.cap > 0 && dist[e.dst]\
     \ > nx) {\r\n            dist[e.dst] = nx;\r\n            prev_v[e.dst] = ver;\r\
     \n            prev_e[e.dst] = i;\r\n            que.emplace(dist[e.dst], e.dst);\r\
-    \n          }\r\n        }\r\n      }\r\n      if (dist[n + 1] == UINF) return\
-    \ UINF;\r\n      for (int i = 0; i < n + 2; ++i) {\r\n        if (dist[i] != UINF)\
+    \n          }\r\n        }\r\n      }\r\n      if (dist[n + 1] == uinf) return\
+    \ uinf;\r\n      for (int i = 0; i < n + 2; ++i) {\r\n        if (dist[i] != uinf)\
     \ potential[i] += dist[i];\r\n      }\r\n      T f = flow;\r\n      for (int v\
     \ = n + 1; v != n; v = prev_v[v]) {\r\n        if (graph[prev_v[v]][prev_e[v]].cap\
     \ < f) f = graph[prev_v[v]][prev_e[v]].cap;\r\n      }\r\n      flow -= f;\r\n\
@@ -58,13 +59,13 @@ data:
     \n        graph[v][e.rev].cap += f;\r\n      }\r\n    }\r\n    return res;\r\n\
     \  }\r\n\r\n  U minimum_cost_flow(int s, int t, T flow) {\r\n    d[s] += flow;\r\
     \n    d[t] -= flow;\r\n    return minimum_cost_flow();\r\n  }\r\n\r\nprivate:\r\
-    \n  using Pui = std::pair<U, int>;\r\n\r\n  int n;\r\n  const U UINF;\r\n  U res\
-    \ = 0;\r\n  std::vector<T> d;\r\n};\r\n"
+    \n  using Pui = std::pair<U, int>;\r\n\r\n  int n;\r\n  U res = 0;\r\n  std::vector<T>\
+    \ d;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/minimum_cost_flow/primal_dual2.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
@@ -98,18 +99,20 @@ title: "\u4E3B\u53CC\u5BFE\u6CD52"
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`PrimalDual<フロー, コスト>(n, ∞, ∞)`|頂点数 $N$ の主双対法を考える．||
+|`PrimalDual<フロー, コスト>(n, ∞)`|頂点数 $N$ の主双対法を考える．||
+|`uinf`|$\infty$|型はコストと等しい．|
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を張る．||
 |`minimum_cost_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときのコストの最小値|流せない場合は $\infty$ となる．|
-|`minimum_cost_flow(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{TINF} - \mathrm{tmp}$ である．|
+|`minimum_cost_flow(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{tinf} - \mathrm{tmp}$ である．|
 |`min_cost_max_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流したいときの最小費用最大流 (最大流, 最小費用)||
 
 - 主双対法2
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`PrimalDual2<フロー, コスト>(n, ∞, ∞)`|頂点数 $N$ の主双対法2を考える．||
+|`PrimalDual2<フロー, コスト>(n, ∞)`|頂点数 $N$ の主双対法2を考える．||
+|`uinf`|$\infty$|型はコストと等しい．|
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を張る．||
 |`minimum_cost_flow()`|最小費用循環流|流せない場合は $\infty$ となる．|

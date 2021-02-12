@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/montmort_number.hpp
     title: "\u30E2\u30F3\u30E2\u30FC\u30EB\u6570 (Montmort number)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/montmort_number_mod
@@ -117,13 +117,13 @@ data:
     \ * fact_inv[n - k];\r\n  }\r\n  ModInt nHk(int n, int k) const {\r\n    if (n\
     \ < 0 || k < 0) return 0;\r\n    return k == 0 ? 1 : nCk(n + k - 1, k);\r\n  }\r\
     \n};\r\n#line 3 \"math/montmort_number.hpp\"\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ montmort_number(int val) {\r\n  std::vector<T> montmort(val + 1, 0);\r\n  if\
-    \ (val >= 0) montmort[0] = 1;\r\n  for (int i = 2; i <= val; ++i) montmort[i]\
-    \ = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\r\n  return montmort;\r\n}\r\
-    \n#line 10 \"test/math/montmort_number.test.cpp\"\n\r\nint main() {\r\n  int n,\
-    \ m;\r\n  std::cin >> n >> m;\r\n  ModInt::set_mod(m);\r\n  std::vector<ModInt>\
-    \ b = montmort_number<ModInt>(n);\r\n  for (int i = 1; i <= n; ++i) std::cout\
-    \ << b[i] << \" \\n\"[i == n];\r\n  return 0;\r\n}\r\n"
+    \ montmort_number(int n) {\r\n  std::vector<T> montmort(n + 1, 0);\r\n  if (n\
+    \ >= 0) montmort[0] = 1;\r\n  for (int i = 2; i <= n; ++i) montmort[i] = (montmort[i\
+    \ - 1] + montmort[i - 2]) * (i - 1);\r\n  return montmort;\r\n}\r\n#line 10 \"\
+    test/math/montmort_number.test.cpp\"\n\r\nint main() {\r\n  int n, m;\r\n  std::cin\
+    \ >> n >> m;\r\n  ModInt::set_mod(m);\r\n  std::vector<ModInt> b = montmort_number<ModInt>(n);\r\
+    \n  for (int i = 1; i <= n; ++i) std::cout << b[i] << \" \\n\"[i == n];\r\n  return\
+    \ 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570\r\n */\r\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/montmort_number_mod\"\r\n\r\
     \n#include <iostream>\r\n#include <vector>\r\n#include \"../../math/modint.hpp\"\
@@ -137,8 +137,8 @@ data:
   isVerificationFile: true
   path: test/math/montmort_number.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/montmort_number.test.cpp
 layout: document

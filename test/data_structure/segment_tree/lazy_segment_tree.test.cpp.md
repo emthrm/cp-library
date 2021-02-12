@@ -36,9 +36,9 @@ data:
     \ \"../../../math/modint.hpp\"\r\n#include \"../../../data_structure/segment_tree/lazy_segment_tree.hpp\"\
     \r\n\r\nint main() {\r\n  ModInt::set_mod(998244353);\r\n  int n, q;\r\n  std::cin\
     \ >> n >> q;\r\n  struct Node {\r\n    using Monoid = std::pair<ModInt, int>;\r\
-    \n    using OperatorMonoid = std::pair<ModInt, ModInt>;\r\n    static Monoid m_unity()\
-    \ { return {0, 0}; }\r\n    static OperatorMonoid o_unity() { return {1, 0}; }\r\
-    \n    static Monoid m_merge(const Monoid &a, const Monoid &b) { return {a.first\
+    \n    using OperatorMonoid = std::pair<ModInt, ModInt>;\r\n    static Monoid m_id()\
+    \ { return {0, 0}; }\r\n    static OperatorMonoid o_id() { return {1, 0}; }\r\n\
+    \    static Monoid m_merge(const Monoid &a, const Monoid &b) { return {a.first\
     \ + b.first, a.second + b.second}; }\r\n    static OperatorMonoid o_merge(const\
     \ OperatorMonoid &a, const OperatorMonoid &b) {\r\n      return {b.first * a.first,\
     \ b.first * a.second + b.second};\r\n    }\r\n    static Monoid apply(const Monoid\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/segment_tree/lazy_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/segment_tree/lazy_segment_tree.test.cpp

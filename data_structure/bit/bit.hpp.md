@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (\u53CD\u8EE2\u6570 / inversion number)"
   _extendedVerifiedWith:
@@ -12,10 +12,10 @@ data:
   - icon: ':x:'
     path: test/data_structure/bit/bit.2.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree (lower_bound(val))"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
   _isVerificationFailed: true
@@ -34,33 +34,33 @@ data:
     \ data_structure/bit/bit.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief binary indexed tree\r\n * @docs docs/data_structure/bit/bit.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Abelian>\r\
-    \nstruct BIT {\r\n  BIT(int n, const Abelian UNITY = 0) : n(n), UNITY(UNITY),\
-    \ dat(n, UNITY) {}\r\n\r\n  void add(int idx, Abelian val) {\r\n    while (idx\
-    \ < n) {\r\n      dat[idx] += val;\r\n      idx |= idx + 1;\r\n    }\r\n  }\r\n\
-    \r\n  Abelian sum(int idx) const {\r\n    Abelian res = UNITY;\r\n    --idx;\r\
-    \n    while (idx >= 0) {\r\n      res += dat[idx];\r\n      idx = (idx & (idx\
-    \ + 1)) - 1;\r\n    }\r\n    return res;\r\n  }\r\n\r\n  Abelian sum(int left,\
-    \ int right) const {\r\n    return left < right ? sum(right) - sum(left) : UNITY;\r\
-    \n  }\r\n\r\n  Abelian operator[](const int idx) const { return sum(idx, idx +\
-    \ 1); }\r\n\r\n  int lower_bound(Abelian val) const {\r\n    if (val <= UNITY)\
-    \ return 0;\r\n    int res = 0, exponent = 1;\r\n    while (exponent <= n) exponent\
-    \ <<= 1;\r\n    for (int mask = exponent >> 1; mask > 0; mask >>= 1) {\r\n   \
-    \   if (res + mask - 1 < n && dat[res + mask - 1] < val) {\r\n        val -= dat[res\
-    \ + mask - 1];\r\n        res += mask;\r\n      }\r\n    }\r\n    return res;\r\
-    \n  }\r\n\r\nprivate:\r\n  int n;\r\n  const Abelian UNITY;\r\n  std::vector<Abelian>\
-    \ dat;\r\n};\r\n"
+    \nstruct BIT {\r\n  BIT(int n, const Abelian ID = 0) : n(n), ID(ID), dat(n, ID)\
+    \ {}\r\n\r\n  void add(int idx, Abelian val) {\r\n    while (idx < n) {\r\n  \
+    \    dat[idx] += val;\r\n      idx |= idx + 1;\r\n    }\r\n  }\r\n\r\n  Abelian\
+    \ sum(int idx) const {\r\n    Abelian res = ID;\r\n    --idx;\r\n    while (idx\
+    \ >= 0) {\r\n      res += dat[idx];\r\n      idx = (idx & (idx + 1)) - 1;\r\n\
+    \    }\r\n    return res;\r\n  }\r\n\r\n  Abelian sum(int left, int right) const\
+    \ {\r\n    return left < right ? sum(right) - sum(left) : ID;\r\n  }\r\n\r\n \
+    \ Abelian operator[](const int idx) const { return sum(idx, idx + 1); }\r\n\r\n\
+    \  int lower_bound(Abelian val) const {\r\n    if (val <= ID) return 0;\r\n  \
+    \  int res = 0, exponent = 1;\r\n    while (exponent <= n) exponent <<= 1;\r\n\
+    \    for (int mask = exponent >> 1; mask > 0; mask >>= 1) {\r\n      if (res +\
+    \ mask - 1 < n && dat[res + mask - 1] < val) {\r\n        val -= dat[res + mask\
+    \ - 1];\r\n        res += mask;\r\n      }\r\n    }\r\n    return res;\r\n  }\r\
+    \n\r\nprivate:\r\n  int n;\r\n  const Abelian ID;\r\n  std::vector<Abelian> dat;\r\
+    \n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/bit/bit.hpp
   requiredBy:
   - misc/inversion_number.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/misc/mo.test.cpp
-  - test/misc/inversion_number.test.cpp
   - test/data_structure/bit/bit.2.test.cpp
   - test/data_structure/bit/bit.1.test.cpp
+  - test/misc/mo.test.cpp
+  - test/misc/inversion_number.test.cpp
 documentation_of: data_structure/bit/bit.hpp
 layout: document
 redirect_from:

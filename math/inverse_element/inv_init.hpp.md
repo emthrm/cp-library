@@ -20,15 +20,15 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u9006\u5143\u306E\u6570\u8868\r\n * @docs docs/math/inverse_element/inverse_element.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\nstd::vector<long long> inv_init(int\
-    \ val, int mod) {\r\n  std::vector<long long> inv(val + 1, 0);\r\n  inv[1] = 1;\r\
-    \n  for (int i = 2; i <= val; ++i) {\r\n    inv[i] = mod - inv[mod % i] * (mod\
-    \ / i) % mod;\r\n    if (inv[i] == mod) inv[i] = 0;\r\n  }\r\n  return inv;\r\n\
+    \ n, int mod) {\r\n  std::vector<long long> inv(n + 1, 0);\r\n  inv[1] = 1;\r\n\
+    \  for (int i = 2; i <= n; ++i) {\r\n    inv[i] = mod - inv[mod % i] * (mod /\
+    \ i) % mod;\r\n    if (inv[i] == mod) inv[i] = 0;\r\n  }\r\n  return inv;\r\n\
     }\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/inverse_element/inv_init.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/inverse_element/inv_init.hpp
@@ -84,9 +84,7 @@ $ax \equiv 1 \pmod{m}$ を満たす $x = a^{-1}$．
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inv_init(val, mod)`|$\mathrm{val}$ 以下の逆元の数表|$a! \perp \mathrm{mod}$|
-
-e.g. $0 \leq a < \mathrm{mod}$ を満たす素数
+|`inv_init(n, mod)`|$n$ 以下の逆元の数表|$n! \perp \mathrm{mod}$ (e.g. $0 \leq n < \mathrm{mod}$ を満たす素数)|
 
 
 ## 参考

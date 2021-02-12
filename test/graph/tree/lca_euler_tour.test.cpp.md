@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segment_tree/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/sparse_table.hpp
     title: sparse table
   - icon: ':question:'
@@ -48,9 +48,9 @@ data:
     \    std::cin >> a >> b;\r\n    graph[a].emplace_back(a, b, 0);\r\n    graph[b].emplace_back(b,\
     \ a, 0);\r\n  }\r\n  LCA<long long> lca(graph, 0);\r\n  struct Node {\r\n    using\
     \ Monoid = struct {\r\n      int cnt;\r\n      long long sum;\r\n    };\r\n  \
-    \  using OperatorMonoid = int;\r\n    static constexpr Monoid m_unity() { return\
-    \ Monoid{0, 0}; }\r\n    static constexpr OperatorMonoid o_unity() { return 0;\
-    \ }\r\n    static Monoid m_merge(const Monoid &a, const Monoid &b) { return Monoid{a.cnt\
+    \  using OperatorMonoid = int;\r\n    static constexpr Monoid m_id() { return\
+    \ Monoid{0, 0}; }\r\n    static constexpr OperatorMonoid o_id() { return 0; }\r\
+    \n    static Monoid m_merge(const Monoid &a, const Monoid &b) { return Monoid{a.cnt\
     \ + b.cnt, a.sum + b.sum}; }\r\n    static OperatorMonoid o_merge(const OperatorMonoid\
     \ &a, const OperatorMonoid &b) { return a + b; }\r\n    static Monoid apply(Monoid\
     \ a, const OperatorMonoid &b) {\r\n      a.sum += b * a.cnt;\r\n      return a;\r\
@@ -73,7 +73,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/lca_euler_tour.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/lca_euler_tour.test.cpp

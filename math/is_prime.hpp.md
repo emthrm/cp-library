@@ -3,26 +3,26 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_prime.test.cpp
     title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/is_prime.hpp\"\n\r\nbool is_prime(long long val) {\r\
-    \n  if (val <= 1) return false;\r\n  for (long long i = 2; i * i <= val; ++i)\
-    \ {\r\n    if (val % i == 0) return false;\r\n  }\r\n  return true;\r\n}\r\n"
-  code: "#pragma once\r\n\r\nbool is_prime(long long val) {\r\n  if (val <= 1) return\
-    \ false;\r\n  for (long long i = 2; i * i <= val; ++i) {\r\n    if (val % i ==\
-    \ 0) return false;\r\n  }\r\n  return true;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/is_prime.hpp\"\n\r\nbool is_prime(long long n) {\r\n\
+    \  if (n <= 1) return false;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n\
+    \    if (n % i == 0) return false;\r\n  }\r\n  return true;\r\n}\r\n"
+  code: "#pragma once\r\n\r\nbool is_prime(long long n) {\r\n  if (n <= 1) return\
+    \ false;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n    if (n % i == 0)\
+    \ return false;\r\n  }\r\n  return true;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/is_prime.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_prime.test.cpp
 documentation_of: math/is_prime.hpp
@@ -40,7 +40,7 @@ $O(\sqrt{N})$
 
 ||説明|
 |:--:|:--:|
-|`is_prime(val)`|$\mathrm{val}$ は素数であるか．|
+|`is_prime(n)`|$n$ は素数であるか．|
 
 
 ## 参考

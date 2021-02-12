@@ -8,6 +8,9 @@ data:
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree \u533A\u9593\u52A0\
       \u7B97\u7248"
   - icon: ':heavy_check_mark:'
+    path: test/graph/light/tree/hld.1.test.cpp
+    title: test/graph/light/tree/hld.1.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/hld.1.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
   _isVerificationFailed: false
@@ -28,29 +31,30 @@ data:
   code: "/**\r\n * @brief binary indexed tree \u533A\u9593\u52A0\u7B97\u7248\r\n *\
     \ @docs docs/data_structure/bit/bit.md\r\n */\r\n\r\n#pragma once\r\n#include\
     \ <vector>\r\n\r\ntemplate <typename Abelian>\r\nstruct BITRangeAdd {\r\n  BITRangeAdd(int\
-    \ n_, const Abelian UNITY = 0) : n(n_), UNITY(UNITY) {\r\n    ++n;\r\n    dat_const.assign(n,\
-    \ UNITY);\r\n    dat_linear.assign(n, UNITY);\r\n  }\r\n\r\n  void add(int left,\
-    \ int right, Abelian val) {\r\n    if (right < ++left) return;\r\n    for (int\
-    \ i = left; i < n; i += i & -i) {\r\n      dat_const[i] -= val * (left - 1);\r\
-    \n      dat_linear[i] += val;\r\n    }\r\n    for (int i = right + 1; i < n; i\
-    \ += i & -i) {\r\n      dat_const[i] += val * right;\r\n      dat_linear[i] -=\
-    \ val;\r\n    }\r\n  }\r\n\r\n  Abelian sum(int idx) const {\r\n    Abelian res\
-    \ = UNITY;\r\n    for (int i = idx; i > 0; i -= i & -i) res += dat_linear[i];\r\
-    \n    res *= idx;\r\n    for (int i = idx; i > 0; i -= i & -i) res += dat_const[i];\r\
-    \n    return res;\r\n  }\r\n\r\n  Abelian sum(int left, int right) const {\r\n\
-    \    return left < right ? sum(right) - sum(left) : UNITY;\r\n  }\r\n\r\n  Abelian\
+    \ n_, const Abelian ID = 0) : n(n_), ID(ID) {\r\n    ++n;\r\n    dat_const.assign(n,\
+    \ ID);\r\n    dat_linear.assign(n, ID);\r\n  }\r\n\r\n  void add(int left, int\
+    \ right, Abelian val) {\r\n    if (right < ++left) return;\r\n    for (int i =\
+    \ left; i < n; i += i & -i) {\r\n      dat_const[i] -= val * (left - 1);\r\n \
+    \     dat_linear[i] += val;\r\n    }\r\n    for (int i = right + 1; i < n; i +=\
+    \ i & -i) {\r\n      dat_const[i] += val * right;\r\n      dat_linear[i] -= val;\r\
+    \n    }\r\n  }\r\n\r\n  Abelian sum(int idx) const {\r\n    Abelian res = ID;\r\
+    \n    for (int i = idx; i > 0; i -= i & -i) res += dat_linear[i];\r\n    res *=\
+    \ idx;\r\n    for (int i = idx; i > 0; i -= i & -i) res += dat_const[i];\r\n \
+    \   return res;\r\n  }\r\n\r\n  Abelian sum(int left, int right) const {\r\n \
+    \   return left < right ? sum(right) - sum(left) : ID;\r\n  }\r\n\r\n  Abelian\
     \ operator[](const int idx) const { return sum(idx, idx + 1); }\r\n\r\nprivate:\r\
-    \n  int n;\r\n  const Abelian UNITY;\r\n  std::vector<Abelian> dat_const, dat_linear;\r\
+    \n  int n;\r\n  const Abelian ID;\r\n  std::vector<Abelian> dat_const, dat_linear;\r\
     \n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/bit/bit_range_add.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/hld.1.test.cpp
   - test/data_structure/bit/bit_range_add.test.cpp
+  - test/graph/tree/hld.1.test.cpp
+  - test/graph/light/tree/hld.1.test.cpp
 documentation_of: data_structure/bit/bit_range_add.hpp
 layout: document
 redirect_from:

@@ -55,7 +55,7 @@ data:
   - icon: ':x:'
     path: graph/noshi_graph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/scc.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (strongly connected components)"
   - icon: ':heavy_check_mark:'
@@ -92,9 +92,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/tree/rerooting.hpp
     title: "\u6728\u306E\u76F4\u5F84 \u5168\u65B9\u4F4D\u6728 DP \u7248"
-  - icon: ':x:'
-    path: misc/2-sat.hpp
-    title: 2-SAT
+  - icon: ':heavy_check_mark:'
+    path: graph/tsp.hpp
+    title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
+      \ salesman problem)"
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/data_structure/union-find/undoable_union-find.test.cpp
@@ -195,11 +196,12 @@ data:
     title: "\u30B0\u30E9\u30D5/\u6728/\u6728\u306E\u76F4\u5F84 \u5168\u65B9\u4F4D\u6728\
       \ DP \u7248"
   - icon: ':heavy_check_mark:'
+    path: test/graph/tsp.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
+      \u984C"
+  - icon: ':heavy_check_mark:'
     path: test/math/basis.test.cpp
     title: "\u6570\u5B66/\u57FA\u5E95"
-  - icon: ':x:'
-    path: test/misc/2-sat.test.cpp
-    title: "\u305D\u306E\u4ED6/2-SAT"
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -225,70 +227,70 @@ data:
   isVerificationFile: false
   path: graph/edge.hpp
   requiredBy:
-  - graph/biconnected_component.hpp
-  - graph/2-edge-connected_components_imos.hpp
-  - graph/is_bipartite.hpp
-  - graph/topological_sort.hpp
+  - graph/detect_bridge.hpp
   - graph/scc.hpp
-  - graph/tree/lca_doubling.hpp
-  - graph/tree/centroid_decomposition.hpp
-  - graph/tree/hld.hpp
-  - graph/tree/rerooting.hpp
-  - graph/tree/centroid.hpp
+  - graph/lowlink.hpp
+  - graph/tsp.hpp
+  - graph/detect_directed_cycle.hpp
+  - graph/noshi_graph.hpp
   - graph/tree/lca_euler_tour.hpp
+  - graph/tree/hld.hpp
+  - graph/tree/lca_doubling.hpp
   - graph/tree/euler_tour.hpp
   - graph/tree/double_sweep.hpp
-  - graph/chromatic_number.hpp
+  - graph/tree/centroid_decomposition.hpp
+  - graph/tree/rerooting.hpp
+  - graph/tree/centroid.hpp
+  - graph/girth_in_directed_graph.hpp
+  - graph/2-edge-connected_components_lowlink.hpp
+  - graph/eulerian_trail_in_directed_graph.hpp
   - graph/shortest_path/dijkstra.hpp
   - graph/shortest_path/bellman-ford.hpp
-  - graph/lowlink.hpp
-  - graph/eulerian_trail_in_directed_graph.hpp
-  - graph/mst/kruskal.hpp
+  - graph/biconnected_component.hpp
+  - graph/girth_in_undirected_graph.hpp
   - graph/mst/prim_heavy.hpp
   - graph/mst/prim.hpp
   - graph/mst/kruskal_heavy.hpp
-  - graph/detect_bridge.hpp
-  - graph/girth_in_directed_graph.hpp
-  - graph/noshi_graph.hpp
-  - graph/detect_directed_cycle.hpp
-  - graph/girth_in_undirected_graph.hpp
-  - graph/2-edge-connected_components_lowlink.hpp
+  - graph/mst/kruskal.hpp
+  - graph/2-edge-connected_components_imos.hpp
+  - graph/chromatic_number.hpp
   - graph/matrix_tree_theorem.hpp
-  - misc/2-sat.hpp
+  - graph/topological_sort.hpp
+  - graph/is_bipartite.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/topological_sort.test.cpp
-  - test/graph/noshi_graph.test.cpp
-  - test/graph/detect_bridge.test.cpp
+  - test/data_structure/union-find/undoable_union-find.test.cpp
+  - test/math/basis.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
+  - test/graph/eulerian_trail_in_directed_graph.test.cpp
+  - test/graph/detect_bridge.test.cpp
+  - test/graph/tsp.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/biconnected_component.test.cpp
+  - test/graph/lowlink.2.test.cpp
+  - test/graph/scc.test.cpp
+  - test/graph/2-edge-connected_components_lowlink.test.cpp
+  - test/graph/noshi_graph.test.cpp
+  - test/graph/lowlink.1.test.cpp
+  - test/graph/topological_sort.test.cpp
+  - test/graph/2-edge-connected_components_imos.test.cpp
+  - test/graph/tree/hld.1.test.cpp
+  - test/graph/tree/centroid_decomposition.test.cpp
+  - test/graph/tree/hld.2.test.cpp
+  - test/graph/tree/lca_euler_tour.test.cpp
+  - test/graph/tree/lca_doubling.test.cpp
+  - test/graph/tree/centroid.test.cpp
+  - test/graph/tree/rerooting.test.cpp
+  - test/graph/tree/double_sweep.test.cpp
   - test/graph/chromatic_number.test.cpp
   - test/graph/is_bipartite.test.cpp
-  - test/graph/2-edge-connected_components_imos.test.cpp
-  - test/graph/tree/lca_doubling.test.cpp
-  - test/graph/tree/hld.1.test.cpp
-  - test/graph/tree/double_sweep.test.cpp
-  - test/graph/tree/rerooting.test.cpp
-  - test/graph/tree/centroid_decomposition.test.cpp
-  - test/graph/tree/centroid.test.cpp
-  - test/graph/tree/lca_euler_tour.test.cpp
-  - test/graph/tree/hld.2.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/girth.test.cpp
   - test/graph/shortest_path/dijkstra.test.cpp
   - test/graph/shortest_path/bellman-ford.test.cpp
-  - test/graph/eulerian_trail_in_directed_graph.test.cpp
   - test/graph/detect_directed_cycle.test.cpp
-  - test/graph/lowlink.1.test.cpp
-  - test/graph/mst/prim.test.cpp
   - test/graph/mst/kruskal.test.cpp
-  - test/graph/scc.test.cpp
-  - test/graph/girth.test.cpp
-  - test/graph/lowlink.2.test.cpp
-  - test/graph/biconnected_component.test.cpp
-  - test/graph/2-edge-connected_components_lowlink.test.cpp
-  - test/misc/2-sat.test.cpp
-  - test/math/basis.test.cpp
-  - test/data_structure/union-find/undoable_union-find.test.cpp
+  - test/graph/mst/prim.test.cpp
 documentation_of: graph/edge.hpp
 layout: document
 redirect_from:

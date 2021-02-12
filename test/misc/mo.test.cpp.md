@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: data_structure/bit/bit.hpp
     title: binary indexed tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: misc/mo.hpp
     title: Mo's algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -29,32 +29,33 @@ data:
     \ data_structure/bit/bit.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u305D\u306E\u4ED6/Mo's algorithm\r\n */\r\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/static_range_inversions_query\"\r\n\r\n#include\
-    \ <algorithm>\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../data_structure/bit/bit.hpp\"\
-    \r\n#include \"../../misc/mo.hpp\"\r\n\r\nstd::vector<int> a;\r\nlong long inv\
-    \ = 0;\r\nint l = 0, r = 0, m;\r\nBIT<int> bit(100000);\r\n\r\nvoid Mo::add(int\
-    \ idx) const {\r\n  if (idx + 1 == l) {\r\n    inv += bit.sum(0, a[idx]);\r\n\
-    \    --l;\r\n  } else if (idx == r) {\r\n    inv += bit.sum(a[idx] + 1, m);\r\n\
-    \    ++r;\r\n  }\r\n  bit.add(a[idx], 1);\r\n}\r\n\r\nvoid Mo::del(int idx) const\
-    \ {\r\n  if (idx == l) {\r\n    inv -= bit.sum(0, a[idx]);\r\n    ++l;\r\n  }\
-    \ else if (idx + 1 == r) {\r\n    inv -= bit.sum(a[idx] + 1, m);\r\n    --r;\r\
-    \n  }\r\n  bit.add(a[idx], -1);\r\n}\r\n\r\nint main() {\r\n  int n, q;\r\n  std::cin\
-    \ >> n >> q;\r\n  a.resize(n);\r\n  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\
-    \n  std::vector<int> tmp(a);\r\n  std::sort(tmp.begin(), tmp.end());\r\n  tmp.erase(std::unique(tmp.begin(),\
+    \ <algorithm>\r\n#include <iostream>\r\n#include <iterator>\r\n#include <vector>\r\
+    \n#include \"../../data_structure/bit/bit.hpp\"\r\n#include \"../../misc/mo.hpp\"\
+    \r\n\r\nstd::vector<int> a;\r\nlong long inv = 0;\r\nint l = 0, r = 0, m;\r\n\
+    BIT<int> bit(100000);\r\n\r\nvoid Mo::add(int idx) const {\r\n  if (idx + 1 ==\
+    \ l) {\r\n    inv += bit.sum(0, a[idx]);\r\n    --l;\r\n  } else if (idx == r)\
+    \ {\r\n    inv += bit.sum(a[idx] + 1, m);\r\n    ++r;\r\n  }\r\n  bit.add(a[idx],\
+    \ 1);\r\n}\r\n\r\nvoid Mo::del(int idx) const {\r\n  if (idx == l) {\r\n    inv\
+    \ -= bit.sum(0, a[idx]);\r\n    ++l;\r\n  } else if (idx + 1 == r) {\r\n    inv\
+    \ -= bit.sum(a[idx] + 1, m);\r\n    --r;\r\n  }\r\n  bit.add(a[idx], -1);\r\n\
+    }\r\n\r\nint main() {\r\n  int n, q;\r\n  std::cin >> n >> q;\r\n  a.resize(n);\r\
+    \n  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\n  std::vector<int> tmp(a);\r\
+    \n  std::sort(tmp.begin(), tmp.end());\r\n  tmp.erase(std::unique(tmp.begin(),\
     \ tmp.end()), tmp.end());\r\n  m = tmp.size();\r\n  for (int i = 0; i < n; ++i)\
-    \ a[i] = std::lower_bound(tmp.begin(), tmp.end(), a[i]) - tmp.begin();\r\n  std::vector<int>\
-    \ left(q), right(q);\r\n  for (int i = 0; i < q; ++i) std::cin >> left[i] >> right[i];\r\
-    \n  Mo mo(left, right);\r\n  std::vector<long long> ans(q);\r\n  for (int i =\
-    \ 0; i < q; ++i) {\r\n    int idx = mo.process();\r\n    ans[idx] = inv;\r\n \
-    \ }\r\n  for (int i = 0; i < q; ++i) std::cout << ans[i] << '\\n';\r\n  return\
-    \ 0;\r\n}\r\n"
+    \ {\r\n    a[i] = std::distance(tmp.begin(), std::lower_bound(tmp.begin(), tmp.end(),\
+    \ a[i]));\r\n  }\r\n  std::vector<int> left(q), right(q);\r\n  for (int i = 0;\
+    \ i < q; ++i) std::cin >> left[i] >> right[i];\r\n  Mo mo(left, right);\r\n  std::vector<long\
+    \ long> ans(q);\r\n  for (int i = 0; i < q; ++i) {\r\n    int idx = mo.process();\r\
+    \n    ans[idx] = inv;\r\n  }\r\n  for (int i = 0; i < q; ++i) std::cout << ans[i]\
+    \ << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - data_structure/bit/bit.hpp
   - misc/mo.hpp
   isVerificationFile: true
   path: test/misc/mo.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-02-13 04:45:32+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/misc/mo.test.cpp
 layout: document

@@ -32,8 +32,8 @@ data:
   isVerificationFile: false
   path: math/ext_gcd.hpp
   requiredBy:
-  - math/inverse_element/mod_inv_extgcd2.hpp
   - math/crt.hpp
+  - math/inverse_element/mod_inv_extgcd2.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

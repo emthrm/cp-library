@@ -30,7 +30,7 @@ data:
     \n    if (n > co.size()) co.resize(n, 0);\r\n    for (int i = 0; i < n; ++i) co[i]\
     \ -= x.co[i];\r\n    return *this;\r\n  }\r\n  Polynomial &operator*=(T x) {\r\
     \n    for (T &e : co) e *= x;\r\n    return *this;\r\n  }\r\n  Polynomial &operator*=(const\
-    \ Polynomial &x) { return *this = mul<T>(co, x.co); }\r\n  Polynomial &operator/=(T\
+    \ Polynomial &x) { return *this = get_mul()(co, x.co); }\r\n  Polynomial &operator/=(T\
     \ x) {\r\n    assert(x != 0);\r\n    T inv_x = static_cast<T>(1) / x;\r\n    for\
     \ (T &e : co) e *= inv_x;\r\n    return *this;\r\n  }\r\n  std::pair<Polynomial,\
     \ Polynomial> divide(const Polynomial &x) const {\r\n    Polynomial p(x);\r\n\
@@ -57,9 +57,9 @@ data:
     \ x) const { return Polynomial(*this) /= x; }\r\n  Polynomial operator/(const\
     \ Polynomial &x) const { return Polynomial(*this) /= x; }\r\n  Polynomial operator%(const\
     \ Polynomial &x) const { return Polynomial(*this) %= x; }\r\n  Polynomial operator<<(int\
-    \ n) const { return Polynomial(*this) <<= n; }\r\n  T horner(T val) const {\r\n\
+    \ n) const { return Polynomial(*this) <<= n; }\r\n  T horner(T x) const {\r\n\
     \    T res = static_cast<T>(0);\r\n    for (int i = static_cast<int>(co.size())\
-    \ - 1; i >= 0; --i) (res *= val) += co[i];\r\n    return res;\r\n  }\r\n  Polynomial\
+    \ - 1; i >= 0; --i) (res *= x) += co[i];\r\n    return res;\r\n  }\r\n  Polynomial\
     \ differential() const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n\
     \    Polynomial res(n - 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] =\
     \ co[i] * i;\r\n    return res;\r\n  }\r\n  Polynomial integral() const {\r\n\
@@ -74,8 +74,8 @@ data:
     \ inv_fact[i - 1] = inv_fact[i] * i;\r\n    std::vector<T> g(n), ex(n);\r\n  \
     \  for (int i = 0; i < n; ++i) g[n - 1 - i] = co[i] * fact[i];\r\n    T pow_c\
     \ = 1;\r\n    for (int i = 0; i < n; ++i) {\r\n      ex[i] = pow_c * inv_fact[i];\r\
-    \n      pow_c *= c;\r\n    }\r\n    std::vector<T> conv = mul<T>(g, ex);\r\n \
-    \   Polynomial res(n - 1);\r\n    for (int i = 0; i < n; ++i) res[i] = conv[n\
+    \n      pow_c *= c;\r\n    }\r\n    std::vector<T> conv = get_mul()(g, ex);\r\n\
+    \    Polynomial res(n - 1);\r\n    for (int i = 0; i < n; ++i) res[i] = conv[n\
     \ - 1 - i] * inv_fact[i];\r\n    return res;\r\n  }\r\nprivate:\r\n  static MUL\
     \ &get_mul() {\r\n    static MUL mul = [](const std::vector<T> &a, const std::vector<T>\
     \ &b) -> std::vector<T> {\r\n      int n = a.size(), m = b.size();\r\n      std::vector<T>\
@@ -104,7 +104,7 @@ data:
     \n    if (n > co.size()) co.resize(n, 0);\r\n    for (int i = 0; i < n; ++i) co[i]\
     \ -= x.co[i];\r\n    return *this;\r\n  }\r\n  Polynomial &operator*=(T x) {\r\
     \n    for (T &e : co) e *= x;\r\n    return *this;\r\n  }\r\n  Polynomial &operator*=(const\
-    \ Polynomial &x) { return *this = mul<T>(co, x.co); }\r\n  Polynomial &operator/=(T\
+    \ Polynomial &x) { return *this = get_mul()(co, x.co); }\r\n  Polynomial &operator/=(T\
     \ x) {\r\n    assert(x != 0);\r\n    T inv_x = static_cast<T>(1) / x;\r\n    for\
     \ (T &e : co) e *= inv_x;\r\n    return *this;\r\n  }\r\n  std::pair<Polynomial,\
     \ Polynomial> divide(const Polynomial &x) const {\r\n    Polynomial p(x);\r\n\
@@ -131,9 +131,9 @@ data:
     \ x) const { return Polynomial(*this) /= x; }\r\n  Polynomial operator/(const\
     \ Polynomial &x) const { return Polynomial(*this) /= x; }\r\n  Polynomial operator%(const\
     \ Polynomial &x) const { return Polynomial(*this) %= x; }\r\n  Polynomial operator<<(int\
-    \ n) const { return Polynomial(*this) <<= n; }\r\n  T horner(T val) const {\r\n\
+    \ n) const { return Polynomial(*this) <<= n; }\r\n  T horner(T x) const {\r\n\
     \    T res = static_cast<T>(0);\r\n    for (int i = static_cast<int>(co.size())\
-    \ - 1; i >= 0; --i) (res *= val) += co[i];\r\n    return res;\r\n  }\r\n  Polynomial\
+    \ - 1; i >= 0; --i) (res *= x) += co[i];\r\n    return res;\r\n  }\r\n  Polynomial\
     \ differential() const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n\
     \    Polynomial res(n - 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] =\
     \ co[i] * i;\r\n    return res;\r\n  }\r\n  Polynomial integral() const {\r\n\
@@ -148,8 +148,8 @@ data:
     \ inv_fact[i - 1] = inv_fact[i] * i;\r\n    std::vector<T> g(n), ex(n);\r\n  \
     \  for (int i = 0; i < n; ++i) g[n - 1 - i] = co[i] * fact[i];\r\n    T pow_c\
     \ = 1;\r\n    for (int i = 0; i < n; ++i) {\r\n      ex[i] = pow_c * inv_fact[i];\r\
-    \n      pow_c *= c;\r\n    }\r\n    std::vector<T> conv = mul<T>(g, ex);\r\n \
-    \   Polynomial res(n - 1);\r\n    for (int i = 0; i < n; ++i) res[i] = conv[n\
+    \n      pow_c *= c;\r\n    }\r\n    std::vector<T> conv = get_mul()(g, ex);\r\n\
+    \    Polynomial res(n - 1);\r\n    for (int i = 0; i < n; ++i) res[i] = conv[n\
     \ - 1 - i] * inv_fact[i];\r\n    return res;\r\n  }\r\nprivate:\r\n  static MUL\
     \ &get_mul() {\r\n    static MUL mul = [](const std::vector<T> &a, const std::vector<T>\
     \ &b) -> std::vector<T> {\r\n      int n = a.size(), m = b.size();\r\n      std::vector<T>\
@@ -160,7 +160,7 @@ data:
   isVerificationFile: false
   path: math/polynomial.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/polynomial.hpp
@@ -208,7 +208,7 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 |`operator!=(x)`|$f \neq x$ であるか．||
 |`operator+()`|$+{f}$||
 |`operator-()`|$-{f}$||
-|`horner(val)`|$f(\mathrm{val})$||
+|`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`integral()`|$\int{f}$||
 |`pow(exponent)`|$f^{\mathrm{exponent}}$||

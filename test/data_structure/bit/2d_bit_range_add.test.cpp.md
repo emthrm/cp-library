@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/bit/2d_bit_range_add.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/data_structure/bit/2d_bit_range_add.test.cpp

@@ -19,9 +19,9 @@ data:
     \u8A08\u753B\u6CD5/MongeDP\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415\"\
     \r\n\r\n#include <iostream>\r\n#include <numeric>\r\n#include <vector>\r\n#line\
     \ 2 \"dp/mongedp.hpp\"\n#include <algorithm>\r\n#line 4 \"dp/mongedp.hpp\"\n\r\
-    \ntemplate <typename Fn, typename T>\r\nT mongedp(int n, Fn cost, const T TINF)\
+    \ntemplate <typename Fn, typename T>\r\nT mongedp(int n, Fn cost, const T inf)\
     \ {\r\n  if (n == 0) return 0;\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
-    \ TINF));\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\r\
+    \ inf));\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\r\
     \n  for (int i = 0; i < n; ++i) {\r\n    dp[i][i] = 0;\r\n    argmin[i][i] = i;\r\
     \n  }\r\n  for (int width = 1; width < n; ++width) {\r\n    for (int i = 0; i\
     \ + width < n; ++i) {\r\n      int j = i + width, right = std::min(j - 1, argmin[i\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: true
   path: test/dp/mongedp.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dp/mongedp.test.cpp

@@ -4,18 +4,18 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
       \u306E\u6570\u8868"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/bell_number/bell_number.md
     document_title: "\u30D9\u30EB\u6570\u306E\u6570\u8868"
@@ -43,7 +43,7 @@ data:
   path: math/twelvefold_way/bell_number/bell_number_init.hpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
 documentation_of: math/twelvefold_way/bell_number/bell_number_init.hpp
@@ -99,7 +99,7 @@ $$B(x) = e^{e^x - 1}$$
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init_with_fps<T>(val)`|ベル数 $B_n \ (0 \leq n \leq \mathrm{val})$ の数表|
+|`bell_number_init_with_fps<T>(n)`|ベル数 $B_i \ (0 \leq i \leq n)$ の数表|
 
 
 ## 参考

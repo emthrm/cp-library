@@ -4,20 +4,14 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  _extendedRequiredBy:
-  - icon: ':x:'
-    path: misc/2-sat.hpp
-    title: 2-SAT
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/scc.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':x:'
-    path: test/misc/2-sat.test.cpp
-    title: "\u305D\u306E\u4ED6/2-SAT"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -57,13 +51,11 @@ data:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/scc.hpp
-  requiredBy:
-  - misc/2-sat.hpp
+  requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/scc.test.cpp
-  - test/misc/2-sat.test.cpp
 documentation_of: graph/scc.hpp
 layout: document
 title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (strongly connected components)"

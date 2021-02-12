@@ -74,18 +74,18 @@ data:
     \ { return FPS(*this) /= x; }\r\n  FPS operator%(const FPS &x) const { return\
     \ FPS(*this) %= x; }\r\n  FPS operator<<(int n) const { return FPS(*this) <<=\
     \ n; }\r\n  FPS operator>>(int n) const { return FPS(*this) >>= n; }\r\n  T horner(T\
-    \ val) const {\r\n    T res = 0;\r\n    for (int i = static_cast<int>(co.size())\
-    \ - 1; i >= 0; --i) (res *= val) += co[i];\r\n    return res;\r\n  }\r\n  FPS\
-    \ differential() const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n\
-    \    FPS res(n - 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] = co[i]\
-    \ * i;\r\n    return res;\r\n  }\r\n  FPS integral() const {\r\n    int n = co.size();\r\
-    \n    FPS res(n + 1);\r\n    for (int i = 0; i < n; ++i) res[i + 1] = co[i] /\
-    \ (i + 1);\r\n    return res;\r\n  }\r\n  FPS exp(int deg = -1) const {\r\n  \
-    \  assert(co[0] == 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n\
-    \ - 1;\r\n    FPS one{1}, res = one;\r\n    for (int i = 1; i <= deg; i <<= 1)\
-    \ {\r\n      res *= FPS(co.begin(), co.begin() + std::min(n, i << 1)) - res.log((i\
-    \ << 1) - 1) + one;\r\n      res.co.resize(i << 1);\r\n    }\r\n    res.co.resize(deg\
-    \ + 1);\r\n    return res;\r\n  }\r\n  FPS inv(int deg = -1) const {\r\n    assert(co[0]\
+    \ x) const {\r\n    T res = 0;\r\n    for (int i = static_cast<int>(co.size())\
+    \ - 1; i >= 0; --i) (res *= x) += co[i];\r\n    return res;\r\n  }\r\n  FPS differential()\
+    \ const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n    FPS res(n -\
+    \ 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] = co[i] * i;\r\n    return\
+    \ res;\r\n  }\r\n  FPS integral() const {\r\n    int n = co.size();\r\n    FPS\
+    \ res(n + 1);\r\n    for (int i = 0; i < n; ++i) res[i + 1] = co[i] / (i + 1);\r\
+    \n    return res;\r\n  }\r\n  FPS exp(int deg = -1) const {\r\n    assert(co[0]\
+    \ == 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n - 1;\r\n    FPS\
+    \ one{1}, res = one;\r\n    for (int i = 1; i <= deg; i <<= 1) {\r\n      res\
+    \ *= FPS(co.begin(), co.begin() + std::min(n, i << 1)) - res.log((i << 1) - 1)\
+    \ + one;\r\n      res.co.resize(i << 1);\r\n    }\r\n    res.co.resize(deg + 1);\r\
+    \n    return res;\r\n  }\r\n  FPS inv(int deg = -1) const {\r\n    assert(co[0]\
     \ != 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n - 1;\r\n    FPS\
     \ res{static_cast<T>(1) / co[0]};\r\n    for (int i = 1; i <= deg; i <<= 1) {\r\
     \n      res = res + res - res * res * FPS(co.begin(), co.begin() + std::min(n,\
@@ -141,28 +141,28 @@ data:
     \ mul;\r\n  }\r\n  static SQR &get_sqr() {\r\n    static SQR sqr = [](const T\
     \ &a, T &res) -> bool { return false; };\r\n    return sqr;\r\n  }\r\n};\r\n#line\
     \ 4 \"math/fps/bernoulli_number.hpp\"\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ bernoulli_number(int val) {\r\n  FPS<T> bernoulli(val);\r\n  bernoulli[0] =\
-    \ 1;\r\n  for (int i = 1; i <= val; ++i) bernoulli[i] = bernoulli[i - 1] / (i\
-    \ + 1);\r\n  bernoulli = bernoulli.inv(val);\r\n  T fact = 1;\r\n  for (int i\
-    \ = 0; i <= val; ++i) {\r\n    bernoulli[i] *= fact;\r\n    fact *= i + 1;\r\n\
-    \  }\r\n  return bernoulli.co;\r\n}\r\n"
+    \ bernoulli_number(int n) {\r\n  FPS<T> bernoulli(n);\r\n  bernoulli[0] = 1;\r\
+    \n  for (int i = 1; i <= n; ++i) bernoulli[i] = bernoulli[i - 1] / (i + 1);\r\n\
+    \  bernoulli = bernoulli.inv(n);\r\n  T fact = 1;\r\n  for (int i = 0; i <= n;\
+    \ ++i) {\r\n    bernoulli[i] *= fact;\r\n    fact *= i + 1;\r\n  }\r\n  return\
+    \ bernoulli.co;\r\n}\r\n"
   code: "#pragma once\r\n#include <vector>\r\n#include \"fps.hpp\"\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> bernoulli_number(int val) {\r\n  FPS<T> bernoulli(val);\r\
-    \n  bernoulli[0] = 1;\r\n  for (int i = 1; i <= val; ++i) bernoulli[i] = bernoulli[i\
-    \ - 1] / (i + 1);\r\n  bernoulli = bernoulli.inv(val);\r\n  T fact = 1;\r\n  for\
-    \ (int i = 0; i <= val; ++i) {\r\n    bernoulli[i] *= fact;\r\n    fact *= i +\
-    \ 1;\r\n  }\r\n  return bernoulli.co;\r\n}\r\n"
+    \ <typename T>\r\nstd::vector<T> bernoulli_number(int n) {\r\n  FPS<T> bernoulli(n);\r\
+    \n  bernoulli[0] = 1;\r\n  for (int i = 1; i <= n; ++i) bernoulli[i] = bernoulli[i\
+    \ - 1] / (i + 1);\r\n  bernoulli = bernoulli.inv(n);\r\n  T fact = 1;\r\n  for\
+    \ (int i = 0; i <= n; ++i) {\r\n    bernoulli[i] *= fact;\r\n    fact *= i + 1;\r\
+    \n  }\r\n  return bernoulli.co;\r\n}\r\n"
   dependsOn:
   - math/fps/fps.hpp
   isVerificationFile: false
   path: math/fps/bernoulli_number.hpp
   requiredBy:
   - math/fps/faulhaber_with_fps.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fps/bernoulli_number.test.cpp
   - test/math/fps/faulhaber_with_fps.test.cpp
+  - test/math/fps/bernoulli_number.test.cpp
 documentation_of: math/fps/bernoulli_number.hpp
 layout: document
 title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
@@ -186,7 +186,7 @@ $O(N\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`bernoulli_number<T>(val)`|ベルヌーイ数 $B_n \ (0 \leq n \leq \mathrm{val})$ の数表|
+|`bernoulli_number<T>(n)`|ベルヌーイ数 $B_i \ (0 \leq i \leq n)$ の数表|
 
 
 ## 参考

@@ -39,8 +39,8 @@ data:
     \ (id[u] > id[v]) std::swap(u, v);\r\n      f(std::max(id[head[v]], id[u]), id[v]\
     \ + 1);\r\n      if (head[u] == head[v]) return;\r\n      v = parent[head[v]];\r\
     \n    }\r\n  }\r\n\r\n  template <typename T, typename F, typename G>\r\n  T v_query(int\
-    \ u, int v, F f, G g, const T UNITY) const {\r\n    T left = UNITY, right = UNITY;\r\
-    \n    while (true) {\r\n      if (id[u] > id[v]) {\r\n        std::swap(u, v);\r\
+    \ u, int v, F f, G g, const T ID) const {\r\n    T left = ID, right = ID;\r\n\
+    \    while (true) {\r\n      if (id[u] > id[v]) {\r\n        std::swap(u, v);\r\
     \n        std::swap(left, right);\r\n      }\r\n      left = g(left, f(std::max(id[head[v]],\
     \ id[u]), id[v] + 1));\r\n      if (head[u] == head[v]) break;\r\n      v = parent[head[v]];\r\
     \n    }\r\n    return g(left, right);\r\n  }\r\n\r\n  template <typename Fn>\r\
@@ -52,8 +52,8 @@ data:
     \ {\r\n        f(id[u], id[v]);\r\n        break;\r\n      } else {\r\n      \
     \  f(id[head[v]] - 1, id[v]);\r\n        v = parent[head[v]];\r\n      }\r\n \
     \   }\r\n  }\r\n\r\n  template <typename T, typename F, typename G>\r\n  T e_query(int\
-    \ u, int v, F f, G g, const T UNITY) const {\r\n    T left = UNITY, right = UNITY;\r\
-    \n    while (true) {\r\n      if (id[u] > id[v]) {\r\n        std::swap(u, v);\r\
+    \ u, int v, F f, G g, const T ID) const {\r\n    T left = ID, right = ID;\r\n\
+    \    while (true) {\r\n      if (id[u] > id[v]) {\r\n        std::swap(u, v);\r\
     \n        std::swap(left, right);\r\n      }\r\n      if (head[u] == head[v])\
     \ {\r\n        left = g(left, f(id[u], id[v]));\r\n        break;\r\n      } else\
     \ {\r\n        left = g(left, f(id[head[v]] - 1, id[v]));\r\n        v = parent[head[v]];\r\
@@ -78,7 +78,7 @@ data:
   isVerificationFile: false
   path: graph/tree/hld.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/hld.1.test.cpp

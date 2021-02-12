@@ -43,14 +43,13 @@ data:
     \r\n#include \"../../../../graph/edge.hpp\"\r\n\r\nint main() {\r\n  constexpr\
     \ int INF = std::numeric_limits<int>::max();\r\n  int n, m;\r\n  std::cin >> n\
     \ >> m;\r\n  MinimumCostFlowWithMinimumFlowConstraint<PrimalDual2, long long,\
-    \ long long> pd(n, INF, INF, std::numeric_limits<long long>::max());\r\n  std::vector<std::vector<Edge<int>>>\
-    \ graph(n);\r\n  while (m--) {\r\n    int x, y, s;\r\n    std::cin >> x >> y >>\
-    \ s;\r\n    pd.add_edge(y, x, 1, INF, -s);\r\n    graph[x].emplace_back(x, y,\
-    \ s);\r\n  }\r\n  std::vector<long long> dp(n, 0);\r\n  for (int i = n - 2; i\
-    \ >= 0; --i) {\r\n    for (const Edge<int> &e : graph[i]) {\r\n      if (dp[e.dst]\
-    \ + e.cost > dp[i]) dp[i] = dp[e.dst] + e.cost;\r\n    }\r\n  }\r\n  pd.add_edge(0,\
-    \ n - 1, 0, INF, dp[0]);\r\n  std::cout << pd.solve(0, 0, 0) << '\\n';\r\n  return\
-    \ 0;\r\n}\r\n"
+    \ long long> pd(n, INF);\r\n  std::vector<std::vector<Edge<int>>> graph(n);\r\n\
+    \  while (m--) {\r\n    int x, y, s;\r\n    std::cin >> x >> y >> s;\r\n    pd.add_edge(y,\
+    \ x, 1, INF, -s);\r\n    graph[x].emplace_back(x, y, s);\r\n  }\r\n  std::vector<long\
+    \ long> dp(n, 0);\r\n  for (int i = n - 2; i >= 0; --i) {\r\n    for (const Edge<int>\
+    \ &e : graph[i]) {\r\n      if (dp[e.dst] + e.cost > dp[i]) dp[i] = dp[e.dst]\
+    \ + e.cost;\r\n    }\r\n  }\r\n  pd.add_edge(0, n - 1, 0, INF, dp[0]);\r\n  std::cout\
+    \ << pd.solve(0, 0, 0) << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - graph/flow/minimum_cost_flow/primal_dual2.hpp
   - graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.hpp
@@ -58,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp

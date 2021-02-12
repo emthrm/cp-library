@@ -29,13 +29,12 @@ data:
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra\
     \ \u6CD5\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/shortest_path\"\
-    \r\n\r\n#include <iostream>\r\n#include <limits>\r\n#include <vector>\r\n#include\
-    \ \"../../../graph/edge.hpp\"\r\n#include \"../../../graph/shortest_path/dijkstra.hpp\"\
-    \r\n\r\nint main() {\r\n  constexpr long long LINF = std::numeric_limits<long\
-    \ long>::max();\r\n  int n, m, s, t;\r\n  std::cin >> n >> m >> s >> t;\r\n  std::vector<std::vector<Edge<long\
+    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../graph/edge.hpp\"\
+    \r\n#include \"../../../graph/shortest_path/dijkstra.hpp\"\r\n\r\nint main() {\r\
+    \n  int n, m, s, t;\r\n  std::cin >> n >> m >> s >> t;\r\n  std::vector<std::vector<Edge<long\
     \ long>>> graph(n);\r\n  while (m--) {\r\n    int a, b, c;\r\n    std::cin >>\
     \ a >> b >> c;\r\n    graph[a].emplace_back(a, b, c);\r\n  }\r\n  Dijkstra<long\
-    \ long> dij(graph, LINF);\r\n  long long x = dij.build(s)[t];\r\n  if (x == LINF)\
+    \ long> dij(graph);\r\n  long long x = dij.build(s)[t];\r\n  if (x == dij.inf)\
     \ {\r\n    std::cout << \"-1\\n\";\r\n    return 0;\r\n  }\r\n  std::vector<int>\
     \ path = dij.build_path(t);\r\n  int y = static_cast<int>(path.size()) - 1;\r\n\
     \  std::cout << x << ' ' << y << '\\n';\r\n  for (int i = 0; i < y; ++i) std::cout\
@@ -46,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/graph/shortest_path/dijkstra.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/shortest_path/dijkstra.test.cpp

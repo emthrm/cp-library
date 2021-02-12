@@ -24,18 +24,18 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868\r\
     \n * @docs docs/math/mobius_mu/mobius_mu.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <vector>\r\n\r\nstd::vector<int> mobius_mu_init(int val) {\r\n  std::vector<bool>\
-    \ is_prime(val + 1, true);\r\n  is_prime[0] = false;\r\n  if (val >= 1) is_prime[1]\
-    \ = false;\r\n  std::vector<int> mu(val + 1, 1);\r\n  mu[0] = 0;\r\n  for (int\
-    \ i = 2; i <= val; ++i) {\r\n    if (is_prime[i]) {\r\n      mu[i] = -mu[i];\r\
-    \n      for (int j = i * 2; j <= val; j += i) {\r\n        is_prime[j] = false;\r\
-    \n        mu[j] = (j / i) % i == 0 ? 0 : -mu[j];\r\n      }\r\n    }\r\n  }\r\n\
+    \ <vector>\r\n\r\nstd::vector<int> mobius_mu_init(int n) {\r\n  std::vector<bool>\
+    \ is_prime(n + 1, true);\r\n  is_prime[0] = false;\r\n  if (n >= 1) is_prime[1]\
+    \ = false;\r\n  std::vector<int> mu(n + 1, 1);\r\n  mu[0] = 0;\r\n  for (int i\
+    \ = 2; i <= n; ++i) {\r\n    if (is_prime[i]) {\r\n      mu[i] = -mu[i];\r\n \
+    \     for (int j = i * 2; j <= n; j += i) {\r\n        is_prime[j] = false;\r\n\
+    \        mu[j] = (j / i) % i == 0 ? 0 : -mu[j];\r\n      }\r\n    }\r\n  }\r\n\
     \  return mu;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_init.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init.test.cpp
@@ -82,25 +82,25 @@ $$f(n) = \sum_{d \mid n} g(d) \Leftrightarrow g(n) = \sum_{d \mid n} \mu \left(\
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu(val)`|$\mu(\mathrm{val})$|
+|`mobius_mu(n)`|$\mu(n)$|
 
 - 約数版
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`mobius_mu_divisor(val)`|$\lbrace (\mathrm{val} \text{ の約数 } d, \mu(d)) \rbrace$|キーとして存在しない場合は $\mathrm{val}$ の約数でないか値 $0$ である．|
+|`mobius_mu_divisor(n)`|$\lbrace n \text{ の約数 } d, \mu(d)) \rbrace$|キーとして存在しない場合は $n$ の約数でないか値 $0$ である．|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu_init(val)`|メビウス関数 $\mu(n) \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`mobius_mu_init(n)`|メビウス関数 $\mu(i) \ (1 \leq i \leq n)$ の数表|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(n) \ (\mathrm{low} \leq n < \mathrm{high})$ の数表|
+|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(i) \ (\mathrm{low} \leq i < \mathrm{high})$ の数表|
 
 
 ## 参考

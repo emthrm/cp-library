@@ -62,8 +62,8 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/tree/lca_doubling.test.cpp
   - test/graph/2-edge-connected_components_lowlink.test.cpp
+  - test/graph/tree/lca_doubling.test.cpp
 documentation_of: graph/tree/lca_doubling.hpp
 layout: document
 redirect_from:

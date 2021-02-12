@@ -26,13 +26,14 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248\r\n *\
     \ @docs docs/graph/girth.md\r\n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\
-    \n#include <queue>\r\n#include <tuple>\r\n#include <utility>\r\n#include <vector>\r\
-    \n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nCostType girth_in_directed_graph(const\
-    \ std::vector<std::vector<Edge<CostType>>> &graph, const CostType CINF) {\r\n\
-    \  int n = graph.size();\r\n  CostType res = CINF;\r\n  std::vector<CostType>\
+    \n#include <limits>\r\n#include <queue>\r\n#include <tuple>\r\n#include <utility>\r\
+    \n#include <vector>\r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nCostType girth_in_directed_graph(const std::vector<std::vector<Edge<CostType>>>\
+    \ &graph,\r\n                                 const CostType inf = std::numeric_limits<CostType>::max())\
+    \ {\r\n  int n = graph.size();\r\n  CostType res = inf;\r\n  std::vector<CostType>\
     \ dist(n);\r\n  using Pci = std::pair<CostType, int>;\r\n  std::priority_queue<Pci,\
     \ std::vector<Pci>, std::greater<Pci>> que;\r\n  for (int root = 0; root < n;\
-    \ ++root) {\r\n    std::fill(dist.begin(), dist.end(), CINF);\r\n    dist[root]\
+    \ ++root) {\r\n    std::fill(dist.begin(), dist.end(), inf);\r\n    dist[root]\
     \ = 0;\r\n    que.emplace(0, root);\r\n    while (!que.empty()) {\r\n      CostType\
     \ cost; int ver; std::tie(cost, ver) = que.top(); que.pop();\r\n      if (dist[ver]\
     \ < cost) continue;\r\n      for (const Edge<CostType> &e : graph[ver]) {\r\n\
@@ -45,7 +46,7 @@ data:
   isVerificationFile: false
   path: graph/girth_in_directed_graph.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/girth.test.cpp

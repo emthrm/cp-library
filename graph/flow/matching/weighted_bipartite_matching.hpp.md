@@ -11,12 +11,12 @@ data:
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E8C\
       \u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\u30DE\u30C3\
       \u30C1\u30F3\u30B0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/bigint.01.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/graph/flow/matching/matching.md
     document_title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\
@@ -32,15 +32,14 @@ data:
     \ in a non-first line\n"
   code: "/**\r\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\
     \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0\r\n * @docs docs/graph/flow/matching/matching.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <limits>\r\n#include <vector>\r\n#include\
-    \ \"../minimum_cost_flow/primal_dual.hpp\"\r\n\r\ntemplate <typename T>\r\nstruct\
-    \ WeightedBipartiteMatching {\r\n  WeightedBipartiteMatching(int left, int right,\
-    \ T TINF) : left(left), right(right), pd(left + right + 2, std::numeric_limits<int>::max(),\
-    \ TINF) {}\r\n\r\n  void add_edge(int src, int dst, T cost) { pd.add_edge(src,\
-    \ left + dst, 1, -cost); }\r\n\r\n  T solve() {\r\n    for (int i = 0; i < left;\
-    \ ++i) pd.add_edge(left + right, i, 1, 0);\r\n    for (int i = 0; i < right; ++i)\
-    \ pd.add_edge(left + i, left + right + 1, 1, 0);\r\n    return -pd.min_cost_max_flow(left\
-    \ + right, left + right + 1, left).second;\r\n  }\r\n\r\n  std::vector<int> matching()\
+    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../minimum_cost_flow/primal_dual.hpp\"\
+    \r\n\r\ntemplate <typename T>\r\nstruct WeightedBipartiteMatching {\r\n  WeightedBipartiteMatching(int\
+    \ left, int right) : left(left), right(right), pd(left + right + 2) {}\r\n\r\n\
+    \  void add_edge(int src, int dst, T cost) { pd.add_edge(src, left + dst, 1, -cost);\
+    \ }\r\n\r\n  T solve() {\r\n    for (int i = 0; i < left; ++i) pd.add_edge(left\
+    \ + right, i, 1, 0);\r\n    for (int i = 0; i < right; ++i) pd.add_edge(left +\
+    \ i, left + right + 1, 1, 0);\r\n    return -pd.min_cost_max_flow(left + right,\
+    \ left + right + 1, left).second;\r\n  }\r\n\r\n  std::vector<int> matching()\
     \ const {\r\n    std::vector<int> res(left, -1);\r\n    for (int i = 0; i < left;\
     \ ++i) {\r\n      for (auto e : pd.graph[i]) {\r\n        if (e.cap == 0 && left\
     \ <= e.dst && e.dst < left + right) {\r\n          res[i] = e.dst - left;\r\n\
@@ -51,11 +50,11 @@ data:
   isVerificationFile: false
   path: graph/flow/matching/weighted_bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2021-02-13 06:42:09+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
   - test/math/bigint.01.test.cpp
+  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
 documentation_of: graph/flow/matching/weighted_bipartite_matching.hpp
 layout: document
 redirect_from:
@@ -154,7 +153,7 @@ title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`WeightedBipartiteMatching<T>(left, right, ∞)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
+|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
 |`add_edge(src, dst, cost)`|コスト $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
 |`solve()`|重み付き最大マッチング||
 |`matching()`|マッチング相手|存在しない場合は $-1$ となる．|

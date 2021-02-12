@@ -53,7 +53,7 @@ data:
   isVerificationFile: true
   path: test/graph/chromatic_number.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/chromatic_number.test.cpp

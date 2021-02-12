@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: math/euler_phi/euler_phi_init2.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
@@ -79,19 +79,19 @@ $$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
 
 ||説明|
 |:--:|:--:|
-|`phi(val)`|$\varphi(\mathrm{val})$|
+|`euler_phi(n)`|$\varphi(n)$|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`phi_init(val)`|$\varphi(n) \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`euler_phi_init(n)`|$\varphi(i) \ (1 \leq i \leq \mathrm{n})$ の数表|
 
 - 数表2
 
 ||説明|
 |:--:|:--:|
-|`phi_init2(low, high)`|$\varphi(n) \ (\mathrm{low} \leq n \leq \mathrm{high})$ の数表|
+|`euler_phi_init2(low, high)`|$\varphi(i) \ (\mathrm{low} \leq i \leq \mathrm{high})$ の数表|
 
 
 ## 参考

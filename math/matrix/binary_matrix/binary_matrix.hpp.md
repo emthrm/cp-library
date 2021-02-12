@@ -2,14 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/binary_matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/binary_matrix/inverse_matrix.hpp
     title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/binary_matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\u30EA\u884C\
       \u5217\u7248"
@@ -18,22 +18,22 @@ data:
     path: test/math/matrix/binary_matrix/binary_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30D0\u30A4\
       \u30CA\u30EA\u884C\u5217"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30AC\u30A6\
       \u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5 \u30D0\u30A4\
       \u30CA\u30EA\u884C\u5217\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9006\u884C\
       \u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9023\u7ACB\
       \u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
@@ -75,15 +75,15 @@ data:
   path: math/matrix/binary_matrix/binary_matrix.hpp
   requiredBy:
   - math/matrix/binary_matrix/inverse_matrix.hpp
-  - math/matrix/binary_matrix/linear_equation.hpp
   - math/matrix/binary_matrix/gauss_jordan.hpp
+  - math/matrix/binary_matrix/linear_equation.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
-  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
   - test/math/matrix/binary_matrix/binary_matrix.test.cpp
+  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
 documentation_of: math/matrix/binary_matrix/binary_matrix.hpp
 layout: document
 redirect_from:

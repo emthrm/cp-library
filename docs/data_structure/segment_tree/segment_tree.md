@@ -20,14 +20,14 @@ $\langle O(N), O(\log{N}) \rangle$
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における取得クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
 |`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}}$|存在しない場合は $-1$ となる．|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
 
 `T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
 
 ||説明|
 |:--:|:--:|
 |`T::Monoid`|モノイド|
-|`T::unity()`|単位元|
+|`T::id()`|単位元|
 |`T::merge(a, b)`||
 
 - 遅延評価セグメント木
@@ -50,8 +50,8 @@ $\langle O(N), O(\log{N}) \rangle$
 |:--:|:--:|
 |`T::Monoid`|モノイド|
 |`T::OperatorMonoid`|作用素モノイド|
-|`T::m_unity()`|モノイドの単位元|
-|`T::o_unity()`|作用素モノイドの単位元|
+|`T::m_id()`|モノイドの単位元|
+|`T::o_id()`|作用素モノイドの単位元|
 |`T::m_merge(a, b)`||
 |`T::o_merge(a, b)`||
 |`T::apply(a, b)`||
@@ -110,6 +110,8 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
 - segment tree beats
+  - https://rsm9.hatenablog.com/entry/2021/02/01/220408
+  - https://twitter.com/fuppy_kyopro/status/1356599033439997952
   - https://codeforces.com/blog/entry/57319
   - https://hackmd.io/@a4YdmMWJSTa0aHKUX3wNcA/S1MJhbSLV
   - https://smijake3.hatenablog.com/entry/2019/04/28/021457
@@ -119,9 +121,13 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/tjkendev/segment-tree-beats
   - https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_1.html
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
+  - https://onlinejudge.u-aizu.ac.jp/problems/0427
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
+- 区間等差数列加算区間最小値クエリ
+  - https://twitter.com/yosupot/status/1104175527923986432
+  - https://twitter.com/kuma_program/status/1358762477589155840
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 

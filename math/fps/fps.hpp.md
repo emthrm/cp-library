@@ -19,18 +19,18 @@ data:
   - icon: ':warning:'
     path: math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
     title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/partition_function_init_with_fps.hpp
     title: "\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
     title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp
     title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
@@ -78,24 +78,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/fps/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/fps/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
@@ -154,18 +154,18 @@ data:
     \ { return FPS(*this) /= x; }\r\n  FPS operator%(const FPS &x) const { return\
     \ FPS(*this) %= x; }\r\n  FPS operator<<(int n) const { return FPS(*this) <<=\
     \ n; }\r\n  FPS operator>>(int n) const { return FPS(*this) >>= n; }\r\n  T horner(T\
-    \ val) const {\r\n    T res = 0;\r\n    for (int i = static_cast<int>(co.size())\
-    \ - 1; i >= 0; --i) (res *= val) += co[i];\r\n    return res;\r\n  }\r\n  FPS\
-    \ differential() const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n\
-    \    FPS res(n - 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] = co[i]\
-    \ * i;\r\n    return res;\r\n  }\r\n  FPS integral() const {\r\n    int n = co.size();\r\
-    \n    FPS res(n + 1);\r\n    for (int i = 0; i < n; ++i) res[i + 1] = co[i] /\
-    \ (i + 1);\r\n    return res;\r\n  }\r\n  FPS exp(int deg = -1) const {\r\n  \
-    \  assert(co[0] == 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n\
-    \ - 1;\r\n    FPS one{1}, res = one;\r\n    for (int i = 1; i <= deg; i <<= 1)\
-    \ {\r\n      res *= FPS(co.begin(), co.begin() + std::min(n, i << 1)) - res.log((i\
-    \ << 1) - 1) + one;\r\n      res.co.resize(i << 1);\r\n    }\r\n    res.co.resize(deg\
-    \ + 1);\r\n    return res;\r\n  }\r\n  FPS inv(int deg = -1) const {\r\n    assert(co[0]\
+    \ x) const {\r\n    T res = 0;\r\n    for (int i = static_cast<int>(co.size())\
+    \ - 1; i >= 0; --i) (res *= x) += co[i];\r\n    return res;\r\n  }\r\n  FPS differential()\
+    \ const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n    FPS res(n -\
+    \ 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] = co[i] * i;\r\n    return\
+    \ res;\r\n  }\r\n  FPS integral() const {\r\n    int n = co.size();\r\n    FPS\
+    \ res(n + 1);\r\n    for (int i = 0; i < n; ++i) res[i + 1] = co[i] / (i + 1);\r\
+    \n    return res;\r\n  }\r\n  FPS exp(int deg = -1) const {\r\n    assert(co[0]\
+    \ == 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n - 1;\r\n    FPS\
+    \ one{1}, res = one;\r\n    for (int i = 1; i <= deg; i <<= 1) {\r\n      res\
+    \ *= FPS(co.begin(), co.begin() + std::min(n, i << 1)) - res.log((i << 1) - 1)\
+    \ + one;\r\n      res.co.resize(i << 1);\r\n    }\r\n    res.co.resize(deg + 1);\r\
+    \n    return res;\r\n  }\r\n  FPS inv(int deg = -1) const {\r\n    assert(co[0]\
     \ != 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n - 1;\r\n    FPS\
     \ res{static_cast<T>(1) / co[0]};\r\n    for (int i = 1; i <= deg; i <<= 1) {\r\
     \n      res = res + res - res * res * FPS(co.begin(), co.begin() + std::min(n,\
@@ -269,18 +269,18 @@ data:
     \ { return FPS(*this) /= x; }\r\n  FPS operator%(const FPS &x) const { return\
     \ FPS(*this) %= x; }\r\n  FPS operator<<(int n) const { return FPS(*this) <<=\
     \ n; }\r\n  FPS operator>>(int n) const { return FPS(*this) >>= n; }\r\n  T horner(T\
-    \ val) const {\r\n    T res = 0;\r\n    for (int i = static_cast<int>(co.size())\
-    \ - 1; i >= 0; --i) (res *= val) += co[i];\r\n    return res;\r\n  }\r\n  FPS\
-    \ differential() const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n\
-    \    FPS res(n - 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] = co[i]\
-    \ * i;\r\n    return res;\r\n  }\r\n  FPS integral() const {\r\n    int n = co.size();\r\
-    \n    FPS res(n + 1);\r\n    for (int i = 0; i < n; ++i) res[i + 1] = co[i] /\
-    \ (i + 1);\r\n    return res;\r\n  }\r\n  FPS exp(int deg = -1) const {\r\n  \
-    \  assert(co[0] == 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n\
-    \ - 1;\r\n    FPS one{1}, res = one;\r\n    for (int i = 1; i <= deg; i <<= 1)\
-    \ {\r\n      res *= FPS(co.begin(), co.begin() + std::min(n, i << 1)) - res.log((i\
-    \ << 1) - 1) + one;\r\n      res.co.resize(i << 1);\r\n    }\r\n    res.co.resize(deg\
-    \ + 1);\r\n    return res;\r\n  }\r\n  FPS inv(int deg = -1) const {\r\n    assert(co[0]\
+    \ x) const {\r\n    T res = 0;\r\n    for (int i = static_cast<int>(co.size())\
+    \ - 1; i >= 0; --i) (res *= x) += co[i];\r\n    return res;\r\n  }\r\n  FPS differential()\
+    \ const {\r\n    int n = co.size();\r\n    assert(n >= 1);\r\n    FPS res(n -\
+    \ 1);\r\n    for (int i = 1; i < n; ++i) res.co[i - 1] = co[i] * i;\r\n    return\
+    \ res;\r\n  }\r\n  FPS integral() const {\r\n    int n = co.size();\r\n    FPS\
+    \ res(n + 1);\r\n    for (int i = 0; i < n; ++i) res[i + 1] = co[i] / (i + 1);\r\
+    \n    return res;\r\n  }\r\n  FPS exp(int deg = -1) const {\r\n    assert(co[0]\
+    \ == 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n - 1;\r\n    FPS\
+    \ one{1}, res = one;\r\n    for (int i = 1; i <= deg; i <<= 1) {\r\n      res\
+    \ *= FPS(co.begin(), co.begin() + std::min(n, i << 1)) - res.log((i << 1) - 1)\
+    \ + one;\r\n      res.co.resize(i << 1);\r\n    }\r\n    res.co.resize(deg + 1);\r\
+    \n    return res;\r\n  }\r\n  FPS inv(int deg = -1) const {\r\n    assert(co[0]\
     \ != 0);\r\n    int n = co.size();\r\n    if (deg == -1) deg = n - 1;\r\n    FPS\
     \ res{static_cast<T>(1) / co[0]};\r\n    for (int i = 1; i <= deg; i <<= 1) {\r\
     \n      res = res + res - res * res * FPS(co.begin(), co.begin() + std::min(n,\
@@ -339,34 +339,34 @@ data:
   isVerificationFile: false
   path: math/fps/fps.hpp
   requiredBy:
-  - dp/subset_sum_problem.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
-  - math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
   - math/twelvefold_way/partition_function_init_with_fps.hpp
-  - math/fps/faulhaber_with_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
+  - math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
   - math/fps/bernoulli_number.hpp
   - math/fps/eulerian_number_init_with_fps.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  - math/fps/faulhaber_with_fps.hpp
+  - dp/subset_sum_problem.hpp
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/dp/subset_sum_problem.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
   - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
-  - test/math/fps/bernoulli_number.test.cpp
-  - test/math/fps/fps.5.test.cpp
-  - test/math/fps/fps.3.test.cpp
-  - test/math/fps/fps.4.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/fps.1.test.cpp
-  - test/math/fps/fps.7.test.cpp
-  - test/math/fps/fps.6.test.cpp
-  - test/math/fps/faulhaber_with_fps.test.cpp
   - test/math/fps/multipoint_evaluation.test.cpp
+  - test/math/fps/fps.3.test.cpp
+  - test/math/fps/fps.5.test.cpp
+  - test/math/fps/faulhaber_with_fps.test.cpp
+  - test/math/fps/fps.1.test.cpp
+  - test/math/fps/fps.6.test.cpp
+  - test/math/fps/bernoulli_number.test.cpp
+  - test/math/fps/fps.7.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/fps/fps.4.test.cpp
   - test/math/fps/fps.2.test.cpp
+  - test/dp/subset_sum_problem.test.cpp
 documentation_of: math/fps/fps.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
@@ -453,7 +453,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 |`operator!=(x)`|$f \neq x$ であるか．||
 |`operator+()`|$+{f}$||
 |`operator-()`|$-{f}$||
-|`horner(val)`|$f(\mathrm{val})$||
+|`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`integral()`|$\int{f}$||
 |`exp(deg = n)`|$\exp(f)$|$[x^0]f = 0$|

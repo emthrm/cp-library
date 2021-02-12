@@ -152,7 +152,7 @@ title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`WeightedBipartiteMatching<T>(left, right, ∞)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
+|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
 |`add_edge(src, dst, cost)`|コスト $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
 |`solve()`|重み付き最大マッチング||
 |`matching()`|マッチング相手|存在しない場合は $-1$ となる．|

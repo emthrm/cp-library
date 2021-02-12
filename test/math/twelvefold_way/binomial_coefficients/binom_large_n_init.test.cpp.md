@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/binomial_coefficients/binom_large_n_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570 $n$ \u306F\u5DE8\u5927\u306A\u56FA\u5B9A\u5024"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071
@@ -48,7 +48,7 @@ data:
   path: test/math/twelvefold_way/binomial_coefficients/binom_large_n_init.test.cpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/binomial_coefficients/binom_large_n_init.test.cpp
 layout: document

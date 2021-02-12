@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/math/lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-11 04:31:13+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/lagrange_interpolation.test.cpp

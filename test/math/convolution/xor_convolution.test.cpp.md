@@ -44,7 +44,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/xor_convolution.test.cpp

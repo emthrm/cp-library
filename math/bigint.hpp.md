@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/bigint.01.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
   - icon: ':heavy_check_mark:'
@@ -33,7 +33,7 @@ data:
   - icon: ':x:'
     path: test/math/bigint.10.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u30D1\u30B9\
       \u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
@@ -337,17 +337,17 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/bigint.02.test.cpp
-  - test/math/bigint.07.test.cpp
-  - test/math/bigint.03.test.cpp
-  - test/math/bigint.09.test.cpp
-  - test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
-  - test/math/bigint.05.test.cpp
-  - test/math/bigint.01.test.cpp
-  - test/math/bigint.08.test.cpp
   - test/math/bigint.06.test.cpp
-  - test/math/bigint.04.test.cpp
   - test/math/bigint.10.test.cpp
+  - test/math/bigint.03.test.cpp
+  - test/math/bigint.07.test.cpp
+  - test/math/bigint.08.test.cpp
+  - test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
+  - test/math/bigint.01.test.cpp
+  - test/math/bigint.04.test.cpp
+  - test/math/bigint.02.test.cpp
+  - test/math/bigint.05.test.cpp
+  - test/math/bigint.09.test.cpp
 documentation_of: math/bigint.hpp
 layout: document
 title: "\u591A\u500D\u9577\u6574\u6570"
@@ -382,19 +382,19 @@ Knuth's Algorithm D
 - 乗算の高速化
   - http://xn--w6q13e505b.jp/method/mult.html
   - http://fussy.web.fc2.com/algo/math3_mult.htm
-    - ショーンハーゲ・ストラッセン法 (Schönhage–Strassen algorithm)
-      - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%BB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%82%BB%E3%83%B3%E6%B3%95
-      - https://qiita.com/peria/items/fbdd52768b4659823d88
-      - http://poset.jp/ompa/node5.html
-      - https://qiita.com/peria/items/19e37b192cb62bdbc3a1
-      - https://cookies.hatenablog.jp/entry/2018/12/18/092106
-      - https://pisan-dub.jp/doc/2011/20110201001/2000/20000819001/0.pdf
-    - Toom-Cook 法 (Toom-3)
-      - https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication
-      - http://xn--w6q13e505b.jp/method/toomcook.html
-      - https://azapen6.hatenablog.com/entry/2014/04/11/235315
-      - https://www.mk-mode.com/blog/2013/04/29/cpp-big-multiply-toom-cook-3/
-      - http://poset.jp/ompa/node4.html#SECTION00044000000000000000
+  - ショーンハーゲ・ストラッセン法 (Schönhage–Strassen algorithm)
+    - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%BB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%82%BB%E3%83%B3%E6%B3%95
+    - https://qiita.com/peria/items/fbdd52768b4659823d88
+    - http://poset.jp/ompa/node5.html
+    - https://qiita.com/peria/items/19e37b192cb62bdbc3a1
+    - https://cookies.hatenablog.jp/entry/2018/12/18/092106
+    - https://pisan-dub.jp/doc/2011/20110201001/2000/20000819001/0.pdf
+  - Toom-Cook 法 (Toom-3)
+    - https://en.wikipedia.org/wiki/Toom%E2%80%93Cook_multiplication
+    - http://xn--w6q13e505b.jp/method/toomcook.html
+    - https://azapen6.hatenablog.com/entry/2014/04/11/235315
+    - https://www.mk-mode.com/blog/2013/04/29/cpp-big-multiply-toom-cook-3/
+    - http://poset.jp/ompa/node4.html#SECTION00044000000000000000
 - 階乗
   - http://fussy.web.fc2.com/algo/math2_bignum.htm
 - ニュートン-ラプソン除算 (Newton-Raphson division)

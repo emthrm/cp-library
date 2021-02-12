@@ -118,18 +118,18 @@ data:
     \ < 0 || n < k || k < 0) return 0;\r\n    assert(n <= val);\r\n    return fact[n]\
     \ * fact_inv[n - k];\r\n  }\r\n  ModInt nHk(int n, int k) const {\r\n    if (n\
     \ < 0 || k < 0) return 0;\r\n    return k == 0 ? 1 : nCk(n + k - 1, k);\r\n  }\r\
-    \n};\r\n#line 4 \"math/osa_k.hpp\"\n\r\nstruct osa_k {\r\n  osa_k(int val = 10000000)\
-    \ : least_prime_factor(val + 1, -1) {\r\n    least_prime_factor[0] = 0;\r\n  \
-    \  if (val >= 1) least_prime_factor[1] = 1;\r\n    for (int i = 2; i <= val; ++i)\
-    \ {\r\n      if (least_prime_factor[i] == -1) {\r\n        least_prime_factor[i]\
-    \ = i;\r\n        for (long long j = static_cast<long long>(i) * i; j <= val;\
-    \ j += i) {\r\n          if (least_prime_factor[j] == -1) least_prime_factor[j]\
-    \ = i;\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  std::vector<std::pair<int,\
-    \ int>> query(int val) const {\r\n    std::vector<std::pair<int, int>> res;\r\n\
-    \    while (val > 1) {\r\n      int prime = least_prime_factor[val], exponent\
-    \ = 0;\r\n      while (least_prime_factor[val] == prime) {\r\n        ++exponent;\r\
-    \n        val /= prime;\r\n      }\r\n      res.emplace_back(prime, exponent);\r\
-    \n    }\r\n    return res;\r\n  }\r\n\r\nprivate:\r\n  std::vector<int> least_prime_factor;\r\
+    \n};\r\n#line 4 \"math/osa_k.hpp\"\n\r\nstruct osa_k {\r\n  osa_k(int n = 10000000)\
+    \ : least_prime_factor(n + 1, -1) {\r\n    least_prime_factor[0] = 0;\r\n    if\
+    \ (n >= 1) least_prime_factor[1] = 1;\r\n    for (int i = 2; i <= n; ++i) {\r\n\
+    \      if (least_prime_factor[i] == -1) {\r\n        least_prime_factor[i] = i;\r\
+    \n        for (long long j = static_cast<long long>(i) * i; j <= n; j += i) {\r\
+    \n          if (least_prime_factor[j] == -1) least_prime_factor[j] = i;\r\n  \
+    \      }\r\n      }\r\n    }\r\n  }\r\n\r\n  std::vector<std::pair<int, int>>\
+    \ query(int n) const {\r\n    std::vector<std::pair<int, int>> res;\r\n    while\
+    \ (n > 1) {\r\n      int prime = least_prime_factor[n], exponent = 0;\r\n    \
+    \  while (least_prime_factor[n] == prime) {\r\n        ++exponent;\r\n       \
+    \ n /= prime;\r\n      }\r\n      res.emplace_back(prime, exponent);\r\n    }\r\
+    \n    return res;\r\n  }\r\n\r\nprivate:\r\n  std::vector<int> least_prime_factor;\r\
     \n};\r\n#line 12 \"test/math/osa_k.test.cpp\"\n\r\nint main() {\r\n  ModInt::set_mod(1000000007);\r\
     \n  int n;\r\n  std::cin >> n;\r\n  osa_k osa(n);\r\n  std::map<int, int> mp;\r\
     \n  for (int i = 2; i <= n; ++i) {\r\n    for (const std::pair<int, int> &pr :\
@@ -151,7 +151,7 @@ data:
   isVerificationFile: true
   path: test/math/osa_k.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/osa_k.test.cpp

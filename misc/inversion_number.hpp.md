@@ -6,12 +6,12 @@ data:
     title: binary indexed tree
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -23,21 +23,21 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/bit/bit.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n#include \"\
-    ../data_structure/bit/bit.hpp\"\r\n\r\ntemplate <typename T>\r\nlong long inversion_number(const\
-    \ std::vector<T> &a) {\r\n  int n = a.size();\r\n  std::vector<T> comp(a);\r\n\
-    \  std::sort(comp.begin(), comp.end());\r\n  comp.erase(std::unique(comp.begin(),\
+  code: "#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include <vector>\r\
+    \n#include \"../data_structure/bit/bit.hpp\"\r\n\r\ntemplate <typename T>\r\n\
+    long long inversion_number(const std::vector<T> &a) {\r\n  int n = a.size();\r\
+    \n  std::vector<T> comp(a);\r\n  std::sort(comp.begin(), comp.end());\r\n  comp.erase(std::unique(comp.begin(),\
     \ comp.end()), comp.end());\r\n  BIT<int> bit(comp.size());\r\n  long long res\
-    \ = 0;\r\n  for (int i = 0; i < n; ++i) {\r\n    int idx = std::lower_bound(comp.begin(),\
-    \ comp.end(), a[i]) - comp.begin();\r\n    res += i - bit.sum(idx + 1);\r\n  \
-    \  bit.add(idx, 1);\r\n  }\r\n  return res;\r\n}\r\n"
+    \ = 0;\r\n  for (int i = 0; i < n; ++i) {\r\n    int idx = std::distance(comp.begin(),\
+    \ std::lower_bound(comp.begin(), comp.end(), a[i]));\r\n    res += i - bit.sum(idx\
+    \ + 1);\r\n    bit.add(idx, 1);\r\n  }\r\n  return res;\r\n}\r\n"
   dependsOn:
   - data_structure/bit/bit.hpp
   isVerificationFile: false
   path: misc/inversion_number.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-13 04:45:32+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/inversion_number.test.cpp
 documentation_of: misc/inversion_number.hpp

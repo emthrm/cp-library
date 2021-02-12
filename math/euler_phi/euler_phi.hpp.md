@@ -34,17 +34,16 @@ data:
     \ math/euler_phi/euler_phi.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\r\
     \n * @docs docs/math/euler_phi/euler_phi.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <cassert>\r\n\r\nlong long euler_phi(long long val) {\r\n  assert(val >= 1);\r\
-    \n  long long res = val;\r\n  for (long long i = 2; i * i <= val; ++i) {\r\n \
-    \   if (val % i == 0) {\r\n      res -= res / i;\r\n      while (val % i == 0)\
-    \ val /= i;\r\n    }\r\n  }\r\n  if (val > 1) res -= res / val;\r\n  return res;\r\
-    \n}\r\n"
+    \ <cassert>\r\n\r\nlong long euler_phi(long long n) {\r\n  assert(n >= 1);\r\n\
+    \  long long res = n;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n    if\
+    \ (n % i == 0) {\r\n      res -= res / i;\r\n      while (n % i == 0) n /= i;\r\
+    \n    }\r\n  }\r\n  if (n > 1) res -= res / n;\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/euler_phi/euler_phi.hpp
   requiredBy:
   - math/inverse_element/mod_inv_phi.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi/euler_phi.test.cpp
@@ -80,19 +79,19 @@ $$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
 
 ||説明|
 |:--:|:--:|
-|`phi(val)`|$\varphi(\mathrm{val})$|
+|`euler_phi(n)`|$\varphi(n)$|
 
 - 数表
 
 ||説明|
 |:--:|:--:|
-|`phi_init(val)`|$\varphi(n) \ (1 \leq n \leq \mathrm{val})$ の数表|
+|`euler_phi_init(n)`|$\varphi(i) \ (1 \leq i \leq \mathrm{n})$ の数表|
 
 - 数表2
 
 ||説明|
 |:--:|:--:|
-|`phi_init2(low, high)`|$\varphi(n) \ (\mathrm{low} \leq n \leq \mathrm{high})$ の数表|
+|`euler_phi_init2(low, high)`|$\varphi(i) \ (\mathrm{low} \leq i \leq \mathrm{high})$ の数表|
 
 
 ## 参考

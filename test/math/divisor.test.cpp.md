@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/divisor.hpp
     title: "\u7D04\u6570\u5217\u6319"
   _extendedRequiredBy: []
@@ -19,9 +19,9 @@ data:
     /\u7D04\u6570\u5217\u6319\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2932\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#line 2 \"math/divisor.hpp\"\
     \n#include <algorithm>\r\n#line 4 \"math/divisor.hpp\"\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<T> divisor(T val) {\r\n  std::vector<T> res;\r\n  for (T i\
-    \ = 1; i * i <= val; ++i) {\r\n    if (val % i == 0) {\r\n      res.emplace_back(i);\r\
-    \n      if (i * i != val) res.emplace_back(val / i);\r\n    }\r\n  }\r\n  std::sort(res.begin(),\
+    \ T>\r\nstd::vector<T> divisor(T n) {\r\n  std::vector<T> res;\r\n  for (T i =\
+    \ 1; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n      res.emplace_back(i);\r\
+    \n      if (i * i != n) res.emplace_back(n / i);\r\n    }\r\n  }\r\n  std::sort(res.begin(),\
     \ res.end());\r\n  return res;\r\n}\r\n#line 9 \"test/math/divisor.test.cpp\"\n\
     \r\nint main() {\r\n  long long n;\r\n  std::cin >> n;\r\n  std::vector<long long>\
     \ d = divisor(n);\r\n  d.pop_back();\r\n  int cnt = 0, m = d.size();\r\n  while\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/math/divisor.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/divisor.test.cpp

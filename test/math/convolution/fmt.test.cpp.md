@@ -23,12 +23,12 @@ data:
     \r\n#define ERROR \"1e-7\"\r\n\r\n#include <algorithm>\r\n#include <cmath>\r\n\
     #include <iomanip>\r\n#include <iostream>\r\n#include <vector>\r\n#line 3 \"math/convolution/fmt.hpp\"\
     \n\r\ntemplate <typename T>\r\nstd::vector<T> fmt(std::vector<T> a, bool is_superset,\
-    \ const T UNITY = 0) {\r\n  int n = a.size(), p = 1;\r\n  while ((1 << p) < n)\
-    \ ++p;\r\n  n = 1 << p;\r\n  a.resize(n, UNITY);\r\n  if (is_superset) {\r\n \
-    \   for (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if\
-    \ ((j & i) == 0) a[j] -= a[j | i];\r\n    }\r\n  } else {\r\n    for (int i =\
-    \ 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0)\
-    \ a[j | i] -= a[j];\r\n    }\r\n  }\r\n  return a;\r\n}\r\n#line 13 \"test/math/convolution/fmt.test.cpp\"\
+    \ const T ID = 0) {\r\n  int n = a.size(), p = 1;\r\n  while ((1 << p) < n) ++p;\r\
+    \n  n = 1 << p;\r\n  a.resize(n, ID);\r\n  if (is_superset) {\r\n    for (int\
+    \ i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) ==\
+    \ 0) a[j] -= a[j | i];\r\n    }\r\n  } else {\r\n    for (int i = 1; i < n; i\
+    \ <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j | i] -=\
+    \ a[j];\r\n    }\r\n  }\r\n  return a;\r\n}\r\n#line 13 \"test/math/convolution/fmt.test.cpp\"\
     \n\r\nint main() {\r\n  int n;\r\n  long long m;\r\n  std::cin >> n >> m;\r\n\
     \  std::vector<long long> a(n);\r\n  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\
     \n  std::vector<double> p(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/fmt.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/fmt.test.cpp

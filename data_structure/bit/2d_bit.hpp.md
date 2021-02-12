@@ -19,24 +19,24 @@ data:
     \ data_structure/bit/2d_bit.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief 2\u6B21\u5143 BIT\r\n * @docs docs/data_structure/bit/bit.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Abelian>\r\
-    \nstruct BIT2D {\r\n  BIT2D(int height_, int width_, const Abelian UNITY = 0)\
-    \ : height(height_), width(width_), UNITY(UNITY) {\r\n    dat.assign(++height,\
-    \ std::vector<Abelian>(++width, UNITY));\r\n  }\r\n\r\n  void add(int y, int x,\
-    \ Abelian val) {\r\n    ++y; ++x;\r\n    for (int i = y; i < height; i += i &\
-    \ -i) {\r\n      for (int j = x; j < width; j += j & -j) {\r\n        dat[i][j]\
-    \ += val;\r\n      }\r\n    }\r\n  }\r\n\r\n  Abelian sum(int y, int x) const\
-    \ {\r\n    ++y; ++x;\r\n    Abelian res = UNITY;\r\n    for (int i = y; i > 0;\
-    \ i -= i & -i) {\r\n      for (int j = x; j > 0; j -= j & -j) {\r\n        res\
-    \ += dat[i][j];\r\n      }\r\n    }\r\n    return res;\r\n  }\r\n\r\n  Abelian\
-    \ sum(int y1, int x1, int y2, int x2) const {\r\n    return y1 <= y2 && x1 <=\
-    \ x2 ? sum(y2, x2) - sum(y2, x1 - 1) - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1) :\
-    \ UNITY;\r\n  }\r\n\r\nprivate:\r\n  int height, width;\r\n  const Abelian UNITY;\r\
-    \n  std::vector<std::vector<Abelian>> dat;\r\n};\r\n"
+    \nstruct BIT2D {\r\n  BIT2D(int height_, int width_, const Abelian ID = 0) : height(height_),\
+    \ width(width_), ID(ID) {\r\n    dat.assign(++height, std::vector<Abelian>(++width,\
+    \ ID));\r\n  }\r\n\r\n  void add(int y, int x, Abelian val) {\r\n    ++y; ++x;\r\
+    \n    for (int i = y; i < height; i += i & -i) {\r\n      for (int j = x; j <\
+    \ width; j += j & -j) {\r\n        dat[i][j] += val;\r\n      }\r\n    }\r\n \
+    \ }\r\n\r\n  Abelian sum(int y, int x) const {\r\n    ++y; ++x;\r\n    Abelian\
+    \ res = ID;\r\n    for (int i = y; i > 0; i -= i & -i) {\r\n      for (int j =\
+    \ x; j > 0; j -= j & -j) {\r\n        res += dat[i][j];\r\n      }\r\n    }\r\n\
+    \    return res;\r\n  }\r\n\r\n  Abelian sum(int y1, int x1, int y2, int x2) const\
+    \ {\r\n    return y1 <= y2 && x1 <= x2 ? sum(y2, x2) - sum(y2, x1 - 1) - sum(y1\
+    \ - 1, x2) + sum(y1 - 1, x1 - 1) : ID;\r\n  }\r\n\r\nprivate:\r\n  int height,\
+    \ width;\r\n  const Abelian ID;\r\n  std::vector<std::vector<Abelian>> dat;\r\n\
+    };\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/bit/2d_bit.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: data_structure/bit/2d_bit.hpp

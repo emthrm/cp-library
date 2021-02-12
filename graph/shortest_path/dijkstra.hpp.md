@@ -29,29 +29,30 @@ data:
     \ line\n"
   code: "/**\n * @brief Dijkstra \u6CD5\n * @docs docs/graph/shortest_path/sssp.md\n\
     \ */\n\n#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
-    #include <queue>\n#include <tuple>\n#include <utility>\n#include <vector>\n#include\
-    \ \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct Dijkstra {\n  Dijkstra(const\
-    \ std::vector<std::vector<Edge<CostType>>> &graph, const CostType CINF) : graph(graph),\
-    \ CINF(CINF) {}\n\n  std::vector<CostType> build(int s) {\n    is_built = true;\n\
-    \    int n = graph.size();\n    std::vector<CostType> dist(n, CINF);\n    dist[s]\
-    \ = 0;\n    prev.assign(n, -1);\n    using Pci = std::pair<CostType, int>;\n \
-    \   std::priority_queue<Pci, std::vector<Pci>, std::greater<Pci>> que;\n    que.emplace(0,\
-    \ s);\n    while (!que.empty()) {\n      CostType cost; int ver; std::tie(cost,\
-    \ ver) = que.top(); que.pop();\n      if (dist[ver] < cost) continue;\n      for\
-    \ (const Edge<CostType> &e : graph[ver]) {\n        if (dist[e.dst] > dist[ver]\
-    \ + e.cost) {\n          dist[e.dst] = dist[ver] + e.cost;\n          prev[e.dst]\
-    \ = ver;\n          que.emplace(dist[e.dst], e.dst);\n        }\n      }\n   \
-    \ }\n    return dist;\n  }\n\n  std::vector<int> build_path(int t) const {\n \
-    \   assert(is_built);\n    std::vector<int> res;\n    for (; t != -1; t = prev[t])\
-    \ res.emplace_back(t);\n    std::reverse(res.begin(), res.end());\n    return\
-    \ res;\n  }\n\nprivate:\n  bool is_built = false;\n  std::vector<std::vector<Edge<CostType>>>\
-    \ graph;\n  const CostType CINF;\n  std::vector<int> prev;\n};\n"
+    #include <limits>\n#include <queue>\n#include <tuple>\n#include <utility>\n#include\
+    \ <vector>\n#include \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct Dijkstra\
+    \ {\n  const CostType inf;\n\n  Dijkstra(const std::vector<std::vector<Edge<CostType>>>\
+    \ &graph,\n           const CostType inf = std::numeric_limits<CostType>::max())\n\
+    \  : graph(graph), inf(inf) {}\n\n  std::vector<CostType> build(int s) {\n   \
+    \ is_built = true;\n    int n = graph.size();\n    std::vector<CostType> dist(n,\
+    \ inf);\n    dist[s] = 0;\n    prev.assign(n, -1);\n    using Pci = std::pair<CostType,\
+    \ int>;\n    std::priority_queue<Pci, std::vector<Pci>, std::greater<Pci>> que;\n\
+    \    que.emplace(0, s);\n    while (!que.empty()) {\n      CostType cost; int\
+    \ ver; std::tie(cost, ver) = que.top(); que.pop();\n      if (dist[ver] < cost)\
+    \ continue;\n      for (const Edge<CostType> &e : graph[ver]) {\n        if (dist[e.dst]\
+    \ > dist[ver] + e.cost) {\n          dist[e.dst] = dist[ver] + e.cost;\n     \
+    \     prev[e.dst] = ver;\n          que.emplace(dist[e.dst], e.dst);\n       \
+    \ }\n      }\n    }\n    return dist;\n  }\n\n  std::vector<int> build_path(int\
+    \ t) const {\n    assert(is_built);\n    std::vector<int> res;\n    for (; t !=\
+    \ -1; t = prev[t]) res.emplace_back(t);\n    std::reverse(res.begin(), res.end());\n\
+    \    return res;\n  }\n\nprivate:\n  bool is_built = false;\n  std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n  std::vector<int> prev;\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/shortest_path/dijkstra.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/noshi_graph.test.cpp
@@ -88,8 +89,9 @@ title: "Dijkstra \u6CD5"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
-|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
+|`inf`|$\infty$||
 |`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達不可能ならば $\infty$ となる．|
+|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
 |`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
 
 - Dijkstra 法
@@ -97,6 +99,7 @@ title: "Dijkstra \u6CD5"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
+|`inf`|$\infty$||
 |`build(s)`|始点 $s$ の単一始点最短路||
 |`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
 
@@ -142,6 +145,8 @@ Dijkstra 法
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
+- $O(\sqrt{N} M \log{C})$
+  - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
 
 
 ## Verified

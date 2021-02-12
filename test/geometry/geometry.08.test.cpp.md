@@ -25,66 +25,66 @@ data:
     \n#include <cmath>\r\n#include <functional>\r\n#line 7 \"geometry/geometry.hpp\"\
     \n#include <limits>\r\n#include <utility>\r\n#include <vector>\r\n\r\nnamespace\
     \ geometry {\r\nusing Real = double;\r\nconstexpr long double PI = 3.14159265358979323846;\r\
-    \n\r\nint sgn(Real x) {\r\n  constexpr Real EPS = 1e-8;\r\n  return x > EPS ?\
-    \ 1 : x < -EPS ? -1 : 0;\r\n}\r\n\r\nReal degree_to_radian(Real d) { return d\
-    \ * PI / 180; }\r\nReal radian_to_degree(Real r) { return r * 180 / PI; }\r\n\r\
-    \nstruct Point {\r\n  Real x, y;\r\n  Point(Real x = 0, Real y = 0) : x(x), y(y)\
-    \ {}\r\n  Real abs() const { return std::sqrt(norm()); }\r\n  Real arg() const\
-    \ { Real res = std::atan2(y, x); return res < 0 ? res + PI * 2 : res; }\r\n  Real\
-    \ norm() const { return x * x + y * y; }\r\n  Point rotate(Real angle) const {\
-    \ Real cs = std::cos(angle), sn = std::sin(angle); return Point(x * cs - y * sn,\
-    \ x * sn + y * cs); }\r\n  Point unit_vector() const { Real a = abs(); return\
-    \ Point(x / a, y / a); }\r\n  std::pair<Point, Point> normal_unit_vector() const\
-    \ { Point p = unit_vector(); return {Point(-p.y, p.x), Point(p.y, -p.x)}; }\r\n\
-    \  Point &operator+=(const Point &p) { x += p.x; y += p.y; return *this; }\r\n\
-    \  Point &operator-=(const Point &p) { x -= p.x; y -= p.y; return *this; }\r\n\
-    \  Point &operator*=(Real k) { x *= k; y *= k; return *this; }\r\n  Point &operator/=(Real\
-    \ k) { x /= k; y /= k; return *this; }\r\n  bool operator<(const Point &p) const\
-    \ { int x_sgn = sgn(p.x - x); return x_sgn != 0 ? x_sgn == 1 : sgn(p.y - y) ==\
-    \ 1; }\r\n  bool operator<=(const Point &p) const { return !(p < *this); }\r\n\
-    \  bool operator>(const Point &p) const { return p < *this; }\r\n  bool operator>=(const\
-    \ Point &p) const { return !(*this < p); }\r\n  Point operator+() const { return\
-    \ *this; }\r\n  Point operator-() const { return Point(-x, -y); }\r\n  Point operator+(const\
-    \ Point &p) const { return Point(*this) += p; }\r\n  Point operator-(const Point\
-    \ &p) const { return Point(*this) -= p; }\r\n  Point operator*(Real k) const {\
-    \ return Point(*this) *= k; }\r\n  Point operator/(Real k) const { return Point(*this)\
-    \ /= k; }\r\n  friend std::ostream &operator<<(std::ostream &os, const Point &p)\
-    \ { return os << '(' << p.x << \", \" << p.y << ')'; }\r\n  friend std::istream\
-    \ &operator>>(std::istream &is, Point &p) { Real x, y; is >> x >> y; p = Point(x,\
-    \ y); return is; }\r\n};\r\n\r\nstruct Segment {\r\n  Point s, t;\r\n  Segment(const\
-    \ Point &s = {0, 0}, const Point &t = {0, 0}) : s(s), t(t) {}\r\n};\r\nstruct\
-    \ Line : Segment {\r\n  using Segment::Segment;\r\n  Line(Real a, Real b, Real\
-    \ c) {\r\n    if (sgn(a) == 0) {\r\n      s = Point(0, -c / b); t = Point(1, s.y);\r\
-    \n    } else if (sgn(b) == 0) {\r\n      s = Point(-c / a, 0); t = Point(s.x,\
-    \ 1);\r\n    } else if (sgn(c) == 0) {\r\n      s = Point(0, 0); t = Point(1,\
-    \ -a / b);\r\n    } else {\r\n      s = Point(0, -c / b); t = Point(-c / a, 0);\r\
-    \n    }\r\n  }\r\n};\r\n\r\nstruct Circle {\r\n  Point p; Real r;\r\n  Circle(const\
-    \ Point &p = {0, 0}, Real r = 0) : p(p), r(r) {}\r\n};\r\n\r\nReal cross(const\
-    \ Point &a, const Point &b) { return a.x * b.y - a.y * b.x; }\r\nReal dot(const\
-    \ Point &a, const Point &b) { return a.x * b.x + a.y * b.y; }\r\n\r\nint ccw(const\
-    \ Point &a, const Point &b, const Point &c) {\r\n  Point ab = b - a, ac = c -\
-    \ a;\r\n  int sign = sgn(cross(ab, ac));\r\n  if (sign == 0) {\r\n    if (sgn(dot(ab,\
-    \ ac)) == -1) return 2;\r\n    if (sgn(ac.norm() - ab.norm()) == 1) return -2;\r\
-    \n  }\r\n  return sign;\r\n}\r\n\r\nReal get_angle(const Point &a, const Point\
-    \ &b, const Point &c) {\r\n  Real ba_arg = (a - b).arg(), bc_arg = (c - b).arg();\r\
-    \n  if (ba_arg > bc_arg) std::swap(ba_arg, bc_arg);\r\n  return std::min(bc_arg\
-    \ - ba_arg, static_cast<Real>(PI * 2 - (bc_arg - ba_arg)));\r\n}\r\n\r\nReal closest_pair(std::vector<Point>\
-    \ ps) {\r\n  int n = ps.size();\r\n  assert(n > 1);\r\n  std::sort(ps.begin(),\
-    \ ps.end());\r\n  std::function<Real(int, int)> rec = [&ps, &rec](int left, int\
-    \ right) -> Real {\r\n    int mid = (left + right) >> 1;\r\n    Real x_mid = ps[mid].x,\
-    \ d = std::numeric_limits<Real>::max();\r\n    if (left + 1 < mid) {\r\n     \
-    \ Real tmp = rec(left, mid);\r\n      if (tmp < d) d = tmp;\r\n    }\r\n    if\
-    \ (mid + 1 < right) {\r\n      Real tmp = rec(mid, right);\r\n      if (tmp <\
-    \ d) d = tmp;\r\n    }\r\n    std::inplace_merge(ps.begin() + left, ps.begin()\
-    \ + mid, ps.begin() + right, [&](const Point &a, const Point &b) -> bool { return\
-    \ sgn(b.y - a.y) == 1; });\r\n    std::vector<Point> tmp;\r\n    for (int i =\
-    \ left; i < right; ++i) {\r\n      if (sgn(std::abs(ps[i].x - x_mid) - d) == 1)\
-    \ continue;\r\n      for (int j = static_cast<int>(tmp.size()) - 1; j >= 0; --j)\
-    \ {\r\n        Point now = ps[i] - tmp[j];\r\n        if (sgn(now.y - d) == 1)\
-    \ break;\r\n        Real tmp = now.abs();\r\n        if (tmp < d) d = tmp;\r\n\
-    \      }\r\n      tmp.emplace_back(ps[i]);\r\n    }\r\n    return d;\r\n  };\r\
-    \n  return rec(0, n);\r\n}\r\n\r\nPoint projection(const Segment &a, const Point\
-    \ &b) { return a.s + (a.t - a.s) * dot(a.t - a.s, b - a.s) / (a.t - a.s).norm();\
+    \n\r\nint sgn(Real x) {\r\n  static constexpr Real EPS = 1e-8;\r\n  return x >\
+    \ EPS ? 1 : x < -EPS ? -1 : 0;\r\n}\r\n\r\nReal degree_to_radian(Real d) { return\
+    \ d * PI / 180; }\r\nReal radian_to_degree(Real r) { return r * 180 / PI; }\r\n\
+    \r\nstruct Point {\r\n  Real x, y;\r\n  Point(Real x = 0, Real y = 0) : x(x),\
+    \ y(y) {}\r\n  Real abs() const { return std::sqrt(norm()); }\r\n  Real arg()\
+    \ const { Real res = std::atan2(y, x); return res < 0 ? res + PI * 2 : res; }\r\
+    \n  Real norm() const { return x * x + y * y; }\r\n  Point rotate(Real angle)\
+    \ const { Real cs = std::cos(angle), sn = std::sin(angle); return Point(x * cs\
+    \ - y * sn, x * sn + y * cs); }\r\n  Point unit_vector() const { Real a = abs();\
+    \ return Point(x / a, y / a); }\r\n  std::pair<Point, Point> normal_unit_vector()\
+    \ const { Point p = unit_vector(); return {Point(-p.y, p.x), Point(p.y, -p.x)};\
+    \ }\r\n  Point &operator+=(const Point &p) { x += p.x; y += p.y; return *this;\
+    \ }\r\n  Point &operator-=(const Point &p) { x -= p.x; y -= p.y; return *this;\
+    \ }\r\n  Point &operator*=(Real k) { x *= k; y *= k; return *this; }\r\n  Point\
+    \ &operator/=(Real k) { x /= k; y /= k; return *this; }\r\n  bool operator<(const\
+    \ Point &p) const { int x_sgn = sgn(p.x - x); return x_sgn != 0 ? x_sgn == 1 :\
+    \ sgn(p.y - y) == 1; }\r\n  bool operator<=(const Point &p) const { return !(p\
+    \ < *this); }\r\n  bool operator>(const Point &p) const { return p < *this; }\r\
+    \n  bool operator>=(const Point &p) const { return !(*this < p); }\r\n  Point\
+    \ operator+() const { return *this; }\r\n  Point operator-() const { return Point(-x,\
+    \ -y); }\r\n  Point operator+(const Point &p) const { return Point(*this) += p;\
+    \ }\r\n  Point operator-(const Point &p) const { return Point(*this) -= p; }\r\
+    \n  Point operator*(Real k) const { return Point(*this) *= k; }\r\n  Point operator/(Real\
+    \ k) const { return Point(*this) /= k; }\r\n  friend std::ostream &operator<<(std::ostream\
+    \ &os, const Point &p) { return os << '(' << p.x << \", \" << p.y << ')'; }\r\n\
+    \  friend std::istream &operator>>(std::istream &is, Point &p) { Real x, y; is\
+    \ >> x >> y; p = Point(x, y); return is; }\r\n};\r\n\r\nstruct Segment {\r\n \
+    \ Point s, t;\r\n  Segment(const Point &s = {0, 0}, const Point &t = {0, 0}) :\
+    \ s(s), t(t) {}\r\n};\r\nstruct Line : Segment {\r\n  using Segment::Segment;\r\
+    \n  Line(Real a, Real b, Real c) {\r\n    if (sgn(a) == 0) {\r\n      s = Point(0,\
+    \ -c / b); t = Point(1, s.y);\r\n    } else if (sgn(b) == 0) {\r\n      s = Point(-c\
+    \ / a, 0); t = Point(s.x, 1);\r\n    } else if (sgn(c) == 0) {\r\n      s = Point(0,\
+    \ 0); t = Point(1, -a / b);\r\n    } else {\r\n      s = Point(0, -c / b); t =\
+    \ Point(-c / a, 0);\r\n    }\r\n  }\r\n};\r\n\r\nstruct Circle {\r\n  Point p;\
+    \ Real r;\r\n  Circle(const Point &p = {0, 0}, Real r = 0) : p(p), r(r) {}\r\n\
+    };\r\n\r\nReal cross(const Point &a, const Point &b) { return a.x * b.y - a.y\
+    \ * b.x; }\r\nReal dot(const Point &a, const Point &b) { return a.x * b.x + a.y\
+    \ * b.y; }\r\n\r\nint ccw(const Point &a, const Point &b, const Point &c) {\r\n\
+    \  Point ab = b - a, ac = c - a;\r\n  int sign = sgn(cross(ab, ac));\r\n  if (sign\
+    \ == 0) {\r\n    if (sgn(dot(ab, ac)) == -1) return 2;\r\n    if (sgn(ac.norm()\
+    \ - ab.norm()) == 1) return -2;\r\n  }\r\n  return sign;\r\n}\r\n\r\nReal get_angle(const\
+    \ Point &a, const Point &b, const Point &c) {\r\n  Real ba_arg = (a - b).arg(),\
+    \ bc_arg = (c - b).arg();\r\n  if (ba_arg > bc_arg) std::swap(ba_arg, bc_arg);\r\
+    \n  return std::min(bc_arg - ba_arg, static_cast<Real>(PI * 2 - (bc_arg - ba_arg)));\r\
+    \n}\r\n\r\nReal closest_pair(std::vector<Point> ps) {\r\n  int n = ps.size();\r\
+    \n  assert(n > 1);\r\n  std::sort(ps.begin(), ps.end());\r\n  std::function<Real(int,\
+    \ int)> rec = [&ps, &rec](int left, int right) -> Real {\r\n    int mid = (left\
+    \ + right) >> 1;\r\n    Real x_mid = ps[mid].x, d = std::numeric_limits<Real>::max();\r\
+    \n    if (left + 1 < mid) {\r\n      Real tmp = rec(left, mid);\r\n      if (tmp\
+    \ < d) d = tmp;\r\n    }\r\n    if (mid + 1 < right) {\r\n      Real tmp = rec(mid,\
+    \ right);\r\n      if (tmp < d) d = tmp;\r\n    }\r\n    std::inplace_merge(ps.begin()\
+    \ + left, ps.begin() + mid, ps.begin() + right, [&](const Point &a, const Point\
+    \ &b) -> bool { return sgn(b.y - a.y) == 1; });\r\n    std::vector<Point> tmp;\r\
+    \n    for (int i = left; i < right; ++i) {\r\n      if (sgn(std::abs(ps[i].x -\
+    \ x_mid) - d) == 1) continue;\r\n      for (int j = static_cast<int>(tmp.size())\
+    \ - 1; j >= 0; --j) {\r\n        Point now = ps[i] - tmp[j];\r\n        if (sgn(now.y\
+    \ - d) == 1) break;\r\n        Real tmp = now.abs();\r\n        if (tmp < d) d\
+    \ = tmp;\r\n      }\r\n      tmp.emplace_back(ps[i]);\r\n    }\r\n    return d;\r\
+    \n  };\r\n  return rec(0, n);\r\n}\r\n\r\nPoint projection(const Segment &a, const\
+    \ Point &b) { return a.s + (a.t - a.s) * dot(a.t - a.s, b - a.s) / (a.t - a.s).norm();\
     \ }\r\nPoint reflection(const Segment &a, const Point &b) { return projection(a,\
     \ b) * 2 - b; }\r\n\r\nbool is_parallel(const Segment &a, const Segment &b) {\
     \ return sgn(cross(a.t - a.s, b.t - b.s)) == 0; }\r\nbool is_orthogonal(const\
@@ -244,7 +244,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.08.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.08.test.cpp

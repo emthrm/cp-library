@@ -50,15 +50,15 @@ data:
   isVerificationFile: false
   path: data_structure/union-find/union-find.hpp
   requiredBy:
-  - graph/mst/kruskal.hpp
   - graph/mst/kruskal_heavy.hpp
+  - graph/mst/kruskal.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/matrix_tree_theorem.test.cpp
-  - test/graph/mst/kruskal.test.cpp
-  - test/graph/biconnected_component.test.cpp
   - test/data_structure/union-find/union-find.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/biconnected_component.test.cpp
+  - test/graph/mst/kruskal.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:

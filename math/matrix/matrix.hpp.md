@@ -8,7 +8,7 @@ data:
   - icon: ':x:'
     path: graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'
@@ -29,13 +29,13 @@ data:
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
   - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
   _isVerificationFailed: true
@@ -100,20 +100,20 @@ data:
   isVerificationFile: false
   path: math/matrix/matrix.hpp
   requiredBy:
+  - math/matrix/inverse_matrix.hpp
+  - math/matrix/gauss_jordan.hpp
+  - math/matrix/linear_equation.hpp
+  - math/matrix/determinant.hpp
   - graph/flow/matching/tutte_theorem.hpp
   - graph/matrix_tree_theorem.hpp
-  - math/matrix/inverse_matrix.hpp
-  - math/matrix/determinant.hpp
-  - math/matrix/linear_equation.hpp
-  - math/matrix/gauss_jordan.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/flow/matching/tutte_theorem.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
   - test/math/matrix/linear_equation.test.cpp
   - test/math/matrix/determinant.test.cpp
   - test/math/matrix/matrix.test.cpp
+  - test/graph/flow/matching/tutte_theorem.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"

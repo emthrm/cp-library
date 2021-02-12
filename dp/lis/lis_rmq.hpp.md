@@ -26,22 +26,20 @@ data:
     \ dp/lis/lis_rmq.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u6700\u9577\u5897\u52A0\u90E8\u5206\u5217 RMQ \u7248\r\n\
     \ * @docs docs/dp/lis/lis.md\r\n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\
-    \n#include <limits>\r\n#include <vector>\r\n#include \"../../data_structure/segment_tree/segment_tree.hpp\"\
-    \r\n\r\ntemplate <typename T>\r\nint lis_rmq(const std::vector<T> &a, const T\
-    \ TINF) {\r\n  int n = a.size();\r\n  std::vector<T> b(a);\r\n  std::sort(b.begin(),\
-    \ b.end());\r\n  b.erase(std::unique(b.begin(), b.end()), b.end());\r\n  static\
-    \ T tinf = TINF;\r\n  struct Node {\r\n    using Monoid = T;\r\n    static constexpr\
-    \ T unity() { return tinf; }\r\n    static T merge(const T &a, const T &b) { return\
-    \ std::min(a, b); }\r\n  };\r\n  SegmentTree<Node> rmq(b.size() + 1);\r\n  rmq.set(0,\
-    \ 0);\r\n  for (int i = 0; i < n; ++i) {\r\n    int idx = std::lower_bound(b.begin(),\
-    \ b.end(), a[i]) - b.begin() + 1;\r\n    rmq.set(idx, rmq.get(0, idx) - 1);\r\n\
-    \  }\r\n  return -rmq.get(0, b.size() + 1);\r\n}\r\n"
+    \n#include <iterator>\r\n#include <vector>\r\n#include \"../../data_structure/segment_tree/segment_tree.hpp\"\
+    \r\n\r\ntemplate <typename T>\r\nint lis_rmq(const std::vector<T> &a, bool is_strict\
+    \ = true) {\r\n  int n = a.size();\r\n  std::vector<T> b(a);\r\n  std::sort(b.begin(),\
+    \ b.end());\r\n  b.erase(std::unique(b.begin(), b.end()), b.end());\r\n  SegmentTree<monoid::RangeMaximumQuery<int>>\
+    \ rmq(b.size() + 1);\r\n  rmq.set(0, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n\
+    \    int idx = std::distance(b.begin(), std::lower_bound(b.begin(), b.end(), a[i]))\
+    \ + 1;\r\n    rmq.set(idx, rmq.get(0, is_strict ? idx : idx + 1) + 1);\r\n  }\r\
+    \n  return rmq.get(0, b.size() + 1);\r\n}\r\n"
   dependsOn:
   - data_structure/segment_tree/segment_tree.hpp
   isVerificationFile: false
   path: dp/lis/lis_rmq.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dp/lis/lis_rmq.test.cpp
@@ -68,21 +66,19 @@ $O(N\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`lis(a, ∞)`|$A$ の最長増加部分列|
-
-最長非減少部分列を求めるには `lower_bound` → `upper_bound`，最長減少部分列を求めるには元の列を逆にしたものの最長増加部分列を求めればよい．
+|`lis(a, 広義単調増加か? = true)`|$A$ の最長増加部分列|
 
 - 2次元 LIS
 
 ||説明|
 |:--:|:--:|
-|`lis_2d(a, ∞)`|2次元配列 $A$ の最長増加部分列|
+|`lis_2d(a)`|2次元配列 $A$ の最長増加部分列|
 
 - 最長増加部分列 RMQ 版
 
 ||説明|
 |:--:|:--:|
-|`lis_rmq(a, ∞)`|$A$ の最長増加部分列長|
+|`lis_rmq(a, 広義単調増加か? = true)`|$A$ の最長増加部分列長|
 
 
 ## 参考

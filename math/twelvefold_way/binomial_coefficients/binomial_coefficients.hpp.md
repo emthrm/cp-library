@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/inverse_element/mod_inv_extgcd.hpp
     title: "\u9006\u5143 \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5\u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/binomial_coefficients/binomial_coefficients.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u4E8C\u9805\
       \u4FC2\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/binomial_coefficients/binomial_coefficients.md
     document_title: "\u4E8C\u9805\u4FC2\u6570"
@@ -42,7 +42,7 @@ data:
   path: math/twelvefold_way/binomial_coefficients/binomial_coefficients.hpp
   requiredBy: []
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/binomial_coefficients/binomial_coefficients.test.cpp
 documentation_of: math/twelvefold_way/binomial_coefficients/binomial_coefficients.hpp
@@ -73,18 +73,16 @@ $$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)
 
 ||説明|
 |:--:|:--:|
-|`pascal<T>(val)`|$\mathrm{val}$ 段のパスカルの三角形|
+|`pascal<T>(n)`|$n$ 段のパスカルの三角形|
 
 - 二項係数
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BinomialCoefficients(mod, val = 10000000)`|二項係数を考える|$a! \perp \mathrm{mod}$|
+|`BinomialCoefficients(mod, val = 10000000)`|二項係数を考える|$a! \perp \mathrm{mod}$ (e.g. $0 \leq a < \mathrm{mod}$ を満たす素数)|
 |`fact[i]`|$i!$|
 |`fact_inv[i]`|$\frac{1}{i!}$|
 |`query(n, k)`|$\binom{n}{k}$|
-
-e.g. $0 \leq a < \mathrm{mod}$ を満たす素数
 
 - $n$ は巨大
 

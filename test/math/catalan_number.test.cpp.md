@@ -116,8 +116,8 @@ data:
     \ * fact_inv[n - k];\r\n  }\r\n  ModInt nHk(int n, int k) const {\r\n    if (n\
     \ < 0 || k < 0) return 0;\r\n    return k == 0 ? 1 : nCk(n + k - 1, k);\r\n  }\r\
     \n};\r\n#line 5 \"math/catalan_number.hpp\"\n\r\nstd::vector<ModInt> catalan_number(int\
-    \ val, const Combinatorics &com) {\r\n  assert(val + 1 <= com.val);\r\n  std::vector<ModInt>\
-    \ catalan(val + 1);\r\n  catalan[0] = 1;\r\n  for (int i = 0; i < val; ++i) catalan[i\
+    \ n, const Combinatorics &com) {\r\n  assert(n + 1 <= com.val);\r\n  std::vector<ModInt>\
+    \ catalan(n + 1);\r\n  catalan[0] = 1;\r\n  for (int i = 0; i < n; ++i) catalan[i\
     \ + 1] = catalan[i] * com.inv[i + 2] * 2 * (2 * i + 1);\r\n  return catalan;\r\
     \n}\r\n#line 9 \"test/math/catalan_number.test.cpp\"\n\r\nint main() {\r\n  ModInt::set_mod(742909);\r\
     \n  int n;\r\n  std::cin >> n;\r\n  Combinatorics com(n + 1);\r\n  std::cout <<\
@@ -134,7 +134,7 @@ data:
   isVerificationFile: true
   path: test/math/catalan_number.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/catalan_number.test.cpp

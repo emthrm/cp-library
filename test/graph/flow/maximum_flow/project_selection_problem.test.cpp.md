@@ -31,17 +31,16 @@ data:
     \ line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41\
     /\u71C3\u3084\u3059\u57CB\u3081\u308B\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903\"\
-    \r\n\r\n#include <iostream>\r\n#include <limits>\r\n#include <string>\r\n#include\
-    \ <vector>\r\n#include \"../../../../graph/flow/maximum_flow/dinic.hpp\"\r\n#include\
-    \ \"../../../../graph/flow/maximum_flow/project_selection_problem.hpp\"\r\n\r\n\
-    int main() {\r\n  int r, c;\r\n  std::cin >> r >> c;\r\n  std::vector<std::string>\
+    \r\n\r\n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\n#include\
+    \ \"../../../../graph/flow/maximum_flow/dinic.hpp\"\r\n#include \"../../../../graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    \r\n\r\nint main() {\r\n  int r, c;\r\n  std::cin >> r >> c;\r\n  std::vector<std::string>\
     \ s(r);\r\n  for (int i = 0; i < r; ++i) std::cin >> s[i];\r\n  std::vector<std::vector<int>>\
     \ idx(r, std::vector<int>(c, -1));\r\n  int x = 0;\r\n  for (int i = 0; i < r;\
     \ ++i) for (int j = 0; j < c; ++j) {\r\n    if (s[i][j] == '#') idx[i][j] = x++;\r\
-    \n  }\r\n  ProjectSelectionProblem<Dinic, int> psp(x, std::numeric_limits<int>::max());\r\
-    \n  for (int i = 0; i < r; ++i) for (int j = 0; j < c; ++j) {\r\n    if (idx[i][j]\
-    \ == -1) continue;\r\n    if (i + 1 < r && idx[i + 1][j] != -1) psp.add_same(idx[i][j],\
-    \ idx[i + 1][j], 0, -1);\r\n    if (j + 1 < c && idx[i][j + 1] != -1) psp.add_same(idx[i][j],\
+    \n  }\r\n  ProjectSelectionProblem<Dinic, int> psp(x);\r\n  for (int i = 0; i\
+    \ < r; ++i) for (int j = 0; j < c; ++j) {\r\n    if (idx[i][j] == -1) continue;\r\
+    \n    if (i + 1 < r && idx[i + 1][j] != -1) psp.add_same(idx[i][j], idx[i + 1][j],\
+    \ 0, -1);\r\n    if (j + 1 < c && idx[i][j + 1] != -1) psp.add_same(idx[i][j],\
     \ idx[i][j + 1], 1, -1);\r\n  }\r\n  std::cout << x + psp.solve() << '\\n';\r\n\
     \  return 0;\r\n}\r\n"
   dependsOn:
@@ -50,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/maximum_flow/project_selection_problem.test.cpp

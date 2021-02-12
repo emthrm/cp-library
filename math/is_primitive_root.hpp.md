@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/divisor.hpp
     title: "\u7D04\u6570\u5217\u6319"
   - icon: ':question:'
@@ -10,12 +10,12 @@ data:
       , \u30D0\u30A4\u30CA\u30EA\u6CD5)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/primitive_root.md
     document_title: "\u539F\u59CB\u6839\u5224\u5B9A"
@@ -39,8 +39,8 @@ data:
   isVerificationFile: false
   path: math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-02-12 01:21:30+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_primitive_root.test.cpp
 documentation_of: math/is_primitive_root.hpp

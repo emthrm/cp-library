@@ -25,24 +25,24 @@ data:
   code: "/**\r\n * @brief \u91CD\u307F\u3064\u304D union-find \u6728\r\n * @docs docs/data_structure/union-find/union-find.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate\
     \ <typename Abelian>\r\nstruct WeightedUnionFind {\r\n  WeightedUnionFind(int\
-    \ n, const Abelian UNITY = 0) : UNITY(UNITY), par(n, -1), data(n, UNITY) {}\r\n\
-    \r\n  int root(int ver) {\r\n    if (par[ver] < 0) return ver;\r\n    int res\
-    \ = root(par[ver]);\r\n    data[ver] += data[par[ver]];\r\n    return par[ver]\
-    \ = res;\r\n  }\r\n\r\n  bool unite(int u, int v, Abelian wt) {\r\n    wt += weight(u);\r\
-    \n    wt -= weight(v);\r\n    u = root(u);\r\n    v = root(v);\r\n    if (u ==\
-    \ v) return false;\r\n    if (par[u] > par[v]) {\r\n      std::swap(u, v);\r\n\
-    \      wt = -wt;\r\n    }\r\n    par[u] += par[v];\r\n    par[v] = u;\r\n    data[v]\
-    \ = wt;\r\n    return true;\r\n  }\r\n\r\n  bool same(int u, int v) { return root(u)\
-    \ == root(v); }\r\n\r\n  int size(int ver) { return -par[root(ver)]; }\r\n\r\n\
-    \  Abelian diff(int u, int v) { return weight(v) - weight(u); }\r\n\r\nprivate:\r\
-    \n  const Abelian UNITY;\r\n  std::vector<int> par;\r\n  std::vector<Abelian>\
-    \ data;\r\n\r\n  Abelian weight(int ver) {\r\n    root(ver);\r\n    return data[ver];\r\
-    \n  }\r\n};\r\n"
+    \ n, const Abelian ID = 0) : ID(ID), par(n, -1), data(n, ID) {}\r\n\r\n  int root(int\
+    \ ver) {\r\n    if (par[ver] < 0) return ver;\r\n    int res = root(par[ver]);\r\
+    \n    data[ver] += data[par[ver]];\r\n    return par[ver] = res;\r\n  }\r\n\r\n\
+    \  bool unite(int u, int v, Abelian wt) {\r\n    wt += weight(u);\r\n    wt -=\
+    \ weight(v);\r\n    u = root(u);\r\n    v = root(v);\r\n    if (u == v) return\
+    \ false;\r\n    if (par[u] > par[v]) {\r\n      std::swap(u, v);\r\n      wt =\
+    \ -wt;\r\n    }\r\n    par[u] += par[v];\r\n    par[v] = u;\r\n    data[v] = wt;\r\
+    \n    return true;\r\n  }\r\n\r\n  bool same(int u, int v) { return root(u) ==\
+    \ root(v); }\r\n\r\n  int size(int ver) { return -par[root(ver)]; }\r\n\r\n  Abelian\
+    \ diff(int u, int v) { return weight(v) - weight(u); }\r\n\r\nprivate:\r\n  const\
+    \ Abelian ID;\r\n  std::vector<int> par;\r\n  std::vector<Abelian> data;\r\n\r\
+    \n  Abelian weight(int ver) {\r\n    root(ver);\r\n    return data[ver];\r\n \
+    \ }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/weighted_union-find.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/union-find/weighted_union-find.test.cpp

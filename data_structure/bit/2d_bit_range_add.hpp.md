@@ -25,42 +25,42 @@ data:
   code: "/**\r\n * @brief 2\u6B21\u5143 BIT \u9818\u57DF\u52A0\u7B97\u7248\r\n * @docs\
     \ docs/data_structure/bit/bit.md\r\n */\r\n\r\n#pragma once\r\n#include <vector>\r\
     \n\r\ntemplate <typename Abelian>\r\nstruct BIT2DRangeAdd {\r\n  BIT2DRangeAdd(int\
-    \ height_, int width_, const Abelian UNITY = 0) : height(height_), width(width_),\
-    \ UNITY(UNITY) {\r\n    ++height; ++width;\r\n    dat_const.assign(height, std::vector<Abelian>(width,\
-    \ UNITY));\r\n    dat_linear[0].assign(height, std::vector<Abelian>(width, UNITY));\r\
-    \n    dat_linear[1].assign(height, std::vector<Abelian>(width, UNITY));\r\n  \
-    \  dat_quadratic.assign(height, std::vector<Abelian>(width, UNITY));\r\n  }\r\n\
-    \r\n  void add(int y1, int x1, int y2, int x2, const Abelian val) {\r\n    ++y1;\
-    \ ++x1; ++y2; ++x2;\r\n    for (int i = y1; i < height; i += i & -i) for (int\
-    \ j = x1; j < width; j += j & -j) {\r\n      dat_const[i][j] += val * (y1 - 1)\
-    \ * (x1 - 1);\r\n      dat_linear[0][i][j] -= val * (x1 - 1);\r\n      dat_linear[1][i][j]\
-    \ -= val * (y1 - 1);\r\n      dat_quadratic[i][j] += val;\r\n    }\r\n    for\
-    \ (int i = y1; i < height; i += i & -i) for (int j = x2 + 1; j < width; j += j\
-    \ & -j) {\r\n      dat_const[i][j] -= val * (y1 - 1) * x2;\r\n      dat_linear[0][i][j]\
-    \ += val * x2;\r\n      dat_linear[1][i][j] += val * (y1 - 1);\r\n      dat_quadratic[i][j]\
+    \ height_, int width_, const Abelian ID = 0) : height(height_), width(width_),\
+    \ ID(ID) {\r\n    ++height; ++width;\r\n    dat_const.assign(height, std::vector<Abelian>(width,\
+    \ ID));\r\n    dat_linear[0].assign(height, std::vector<Abelian>(width, ID));\r\
+    \n    dat_linear[1].assign(height, std::vector<Abelian>(width, ID));\r\n    dat_quadratic.assign(height,\
+    \ std::vector<Abelian>(width, ID));\r\n  }\r\n\r\n  void add(int y1, int x1, int\
+    \ y2, int x2, const Abelian val) {\r\n    ++y1; ++x1; ++y2; ++x2;\r\n    for (int\
+    \ i = y1; i < height; i += i & -i) for (int j = x1; j < width; j += j & -j) {\r\
+    \n      dat_const[i][j] += val * (y1 - 1) * (x1 - 1);\r\n      dat_linear[0][i][j]\
+    \ -= val * (x1 - 1);\r\n      dat_linear[1][i][j] -= val * (y1 - 1);\r\n     \
+    \ dat_quadratic[i][j] += val;\r\n    }\r\n    for (int i = y1; i < height; i +=\
+    \ i & -i) for (int j = x2 + 1; j < width; j += j & -j) {\r\n      dat_const[i][j]\
+    \ -= val * (y1 - 1) * x2;\r\n      dat_linear[0][i][j] += val * x2;\r\n      dat_linear[1][i][j]\
+    \ += val * (y1 - 1);\r\n      dat_quadratic[i][j] -= val;\r\n    }\r\n    for\
+    \ (int i = y2 + 1; i < height; i += i & -i) for (int j = x1; j < width; j += j\
+    \ & -j) {\r\n      dat_const[i][j] -= val * y2 * (x1 - 1);\r\n      dat_linear[0][i][j]\
+    \ += val * (x1 - 1);\r\n      dat_linear[1][i][j] += val * y2;\r\n      dat_quadratic[i][j]\
     \ -= val;\r\n    }\r\n    for (int i = y2 + 1; i < height; i += i & -i) for (int\
-    \ j = x1; j < width; j += j & -j) {\r\n      dat_const[i][j] -= val * y2 * (x1\
-    \ - 1);\r\n      dat_linear[0][i][j] += val * (x1 - 1);\r\n      dat_linear[1][i][j]\
-    \ += val * y2;\r\n      dat_quadratic[i][j] -= val;\r\n    }\r\n    for (int i\
-    \ = y2 + 1; i < height; i += i & -i) for (int j = x2 + 1; j < width; j += j &\
-    \ -j) {\r\n      dat_const[i][j] += val * y2 * x2;\r\n      dat_linear[0][i][j]\
-    \ -= val * x2;\r\n      dat_linear[1][i][j] -= val * y2;\r\n      dat_quadratic[i][j]\
-    \ += val;\r\n    }\r\n  }\r\n\r\n  Abelian sum(int y, int x) const {\r\n    ++y;\
-    \ ++x;\r\n    Abelian quad = UNITY, cons = UNITY, line[2] = {UNITY, UNITY};\r\n\
-    \    for (int i = y; i > 0; i -= i & -i) for (int j = x; j > 0; j -= j & -j) {\r\
-    \n      quad += dat_quadratic[i][j];\r\n      line[0] += dat_linear[0][i][j];\r\
-    \n      line[1] += dat_linear[1][i][j];\r\n      cons += dat_const[i][j];\r\n\
-    \    }\r\n    return quad * y * x + line[0] * y + line[1] * x + cons;\r\n  }\r\
-    \n\r\n  Abelian sum(int y1, int x1, int y2, int x2) const {\r\n    return y1 <=\
-    \ y2 && x1 <= x2 ? sum(y2, x2) - sum(y2, x1 - 1) - sum(y1 - 1, x2) + sum(y1 -\
-    \ 1, x1 - 1) : UNITY;\r\n  }\r\n\r\nprivate:\r\n  int height, width;\r\n  const\
-    \ Abelian UNITY;\r\n  std::vector<std::vector<Abelian>> dat_const, dat_quadratic;\r\
-    \n  std::vector<std::vector<Abelian>> dat_linear[2];\r\n};\r\n"
+    \ j = x2 + 1; j < width; j += j & -j) {\r\n      dat_const[i][j] += val * y2 *\
+    \ x2;\r\n      dat_linear[0][i][j] -= val * x2;\r\n      dat_linear[1][i][j] -=\
+    \ val * y2;\r\n      dat_quadratic[i][j] += val;\r\n    }\r\n  }\r\n\r\n  Abelian\
+    \ sum(int y, int x) const {\r\n    ++y; ++x;\r\n    Abelian quad = ID, cons =\
+    \ ID, line[2] = {ID, ID};\r\n    for (int i = y; i > 0; i -= i & -i) for (int\
+    \ j = x; j > 0; j -= j & -j) {\r\n      quad += dat_quadratic[i][j];\r\n     \
+    \ line[0] += dat_linear[0][i][j];\r\n      line[1] += dat_linear[1][i][j];\r\n\
+    \      cons += dat_const[i][j];\r\n    }\r\n    return quad * y * x + line[0]\
+    \ * y + line[1] * x + cons;\r\n  }\r\n\r\n  Abelian sum(int y1, int x1, int y2,\
+    \ int x2) const {\r\n    return y1 <= y2 && x1 <= x2 ? sum(y2, x2) - sum(y2, x1\
+    \ - 1) - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1) : ID;\r\n  }\r\n\r\nprivate:\r\n\
+    \  int height, width;\r\n  const Abelian ID;\r\n  std::vector<std::vector<Abelian>>\
+    \ dat_const, dat_quadratic;\r\n  std::vector<std::vector<Abelian>> dat_linear[2];\r\
+    \n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/bit/2d_bit_range_add.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/data_structure/bit/2d_bit_range_add.test.cpp

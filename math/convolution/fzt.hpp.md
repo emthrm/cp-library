@@ -25,35 +25,35 @@ data:
   bundledCode: "#line 2 \"math/convolution/fzt.hpp\"\n#include <vector>\r\n\r\ntemplate\
     \ <typename Ring, typename Fn>\r\nstd::vector<Ring> fzt(std::vector<Ring> a,\r\
     \n                      bool is_superset,\r\n                      const Ring\
-    \ UNITY = 0,\r\n                      Fn fn = [](const Ring &a, const Ring &b)\
-    \ -> Ring { return a + b; }) {\r\n  int n = a.size(), p = 1;\r\n  while ((1 <<\
-    \ p) < n) ++p;\r\n  n = 1 << p;\r\n  a.resize(n, UNITY);\r\n  if (is_superset)\
-    \ {\r\n    for (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n \
-    \     if ((j & i) == 0) a[j] = fn(a[j], a[j | i]);\r\n    }\r\n  } else {\r\n\
+    \ ID = 0,\r\n                      Fn fn = [](const Ring &a, const Ring &b) ->\
+    \ Ring { return a + b; }) {\r\n  int n = a.size(), p = 1;\r\n  while ((1 << p)\
+    \ < n) ++p;\r\n  n = 1 << p;\r\n  a.resize(n, ID);\r\n  if (is_superset) {\r\n\
     \    for (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if\
-    \ ((j & i) == 0) a[j | i] = fn(a[j | i], a[j]);\r\n    }\r\n  }\r\n  return a;\r\
-    \n}\r\n"
+    \ ((j & i) == 0) a[j] = fn(a[j], a[j | i]);\r\n    }\r\n  } else {\r\n    for\
+    \ (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j &\
+    \ i) == 0) a[j | i] = fn(a[j | i], a[j]);\r\n    }\r\n  }\r\n  return a;\r\n}\r\
+    \n"
   code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Ring, typename\
     \ Fn>\r\nstd::vector<Ring> fzt(std::vector<Ring> a,\r\n                      bool\
-    \ is_superset,\r\n                      const Ring UNITY = 0,\r\n            \
-    \          Fn fn = [](const Ring &a, const Ring &b) -> Ring { return a + b; })\
-    \ {\r\n  int n = a.size(), p = 1;\r\n  while ((1 << p) < n) ++p;\r\n  n = 1 <<\
-    \ p;\r\n  a.resize(n, UNITY);\r\n  if (is_superset) {\r\n    for (int i = 1; i\
-    \ < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j]\
-    \ = fn(a[j], a[j | i]);\r\n    }\r\n  } else {\r\n    for (int i = 1; i < n; i\
-    \ <<= 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j | i] = fn(a[j\
-    \ | i], a[j]);\r\n    }\r\n  }\r\n  return a;\r\n}\r\n"
+    \ is_superset,\r\n                      const Ring ID = 0,\r\n               \
+    \       Fn fn = [](const Ring &a, const Ring &b) -> Ring { return a + b; }) {\r\
+    \n  int n = a.size(), p = 1;\r\n  while ((1 << p) < n) ++p;\r\n  n = 1 << p;\r\
+    \n  a.resize(n, ID);\r\n  if (is_superset) {\r\n    for (int i = 1; i < n; i <<=\
+    \ 1) for (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j] = fn(a[j],\
+    \ a[j | i]);\r\n    }\r\n  } else {\r\n    for (int i = 1; i < n; i <<= 1) for\
+    \ (int j = 0; j < n; ++j) {\r\n      if ((j & i) == 0) a[j | i] = fn(a[j | i],\
+    \ a[j]);\r\n    }\r\n  }\r\n  return a;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/fzt.hpp
   requiredBy:
-  - math/convolution/or_convolution.hpp
   - math/convolution/and_convolution.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  - math/convolution/or_convolution.hpp
+  timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/convolution/fzt.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fzt.test.cpp
 documentation_of: math/convolution/fzt.hpp
 layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
