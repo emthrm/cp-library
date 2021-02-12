@@ -103,7 +103,7 @@ struct RangeMinimumQuery {
 template <typename T>
 struct RangeMaximumQuery {
   using Monoid = T;
-  static constexpr T id() { return std::numeric_limits<T>::min(); }
+  static constexpr T id() { return std::numeric_limits<T>::lowest(); }
   static T merge(const T &a, const T &b) { return std::max(a, b); }
 };
 

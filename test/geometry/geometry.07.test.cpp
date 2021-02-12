@@ -5,14 +5,15 @@
 #define ERROR "1e-6"
 
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
+#include <limits>
 #include <tuple>
 #include <utility>
 #include <vector>
 #include "../../geometry/geometry.hpp"
 
 int main() {
-  constexpr int INF = 0x3f3f3f3f;
   int n, k;
   std::cin >> n >> k;
   std::vector<geometry::Circle> people(n);
@@ -57,7 +58,7 @@ int main() {
     return 0;
   }
   std::sort(ball.begin(), ball.end());
-  std::vector<std::vector<std::vector<double>>> dp(n, std::vector<std::vector<double>>(k + 1, std::vector<double>(2, -INF)));
+  std::vector<std::vector<std::vector<double>>> dp(n, std::vector<std::vector<double>>(k + 1, std::vector<double>(2, std::numeric_limits<double>::lowest())));
   dp[0][0][false] = 0;
   dp[0][1][true] = ball[0].second - ball[0].first;
   for (int i = 1; i < n; ++i) {
@@ -84,6 +85,6 @@ int main() {
   for (int y = 0; y <= k; ++y) for (int z = 0; z < 2; ++z) {
     if (dp[n - 1][y][z] > ans) ans = dp[n - 1][y][z];
   }
-  std::cout << ans / geometry::PI << '\n';
+  std::cout << std::fixed << std::setprecision(7) << ans / geometry::PI << '\n';
   return 0;
 }

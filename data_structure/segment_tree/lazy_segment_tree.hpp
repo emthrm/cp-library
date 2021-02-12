@@ -171,29 +171,29 @@ template <typename T>
 struct RangeMaximumAndUpdateQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return std::numeric_limits<T>::min(); }
-  static constexpr T o_id() { return std::numeric_limits<T>::min(); }
+  static constexpr T m_id() { return std::numeric_limits<T>::lowest(); }
+  static constexpr T o_id() { return std::numeric_limits<T>::lowest(); }
   static T m_merge(const T &a, const T &b) { return std::max(a, b); }
   static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
   static T apply(const T &a, const T &b) { return b == o_id()? a : b; }
 };
 
-template <typename T, T TINF>
+template <typename T, T INF>
 struct RangeMinimumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return TINF; }
+  static constexpr T m_id() { return INF; }
   static constexpr T o_id() { return 0; }
   static T m_merge(const T &a, const T &b) { return std::min(a, b); }
   static T o_merge(const T &a, const T &b) { return a + b; }
   static T apply(const T &a, const T &b) { return a + b; }
 };
 
-template <typename T, T TINF>
+template <typename T, T INF>
 struct RangeMaximumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return -TINF; }
+  static constexpr T m_id() { return -INF; }
   static constexpr T o_id() { return 0; }
   static T m_merge(const T &a, const T &b) { return std::max(a, b); }
   static T o_merge(const T &a, const T &b) { return a + b; }

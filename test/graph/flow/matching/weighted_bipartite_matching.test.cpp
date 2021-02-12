@@ -5,7 +5,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2429"
 
 #include <iostream>
-#include <limits>
 #include <string>
 #include <vector>
 #include "../../../../graph/flow/matching/weighted_bipartite_matching.hpp"
@@ -22,7 +21,7 @@ int main() {
     std::cin >> f[i][j];
     if (f[i][j] == 'o') ans += e[i][j];
   }
-  WeightedBipartiteMatching<long long> wbm(n, n, std::numeric_limits<long long>::max());
+  WeightedBipartiteMatching<long long> wbm(n, n);
   for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) {
     wbm.add_edge(i, j, f[i][j] == 'o' ? e[i][j] : -w[i][j]);
   }

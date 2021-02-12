@@ -6,6 +6,7 @@
 #pragma once
 #include <algorithm>
 #include <functional>
+#include <limits>
 #include <queue>
 #include <tuple>
 #include <utility>
@@ -20,9 +21,10 @@ struct PrimalDual2 {
     Edge(int dst, T cap, U cost, int rev) : dst(dst), cap(cap), cost(cost), rev(rev) {}
   };
 
+  const U uinf;
   std::vector<std::vector<Edge>> graph;
 
-  PrimalDual2(int n, const T TINF, const U UINF) : n(n), UINF(UINF), graph(n + 2), d(n + 2, 0) {}
+  PrimalDual2(int n, const U uinf = std::numeric_limits<U>::max()) : n(n), uinf(uinf), graph(n + 2), d(n + 2, 0) {}
 
   void add_edge(int src, int dst, T cap, U cost) {
     if (cost < 0) {
@@ -50,7 +52,7 @@ struct PrimalDual2 {
     std::vector<U> potential(n + 2, 0), dist(n + 2);
     std::priority_queue<Pui, std::vector<Pui>, std::greater<Pui>> que;
     while (flow > 0) {
-      std::fill(dist.begin(), dist.end(), UINF);
+      std::fill(dist.begin(), dist.end(), uinf);
       dist[n] = 0;
       que.emplace(0, n);
       while (!que.empty()) {
@@ -67,9 +69,9 @@ struct PrimalDual2 {
           }
         }
       }
-      if (dist[n + 1] == UINF) return UINF;
+      if (dist[n + 1] == uinf) return uinf;
       for (int i = 0; i < n + 2; ++i) {
-        if (dist[i] != UINF) potential[i] += dist[i];
+        if (dist[i] != uinf) potential[i] += dist[i];
       }
       T f = flow;
       for (int v = n + 1; v != n; v = prev_v[v]) {
@@ -96,7 +98,6 @@ private:
   using Pui = std::pair<U, int>;
 
   int n;
-  const U UINF;
   U res = 0;
   std::vector<T> d;
 };

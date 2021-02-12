@@ -6,7 +6,7 @@ template <typename T>
 struct WarshallFloyd {
   std::vector<std::vector<T>> graph, dist;
 
-  WarshallFloyd(const std::vector<std::vector<T>> &graph, const T TINF) : graph(graph), dist(graph), TINF(TINF) {
+  WarshallFloyd(const std::vector<std::vector<T>> &graph, const T inf) : graph(graph), dist(graph), inf(inf) {
     n = graph.size();
     internal.assign(n, std::vector<int>(n, -1));
     for (int k = 0; k < n; ++k) for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) {
@@ -59,7 +59,7 @@ struct WarshallFloyd {
 
   std::vector<int> build_path(int s, int t) const {
     std::vector<int> res;
-    if (dist[s][t] != TINF) {
+    if (dist[s][t] != inf) {
       build_path(s, t, res);
       res.emplace_back(t);
     }
@@ -67,7 +67,7 @@ struct WarshallFloyd {
   }
 
 private:
-  const T TINF;
+  const T inf;
   int n;
   std::vector<std::vector<int>> internal;
   std::vector<int> srcs, dsts;

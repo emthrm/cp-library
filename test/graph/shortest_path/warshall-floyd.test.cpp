@@ -4,7 +4,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526"
 
 #include <iostream>
-#include <limits>
 #include <vector>
 #include "../../../graph/shortest_path/warshall-floyd.hpp"
 

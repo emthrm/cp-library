@@ -12,6 +12,6 @@ int main() {
   std::cin >> n;
   std::vector<int> a(n);
   for (int i = 0; i < n; ++i) std::cin >> a[i];
-  std::cout << lis_rmq(a, std::numeric_limits<int>::max()) << '\n';
+  std::cout << lis_rmq(a) << '\n';
   return 0;
 }

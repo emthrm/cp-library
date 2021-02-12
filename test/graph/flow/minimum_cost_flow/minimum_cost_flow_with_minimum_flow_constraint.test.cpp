@@ -14,7 +14,7 @@ int main() {
   constexpr int INF = std::numeric_limits<int>::max();
   int n, m;
   std::cin >> n >> m;
-  MinimumCostFlowWithMinimumFlowConstraint<PrimalDual2, long long, long long> pd(n, INF, INF, std::numeric_limits<long long>::max());
+  MinimumCostFlowWithMinimumFlowConstraint<PrimalDual2, long long, long long> pd(n, INF);
   std::vector<std::vector<Edge<int>>> graph(n);
   while (m--) {
     int x, y, s;

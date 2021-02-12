@@ -1,10 +1,11 @@
 #pragma once
 #include <cassert>
+#include <limits>
 #include <vector>
 
 template <template <typename> class C, typename T>
 struct ProjectSelectionProblem {
-  ProjectSelectionProblem(int n, const T TINF) : n(n), TINF(TINF) {}
+  ProjectSelectionProblem(int n) : n(n) {}
 
   void add_diff(int u, int v, T cost) {
     assert(cost >= 0);
@@ -19,11 +20,11 @@ struct ProjectSelectionProblem {
     res += cost;
     add(n, group ^ 1, cost);
     if (group == 0) {
-      add_diff(n, u, TINF);
-      add_diff(n, v, TINF);
+      add_diff(n, u, inf);
+      add_diff(n, v, inf);
     } else if (group == 1) {
-      add_diff(u, n, TINF);
-      add_diff(v, n, TINF);
+      add_diff(u, n, inf);
+      add_diff(v, n, inf);
     }
     ++n;
   }
@@ -56,12 +57,12 @@ struct ProjectSelectionProblem {
       if (same_v[i] < 0) same_v[i] += n + 2;
       flow.add_edge(same_u[i], same_v[i], same_cost[i]);
     }
-    return flow.maximum_flow(n, n + 1, TINF) - res;
+    return flow.maximum_flow(n, n + 1, inf) - res;
   }
 
 private:
   int n;
-  const T TINF;
+  const T inf = std::numeric_limits<T>::max();
   T res = 0;
   std::vector<int> diff_u, diff_v, same_u, same_v;
   std::vector<T> diff_cost, same_cost;

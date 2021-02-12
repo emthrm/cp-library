@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cassert>
 #include <functional>
+#include <limits>
 #include <queue>
 #include <tuple>
 #include <utility>
@@ -15,12 +16,16 @@
 
 template <typename CostType>
 struct Dijkstra {
-  Dijkstra(const std::vector<std::vector<Edge<CostType>>> &graph, const CostType CINF) : graph(graph), CINF(CINF) {}
+  const CostType inf;
+
+  Dijkstra(const std::vector<std::vector<Edge<CostType>>> &graph,
+           const CostType inf = std::numeric_limits<CostType>::max())
+  : graph(graph), inf(inf) {}
 
   std::vector<CostType> build(int s) {
     is_built = true;
     int n = graph.size();
-    std::vector<CostType> dist(n, CINF);
+    std::vector<CostType> dist(n, inf);
     dist[s] = 0;
     prev.assign(n, -1);
     using Pci = std::pair<CostType, int>;
@@ -51,6 +56,5 @@ struct Dijkstra {
 private:
   bool is_built = false;
   std::vector<std::vector<Edge<CostType>>> graph;
-  const CostType CINF;
   std::vector<int> prev;
 };

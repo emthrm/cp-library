@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#include <limits>
 #include <tuple>
 #include <vector>
 #include "../../../../graph/flow/minimum_cost_flow/primal_dual.hpp"
@@ -37,7 +36,7 @@ int main() {
       arrive[i].erase(std::unique(arrive[i].begin(), arrive[i].end()), arrive[i].end());
       ver += arrive[i].size() * 2;
     }
-    PrimalDual<int, long long> pd(ver + 2, std::numeric_limits<int>::max(), std::numeric_limits<long long>::max());
+    PrimalDual<int, long long> pd(ver + 2);
     const int s = ver, t = ver + 1;
     for (int i = 0; i < m.front().size(); ++i) pd.add_edge(s, i, 1, 0);
     int cur = 0;

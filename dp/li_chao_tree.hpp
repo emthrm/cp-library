@@ -13,14 +13,14 @@ struct LiChaoTree {
     T f(T x) const { return a * x + b; }
   };
 
-  LiChaoTree(const std::vector<T> &xs_, const T TINF, bool is_minimized = true) : xs(xs_), is_minimized(is_minimized) {
+  LiChaoTree(const std::vector<T> &xs_, const T inf, bool is_minimized = true) : xs(xs_), is_minimized(is_minimized) {
     std::sort(xs.begin(), xs.end());
     xs.erase(std::unique(xs.begin(), xs.end()), xs.end());
     int sz = xs.size();
     assert(sz > 0);
     while (n < sz) n <<= 1;
     xs.resize(n, xs.back());
-    dat.assign(n << 1, Line(0, TINF));
+    dat.assign(n << 1, Line(0, inf));
   }
 
   void add(T a, T b) {

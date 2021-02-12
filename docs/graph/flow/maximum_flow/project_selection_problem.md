@@ -15,7 +15,7 @@ documentation_of: graph/flow/maximum_flow/project_selection_problem.hpp
 
 ||説明|
 |:--:|:--:|
-|`ProjectSelectionProblem<最大流, T>(n, ∞)`|頂点数 $N$ の燃やす埋めるを考える．|
+|`ProjectSelectionProblem<最大流, T>(n)`|頂点数 $N$ の燃やす埋めるを考える．|
 |`add_diff(u, v, cost)`|$u$ が集合 $0$, $v$ が集合 $1$ に属するならばコスト $\mathrm{cost}(\geq 0)$ を消費すると定義する．|
 |`add_same(u, v, group, cost)`|$u$ と $v$ がともに集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost}(\leq 0)$ を消費すると定義する．|
 |`add(ver, group, cost)`|$\mathrm{ver}$ が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost}$ を消費すると定義する．|

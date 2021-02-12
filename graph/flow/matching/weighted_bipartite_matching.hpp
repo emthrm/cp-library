@@ -4,13 +4,12 @@
  */
 
 #pragma once
-#include <limits>
 #include <vector>
 #include "../minimum_cost_flow/primal_dual.hpp"
 
 template <typename T>
 struct WeightedBipartiteMatching {
-  WeightedBipartiteMatching(int left, int right, T TINF) : left(left), right(right), pd(left + right + 2, std::numeric_limits<int>::max(), TINF) {}
+  WeightedBipartiteMatching(int left, int right) : left(left), right(right), pd(left + right + 2) {}
 
   void add_edge(int src, int dst, T cost) { pd.add_edge(src, left + dst, 1, -cost); }
 

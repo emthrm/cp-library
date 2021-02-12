@@ -6,25 +6,29 @@
 #pragma once
 #include <algorithm>
 #include <cassert>
+#include <limits>
 #include <vector>
 #include "../edge.hpp"
 
 template <typename CostType>
 struct BellmanFord {
+  const CostType inf;
   std::vector<CostType> dist;
 
-  BellmanFord(const std::vector<std::vector<Edge<CostType>>> &graph, const CostType CINF) : graph(graph), CINF(CINF) {}
+  BellmanFord(const std::vector<std::vector<Edge<CostType>>> &graph,
+              const CostType inf = std::numeric_limits<CostType>::max())
+  : graph(graph), inf(inf) {}
 
   bool has_negative_cycle(int s) {
     is_built = true;
     int n = graph.size();
-    dist.assign(n, CINF);
+    dist.assign(n, inf);
     dist[s] = 0;
     prev.assign(n, -1);
     for (int step = 0; step < n; ++step) {
       bool is_updated = false;
       for (int i = 0; i < n; ++i) {
-        if (dist[i] == CINF) continue;
+        if (dist[i] == inf) continue;
         for (const Edge<CostType> &e : graph[i]) {
           if (dist[e.dst] > dist[i] + e.cost) {
             dist[e.dst] = dist[i] + e.cost;
@@ -49,6 +53,5 @@ struct BellmanFord {
 private:
   bool is_built = false;
   std::vector<std::vector<Edge<CostType>>> graph;
-  const CostType CINF;
   std::vector<int> prev;
 };

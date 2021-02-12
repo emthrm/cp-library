@@ -13,7 +13,7 @@ using Real = double;
 constexpr long double PI = 3.14159265358979323846;
 
 int sgn(Real x) {
-  constexpr Real EPS = 1e-8;
+  static constexpr Real EPS = 1e-8;
   return x > EPS ? 1 : x < -EPS ? -1 : 0;
 }
 

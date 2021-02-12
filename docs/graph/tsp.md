@@ -35,4 +35,4 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/4082476/emthrm/C++14
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/5219970/emthrm/C++17

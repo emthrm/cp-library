@@ -4,13 +4,11 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 
 #include <iostream>
-#include <limits>
 #include <vector>
 #include "../../../graph/edge.hpp"
 #include "../../../graph/shortest_path/dijkstra.hpp"
 
 int main() {
-  constexpr long long LINF = std::numeric_limits<long long>::max();
   int n, m, s, t;
   std::cin >> n >> m >> s >> t;
   std::vector<std::vector<Edge<long long>>> graph(n);
@@ -19,9 +17,9 @@ int main() {
     std::cin >> a >> b >> c;
     graph[a].emplace_back(a, b, c);
   }
-  Dijkstra<long long> dij(graph, LINF);
+  Dijkstra<long long> dij(graph);
   long long x = dij.build(s)[t];
-  if (x == LINF) {
+  if (x == dij.inf) {
     std::cout << "-1\n";
     return 0;
   }

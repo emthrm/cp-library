@@ -5,12 +5,13 @@
 #define PROBLEM "https://yukicoder.me/problems/no/1320"
 
 #include <iostream>
+#include <limits>
 #include <vector>
 #include "../../graph/girth_in_undirected_graph.hpp"
 #include "../../graph/girth_in_directed_graph.hpp"
 
 int main() {
-  constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;
+  constexpr long long LINF = std::numeric_limits<long long>::max();
   int t, n, m;
   std::cin >> t >> n >> m;
   if (t == 0) {

@@ -4,13 +4,11 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B"
 
 #include <iostream>
-#include <limits>
 #include <vector>
 #include "../../../graph/edge.hpp"
 #include "../../../graph/shortest_path/bellman-ford.hpp"
 
 int main() {
-  constexpr long long LINF = std::numeric_limits<long long>::max();
   int v, e, r;
   std::cin >> v >> e >> r;
   std::vector<std::vector<Edge<long long>>> graph(v);
@@ -19,13 +17,13 @@ int main() {
     std::cin >> s >> t >> d;
     graph[s].emplace_back(s, t, d);
   }
-  BellmanFord<long long> bf(graph, LINF);
+  BellmanFord<long long> bf(graph);
   if (bf.has_negative_cycle(r)) {
     std::cout << "NEGATIVE CYCLE\n";
     return 0;
   }
   for (int i = 0; i < v; ++i) {
-    if (bf.dist[i] == LINF) {
+    if (bf.dist[i] == bf.inf) {
       std::cout << "INF\n";
     } else {
       std::cout << bf.dist[i] << '\n';

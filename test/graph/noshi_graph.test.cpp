@@ -33,8 +33,8 @@ int main() {
       }
     }
   }
-  constexpr long long LINF = std::numeric_limits<long long>::max();
-  std::vector<long long> ans = Dijkstra<long long>(graph.graph, LINF).build(s);
-  for (int i = 0; i < n; ++i) std::cout << (ans[i] == LINF ? -1 : ans[i]) << " \n"[i + 1 == n];
+  Dijkstra<long long> dij(graph.graph);
+  std::vector<long long> ans = dij.build(s);
+  for (int i = 0; i < n; ++i) std::cout << (ans[i] == dij.inf ? -1 : ans[i]) << " \n"[i + 1 == n];
   return 0;
 }

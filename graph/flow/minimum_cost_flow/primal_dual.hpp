@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cassert>
 #include <functional>
+#include <limits>
 #include <queue>
 #include <utility>
 #include <vector>
@@ -20,9 +21,11 @@ struct PrimalDual {
     Edge(int dst, T cap, U cost, int rev) : dst(dst), cap(cap), cost(cost), rev(rev) {}
   };
 
+  const U uinf;
   std::vector<std::vector<Edge>> graph;
 
-  PrimalDual(int n, const T TINF, const U UINF) : n(n), TINF(TINF), UINF(UINF), graph(n), prev_v(n, -1), prev_e(n, -1), potential(n, 0), dist(n) {}
+  PrimalDual(int n, const U uinf = std::numeric_limits<U>::max())
+  : n(n), uinf(uinf), graph(n), prev_v(n, -1), prev_e(n, -1), potential(n, 0), dist(n) {}
 
   void add_edge(int src, int dst, T cap, U cost) {
     has_negative_edge |= cost < 0;
@@ -34,12 +37,12 @@ struct PrimalDual {
     U res = 0;
     if (has_negative_edge) {
       bellman_ford(s);
-      if (dist[t] == UINF) return UINF;
+      if (dist[t] == uinf) return uinf;
       res += calc(s, t, flow);
     }
     while (flow > 0) {
       dijkstra(s);
-      if (dist[t] == UINF) return UINF;
+      if (dist[t] == uinf) return uinf;
       res += calc(s, t, flow);
     }
     return res;
@@ -48,12 +51,12 @@ struct PrimalDual {
   U minimum_cost_flow(int s, int t) {
     U res = 0;
     bellman_ford(s);
-    if (potential[t] >= 0 || dist[t] == UINF) return res;
-    T tmp = TINF;
+    if (potential[t] >= 0 || dist[t] == uinf) return res;
+    T tmp = tinf;
     res += calc(s, t, tmp);
     while (true) {
       dijkstra(s);
-      if (potential[t] >= 0 || dist[t] == UINF) return res;
+      if (potential[t] >= 0 || dist[t] == uinf) return res;
       res += calc(s, t, tmp);
     }
   }
@@ -63,12 +66,12 @@ struct PrimalDual {
     U cost = 0;
     if (has_negative_edge) {
       bellman_ford(s);
-      if (dist[t] == UINF) return {mx - flow, cost};
+      if (dist[t] == uinf) return {mx - flow, cost};
       cost += calc(s, t, flow);
     }
     while (flow > 0) {
       dijkstra(s);
-      if (dist[t] == UINF) return {mx - flow, cost};
+      if (dist[t] == uinf) return {mx - flow, cost};
       cost += calc(s, t, flow);
     }
     return {mx - flow, cost};
@@ -78,21 +81,20 @@ private:
   using Pui = std::pair<U, int>;
 
   int n;
-  const T TINF;
-  const U UINF;
+  const T tinf = std::numeric_limits<T>::max();
   bool has_negative_edge = false;
   std::vector<int> prev_v, prev_e;
   std::vector<U> potential, dist;
   std::priority_queue<Pui, std::vector<Pui>, std::greater<Pui>> que;
 
   void bellman_ford(int s) {
-    std::fill(dist.begin(), dist.end(), UINF);
+    std::fill(dist.begin(), dist.end(), uinf);
     dist[s] = 0;
     bool is_updated = true;
     for (int step = 0; step < n; ++step) {
       is_updated = false;
       for (int i = 0; i < n; ++i) {
-        if (dist[i] == UINF) continue;
+        if (dist[i] == uinf) continue;
         for (int j = 0; j < graph[i].size(); ++j) {
           Edge e = graph[i][j];
           if (e.cap > 0 && dist[e.dst] > dist[i] + e.cost) {
@@ -107,12 +109,12 @@ private:
     }
     assert(!is_updated);
     for (int i = 0; i < n; ++i) {
-      if (dist[i] != UINF) potential[i] += dist[i];
+      if (dist[i] != uinf) potential[i] += dist[i];
     }
   }
 
   void dijkstra(int s) {
-    std::fill(dist.begin(), dist.end(), UINF);
+    std::fill(dist.begin(), dist.end(), uinf);
     dist[s] = 0;
     que.emplace(0, s);
     while (!que.empty()) {
@@ -131,7 +133,7 @@ private:
       }
     }
     for (int i = 0; i < n; ++i) {
-      if (dist[i] != UINF) potential[i] += dist[i];
+      if (dist[i] != uinf) potential[i] += dist[i];
     }
   }
 

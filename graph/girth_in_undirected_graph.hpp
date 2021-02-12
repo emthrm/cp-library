@@ -6,6 +6,7 @@
 #pragma once
 #include <algorithm>
 #include <functional>
+#include <limits>
 #include <queue>
 #include <tuple>
 #include <utility>
@@ -13,7 +14,8 @@
 #include "edge.hpp"
 
 template <typename CostType>
-CostType girth_in_undirected_graph(int n, const std::vector<Edge<CostType>> &edges, const CostType CINF) {
+CostType girth_in_undirected_graph(int n, const std::vector<Edge<CostType>> &edges,
+                                   const CostType inf = std::numeric_limits<CostType>::max()) {
   int m = edges.size();
   std::vector<std::vector<int>> graph(n);
   for (int i = 0; i < m; ++i) {
@@ -25,10 +27,10 @@ CostType girth_in_undirected_graph(int n, const std::vector<Edge<CostType>> &edg
   std::vector<int> label(n), prev(n);
   using Pci = std::pair<CostType, int>;
   std::priority_queue<Pci, std::vector<Pci>, std::greater<Pci>> que;
-  CostType res = CINF;
+  CostType res = inf;
   for (int root = 0; root < n; ++root) {
     std::fill(used.begin(), used.end(), false);
-    std::fill(dist.begin(), dist.end(), CINF);
+    std::fill(dist.begin(), dist.end(), inf);
     dist[root] = 0;
     std::fill(label.begin(), label.end(), -2);
     label[root] = -1;

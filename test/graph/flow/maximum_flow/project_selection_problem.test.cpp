@@ -4,7 +4,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903"
 
 #include <iostream>
-#include <limits>
 #include <string>
 #include <vector>
 #include "../../../../graph/flow/maximum_flow/dinic.hpp"
@@ -20,7 +19,7 @@ int main() {
   for (int i = 0; i < r; ++i) for (int j = 0; j < c; ++j) {
     if (s[i][j] == '#') idx[i][j] = x++;
   }
-  ProjectSelectionProblem<Dinic, int> psp(x, std::numeric_limits<int>::max());
+  ProjectSelectionProblem<Dinic, int> psp(x);
   for (int i = 0; i < r; ++i) for (int j = 0; j < c; ++j) {
     if (idx[i][j] == -1) continue;
     if (i + 1 < r && idx[i + 1][j] != -1) psp.add_same(idx[i][j], idx[i + 1][j], 0, -1);

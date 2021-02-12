@@ -21,18 +21,20 @@
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`PrimalDual<フロー, コスト>(n, ∞, ∞)`|頂点数 $N$ の主双対法を考える．||
+|`PrimalDual<フロー, コスト>(n, ∞)`|頂点数 $N$ の主双対法を考える．||
+|`uinf`|$\infty$|型はコストと等しい．|
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を張る．||
 |`minimum_cost_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときのコストの最小値|流せない場合は $\infty$ となる．|
-|`minimum_cost_flow(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{TINF} - \mathrm{tmp}$ である．|
+|`minimum_cost_flow(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{tinf} - \mathrm{tmp}$ である．|
 |`min_cost_max_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流したいときの最小費用最大流 (最大流, 最小費用)||
 
 - 主双対法2
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`PrimalDual2<フロー, コスト>(n, ∞, ∞)`|頂点数 $N$ の主双対法2を考える．||
+|`PrimalDual2<フロー, コスト>(n, ∞)`|頂点数 $N$ の主双対法2を考える．||
+|`uinf`|$\infty$|型はコストと等しい．|
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を張る．||
 |`minimum_cost_flow()`|最小費用循環流|流せない場合は $\infty$ となる．|

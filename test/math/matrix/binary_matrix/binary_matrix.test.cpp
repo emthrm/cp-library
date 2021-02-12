@@ -87,7 +87,7 @@ int main() {
   for (int j = 1; j <= (1 << (N / 2)); ++j) {
     long long val = 0;  // M^((2^18)j) A
     for (int bit = 0; bit < N; ++bit) val |= static_cast<long long>(mha[bit][0]) << (N - 1 - bit);
-    auto it = std::lower_bound(mx.begin(), mx.end(), std::make_pair(val, std::numeric_limits<int>::min()));
+    auto it = std::lower_bound(mx.begin(), mx.end(), std::make_pair(val, std::numeric_limits<int>::lowest()));
     if (it != mx.end() && it->first == val) {  // M^i X = M^((2^18)j) A を満たす i, j が存在する場合
       // M が正則?ならば X = M((2^18)j-i) A が成り立つ．
       // しかしそうでない場合に上式が成り立つとは限らないため，実際に計算を行う．

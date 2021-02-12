@@ -5,6 +5,7 @@
 
 #pragma once
 #include <algorithm>
+#include <limits>
 #include <queue>
 #include <tuple>
 #include <utility>
@@ -12,14 +13,15 @@
 #include "edge.hpp"
 
 template <typename CostType>
-CostType girth_in_directed_graph(const std::vector<std::vector<Edge<CostType>>> &graph, const CostType CINF) {
+CostType girth_in_directed_graph(const std::vector<std::vector<Edge<CostType>>> &graph,
+                                 const CostType inf = std::numeric_limits<CostType>::max()) {
   int n = graph.size();
-  CostType res = CINF;
+  CostType res = inf;
   std::vector<CostType> dist(n);
   using Pci = std::pair<CostType, int>;
   std::priority_queue<Pci, std::vector<Pci>, std::greater<Pci>> que;
   for (int root = 0; root < n; ++root) {
-    std::fill(dist.begin(), dist.end(), CINF);
+    std::fill(dist.begin(), dist.end(), inf);
     dist[root] = 0;
     que.emplace(0, root);
     while (!que.empty()) {

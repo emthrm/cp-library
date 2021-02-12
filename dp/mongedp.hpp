@@ -3,9 +3,9 @@
 #include <vector>
 
 template <typename Fn, typename T>
-T mongedp(int n, Fn cost, const T TINF) {
+T mongedp(int n, Fn cost, const T inf) {
   if (n == 0) return 0;
-  std::vector<std::vector<T>> dp(n, std::vector<T>(n, TINF));
+  std::vector<std::vector<T>> dp(n, std::vector<T>(n, inf));
   std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));
   for (int i = 0; i < n; ++i) {
     dp[i][i] = 0;

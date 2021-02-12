@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <cassert>
+#include <limits>
 #include <ostream>
 
 template <typename T = long long>
@@ -50,4 +51,8 @@ namespace std {
 template <typename T> Rational<T> abs(const Rational<T> &x) {Rational<T> res = x; if (res.num < 0) res.num = -res.num; return res; }
 template <typename T> Rational<T> max(const Rational<T> &a, const Rational<T> &b) { return a < b ? b : a; }
 template <typename T> Rational<T> min(const Rational<T> &a, const Rational<T> &b) { return a < b ? a : b; }
+template <typename T> struct numeric_limits<Rational<T>> {
+  static constexpr Rational<T> max() { return std::numeric_limits<T>::max(); }
+  static constexpr Rational<T> lowest() { return std::numeric_limits<T>::lowest(); }
+};
 }  // std

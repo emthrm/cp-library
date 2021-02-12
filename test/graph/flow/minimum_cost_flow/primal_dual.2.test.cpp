@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#include <limits>
 #include <vector>
 #include "../../../../graph/flow/minimum_cost_flow/primal_dual.hpp"
 
@@ -22,7 +21,7 @@ int main() {
   std::sort(v.begin(), v.end());
   v.erase(std::unique(v.begin(), v.end()), v.end());
   int m = v.size();
-  PrimalDual<int, long long> pd(n + m + 2, std::numeric_limits<int>::max(), std::numeric_limits<long long>::max());
+  PrimalDual<int, long long> pd(n + m + 2);
   const int s = n + m, t = n + m + 1;
   for (int i = 0; i < n; ++i) {
     pd.add_edge(s, i, 1, 0);
