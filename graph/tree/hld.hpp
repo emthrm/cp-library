@@ -33,8 +33,8 @@ struct HLD {
   }
 
   template <typename T, typename F, typename G>
-  T v_query(int u, int v, F f, G g, const T UNITY) const {
-    T left = UNITY, right = UNITY;
+  T v_query(int u, int v, F f, G g, const T ID) const {
+    T left = ID, right = ID;
     while (true) {
       if (id[u] > id[v]) {
         std::swap(u, v);
@@ -68,8 +68,8 @@ struct HLD {
   }
 
   template <typename T, typename F, typename G>
-  T e_query(int u, int v, F f, G g, const T UNITY) const {
-    T left = UNITY, right = UNITY;
+  T e_query(int u, int v, F f, G g, const T ID) const {
+    T left = ID, right = ID;
     while (true) {
       if (id[u] > id[v]) {
         std::swap(u, v);

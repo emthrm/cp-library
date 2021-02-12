@@ -8,12 +8,12 @@
 
 template <typename Abelian>
 struct BIT2DRangeAdd {
-  BIT2DRangeAdd(int height_, int width_, const Abelian UNITY = 0) : height(height_), width(width_), UNITY(UNITY) {
+  BIT2DRangeAdd(int height_, int width_, const Abelian ID = 0) : height(height_), width(width_), ID(ID) {
     ++height; ++width;
-    dat_const.assign(height, std::vector<Abelian>(width, UNITY));
-    dat_linear[0].assign(height, std::vector<Abelian>(width, UNITY));
-    dat_linear[1].assign(height, std::vector<Abelian>(width, UNITY));
-    dat_quadratic.assign(height, std::vector<Abelian>(width, UNITY));
+    dat_const.assign(height, std::vector<Abelian>(width, ID));
+    dat_linear[0].assign(height, std::vector<Abelian>(width, ID));
+    dat_linear[1].assign(height, std::vector<Abelian>(width, ID));
+    dat_quadratic.assign(height, std::vector<Abelian>(width, ID));
   }
 
   void add(int y1, int x1, int y2, int x2, const Abelian val) {
@@ -46,7 +46,7 @@ struct BIT2DRangeAdd {
 
   Abelian sum(int y, int x) const {
     ++y; ++x;
-    Abelian quad = UNITY, cons = UNITY, line[2] = {UNITY, UNITY};
+    Abelian quad = ID, cons = ID, line[2] = {ID, ID};
     for (int i = y; i > 0; i -= i & -i) for (int j = x; j > 0; j -= j & -j) {
       quad += dat_quadratic[i][j];
       line[0] += dat_linear[0][i][j];
@@ -57,12 +57,12 @@ struct BIT2DRangeAdd {
   }
 
   Abelian sum(int y1, int x1, int y2, int x2) const {
-    return y1 <= y2 && x1 <= x2 ? sum(y2, x2) - sum(y2, x1 - 1) - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1) : UNITY;
+    return y1 <= y2 && x1 <= x2 ? sum(y2, x2) - sum(y2, x1 - 1) - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1) : ID;
   }
 
 private:
   int height, width;
-  const Abelian UNITY;
+  const Abelian ID;
   std::vector<std::vector<Abelian>> dat_const, dat_quadratic;
   std::vector<std::vector<Abelian>> dat_linear[2];
 };

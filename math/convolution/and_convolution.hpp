@@ -9,9 +9,9 @@
 #include "fmt.hpp"
 
 template <typename T>
-std::vector<T> and_convolution(const std::vector<T> &a, const std::vector<T> &b, const T UNITY = 0) {
+std::vector<T> and_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID = 0) {
   auto add = [](const T &a, const T &b) -> T { return a + b; };
-  std::vector<T> fzt_a = fzt(a, true, UNITY, add), fzt_b = fzt(b, true, UNITY, add);
+  std::vector<T> fzt_a = fzt(a, true, ID, add), fzt_b = fzt(b, true, ID, add);
   int n = fzt_a.size();
   for (int i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];
   return fmt(fzt_a, true);

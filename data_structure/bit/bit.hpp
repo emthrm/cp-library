@@ -8,7 +8,7 @@
 
 template <typename Abelian>
 struct BIT {
-  BIT(int n, const Abelian UNITY = 0) : n(n), UNITY(UNITY), dat(n, UNITY) {}
+  BIT(int n, const Abelian ID = 0) : n(n), ID(ID), dat(n, ID) {}
 
   void add(int idx, Abelian val) {
     while (idx < n) {
@@ -18,7 +18,7 @@ struct BIT {
   }
 
   Abelian sum(int idx) const {
-    Abelian res = UNITY;
+    Abelian res = ID;
     --idx;
     while (idx >= 0) {
       res += dat[idx];
@@ -28,13 +28,13 @@ struct BIT {
   }
 
   Abelian sum(int left, int right) const {
-    return left < right ? sum(right) - sum(left) : UNITY;
+    return left < right ? sum(right) - sum(left) : ID;
   }
 
   Abelian operator[](const int idx) const { return sum(idx, idx + 1); }
 
   int lower_bound(Abelian val) const {
-    if (val <= UNITY) return 0;
+    if (val <= ID) return 0;
     int res = 0, exponent = 1;
     while (exponent <= n) exponent <<= 1;
     for (int mask = exponent >> 1; mask > 0; mask >>= 1) {
@@ -48,6 +48,6 @@ struct BIT {
 
 private:
   int n;
-  const Abelian UNITY;
+  const Abelian ID;
   std::vector<Abelian> dat;
 };

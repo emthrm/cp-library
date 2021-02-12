@@ -27,7 +27,7 @@ $\langle O(N), O(\log{N}) \rangle$
 ||説明|
 |:--:|:--:|
 |`T::Monoid`|モノイド|
-|`T::unity()`|単位元|
+|`T::id()`|単位元|
 |`T::merge(a, b)`||
 
 - 遅延評価セグメント木
@@ -50,8 +50,8 @@ $\langle O(N), O(\log{N}) \rangle$
 |:--:|:--:|
 |`T::Monoid`|モノイド|
 |`T::OperatorMonoid`|作用素モノイド|
-|`T::m_unity()`|モノイドの単位元|
-|`T::o_unity()`|作用素モノイドの単位元|
+|`T::m_id()`|モノイドの単位元|
+|`T::o_id()`|作用素モノイドの単位元|
 |`T::m_merge(a, b)`||
 |`T::o_merge(a, b)`||
 |`T::apply(a, b)`||

@@ -14,13 +14,13 @@ struct LazySegmentTree {
   using Monoid = typename T::Monoid;
   using OperatorMonoid = typename T::OperatorMonoid;
 
-  LazySegmentTree(int n) : LazySegmentTree(std::vector<Monoid>(n, T::m_unity())) {}
+  LazySegmentTree(int n) : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}
 
   LazySegmentTree(const std::vector<Monoid> &a) : n(a.size()) {
     while ((1 << height) < n) ++height;
     p2 = 1 << height;
-    lazy.assign(p2, T::o_unity());
-    dat.assign(p2 << 1, T::m_unity());
+    lazy.assign(p2, T::o_id());
+    dat.assign(p2 << 1, T::m_id());
     for (int i = 0; i < n; ++i) dat[i + p2] = a[i];
     for (int i = p2 - 1; i > 0; --i) dat[i] = T::m_merge(dat[i << 1], dat[(i << 1) + 1]);
   }
@@ -62,14 +62,14 @@ struct LazySegmentTree {
   }
 
   Monoid get(int left, int right) {
-    if (right <= left) return T::m_unity();
+    if (right <= left) return T::m_id();
     left += p2;
     right += p2;
     int left_ctz = __builtin_ctz(left);
     for (int i = height; i > left_ctz; --i) propagate(left >> i);
     int right_ctz = __builtin_ctz(right);
     for (int i = height; i > right_ctz; --i) propagate(right >> i);
-    Monoid l_res = T::m_unity(), r_res = T::m_unity();
+    Monoid l_res = T::m_id(), r_res = T::m_id();
     for (; left < right; left >>= 1, right >>= 1) {
       if (left & 1) l_res = T::m_merge(l_res, dat[left++]);
       if (right & 1) r_res = T::m_merge(dat[--right], r_res);
@@ -88,7 +88,7 @@ struct LazySegmentTree {
     if (left >= n) return n;
     left += p2;
     for (int i = height; i > 0; --i) propagate(left >> i);
-    Monoid val = T::m_unity();
+    Monoid val = T::m_id();
     do {
       while (!(left & 1)) left >>= 1;
       Monoid nx = T::m_merge(val, dat[left]);
@@ -115,7 +115,7 @@ struct LazySegmentTree {
     if (right <= 0) return -1;
     right += p2;
     for (int i = height; i > 0; --i) propagate((right - 1) >> i);
-    Monoid val = T::m_unity();
+    Monoid val = T::m_id();
     do {
       --right;
       while (right > 1 && (right & 1)) right >>= 1;
@@ -151,7 +151,7 @@ private:
     // assert(1 <= idx && idx < p2);
     sub_apply(idx << 1, lazy[idx]);
     sub_apply((idx << 1) + 1, lazy[idx]);
-    lazy[idx] = T::o_unity();
+    lazy[idx] = T::o_id();
   }
 };
 
@@ -160,30 +160,30 @@ template <typename T>
 struct RangeMinimumAndUpdateQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_unity() { return std::numeric_limits<T>::max(); }
-  static constexpr T o_unity() { return std::numeric_limits<T>::max(); }
+  static constexpr T m_id() { return std::numeric_limits<T>::max(); }
+  static constexpr T o_id() { return std::numeric_limits<T>::max(); }
   static T m_merge(const T &a, const T &b) { return std::min(a, b); }
-  static T o_merge(const T &a, const T &b) { return b == o_unity() ? a : b; }
-  static T apply(const T &a, const T &b) { return b == o_unity()? a : b; }
+  static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
+  static T apply(const T &a, const T &b) { return b == o_id()? a : b; }
 };
 
 template <typename T>
 struct RangeMaximumAndUpdateQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_unity() { return std::numeric_limits<T>::min(); }
-  static constexpr T o_unity() { return std::numeric_limits<T>::min(); }
+  static constexpr T m_id() { return std::numeric_limits<T>::min(); }
+  static constexpr T o_id() { return std::numeric_limits<T>::min(); }
   static T m_merge(const T &a, const T &b) { return std::max(a, b); }
-  static T o_merge(const T &a, const T &b) { return b == o_unity() ? a : b; }
-  static T apply(const T &a, const T &b) { return b == o_unity()? a : b; }
+  static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
+  static T apply(const T &a, const T &b) { return b == o_id()? a : b; }
 };
 
 template <typename T, T TINF>
 struct RangeMinimumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_unity() { return TINF; }
-  static constexpr T o_unity() { return 0; }
+  static constexpr T m_id() { return TINF; }
+  static constexpr T o_id() { return 0; }
   static T m_merge(const T &a, const T &b) { return std::min(a, b); }
   static T o_merge(const T &a, const T &b) { return a + b; }
   static T apply(const T &a, const T &b) { return a + b; }
@@ -193,8 +193,8 @@ template <typename T, T TINF>
 struct RangeMaximumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_unity() { return -TINF; }
-  static constexpr T o_unity() { return 0; }
+  static constexpr T m_id() { return -TINF; }
+  static constexpr T o_id() { return 0; }
   static T m_merge(const T &a, const T &b) { return std::max(a, b); }
   static T o_merge(const T &a, const T &b) { return a + b; }
   static T apply(const T &a, const T &b) { return a + b; }
@@ -209,11 +209,11 @@ struct RangeSumAndUpdateQuery {
   static std::vector<Node> init(int n) { return std::vector<Node>(n, Node{0, 1}); }
   using Monoid = Node;
   using OperatorMonoid = T;
-  static constexpr Node m_unity() { return {0, 0}; }
-  static constexpr T o_unity() { return std::numeric_limits<T>::max(); }
+  static constexpr Node m_id() { return {0, 0}; }
+  static constexpr T o_id() { return std::numeric_limits<T>::max(); }
   static Node m_merge(const Node &a, const Node &b) { return Node{a.sum + b.sum, a.len + b.len}; }
-  static T o_merge(const T &a, const T &b) { return b == o_unity() ? a : b; }
-  static Node apply(const Node &a, const T &b) { return Node{b == o_unity() ? a.sum : b * a.len, a.len}; }
+  static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
+  static Node apply(const Node &a, const T &b) { return Node{b == o_id() ? a.sum : b * a.len, a.len}; }
 };
 
 template <typename T>
@@ -225,8 +225,8 @@ struct RangeSumAndAddQuery {
   static std::vector<Node> init(int n) { return std::vector<Node>(n, Node{0, 1}); }
   using Monoid = Node;
   using OperatorMonoid = T;
-  static constexpr Node m_unity() { return {0, 0}; }
-  static constexpr T o_unity() { return 0; }
+  static constexpr Node m_id() { return {0, 0}; }
+  static constexpr T o_id() { return 0; }
   static Node m_merge(const Node &a, const Node &b) { return Node{a.sum + b.sum, a.len + b.len}; }
   static T o_merge(const T &a, const T &b) { return a + b; }
   static Node apply(const Node &a, const T &b) { return Node{a.sum + b * a.len, a.len}; }

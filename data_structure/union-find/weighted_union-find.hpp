@@ -9,7 +9,7 @@
 
 template <typename Abelian>
 struct WeightedUnionFind {
-  WeightedUnionFind(int n, const Abelian UNITY = 0) : UNITY(UNITY), par(n, -1), data(n, UNITY) {}
+  WeightedUnionFind(int n, const Abelian ID = 0) : ID(ID), par(n, -1), data(n, ID) {}
 
   int root(int ver) {
     if (par[ver] < 0) return ver;
@@ -41,7 +41,7 @@ struct WeightedUnionFind {
   Abelian diff(int u, int v) { return weight(v) - weight(u); }
 
 private:
-  const Abelian UNITY;
+  const Abelian ID;
   std::vector<int> par;
   std::vector<Abelian> data;
 

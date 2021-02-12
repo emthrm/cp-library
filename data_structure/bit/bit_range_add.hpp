@@ -8,10 +8,10 @@
 
 template <typename Abelian>
 struct BITRangeAdd {
-  BITRangeAdd(int n_, const Abelian UNITY = 0) : n(n_), UNITY(UNITY) {
+  BITRangeAdd(int n_, const Abelian ID = 0) : n(n_), ID(ID) {
     ++n;
-    dat_const.assign(n, UNITY);
-    dat_linear.assign(n, UNITY);
+    dat_const.assign(n, ID);
+    dat_linear.assign(n, ID);
   }
 
   void add(int left, int right, Abelian val) {
@@ -27,7 +27,7 @@ struct BITRangeAdd {
   }
 
   Abelian sum(int idx) const {
-    Abelian res = UNITY;
+    Abelian res = ID;
     for (int i = idx; i > 0; i -= i & -i) res += dat_linear[i];
     res *= idx;
     for (int i = idx; i > 0; i -= i & -i) res += dat_const[i];
@@ -35,13 +35,13 @@ struct BITRangeAdd {
   }
 
   Abelian sum(int left, int right) const {
-    return left < right ? sum(right) - sum(left) : UNITY;
+    return left < right ? sum(right) - sum(left) : ID;
   }
 
   Abelian operator[](const int idx) const { return sum(idx, idx + 1); }
 
 private:
   int n;
-  const Abelian UNITY;
+  const Abelian ID;
   std::vector<Abelian> dat_const, dat_linear;
 };

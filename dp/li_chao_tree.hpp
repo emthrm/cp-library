@@ -20,8 +20,7 @@ struct LiChaoTree {
     assert(sz > 0);
     while (n < sz) n <<= 1;
     xs.resize(n, xs.back());
-    Line unity(0, TINF);
-    dat.assign(n << 1, unity);
+    dat.assign(n << 1, Line(0, TINF));
   }
 
   void add(T a, T b) {

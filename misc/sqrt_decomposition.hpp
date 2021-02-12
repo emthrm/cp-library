@@ -48,9 +48,9 @@ struct SqrtDecomposition {
   template <typename T> void total_query(int idx, T &val);
 
   template <typename T>
-  T query(int l, int r, const T UNITY) {
+  T query(int l, int r, const T ID) {
     int l_b = l / b, r_b = (r - 1) / b;
-    T res = UNITY;
+    T res = ID;
     if (l_b < r_b) {
       if (l == left[l_b]) {
         total_query(l_b, res);

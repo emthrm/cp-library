@@ -16,8 +16,8 @@ int main() {
   struct Node {
     using Monoid = std::pair<ModInt, int>;
     using OperatorMonoid = std::pair<ModInt, ModInt>;
-    static Monoid m_unity() { return {0, 0}; }
-    static OperatorMonoid o_unity() { return {1, 0}; }
+    static Monoid m_id() { return {0, 0}; }
+    static OperatorMonoid o_id() { return {1, 0}; }
     static Monoid m_merge(const Monoid &a, const Monoid &b) { return {a.first + b.first, a.second + b.second}; }
     static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) {
       return {b.first * a.first, b.first * a.second + b.second};

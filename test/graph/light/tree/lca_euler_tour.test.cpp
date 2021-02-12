@@ -22,8 +22,8 @@ int main() {
       long long sum;
     };
     using OperatorMonoid = int;
-    static constexpr Monoid m_unity() { return Monoid{0, 0}; }
-    static constexpr OperatorMonoid o_unity() { return 0; }
+    static constexpr Monoid m_id() { return Monoid{0, 0}; }
+    static constexpr OperatorMonoid o_id() { return 0; }
     static Monoid m_merge(const Monoid &a, const Monoid &b) { return Monoid{a.cnt + b.cnt, a.sum + b.sum}; }
     static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return a + b; }
     static Monoid apply(Monoid a, const OperatorMonoid &b) {

@@ -15,7 +15,7 @@ int main() {
   std::cin >> n >> q;
   struct Node {
     using Monoid = std::pair<ModInt, ModInt>;
-    static Monoid unity() { return {1, 0}; };
+    static Monoid id() { return {1, 0}; };
     static Monoid merge(const Monoid &a, const Monoid &b) {
       return {a.first * b.first, a.second * b.first + b.second};
     }
