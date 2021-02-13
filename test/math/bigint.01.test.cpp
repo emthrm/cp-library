@@ -11,6 +11,15 @@
 #include "../../math/bigint.hpp"
 #include "../../graph/flow/matching/weighted_bipartite_matching.hpp"
 
+namespace std {
+  template <int LG10_BASE, int BASE>
+  struct numeric_limits<BigInt<LG10_BASE, BASE>> {
+    static constexpr BigInt<LG10_BASE, BASE> max() {
+      return string("453152254949043485887196599220742984693877551020408163265306122448979591836734693877551");
+    }
+  };
+};  // std
+
 int main() {
   using bigint = BigInt<>;
   int n;
@@ -27,7 +36,7 @@ int main() {
   }
   std::vector<std::string> c(n);
   for (int i = 0; i < n; ++i) std::cin >> c[i];
-  WeightedBipartiteMatching<bigint> wbm(n, n, now);
+  WeightedBipartiteMatching<bigint> wbm(n, n);
   for (int i = 0; i < n; ++i) {
     std::cin >> c[i];
     for (int j = 0; j < n; ++j) wbm.add_edge(i, j, cost[c[i][j]]);
