@@ -1,7 +1,6 @@
 /*
  * @brief グラフ/内周
  */
-#define IGNORE
 #define PROBLEM "https://yukicoder.me/problems/no/1320"
 
 #include <iostream>
