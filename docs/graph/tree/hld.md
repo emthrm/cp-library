@@ -50,4 +50,3 @@ $\langle O(\lvert V \rvert), O(\log{\lvert V \rvert}) \rangle$
 ## Verified
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/2667/review/4084766/emthrm/C++14
-- [最小共通祖先](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4093404/emthrm/C++14)

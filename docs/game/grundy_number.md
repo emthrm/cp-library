@@ -16,6 +16,3 @@ documentation_of: game/grundy_number.hpp
 ## 参考
 
 - プログラミングコンテストチャレンジブック \[第2版\] pp.281-283
-
-
-## Verified

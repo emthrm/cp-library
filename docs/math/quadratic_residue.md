@@ -102,14 +102,15 @@ $$\left(\dfrac{a}{p} \right) = \prod_i \left(\dfrac{a}{p_i} \right)^{e_i}$$
 
 ## 参考
 
-- 平方剰余
-  - https://lumakernel.github.io/ecasdqina/math/number-theory/Tonelli-Shanks
-  - https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm
-  - http://sugarknri.hatenablog.com/entry/2018/02/16/115740
-  - https://github.com/ei1333/library/blob/master/math/combinatorics/mod-sqrt.cpp
-- ヤコビ記号
-  - https://en.wikipedia.org/wiki/Jacobi_symbol
-  - https://judge.yosupo.jp/submission/300
+平方剰余
+- https://lumakernel.github.io/ecasdqina/math/number-theory/Tonelli-Shanks
+- https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm
+- http://sugarknri.hatenablog.com/entry/2018/02/16/115740
+- https://github.com/ei1333/library/blob/master/math/combinatorics/mod-sqrt.cpp
+
+ヤコビ記号
+- https://en.wikipedia.org/wiki/Jacobi_symbol
+- https://judge.yosupo.jp/submission/300
 
 
 ## ToDo

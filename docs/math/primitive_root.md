@@ -20,7 +20,8 @@
 ## 参考
 
 - https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0_(%E5%88%9D%E7%AD%89%E6%95%B4%E6%95%B0%E8%AB%96)
-- 原始根判定
+
+原始根判定
   - https://lumakernel.github.io/ecasdqina/math/general
 
 

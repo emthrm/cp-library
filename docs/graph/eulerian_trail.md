@@ -44,14 +44,14 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 - https://www.learning-algorithms.com/entry/2017/12/07/193238
 
-有向グラフ版
+オイラー路 有向グラフ版
 - http://www.prefield.com/algorithm/graph/directed_euler_path.html
 
-無向グラフ版
+オイラー路 無向グラフ版
 - https://github.com/spaghetti-source/algorithm/blob/master/graph/eulerian_path_undirected.cc
 
 
 ## Verified
 
-- [有向グラフ版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0225/review/4082901/emthrm/C++14)
-- [無向グラフ版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0086/review/4579202/emthrm/C++14)
+- [オイラー路 有向グラフ版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0225/review/4082901/emthrm/C++14)
+- [オイラー路 無向グラフ版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0086/review/4579202/emthrm/C++14)

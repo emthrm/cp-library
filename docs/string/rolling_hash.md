@@ -40,4 +40,4 @@ $\langle O(\lvert S \rvert), O(1) \rangle$
 
 ## Verified
 
-- https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_14_B/review/4086443/emthrm/C++14
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_14_B/review/4086443/emthrm/C++14
