@@ -1,1 +1,1 @@
-exclude: ["graph/light", test/graph/light"]
+exclude: ["graph/light", "test/graph/light"]
