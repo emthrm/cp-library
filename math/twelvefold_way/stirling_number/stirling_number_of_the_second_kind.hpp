@@ -7,17 +7,19 @@
 #include <cassert>
 #include "../../modint.hpp"
 
-ModInt stirling_number_of_the_second_kind(int n, int k, const Combinatorics &com) {
+template <int T>
+MInt<T> stirling_number_of_the_second_kind(int n, int k) {
+  using ModInt = MInt<T>;
   if (n < k) return 0;
-  assert(k <= com.val);
+  ModInt::init(k);
   ModInt stirling = 0;
   for (int i = 1; i <= k; ++i) {
-    ModInt tmp = com.nCk(k, i) * ModInt(i).pow(n);
+    ModInt tmp = ModInt::nCk(k, i) * ModInt(i).pow(n);
     if ((k - i) & 1) {
       stirling -= tmp;
     } else {
       stirling += tmp;
     }
   }
-  return stirling / com.fact[k];
+  return stirling * ModInt::fact_inv(k);
 }

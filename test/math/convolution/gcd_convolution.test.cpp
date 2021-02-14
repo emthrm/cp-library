@@ -10,6 +10,7 @@
 #include "../../../math/convolution/gcd_convolution.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
   constexpr int N = 1000000;
   int n;

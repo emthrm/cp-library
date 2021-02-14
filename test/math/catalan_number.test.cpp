@@ -8,10 +8,10 @@
 #include "../../math/catalan_number.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(742909);
   int n;
   std::cin >> n;
-  Combinatorics com(n + 1);
-  std::cout << catalan_number(n, com)[n] << '\n';
+  std::cout << catalan_number<0>(n)[n] << '\n';
   return 0;
 }

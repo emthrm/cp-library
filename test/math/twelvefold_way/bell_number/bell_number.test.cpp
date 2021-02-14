@@ -8,10 +8,10 @@
 #include "../../../../math/twelvefold_way/bell_number/bell_number.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;
-  Combinatorics com(k);
-  std::cout << bell_number(n, k, com) << '\n';
+  std::cout << bell_number<0>(n, k) << '\n';
   return 0;
 }

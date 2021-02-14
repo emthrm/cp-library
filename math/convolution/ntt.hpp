@@ -10,7 +10,10 @@
 #include <vector>
 #include "../modint.hpp"
 
+template <int T>
 struct NTT {
+  using ModInt = MInt<T>;
+
   NTT() {
     for (int i = 0; i < 23; ++i) {
       if (primes[i][0] == ModInt::get_mod()) {
@@ -41,8 +44,8 @@ struct NTT {
     }
   }
 
-  template <typename T>
-  std::vector<ModInt> dft(const std::vector<T> &a) {
+  template <typename U>
+  std::vector<ModInt> dft(const std::vector<U> &a) {
     int n = a.size(), lg = 1;
     while ((1 << lg) < n) ++lg;
     std::vector<ModInt> A(1 << lg, 0);
@@ -56,12 +59,12 @@ struct NTT {
     assert(__builtin_popcount(n) == 1);
     sub_dft(a);
     std::reverse(a.begin() + 1, a.end());
-    ModInt inv_n = ModInt(1) / n;
+    ModInt inv_n = ModInt::inv(n);
     for (int i = 0; i < n; ++i) a[i] *= inv_n;
   }
 
-  template <typename T>
-  std::vector<ModInt> convolution(const std::vector<T> &a, const std::vector<T> &b) {
+  template <typename U>
+  std::vector<ModInt> convolution(const std::vector<U> &a, const std::vector<U> &b) {
     int a_sz = a.size(), b_sz = b.size(), sz = a_sz + b_sz - 1, lg = 1;
     while ((1 << lg) < sz) ++lg;
     int n = 1 << lg;

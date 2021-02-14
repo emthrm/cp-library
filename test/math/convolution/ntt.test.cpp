@@ -9,14 +9,15 @@
 #include "../../../math/convolution/ntt.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
-  NTT ntt;
+  NTT<0> ntt;
   int n, m;
   std::cin >> n >> m;
   std::vector<int> a(n), b(m);
   for (int i = 0; i < n; ++i) std::cin >> a[i];
   for (int i = 0; i < m; ++i) std::cin >> b[i];
   std::vector<ModInt> ans = ntt.convolution(a, b);
-  for (int i = 0; i <= (n - 1) + (m - 1); ++i) std::cout << ans[i] << " \n"[i + 1 == (n - 1) + (m - 1)];
+  for (int i = 0; i <= (n - 1) + (m - 1); ++i) std::cout << ans[i] << " \n"[i == (n - 1) + (m - 1)];
   return 0;
 }

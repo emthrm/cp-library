@@ -8,11 +8,13 @@
 #include "../../modint.hpp"
 #include "../../fps/fps.hpp"
 
-std::vector<ModInt> stirling_number_of_the_second_kind_init_with_fps(int n, const Combinatorics &com) {
-  assert(com.val >= n);
+template <int T>
+std::vector<MInt<T>> stirling_number_of_the_second_kind_init_with_fps(int n) {
+  using ModInt = MInt<T>;
+  ModInt::init(n);
   FPS<ModInt> a(n), b(n);
-  for (int i = 0; i <= n; ++i) a[i] = ModInt(i).pow(n) * com.fact_inv[i];
-  for (int i = 0; i <= n; ++i) b[i] = com.fact_inv[i] * (i & 1 ? -1 : 1);
+  for (int i = 0; i <= n; ++i) a[i] = ModInt(i).pow(n) * ModInt::fact_inv(i);
+  for (int i = 0; i <= n; ++i) b[i] = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);
   a *= b;
   a.co.resize(n + 1);
   return a.co;

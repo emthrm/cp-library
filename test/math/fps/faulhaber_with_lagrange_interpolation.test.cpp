@@ -4,13 +4,15 @@
 #define PROBLEM "https://yukicoder.me/problems/no/665"
 
 #include <iostream>
+#include "../../../math/modint.hpp"
 #include "../../../math/fps/faulhaber_with_lagrange_interpolation.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   long long n;
   int k;
   std::cin >> n >> k;
-  std::cout << faulhaber(n + 1, k) << '\n';
+  std::cout << faulhaber<0>(n + 1, k) << '\n';
   return 0;
 }

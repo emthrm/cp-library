@@ -8,6 +8,7 @@
 #include "../../../../math/twelvefold_way/bell_number/bell_number_init.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;

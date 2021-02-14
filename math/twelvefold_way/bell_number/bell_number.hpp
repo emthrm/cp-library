@@ -8,13 +8,15 @@
 #include <vector>
 #include "../../modint.hpp"
 
-ModInt bell_number(int n, int k, const Combinatorics &com) {
+template <int T>
+MInt<T> bell_number(int n, int k) {
+  using ModInt = MInt<T>;
   if (k > n) k = n;
-  assert(k <= com.val);
+  ModInt::init(k);
   std::vector<ModInt> cumulative(k + 1);
-  for (int i = 0; i <= k; ++i) cumulative[i] = com.fact_inv[i] * (i & 1 ? -1 : 1);
+  for (int i = 0; i <= k; ++i) cumulative[i] = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);
   for (int i = 0; i < k; ++i) cumulative[i + 1] += cumulative[i];
   ModInt bell = 0;
-  for (int i = 0; i <= k; ++i) bell += ModInt(i).pow(n) * com.fact_inv[i] * cumulative[k - i];
+  for (int i = 0; i <= k; ++i) bell += ModInt(i).pow(n) * ModInt::fact_inv(i) * cumulative[k - i];
   return bell;
 }

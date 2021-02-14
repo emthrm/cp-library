@@ -13,8 +13,9 @@
 #include "../../../math/convolution/mod_convolution.hpp"
 
 int main() {
-  constexpr int D = 6, M = 13;
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
+  constexpr int D = 6, M = 13;
   FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
     return mod_convolution(a, b);
   });

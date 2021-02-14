@@ -10,6 +10,7 @@
 #include "../../math/kita_masa.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int k, n;
   std::cin >> k >> n;

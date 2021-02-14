@@ -10,6 +10,7 @@
 #include "../../../data_structure/segment_tree/segment_tree.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
   int n, q;
   std::cin >> n >> q;

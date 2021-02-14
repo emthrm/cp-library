@@ -8,17 +8,17 @@
 #include "../../../../math/twelvefold_way/binomial_coefficients/binom_large_n.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
   long long m, n;
   int k;
   std::cin >> m >> n >> k;
-  Combinatorics com(k);
   ModInt ans = ModInt(m).pow(n);
   if (k > 1) {
     for (int i = 1; i < k; ++i) {
       ModInt tmp = 0;
-      for (int j = i; j >= 1; --j) tmp += com.nCk(i, j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);
-      ans -= tmp * binom_large_n(m, i, com);
+      for (int j = i; j >= 1; --j) tmp += ModInt::nCk(i, j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);
+      ans -= tmp * binom_large_n<0>(m, i);
     }
   }
   std::cout << ans << '\n';

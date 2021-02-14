@@ -8,6 +8,7 @@
 #include "../../../math/matrix/matrix.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int m, k;
   std::cin >> m >> k;

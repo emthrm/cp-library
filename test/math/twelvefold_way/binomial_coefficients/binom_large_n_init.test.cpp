@@ -9,17 +9,17 @@
 #include "../../../../math/twelvefold_way/binomial_coefficients/binom_large_n_init.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
   long long m, n;
   int k;
   std::cin >> m >> n >> k;
-  Combinatorics com(k);
   ModInt ans = ModInt(m).pow(n);
   if (k > 1) {
-    std::vector<ModInt> c = binom_large_n_init(m, k - 1, com);
+    std::vector<ModInt> c = binom_large_n_init<0>(m, k - 1);
     for (int i = 1; i < k; ++i) {
       ModInt tmp = 0;
-      for (int j = i; j >= 1; --j) tmp += com.nCk(i, j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);
+      for (int j = i; j >= 1; --j) tmp += ModInt::nCk(i, j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);
       ans -= tmp * c[i];
     }
   }

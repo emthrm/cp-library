@@ -28,9 +28,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind(n, k, Combinatorics)`|第2種スターリング数 $S(n,k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind<T>(n, k)`|第2種スターリング数 $S(n,k)$|
 
 - 数表
 
@@ -40,9 +40,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 - 数表 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind_init_with_fps(n, Combinatorics)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|`Combinatorics` は $n$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind_init_with_fps<T>(n)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|
 
 
 ## 参考

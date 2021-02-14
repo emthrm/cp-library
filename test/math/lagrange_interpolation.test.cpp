@@ -11,6 +11,7 @@
 #include "../../math/lagrange_interpolation.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;

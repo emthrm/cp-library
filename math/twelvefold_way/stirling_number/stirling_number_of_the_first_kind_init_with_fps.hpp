@@ -12,7 +12,7 @@ std::vector<T> stirling_number_of_the_first_kind_init_with_fps(int n) {
   if (n == 0) return {1};
   FPS<T> stirling{0, 1};
   for (int i = 30 - __builtin_clz(n); i >= 0; --i) {
-    stirling *= stirling.translate(-(stirling.co.size() - 1));
+    stirling *= stirling.translate(-(static_cast<int>(stirling.co.size()) - 1));
     // stirling *= stirling.translate(stirling.co.size() - 1);
     if (n >> i & 1) {
       int deg = stirling.co.size() - 1;

@@ -10,6 +10,7 @@
 #include "../../../math/convolution/mod_convolution.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000001);
   int n;
   std::cin >> n;

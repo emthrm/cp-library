@@ -11,6 +11,7 @@
 #include "../../../math/fps/faulhaber_with_fps.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
     return mod_convolution(a, b);
@@ -18,7 +19,6 @@ int main() {
   long long n;
   int k;
   std::cin >> n >> k;
-  Combinatorics com(k + 1);
-  std::cout << faulhaber(n + 1, k, com) << '\n';
+  std::cout << faulhaber<0>(n + 1, k) << '\n';
   return 0;
 }

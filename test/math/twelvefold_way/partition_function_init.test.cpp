@@ -10,6 +10,7 @@
 #include "../../../math/twelvefold_way/partition_function_init.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n, m;
   std::cin >> n >> m;

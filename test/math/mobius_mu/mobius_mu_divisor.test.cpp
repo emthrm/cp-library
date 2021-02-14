@@ -11,6 +11,7 @@
 #include "../../../math/mobius_mu/mobius_mu_divisor.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int m;
   std::cin >> m;

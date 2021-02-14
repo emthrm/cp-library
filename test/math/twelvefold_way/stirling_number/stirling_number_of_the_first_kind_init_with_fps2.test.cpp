@@ -11,8 +11,9 @@
 #include "../../../../math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
-  NTT ntt;
+  NTT<0> ntt;
   FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
     return ntt.convolution(a, b);
   });

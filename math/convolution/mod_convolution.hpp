@@ -8,7 +8,9 @@
 #include "../modint.hpp"
 #include "fft.hpp"
 
-std::vector<ModInt> mod_convolution(const std::vector<ModInt> &a, const std::vector<ModInt> &b, const int pre = 15) {
+template <int T>
+std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>> &a, const std::vector<MInt<T>> &b, const int pre = 15) {
+  using ModInt = MInt<T>;
   int a_sz = a.size(), b_sz = b.size(), sz = a_sz + b_sz - 1, lg = 1;
   while ((1 << lg) < sz) ++lg;
   int n = 1 << lg;

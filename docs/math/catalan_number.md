@@ -26,9 +26,9 @@ $O(N)$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`catalan_number(n, Combinatorics)`|カタラン数 $c_i \ (0 \leq i \leq n)$ の数表|`Combinatorics` は $n + 1$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`catalan_number<T>(n)`|カタラン数 $c_i \ (0 \leq i \leq n)$ の数表|
 
 
 ## 参考

@@ -11,8 +11,9 @@
 #include "../../../math/fps/bernoulli_number.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
-  NTT ntt;
+  NTT<0> ntt;
   FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
     return ntt.convolution(a, b);
   });

@@ -15,17 +15,10 @@ documentation_of: math/modint.hpp
   $n$ 種類の中から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ となる．
 
 
-## 時間計算量
-
-- `Combinatorics` $\langle O(N + \log{M}), O(1) \rangle$
-
-
 ## 参考
 
 - https://github.com/eandbsoftware/libraryCPP/blob/master/!ModInt.cpp
 - https://noshi91.hatenablog.com/entry/2019/03/31/174006
-
-組合せ数学
 - https://ei1333.github.io/algorithm/combination.html
 
 順列

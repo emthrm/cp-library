@@ -9,6 +9,7 @@
 #include "../../../math/matrix/determinant.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
   int n;
   std::cin >> n;

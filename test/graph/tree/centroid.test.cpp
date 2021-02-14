@@ -12,10 +12,11 @@
 #include "../../../graph/tree/centroid.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;
-  Combinatorics com(n);
+  ModInt::init(n);
   std::vector<std::vector<Edge<bool>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int x, y;
@@ -27,7 +28,7 @@ int main() {
   std::vector<int> centroids = centroid(graph);
   ModInt ans = 0;
   if (centroids.size() == 2) {
-    ans += com.fact[n / 2] * com.fact[n / 2];
+    ans += ModInt::fact(n / 2) * ModInt::fact(n / 2);
   } else {
     int cen = centroids[0];
     std::vector<int> subtree(n, 1);
@@ -47,10 +48,10 @@ int main() {
     dp[0][0] = 1;
     for (int i = 0; i < m; ++i) for (int j = 0; j <= n; ++j) {
       for (int k = 0; k <= cnt[i] && j + k <= n; ++k) {
-        dp[i + 1][j + k] += dp[i][j] * com.nCk(cnt[i], k) * com.nCk(cnt[i], k) * com.fact[k];
+        dp[i + 1][j + k] += dp[i][j] * ModInt::nCk(cnt[i], k) * ModInt::nCk(cnt[i], k) * ModInt::fact(k);
       }
     }
-    for (int j = 0; j <= n; ++j) ans += dp[m][j] * (j & 1 ? -1 : 1) * com.fact[n - j];
+    for (int j = 0; j <= n; ++j) ans += dp[m][j] * (j & 1 ? -1 : 1) * ModInt::fact(n - j);
   }
   std::cout << ans << '\n';
   return 0;

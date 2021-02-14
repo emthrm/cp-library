@@ -8,10 +8,10 @@
 #include "../../../../math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp"
 
 int main() {
+  using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;
-  Combinatorics com(k);
-  std::cout << stirling_number_of_the_second_kind(n, k, com) << '\n';
+  std::cout << stirling_number_of_the_second_kind<0>(n, k) << '\n';
   return 0;
 }

@@ -8,7 +8,9 @@
 #include "../modint.hpp"
 #include "../lagrange_interpolation2.hpp"
 
-ModInt faulhaber(long long n, int k) {
+template <int T>
+MInt<T> faulhaber(long long n, int k) {
+  using ModInt = MInt<T>;
   if (n < 1) return 0;
   std::vector<ModInt> y(k + 2, 0);
   for (int i = 1; i < k + 2; ++i) y[i] = y[i - 1] + ModInt(i).pow(k);

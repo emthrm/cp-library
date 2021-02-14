@@ -30,9 +30,9 @@ $$B(x) = e^{e^x - 1}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`bell_number(n, k, Combinatorics)`|ベル数 $B(n, k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`bell_number<T>(n, k)`|ベル数 $B(n, k)$|
 
 - 数表
 

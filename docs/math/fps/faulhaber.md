@@ -23,15 +23,15 @@ $$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i
 
 - 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`faulhaber(n, k, Combinatorics)`|$S_k(n)$|`Combinatorics` は $k + 1$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`faulhaber<T>(n, k)`|$S_k(n)$|
 
 - ラグランジュ補間版
 
 ||説明|
 |:--:|:--:|
-|`faulhaber(n, k)`|$S_k(n)$|
+|`faulhaber<T>(n, k)`|$S_k(n)$|
 
 
 ## 参考

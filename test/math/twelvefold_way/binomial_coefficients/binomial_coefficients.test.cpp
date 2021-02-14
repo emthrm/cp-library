@@ -11,8 +11,9 @@
 int main() {
   constexpr int MOD = 1000000007;
   BinomialCoefficients bc(MOD, 1000000);
+  using ModInt = MInt<0>;
   ModInt::set_mod(MOD);
-  Combinatorics com(1999999);
+  ModInt::init(1999999);
   int t;
   std::cin >> t;
   while (t--) {
@@ -30,9 +31,9 @@ int main() {
     if (s[0] == 'C') {
       std::cout << bc.query(std::stoi(n), std::stoi(k));
     } else if (s[0] == 'P') {
-      std::cout << com.nPk(std::stoi(n), std::stoi(k));
+      std::cout << ModInt::nPk(std::stoi(n), std::stoi(k));
     } else {
-      std::cout << com.nHk(std::stoi(n), std::stoi(k));
+      std::cout << ModInt::nHk(std::stoi(n), std::stoi(k));
     }
     std::cout << '\n';
   }
