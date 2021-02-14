@@ -37,9 +37,9 @@ $$A(n, m) = \sum_{k = 0}^m (-1)^k \binom{n + 1}{k} (m + 1 - k)^n$$
 
 - 数表 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`eulerian_number_init_with_fps(n, Combinatorics)`|Eulerian number $A(n, j) \ (0 \leq j \leq n)$|`Combinatorics` は $n + 1$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`eulerian_number_init_with_fps<T>(n)`|Eulerian number $A(n, j) \ (0 \leq j \leq n)$|
 
 
 ## 参考

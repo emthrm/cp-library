@@ -33,18 +33,19 @@ data:
     \ xor \u3067\u306E\u7573\u307F\u8FBC\u307F\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_xor_convolution\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\
     \r\n#include \"../../../math/convolution/xor_convolution.hpp\"\r\n\r\nint main()\
-    \ {\r\n  ModInt::set_mod(998244353);\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<ModInt>\
-    \ a(1 << n), b(1 << n);\r\n  for (int i = 0; i < (1 << n); ++i) std::cin >> a[i];\r\
-    \n  for (int i = 0; i < (1 << n); ++i) std::cin >> b[i];\r\n  std::vector<ModInt>\
-    \ c = xor_convolution(a, b);\r\n  for (int i = 0; i < (1 << n); ++i) std::cout\
-    \ << c[i] << \" \\n\"[i + 1 == 1 << n];\r\n  return 0;\r\n}\r\n"
+    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  int n;\r\
+    \n  std::cin >> n;\r\n  std::vector<ModInt> a(1 << n), b(1 << n);\r\n  for (int\
+    \ i = 0; i < (1 << n); ++i) std::cin >> a[i];\r\n  for (int i = 0; i < (1 << n);\
+    \ ++i) std::cin >> b[i];\r\n  std::vector<ModInt> c = xor_convolution(a, b);\r\
+    \n  for (int i = 0; i < (1 << n); ++i) std::cout << c[i] << \" \\n\"[i + 1 ==\
+    \ 1 << n];\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/convolution/xor_convolution.hpp
   isVerificationFile: true
   path: test/math/convolution/xor_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 04:45:32+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/xor_convolution.test.cpp

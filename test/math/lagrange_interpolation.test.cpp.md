@@ -34,18 +34,18 @@ data:
     \ \u8A55\u4FA1\u7248\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/arc033/tasks/arc033_4\"\
     \r\n\r\n#include <iostream>\r\n#include <numeric>\r\n#include <vector>\r\n#include\
     \ \"../../math/modint.hpp\"\r\n#include \"../../math/lagrange_interpolation.hpp\"\
-    \r\n\r\nint main() {\r\n  ModInt::set_mod(1000000007);\r\n  int n;\r\n  std::cin\
-    \ >> n;\r\n  std::vector<ModInt> x(n + 1);\r\n  std::iota(x.begin(), x.end(),\
-    \ 0);\r\n  std::vector<ModInt> a(n + 1);\r\n  for (int i = 0; i <= n; ++i) std::cin\
-    \ >> a[i];\r\n  ModInt t;\r\n  std::cin >> t;\r\n  std::cout << lagrange_interpolation(x,\
-    \ a, t) << '\\n';\r\n  return 0;\r\n}\r\n"
+    \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\
+    \n  int n;\r\n  std::cin >> n;\r\n  std::vector<ModInt> x(n + 1);\r\n  std::iota(x.begin(),\
+    \ x.end(), 0);\r\n  std::vector<ModInt> a(n + 1);\r\n  for (int i = 0; i <= n;\
+    \ ++i) std::cin >> a[i];\r\n  ModInt t;\r\n  std::cin >> t;\r\n  std::cout <<\
+    \ lagrange_interpolation(x, a, t) << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/lagrange_interpolation.hpp
   isVerificationFile: true
   path: test/math/lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-02-11 04:31:13+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/lagrange_interpolation.test.cpp

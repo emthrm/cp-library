@@ -232,24 +232,24 @@ data:
     \ - max_norm) == 1) {\r\n      max_norm = tmp;\r\n      max_i = i; max_j = j;\r\
     \n    }\r\n  } while (i != high || j != low);\r\n  return {a[max_i], a[max_j]};\r\
     \n}\r\n}  // geometry\r\n#line 2 \"util/xorshift.hpp\"\n#include <ctime>\r\n\r\
-    \nstruct Xor128 {\r\n  int rand() {\r\n    unsigned t = x ^ (x << 11);\r\n   \
-    \ x = y; y = z; z = w; w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\r\n    return static_cast<int>(w);\r\
-    \n  }\r\n  int rand(int ub) {\r\n    int res = rand() % ub;\r\n    return res\
-    \ < 0 ? res + ub : res;\r\n  }\r\n  int rand(int lb, int ub) { return lb + rand(ub\
-    \ - lb); }\r\n  long long randll() {\r\n    unsigned long long res = static_cast<unsigned\
-    \ long long>(rand()) << 32;\r\n    return static_cast<long long>(res | rand());\r\
-    \n  }\r\n  long long randll(long long ub) {\r\n    long long res = randll() %\
-    \ ub;\r\n    return res < 0 ? res + ub : res;\r\n  }\r\n  long long randll(long\
-    \ long lb, long long ub) { return lb + randll(ub - lb); }\r\nprivate:\r\n  unsigned\
-    \ x = 123456789, y = 362436069, z = 521288629, w = static_cast<unsigned>(std::time(nullptr));\r\
-    \n} xor128;\r\n#line 6 \"geometry/smallest_enclosing_circle.hpp\"\n\r\ngeometry::Circle\
-    \ smallest_enclosing_circle(std::vector<geometry::Point> ps) {\r\n  int n = ps.size();\r\
-    \n  if (n == 1) return geometry::Circle(ps[0], 0);\r\n  for (int i = 0; i < n;\
-    \ ++i) std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);\r\n  auto get_circle\
-    \ = [&](const geometry::Point &p1, const geometry::Point &p2) -> geometry::Circle\
-    \ {\r\n    return geometry::Circle((p1 + p2) * 0.5, geometry::distance(p1, p2)\
-    \ * 0.5);\r\n  };\r\n  geometry::Circle res = get_circle(ps[0], ps[1]);\r\n  auto\
-    \ is_in = [&](const geometry::Point &point) -> bool {\r\n    return geometry::sgn(res.r\
+    \nstruct Xor128 {\r\n  int rand() {\r\n    unsigned int t = x ^ (x << 11);\r\n\
+    \    x = y; y = z; z = w; w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\r\n    return\
+    \ static_cast<int>(w);\r\n  }\r\n  int rand(int ub) {\r\n    int res = rand()\
+    \ % ub;\r\n    return res < 0 ? res + ub : res;\r\n  }\r\n  int rand(int lb, int\
+    \ ub) { return lb + rand(ub - lb); }\r\n  long long randll() {\r\n    unsigned\
+    \ long long res = static_cast<unsigned long long>(rand()) << 32;\r\n    return\
+    \ static_cast<long long>(res | rand());\r\n  }\r\n  long long randll(long long\
+    \ ub) {\r\n    long long res = randll() % ub;\r\n    return res < 0 ? res + ub\
+    \ : res;\r\n  }\r\n  long long randll(long long lb, long long ub) { return lb\
+    \ + randll(ub - lb); }\r\nprivate:\r\n  unsigned int x = 123456789, y = 362436069,\
+    \ z = 521288629, w = static_cast<unsigned int>(std::time(nullptr));\r\n} xor128;\r\
+    \n#line 6 \"geometry/smallest_enclosing_circle.hpp\"\n\r\ngeometry::Circle smallest_enclosing_circle(std::vector<geometry::Point>\
+    \ ps) {\r\n  int n = ps.size();\r\n  if (n == 1) return geometry::Circle(ps[0],\
+    \ 0);\r\n  for (int i = 0; i < n; ++i) std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);\r\
+    \n  auto get_circle = [&](const geometry::Point &p1, const geometry::Point &p2)\
+    \ -> geometry::Circle {\r\n    return geometry::Circle((p1 + p2) * 0.5, geometry::distance(p1,\
+    \ p2) * 0.5);\r\n  };\r\n  geometry::Circle res = get_circle(ps[0], ps[1]);\r\n\
+    \  auto is_in = [&](const geometry::Point &point) -> bool {\r\n    return geometry::sgn(res.r\
     \ - geometry::distance(res.p, point)) != -1;\r\n  };\r\n  for (int i = 2; i <\
     \ n; ++i) {\r\n    if (is_in(ps[i])) continue;\r\n    res = get_circle(ps[0],\
     \ ps[i]);\r\n    for (int j = 1; j < i; ++j) {\r\n      if (is_in(ps[j])) continue;\r\
@@ -277,7 +277,7 @@ data:
   isVerificationFile: true
   path: test/geometry/smallest_enclosing_circle.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/geometry/smallest_enclosing_circle.test.cpp

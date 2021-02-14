@@ -100,3 +100,6 @@ $$a^{\lambda(n)} \equiv 1 \pmod{n}$$
 
 
 ## Verified
+
+-
+- 数表

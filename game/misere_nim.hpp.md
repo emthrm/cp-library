@@ -52,6 +52,3 @@ $O(N)$
 ## 参考
 
 - http://winjii.hatenablog.com/entry/2016/05/29/143653
-
-
-## Verified

@@ -229,6 +229,3 @@ title: "\u591A\u9805\u5F0F (polynomial)"
   - http://people.csail.mit.edu/madhu/ST12/scribe/lect06.pdf
 - DKA 法
   - https://drive.google.com/file/d/1Fb5TPXzEQVKzYDwhNN2XZpWZWa49aCIY
-
-
-## Verified

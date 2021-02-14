@@ -36,21 +36,21 @@ data:
     \ PROBLEM \"https://atcoder.jp/contests/agc038/tasks/agc038_c\"\r\n\r\n#include\
     \ <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\r\n\
     #include \"../../../math/convolution/gcd_convolution.hpp\"\r\n\r\nint main() {\r\
-    \n  ModInt::set_mod(998244353);\r\n  constexpr int N = 1000000;\r\n  int n;\r\n\
-    \  std::cin >> n;\r\n  std::vector<int> a(n);\r\n  for (int i = 0; i < n; ++i)\
-    \ std::cin >> a[i];\r\n  std::vector<ModInt> b(N + 1, 0);\r\n  for (int i = 0;\
-    \ i < n; ++i) b[a[i]] += a[i];\r\n  std::vector<ModInt> c = gcd_convolution(b,\
-    \ b);\r\n  for (int i = 0; i < n; ++i) c[a[i]] -= static_cast<long long>(a[i])\
-    \ * a[i];\r\n  for (int i = 1; i <= N; ++i) c[i] /= 2;\r\n  ModInt ans = 0;\r\n\
-    \  for (int i = 1; i <= N; ++i) ans += c[i] / i;\r\n  std::cout << ans << '\\\
-    n';\r\n  return 0;\r\n}\r\n"
+    \n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  constexpr int\
+    \ N = 1000000;\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<int> a(n);\r\n\
+    \  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\n  std::vector<ModInt> b(N\
+    \ + 1, 0);\r\n  for (int i = 0; i < n; ++i) b[a[i]] += a[i];\r\n  std::vector<ModInt>\
+    \ c = gcd_convolution(b, b);\r\n  for (int i = 0; i < n; ++i) c[a[i]] -= static_cast<long\
+    \ long>(a[i]) * a[i];\r\n  for (int i = 1; i <= N; ++i) c[i] /= 2;\r\n  ModInt\
+    \ ans = 0;\r\n  for (int i = 1; i <= N; ++i) ans += c[i] / i;\r\n  std::cout <<\
+    \ ans << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/convolution/gcd_convolution.hpp
   isVerificationFile: true
   path: test/math/convolution/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/convolution/gcd_convolution.test.cpp

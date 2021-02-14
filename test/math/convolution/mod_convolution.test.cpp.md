@@ -39,10 +39,11 @@ data:
     #define PROBLEM \"https://atcoder.jp/contests/atc001/tasks/fft_c\"\r\n\r\n#include\
     \ <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\r\n\
     #include \"../../../math/convolution/mod_convolution.hpp\"\r\n\r\nint main() {\r\
-    \n  ModInt::set_mod(1000000001);\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<ModInt>\
-    \ a(n + 1, 0), b(n + 1, 0);\r\n  for (int i = 1; i <= n; ++i) std::cin >> a[i]\
-    \ >> b[i];\r\n  std::vector<ModInt> ans = mod_convolution(a, b);\r\n  for (int\
-    \ i = 1; i <= n * 2; ++i) std::cout << ans[i] << '\\n';\r\n  return 0;\r\n}\r\n"
+    \n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000001);\r\n  int n;\r\n\
+    \  std::cin >> n;\r\n  std::vector<ModInt> a(n + 1, 0), b(n + 1, 0);\r\n  for\
+    \ (int i = 1; i <= n; ++i) std::cin >> a[i] >> b[i];\r\n  std::vector<ModInt>\
+    \ ans = mod_convolution(a, b);\r\n  for (int i = 1; i <= n * 2; ++i) std::cout\
+    \ << ans[i] << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/convolution/mod_convolution.hpp
@@ -50,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/mod_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/convolution/mod_convolution.test.cpp

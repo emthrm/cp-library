@@ -6,12 +6,12 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/girth.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5185\u5468"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/girth.md
     document_title: "\u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248"
@@ -47,7 +47,7 @@ data:
   path: graph/girth_in_directed_graph.hpp
   requiredBy: []
   timestamp: '2021-02-13 06:42:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/girth.test.cpp
 documentation_of: graph/girth_in_directed_graph.hpp

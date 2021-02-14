@@ -98,6 +98,3 @@ $O(M^2 N)$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`inverse<T, U = double>(mat, inv, ε = 1e-8)`|行列 $\mathrm{mat}$ の逆行列が存在するか．|$\mathrm{inv}$ に逆行列が格納される．|
-
-
-## Verified

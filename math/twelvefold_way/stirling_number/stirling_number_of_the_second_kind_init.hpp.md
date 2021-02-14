@@ -47,7 +47,7 @@ data:
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
   requiredBy:
   - math/twelvefold_way/bell_number/bell_number_init.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
@@ -89,9 +89,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind(n, k, Combinatorics)`|第2種スターリング数 $S(n,k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind<T>(n, k)`|第2種スターリング数 $S(n,k)$|
 
 - 数表
 
@@ -101,9 +101,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 - 数表 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind_init_with_fps(n, Combinatorics)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|`Combinatorics` は $n$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind_init_with_fps<T>(n)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|
 
 
 ## 参考

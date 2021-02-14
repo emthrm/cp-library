@@ -7,9 +7,6 @@ data:
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/light/tree/centroid_decomposition.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
-  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
   - icon: ':x:'
@@ -159,7 +156,6 @@ data:
   - test/math/convolution/mod_convolution.test.cpp
   - test/math/convolution/fft.test.cpp
   - test/graph/tree/centroid_decomposition.test.cpp
-  - test/graph/light/tree/centroid_decomposition.test.cpp
 documentation_of: math/convolution/fft.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"

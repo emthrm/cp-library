@@ -27,22 +27,22 @@ data:
     \ non-first line\n"
   code: "/**\r\n * @brief Eulerian number \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\
     \u7D1A\u6570\u7248\r\n * @docs docs/math/fps/eulerian_number.md\r\n */\r\n\r\n\
-    #pragma once\r\n#include <cassert>\r\n#include <vector>\r\n#include \"../modint.hpp\"\
-    \r\n#include \"fps.hpp\"\r\n\r\nstd::vector<ModInt> eulerian_number_init_with_fps(int\
-    \ n, const Combinatorics &com) {\r\n  if (n == 0) return {1};\r\n  assert(com.val\
-    \ >= n + 1);\r\n  int sz = (n + 1) >> 1;\r\n  FPS<ModInt> a(sz - 1), b(sz - 1);\r\
-    \n  for (int i = 0; i < sz; ++i) a[i] = ModInt(i + 1).pow(n);\r\n  for (int i\
-    \ = 0; i < sz; ++i) b[i] = com.fact_inv[i] * com.fact_inv[n + 1 - i] * (i & 1\
-    \ ? -1 : 1);\r\n  a *= b;\r\n  a.co.resize(n + 1, 0);\r\n  for (int i = 0; i <\
-    \ sz; ++i) {\r\n    a.co[i] *= com.fact[n + 1];\r\n    a.co[n - 1 - i] = a.co[i];\r\
-    \n  }\r\n  return a.co;\r\n}\r\n"
+    #pragma once\r\n#include <vector>\r\n#include \"../modint.hpp\"\r\n#include \"\
+    fps.hpp\"\r\n\r\ntemplate <int T>\r\nstd::vector<MInt<T>> eulerian_number_init_with_fps(int\
+    \ n) {\r\n  using ModInt = MInt<T>;\r\n  if (n == 0) return {1};\r\n  ModInt::init(n\
+    \ + 1);\r\n  int sz = (n + 1) >> 1;\r\n  FPS<ModInt> a(sz - 1), b(sz - 1);\r\n\
+    \  for (int i = 0; i < sz; ++i) a[i] = ModInt(i + 1).pow(n);\r\n  for (int i =\
+    \ 0; i < sz; ++i) b[i] = ModInt::fact_inv(i) * ModInt::fact_inv(n + 1 - i) * (i\
+    \ & 1 ? -1 : 1);\r\n  a *= b;\r\n  a.co.resize(n + 1, 0);\r\n  for (int i = 0;\
+    \ i < sz; ++i) {\r\n    a.co[i] *= ModInt::fact(n + 1);\r\n    a.co[n - 1 - i]\
+    \ = a.co[i];\r\n  }\r\n  return a.co;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/fps/fps.hpp
   isVerificationFile: false
   path: math/fps/eulerian_number_init_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fps/eulerian_number_init_with_fps.hpp
@@ -91,9 +91,9 @@ $$A(n, m) = \sum_{k = 0}^m (-1)^k \binom{n + 1}{k} (m + 1 - k)^n$$
 
 - 数表 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`eulerian_number_init_with_fps(n, Combinatorics)`|Eulerian number $A(n, j) \ (0 \leq j \leq n)$|`Combinatorics` は $n + 1$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`eulerian_number_init_with_fps<T>(n)`|Eulerian number $A(n, j) \ (0 \leq j \leq n)$|
 
 
 ## 参考

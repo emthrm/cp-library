@@ -34,16 +34,16 @@ data:
     \ */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I\"\
     \r\n\r\n#include <iostream>\r\n#include \"../../../../math/modint.hpp\"\r\n#include\
     \ \"../../../../math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp\"\
-    \r\n\r\nint main() {\r\n  ModInt::set_mod(1000000007);\r\n  int n, k;\r\n  std::cin\
-    \ >> n >> k;\r\n  Combinatorics com(k);\r\n  std::cout << stirling_number_of_the_second_kind(n,\
-    \ k, com) << '\\n';\r\n  return 0;\r\n}\r\n"
+    \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\
+    \n  int n, k;\r\n  std::cin >> n >> k;\r\n  std::cout << stirling_number_of_the_second_kind<0>(n,\
+    \ k) << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp

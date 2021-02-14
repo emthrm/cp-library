@@ -28,9 +28,6 @@ data:
       \u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range sum query and\
       \ range update query)"
   - icon: ':heavy_check_mark:'
-    path: test/graph/light/tree/lca_euler_tour.test.cpp
-    title: test/graph/light/tree/lca_euler_tour.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lca_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
@@ -166,7 +163,6 @@ data:
   - test/data_structure/segment_tree/lazy_segment_tree.test.cpp
   - test/data_structure/segment_tree/range_minimum_query_and_range_add_query.test.cpp
   - test/graph/tree/lca_euler_tour.test.cpp
-  - test/graph/light/tree/lca_euler_tour.test.cpp
 documentation_of: data_structure/segment_tree/lazy_segment_tree.hpp
 layout: document
 redirect_from:

@@ -32,7 +32,7 @@ data:
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../../fps/fps.hpp\"\
     \r\n\r\ntemplate <typename T>\r\nstd::vector<T> stirling_number_of_the_first_kind_init_with_fps(int\
     \ n) {\r\n  if (n == 0) return {1};\r\n  FPS<T> stirling{0, 1};\r\n  for (int\
-    \ i = 30 - __builtin_clz(n); i >= 0; --i) {\r\n    stirling *= stirling.translate(-(stirling.co.size()\
+    \ i = 30 - __builtin_clz(n); i >= 0; --i) {\r\n    stirling *= stirling.translate(-(static_cast<int>(stirling.co.size())\
     \ - 1));\r\n    // stirling *= stirling.translate(stirling.co.size() - 1);\r\n\
     \    if (n >> i & 1) {\r\n      int deg = stirling.co.size() - 1;\r\n      stirling.co.emplace_back(0);\r\
     \n      for (int i = deg; i >= 0; --i) stirling.co[i + 1] = stirling.co[i];\r\n\
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp

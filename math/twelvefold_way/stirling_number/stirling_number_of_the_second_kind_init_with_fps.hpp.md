@@ -33,10 +33,11 @@ data:
   code: "/**\r\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
     \u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\r\n * @docs docs/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../../modint.hpp\"\
-    \r\n#include \"../../fps/fps.hpp\"\r\n\r\nstd::vector<ModInt> stirling_number_of_the_second_kind_init_with_fps(int\
-    \ n, const Combinatorics &com) {\r\n  assert(com.val >= n);\r\n  FPS<ModInt> a(n),\
-    \ b(n);\r\n  for (int i = 0; i <= n; ++i) a[i] = ModInt(i).pow(n) * com.fact_inv[i];\r\
-    \n  for (int i = 0; i <= n; ++i) b[i] = com.fact_inv[i] * (i & 1 ? -1 : 1);\r\n\
+    \r\n#include \"../../fps/fps.hpp\"\r\n\r\ntemplate <int T>\r\nstd::vector<MInt<T>>\
+    \ stirling_number_of_the_second_kind_init_with_fps(int n) {\r\n  using ModInt\
+    \ = MInt<T>;\r\n  ModInt::init(n);\r\n  FPS<ModInt> a(n), b(n);\r\n  for (int\
+    \ i = 0; i <= n; ++i) a[i] = ModInt(i).pow(n) * ModInt::fact_inv(i);\r\n  for\
+    \ (int i = 0; i <= n; ++i) b[i] = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);\r\n\
     \  a *= b;\r\n  a.co.resize(n + 1);\r\n  return a.co;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
@@ -44,7 +45,7 @@ data:
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
@@ -86,9 +87,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind(n, k, Combinatorics)`|第2種スターリング数 $S(n,k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind<T>(n, k)`|第2種スターリング数 $S(n,k)$|
 
 - 数表
 
@@ -98,9 +99,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 - 数表 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind_init_with_fps(n, Combinatorics)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|`Combinatorics` は $n$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind_init_with_fps<T>(n)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|
 
 
 ## 参考

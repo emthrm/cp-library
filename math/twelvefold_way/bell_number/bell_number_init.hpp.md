@@ -42,7 +42,7 @@ data:
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number_init.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
@@ -85,9 +85,9 @@ $$B(x) = e^{e^x - 1}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`bell_number(n, k, Combinatorics)`|ベル数 $B(n, k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`bell_number<T>(n, k)`|ベル数 $B(n, k)$|
 
 - 数表
 

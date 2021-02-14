@@ -89,18 +89,19 @@ $$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \su
 
 ## 参考
 
-- ラグランジュ補間
-  - https://mathtrain.jp/hokan
-  - https://tubo28.me/compprog/algorithm/lagrange_interpolation/
-- スプライン補間 (spline interpolation)
-  - https://en.wikipedia.org/wiki/Spline_interpolation
-  - https://docs.google.com/presentation/d/1n-RR-AjQN8oq0DkDKBFi9Ccg53HsDUHKtOsC8z7S-To
-- 多項式補間
-  - https://github.com/ei1333/library/blob/master/math/fps/polynomial-interpolation.cpp
+ラグランジュ補間
+- https://mathtrain.jp/hokan
+- https://tubo28.me/compprog/algorithm/lagrange_interpolation/
+
+多項式補間
+- https://github.com/ei1333/library/blob/master/math/fps/polynomial-interpolation.cpp
 
 
 ## ToDo
 
+- スプライン補間 (spline interpolation)
+  - https://en.wikipedia.org/wiki/Spline_interpolation
+  - https://docs.google.com/presentation/d/1n-RR-AjQN8oq0DkDKBFi9Ccg53HsDUHKtOsC8z7S-To
 - ニュートン補間 (Newtonian interpolation)
   - https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E8%A3%9C%E9%96%93
   - https://twitter.com/noshi91/status/1160191749416898560

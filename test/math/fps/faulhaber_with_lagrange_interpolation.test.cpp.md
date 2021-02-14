@@ -37,18 +37,19 @@ data:
   code: "/*\r\n * @brief \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\
     \u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\
     \u30B8\u30E5\u88DC\u9593\u7248\r\n */\r\n#define PROBLEM \"https://yukicoder.me/problems/no/665\"\
-    \r\n\r\n#include <iostream>\r\n#include \"../../../math/fps/faulhaber_with_lagrange_interpolation.hpp\"\
-    \r\n\r\nint main() {\r\n  ModInt::set_mod(1000000007);\r\n  long long n;\r\n \
-    \ int k;\r\n  std::cin >> n >> k;\r\n  std::cout << faulhaber(n + 1, k) << '\\\
-    n';\r\n  return 0;\r\n}\r\n"
+    \r\n\r\n#include <iostream>\r\n#include \"../../../math/modint.hpp\"\r\n#include\
+    \ \"../../../math/fps/faulhaber_with_lagrange_interpolation.hpp\"\r\n\r\nint main()\
+    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  long long\
+    \ n;\r\n  int k;\r\n  std::cin >> n >> k;\r\n  std::cout << faulhaber<0>(n + 1,\
+    \ k) << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
-  - math/fps/faulhaber_with_lagrange_interpolation.hpp
   - math/modint.hpp
+  - math/fps/faulhaber_with_lagrange_interpolation.hpp
   - math/lagrange_interpolation2.hpp
   isVerificationFile: true
   path: test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp

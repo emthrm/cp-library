@@ -8,9 +8,6 @@ data:
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree \u533A\u9593\u52A0\
       \u7B97\u7248"
   - icon: ':heavy_check_mark:'
-    path: test/graph/light/tree/hld.1.test.cpp
-    title: test/graph/light/tree/hld.1.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/graph/tree/hld.1.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
   _isVerificationFailed: false
@@ -54,7 +51,6 @@ data:
   verifiedWith:
   - test/data_structure/bit/bit_range_add.test.cpp
   - test/graph/tree/hld.1.test.cpp
-  - test/graph/light/tree/hld.1.test.cpp
 documentation_of: data_structure/bit/bit_range_add.hpp
 layout: document
 redirect_from:

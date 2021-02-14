@@ -41,7 +41,6 @@ $$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
 - https://ei1333.github.io/algorithm/euler-phi.html
 
 数表2
-
 - https://github.com/spaghetti-source/algorithm/blob/master/number_theory/euler_phi.cc
 
 
@@ -55,6 +54,6 @@ $$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
 
 ## Verified
 
-* https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_D/review/4088206/emthrm/C++14
-* [数表](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_D/review/4088232/emthrm/C++14)
-* [数表2](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_D/review/4088268/emthrm/C++14)
+- https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_D/review/4088206/emthrm/C++14
+- [数表](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_D/review/4088232/emthrm/C++14)
+- [数表2](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_D/review/4088268/emthrm/C++14)

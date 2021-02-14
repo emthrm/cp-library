@@ -55,7 +55,8 @@ $O(N\log{N})$
 - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 - http://kazuma8128.hatenablog.com/entry/2018/05/31/144519
 - https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
-- 添え字 gcd での畳み込み
+
+添え字 gcd での畳み込み
   - https://noshi91.hatenablog.com/entry/2019/09/23/002445
 
 

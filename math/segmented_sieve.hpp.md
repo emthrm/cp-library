@@ -61,7 +61,3 @@ $O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?
 ## ToDo
 
 - https://uwitenpen.hatenadiary.org/entries/2011/12/03
-
-
-## Verified
-

@@ -37,15 +37,16 @@ data:
     \r\n\r\n#include <iostream>\r\n#include <string>\r\n#include \"../../../../math/modint.hpp\"\
     \r\n#include \"../../../../math/twelvefold_way/binomial_coefficients/binomial_coefficients.hpp\"\
     \r\n\r\nint main() {\r\n  constexpr int MOD = 1000000007;\r\n  BinomialCoefficients\
-    \ bc(MOD, 1000000);\r\n  ModInt::set_mod(MOD);\r\n  Combinatorics com(1999999);\r\
-    \n  int t;\r\n  std::cin >> t;\r\n  while (t--) {\r\n    std::string s;\r\n  \
-    \  std::cin >> s;\r\n    std::string n = \"\";\r\n    int idx = 2;\r\n    while\
-    \ (true) {\r\n      char c = s[idx];\r\n      if (c == ',') break;\r\n      n\
-    \ += c;\r\n      ++idx;\r\n    }\r\n    std::string k = s.substr(idx + 1);\r\n\
-    \    if (s[0] == 'C') {\r\n      std::cout << bc.query(std::stoi(n), std::stoi(k));\r\
-    \n    } else if (s[0] == 'P') {\r\n      std::cout << com.nPk(std::stoi(n), std::stoi(k));\r\
-    \n    } else {\r\n      std::cout << com.nHk(std::stoi(n), std::stoi(k));\r\n\
-    \    }\r\n    std::cout << '\\n';\r\n  }\r\n  return 0;\r\n}\r\n"
+    \ bc(MOD, 1000000);\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(MOD);\r\n\
+    \  ModInt::init(1999999);\r\n  int t;\r\n  std::cin >> t;\r\n  while (t--) {\r\
+    \n    std::string s;\r\n    std::cin >> s;\r\n    std::string n = \"\";\r\n  \
+    \  int idx = 2;\r\n    while (true) {\r\n      char c = s[idx];\r\n      if (c\
+    \ == ',') break;\r\n      n += c;\r\n      ++idx;\r\n    }\r\n    std::string\
+    \ k = s.substr(idx + 1);\r\n    if (s[0] == 'C') {\r\n      std::cout << bc.query(std::stoi(n),\
+    \ std::stoi(k));\r\n    } else if (s[0] == 'P') {\r\n      std::cout << ModInt::nPk(std::stoi(n),\
+    \ std::stoi(k));\r\n    } else {\r\n      std::cout << ModInt::nHk(std::stoi(n),\
+    \ std::stoi(k));\r\n    }\r\n    std::cout << '\\n';\r\n  }\r\n  return 0;\r\n\
+    }\r\n"
   dependsOn:
   - math/modint.hpp
   - math/twelvefold_way/binomial_coefficients/binomial_coefficients.hpp
@@ -53,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/binomial_coefficients/binomial_coefficients.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/binomial_coefficients/binomial_coefficients.test.cpp

@@ -49,6 +49,3 @@ title: "Grundy \u6570 (Grundy number)"
 ## 参考
 
 - プログラミングコンテストチャレンジブック \[第2版\] pp.281-283
-
-
-## Verified

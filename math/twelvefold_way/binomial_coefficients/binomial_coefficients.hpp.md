@@ -86,15 +86,15 @@ $$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)
 
 - $n$ は巨大
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`binom_large_n(n, k, Combinatorics)`|$\binom{n}{k}$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`binom_large_n<T>(n, k)`|$\binom{n}{k}$|
 
 - $n$ は巨大な固定値
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`binom_large_n_init(n, k, Combinatorics)`|$\binom{n}{r} \ (0 \leq r \leq k)$ の数表|`Combinatorics` は $\min \lbrace n, k \rbrace$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`binom_large_n_init<T>(n, k)`|$\binom{n}{r} \ (0 \leq r \leq k)$ の数表|
 
 
 ## 参考

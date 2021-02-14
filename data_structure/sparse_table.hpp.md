@@ -14,9 +14,6 @@ data:
     path: test/data_structure/sparse_table.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
   - icon: ':heavy_check_mark:'
-    path: test/graph/light/tree/lca_euler_tour.test.cpp
-    title: test/graph/light/tree/lca_euler_tour.test.cpp
-  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lca_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
@@ -72,7 +69,6 @@ data:
   - test/data_structure/sparse_table.test.cpp
   - test/string/lcp.test.cpp
   - test/graph/tree/lca_euler_tour.test.cpp
-  - test/graph/light/tree/lca_euler_tour.test.cpp
 documentation_of: data_structure/sparse_table.hpp
 layout: document
 title: sparse table

@@ -4,22 +4,20 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/girth_in_directed_graph.hpp
     title: "\u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/girth_in_undirected_graph.hpp
     title: "\u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://yukicoder.me/problems/no/1320
     document_title: "\u30B0\u30E9\u30D5/\u5185\u5468"
     links:
     - https://yukicoder.me/problems/no/1320
@@ -33,9 +31,9 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/girth_in_undirected_graph.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u5185\u5468\r\n */\r\n#define IGNORE\r\
-    \n#define PROBLEM \"https://yukicoder.me/problems/no/1320\"\r\n\r\n#include <iostream>\r\
-    \n#include <limits>\r\n#include <vector>\r\n#include \"../../graph/girth_in_undirected_graph.hpp\"\
+  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u5185\u5468\r\n */\r\n#define PROBLEM\
+    \ \"https://yukicoder.me/problems/no/1320\"\r\n\r\n#include <iostream>\r\n#include\
+    \ <limits>\r\n#include <vector>\r\n#include \"../../graph/girth_in_undirected_graph.hpp\"\
     \r\n#include \"../../graph/girth_in_directed_graph.hpp\"\r\n\r\nint main() {\r\
     \n  constexpr long long LINF = std::numeric_limits<long long>::max();\r\n  int\
     \ t, n, m;\r\n  std::cin >> t >> n >> m;\r\n  if (t == 0) {\r\n    std::vector<Edge<long\
@@ -55,8 +53,8 @@ data:
   isVerificationFile: true
   path: test/graph/girth.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-02-13 17:25:41+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/girth.test.cpp
 layout: document

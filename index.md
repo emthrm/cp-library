@@ -147,10 +147,10 @@ data:
     - icon: ':x:'
       path: graph/eulerian_trail_in_undirected_graph.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/girth_in_directed_graph.hpp
       title: "\u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/girth_in_undirected_graph.hpp
       title: "\u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248"
     - icon: ':x:'
@@ -191,7 +191,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/flow/matching/tutte_theorem.hpp
       title: "\u30BF\u30C3\u30C8\u306E\u5B9A\u7406"
-    - icon: ':x:'
+    - icon: ':question:'
       path: graph/flow/matching/weighted_bipartite_matching.hpp
       title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\
         \u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -891,7 +891,7 @@ data:
       path: test/graph/eulerian_trail_in_undirected_graph.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\
         \u30E9\u30D5\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/girth.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5185\u5468"
     - icon: ':x:'
@@ -973,46 +973,6 @@ data:
       path: test/graph/flow/minimum_cost_flow/primal_dual.3.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41\
         /\u4E3B\u53CC\u5BFE\u6CD5 (min_cost_max_flow(s, t, flow))"
-  - name: test/graph/light
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/2-edge-connected_components_imos.test.cpp
-      title: test/graph/light/2-edge-connected_components_imos.test.cpp
-    - icon: ':x:'
-      path: test/graph/light/2-edge-connected_components_lowlink.test.cpp
-      title: test/graph/light/2-edge-connected_components_lowlink.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/detect_bridge.test.cpp
-      title: test/graph/light/detect_bridge.test.cpp
-    - icon: ':x:'
-      path: test/graph/light/is_bipartite.test.cpp
-      title: test/graph/light/is_bipartite.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/lowlink.1.test.cpp
-      title: test/graph/light/lowlink.1.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/lowlink.2.test.cpp
-      title: test/graph/light/lowlink.2.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/scc.test.cpp
-      title: test/graph/light/scc.test.cpp
-  - name: test/graph/light/tree
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/tree/centroid_decomposition.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/tree/hld.1.test.cpp
-      title: test/graph/light/tree/hld.1.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/tree/hld.2.test.cpp
-      title: test/graph/light/tree/hld.2.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/tree/lca_doubling.test.cpp
-      title: test/graph/light/tree/lca_doubling.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/graph/light/tree/lca_euler_tour.test.cpp
-      title: test/graph/light/tree/lca_euler_tour.test.cpp
   - name: test/graph/mst
     pages:
     - icon: ':heavy_check_mark:'
@@ -1067,7 +1027,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/basis.test.cpp
       title: "\u6570\u5B66/\u57FA\u5E95"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.01.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
     - icon: ':heavy_check_mark:'

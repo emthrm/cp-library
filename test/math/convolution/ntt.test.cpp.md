@@ -30,19 +30,20 @@ data:
   code: "/*\r\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB\
     \r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\
-    \r\n#include \"../../../math/convolution/ntt.hpp\"\r\n\r\nint main() {\r\n  ModInt::set_mod(998244353);\r\
-    \n  NTT ntt;\r\n  int n, m;\r\n  std::cin >> n >> m;\r\n  std::vector<int> a(n),\
-    \ b(m);\r\n  for (int i = 0; i < n; ++i) std::cin >> a[i];\r\n  for (int i = 0;\
-    \ i < m; ++i) std::cin >> b[i];\r\n  std::vector<ModInt> ans = ntt.convolution(a,\
-    \ b);\r\n  for (int i = 0; i <= (n - 1) + (m - 1); ++i) std::cout << ans[i] <<\
-    \ \" \\n\"[i + 1 == (n - 1) + (m - 1)];\r\n  return 0;\r\n}\r\n"
+    \r\n#include \"../../../math/convolution/ntt.hpp\"\r\n\r\nint main() {\r\n  using\
+    \ ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  NTT<0> ntt;\r\n  int\
+    \ n, m;\r\n  std::cin >> n >> m;\r\n  std::vector<int> a(n), b(m);\r\n  for (int\
+    \ i = 0; i < n; ++i) std::cin >> a[i];\r\n  for (int i = 0; i < m; ++i) std::cin\
+    \ >> b[i];\r\n  std::vector<ModInt> ans = ntt.convolution(a, b);\r\n  for (int\
+    \ i = 0; i <= (n - 1) + (m - 1); ++i) std::cout << ans[i] << \" \\n\"[i == (n\
+    \ - 1) + (m - 1)];\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/convolution/ntt.hpp
   isVerificationFile: true
   path: test/math/convolution/ntt.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/ntt.test.cpp

@@ -35,12 +35,12 @@ data:
   code: "/**\r\n * @brief \u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\
     \u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\r\n * @docs docs/math/fps/faulhaber.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include \"../modint.hpp\"\r\
-    \n#include \"bernoulli_number.hpp\"\r\n\r\nModInt faulhaber(long long n, int k,\
-    \ const Combinatorics &com) {\r\n  if (n <= 1) return 0;\r\n  if (k == 0) return\
-    \ n - 1;\r\n  assert(com.val >= k + 1);\r\n  std::vector<ModInt> bernoulli = bernoulli_number<ModInt>(k);\r\
-    \n  ModInt p = 1, res = 0;\r\n  for (int i = k; i >= 0; --i) {\r\n    p *= n;\r\
-    \n    res += com.nCk(k + 1, i) * bernoulli[i] * p;\r\n  }\r\n  return res / (k\
-    \ + 1);\r\n}\r\n"
+    \n#include \"bernoulli_number.hpp\"\r\n\r\ntemplate <int T>\r\nMInt<T> faulhaber(long\
+    \ long n, int k) {\r\n  using ModInt = MInt<T>;\r\n  if (n <= 1) return 0;\r\n\
+    \  if (k == 0) return n - 1;\r\n  ModInt::init(k + 1);\r\n  std::vector<ModInt>\
+    \ bernoulli = bernoulli_number<ModInt>(k);\r\n  ModInt p = 1, res = 0;\r\n  for\
+    \ (int i = k; i >= 0; --i) {\r\n    p *= n;\r\n    res += ModInt::nCk(k + 1, i)\
+    \ * bernoulli[i] * p;\r\n  }\r\n  return res / (k + 1);\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/fps/bernoulli_number.hpp
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: math/fps/faulhaber_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/fps/faulhaber_with_fps.test.cpp
@@ -85,15 +85,15 @@ $$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i
 
 - 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`faulhaber(n, k, Combinatorics)`|$S_k(n)$|`Combinatorics` は $k + 1$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`faulhaber<T>(n, k)`|$S_k(n)$|
 
 - ラグランジュ補間版
 
 ||説明|
 |:--:|:--:|
-|`faulhaber(n, k)`|$S_k(n)$|
+|`faulhaber<T>(n, k)`|$S_k(n)$|
 
 
 ## 参考

@@ -33,20 +33,19 @@ data:
     /\u4E8C\u9805\u4FC2\u6570 $n$ \u306F\u5DE8\u5927\r\n */\r\n#define PROBLEM \"\
     http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071\"\r\n\r\n#include\
     \ <iostream>\r\n#include \"../../../../math/modint.hpp\"\r\n#include \"../../../../math/twelvefold_way/binomial_coefficients/binom_large_n.hpp\"\
-    \r\n\r\nint main() {\r\n  ModInt::set_mod(998244353);\r\n  long long m, n;\r\n\
-    \  int k;\r\n  std::cin >> m >> n >> k;\r\n  Combinatorics com(k);\r\n  ModInt\
-    \ ans = ModInt(m).pow(n);\r\n  if (k > 1) {\r\n    for (int i = 1; i < k; ++i)\
-    \ {\r\n      ModInt tmp = 0;\r\n      for (int j = i; j >= 1; --j) tmp += com.nCk(i,\
-    \ j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);\r\n      ans -= tmp * binom_large_n(m,\
-    \ i, com);\r\n    }\r\n  }\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n\
-    }\r\n"
+    \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
+    \n  long long m, n;\r\n  int k;\r\n  std::cin >> m >> n >> k;\r\n  ModInt ans\
+    \ = ModInt(m).pow(n);\r\n  if (k > 1) {\r\n    for (int i = 1; i < k; ++i) {\r\
+    \n      ModInt tmp = 0;\r\n      for (int j = i; j >= 1; --j) tmp += ModInt::nCk(i,\
+    \ j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);\r\n      ans -= tmp * binom_large_n<0>(m,\
+    \ i);\r\n    }\r\n  }\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/twelvefold_way/binomial_coefficients/binom_large_n.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/binomial_coefficients/binom_large_n.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/binomial_coefficients/binom_large_n.test.cpp

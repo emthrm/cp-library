@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/math/mod_sqrt.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/mod_sqrt.test.cpp

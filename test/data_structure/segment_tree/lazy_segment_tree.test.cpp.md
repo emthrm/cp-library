@@ -34,29 +34,29 @@ data:
     #define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\r\n\
     \r\n#include <iostream>\r\n#include <utility>\r\n#include <vector>\r\n#include\
     \ \"../../../math/modint.hpp\"\r\n#include \"../../../data_structure/segment_tree/lazy_segment_tree.hpp\"\
-    \r\n\r\nint main() {\r\n  ModInt::set_mod(998244353);\r\n  int n, q;\r\n  std::cin\
-    \ >> n >> q;\r\n  struct Node {\r\n    using Monoid = std::pair<ModInt, int>;\r\
-    \n    using OperatorMonoid = std::pair<ModInt, ModInt>;\r\n    static Monoid m_id()\
-    \ { return {0, 0}; }\r\n    static OperatorMonoid o_id() { return {1, 0}; }\r\n\
-    \    static Monoid m_merge(const Monoid &a, const Monoid &b) { return {a.first\
-    \ + b.first, a.second + b.second}; }\r\n    static OperatorMonoid o_merge(const\
-    \ OperatorMonoid &a, const OperatorMonoid &b) {\r\n      return {b.first * a.first,\
-    \ b.first * a.second + b.second};\r\n    }\r\n    static Monoid apply(const Monoid\
-    \ &a, const OperatorMonoid &b) {\r\n      return {a.first * b.first + b.second\
-    \ * a.second, a.second};\r\n    }\r\n  };\r\n  std::vector<Node::Monoid> a(n,\
-    \ {0, 1});\r\n  for (int i = 0; i < n; ++i) std::cin >> a[i].first;\r\n  LazySegmentTree<Node>\
-    \ seg(a);\r\n  while (q--) {\r\n    int query, l, r;\r\n    std::cin >> query\
-    \ >> l >> r;\r\n    if (query == 0) {\r\n      int b, c;\r\n      std::cin >>\
-    \ b >> c;\r\n      seg.apply(l, r, {b, c});\r\n    } else if (query == 1) {\r\n\
-    \      std::cout << seg.get(l, r).first << '\\n';\r\n    }\r\n  }\r\n  return\
-    \ 0;\r\n}\r\n"
+    \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
+    \n  int n, q;\r\n  std::cin >> n >> q;\r\n  struct Node {\r\n    using Monoid\
+    \ = std::pair<ModInt, int>;\r\n    using OperatorMonoid = std::pair<ModInt, ModInt>;\r\
+    \n    static Monoid m_id() { return {0, 0}; }\r\n    static OperatorMonoid o_id()\
+    \ { return {1, 0}; }\r\n    static Monoid m_merge(const Monoid &a, const Monoid\
+    \ &b) { return {a.first + b.first, a.second + b.second}; }\r\n    static OperatorMonoid\
+    \ o_merge(const OperatorMonoid &a, const OperatorMonoid &b) {\r\n      return\
+    \ {b.first * a.first, b.first * a.second + b.second};\r\n    }\r\n    static Monoid\
+    \ apply(const Monoid &a, const OperatorMonoid &b) {\r\n      return {a.first *\
+    \ b.first + b.second * a.second, a.second};\r\n    }\r\n  };\r\n  std::vector<Node::Monoid>\
+    \ a(n, {0, 1});\r\n  for (int i = 0; i < n; ++i) std::cin >> a[i].first;\r\n \
+    \ LazySegmentTree<Node> seg(a);\r\n  while (q--) {\r\n    int query, l, r;\r\n\
+    \    std::cin >> query >> l >> r;\r\n    if (query == 0) {\r\n      int b, c;\r\
+    \n      std::cin >> b >> c;\r\n      seg.apply(l, r, {b, c});\r\n    } else if\
+    \ (query == 1) {\r\n      std::cout << seg.get(l, r).first << '\\n';\r\n    }\r\
+    \n  }\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - data_structure/segment_tree/lazy_segment_tree.hpp
   isVerificationFile: true
   path: test/data_structure/segment_tree/lazy_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/segment_tree/lazy_segment_tree.test.cpp

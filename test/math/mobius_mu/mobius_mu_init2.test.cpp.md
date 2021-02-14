@@ -39,10 +39,10 @@ data:
     \ PROBLEM \"https://codeforces.com/problemset/problem/1139/D\"\r\n\r\n#include\
     \ <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\r\n\
     #include \"../../../math/mobius_mu/mobius_mu_init2.hpp\"\r\n\r\nint main() {\r\
-    \n  ModInt::set_mod(1000000007);\r\n  int m;\r\n  std::cin >> m;\r\n  ModInt ans\
-    \ = 1;\r\n  std::vector<int> mu = mobius_mu_init2(2, m + 1);\r\n  for (int i =\
-    \ 2; i <= m; ++i) ans -= (ModInt(m) / (m - m / i) - 1) * mu[i - 2];\r\n  std::cout\
-    \ << ans << '\\n';\r\n  return 0;\r\n}\r\n"
+    \n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  int m;\r\n\
+    \  std::cin >> m;\r\n  ModInt ans = 1;\r\n  std::vector<int> mu = mobius_mu_init2(2,\
+    \ m + 1);\r\n  for (int i = 2; i <= m; ++i) ans -= (ModInt(m) / (m - m / i) -\
+    \ 1) * mu[i - 2];\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/mobius_mu/mobius_mu_init2.hpp
@@ -50,7 +50,7 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu/mobius_mu_init2.test.cpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mobius_mu/mobius_mu_init2.test.cpp

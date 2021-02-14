@@ -46,13 +46,14 @@ data:
     \r\n\r\n#include <algorithm>\r\n#include <iostream>\r\n#include <iterator>\r\n\
     #include <vector>\r\n#include \"../../math/modint.hpp\"\r\n#include \"../../graph/edge.hpp\"\
     \r\n#include \"../../data_structure/union-find/union-find.hpp\"\r\n#include \"\
-    ../../graph/matrix_tree_theorem.hpp\"\r\n\r\nint main() {\r\n  ModInt::set_mod(1000000007);\r\
-    \n  int n, m;\r\n  std::cin >> n >> m;\r\n  std::vector<int> costs;\r\n  std::vector<Edge<int>>\
-    \ edges;\r\n  for (int i = 0; i < m; ++i) {\r\n    int a, b, c;\r\n    std::cin\
-    \ >> a >> b >> c;\r\n    --a; --b;\r\n    edges.emplace_back(a, b, c);\r\n   \
-    \ costs.emplace_back(c);\r\n  }\r\n  std::sort(costs.begin(), costs.end());\r\n\
-    \  costs.erase(std::unique(costs.begin(), costs.end()), costs.end());\r\n  std::vector<std::vector<Edge<int>>>\
-    \ divided(costs.size());\r\n  for (int i = 0; i < m; ++i) {\r\n    divided[std::distance(costs.begin(),\
+    ../../graph/matrix_tree_theorem.hpp\"\r\n\r\nint main() {\r\n  using ModInt =\
+    \ MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  int n, m;\r\n  std::cin >> n\
+    \ >> m;\r\n  std::vector<int> costs;\r\n  std::vector<Edge<int>> edges;\r\n  for\
+    \ (int i = 0; i < m; ++i) {\r\n    int a, b, c;\r\n    std::cin >> a >> b >> c;\r\
+    \n    --a; --b;\r\n    edges.emplace_back(a, b, c);\r\n    costs.emplace_back(c);\r\
+    \n  }\r\n  std::sort(costs.begin(), costs.end());\r\n  costs.erase(std::unique(costs.begin(),\
+    \ costs.end()), costs.end());\r\n  std::vector<std::vector<Edge<int>>> divided(costs.size());\r\
+    \n  for (int i = 0; i < m; ++i) {\r\n    divided[std::distance(costs.begin(),\
     \ std::lower_bound(costs.begin(), costs.end(), edges[i].cost))].emplace_back(edges[i]);\r\
     \n  }\r\n  UnionFind uf(n);\r\n  long long cost = 0;\r\n  ModInt way = 1;\r\n\
     \  for (int i = 0; i < costs.size(); ++i) {\r\n    std::vector<int> vers;\r\n\
@@ -90,7 +91,7 @@ data:
   isVerificationFile: true
   path: test/graph/matrix_tree_theorem.test.cpp
   requiredBy: []
-  timestamp: '2021-02-11 04:31:13+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/matrix_tree_theorem.test.cpp

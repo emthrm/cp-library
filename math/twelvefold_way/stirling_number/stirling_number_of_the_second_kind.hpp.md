@@ -28,18 +28,18 @@ data:
   code: "/**\r\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\r\
     \n * @docs docs/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include \"../../modint.hpp\"\
-    \r\n\r\nModInt stirling_number_of_the_second_kind(int n, int k, const Combinatorics\
-    \ &com) {\r\n  if (n < k) return 0;\r\n  assert(k <= com.val);\r\n  ModInt stirling\
-    \ = 0;\r\n  for (int i = 1; i <= k; ++i) {\r\n    ModInt tmp = com.nCk(k, i) *\
-    \ ModInt(i).pow(n);\r\n    if ((k - i) & 1) {\r\n      stirling -= tmp;\r\n  \
-    \  } else {\r\n      stirling += tmp;\r\n    }\r\n  }\r\n  return stirling / com.fact[k];\r\
-    \n}\r\n"
+    \r\n\r\ntemplate <int T>\r\nMInt<T> stirling_number_of_the_second_kind(int n,\
+    \ int k) {\r\n  using ModInt = MInt<T>;\r\n  if (n < k) return 0;\r\n  ModInt::init(k);\r\
+    \n  ModInt stirling = 0;\r\n  for (int i = 1; i <= k; ++i) {\r\n    ModInt tmp\
+    \ = ModInt::nCk(k, i) * ModInt(i).pow(n);\r\n    if ((k - i) & 1) {\r\n      stirling\
+    \ -= tmp;\r\n    } else {\r\n      stirling += tmp;\r\n    }\r\n  }\r\n  return\
+    \ stirling * ModInt::fact_inv(k);\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
@@ -80,9 +80,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind(n, k, Combinatorics)`|第2種スターリング数 $S(n,k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind<T>(n, k)`|第2種スターリング数 $S(n,k)$|
 
 - 数表
 
@@ -92,9 +92,9 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 - 数表 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_second_kind_init_with_fps(n, Combinatorics)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|`Combinatorics` は $n$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`stirling_number_of_the_second_kind_init_with_fps<T>(n)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|
 
 
 ## 参考

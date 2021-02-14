@@ -33,17 +33,18 @@ data:
   code: "/**\r\n * @brief \u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\
     \u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248\r\n * @docs docs/math/fps/faulhaber.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../modint.hpp\"\r\
-    \n#include \"../lagrange_interpolation2.hpp\"\r\n\r\nModInt faulhaber(long long\
-    \ n, int k) {\r\n  if (n < 1) return 0;\r\n  std::vector<ModInt> y(k + 2, 0);\r\
-    \n  for (int i = 1; i < k + 2; ++i) y[i] = y[i - 1] + ModInt(i).pow(k);\r\n  return\
-    \ n - 1 < k + 2 ? y[n - 1] : lagrange_interpolation(y, ModInt(n - 1));\r\n}\r\n"
+    \n#include \"../lagrange_interpolation2.hpp\"\r\n\r\ntemplate <int T>\r\nMInt<T>\
+    \ faulhaber(long long n, int k) {\r\n  using ModInt = MInt<T>;\r\n  if (n < 1)\
+    \ return 0;\r\n  std::vector<ModInt> y(k + 2, 0);\r\n  for (int i = 1; i < k +\
+    \ 2; ++i) y[i] = y[i - 1] + ModInt(i).pow(k);\r\n  return n - 1 < k + 2 ? y[n\
+    \ - 1] : lagrange_interpolation(y, ModInt(n - 1));\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/lagrange_interpolation2.hpp
   isVerificationFile: false
   path: math/fps/faulhaber_with_lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp
@@ -80,15 +81,15 @@ $$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i
 
 - 形式的冪級数版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`faulhaber(n, k, Combinatorics)`|$S_k(n)$|`Combinatorics` は $k + 1$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`faulhaber<T>(n, k)`|$S_k(n)$|
 
 - ラグランジュ補間版
 
 ||説明|
 |:--:|:--:|
-|`faulhaber(n, k)`|$S_k(n)$|
+|`faulhaber<T>(n, k)`|$S_k(n)$|
 
 
 ## 参考

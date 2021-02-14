@@ -26,18 +26,19 @@ data:
     \ in a non-first line\n"
   code: "/**\r\n * @brief \u30D9\u30EB\u6570\r\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n#include\
-    \ \"../../modint.hpp\"\r\n\r\nModInt bell_number(int n, int k, const Combinatorics\
-    \ &com) {\r\n  if (k > n) k = n;\r\n  assert(k <= com.val);\r\n  std::vector<ModInt>\
-    \ cumulative(k + 1);\r\n  for (int i = 0; i <= k; ++i) cumulative[i] = com.fact_inv[i]\
-    \ * (i & 1 ? -1 : 1);\r\n  for (int i = 0; i < k; ++i) cumulative[i + 1] += cumulative[i];\r\
-    \n  ModInt bell = 0;\r\n  for (int i = 0; i <= k; ++i) bell += ModInt(i).pow(n)\
-    \ * com.fact_inv[i] * cumulative[k - i];\r\n  return bell;\r\n}\r\n"
+    \ \"../../modint.hpp\"\r\n\r\ntemplate <int T>\r\nMInt<T> bell_number(int n, int\
+    \ k) {\r\n  using ModInt = MInt<T>;\r\n  if (k > n) k = n;\r\n  ModInt::init(k);\r\
+    \n  std::vector<ModInt> cumulative(k + 1);\r\n  for (int i = 0; i <= k; ++i) cumulative[i]\
+    \ = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);\r\n  for (int i = 0; i < k; ++i) cumulative[i\
+    \ + 1] += cumulative[i];\r\n  ModInt bell = 0;\r\n  for (int i = 0; i <= k; ++i)\
+    \ bell += ModInt(i).pow(n) * ModInt::fact_inv(i) * cumulative[k - i];\r\n  return\
+    \ bell;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp
@@ -80,9 +81,9 @@ $$B(x) = e^{e^x - 1}$$
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`bell_number(n, k, Combinatorics)`|ベル数 $B(n, k)$|`Combinatorics` は $k$ 以上で定義されていなければならない．|
+||説明|
+|:--:|:--:|
+|`bell_number<T>(n, k)`|ベル数 $B(n, k)$|
 
 - 数表
 

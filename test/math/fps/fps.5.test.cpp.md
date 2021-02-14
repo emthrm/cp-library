@@ -43,19 +43,20 @@ data:
     #include <algorithm>\r\n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\
     \n#include \"../../../math/modint.hpp\"\r\n#include \"../../../math/fps/fps.hpp\"\
     \r\n#include \"../../../math/convolution/mod_convolution.hpp\"\r\n\r\nint main()\
-    \ {\r\n  constexpr int D = 6, M = 13;\r\n  ModInt::set_mod(1000000007);\r\n  FPS<ModInt>::set_mul([&](const\
-    \ std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt>\
-    \ {\r\n    return mod_convolution(a, b);\r\n  });\r\n  std::string s;\r\n  std::cin\
-    \ >> s;\r\n  std::reverse(s.begin(), s.end());\r\n  std::vector<int> cnt(D, 0);\r\
-    \n  for (int i = 0; i < s.length(); ++i) {\r\n    if (s[i] == '?') ++cnt[i % D];\r\
-    \n  }\r\n  std::vector<FPS<ModInt>> f(D, FPS<ModInt>(M));\r\n  FPS<ModInt> md(M);\r\
-    \n  md[0] = -1;\r\n  md[M] = 1;\r\n  for (int i = 0; i < D; ++i) {\r\n    int\
-    \ base = 1;\r\n    for (int j = 0; j < i; ++j) base *= 10;\r\n    for (int j =\
-    \ 0; j < 10; ++j) f[i][base * j % M] += 1;\r\n    f[i] = f[i].mod_pow(cnt[i],\
-    \ md);\r\n  }\r\n  for (int i = 1; i < D; ++i) f[0] *= f[i];\r\n  f[0] %= md;\r\
-    \n  int idx = D - 1, w = 1;\r\n  for (int i = 0; i < s.length(); ++i) {\r\n  \
-    \  if (s[i] != '?') (idx += M - w * (s[i] - '0') % M) %= M;\r\n    (w *= 10) %=\
-    \ M;\r\n  }\r\n  std::cout << f[0][idx] << '\\n';\r\n  return 0;\r\n}\r\n"
+    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  constexpr\
+    \ int D = 6, M = 13;\r\n  FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a,\
+    \ const std::vector<ModInt> &b) -> std::vector<ModInt> {\r\n    return mod_convolution(a,\
+    \ b);\r\n  });\r\n  std::string s;\r\n  std::cin >> s;\r\n  std::reverse(s.begin(),\
+    \ s.end());\r\n  std::vector<int> cnt(D, 0);\r\n  for (int i = 0; i < s.length();\
+    \ ++i) {\r\n    if (s[i] == '?') ++cnt[i % D];\r\n  }\r\n  std::vector<FPS<ModInt>>\
+    \ f(D, FPS<ModInt>(M));\r\n  FPS<ModInt> md(M);\r\n  md[0] = -1;\r\n  md[M] =\
+    \ 1;\r\n  for (int i = 0; i < D; ++i) {\r\n    int base = 1;\r\n    for (int j\
+    \ = 0; j < i; ++j) base *= 10;\r\n    for (int j = 0; j < 10; ++j) f[i][base *\
+    \ j % M] += 1;\r\n    f[i] = f[i].mod_pow(cnt[i], md);\r\n  }\r\n  for (int i\
+    \ = 1; i < D; ++i) f[0] *= f[i];\r\n  f[0] %= md;\r\n  int idx = D - 1, w = 1;\r\
+    \n  for (int i = 0; i < s.length(); ++i) {\r\n    if (s[i] != '?') (idx += M -\
+    \ w * (s[i] - '0') % M) %= M;\r\n    (w *= 10) %= M;\r\n  }\r\n  std::cout <<\
+    \ f[0][idx] << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/fps/fps.hpp
@@ -64,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/math/fps/fps.5.test.cpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/fps/fps.5.test.cpp

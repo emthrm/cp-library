@@ -84,28 +84,28 @@ data:
     \ math/convolution/ntt.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u6570\u8AD6\u5909\u63DB\r\n * @docs docs/math/convolution/ntt.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include\
-    \ <utility>\r\n#include <vector>\r\n#include \"../modint.hpp\"\r\n\r\nstruct NTT\
-    \ {\r\n  NTT() {\r\n    for (int i = 0; i < 23; ++i) {\r\n      if (primes[i][0]\
-    \ == ModInt::get_mod()) {\r\n        n_max = 1 << primes[i][2];\r\n        root\
-    \ = ModInt(primes[i][1]).pow((ModInt::get_mod() - 1) >> primes[i][2]);\r\n   \
-    \     return;\r\n      }\r\n    }\r\n    assert(false);\r\n  }\r\n\r\n  void sub_dft(std::vector<ModInt>\
-    \ &a) {\r\n    int n = a.size();\r\n    assert(__builtin_popcount(n) == 1);\r\n\
-    \    calc(n);\r\n    int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);\r\
-    \n    for (int i = 0; i < n; ++i) {\r\n      int j = butterfly[i] >> shift;\r\n\
-    \      if (i < j) std::swap(a[i], a[j]);\r\n    }\r\n    for (int block = 1; block\
-    \ < n; block <<= 1) {\r\n      int den = __builtin_ctz(block);\r\n      for (int\
-    \ i = 0; i < n; i += (block << 1)) for (int j = 0; j < block; ++j) {\r\n     \
-    \   ModInt tmp = a[i + j + block] * omega[den][j];\r\n        a[i + j + block]\
-    \ = a[i + j] - tmp;\r\n        a[i + j] += tmp;\r\n      }\r\n    }\r\n  }\r\n\
-    \r\n  template <typename T>\r\n  std::vector<ModInt> dft(const std::vector<T>\
+    \ <utility>\r\n#include <vector>\r\n#include \"../modint.hpp\"\r\n\r\ntemplate\
+    \ <int T>\r\nstruct NTT {\r\n  using ModInt = MInt<T>;\r\n\r\n  NTT() {\r\n  \
+    \  for (int i = 0; i < 23; ++i) {\r\n      if (primes[i][0] == ModInt::get_mod())\
+    \ {\r\n        n_max = 1 << primes[i][2];\r\n        root = ModInt(primes[i][1]).pow((ModInt::get_mod()\
+    \ - 1) >> primes[i][2]);\r\n        return;\r\n      }\r\n    }\r\n    assert(false);\r\
+    \n  }\r\n\r\n  void sub_dft(std::vector<ModInt> &a) {\r\n    int n = a.size();\r\
+    \n    assert(__builtin_popcount(n) == 1);\r\n    calc(n);\r\n    int shift = __builtin_ctz(butterfly.size())\
+    \ - __builtin_ctz(n);\r\n    for (int i = 0; i < n; ++i) {\r\n      int j = butterfly[i]\
+    \ >> shift;\r\n      if (i < j) std::swap(a[i], a[j]);\r\n    }\r\n    for (int\
+    \ block = 1; block < n; block <<= 1) {\r\n      int den = __builtin_ctz(block);\r\
+    \n      for (int i = 0; i < n; i += (block << 1)) for (int j = 0; j < block; ++j)\
+    \ {\r\n        ModInt tmp = a[i + j + block] * omega[den][j];\r\n        a[i +\
+    \ j + block] = a[i + j] - tmp;\r\n        a[i + j] += tmp;\r\n      }\r\n    }\r\
+    \n  }\r\n\r\n  template <typename U>\r\n  std::vector<ModInt> dft(const std::vector<U>\
     \ &a) {\r\n    int n = a.size(), lg = 1;\r\n    while ((1 << lg) < n) ++lg;\r\n\
     \    std::vector<ModInt> A(1 << lg, 0);\r\n    for (int i = 0; i < n; ++i) A[i]\
     \ = a[i];\r\n    sub_dft(A);\r\n    return A;\r\n  }\r\n\r\n  void idft(std::vector<ModInt>\
     \ &a) {\r\n    int n = a.size();\r\n    assert(__builtin_popcount(n) == 1);\r\n\
     \    sub_dft(a);\r\n    std::reverse(a.begin() + 1, a.end());\r\n    ModInt inv_n\
-    \ = ModInt(1) / n;\r\n    for (int i = 0; i < n; ++i) a[i] *= inv_n;\r\n  }\r\n\
-    \r\n  template <typename T>\r\n  std::vector<ModInt> convolution(const std::vector<T>\
-    \ &a, const std::vector<T> &b) {\r\n    int a_sz = a.size(), b_sz = b.size(),\
+    \ = ModInt::inv(n);\r\n    for (int i = 0; i < n; ++i) a[i] *= inv_n;\r\n  }\r\
+    \n\r\n  template <typename U>\r\n  std::vector<ModInt> convolution(const std::vector<U>\
+    \ &a, const std::vector<U> &b) {\r\n    int a_sz = a.size(), b_sz = b.size(),\
     \ sz = a_sz + b_sz - 1, lg = 1;\r\n    while ((1 << lg) < sz) ++lg;\r\n    int\
     \ n = 1 << lg;\r\n    std::vector<ModInt> A(n, 0), B(n, 0);\r\n    for (int i\
     \ = 0; i < a_sz; ++i) A[i] = a[i];\r\n    for (int i = 0; i < b_sz; ++i) B[i]\
@@ -136,7 +136,7 @@ data:
   isVerificationFile: false
   path: math/convolution/ntt.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
@@ -186,7 +186,7 @@ $O(N\log{N})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`NTT()`|$\mathrm{mod}$ で剰余演算を行う数論変換を考える．||
+|`NTT<T>()`|$\mathrm{mod}$ で剰余演算を行う数論変換を考える．||
 |`sub_dft(a)`|$A$ に対して数論変換を行う．||
 |`dft(a)`|整数列 $A$ に対して数論変換を行ったもの||
 |`idft(a)`|$A$ に対して数論変換の逆変換を行う||

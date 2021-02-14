@@ -41,17 +41,17 @@ data:
     \ PROBLEM \"https://yukicoder.me/problems/no/931\"\r\n\r\n#include <iostream>\r\
     \n#include <vector>\r\n#include \"../../math/modint.hpp\"\r\n#include \"../../math/is_primitive_root.hpp\"\
     \r\n#include \"../../math/convolution/ntt.hpp\"\r\n\r\nint main() {\r\n  int p;\r\
-    \n  std::cin >> p;\r\n  ModInt::set_mod(p);\r\n  std::vector<int> memo(p - 1);\r\
-    \n  for (int root = 2; ; ++root) {\r\n    if (is_primitive_root(root, p)) {\r\n\
-    \      for (int i = 0; i < p - 1; ++i) memo[i] = ModInt(root).pow(i).val;\r\n\
-    \      break;\r\n    }\r\n  }\r\n  std::vector<int> a(p, 0), b(p, 0);\r\n  for\
+    \n  std::cin >> p;\r\n  MInt<0>::set_mod(p);\r\n  std::vector<MInt<0>> memo(p\
+    \ - 1);\r\n  for (int root = 2; ; ++root) {\r\n    if (is_primitive_root(root,\
+    \ p)) {\r\n      for (int i = 0; i < p - 1; ++i) memo[i] = MInt<0>(root).pow(i);\r\
+    \n      break;\r\n    }\r\n  }\r\n  std::vector<int> a(p, 0), b(p, 0);\r\n  for\
     \ (int i = 1; i < p; ++i) std::cin >> a[i];\r\n  for (int i = 1; i < p; ++i) std::cin\
-    \ >> b[i];\r\n  ModInt::set_mod(998244353);\r\n  NTT ntt;\r\n  std::vector<ModInt>\
+    \ >> b[i];\r\n  MInt<1>::set_mod(998244353);\r\n  NTT<1> ntt;\r\n  std::vector<MInt<1>>\
     \ A(p - 1, 0), B(p - 1, 0);\r\n  for (int i = 0; i < p - 1; ++i) {\r\n    A[i]\
-    \ = a[memo[i]];\r\n    B[i] = b[memo[i]];\r\n  }\r\n  std::vector<ModInt> C =\
-    \ ntt.convolution(A, B);\r\n  for (int i = p - 1; i < C.size(); ++i) C[i % (p\
-    \ - 1)] += C[i];\r\n  std::vector<ModInt> ans(p, 0);\r\n  for (int i = 0; i <\
-    \ p - 1; ++i) ans[memo[i]] = C[i];\r\n  for (int i = 1; i < p; ++i) std::cout\
+    \ = a[memo[i].val];\r\n    B[i] = b[memo[i].val];\r\n  }\r\n  std::vector<MInt<1>>\
+    \ C = ntt.convolution(A, B);\r\n  for (int i = p - 1; i < C.size(); ++i) C[i %\
+    \ (p - 1)] += C[i];\r\n  std::vector<MInt<1>> ans(p, 0);\r\n  for (int i = 0;\
+    \ i < p - 1; ++i) ans[memo[i].val] = C[i];\r\n  for (int i = 1; i < p; ++i) std::cout\
     \ << ans[i] << \" \\n\"[i + 1 == p];\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: test/math/is_primitive_root.test.cpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/is_primitive_root.test.cpp

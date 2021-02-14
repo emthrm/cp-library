@@ -25,10 +25,10 @@ data:
   - icon: ':x:'
     path: graph/eulerian_trail_in_directed_graph.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/girth_in_directed_graph.hpp
     title: "\u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/girth_in_undirected_graph.hpp
     title: "\u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248"
   - icon: ':x:'
@@ -131,7 +131,7 @@ data:
     path: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528\u6D41"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/girth.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5185\u5468"
   - icon: ':x:'

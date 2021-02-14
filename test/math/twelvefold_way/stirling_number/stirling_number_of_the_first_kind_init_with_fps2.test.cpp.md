@@ -43,10 +43,10 @@ data:
     #include <iostream>\r\n#include <vector>\r\n#include \"../../../../math/modint.hpp\"\
     \r\n#include \"../../../../math/convolution/ntt.hpp\"\r\n#include \"../../../../math/fps/fps.hpp\"\
     \r\n#include \"../../../../math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp\"\
-    \r\n\r\nint main() {\r\n  ModInt::set_mod(998244353);\r\n  NTT ntt;\r\n  FPS<ModInt>::set_mul([&](const\
-    \ std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt>\
-    \ {\r\n    return ntt.convolution(a, b);\r\n  });\r\n  int n;\r\n  std::cin >>\
-    \ n;\r\n  std::vector<ModInt> s = stirling_number_of_the_first_kind_init_with_fps2<ModInt>(n);\r\
+    \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
+    \n  NTT<0> ntt;\r\n  FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a, const\
+    \ std::vector<ModInt> &b) -> std::vector<ModInt> {\r\n    return ntt.convolution(a,\
+    \ b);\r\n  });\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<ModInt> s = stirling_number_of_the_first_kind_init_with_fps2<ModInt>(n);\r\
     \n  for (int i = 0; i <= n; ++i) std::cout << s[i] << \" \\n\"[i == n];\r\n  return\
     \ 0;\r\n}\r\n"
   dependsOn:
@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp

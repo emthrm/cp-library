@@ -32,8 +32,8 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"util/xorshift.hpp\"\n#include <ctime>\r\n\r\nstruct Xor128\
-    \ {\r\n  int rand() {\r\n    unsigned t = x ^ (x << 11);\r\n    x = y; y = z;\
-    \ z = w; w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\r\n    return static_cast<int>(w);\r\
+    \ {\r\n  int rand() {\r\n    unsigned int t = x ^ (x << 11);\r\n    x = y; y =\
+    \ z; z = w; w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\r\n    return static_cast<int>(w);\r\
     \n  }\r\n  int rand(int ub) {\r\n    int res = rand() % ub;\r\n    return res\
     \ < 0 ? res + ub : res;\r\n  }\r\n  int rand(int lb, int ub) { return lb + rand(ub\
     \ - lb); }\r\n  long long randll() {\r\n    unsigned long long res = static_cast<unsigned\
@@ -41,19 +41,19 @@ data:
     \n  }\r\n  long long randll(long long ub) {\r\n    long long res = randll() %\
     \ ub;\r\n    return res < 0 ? res + ub : res;\r\n  }\r\n  long long randll(long\
     \ long lb, long long ub) { return lb + randll(ub - lb); }\r\nprivate:\r\n  unsigned\
-    \ x = 123456789, y = 362436069, z = 521288629, w = static_cast<unsigned>(std::time(nullptr));\r\
+    \ int x = 123456789, y = 362436069, z = 521288629, w = static_cast<unsigned int>(std::time(nullptr));\r\
     \n} xor128;\r\n"
   code: "#pragma once\r\n#include <ctime>\r\n\r\nstruct Xor128 {\r\n  int rand() {\r\
-    \n    unsigned t = x ^ (x << 11);\r\n    x = y; y = z; z = w; w = (w ^ (w >> 19))\
-    \ ^ (t ^ (t >> 8));\r\n    return static_cast<int>(w);\r\n  }\r\n  int rand(int\
-    \ ub) {\r\n    int res = rand() % ub;\r\n    return res < 0 ? res + ub : res;\r\
-    \n  }\r\n  int rand(int lb, int ub) { return lb + rand(ub - lb); }\r\n  long long\
-    \ randll() {\r\n    unsigned long long res = static_cast<unsigned long long>(rand())\
-    \ << 32;\r\n    return static_cast<long long>(res | rand());\r\n  }\r\n  long\
-    \ long randll(long long ub) {\r\n    long long res = randll() % ub;\r\n    return\
-    \ res < 0 ? res + ub : res;\r\n  }\r\n  long long randll(long long lb, long long\
-    \ ub) { return lb + randll(ub - lb); }\r\nprivate:\r\n  unsigned x = 123456789,\
-    \ y = 362436069, z = 521288629, w = static_cast<unsigned>(std::time(nullptr));\r\
+    \n    unsigned int t = x ^ (x << 11);\r\n    x = y; y = z; z = w; w = (w ^ (w\
+    \ >> 19)) ^ (t ^ (t >> 8));\r\n    return static_cast<int>(w);\r\n  }\r\n  int\
+    \ rand(int ub) {\r\n    int res = rand() % ub;\r\n    return res < 0 ? res + ub\
+    \ : res;\r\n  }\r\n  int rand(int lb, int ub) { return lb + rand(ub - lb); }\r\
+    \n  long long randll() {\r\n    unsigned long long res = static_cast<unsigned\
+    \ long long>(rand()) << 32;\r\n    return static_cast<long long>(res | rand());\r\
+    \n  }\r\n  long long randll(long long ub) {\r\n    long long res = randll() %\
+    \ ub;\r\n    return res < 0 ? res + ub : res;\r\n  }\r\n  long long randll(long\
+    \ long lb, long long ub) { return lb + randll(ub - lb); }\r\nprivate:\r\n  unsigned\
+    \ int x = 123456789, y = 362436069, z = 521288629, w = static_cast<unsigned int>(std::time(nullptr));\r\
     \n} xor128;\r\n"
   dependsOn: []
   isVerificationFile: false
@@ -62,7 +62,7 @@ data:
   - math/mod_sqrt.hpp
   - geometry/smallest_enclosing_circle.hpp
   - graph/flow/matching/tutte_theorem.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/mod_sqrt.test.cpp

@@ -45,13 +45,13 @@ data:
     \u7684\u51AA\u7D1A\u6570 (\u5E73\u65B9\u6839)\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\
     \r\n#include \"../../../math/fps/fps.hpp\"\r\n#include \"../../../math/convolution/ntt.hpp\"\
-    \r\n#include \"../../../math/mod_sqrt.hpp\"\r\n\r\nint main() {\r\n  ModInt::set_mod(998244353);\r\
-    \n  NTT ntt;\r\n  FPS<ModInt>::set_mul([&](const std::vector<ModInt> &a, const\
-    \ std::vector<ModInt> &b) -> std::vector<ModInt> {\r\n    return ntt.convolution(a,\
-    \ b);\r\n  });\r\n  FPS<ModInt>::set_sqr([&](const ModInt &a, ModInt &res) ->\
-    \ bool {\r\n    long long ans = mod_sqrt(a.val, ModInt::get_mod());\r\n    if\
-    \ (ans == -1) {\r\n      return false;\r\n    } else {\r\n      res = ans;\r\n\
-    \      return true;\r\n    }\r\n  });\r\n  int n;\r\n  std::cin >> n;\r\n  FPS<ModInt>\
+    \r\n#include \"../../../math/mod_sqrt.hpp\"\r\n\r\nint main() {\r\n  using ModInt\
+    \ = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  NTT<0> ntt;\r\n  FPS<ModInt>::set_mul([&](const\
+    \ std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt>\
+    \ {\r\n    return ntt.convolution(a, b);\r\n  });\r\n  FPS<ModInt>::set_sqr([&](const\
+    \ ModInt &a, ModInt &res) -> bool {\r\n    long long ans = mod_sqrt(a.val, ModInt::get_mod());\r\
+    \n    if (ans == -1) {\r\n      return false;\r\n    } else {\r\n      res = ans;\r\
+    \n      return true;\r\n    }\r\n  });\r\n  int n;\r\n  std::cin >> n;\r\n  FPS<ModInt>\
     \ fps(n - 1);\r\n  for (int i = 0; i < n; ++i) std::cin >> fps[i];\r\n  fps =\
     \ fps.sqrt(n - 1);\r\n  if (fps.co.empty()) {\r\n    std::cout << \"-1\\n\";\r\
     \n  } else {\r\n    for (int i = 0; i < n; ++i) std::cout << fps[i] << \" \\n\"\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: true
   path: test/math/fps/fps.6.test.cpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/fps/fps.6.test.cpp
