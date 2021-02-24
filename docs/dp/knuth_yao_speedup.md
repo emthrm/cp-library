@@ -1,9 +1,7 @@
 ---
-title: MongeDP (Knuth-Yao speedup)
-documentation_of: dp/mongedp.hpp
+title: Knuth-Yao speedup
+documentation_of: dp/knuth_yao_speedup.hpp
 ---
-
-Monge 性を満たす動的計画法である．
 
 
 ### Monge 性
@@ -38,7 +36,7 @@ $O(N^2)$
 
 ||説明|
 |:--:|:--:|
-|`mongedp(n, cost, ∞)`|コストが $\mathrm{cost}(i, k, j)$ で計算できる $N$ 個の要素に MongeDP を行った解|
+|`knuth_yao_speedup(f, ∞)`|Knuth-Yao speedup を用いた重み行列 $f$ に対する動的計画法の解|
 
 
 ## 参考
@@ -81,4 +79,4 @@ $O(N^2)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/2415/review/4082345/emthrm/C++14
+https://atcoder.jp/contests/kupc2012/submissions/20470375

@@ -1,12 +1,12 @@
 /*
- * @brief 動的計画法/MongeDP
+ * @brief 動的計画法/Knuth-Yao speedup
  */
+#define IGNORE
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415"
 
 #include <iostream>
-#include <numeric>
 #include <vector>
-#include "../../dp/mongedp.hpp"
+#include "../../dp/knuth_yao_speedup.hpp"
 
 // 二分探索木のコスト: Σa[i] * depth(i) の最小値
 int main() {
@@ -15,9 +15,11 @@ int main() {
   std::cin >> n;
   std::vector<long long> w(n);
   for (int i = 0; i < n; ++i) std::cin >> w[i];
-  std::vector<long long> sum(n + 1, 0);
-  std::partial_sum(w.begin(), w.end(), sum.begin() + 1);
-  auto cost = [&sum](int i, int k, int j) -> long long { return sum[j + 1] - sum[i]; };
-  std::cout << mongedp(n, cost, LINF) << '\n';
+  std::vector<std::vector<long long>> f(n, std::vector<long long>(n, 0));
+  for (int i = 0; i < n; ++i) {
+    f[i][i] = w[i];
+    for (int j = i + 1; j < n; ++j) f[i][j] = f[i][j - 1] + w[j];
+  }
+  std::cout << knuth_yao_speedup(f, LINF) << '\n';
   return 0;
 }
