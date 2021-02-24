@@ -3,7 +3,7 @@ title: lowlink
 documentation_of: graph/lowlink.hpp
 ---
 
-深さ優先探索木 (DFS tree) において訪問時刻を $\mathrm{order}$ とおいたときの後退辺 (back edge) を高々一度通ることで到達可能な頂点の $\mathrm{order}$ の最小値である．
+深さ優先探索木 (DFS tree) において訪問時刻を $\mathrm{order}$ とおいたとき，後退辺 (back edge) を高々一度通ることで到達可能な頂点の $\mathrm{order}$ の最小値である．
 
 
 ### 橋 (bridge) / 関節点 (articulation point)

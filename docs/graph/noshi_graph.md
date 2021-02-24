@@ -15,7 +15,7 @@ $O(\log{\lvert V \rvert})$
 |:--:|:--:|
 |`NoshiGraph<CostType>(n)`|頂点数 $n$ のグラフを考える．|
 |`add_edge(src, dst, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, コスト $\mathrm{cost}$ の辺を張る．|
-|`add_edge(src_l, src_r, dst_l, dst_r, cost)`|始点 $s \in [\mathrm{src\_l}, \mathrm{src\_r})$, 終点 $t \in [\mathrm{dst\_l}, \mathrm{dst\_r})$, コスト $\mathrm{cost}$ の辺を張る．|
+|`add_edge(src_l, src_r, dst_l, dst_r, cost)`|始点 $s \in \lbrack \mathrm{src\_l}, \mathrm{src\_r})$, 終点 $t \in \lbrack \mathrm{dst\_l}, \mathrm{dst\_r})$, コスト $\mathrm{cost}$ の辺を張る．|
 
 
 ## 参考

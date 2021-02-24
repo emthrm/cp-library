@@ -65,7 +65,7 @@ documentation_of: math/fps/fps.hpp
 |`FPS<T>(deg = 0)`|次数 $\mathrm{deg}$ の形式的冪級数||
 |`FPS<T>(co)`|数列 $\mathrm{co}$ の母関数||
 |`co`|係数||
-|`operator()[term]`|$[x^{\mathrm{term}}]f$||
+|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
 |`set_sqr(sqr)`|平方根の計算を定義する．||
 |`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．||
@@ -87,9 +87,9 @@ documentation_of: math/fps/fps.hpp
 |`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`integral()`|$\int{f}$||
-|`exp(deg = n)`|$\exp(f)$|$[x^0]f = 0$|
-|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|$[x^0]f \neq 0$|
-|`log(deg = n)`|$\ln{f}$|$[x^0]f = 1$|
+|`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$|
+|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|${\lbrack x^0 \rbrack}f \neq 0$|
+|`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
 |`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$||
 |`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
 |`sqrt(deg = n)`|$\sqrt{f}$|存在しない場合は空列となる．|

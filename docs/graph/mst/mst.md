@@ -19,7 +19,7 @@ $O(\lvert E \rvert \log{\lvert V \rvert})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$graph$ には双方向の辺の情報が必要である．|
+|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には双方向の辺の情報が必要である．|
 
 - Prim 法 重量版
 

@@ -8,11 +8,6 @@ documentation_of: graph/scc.hpp
 - Kosaraju's algorithm
 
 
-### 強連結成分
-
-任意の2頂点について互いに到達可能である強連結な集合の内, 他の任意の頂点集合と和を取っても強連結成分にならないものである．
-
-
 ## 時間計算量
 
 $O(\lvert V \rvert + \lvert E \rvert)$

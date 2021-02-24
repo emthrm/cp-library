@@ -1,8 +1,8 @@
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
-$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で DFT を高速に行うアルゴリズムである．
+$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
 
-特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は $p$ の原始根 $\omega$ について
+特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ について
 
 $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
@@ -10,7 +10,7 @@ $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
 $$(\omega^k)^{2^x} \equiv 1 \pmod{p}$$
 
-が成り立つので条件を満たす．
+が成り立つので，条件を満たす．
 
 
 ## 時間計算量
@@ -22,7 +22,7 @@ $O(N\log{N})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`NTT<T>()`|$\mathrm{mod}$ で剰余演算を行う数論変換を考える．||
+|`NTT<T>()`|数論変換を考える．||
 |`sub_dft(a)`|$A$ に対して数論変換を行う．||
 |`dft(a)`|整数列 $A$ に対して数論変換を行ったもの||
 |`idft(a)`|$A$ に対して数論変換の逆変換を行う||

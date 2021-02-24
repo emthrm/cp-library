@@ -19,10 +19,10 @@ $\langle O(N), O(\sqrt{N}) \rangle$
 |[`left[i]`, `right[i]`)|ブロック $i$ に対応する列のインデックス||
 |`partial_update(idx, val)`|$A_{\mathrm{idx}}$ に対して $\mathrm{val}$ を基に更新する．|関数プロトタイプ|
 |`total_update(idx, val)`|$B_{\mathrm{idx}}$ に対して $\mathrm{val}$ を基に更新する．|関数プロトタイプ|
-|`update(l, r, val)`|$[l, r)$ に対して $\mathrm{val}$ を基に更新する．||
+|`update(l, r, val)`|$\lbrack l, r)$ に対して $\mathrm{val}$ を基に更新する．||
 |`partial_query(idx, val)`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
 |`total_query(idx, val)`|$B_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
-|`query(l, r, 単位元)`|$[l, r)$ に対するクエリの解||
+|`query(l, r, 単位元)`|$\lbrack l, r)$ に対するクエリの解||
 
 
 ## 参考

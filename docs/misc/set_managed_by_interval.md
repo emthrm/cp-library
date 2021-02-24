@@ -18,9 +18,9 @@ $\text{amortized } O(\log{n})$ ?
 |`SetManagedByInterval`|`std::set` を区間で管理するやつ||
 |`interval`|閉区間の集合||
 |`contains(x)`|$x$ は集合に含まれるか．||
-|`contains(left, right)`|$[\mathrm{left}, \mathrm{right}]$ は集合に含まれるか．||
+|`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか．||
 |`erase(x)`|集合から $x$ を削除する．|返り値は削除された要素の次を指すイテレータと実際に削除したかである．|
-|`erase(left, right)`|集合から $x \in [\mathrm{left}, \mathrm{right}]$ を削除する．|返り値は削除された要素の次を指すイテレータと削除した要素数である．|
+|`erase(left, right)`|集合から $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を削除する．|返り値は削除された要素の次を指すイテレータと削除した要素数である．|
 |`insert(x)`|集合に $x$ を挿入する．|返り値は要素へのイテレータと挿入されたかどうかである．|
 |`insert(left, right)`|集合に $x$ を挿入する．|返り値は要素へのイテレータと挿入した要素数である．|
 |`mex(x = 0)`|mex||

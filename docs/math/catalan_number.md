@@ -5,7 +5,7 @@ documentation_of: math/catalan_number.hpp
 
 $$c_n = \dfrac{\binom{2n}{n}}{n + 1} = \dbinom{2n}{n} - \dbinom{2n}{n - 1}$$
 
-で定義された $c$ である．
+で定義される $c$ である．
 
 $$\begin{cases} c_0 = 1 \\ c_{n + 1} = \sum_{i = 0}^n c_i c_{n - i} \end{cases}$$
 

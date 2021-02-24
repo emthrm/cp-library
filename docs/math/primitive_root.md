@@ -1,6 +1,6 @@
 # 原始根 (primitive root)
 
-正の整数 $n$ に対して $\mathrm{ord}_n(g) = \varphi(n)$ を満たす $n$ が存在するときの $g$ の属する法 $n$ の剰余類 $g \bmod n$ である．
+正の整数 $n$ に対して $\mathrm{ord}_n(g) = \varphi(n)$ を満たす $n$ が存在するとき，$g$ の属する法 $n$ の剰余類 $g \bmod n$ である．
 
 
 ### 位数 (multiplicative order)

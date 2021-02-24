@@ -3,7 +3,7 @@ title: 区間篩 (segmented sieve)
 documentation_of: math/segmented_sieve.hpp
 ---
 
-区間 $[L, H)$ における素数を列挙するアルゴリズムである．
+区間 $\lbrack L, H)$ における素数を列挙するアルゴリズムである．
 
 
 ## 時間計算量

@@ -6,7 +6,7 @@ documentation_of: string/lcp.hpp
 
 ### 高さ配列 (longest common prefix array)
 
-接尾辞配列中で隣接する接尾辞の先頭における最大共通文字数を表す配列である．
+接尾辞配列中で隣接する接尾辞の最長共通接頭辞の文字数を表す配列である．
 
 
 ## 時間計算量
@@ -20,7 +20,7 @@ documentation_of: string/lcp.hpp
 |:--:|:--:|:--:|
 |`LCP<T = string>(s)`|$S$ の longest common prefix を考える．||
 |`lcp_array`|高さ配列|重量版のみ|
-|`query(i, j)`|位置 $i, j$ を一文字目とする接尾辞の先頭における最大共通文字数|$i \neq j$<br>重量版のみ|
+|`query(i, j)`|位置 $i, j$ を一文字目とする接尾辞の最長共通接頭辞の文字数|$i \neq j$<br>重量版のみ|
 
 
 ## 参考

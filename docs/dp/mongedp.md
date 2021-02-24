@@ -8,7 +8,7 @@ Monge 性を満たす動的計画法である．
 
 ### Monge 性
 
-重み関数 $f$ について
+重み関数 $f$ を考える．
 
 - QI (quandrangle inequality)
 
@@ -20,13 +20,13 @@ Monge 性を満たす動的計画法である．
 
   $A \subset B$ を満たす任意の区間 $A, B$ について
 
-  $$f(a) \leq f(b)$$
+  $$f(a) \leq f(b) \text{，}$$
 
   すなわち任意の $i \leq j,\ k \leq l$ について
 
   $$f(i, l) + f(j, k) \geq f(i, k) + f(j, l)$$
 
-が成り立つとき, Monge 性を満たすと言う．
+の両方が成り立つとき, $f$ は Monge 性を満たす．
 
 
 ## 時間計算量

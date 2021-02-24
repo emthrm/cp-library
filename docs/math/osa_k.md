@@ -3,7 +3,7 @@ title: osa_k 法
 documentation_of: math/osa_k.hpp
 ---
 
-[エラトステネスの篩](sieve_of_eratosthenes.md)を用いた[素因数分解](prime_factorization.md)
+[エラトステネスの篩](sieve_of_eratosthenes.md)を用いた[素因数分解](prime_factorization.md)である．
 
 
 ## 時間計算量

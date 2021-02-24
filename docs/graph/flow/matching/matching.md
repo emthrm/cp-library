@@ -39,9 +39,9 @@
 
 5. ホールの定理
 
-   頂点が $U$ と $V$ に分割されるとすると $U$ の要素をすべて被覆するマッチングが存在する．
+   頂点が $U$ と $V$ に分割されるとする．
 
-   $\Leftrightarrow$ $U$ の任意の部分集合 $S$ について $\lvert S \rvert \leq \lvert S \text{ と隣接する頂点} \rvert$ が成り立つ．
+   $U$ の要素をすべて被覆するマッチングが存在する．$\Leftrightarrow$ $U$ の任意の部分集合 $S$ について $\lvert S \rvert \leq \lvert S \text{ と隣接する頂点} \rvert$ が成り立つ．
 
 6. $\text{増加道が存在しない} \Leftrightarrow \text{最大マッチング}$．
 

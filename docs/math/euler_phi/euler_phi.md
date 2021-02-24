@@ -1,6 +1,6 @@
 # オイラーの $\varphi$ 関数 (Euler's totient function)
 
-$$\begin{aligned} \varphi(n) &= \# \lbrace \,k \in \mathbb{N} \mid k \perp n,\ k \leq n \rbrace \\ &= n \prod_i(1 - \frac{1}{p_i}) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
+$$\begin{aligned} \varphi(n) &= \# \lbrace k \in \mathbb{N} \mid k \perp n,\ k \leq n \rbrace \\ &= n \prod_i \left(1 - \frac{1}{p_i}\right) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
 
 
 ### オイラーの定理

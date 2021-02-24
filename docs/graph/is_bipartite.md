@@ -6,8 +6,8 @@ documentation_of: graph/is_bipartite.hpp
 
 ### 二部グラフ (bipartite graph)
 
-- 各部分集合内の頂点間で辺が存在しないように頂点集合を二つの部分集合に分割できるグラフである．
-- 隣接するものは異なる色となるように頂点を塗る彩色問題において彩色数が2となるグラフ．
+- 各部分集合内の頂点間で辺が存在しないよう，頂点集合を二つの部分集合に分割できるグラフである．
+- [彩色数](chromatic_number.md)$2$のグラフである．
 - 奇数長の閉路を含まないグラフである．
 
 これらはすべて同値である．
@@ -22,7 +22,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color} \in \{0, 1\}^N$ は各頂点の色を表す．|
+|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color} \in {\lbrace 0, 1 \rbrace}^N$ は各頂点の色を表す．|
 
 
 ## 参考

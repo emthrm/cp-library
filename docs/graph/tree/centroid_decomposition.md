@@ -3,7 +3,7 @@ title: 重心分解 (centroid decompositon)
 documentation_of: graph/tree/centroid_decomposition.hpp
 ---
 
-木上で分割統治法を行う際に有用な重心を基にした木の分解方法である．
+重心を基にした木の分解方法の一つである．木の上で分割統治法を行う際に有用である．
 
 
 ## 時間計算量

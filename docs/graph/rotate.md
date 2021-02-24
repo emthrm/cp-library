@@ -20,7 +20,7 @@ $O(WH)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`rotate(grid, angle, 基準 = ' ')`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \{45, 90\}$|
+|`rotate(grid, angle, 基準 = ' ')`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \lbrace 45, 90 \rbrace$|
 
 
 ## Verified

@@ -3,7 +3,7 @@ title: 巡回セールスマン問題 (traveling salesman problem)
 documentation_of: graph/tsp.hpp
 ---
 
-重み付き有向グラフについてすべての頂点を一度ずつ通る閉路の最小コストを求める問題である．
+重み付き有向グラフについてハミルトン閉路の最小コストを求める問題である．
 
 
 ## 時間計算量

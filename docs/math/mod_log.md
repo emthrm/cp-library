@@ -20,7 +20,7 @@ $O(\sqrt{P} \log{P})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`mod_log(g, y, mod)`|$x \text{ s.t. } g^x \equiv y \pmod{\mathrm{md}}$|存在しない場合は $-1$ となる．|
+|`mod_log(g, y, mod)`|$x \text{ s.t. } g^x \equiv y \pmod{\mathrm{mod}}$|存在しない場合は $-1$ となる．|
 
 
 ## 参考

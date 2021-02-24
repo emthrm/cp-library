@@ -3,7 +3,7 @@ title: トライ木 (trie)
 documentation_of: string/trie.hpp
 ---
 
-複数の文字列を高速に検索することが可能になる木である．
+複数の文字列を高速に検索することができる木である．
 
 
 ## 時間計算量
@@ -17,7 +17,7 @@ $O(\lvert S \rvert)$
 |:--:|:--:|:--:|
 |`Trie<種類数 = 26>(基準 = 'a')`|トライ木||
 |`nodes`|木の頂点||
-|`add(s, id = -1, pos = 0)`|ノード $\mathrm{pos}$ からID $\mathrm{id}$ の文字列 $S$ を追加する．||
+|`add(s, id = -1, pos = 0)`|ノード $\mathrm{pos}$ から ID $\mathrm{id}$ の文字列 $S$ を追加する．||
 |`find(t, pos = 0)`|ノード $\mathrm{pos}$ から辿った文字列 $T$ に対応するノードのインデックス|存在しない場合は $-1$ となる．|
 |`convert(c)`|数に変換した文字 $c$||
 

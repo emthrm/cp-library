@@ -26,7 +26,7 @@ documentation_of: math/polynomial.hpp
 |`Polynomial<T>(deg = 0)`|次数 $\mathrm{deg}$ の多項式||
 |`Polynomial<T>(co)`|係数を $\mathrm{co}$ とする多項式||
 |`co`|係数||
-|`operator()[term]`|$[x^{\mathrm{term}}]f$||
+|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
 |`shrink()`|正規化を行う．||
 |`degree()`|次数||

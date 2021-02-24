@@ -6,7 +6,7 @@ documentation_of: string/subsequence_dp.hpp
 
 ## 時間計算量
 
-文字の種類数を $K$ とおくと $O(K \lvert S \rvert)$．
+$O(\sigma \lvert S \rvert)$．
 
 
 ## 使用法

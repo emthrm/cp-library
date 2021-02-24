@@ -3,7 +3,7 @@ title: HL 分解 (heavy-light decomposition)
 documentation_of: graph/tree/hld.hpp
 ---
 
-heavy edge と light edge に分類された辺を基に木を分解する手法である．
+heavy edge と light edge に分類された辺を基にして，木を分解する方法である．
 
 
 ## 時間計算量

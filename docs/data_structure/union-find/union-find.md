@@ -4,7 +4,7 @@
 |:--:|:--:|
 |union-find 木|グループ分けを管理するデータ構造|
 |重みつき union-find 木|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である重み情報が付加された union-find 木|
-|部分永続 union-find 木|最新版のみ変更可能な時刻 $t$ における状態を保存する union-find 木|
+|部分永続 union-find 木|時刻 $t$ における状態を保存する union-find 木である．最新版のみ変更できる．|
 |undo 可能 union-find 木|巻き戻し可能な union-find 木|
 
 
