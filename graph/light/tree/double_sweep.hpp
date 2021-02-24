@@ -1,42 +1,27 @@
 #pragma once
 #include <cassert>
+#include <functional>
 #include <tuple>
 #include <utility>
 #include <vector>
 
-struct DoubleSweep {
-  int s = -1, t, diameter;
-  std::vector<int> path;
-
-  DoubleSweep(const std::vector<std::vector<int>> &graph) : graph(graph) {
-    s = dfs1(-1, 0).second;
-    std::tie(diameter, t) = dfs1(-1, s);
-  }
-
-  void build_path() {
-    assert(s != -1);
-    path.emplace_back(s);
-    dfs2(-1, s);
-  }
-
-private:
-  using P = std::pair<int, int>;
-
-  const std::vector<std::vector<int>> graph;
-
-  P dfs1(int par, int ver) {
-    P res = {0, ver};
+std::pair<int, std::vector<int>> double_sweep(const std::vector<std::vector<int>> &graph) {
+  std::function<std::pair<int, int>(int, int)> dfs1 = [&graph, &dfs1](int par, int ver) -> std::pair<int, int> {
+    std::pair<int, int> res = {0, ver};
     for (int e : graph[ver]) {
       if (e != par) {
-        P pr = dfs1(ver, e);
+        std::pair<int, int> pr = dfs1(ver, e);
         ++pr.first;
         if (pr.first > res.first) res = pr;
       }
     }
     return res;
-  }
-
-  bool dfs2(int par, int ver) {
+  };
+  int s = dfs1(-1, 0).second;
+  int diameter, t;
+  std::tie(diameter, t) = dfs1(-1, s);
+  std::vector<int> path{s};
+  std::function<bool(int, int)> dfs2 = [&graph, &t, &path, &dfs2](int par, int ver) -> bool {
     if (ver == t) return true;
     for (int e : graph[ver]) {
       if (e != par) {
@@ -46,5 +31,7 @@ private:
       }
     }
     return false;
-  }
-};
+  };
+  assert(dfs2(-1, s));
+  return {diameter, path};
+}

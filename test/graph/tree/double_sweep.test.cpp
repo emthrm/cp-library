@@ -4,6 +4,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/tree_diameter"
 
 #include <iostream>
+#include <tuple>
 #include <vector>
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/double_sweep.hpp"
@@ -18,10 +19,11 @@ int main() {
     graph[a].emplace_back(a, b, c);
     graph[b].emplace_back(b, a, c);
   }
-  DoubleSweep<long long> ds(graph);
-  ds.build_path();
-  int y = ds.path.size();
-  std::cout << ds.diameter << ' ' << y << '\n';
-  for (int i = 0; i < y; ++i) std::cout << ds.path[i] << " \n"[i + 1 == y];
+  long long x;
+  std::vector<int> u;
+  std::tie(x, u) = double_sweep(graph);
+  int y = u.size();
+  std::cout << x << ' ' << y << '\n';
+  for (int i = 0; i < y; ++i) std::cout << u[i] << " \n"[i + 1 == y];
   return 0;
 }
