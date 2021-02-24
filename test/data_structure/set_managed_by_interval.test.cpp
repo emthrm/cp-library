@@ -7,7 +7,7 @@
 #include <iostream>
 #include <numeric>
 #include <vector>
-#include "../../misc/set_managed_by_interval.hpp"
+#include "../../data_structure/set_managed_by_interval.hpp"
 
 int main() {
   int n, m, q;
