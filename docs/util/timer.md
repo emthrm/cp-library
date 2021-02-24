@@ -6,12 +6,10 @@ documentation_of: util/timer.hpp
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`timer.reset()`|リセット||
-|`timer.elapsed()`|計測時間|単位はミリ秒である．|
-
-`nanoseconds`, `microseconds`, `milliseconds`, `seconds`, `minutes`, `hours` が使用できる．
+||説明|
+|:--:|:--:|
+|`timer.reset()`|リセット|
+|`timer.elapsed<std::chrono::時間間隔を表す型 = milliseconds>()`|計測時間|
 
 
 ## 参考
