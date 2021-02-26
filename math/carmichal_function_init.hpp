@@ -7,28 +7,24 @@
 #include <cmath>
 #include <numeric>
 #include <vector>
-#include "sieve_of_eratosthenes.hpp"
+#include "prime_sieve.hpp"
 #include "lcm.hpp"
 
 std::vector<long long> carmichal_function_init(long long low, long long high) {
-  int sqrt_high = std::ceil(std::sqrt(high));
-  std::vector<bool> is_prime = sieve_of_eratosthenes(sqrt_high);
   std::vector<long long> res(high - low, 1), tmp(high - low);
   std::iota(tmp.begin(), tmp.end(), low);
   if (low == 0 && high > 0) res[0] = 0;
   for (long long i = (low + 7) / 8 * 8; i < high; i += 8) tmp[i - low] >>= 1;
-  for (int p = 2; p <= sqrt_high; ++p) {
-    if (is_prime[p]) {
-      for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {
-        if (i == 0) continue;
+  for (int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {
+    for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {
+      if (i == 0) continue;
+      tmp[i - low] /= p;
+      long long phi = p - 1;
+      while (tmp[i - low] % p == 0) {
         tmp[i - low] /= p;
-        long long phi = p - 1;
-        while (tmp[i - low] % p == 0) {
-          tmp[i - low] /= p;
-          phi *= p;
-        }
-        res[i - low] = __lcm(res[i - low], phi);
+        phi *= p;
       }
+      res[i - low] = __lcm(res[i - low], phi);
     }
   }
   for (int i = 0; i < high - low; ++i) {

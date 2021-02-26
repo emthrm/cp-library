@@ -3,19 +3,20 @@ title: osa_k 法
 documentation_of: math/osa_k.hpp
 ---
 
-[エラトステネスの篩](sieve_of_eratosthenes.md)を用いた[素因数分解](prime_factorization.md)である．
+[prime sieve](prime_sieve.md) を用いた[素因数分解](prime_factorization.md)である．
 
 
 ## 時間計算量
 
-$\langle O(N\log{\log{N}}), O(\log{N}) \rangle$
+$\langle O(N), O(\log{N}) \rangle$
 
 
 ## 使用法
 
 ||説明|
 |:--:|:--:|
-|`osa_k(n = 10000000)`|$n$ 以下における osa_k 法 を考える．|
+|`smallest_prime_factor[i]`|$i$ の最小素因数|
+|`osa_k(n = 10000000)`|$n$ 以下における osa_k 法を考える．|
 |`query(n)`|$n$ の素因数分解|
 
 
@@ -26,4 +27,4 @@ $\langle O(N\log{\log{N}}), O(\log{N}) \rangle$
 
 ## Verified
 
-https://atcoder.jp/contests/abc052/submissions/9301834
+https://atcoder.jp/contests/abc177/submissions/20504644

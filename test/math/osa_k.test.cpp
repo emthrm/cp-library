@@ -2,26 +2,32 @@
  * @brief 数学/osa_k 法
  */
 #define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/abc052/tasks/arc067_a"
+#define PROBLEM "https://atcoder.jp/contests/abc177/tasks/abc177_e"
 
+#include <algorithm>
 #include <iostream>
-#include <map>
 #include <utility>
-#include "../../math/modint.hpp"
+#include <vector>
 #include "../../math/osa_k.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
-  ModInt::set_mod(1000000007);
+  constexpr int A = 1000000;
+  osa_k osa(A);
   int n;
   std::cin >> n;
-  osa_k osa(n);
-  std::map<int, int> mp;
-  for (int i = 2; i <= n; ++i) {
-    for (const std::pair<int, int> &pr : osa.query(i)) mp[pr.first] += pr.second;
+  std::vector<int> prime_factor(A + 1, 0);
+  for (int i = 0; i < n; ++i) {
+    int a;
+    std::cin >> a;
+    for (const std::pair<int, int> &pr : osa.query(a)) ++prime_factor[pr.first];
   }
-  ModInt ans = 1;
-  for (const std::pair<int, int> &pr : mp) ans *= pr.second + 1;
-  std::cout << ans << '\n';
+  int mx = *std::max_element(prime_factor.begin(), prime_factor.end());
+  if (mx <= 1) {
+    std::cout << "pairwise coprime\n";
+  } else if (mx == n) {
+    std::cout << "not coprime\n";
+  } else {
+    std::cout << "setwise coprime\n";
+  }
   return 0;
 }

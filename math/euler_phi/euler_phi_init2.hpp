@@ -7,20 +7,16 @@
 #include <cmath>
 #include <numeric>
 #include <vector>
-#include "../sieve_of_eratosthenes.hpp"
+#include "../prime_sieve.hpp"
 
 std::vector<long long> euler_phi_init2(long long low, long long high) {
-  int sqrt_high = std::ceil(std::sqrt(high));
-  std::vector<bool> primes = sieve_of_eratosthenes(sqrt_high);
   std::vector<long long> phi(high - low), rem(high - low);
   std::iota(phi.begin(), phi.end(), low);
   std::iota(rem.begin(), rem.end(), low);
-  for (int prime = 2; prime <= sqrt_high; ++prime) {
-    if (primes[prime]) {
-      for (long long i = (low + (prime - 1)) / prime * prime; i < high; i += prime) {
-        phi[i - low] -= phi[i - low] / prime;
-        while (rem[i - low] % prime == 0) rem[i - low] /= prime;
-      }
+  for (int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {
+    for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {
+      phi[i - low] -= phi[i - low] / p;
+      while (rem[i - low] % p == 0) rem[i - low] /= p;
     }
   }
   for (int i = 0; i < high - low; ++i) {
