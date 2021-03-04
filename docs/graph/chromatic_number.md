@@ -44,4 +44,4 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/2136/review/5072851/emthrm/C++17
+https://judge.yosupo.jp/submission/40942
