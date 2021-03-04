@@ -7,7 +7,7 @@
 #include <vector>
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/lca_euler_tour.hpp"
-#include "../../../data_structure/segment_tree/lazy_segment_tree.hpp"
+#include "../../../data_structure/lazy_segment_tree.hpp"
 
 int main() {
   int n, q;

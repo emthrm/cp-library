@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "../../../../graph/light/tree/lca_euler_tour.hpp"
-#include "../../../../data_structure/segment_tree/lazy_segment_tree.hpp"
+#include "../../../../data_structure/lazy_segment_tree.hpp"
 
 int main() {
   int n, q;

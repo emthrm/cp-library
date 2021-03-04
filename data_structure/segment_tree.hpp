@@ -1,6 +1,6 @@
 /**
  * @brief セグメント木
- * @docs docs/data_structure/segment_tree/segment_tree.md
+ * @docs docs/data_structure/segment_tree.md
  */
 
 #pragma once

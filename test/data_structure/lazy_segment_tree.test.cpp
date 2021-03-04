@@ -1,13 +1,13 @@
 /*
- * @brief データ構造/セグメント木/遅延評価セグメント木
+ * @brief データ構造/遅延伝播セグメント木
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 
 #include <iostream>
 #include <utility>
 #include <vector>
-#include "../../../math/modint.hpp"
-#include "../../../data_structure/segment_tree/lazy_segment_tree.hpp"
+#include "../../math/modint.hpp"
+#include "../../data_structure/lazy_segment_tree.hpp"
 
 int main() {
   using ModInt = MInt<0>;

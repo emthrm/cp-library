@@ -4,7 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
 #include <iostream>
-#include "../../../data_structure/segment_tree/segment_tree.hpp"
+#include "../../data_structure/segment_tree.hpp"
 
 int main() {
   int n, q;

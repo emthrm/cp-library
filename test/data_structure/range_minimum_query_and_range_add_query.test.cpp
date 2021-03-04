@@ -1,12 +1,12 @@
 /*
- * @brief データ構造/セグメント木/遅延評価セグメント木 (range minimum query and range add query)
+ * @brief データ構造/遅延伝播セグメント木 (range minimum query and range add query)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H"
 
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "../../../data_structure/segment_tree/lazy_segment_tree.hpp"
+#include "../../data_structure/lazy_segment_tree.hpp"
 
 int main() {
   int n, q;

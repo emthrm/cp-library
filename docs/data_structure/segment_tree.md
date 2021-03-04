@@ -30,12 +30,12 @@ $\langle O(N), O(\log{N}) \rangle$
 |`T::id()`|単位元|
 |`T::merge(a, b)`||
 
-- 遅延評価セグメント木
+- 遅延伝播セグメント木
 
 ||説明|
 |:--:|:--:|
-|`LazySegmentTree<T>(n)`|要素数 $n$ の遅延評価セグメント木|
-|`LazySegmentTree<T>(a)`|$A$ の遅延評価セグメント木|
+|`LazySegmentTree<T>(n)`|要素数 $n$ の遅延伝播セグメント木|
+|`LazySegmentTree<T>(a)`|$A$ の遅延伝播セグメント木|
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$|
 |`apply(idx, val)`|$\mathrm{idx}$ における変更クエリ|
 |`apply(left, right, val)`|$[\mathrm{left}, \mathrm{right})$ における変更クエリ|
@@ -67,7 +67,7 @@ $\langle O(N), O(\log{N}) \rangle$
 - https://tsutaj.hatenablog.com/entry/2017/03/29/204841
 - https://github.com/atcoder/ac-library/blob/master/atcoder/segtree.hpp
 
-遅延評価セグメント木
+遅延伝播セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/30/224339
 - https://kazuma8128.hatenablog.com/entry/2017/12/29/081929
 - https://smijake3.hatenablog.com/entry/2018/11/03/100133
@@ -138,7 +138,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - [range minimum query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_A/review/4890699/emthrm/C++17)
   - range maximum query
   - [range sum query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_B/review/4890707/emthrm/C++14)
-- [遅延評価セグメント木](https://judge.yosupo.jp/submission/26157)
+- [遅延伝播セグメント木](https://judge.yosupo.jp/submission/26157)
   - [range minimum query and range update query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_F/review/4899784/emthrm/C++17)
   - range maximum query and range update query
   - [range minimum query and range add query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_H/review/4899786/emthrm/C++17)

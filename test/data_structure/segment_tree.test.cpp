@@ -1,13 +1,13 @@
 /*
- * @brief データ構造/セグメント木/セグメント木
+ * @brief データ構造/セグメント木
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 
 #include <iostream>
 #include <utility>
 #include <vector>
-#include "../../../math/modint.hpp"
-#include "../../../data_structure/segment_tree/segment_tree.hpp"
+#include "../../math/modint.hpp"
+#include "../../data_structure/segment_tree.hpp"
 
 int main() {
   using ModInt = MInt<0>;
