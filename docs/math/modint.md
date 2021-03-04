@@ -27,6 +27,9 @@ documentation_of: math/modint.hpp
 重複組合せ
 - https://mathtrain.jp/tyohukuc
 
+逆元の数表
+- http://drken1215.hatenablog.com/entry/2018/06/08/210000
+
 
 ## ToDo
 
