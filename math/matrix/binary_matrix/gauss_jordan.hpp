@@ -7,8 +7,8 @@
 #include <utility>
 #include "binary_matrix.hpp"
 
-template <int COL>
-int gauss_jordan(BinaryMatrix<COL> &mat, bool is_extended = false) {
+template <int Col>
+int gauss_jordan(BinaryMatrix<Col> &mat, bool is_extended = false) {
   int rank = 0;
   for (int col = 0; col < mat.n; ++col) {
     if (is_extended && col == mat.n - 1) break;

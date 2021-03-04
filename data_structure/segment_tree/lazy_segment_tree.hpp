@@ -178,22 +178,22 @@ struct RangeMaximumAndUpdateQuery {
   static T apply(const T &a, const T &b) { return b == o_id()? a : b; }
 };
 
-template <typename T, T INF>
+template <typename T, T Inf>
 struct RangeMinimumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return INF; }
+  static constexpr T m_id() { return Inf; }
   static constexpr T o_id() { return 0; }
   static T m_merge(const T &a, const T &b) { return std::min(a, b); }
   static T o_merge(const T &a, const T &b) { return a + b; }
   static T apply(const T &a, const T &b) { return a + b; }
 };
 
-template <typename T, T INF>
+template <typename T, T Inf>
 struct RangeMaximumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return -INF; }
+  static constexpr T m_id() { return -Inf; }
   static constexpr T o_id() { return 0; }
   static T m_merge(const T &a, const T &b) { return std::max(a, b); }
   static T o_merge(const T &a, const T &b) { return a + b; }

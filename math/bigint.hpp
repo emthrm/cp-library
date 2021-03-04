@@ -10,14 +10,14 @@
 #include <utility>
 #include <vector>
 
-template <int LG10_BASE = 9, int BASE = 1000000000>  // BASE = 10^{LG_10BASE}
+template <int Log10Base = 9, int Base = 1000000000>  // Base = 10^{Log10Base}
 struct BigInt {
   int sign; std::vector<int> dat;
   BigInt(long long val = 0) { *this = val; }
   BigInt(const std::string &s) { *this = s; }
   std::vector<long long> convert_base(int new_lg10_base, int new_base) const {
     assert(new_base == static_cast<int>(std::round(std::pow(10, new_lg10_base))));
-    int mx_base = std::max(LG10_BASE, new_lg10_base);
+    int mx_base = std::max(Log10Base, new_lg10_base);
     std::vector<long long> p(mx_base + 1, 1);
     for (int i = 1; i <= mx_base; ++i) p[i] = p[i - 1] * 10;
     std::vector<long long> res;
@@ -25,7 +25,7 @@ struct BigInt {
     int now_lg10_base = 0;
     for (int e : dat) {
       now_val += p[now_lg10_base] * e;
-      now_lg10_base += LG10_BASE;
+      now_lg10_base += Log10Base;
       while (now_lg10_base >= new_lg10_base) {
         res.emplace_back(now_val % new_base);
         now_val /= new_base;
@@ -45,7 +45,7 @@ struct BigInt {
   }
   int length() const {
     if (dat.empty()) return 0;
-    int res = LG10_BASE * (dat.size() - 1), tmp = dat.back();
+    int res = Log10Base * (dat.size() - 1), tmp = dat.back();
     while (tmp > 0) { ++res; tmp /= 10; }
     return res;
   }
@@ -61,7 +61,7 @@ struct BigInt {
   long long to_llong() const {
     assert(*this >= std::numeric_limits<long long>::min() && *this <= std::numeric_limits<long long>::max());
     long long res = 0;
-    for (int i = static_cast<int>(dat.size()) - 1; i >= 0; --i) (res *= BASE) += dat[i];
+    for (int i = static_cast<int>(dat.size()) - 1; i >= 0; --i) (res *= Base) += dat[i];
     return res;
   }
   std::string to_string() const { std::stringstream ss; ss << *this; std::string res; ss >> res; return res; }
@@ -73,7 +73,7 @@ struct BigInt {
     sign = 1;
     if (val < 0) { sign = -1; val = -val;}
     dat.clear();
-    for (; val > 0; val /= BASE) dat.emplace_back(val % BASE);
+    for (; val > 0; val /= Base) dat.emplace_back(val % Base);
     return *this;
   }
   BigInt &operator=(const std::string &s) {
@@ -87,9 +87,9 @@ struct BigInt {
       } else if (s[tail] == '+') {
         ++tail;
       }
-      for (int i = s.length() - 1; i >= tail; i -= LG10_BASE) {
+      for (int i = s.length() - 1; i >= tail; i -= Log10Base) {
         int val = 0;
-        for (int j = std::max(tail, i - LG10_BASE + 1); j <= i; ++j) val = val * 10 + (s[j] - '0');
+        for (int j = std::max(tail, i - Log10Base + 1); j <= i; ++j) val = val * 10 + (s[j] - '0');
         dat.emplace_back(val);
       }
     }
@@ -108,8 +108,8 @@ struct BigInt {
       for (int i = 0; i < std::max(dat.size(), x.dat.size()) || carry; ++i) {
         if (i == dat.size()) dat.emplace_back(0);
         dat[i] += (i < x.dat.size() ? x.dat[i] : 0) + carry;
-        carry = dat[i] >= BASE;
-        if (carry) dat[i] -= BASE;
+        carry = dat[i] >= Base;
+        if (carry) dat[i] -= Base;
       }
     } else {
       *this -= -x;
@@ -125,7 +125,7 @@ struct BigInt {
         for (int i = 0; i < dat.size() || carry; ++i) {
           dat[i] -= (i < x.dat.size() ? x.dat[i] : 0) + carry;
           carry = dat[i] < 0;
-          if (carry) dat[i] += BASE;
+          if (carry) dat[i] += Base;
         }
         trim();
       } else {
@@ -194,7 +194,7 @@ struct BigInt {
   friend std::ostream &operator<<(std::ostream &os, const BigInt &x) {
     if (x.sign == -1) os << '-';
     os << (x.dat.empty() ? 0 : x.dat.back());
-    for (int i = static_cast<int>(x.dat.size()) - 2; i >= 0; --i) os << std::setw(LG10_BASE) << std::setfill('0') << x.dat[i];
+    for (int i = static_cast<int>(x.dat.size()) - 2; i >= 0; --i) os << std::setw(Log10Base) << std::setfill('0') << x.dat[i];
     return os;
   }
   friend std::istream &operator>>(std::istream &is, BigInt &x) { std::string s; is >> s; x = s; return is; }
@@ -227,7 +227,7 @@ private:
     if (x < 0) { dividend.sign = -dividend.sign; x = -x; }
     long long rem = 0;
     for (int i = static_cast<int>(dividend.dat.size()) - 1; i >= 0; --i) {
-      long long tmp = rem * BASE + dividend.dat[i];
+      long long tmp = rem * Base + dividend.dat[i];
       dividend.dat[i] = static_cast<int>(tmp / x);
       rem = tmp % x;
     }
@@ -236,7 +236,7 @@ private:
   }
   std::pair<BigInt, BigInt> divide(const BigInt &x) const {
     assert(!x.dat.empty());
-    int k = BASE / (x.dat.back() + 1);
+    int k = Base / (x.dat.back() + 1);
     BigInt dividend = *this, divisor = x;
     dividend.sign = 1; divisor.sign = 1;
     dividend *= k; divisor *= k;
@@ -245,7 +245,7 @@ private:
     int sz = divisor.dat.size();
     for (int i = static_cast<int>(dividend.dat.size()) - 1; i >= 0; --i) {
       rem.dat.insert(rem.dat.begin(), dividend.dat[i]);
-      quo.dat[i] = static_cast<int>(((sz < rem.dat.size() ? static_cast<long long>(rem.dat[sz]) * BASE : 0) + (sz - 1 < rem.dat.size() ? rem.dat[sz - 1] : 0)) / divisor.dat.back());
+      quo.dat[i] = static_cast<int>(((sz < rem.dat.size() ? static_cast<long long>(rem.dat[sz]) * Base : 0) + (sz - 1 < rem.dat.size() ? rem.dat[sz - 1] : 0)) / divisor.dat.back());
       rem -= divisor * quo.dat[i];
       while (rem.sign == -1) { rem += divisor; --quo.dat[i];  }
     }
@@ -255,14 +255,14 @@ private:
   }
 };
 namespace std {
-template <int LG10_BASE, int BASE>
-BigInt<LG10_BASE, BASE> __gcd(BigInt<LG10_BASE, BASE> a, BigInt<LG10_BASE, BASE> b) { while (!b.dat.empty()) std::swap(a %= b, b); return a; }
-template <int LG10_BASE, int BASE>
-BigInt<LG10_BASE, BASE> __lcm(const BigInt<LG10_BASE, BASE> &a, const BigInt<LG10_BASE, BASE> &b) { return a / std::__gcd(a, b) * b; }
-template <int LG10_BASE, int BASE>
-BigInt<LG10_BASE, BASE> abs(const BigInt<LG10_BASE, BASE> &x) { BigInt<LG10_BASE, BASE> res = x; res.sign = 1; return res; }
-template <int LG10_BASE, int BASE>
-BigInt<LG10_BASE, BASE> max(const BigInt<LG10_BASE, BASE> &a, const BigInt<LG10_BASE, BASE> &b) { return a < b ? b : a; }
-template <int LG10_BASE, int BASE>
-BigInt<LG10_BASE, BASE> min(const BigInt<LG10_BASE, BASE> &a, const BigInt<LG10_BASE, BASE> &b) { return a < b ? a : b; }
+template <int Log10Base, int Base>
+BigInt<Log10Base, Base> __gcd(BigInt<Log10Base, Base> a, BigInt<Log10Base, Base> b) { while (!b.dat.empty()) std::swap(a %= b, b); return a; }
+template <int Log10Base, int Base>
+BigInt<Log10Base, Base> __lcm(const BigInt<Log10Base, Base> &a, const BigInt<Log10Base, Base> &b) { return a / std::__gcd(a, b) * b; }
+template <int Log10Base, int Base>
+BigInt<Log10Base, Base> abs(const BigInt<Log10Base, Base> &x) { BigInt<Log10Base, Base> res = x; res.sign = 1; return res; }
+template <int Log10Base, int Base>
+BigInt<Log10Base, Base> max(const BigInt<Log10Base, Base> &a, const BigInt<Log10Base, Base> &b) { return a < b ? b : a; }
+template <int Log10Base, int Base>
+BigInt<Log10Base, Base> min(const BigInt<Log10Base, Base> &a, const BigInt<Log10Base, Base> &b) { return a < b ? a : b; }
 }  // std

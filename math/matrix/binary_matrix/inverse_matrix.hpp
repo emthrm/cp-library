@@ -8,10 +8,10 @@
 #include <utility>
 #include "binary_matrix.hpp"
 
-template <int COL>
-bool inverse(const BinaryMatrix<COL> &mat, BinaryMatrix<COL> &inv) {
+template <int Col>
+bool inverse(const BinaryMatrix<Col> &mat, BinaryMatrix<Col> &inv) {
   int n = mat.n;
-  BinaryMatrix<COL> gauss_jordan(n, n << 1, 0);
+  BinaryMatrix<Col> gauss_jordan(n, n << 1, 0);
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) gauss_jordan[i][j] = mat[i][j];
     gauss_jordan[i][n + i] = 1;

@@ -15,7 +15,7 @@ documentation_of: string/aho-corasick.hpp
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`AhoCorasick<種類数 = 26>(基準 = 'a')`|エイホ-コラシック法を考える．||
+|`AhoCorasick<σ = 26>(基準 = 'a')`|エイホ-コラシック法を考える．||
 |`cnt[i]`|ノード $i$ が保有する文字列の数||
 |`build(重量版か? = false)`|オートマトンを構築する．||
 |`move(c, pos)`|ノード $\mathrm{pos}$ から辿った文字 $c$ に対応するノードのインデックス||

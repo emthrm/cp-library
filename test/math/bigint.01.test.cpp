@@ -12,9 +12,9 @@
 #include "../../graph/flow/matching/weighted_bipartite_matching.hpp"
 
 namespace std {
-  template <int LG10_BASE, int BASE>
-  struct numeric_limits<BigInt<LG10_BASE, BASE>> {
-    static constexpr BigInt<LG10_BASE, BASE> max() {
+  template <int Log10Base, int Base>
+  struct numeric_limits<BigInt<Log10Base, Base>> {
+    static constexpr BigInt<Log10Base, Base> max() {
       return string("453152254949043485887196599220742984693877551020408163265306122448979591836734693877551");
     }
   };

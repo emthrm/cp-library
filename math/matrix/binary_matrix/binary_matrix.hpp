@@ -7,11 +7,11 @@
 #include <bitset>
 #include <vector>
 
-template <int COL = 2500>
+template <int Col = 2500>
 struct BinaryMatrix {
   int m, n;
 
-  BinaryMatrix(int m, int n = COL, bool def = false) : m(m), n(n), dat(m, std::bitset<COL>(0)) {
+  BinaryMatrix(int m, int n = Col, bool def = false) : m(m), n(n), dat(m, std::bitset<Col>(0)) {
     if (def) {
       for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j) dat[i][j] = 1;
     }
@@ -28,8 +28,8 @@ struct BinaryMatrix {
     return res;
   }
 
-  inline const std::bitset<COL> &operator[](const int idx) const { return dat[idx]; }
-  inline std::bitset<COL> &operator[](const int idx) { return dat[idx]; }
+  inline const std::bitset<Col> &operator[](const int idx) const { return dat[idx]; }
+  inline std::bitset<Col> &operator[](const int idx) { return dat[idx]; }
 
   BinaryMatrix &operator=(const BinaryMatrix &x) {
     m = x.m;
@@ -58,5 +58,5 @@ struct BinaryMatrix {
   BinaryMatrix operator*(const BinaryMatrix &x) const { return BinaryMatrix(*this) *= x; }
 
 private:
-  std::vector<std::bitset<COL>> dat;
+  std::vector<std::bitset<Col>> dat;
 };

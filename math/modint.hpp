@@ -5,25 +5,25 @@
 #include <utility>
 #include <vector>
 
-// template <int MOD>
+// template <int M>
 // struct MInt {
 //   unsigned int val;
 //   MInt(): val(0) {}
-//   MInt(long long x) : val(x >= 0 ? x % MOD : x % MOD + MOD) {}
-//   static constexpr int get_mod() { return MOD; }
-//   static void set_mod(int divisor) { assert(divisor == MOD); }
+//   MInt(long long x) : val(x >= 0 ? x % M : x % M + M) {}
+//   static constexpr int get_mod() { return M; }
+//   static void set_mod(int divisor) { assert(divisor == M); }
 //   static void init(int x = 10000000) { inv(x, true); fact(x); fact_inv(x); }
 //   static MInt inv(int x, bool init = false) {
-//     // assert(0 <= x && x < MOD && std::__gcd(x, MOD) == 1);
+//     // assert(0 <= x && x < M && std::__gcd(x, M) == 1);
 //     static std::vector<MInt> inverse{0, 1};
 //     int prev = inverse.size();
 //     if (init && x >= prev) {
-//       // "x!" and "MOD" must be disjoint.
+//       // "x!" and "M" must be disjoint.
 //       inverse.resize(x + 1);
-//       for (int i = prev; i <= x; ++i) inverse[i] = -inverse[MOD % i] * (MOD / i);
+//       for (int i = prev; i <= x; ++i) inverse[i] = -inverse[M % i] * (M / i);
 //     }
 //     if (x < inverse.size()) return inverse[x];
-//     unsigned int a = x, b = MOD; int u = 1, v = 0;
+//     unsigned int a = x, b = M; int u = 1, v = 0;
 //     while (b) {
 //       unsigned int tmp = a / b;
 //       std::swap(a -= tmp * b, b);
@@ -66,9 +66,9 @@
 //     }
 //     return res;
 //   }
-//   MInt &operator+=(const MInt &x) { if((val += x.val) >= MOD) val -= MOD; return *this; }
-//   MInt &operator-=(const MInt &x) { if((val += MOD - x.val) >= MOD) val -= MOD; return *this; }
-//   MInt &operator*=(const MInt &x) { val = static_cast<unsigned long long>(val) * x.val % MOD; return *this; }
+//   MInt &operator+=(const MInt &x) { if((val += x.val) >= M) val -= M; return *this; }
+//   MInt &operator-=(const MInt &x) { if((val += M - x.val) >= M) val -= M; return *this; }
+//   MInt &operator*=(const MInt &x) { val = static_cast<unsigned long long>(val) * x.val % M; return *this; }
 //   MInt &operator/=(const MInt &x) { return *this *= inv(x.val); }
 //   bool operator==(const MInt &x) const { return val == x.val; }
 //   bool operator!=(const MInt &x) const { return val != x.val; }
@@ -76,12 +76,12 @@
 //   bool operator<=(const MInt &x) const { return val <= x.val; }
 //   bool operator>(const MInt &x) const { return val > x.val; }
 //   bool operator>=(const MInt &x) const { return val >= x.val; }
-//   MInt &operator++() { if (++val == MOD) val = 0; return *this; }
+//   MInt &operator++() { if (++val == M) val = 0; return *this; }
 //   MInt operator++(int) { MInt res = *this; ++*this; return res; }
-//   MInt &operator--() { val = (val == 0 ? MOD : val) - 1; return *this; }
+//   MInt &operator--() { val = (val == 0 ? M : val) - 1; return *this; }
 //   MInt operator--(int) { MInt res = *this; --*this; return res; }
 //   MInt operator+() const { return *this; }
-//   MInt operator-() const { return MInt(val ? MOD - val : 0); }
+//   MInt operator-() const { return MInt(val ? M - val : 0); }
 //   MInt operator+(const MInt &x) const { return MInt(*this) += x; }
 //   MInt operator-(const MInt &x) const { return MInt(*this) -= x; }
 //   MInt operator*(const MInt &x) const { return MInt(*this) *= x; }
@@ -89,7 +89,7 @@
 //   friend std::ostream &operator<<(std::ostream &os, const MInt &x) { return os << x.val; }
 //   friend std::istream &operator>>(std::istream &is, MInt &x) { long long val; is >> val; x = MInt(val); return is; }
 // };
-// namespace std { template <int MOD> MInt<MOD> abs(const MInt<MOD> &x) { return x; } }
+// namespace std { template <int M> MInt<M> abs(const MInt<M> &x) { return x; } }
 
 template <int ID>
 struct MInt {

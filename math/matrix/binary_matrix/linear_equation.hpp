@@ -8,9 +8,9 @@
 #include "binary_matrix.hpp"
 #include "gauss_jordan.hpp"
 
-template <int COL>
-std::vector<int> linear_equation(const BinaryMatrix<COL> &a, const std::vector<int> &b) {
-  BinaryMatrix<COL> mat(a.m, a.n + 1);
+template <int Col>
+std::vector<int> linear_equation(const BinaryMatrix<Col> &a, const std::vector<int> &b) {
+  BinaryMatrix<Col> mat(a.m, a.n + 1);
   for (int i = 0; i < a.m; ++i) {
     for (int j = 0; j < a.n; ++j) mat[i][j] = a[i][j];
     mat[i][a.n] = b[i];
