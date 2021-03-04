@@ -5,7 +5,7 @@
 #include "matrix.hpp"
 
 template <typename T, typename U = double>
-bool inverse(const Matrix<T> &mat, Matrix<U> &inv, const U EPS = 1e-8) {
+Matrix<U> inverse_matrix(const Matrix<T> &mat, const U EPS = 1e-8) {
   int n = mat.height();
   Matrix<U> gauss_jordan(n, n << 1, 0);
   for (int i = 0; i < n; ++i) {
@@ -21,7 +21,7 @@ bool inverse(const Matrix<T> &mat, Matrix<U> &inv, const U EPS = 1e-8) {
         mx = std::abs(gauss_jordan[row][col]);
       }
     }
-    if (pivot == -1) return false;
+    if (pivot == -1) return Matrix<U>(0, 0);
     std::swap(gauss_jordan[col], gauss_jordan[pivot]);
     U tmp = gauss_jordan[col][col];
     for (int col2 = 0; col2 < (n << 1); ++col2) gauss_jordan[col][col2] /= tmp;
@@ -32,7 +32,7 @@ bool inverse(const Matrix<T> &mat, Matrix<U> &inv, const U EPS = 1e-8) {
       }
     }
   }
-  assert(inv.height() == n && inv.width() == n);
+  Matrix<U> inv(n, n);
   for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n + j];
-  return true;
+  return inv;
 }

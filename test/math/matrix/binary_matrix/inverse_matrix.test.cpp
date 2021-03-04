@@ -14,7 +14,7 @@ int main() {
   using binary_matrix = BinaryMatrix<N>;
   int n;
   std::cin >> n;
-  binary_matrix a(n, n), v(n, 1), inv(n, n);
+  binary_matrix a(n, n), v(n, 1);
   for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) {
     int aij;
     std::cin >> aij;
@@ -27,10 +27,8 @@ int main() {
   }
   int t;
   std::cin >> t;
-  if (inverse(a, inv)) {
-    (inv = inv.pow(t)) *= v;
-    for (int i = 0; i < n; ++i) std::cout << inv[i][0] << " \n"[i + 1 == n];
-  } else {
+  binary_matrix inv = inverse_matrix(a);
+  if (inv.n == 0) {
     a = a.pow(t);
     binary_matrix av(n, n + 1);
     for (int i = 0; i < n; ++i) {
@@ -39,6 +37,9 @@ int main() {
     }
     int rank = gauss_jordan(a), rank_av = gauss_jordan(av);
     std::cout << (rank == rank_av ? "ambiguous\n" : "none\n");
+  } else {
+    (inv = inv.pow(t)) *= v;
+    for (int i = 0; i < n; ++i) std::cout << inv[i][0] << " \n"[i + 1 == n];
   }
   return 0;
 }

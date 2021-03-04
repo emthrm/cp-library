@@ -9,7 +9,7 @@
 #include "binary_matrix.hpp"
 
 template <int Col>
-bool inverse(const BinaryMatrix<Col> &mat, BinaryMatrix<Col> &inv) {
+BinaryMatrix<Col> inverse_matrix(const BinaryMatrix<Col> &mat) {
   int n = mat.n;
   BinaryMatrix<Col> gauss_jordan(n, n << 1, 0);
   for (int i = 0; i < n; ++i) {
@@ -24,13 +24,13 @@ bool inverse(const BinaryMatrix<Col> &mat, BinaryMatrix<Col> &inv) {
         break;
       }
     }
-    if (pivot == -1) return false;
+    if (pivot == -1) return BinaryMatrix<Col>(0, 0);
     std::swap(gauss_jordan[col], gauss_jordan[pivot]);
     for (int row = 0; row < n; ++row) {
       if (row != col && gauss_jordan[row][col]) gauss_jordan[row] ^= gauss_jordan[col];
     }
   }
-  assert(inv.n == n && inv.m == n);
+  BinaryMatrix<Col> inv(n, n);
   for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n + j];
-  return true;
+  return inv;
 }
