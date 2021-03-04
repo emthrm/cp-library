@@ -1,6 +1,6 @@
 /**
  * @brief パスカルの三角形
- * @docs docs/math/twelvefold_way/binomial_coefficients/binomial_coefficients.md
+ * @docs docs/math/twelvefold_way/binomial_coefficients.md
  */
 
 #pragma once

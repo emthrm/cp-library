@@ -57,6 +57,13 @@
 //   }
 //   static MInt nPk(int n, int k) { return n < 0 || n < k || k < 0 ? 0 : fact(n) * fact_inv(n - k); }
 //   static MInt nHk(int n, int k) { return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k)); }
+//   static MInt large_nCk(long long n, int k) {
+//     if (n < 0 || n < k || k < 0) return 0;
+//     inv(k, true);
+//     MInt res = 1;
+//     for (int i = 1; i <= k; ++i) res *= inv(i) * n--;
+//     return res;
+//   }
 //   MInt pow(long long exponent) const {
 //     MInt tmp = *this, res = 1;
 //     while (exponent > 0) {
@@ -143,6 +150,13 @@ struct MInt {
   }
   static MInt nPk(int n, int k) { return n < 0 || n < k || k < 0 ? 0 : fact(n) * fact_inv(n - k); }
   static MInt nHk(int n, int k) { return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k)); }
+  static MInt large_nCk(long long n, int k) {
+    if (n < 0 || n < k || k < 0) return 0;
+    inv(k, true);
+    MInt res = 1;
+    for (int i = 1; i <= k; ++i) res *= inv(i) * n--;
+    return res;
+  }
   MInt pow(long long exponent) const {
     MInt tmp = *this, res = 1;
     while (exponent > 0) {

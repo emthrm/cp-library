@@ -1,15 +1,15 @@
 /**
- * @brief 二項係数 $n$ は巨大な固定値
- * @docs docs/math/twelvefold_way/binomial_coefficients/binomial_coefficients.md
+ * @brief 二項係数の数表 巨大な $n$ 版
+ * @docs docs/math/twelvefold_way/binomial_coefficients.md
  */
 
 #pragma once
 #include <algorithm>
 #include <vector>
-#include "../../modint.hpp"
+#include "../modint.hpp"
 
 template <int T>
-std::vector<MInt<T>> binom_large_n_init(long long n, int k) {
+std::vector<MInt<T>> large_nCk_init(long long n, int k) {
   using ModInt = MInt<T>;
   int tmp = std::min(n, static_cast<long long>(k));
   ModInt::inv(tmp, true);
