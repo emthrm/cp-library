@@ -22,18 +22,10 @@ $O(N\log{N})$
 |:--:|:--:|
 |`lis_2d(a)`|2次元配列 $A$ の最長増加部分列|
 
-- 最長増加部分列 RMQ 版
-
-||説明|
-|:--:|:--:|
-|`lis_rmq(a, 広義単調増加か? = true)`|$A$ の最長増加部分列長|
-
 
 ## 参考
 
 - http://www.prefield.com/algorithm/dp/lis_fast.html
-
-最長増加部分列 RMQ 版
 - http://noshi91.hatenablog.com/entry/2018/02/03/204950
 
 
@@ -47,4 +39,3 @@ $O(N\log{N})$
 
 - [最長増加部分列](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_1_D/review/4082142/emthrm/C++14)
 - [2次元 LIS](https://atcoder.jp/contests/abc038/submissions/9237792)
-- [最長増加部分列 RMQ 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_1_D/review/4084204/emthrm/C++14)

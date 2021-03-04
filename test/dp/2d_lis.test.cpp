@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/LIS/2次元 LIS
+ * @brief 動的計画法/2次元 LIS
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/abc038/tasks/abc038_d"
@@ -7,7 +7,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
-#include "../../../dp/lis/2d_lis.hpp"
+#include "../../dp/2d_lis.hpp"
 
 int main() {
   int n;

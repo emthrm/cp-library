@@ -1,11 +1,11 @@
 /*
- * @brief 動的計画法/LIS/最長増加部分列
+ * @brief 動的計画法/最長増加部分列
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
 
 #include <iostream>
 #include <vector>
-#include "../../../dp/lis/lis.hpp"
+#include "../../dp/lis.hpp"
 
 int main() {
   int n;

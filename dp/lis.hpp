@@ -1,6 +1,6 @@
 /**
  * @brief 最長増加部分列
- * @docs docs/dp/lis/lis.md
+ * @docs docs/dp/lis.md
  */
 
 #pragma once

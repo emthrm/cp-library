@@ -1,6 +1,6 @@
 /**
  * @brief 2次元 LIS
- * @docs docs/dp/lis/lis.md
+ * @docs docs/dp/lis.md
  */
 
 #pragma once

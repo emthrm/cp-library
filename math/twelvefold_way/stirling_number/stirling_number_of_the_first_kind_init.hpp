@@ -1,6 +1,6 @@
 /**
  * @brief 第1種スターリング数の数表
- * @docs docs/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind.md
+ * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
  */
 
 #pragma once

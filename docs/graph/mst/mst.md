@@ -21,23 +21,11 @@ $O(\lvert E \rvert \log{\lvert V \rvert})$
 |:--:|:--:|:--:|
 |`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には双方向の辺の情報が必要である．|
 
-- Prim 法 重量版
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`prim_heavy(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木に含まれる辺|$\mathrm{graph}$ には双方向の辺の情報が必要である．|
-
 - Kruskal 法
 
 ||説明|備考|
 |:--:|:--:|:--:|
 |`kruskal(graph)`|グラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には単方向の辺の情報のみでよい．|
-
-- Kruskal 法 重量版
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`kruskal_heavy(graph)`|グラフ $\mathrm{graph}$ の最小全域木に含まれる辺|$\mathrm{graph}$ には単方向の辺の情報のみでよい．|
 
 
 ## 参考
@@ -93,6 +81,4 @@ Kruskal 法
 ## Verified
 
 - [Prim 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_2_A/review/4083632/emthrm/C++14)
-- Prim 法 重量版
 - [Kruskal 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_2_A/review/4083639/emthrm/C++14)
-- Kruskal 法 重量版
