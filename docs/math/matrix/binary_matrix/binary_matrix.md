@@ -43,5 +43,5 @@
 
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
-- [連立一次方程式](https://onlinejudge.u-aizu.ac.jp/solutions/problem/1308/review/4088796/emthrm/C++14)
+- [連立一次方程式](https://yukicoder.me/submissions/626481)
 - [逆行列](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2624/review/4088806/emthrm/C++14)

@@ -13,11 +13,13 @@ std::vector<U> linear_equation(const Matrix<T> &a, const std::vector<T> &b, cons
     matrix[i][n] = b[i];
   }
   int rank = gauss_jordan(matrix, EPS, true);
-  std::vector<U> res;
   for (int row = rank; row < m; ++row) {
-    if (std::abs(matrix[row][n]) > EPS) return res;
+    if (std::abs(matrix[row][n]) > EPS) return std::vector<U>();
   }
-  res.assign(n, 0);
-  for (int i = 0; i < rank; ++i) res[i] = matrix[i][n];
+  std::vector<U> res(n, 0);
+  for (int i = 0, j = 0; i < rank; ++i) {
+    while (std::abs(matrix[i][j]) < EPS) ++j;
+    res[j++] = matrix[i][n];
+  }
   return res;
 }
