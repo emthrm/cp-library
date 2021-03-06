@@ -4,7 +4,16 @@
 
 template <typename T>
 std::pair<T, T> ext_gcd(T a, T b) {
-  if (b == 0) return {1, 0};
-  T fst, snd; std::tie(fst, snd) = ext_gcd(b, a % b);
-  return {snd, fst - a / b * snd};
+  T x = 1, y = 0, u = 0, v = 1;
+  while (b) {
+    T q = a / b;
+    std::swap(a -= q * b, b);
+    std::swap(x -= q * u, u);
+    std::swap(y -= q * v, v);
+  }
+  if (a < 0) {
+    x = -x;
+    y = -y;
+  }
+  return {x, y};
 }

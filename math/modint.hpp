@@ -25,9 +25,9 @@
 //     if (x < inverse.size()) return inverse[x];
 //     unsigned int a = x, b = M; int u = 1, v = 0;
 //     while (b) {
-//       unsigned int tmp = a / b;
-//       std::swap(a -= tmp * b, b);
-//       std::swap(u -= tmp * v, v);
+//       unsigned int q = a / b;
+//       std::swap(a -= q * b, b);
+//       std::swap(u -= q * v, v);
 //     }
 //     return u;
 //   }
@@ -118,9 +118,9 @@ struct MInt {
     if (x < inverse.size()) return inverse[x];
     unsigned int a = x, b = mod(); int u = 1, v = 0;
     while (b) {
-      unsigned int tmp = a / b;
-      std::swap(a -= tmp * b, b);
-      std::swap(u -= tmp * v, v);
+      unsigned int q = a / b;
+      std::swap(a -= q * b, b);
+      std::swap(u -= q * v, v);
     }
     return u;
   }
