@@ -9,8 +9,8 @@ data:
       \u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/\u71C3\u3084\u3059\
-      \u57CB\u3081\u308B"
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
+      \ problem"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -18,10 +18,10 @@ data:
     _deprecated_at_docs: docs/graph/flow/maximum_flow/maximum_flow.md
     document_title: "Dinic \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/maximum_flow/dinic.hpp: line 6: #pragma once found in a non-first\
@@ -35,30 +35,30 @@ data:
     \ src, int dst, T cap) {\r\n    graph[src].emplace_back(dst, cap, graph[dst].size());\r\
     \n    graph[dst].emplace_back(src, 0, graph[src].size() - 1);\r\n  }\r\n\r\n \
     \ T maximum_flow(int s, int t, T limit) {\r\n    T res = 0;\r\n    while (true)\
-    \ {\r\n      bfs(s);\r\n      if (level[t] == -1) return res;\r\n      std::fill(itr.begin(),\
-    \ itr.end(), 0);\r\n      T tmp;\r\n      while ((tmp = dfs(s, t, limit)) > 0)\
-    \ res += tmp;\r\n    }\r\n  }\r\n\r\nprivate:\r\n  std::vector<int> level, itr;\r\
-    \n\r\n  void bfs(int s) {\r\n    std::fill(level.begin(), level.end(), -1);\r\n\
-    \    std::queue<int> que;\r\n    level[s] = 0;\r\n    que.emplace(s);\r\n    while\
-    \ (!que.empty()) {\r\n      int ver = que.front(); que.pop();\r\n      for (const\
-    \ Edge &e : graph[ver]) {\r\n        if (level[e.dst] == -1 && e.cap > 0) {\r\n\
-    \          level[e.dst] = level[ver] + 1;\r\n          que.emplace(e.dst);\r\n\
-    \        }\r\n      }\r\n    }\r\n  }\r\n\r\n  T dfs(int ver, int t, T flow) {\r\
-    \n    if (ver == t) return flow;\r\n    for (; itr[ver] < graph[ver].size(); ++itr[ver])\
-    \ {\r\n      Edge &e = graph[ver][itr[ver]];\r\n      if (level[ver] < level[e.dst]\
-    \ && e.cap > 0) {\r\n        T tmp = dfs(e.dst, t, std::min(flow, e.cap));\r\n\
-    \        if (tmp > 0) {\r\n          e.cap -= tmp;\r\n          graph[e.dst][e.rev].cap\
+    \ {\r\n      std::fill(level.begin(), level.end(), -1);\r\n      std::queue<int>\
+    \ que;\r\n      level[s] = 0;\r\n      que.emplace(s);\r\n      while (!que.empty())\
+    \ {\r\n        int ver = que.front(); que.pop();\r\n        for (const Edge &e\
+    \ : graph[ver]) {\r\n          if (level[e.dst] == -1 && e.cap > 0) {\r\n    \
+    \        level[e.dst] = level[ver] + 1;\r\n            que.emplace(e.dst);\r\n\
+    \          }\r\n        }\r\n      }\r\n      if (level[t] == -1) return res;\r\
+    \n      std::fill(itr.begin(), itr.end(), 0);\r\n      T f;\r\n      while ((f\
+    \ = dfs(s, t, limit)) > 0) res += f;\r\n    }\r\n  }\r\n\r\nprivate:\r\n  std::vector<int>\
+    \ level, itr;\r\n\r\n  T dfs(int ver, int t, T flow) {\r\n    if (ver == t) return\
+    \ flow;\r\n    for (; itr[ver] < graph[ver].size(); ++itr[ver]) {\r\n      Edge\
+    \ &e = graph[ver][itr[ver]];\r\n      if (level[ver] < level[e.dst] && e.cap >\
+    \ 0) {\r\n        T tmp = dfs(e.dst, t, std::min(flow, e.cap));\r\n        if\
+    \ (tmp > 0) {\r\n          e.cap -= tmp;\r\n          graph[e.dst][e.rev].cap\
     \ += tmp;\r\n          return tmp;\r\n        }\r\n      }\r\n    }\r\n    return\
     \ 0;\r\n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/maximum_flow/dinic.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-15 22:46:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/maximum_flow/minimum_flow_constraint.test.cpp
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  - test/graph/flow/maximum_flow/minimum_flow_constraint.test.cpp
 documentation_of: graph/flow/maximum_flow/dinic.hpp
 layout: document
 redirect_from:
@@ -78,7 +78,7 @@ title: "Dinic \u6CD5"
 |アルゴリズム|時間計算量|
 |:--:|:--:|
 |Ford-Fulkerson 法|最大流を $F$ とおくと $O(F \lvert E \rvert)$．|
-|Dinic 法|$O(\lvert E \rvert {\lvert V \rvert}^2)$|
+|Dinic 法|最大流を $F$ とおくと $O\left(\min \left\lbrace {\lvert V \rvert}^2 \lvert E \rvert,\ F \lvert E \rvert,\ {\lvert E \rvert}^{3/2} \max_{e \in E} C_e,\ \sqrt{\lvert V \rvert} \lvert E \rvert \max_{v \in V} \min \left\lbrace \sum_{e \in \delta^-(v) \subset E} C_e, \sum_{e \in \delta^+(v) \subset E} C_e \right\rbrace \right\rbrace\right)$|
 
 
 ## 使用法
@@ -146,6 +146,9 @@ title: "Dinic \u6CD5"
 Ford-Fulkerson 法
 - https://ei1333.github.io/luzhiled/snippets/graph/ford-fulkerson.html
 
+Dinic 法
+- https://misawa.github.io/others/flow/dinic_time_complexity.html
+
 
 ## ToDo
 
@@ -166,6 +169,8 @@ Ford-Fulkerson 法
   - https://qiita.com/nariaki3551/items/65baee3c6ef0a6ffa136
   - https://kopricky.github.io/code/Academic/max_flow_push_relabel.html
   - https://tjkendev.github.io/procon-library/cpp/max_flow/push-relabel-highest.html
+- 動的木を用いた Dinic 法
+  - https://misawa.github.io/others/flow/dinic_time_complexity.html
 - 全域最小カット
   - http://www.prefield.com/algorithm/graph/minimum_cut.html
   - https://github.com/primenumber/ProconLib/blob/master/Graph/GlobalMinimumCut.cpp

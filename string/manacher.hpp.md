@@ -67,13 +67,13 @@ $O(\lvert S \rvert)$
 |`Manacher(s)`|$S$ の Manacher を考える．|
 |`odd(idx)`|位置 $\mathrm{idx}$ を中心とした回文の最大半径|
 |`even(idx)`|位置 $\mathrm{idx} + 0.5$ を中心とした回文の最大半径|
-|`is_palindrome(left, right)`|$[\mathrm{left}, \mathrm{right})$ は回文であるか．|
+|`is_palindrome(left, right)`|$\lbrack \mathrm{left}, \mathrm{right})$ は回文であるか．|
 
 
 ## 参考
 
 - https://snuke.hatenablog.com/entry/2014/12/02/235837
-- https://github.com/drken1215/algorithm/blob/master/String/manacher.cpp
+- https://github.com/drken1215/algorithm/blob/d4d987bfd9205655862986b3d27339381b1ffaf7/String/manacher.cpp
 
 
 ## ToDo

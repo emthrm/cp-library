@@ -35,15 +35,17 @@ title: "\u30E2\u30F3\u30E2\u30FC\u30EB\u6570 (Montmort number)"
 
 $$a_n = \begin{cases} 0 & (n = 1) \\ 1 & (n = 2) \\ (n - 1)(a_{n - 1} + a_{n - 2}) & (n \geq 3) \end{cases}$$
 
-となる完全順列の個数 $a_n$ のこと．これを解くと
+という漸化式をもつ，完全順列の個数 $a_n$ である．これを解くと
 
 $$a_n = n! \sum_{k = 2}^n \dfrac{(-1)^k}{k!} \ (n \geq 2)$$
 
-が成り立つ．
+という一般項が得られる．
 
-母関数
+母関数は
 
 $$M(x) = \dfrac{e^{-x}}{1 - x} \text{．}$$
+
+である．
 
 
 ### 完全順列 (攪乱順列, derangement)

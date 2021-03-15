@@ -1,11 +1,12 @@
 # オイラーの $\varphi$ 関数 (Euler's totient function)
 
-$$\begin{aligned} \varphi(n) &= \# \lbrace \,k \in \mathbb{N} \mid k \perp n,\ k \leq n \rbrace \\ &= n \prod_i(1 - \frac{1}{p_i}) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
+$n \in \mathbb{N}^+$ に対して
+$$\begin{aligned} \varphi(n) &= \# \lbrace k \in \mathbb{N} \mid k \perp n,\ 1 \leq k \leq n \rbrace \\ &= n \prod_i \left(1 - \frac{1}{p_i}\right) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
 
 
 ### オイラーの定理
 
-$$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
+$n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \equiv 1 \pmod{n}$ が成り立つ．
 
 
 ## 時間計算量
@@ -41,7 +42,7 @@ $$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
 - https://ei1333.github.io/algorithm/euler-phi.html
 
 数表2
-- https://github.com/spaghetti-source/algorithm/blob/master/number_theory/euler_phi.cc
+- https://github.com/spaghetti-source/algorithm/blob/87f5b3e4a3c10d8b85048f4fc4e4842ad11e9670/number_theory/euler_phi.cc
 
 
 ## ToDo

@@ -36,9 +36,9 @@
 
   $\forall a \in S,\ \exists e \in S \text{ s.t. } a \cdot e = e \cdot a = a$
 
-を満たす $(S,\ \cdot,\ e)$ である．
+を満たす $(S, \cdot, e)$ である．
 
-e.g. $(\mathbb{Z},\ +,\ 0),\ (\mathbb{R},\ \ast,\ 1)$
+e.g. $(\mathbb{Z}, +, 0),\ (\mathbb{R}, \ast, 1)$
 
 
 ### 半群 (semigroup)
@@ -49,7 +49,7 @@ e.g. $(\mathbb{Z},\ +,\ 0),\ (\mathbb{R},\ \ast,\ 1)$
 
   $\forall a, b, c \in S,\ (a · b) · c = a · (b · c)$
 
-を満たす $(S,\ \cdot)$ である．
+を満たす $(S, \cdot)$ である．
 
 
 ### meet-semilattice
@@ -68,16 +68,16 @@ e.g. $(\mathbb{Z},\ +,\ 0),\ (\mathbb{R},\ \ast,\ 1)$
 
   $a \land a = a$
 
-を満たす $(S,\ \land)$ である．
+を満たす $(S, \land)$ である．
 
 
 ### 半環 (semi-ring, rig)
 
 $+$ (加法, 和) と $\cdot$ (乗法, 積) が定義されている集合 $R$ である．
 
-- $(R,\ +,\ 0)$ は可換モノイドである．
+- $(R, +, 0)$ は可換モノイドである．
 
-- $(R,\ \cdot,\ 1)$ はモノイドである．
+- $(R, \cdot, 1)$ はモノイドである．
 
 - 分配法則
 
@@ -87,7 +87,7 @@ $+$ (加法, 和) と $\cdot$ (乗法, 積) が定義されている集合 $R$ �
 
   $\exists 0 \text{ s.t. } a \cdot 0 = 0 \cdot a = 0$
 
-e.g. $(\mathbb{N},\ \oplus,\ \land,\ 0,\ \text{0xFFFF...})$
+e.g. $(\mathbb{N}, \oplus, \land, 0, \text{0xFFFF...})$
 
 
 ## 参考

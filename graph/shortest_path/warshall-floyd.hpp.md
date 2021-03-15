@@ -95,10 +95,10 @@ $O({\lvert V \rvert}^3)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`WarshallFloyd<T>(graph, ∞)`|グラフ $graph$ の全点対最短路を考える．|隣接行列は $\infty$ で初期化しておかなければならない．|
+|`WarshallFloyd<T>(graph, ∞)`|グラフ $\mathrm{graph}$ の全点対最短路を考える．|隣接行列は $\infty$ で初期化しておかなければならない．|
 |`graph[s][t]`|始点 $s$, 終点 $t$ を結ぶ辺のコストの最小値|存在しないならば $\infty$ となる．|
 |`dist[s][t]`|始点 $s$ から終点 $t$ までの最短距離|到達不可能ならば $\infty$ となる．|
-|`add(src, dst, cost)`|始点 $src$, 終点 $dst$, 重み $cost$ の辺をグラフに追加する．|
+|`add(src, dst, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 重み $\mathrm{cost}$ の辺をグラフに追加する．|
 |`calc()`|辺をグラフに追加後, 全点対最短路を構築する．||
 |`has_negative_cycle()`|グラフが負の閉路をもつか．||
 |`build_path(s, t)`|始点 $s$ から終点 $t$ までの最短路||

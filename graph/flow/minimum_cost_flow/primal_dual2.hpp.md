@@ -14,10 +14,10 @@ data:
     _deprecated_at_docs: docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
     document_title: "\u4E3B\u53CC\u5BFE\u6CD52"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/minimum_cost_flow/primal_dual2.hpp: line 6: #pragma once found in\
@@ -39,33 +39,33 @@ data:
     \ (int i = 0; i < n; ++i) {\r\n      if (d[i] > 0) {\r\n        add_edge(n, i,\
     \ d[i], 0);\r\n        flow += d[i];\r\n      } else if (d[i] < 0) {\r\n     \
     \   add_edge(i, n + 1, -d[i], 0);\r\n      }\r\n    }\r\n    std::vector<int>\
-    \ prev_v(n + 2, -1), prev_e(n + 2, -1);\r\n    std::vector<U> potential(n + 2,\
-    \ 0), dist(n + 2);\r\n    std::priority_queue<Pui, std::vector<Pui>, std::greater<Pui>>\
-    \ que;\r\n    while (flow > 0) {\r\n      std::fill(dist.begin(), dist.end(),\
-    \ uinf);\r\n      dist[n] = 0;\r\n      que.emplace(0, n);\r\n      while (!que.empty())\
-    \ {\r\n        U fst; int ver; std::tie(fst, ver) = que.top(); que.pop();\r\n\
-    \        if (dist[ver] < fst) continue;\r\n        for (int i = 0; i < graph[ver].size();\
-    \ ++i) {\r\n          Edge &e = graph[ver][i];\r\n          U nx = dist[ver] +\
-    \ e.cost + potential[ver] - potential[e.dst];\r\n          if (e.cap > 0 && dist[e.dst]\
-    \ > nx) {\r\n            dist[e.dst] = nx;\r\n            prev_v[e.dst] = ver;\r\
-    \n            prev_e[e.dst] = i;\r\n            que.emplace(dist[e.dst], e.dst);\r\
-    \n          }\r\n        }\r\n      }\r\n      if (dist[n + 1] == uinf) return\
-    \ uinf;\r\n      for (int i = 0; i < n + 2; ++i) {\r\n        if (dist[i] != uinf)\
-    \ potential[i] += dist[i];\r\n      }\r\n      T f = flow;\r\n      for (int v\
-    \ = n + 1; v != n; v = prev_v[v]) {\r\n        if (graph[prev_v[v]][prev_e[v]].cap\
-    \ < f) f = graph[prev_v[v]][prev_e[v]].cap;\r\n      }\r\n      flow -= f;\r\n\
-    \      res += potential[n + 1] * f;\r\n      for (int v = n + 1; v != n; v = prev_v[v])\
+    \ prev_v(n + 2, -1), prev_e(n + 2, -1);\r\n    std::vector<U> dist(n + 2), potential(n\
+    \ + 2, 0);\r\n    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U,\
+    \ int>>, std::greater<std::pair<U, int>>> que;\r\n    while (flow > 0) {\r\n \
+    \     std::fill(dist.begin(), dist.end(), uinf);\r\n      dist[n] = 0;\r\n   \
+    \   que.emplace(0, n);\r\n      while (!que.empty()) {\r\n        U fst; int ver;\
+    \ std::tie(fst, ver) = que.top(); que.pop();\r\n        if (dist[ver] < fst) continue;\r\
+    \n        for (int i = 0; i < graph[ver].size(); ++i) {\r\n          const Edge\
+    \ &e = graph[ver][i];\r\n          U nx = dist[ver] + e.cost + potential[ver]\
+    \ - potential[e.dst];\r\n          if (e.cap > 0 && dist[e.dst] > nx) {\r\n  \
+    \          dist[e.dst] = nx;\r\n            prev_v[e.dst] = ver;\r\n         \
+    \   prev_e[e.dst] = i;\r\n            que.emplace(dist[e.dst], e.dst);\r\n   \
+    \       }\r\n        }\r\n      }\r\n      if (dist[n + 1] == uinf) return uinf;\r\
+    \n      for (int i = 0; i < n + 2; ++i) {\r\n        if (dist[i] != uinf) potential[i]\
+    \ += dist[i];\r\n      }\r\n      T f = flow;\r\n      for (int v = n + 1; v !=\
+    \ n; v = prev_v[v]) {\r\n        if (graph[prev_v[v]][prev_e[v]].cap < f) f =\
+    \ graph[prev_v[v]][prev_e[v]].cap;\r\n      }\r\n      flow -= f;\r\n      res\
+    \ += potential[n + 1] * f;\r\n      for (int v = n + 1; v != n; v = prev_v[v])\
     \ {\r\n        Edge &e = graph[prev_v[v]][prev_e[v]];\r\n        e.cap -= f;\r\
     \n        graph[v][e.rev].cap += f;\r\n      }\r\n    }\r\n    return res;\r\n\
     \  }\r\n\r\n  U minimum_cost_flow(int s, int t, T flow) {\r\n    d[s] += flow;\r\
     \n    d[t] -= flow;\r\n    return minimum_cost_flow();\r\n  }\r\n\r\nprivate:\r\
-    \n  using Pui = std::pair<U, int>;\r\n\r\n  int n;\r\n  U res = 0;\r\n  std::vector<T>\
-    \ d;\r\n};\r\n"
+    \n  int n;\r\n  U res = 0;\r\n  std::vector<T> d;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/minimum_cost_flow/primal_dual2.hpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
+  timestamp: '2021-03-15 23:38:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
@@ -104,8 +104,8 @@ title: "\u4E3B\u53CC\u5BFE\u6CD52"
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を張る．||
 |`minimum_cost_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときのコストの最小値|流せない場合は $\infty$ となる．|
-|`minimum_cost_flow(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{tinf} - \mathrm{tmp}$ である．|
-|`min_cost_max_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流したいときの最小費用最大流 (最大流, 最小費用)||
+|`minimum_cost_flow(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{tinf} - f$ である．|
+|`min_cost_max_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流したいときの最小費用最大流|返り値は最大流と最小費用である．|
 
 - 主双対法2
 

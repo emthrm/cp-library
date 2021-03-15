@@ -10,7 +10,7 @@
 |アルゴリズム|時間計算量|
 |:--:|:--:|
 |Ford-Fulkerson 法|最大流を $F$ とおくと $O(F \lvert E \rvert)$．|
-|Dinic 法|$O(\lvert E \rvert {\lvert V \rvert}^2)$|
+|Dinic 法|最大流を $F$ とおくと $O\left(\min \left\lbrace {\lvert V \rvert}^2 \lvert E \rvert,\ F \lvert E \rvert,\ {\lvert E \rvert}^{3/2} \max_{e \in E} C_e,\ \sqrt{\lvert V \rvert} \lvert E \rvert \max_{v \in V} \min \left\lbrace \sum_{e \in \delta^-(v) \subset E} C_e, \sum_{e \in \delta^+(v) \subset E} C_e \right\rbrace \right\rbrace\right)$|
 
 
 ## 使用法
@@ -78,6 +78,9 @@
 Ford-Fulkerson 法
 - https://ei1333.github.io/luzhiled/snippets/graph/ford-fulkerson.html
 
+Dinic 法
+- https://misawa.github.io/others/flow/dinic_time_complexity.html
+
 
 ## ToDo
 
@@ -98,6 +101,8 @@ Ford-Fulkerson 法
   - https://qiita.com/nariaki3551/items/65baee3c6ef0a6ffa136
   - https://kopricky.github.io/code/Academic/max_flow_push_relabel.html
   - https://tjkendev.github.io/procon-library/cpp/max_flow/push-relabel-highest.html
+- 動的木を用いた Dinic 法
+  - https://misawa.github.io/others/flow/dinic_time_complexity.html
 - 全域最小カット
   - http://www.prefield.com/algorithm/graph/minimum_cut.html
   - https://github.com/primenumber/ProconLib/blob/master/Graph/GlobalMinimumCut.cpp

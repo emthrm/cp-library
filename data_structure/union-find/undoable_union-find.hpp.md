@@ -14,10 +14,10 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "undo \u53EF\u80FD union-find \u6728"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/undoable_union-find.hpp: line 6: #pragma once found\
@@ -58,7 +58,7 @@ title: "undo \u53EF\u80FD union-find \u6728"
 |:--:|:--:|
 |union-find 木|グループ分けを管理するデータ構造|
 |重みつき union-find 木|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である重み情報が付加された union-find 木|
-|部分永続 union-find 木|最新版のみ変更可能な時刻 $t$ における状態を保存する union-find 木|
+|部分永続 union-find 木|時刻 $t$ における状態を保存する union-find 木である．最新版のみ変更できる．|
 |undo 可能 union-find 木|巻き戻し可能な union-find 木|
 
 
@@ -124,14 +124,14 @@ title: "undo \u53EF\u80FD union-find \u6728"
 - https://ei1333.github.io/algorithm/union-find.html
 
 union-find 木
-- https://github.com/spaghetti-source/algorithm/blob/master/data_structure/union_find.cc
+- https://github.com/spaghetti-source/algorithm/blob/6c4a86dea5a487dbdd5fe96b3589d950e42c370d/data_structure/union_find.cc
 
 重みつき union-find 木
 - https://qiita.com/drken/items/cce6fc5c579051e64fab
 
 部分永続 union-find 木
 - https://camypaper.bitbucket.io/2016/12/18/adc2016/
-- https://github.com/drken1215/algorithm/blob/master/DataStructure/partially_persistent_union_find_tree.cpp
+- https://github.com/drken1215/algorithm/blob/86a29ca7b6c24132e8ba6b002c4ddd2ab201d4e7/DataStructure/partially_persistent_union_find_tree.cpp
 
 undo 可能 union-find 木
 - https://snuke.hatenablog.com/entry/2016/07/01/000000

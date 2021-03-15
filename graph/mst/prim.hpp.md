@@ -16,10 +16,10 @@ data:
     _deprecated_at_docs: docs/graph/mst/mst.md
     document_title: "Prim \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/mst/prim.hpp: line 6: #pragma once found in a non-first line\n"
@@ -72,25 +72,13 @@ $O(\lvert E \rvert \log{\lvert V \rvert})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$graph$ には双方向の辺の情報が必要である．|
-
-- Prim 法 重量版
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`prim_heavy(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木に含まれる辺|$\mathrm{graph}$ には双方向の辺の情報が必要である．|
+|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には双方向の辺の情報が必要である．|
 
 - Kruskal 法
 
 ||説明|備考|
 |:--:|:--:|:--:|
 |`kruskal(graph)`|グラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には単方向の辺の情報のみでよい．|
-
-- Kruskal 法 重量版
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`kruskal_heavy(graph)`|グラフ $\mathrm{graph}$ の最小全域木に含まれる辺|$\mathrm{graph}$ には単方向の辺の情報のみでよい．|
 
 
 ## 参考
@@ -99,7 +87,7 @@ Prim 法
 - http://www.prefield.com/algorithm/graph/prim.html
 
 Kruskal 法
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/kruskal.cc
+- https://github.com/spaghetti-source/algorithm/blob/64d34fb9b940a3e933cf36c4dd26b7457b42f50b/graph/kruskal.cc
 
 
 ## ToDo
@@ -122,6 +110,7 @@ Kruskal 法
   - http://www.prefield.com/algorithm/dp/steiner_tree.html
   - http://monyone.github.io/teihen_library/#MinimumSteinerTree
 - 最小全域有向木
+  - https://dic.kimiyuki.net/chu-liu-edmonds
   - http://joisino.hatenablog.com/entry/2017/01/11/230141
   - https://ark4rk.hatenablog.com/entry/2017/09/15/011937
   - https://twitter.com/nuo_chocorusk/status/1187055311422574593
@@ -146,6 +135,4 @@ Kruskal 法
 ## Verified
 
 - [Prim 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_2_A/review/4083632/emthrm/C++14)
-- Prim 法 重量版
 - [Kruskal 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_2_A/review/4083639/emthrm/C++14)
-- Kruskal 法 重量版

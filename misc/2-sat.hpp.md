@@ -90,7 +90,7 @@ $N$ 変数 $M$ 節 のとき $O(N + M)$．
 ## 参考
 
 - プログラミングコンテストチャレンジブック \[第2版\] pp.288-290
-- https://github.com/beet-aizu/library/blob/master/graph/stronglyconnectedcomponent.cpp
+- https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 
 
 ## Verified

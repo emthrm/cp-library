@@ -2,7 +2,9 @@
 
 $n = \prod_{i = 1}^k p_i^{e_i}$ と素因数分解されるとすると
 
-$$\lambda(n) = \begin{cases} 1 & (n = 1, 2) \\ 2 & (n = 4) \\ 2^{e - 2} & (\exists e \geq 3 \text{ s.t. } n = 2^e) \\ (p - 1)p^{e - 1} & (\exists p \text{ : 奇素数},\ e \in \mathbb{N} \text{ s.t. } n = p^e) \\ \mathrm{lcm} (\lambda(p_1^{e_1}),\ldots, \lambda(p_k^{e_k})) & (\text{otherwise}) \text{．} \end{cases}$$
+$$\lambda(n) = \begin{cases} 1 & (n = 1, 2) \\ 2 & (n = 4) \\ 2^{e - 2} & (\exists e \geq 3 \text{ s.t. } n = 2^e) \\ (p - 1)p^{e - 1} & (\exists p \text{ : 奇素数},\ e \in \mathbb{N} \text{ s.t. } n = p^e) \\ \mathrm{lcm} (\lambda(p_1^{e_1}),\ldots, \lambda(p_k^{e_k})) & (\text{otherwise}) \end{cases}$$
+
+で定義される $\lambda$ である．
 
 
 ### カーマイケルの定理 (Carmichael's theorem)
@@ -33,7 +35,7 @@ $$a^{\lambda(n)} \equiv 1 \pmod{n}$$
 
 - http://integers.hatenablog.com/entry/2017/06/08/191649
 - https://en.wikipedia.org/wiki/Carmichael_function
-- https://github.com/spaghetti-source/algorithm/blob/master/number_theory/carmichael_lambda.cc
+- https://github.com/spaghetti-source/algorithm/blob/8af3698b8a7583035857280ab324c8ae75c70374/number_theory/carmichael_lambda.cc
 
 
 ## ToDo

@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data_structure/segment_tree/lazy_segment_tree.hpp
-    title: "\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    path: data_structure/lazy_segment_tree.hpp
+    title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
   - icon: ':heavy_check_mark:'
     path: data_structure/sparse_table.hpp
     title: sparse table
@@ -29,12 +29,12 @@ data:
       \ \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
@@ -42,7 +42,7 @@ data:
     \ \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\u7248\r\n */\r\n#define PROBLEM \"\
     http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667\"\r\n\r\n#include\
     \ <iostream>\r\n#include <vector>\r\n#include \"../../../graph/edge.hpp\"\r\n\
-    #include \"../../../graph/tree/lca_euler_tour.hpp\"\r\n#include \"../../../data_structure/segment_tree/lazy_segment_tree.hpp\"\
+    #include \"../../../graph/tree/lca_euler_tour.hpp\"\r\n#include \"../../../data_structure/lazy_segment_tree.hpp\"\
     \r\n\r\nint main() {\r\n  int n, q;\r\n  std::cin >> n >> q;\r\n  std::vector<std::vector<Edge<long\
     \ long>>> graph(n);\r\n  for (int i = 0; i < n - 1; ++i) {\r\n    int a, b;\r\n\
     \    std::cin >> a >> b;\r\n    graph[a].emplace_back(a, b, 0);\r\n    graph[b].emplace_back(b,\
@@ -69,11 +69,11 @@ data:
   - graph/tree/lca_euler_tour.hpp
   - graph/tree/euler_tour.hpp
   - data_structure/sparse_table.hpp
-  - data_structure/segment_tree/lazy_segment_tree.hpp
+  - data_structure/lazy_segment_tree.hpp
   isVerificationFile: true
   path: test/graph/tree/lca_euler_tour.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
+  timestamp: '2021-03-04 19:38:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/lca_euler_tour.test.cpp

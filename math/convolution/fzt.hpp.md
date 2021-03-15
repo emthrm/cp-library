@@ -52,8 +52,8 @@ data:
   timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/convolution/and_convolution.test.cpp
   - test/math/convolution/fzt.test.cpp
+  - test/math/convolution/and_convolution.test.cpp
 documentation_of: math/convolution/fzt.hpp
 layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
@@ -71,7 +71,7 @@ $O(N\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`fzt(a, 上位集合に対する FZT か?, 単位元 = 0, 二項演算 = +)`|$A$ に FMT を行ったもの|
+|`fzt(a, 上位集合に対する FZT か?, 単位元 = 0, 二項演算 = +)`|$A$ に高速ゼータ変換を行ったもの|
 
 
 ## 参考

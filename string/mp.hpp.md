@@ -16,10 +16,10 @@ data:
     _deprecated_at_docs: docs/string/kmp.md
     document_title: "MP \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/mp.hpp: line 6: #pragma once found in a non-first line\n"
@@ -44,8 +44,8 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/string/mp.1.test.cpp
   - test/string/mp.2.test.cpp
+  - test/string/mp.1.test.cpp
 documentation_of: string/mp.hpp
 layout: document
 redirect_from:
@@ -55,7 +55,7 @@ title: "MP \u6CD5"
 ---
 # KMP 法 (Knuth-Morris-Pratt algorithm)
 
-ある文字列 $S$ について `S[0:i]` を除く `S[0:i]` の接頭辞と接尾辞の先頭において一致する最大文字数を求めるアルゴリズムである．
+ある文字列 $S$ について `S[0:i]` の接頭辞と接尾辞の最大共通文字数 $(< i)$ を求めるアルゴリズムである．
 
 
 ## 時間計算量
@@ -109,7 +109,7 @@ KMP 法
 - https://snuke.hatenablog.com/entry/2015/04/05/184819
 
 パターンマッチング
-- https://github.com/drken1215/algorithm/blob/master/String/knuth_morris_pratt.cpp
+- https://github.com/drken1215/algorithm/blob/d41481f5011e8b129128050627faddebe2add91a/String/knuth_morris_pratt.cpp
 
 
 ## Verified

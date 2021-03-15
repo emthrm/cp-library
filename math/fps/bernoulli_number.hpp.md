@@ -161,8 +161,8 @@ data:
   timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fps/faulhaber_with_fps.test.cpp
   - test/math/fps/bernoulli_number.test.cpp
+  - test/math/fps/faulhaber_with_fps.test.cpp
 documentation_of: math/fps/bernoulli_number.hpp
 layout: document
 title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"

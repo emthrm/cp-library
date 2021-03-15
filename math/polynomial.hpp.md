@@ -191,7 +191,7 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 |`Polynomial<T>(deg = 0)`|次数 $\mathrm{deg}$ の多項式||
 |`Polynomial<T>(co)`|係数を $\mathrm{co}$ とする多項式||
 |`co`|係数||
-|`operator()[term]`|$[x^{\mathrm{term}}]f$||
+|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
 |`shrink()`|正規化を行う．||
 |`degree()`|次数||
@@ -217,8 +217,8 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 
 ## 参考
 
-- https://github.com/beet-aizu/library/blob/master/polynomial/polynomial.cpp
-- https://github.com/primenumber/ProconLib/blob/master/Math/Polynomial.cpp
+- https://github.com/beet-aizu/library/blob/29e15f77befa18d06b1f61221c509b5a58f4cb4c/polynomial/polynomial.cpp
+- https://github.com/primenumber/ProconLib/blob/dc175741e461e88f69350532b47fa57527b38fa3/Math/Polynomial.cpp
 
 
 ## ToDo

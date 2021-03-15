@@ -1,6 +1,6 @@
 # KMP 法 (Knuth-Morris-Pratt algorithm)
 
-ある文字列 $S$ について `S[0:i]` を除く `S[0:i]` の接頭辞と接尾辞の先頭において一致する最大文字数を求めるアルゴリズムである．
+ある文字列 $S$ について `S[0:i]` の接頭辞と接尾辞の最大共通文字数 $(< i)$ を求めるアルゴリズムである．
 
 
 ## 時間計算量
@@ -54,7 +54,7 @@ KMP 法
 - https://snuke.hatenablog.com/entry/2015/04/05/184819
 
 パターンマッチング
-- https://github.com/drken1215/algorithm/blob/master/String/knuth_morris_pratt.cpp
+- https://github.com/drken1215/algorithm/blob/d41481f5011e8b129128050627faddebe2add91a/String/knuth_morris_pratt.cpp
 
 
 ## Verified

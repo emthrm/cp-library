@@ -103,7 +103,7 @@ $O(N^3)$
 
 ## 参考
 
-- https://github.com/beet-aizu/library/blob/master/matrix/matrix.cpp
+- https://github.com/beet-aizu/library/blob/ebcad58b8480962339b18e316b826e56752b90c8/matrix/matrix.cpp
 
 
 ## Verified

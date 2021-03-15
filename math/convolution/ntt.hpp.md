@@ -48,9 +48,6 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
   - icon: ':heavy_check_mark:'
-    path: test/math/is_primitive_root.test.cpp
-    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
   - icon: ':heavy_check_mark:'
@@ -58,11 +55,6 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':heavy_check_mark:'
-    path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
-    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
-      \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-      \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
@@ -75,10 +67,10 @@ data:
     _deprecated_at_docs: docs/math/convolution/ntt.md
     document_title: "\u6570\u8AD6\u5909\u63DB"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/ntt.hpp: line 6: #pragma once found in a non-first line\n"
@@ -136,23 +128,21 @@ data:
   isVerificationFile: false
   path: math/convolution/ntt.hpp
   requiredBy: []
-  timestamp: '2021-02-15 03:05:11+09:00'
+  timestamp: '2021-03-07 02:53:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
-  - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
   - test/math/fps/multipoint_evaluation.test.cpp
   - test/math/fps/fps.3.test.cpp
-  - test/math/fps/fps.1.test.cpp
-  - test/math/fps/fps.6.test.cpp
   - test/math/fps/bernoulli_number.test.cpp
   - test/math/fps/fps.7.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/fps.4.test.cpp
+  - test/math/fps/fps.6.test.cpp
   - test/math/fps/fps.2.test.cpp
-  - test/math/is_primitive_root.test.cpp
+  - test/math/fps/fps.4.test.cpp
+  - test/math/fps/fps.1.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
   - test/math/convolution/ntt.test.cpp
   - test/dp/subset_sum_problem.test.cpp
 documentation_of: math/convolution/ntt.hpp
@@ -164,9 +154,9 @@ title: "\u6570\u8AD6\u5909\u63DB"
 ---
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
-$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で DFT を高速に行うアルゴリズムである．
+$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
 
-特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は $p$ の原始根 $\omega$ について
+特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ について
 
 $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
@@ -174,7 +164,7 @@ $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
 $$(\omega^k)^{2^x} \equiv 1 \pmod{p}$$
 
-が成り立つので条件を満たす．
+が成り立つので，条件を満たす．
 
 
 ## 時間計算量
@@ -186,7 +176,7 @@ $O(N\log{N})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`NTT<T>()`|$\mathrm{mod}$ で剰余演算を行う数論変換を考える．||
+|`NTT<T>()`|数論変換を考える．||
 |`sub_dft(a)`|$A$ に対して数論変換を行う．||
 |`dft(a)`|整数列 $A$ に対して数論変換を行ったもの||
 |`idft(a)`|$A$ に対して数論変換の逆変換を行う||

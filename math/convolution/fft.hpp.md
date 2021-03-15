@@ -153,8 +153,8 @@ data:
   verifiedWith:
   - test/math/fps/fps.5.test.cpp
   - test/math/fps/faulhaber_with_fps.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
   - test/math/convolution/fft.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
   - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: math/convolution/fft.hpp
 layout: document
@@ -187,11 +187,11 @@ $O(N\log{N})$
 |:--:|:--:|:--:|
 |`butterfly`|バタフライ演算用の配列||
 |`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$||
-|`calc(n)`|サイズ $N$ の数列に対して DFT を行うための事前処理を行う．||
-|`sub_dft(a)`|複素数列 $A$ に対して DFT を行う．||
-|`dft(a)`|実数列 $A$ に対して DFT を行ったもの||
-|`real_idft(a)`|複素数列 $A$ に対して IDFT を行ったもの|$A$ は実数列に対して DFT を行ったものでなければならない．|
-|`idft(a)`|複素数列 $A$ に対して IDFT を行う．||
+|`calc(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う．||
+|`sub_dft(a)`|複素数列 $A$ に対して離散フーリエ変換を行う．||
+|`dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの||
+|`real_idft(a)`|複素数列 $A$ に対して逆離散フーリエ変換を行ったもの|$A$ は実数列に対して離散フーリエ変換を行ったものでなければならない．|
+|`idft(a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．||
 |`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み||
 
 
@@ -271,6 +271,9 @@ $$\begin{aligned} D_i = \overline{D_{\frac{N}{2} - i}} &= \frac{(R_i + R_{\frac{
 - k-基底 FFT
   - http://xn--w6q13e505b.jp/method/fft/radix.html
   - http://wwwa.pikara.ne.jp/okojisan/stockham/stockham3.html
+- 多変数の畳み込み
+  - https://37zigen.com/truncated-multivariate-convolution/
+  - https://judge.yosupo.jp/problem/multivariate_convolution
 
 
 ## Verified

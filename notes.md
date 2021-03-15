@@ -23,3 +23,14 @@ $A + B = (A \oplus B) + 2(A \wedge B)$ が成り立つ．
 $n \leq 10^9$ を満たす自然数 $n$ の約数の個数の最大値は $800$ 程度である．
 
 > プログラミングコンテストチャレンジブック \[第2版\] p.267
+
+---
+
+$a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して
+
+- $ab < c \iff a < \left\lfloor \frac{c}{b} \right\rfloor$
+- $ab \leq c \iff a \leq \left\lfloor \frac{c}{b} \right\rfloor$
+
+が成り立つ．
+
+> https://hackmd.io/@qLethon/B1ZGcrbnI

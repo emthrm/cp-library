@@ -22,16 +22,16 @@ data:
     #include <iostream>\r\n#line 2 \"math/bigint.hpp\"\n#include <algorithm>\r\n#include\
     \ <cassert>\r\n#include <cmath>\r\n#include <iomanip>\r\n#line 7 \"math/bigint.hpp\"\
     \n#include <limits>\r\n#include <sstream>\r\n#include <string>\r\n#include <utility>\r\
-    \n#include <vector>\r\n\r\ntemplate <int LG10_BASE = 9, int BASE = 1000000000>\
-    \  // BASE = 10^{LG_10BASE}\r\nstruct BigInt {\r\n  int sign; std::vector<int>\
+    \n#include <vector>\r\n\r\ntemplate <int Log10Base = 9, int Base = 1000000000>\
+    \  // Base = 10^{Log10Base}\r\nstruct BigInt {\r\n  int sign; std::vector<int>\
     \ dat;\r\n  BigInt(long long val = 0) { *this = val; }\r\n  BigInt(const std::string\
     \ &s) { *this = s; }\r\n  std::vector<long long> convert_base(int new_lg10_base,\
     \ int new_base) const {\r\n    assert(new_base == static_cast<int>(std::round(std::pow(10,\
-    \ new_lg10_base))));\r\n    int mx_base = std::max(LG10_BASE, new_lg10_base);\r\
+    \ new_lg10_base))));\r\n    int mx_base = std::max(Log10Base, new_lg10_base);\r\
     \n    std::vector<long long> p(mx_base + 1, 1);\r\n    for (int i = 1; i <= mx_base;\
     \ ++i) p[i] = p[i - 1] * 10;\r\n    std::vector<long long> res;\r\n    long long\
     \ now_val = 0;\r\n    int now_lg10_base = 0;\r\n    for (int e : dat) {\r\n  \
-    \    now_val += p[now_lg10_base] * e;\r\n      now_lg10_base += LG10_BASE;\r\n\
+    \    now_val += p[now_lg10_base] * e;\r\n      now_lg10_base += Log10Base;\r\n\
     \      while (now_lg10_base >= new_lg10_base) {\r\n        res.emplace_back(now_val\
     \ % new_base);\r\n        now_val /= new_base;\r\n        now_lg10_base -= new_lg10_base;\r\
     \n      }\r\n    }\r\n    res.emplace_back(now_val);\r\n    while (!res.empty()\
@@ -39,25 +39,25 @@ data:
     \ const {\r\n    assert(sign == 1);\r\n    std::string s = to_string();\r\n  \
     \  int res = 0;\r\n    for (char c : s) res += c - '0';\r\n    return res;\r\n\
     \  }\r\n  int length() const {\r\n    if (dat.empty()) return 0;\r\n    int res\
-    \ = LG10_BASE * (dat.size() - 1), tmp = dat.back();\r\n    while (tmp > 0) { ++res;\
+    \ = Log10Base * (dat.size() - 1), tmp = dat.back();\r\n    while (tmp > 0) { ++res;\
     \ tmp /= 10; }\r\n    return res;\r\n  }\r\n  BigInt pow(BigInt exponent) const\
     \ {\r\n    BigInt res = 1, tmp = *this;\r\n    while (exponent > 0) {\r\n    \
     \  if (exponent.dat[0] & 1) res *= tmp;\r\n      tmp *= tmp;\r\n      exponent\
     \ /= 2;\r\n    }\r\n    return res;\r\n  }\r\n  long long to_llong() const {\r\
     \n    assert(*this >= std::numeric_limits<long long>::min() && *this <= std::numeric_limits<long\
     \ long>::max());\r\n    long long res = 0;\r\n    for (int i = static_cast<int>(dat.size())\
-    \ - 1; i >= 0; --i) (res *= BASE) += dat[i];\r\n    return res;\r\n  }\r\n  std::string\
+    \ - 1; i >= 0; --i) (res *= Base) += dat[i];\r\n    return res;\r\n  }\r\n  std::string\
     \ to_string() const { std::stringstream ss; ss << *this; std::string res; ss >>\
     \ res; return res; }\r\n  void trim() {\r\n    while (!dat.empty() && dat.back()\
     \ == 0) dat.pop_back();\r\n    if (dat.empty()) sign = 1;\r\n  }\r\n  BigInt &operator=(long\
     \ long val) {\r\n    sign = 1;\r\n    if (val < 0) { sign = -1; val = -val;}\r\
-    \n    dat.clear();\r\n    for (; val > 0; val /= BASE) dat.emplace_back(val %\
-    \ BASE);\r\n    return *this;\r\n  }\r\n  BigInt &operator=(const std::string\
+    \n    dat.clear();\r\n    for (; val > 0; val /= Base) dat.emplace_back(val %\
+    \ Base);\r\n    return *this;\r\n  }\r\n  BigInt &operator=(const std::string\
     \ &s) {\r\n    sign = 1;\r\n    dat.clear();\r\n    if (!s.empty()) {\r\n    \
     \  int tail = 0;\r\n      if (s[tail] == '-') {\r\n        sign = -1;\r\n    \
     \    ++tail;\r\n      } else if (s[tail] == '+') {\r\n        ++tail;\r\n    \
-    \  }\r\n      for (int i = s.length() - 1; i >= tail; i -= LG10_BASE) {\r\n  \
-    \      int val = 0;\r\n        for (int j = std::max(tail, i - LG10_BASE + 1);\
+    \  }\r\n      for (int i = s.length() - 1; i >= tail; i -= Log10Base) {\r\n  \
+    \      int val = 0;\r\n        for (int j = std::max(tail, i - Log10Base + 1);\
     \ j <= i; ++j) val = val * 10 + (s[j] - '0');\r\n        dat.emplace_back(val);\r\
     \n      }\r\n    }\r\n    trim();\r\n    return *this;\r\n  }\r\n  BigInt &operator=(const\
     \ BigInt &x) {\r\n    sign = x.sign;\r\n    dat.resize(x.dat.size());\r\n    std::copy(x.dat.begin(),\
@@ -65,14 +65,14 @@ data:
     \ BigInt &x) {\r\n    if (sign == x.sign) {\r\n      bool carry = false;\r\n \
     \     for (int i = 0; i < std::max(dat.size(), x.dat.size()) || carry; ++i) {\r\
     \n        if (i == dat.size()) dat.emplace_back(0);\r\n        dat[i] += (i <\
-    \ x.dat.size() ? x.dat[i] : 0) + carry;\r\n        carry = dat[i] >= BASE;\r\n\
-    \        if (carry) dat[i] -= BASE;\r\n      }\r\n    } else {\r\n      *this\
+    \ x.dat.size() ? x.dat[i] : 0) + carry;\r\n        carry = dat[i] >= Base;\r\n\
+    \        if (carry) dat[i] -= Base;\r\n      }\r\n    } else {\r\n      *this\
     \ -= -x;\r\n    }\r\n    return *this;\r\n  }\r\n  BigInt &operator-=(const BigInt\
     \ &x) {\r\n    if (sign == x.sign) {\r\n      BigInt abs_this = *this, abs_x =\
     \ x;\r\n      abs_this.sign = 1; abs_x.sign = 1;\r\n      if (abs_this >= abs_x)\
     \ {\r\n        bool carry = false;\r\n        for (int i = 0; i < dat.size() ||\
     \ carry; ++i) {\r\n          dat[i] -= (i < x.dat.size() ? x.dat[i] : 0) + carry;\r\
-    \n          carry = dat[i] < 0;\r\n          if (carry) dat[i] += BASE;\r\n  \
+    \n          carry = dat[i] < 0;\r\n          if (carry) dat[i] += Base;\r\n  \
     \      }\r\n        trim();\r\n      } else {\r\n        *this = -(x - *this);\r\
     \n      }\r\n    } else {\r\n      *this += -x;\r\n    }\r\n    return *this;\r\
     \n  }\r\n  BigInt &operator*=(const BigInt &x) {\r\n    constexpr int new_log10_base\
@@ -114,7 +114,7 @@ data:
     \  BigInt operator%(const BigInt &x) const { return BigInt(*this) %= x; }\r\n\
     \  friend std::ostream &operator<<(std::ostream &os, const BigInt &x) {\r\n  \
     \  if (x.sign == -1) os << '-';\r\n    os << (x.dat.empty() ? 0 : x.dat.back());\r\
-    \n    for (int i = static_cast<int>(x.dat.size()) - 2; i >= 0; --i) os << std::setw(LG10_BASE)\
+    \n    for (int i = static_cast<int>(x.dat.size()) - 2; i >= 0; --i) os << std::setw(Log10Base)\
     \ << std::setfill('0') << x.dat[i];\r\n    return os;\r\n  }\r\n  friend std::istream\
     \ &operator>>(std::istream &is, BigInt &x) { std::string s; is >> s; x = s; return\
     \ is; }\r\nprivate:\r\n  std::vector<long long> karatsuba(std::vector<long long>\
@@ -138,31 +138,31 @@ data:
     \ divide(int x) const {\r\n    assert(x != 0);\r\n    BigInt dividend = *this;\r\
     \n    if (x < 0) { dividend.sign = -dividend.sign; x = -x; }\r\n    long long\
     \ rem = 0;\r\n    for (int i = static_cast<int>(dividend.dat.size()) - 1; i >=\
-    \ 0; --i) {\r\n      long long tmp = rem * BASE + dividend.dat[i];\r\n      dividend.dat[i]\
+    \ 0; --i) {\r\n      long long tmp = rem * Base + dividend.dat[i];\r\n      dividend.dat[i]\
     \ = static_cast<int>(tmp / x);\r\n      rem = tmp % x;\r\n    }\r\n    dividend.trim();\r\
     \n    return {dividend, static_cast<int>(rem)};\r\n  }\r\n  std::pair<BigInt,\
     \ BigInt> divide(const BigInt &x) const {\r\n    assert(!x.dat.empty());\r\n \
-    \   int k = BASE / (x.dat.back() + 1);\r\n    BigInt dividend = *this, divisor\
+    \   int k = Base / (x.dat.back() + 1);\r\n    BigInt dividend = *this, divisor\
     \ = x;\r\n    dividend.sign = 1; divisor.sign = 1;\r\n    dividend *= k; divisor\
     \ *= k;\r\n    BigInt quo, rem = 0;\r\n    quo.dat.resize(dividend.dat.size());\r\
     \n    int sz = divisor.dat.size();\r\n    for (int i = static_cast<int>(dividend.dat.size())\
     \ - 1; i >= 0; --i) {\r\n      rem.dat.insert(rem.dat.begin(), dividend.dat[i]);\r\
     \n      quo.dat[i] = static_cast<int>(((sz < rem.dat.size() ? static_cast<long\
-    \ long>(rem.dat[sz]) * BASE : 0) + (sz - 1 < rem.dat.size() ? rem.dat[sz - 1]\
+    \ long>(rem.dat[sz]) * Base : 0) + (sz - 1 < rem.dat.size() ? rem.dat[sz - 1]\
     \ : 0)) / divisor.dat.back());\r\n      rem -= divisor * quo.dat[i];\r\n     \
     \ while (rem.sign == -1) { rem += divisor; --quo.dat[i];  }\r\n    }\r\n    quo.sign\
     \ = sign * x.sign; rem.sign = sign;\r\n    quo.trim(); rem.trim();\r\n    return\
-    \ {quo, rem / k};\r\n  }\r\n};\r\nnamespace std {\r\ntemplate <int LG10_BASE,\
-    \ int BASE>\r\nBigInt<LG10_BASE, BASE> __gcd(BigInt<LG10_BASE, BASE> a, BigInt<LG10_BASE,\
-    \ BASE> b) { while (!b.dat.empty()) std::swap(a %= b, b); return a; }\r\ntemplate\
-    \ <int LG10_BASE, int BASE>\r\nBigInt<LG10_BASE, BASE> __lcm(const BigInt<LG10_BASE,\
-    \ BASE> &a, const BigInt<LG10_BASE, BASE> &b) { return a / std::__gcd(a, b) *\
-    \ b; }\r\ntemplate <int LG10_BASE, int BASE>\r\nBigInt<LG10_BASE, BASE> abs(const\
-    \ BigInt<LG10_BASE, BASE> &x) { BigInt<LG10_BASE, BASE> res = x; res.sign = 1;\
-    \ return res; }\r\ntemplate <int LG10_BASE, int BASE>\r\nBigInt<LG10_BASE, BASE>\
-    \ max(const BigInt<LG10_BASE, BASE> &a, const BigInt<LG10_BASE, BASE> &b) { return\
-    \ a < b ? b : a; }\r\ntemplate <int LG10_BASE, int BASE>\r\nBigInt<LG10_BASE,\
-    \ BASE> min(const BigInt<LG10_BASE, BASE> &a, const BigInt<LG10_BASE, BASE> &b)\
+    \ {quo, rem / k};\r\n  }\r\n};\r\nnamespace std {\r\ntemplate <int Log10Base,\
+    \ int Base>\r\nBigInt<Log10Base, Base> __gcd(BigInt<Log10Base, Base> a, BigInt<Log10Base,\
+    \ Base> b) { while (!b.dat.empty()) std::swap(a %= b, b); return a; }\r\ntemplate\
+    \ <int Log10Base, int Base>\r\nBigInt<Log10Base, Base> __lcm(const BigInt<Log10Base,\
+    \ Base> &a, const BigInt<Log10Base, Base> &b) { return a / std::__gcd(a, b) *\
+    \ b; }\r\ntemplate <int Log10Base, int Base>\r\nBigInt<Log10Base, Base> abs(const\
+    \ BigInt<Log10Base, Base> &x) { BigInt<Log10Base, Base> res = x; res.sign = 1;\
+    \ return res; }\r\ntemplate <int Log10Base, int Base>\r\nBigInt<Log10Base, Base>\
+    \ max(const BigInt<Log10Base, Base> &a, const BigInt<Log10Base, Base> &b) { return\
+    \ a < b ? b : a; }\r\ntemplate <int Log10Base, int Base>\r\nBigInt<Log10Base,\
+    \ Base> min(const BigInt<Log10Base, Base> &a, const BigInt<Log10Base, Base> &b)\
     \ { return a < b ? a : b; }\r\n}  // std\r\n#line 8 \"test/math/bigint.06.test.cpp\"\
     \n\r\nint main() {\r\n  BigInt<> a, b;\r\n  std::cin >> a >> b;\r\n  std::cout\
     \ << a % b << '\\n';\r\n  return 0;\r\n}\r\n"
@@ -176,7 +176,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.06.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-04 17:06:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.06.test.cpp

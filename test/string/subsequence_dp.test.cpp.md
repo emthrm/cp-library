@@ -22,10 +22,10 @@ data:
     \ \"https://codeforces.com/problemset/problem/1149/B\"\r\n\r\n#include <iostream>\r\
     \n#include <string>\r\n#include <vector>\r\n#line 4 \"string/subsequence_dp.hpp\"\
     \n\r\nstd::vector<std::vector<int>> nx_init(const std::string &s, const char basis\
-    \ = 'a', const int char_sz = 26) {\r\n  int n = s.size();\r\n  std::vector<std::vector<int>>\
-    \ nx(n, std::vector<int>(char_sz, n));\r\n  nx[n - 1][s[n - 1] - basis] = n -\
-    \ 1;\r\n  for (int i = n - 2; i >= 0; --i) {\r\n    for (int j = 0; j < char_sz;\
-    \ ++j) nx[i][j] = nx[i + 1][j];\r\n    nx[i][s[i] - basis] = i;\r\n  }\r\n  return\
+    \ = 'a', const int sigma = 26) {\r\n  int n = s.size();\r\n  std::vector<std::vector<int>>\
+    \ nx(n, std::vector<int>(sigma, n));\r\n  nx[n - 1][s[n - 1] - basis] = n - 1;\r\
+    \n  for (int i = n - 2; i >= 0; --i) {\r\n    for (int j = 0; j < sigma; ++j)\
+    \ nx[i][j] = nx[i + 1][j];\r\n    nx[i][s[i] - basis] = i;\r\n  }\r\n  return\
     \ nx;\r\n}\r\n#line 11 \"test/string/subsequence_dp.test.cpp\"\n\r\nint main()\
     \ {\r\n  constexpr int D = 250;\r\n  int n, q;\r\n  std::string s;\r\n  std::cin\
     \ >> n >> q >> s;\r\n  std::vector<std::vector<int>> nx = nx_init(s);\r\n  std::vector<std::vector<std::vector<int>>>\
@@ -118,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/string/subsequence_dp.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-04 17:06:38+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/subsequence_dp.test.cpp

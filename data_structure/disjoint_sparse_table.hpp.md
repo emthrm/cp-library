@@ -80,7 +80,7 @@ $\langle O(N\log{N}), O(1) \rangle$
 ## 参考
 
 - http://noshi91.hatenablog.com/entry/2018/05/08/183946
-- https://github.com/drken1215/algorithm/blob/master/DataStructure/disjoint_sparse_table.cpp
+- https://github.com/drken1215/algorithm/blob/f65b8a3b2603f5efb10a8a912c2403b404c29813/DataStructure/disjoint_sparse_table.cpp
 
 
 ## Verified

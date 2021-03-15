@@ -35,10 +35,8 @@ data:
   verifiedWith: []
 documentation_of: math/segmented_sieve.hpp
 layout: document
-title: "\u533A\u9593\u7BE9 (segmented sieve)"
+title: segmented sieve
 ---
-
-区間 $[L, H)$ における素数を列挙するアルゴリズムである．
 
 
 ## 時間計算量

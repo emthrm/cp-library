@@ -25,10 +25,10 @@ data:
     document_title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/fps/faulhaber_with_fps.hpp: line 6: #pragma once found in a non-first line\n"
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: math/fps/faulhaber_with_fps.hpp
   requiredBy: []
-  timestamp: '2021-02-15 03:05:11+09:00'
+  timestamp: '2021-03-07 02:53:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/fps/faulhaber_with_fps.test.cpp
@@ -68,9 +68,7 @@ $$S_k(n) = \sum_{i = 1}^{n - 1} i^k$$
 
 $$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i}$$
 
-である．
-
-ここで $B$ はベルヌーイ数である．
+である．ここで $B$ は[ベルヌーイ数](bernoulli_number)である．
 
 
 ## 時間計算量

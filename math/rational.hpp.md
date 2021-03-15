@@ -107,8 +107,8 @@ title: "\u6709\u7406\u6570 (rational number)"
 
 ## 参考
 
-- https://github.com/spaghetti-source/algorithm/blob/master/math/rational.cc
-- https://github.com/eandbsoftware/libraryCPP/blob/master/!Ratio.cpp
+- https://github.com/spaghetti-source/algorithm/blob/208bcfd781e9c37aedee117ce45d5a4a5bab5fa1/math/rational.cc
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!Ratio.cpp~~
 
 
 ## ToDo

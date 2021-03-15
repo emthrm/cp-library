@@ -63,7 +63,7 @@ $$\left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p} \text{．}$$
 
    - $r \leftarrow rc^{2^{m - 1 - i}} \ (\because (rc^{2^{m - 1 - i}})^2 \equiv r^2 c^{2^{m - i}} \equiv atc^{2^{m - i}})$
 
-   と更新しても3式は成り立つ．この操作において $m$ は減少しており $m = 1$ のとき2式目より $t \equiv 1$ なので有限ステップで解は求まる．
+   と更新しても3式は成り立つ．この操作において $m$ は減少しており，$m = 1$ のとき2式目より $t \equiv 1$ なので，有限ステップで解は求まる．
 
 6. 4に戻る．
 
@@ -106,7 +106,7 @@ $$\left(\dfrac{a}{p} \right) = \prod_i \left(\dfrac{a}{p_i} \right)^{e_i}$$
 - https://lumakernel.github.io/ecasdqina/math/number-theory/Tonelli-Shanks
 - https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm
 - http://sugarknri.hatenablog.com/entry/2018/02/16/115740
-- https://github.com/ei1333/library/blob/master/math/combinatorics/mod-sqrt.cpp
+- https://github.com/ei1333/library/blob/e24eaf375ae60018ba6af9079f690db319719e09/math/combinatorics/mod-sqrt.cpp
 
 ヤコビ記号
 - https://en.wikipedia.org/wiki/Jacobi_symbol

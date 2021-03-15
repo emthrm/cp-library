@@ -31,10 +31,10 @@ data:
     document_title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\
       \u53BB\u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/matrix/binary_matrix/gauss_jordan.hpp: line 6: #pragma once found in a\
@@ -42,7 +42,7 @@ data:
   code: "/**\r\n * @brief \u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\
     \u6D88\u53BB\u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include \"binary_matrix.hpp\"\
-    \r\n\r\ntemplate <int COL>\r\nint gauss_jordan(BinaryMatrix<COL> &mat, bool is_extended\
+    \r\n\r\ntemplate <int Col>\r\nint gauss_jordan(BinaryMatrix<Col> &mat, bool is_extended\
     \ = false) {\r\n  int rank = 0;\r\n  for (int col = 0; col < mat.n; ++col) {\r\
     \n    if (is_extended && col == mat.n - 1) break;\r\n    int pivot = -1;\r\n \
     \   for (int row = rank; row < mat.m; ++row) {\r\n      if (mat[row][col]) {\r\
@@ -56,12 +56,12 @@ data:
   path: math/matrix/binary_matrix/gauss_jordan.hpp
   requiredBy:
   - math/matrix/binary_matrix/linear_equation.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-04 17:06:38+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
+  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
 documentation_of: math/matrix/binary_matrix/gauss_jordan.hpp
 layout: document
 redirect_from:
@@ -102,7 +102,7 @@ title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inverse(mat, inv)`|行列 $\mathrm{mat}$ の逆行列が存在するか．|$\mathrm{inv}$ に逆行列が格納される．|
+|`inverse(mat)`|行列 $\mathrm{mat}$ の逆行列|存在しない場合は空行列となる．|
 
 
 ## 参考
@@ -115,5 +115,5 @@ title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB
 
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
-- [連立一次方程式](https://onlinejudge.u-aizu.ac.jp/solutions/problem/1308/review/4088796/emthrm/C++14)
+- [連立一次方程式](https://yukicoder.me/submissions/626481)
 - [逆行列](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2624/review/4088806/emthrm/C++14)

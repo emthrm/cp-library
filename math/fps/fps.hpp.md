@@ -27,10 +27,6 @@ data:
     title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':heavy_check_mark:'
-    path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp
-    title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-      \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
-  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
@@ -90,11 +86,6 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':heavy_check_mark:'
-    path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
-    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
-      \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-      \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
@@ -339,33 +330,31 @@ data:
   isVerificationFile: false
   path: math/fps/fps.hpp
   requiredBy:
-  - math/twelvefold_way/partition_function_init_with_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
-  - math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
+  - math/fps/faulhaber_with_fps.hpp
   - math/fps/bernoulli_number.hpp
   - math/fps/eulerian_number_init_with_fps.hpp
-  - math/fps/faulhaber_with_fps.hpp
+  - math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
+  - math/twelvefold_way/partition_function_init_with_fps.hpp
   - dp/subset_sum_problem.hpp
   timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
-  - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
   - test/math/fps/multipoint_evaluation.test.cpp
-  - test/math/fps/fps.3.test.cpp
   - test/math/fps/fps.5.test.cpp
-  - test/math/fps/faulhaber_with_fps.test.cpp
-  - test/math/fps/fps.1.test.cpp
-  - test/math/fps/fps.6.test.cpp
+  - test/math/fps/fps.3.test.cpp
   - test/math/fps/bernoulli_number.test.cpp
   - test/math/fps/fps.7.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/fps.4.test.cpp
+  - test/math/fps/faulhaber_with_fps.test.cpp
+  - test/math/fps/fps.6.test.cpp
   - test/math/fps/fps.2.test.cpp
+  - test/math/fps/fps.4.test.cpp
+  - test/math/fps/fps.1.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
   - test/dp/subset_sum_problem.test.cpp
 documentation_of: math/fps/fps.hpp
 layout: document
@@ -434,7 +423,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 |`FPS<T>(deg = 0)`|次数 $\mathrm{deg}$ の形式的冪級数||
 |`FPS<T>(co)`|数列 $\mathrm{co}$ の母関数||
 |`co`|係数||
-|`operator()[term]`|$[x^{\mathrm{term}}]f$||
+|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
 |`set_sqr(sqr)`|平方根の計算を定義する．||
 |`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．||
@@ -456,9 +445,9 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 |`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`integral()`|$\int{f}$||
-|`exp(deg = n)`|$\exp(f)$|$[x^0]f = 0$|
-|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|$[x^0]f \neq 0$|
-|`log(deg = n)`|$\ln{f}$|$[x^0]f = 1$|
+|`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$|
+|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|${\lbrack x^0 \rbrack}f \neq 0$|
+|`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
 |`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$||
 |`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
 |`sqrt(deg = n)`|$\sqrt{f}$|存在しない場合は空列となる．|
@@ -472,7 +461,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 - https://science-log.com/%e3%83%9b%e3%83%bc%e3%83%a0%e3%83%9a%e3%83%bc%e3%82%b8/%e6%95%b0%e5%ad%a6top%e3%83%9a%e3%83%bc%e3%82%b8/%e8%a7%a3%e6%9e%90top/%e6%af%8d%e9%96%a2%e6%95%b0%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/
 - https://codeforces.com/blog/entry/56422
 - http://sugarknri.hatenablog.com/entry/2019/10/08/001359
-- https://github.com/ei1333/library/blob/master/math/fps/formal-power-series.cpp
+- https://github.com/ei1333/library/commit/d7e8da80351ac962978692b1a60d2728783afb26#diff-5769d659f0cbf5035e237e5e0ba5d05d60588ff501de18d9b4a73fa5ec1cc5a1
 
 
 ## ToDo

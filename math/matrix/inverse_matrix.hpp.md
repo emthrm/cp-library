@@ -39,47 +39,47 @@ data:
     \n\r\n  Matrix operator-(const Matrix &x) const { return Matrix(*this) -= x; }\r\
     \n\r\n  Matrix operator*(const Matrix &x) const { return Matrix(*this) *= x; }\r\
     \n\r\nprivate:\r\n  std::vector<std::vector<T>> dat;\r\n};\r\n#line 6 \"math/matrix/inverse_matrix.hpp\"\
-    \n\r\ntemplate <typename T, typename U = double>\r\nbool inverse(const Matrix<T>\
-    \ &mat, Matrix<U> &inv, const U EPS = 1e-8) {\r\n  int n = mat.height();\r\n \
-    \ Matrix<U> gauss_jordan(n, n << 1, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n\
-    \    for (int j = 0; j < n; ++j) gauss_jordan[i][j] = mat[i][j];\r\n    gauss_jordan[i][n\
+    \n\r\ntemplate <typename T, typename U = double>\r\nMatrix<U> inverse_matrix(const\
+    \ Matrix<T> &mat, const U EPS = 1e-8) {\r\n  int n = mat.height();\r\n  Matrix<U>\
+    \ gauss_jordan(n, n << 1, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n    for (int\
+    \ j = 0; j < n; ++j) gauss_jordan[i][j] = mat[i][j];\r\n    gauss_jordan[i][n\
     \ + i] = 1;\r\n  }\r\n  for (int col = 0; col < n; ++col) {\r\n    int pivot =\
     \ -1;\r\n    U mx = EPS;\r\n    for (int row = col; row < n; ++row) {\r\n    \
     \  if (std::abs(gauss_jordan[row][col]) > mx) {\r\n        pivot = row;\r\n  \
     \      mx = std::abs(gauss_jordan[row][col]);\r\n      }\r\n    }\r\n    if (pivot\
-    \ == -1) return false;\r\n    std::swap(gauss_jordan[col], gauss_jordan[pivot]);\r\
+    \ == -1) return Matrix<U>(0, 0);\r\n    std::swap(gauss_jordan[col], gauss_jordan[pivot]);\r\
     \n    U tmp = gauss_jordan[col][col];\r\n    for (int col2 = 0; col2 < (n << 1);\
     \ ++col2) gauss_jordan[col][col2] /= tmp;\r\n    for (int row = 0; row < n; ++row)\
     \ {\r\n      if (row != col && std::abs(gauss_jordan[row][col]) > EPS) {\r\n \
     \       tmp = gauss_jordan[row][col];\r\n        for (int col2 = 0; col2 < (n\
     \ << 1); ++col2) gauss_jordan[row][col2] -= gauss_jordan[col][col2] * tmp;\r\n\
-    \      }\r\n    }\r\n  }\r\n  assert(inv.height() == n && inv.width() == n);\r\
-    \n  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n\
-    \ + j];\r\n  return true;\r\n}\r\n"
+    \      }\r\n    }\r\n  }\r\n  Matrix<U> inv(n, n);\r\n  for (int i = 0; i < n;\
+    \ ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n + j];\r\n  return\
+    \ inv;\r\n}\r\n"
   code: "#pragma once\r\n#include <cassert>\r\n#include <cmath>\r\n#include <utility>\r\
     \n#include \"matrix.hpp\"\r\n\r\ntemplate <typename T, typename U = double>\r\n\
-    bool inverse(const Matrix<T> &mat, Matrix<U> &inv, const U EPS = 1e-8) {\r\n \
-    \ int n = mat.height();\r\n  Matrix<U> gauss_jordan(n, n << 1, 0);\r\n  for (int\
-    \ i = 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) gauss_jordan[i][j] =\
-    \ mat[i][j];\r\n    gauss_jordan[i][n + i] = 1;\r\n  }\r\n  for (int col = 0;\
-    \ col < n; ++col) {\r\n    int pivot = -1;\r\n    U mx = EPS;\r\n    for (int\
-    \ row = col; row < n; ++row) {\r\n      if (std::abs(gauss_jordan[row][col]) >\
-    \ mx) {\r\n        pivot = row;\r\n        mx = std::abs(gauss_jordan[row][col]);\r\
-    \n      }\r\n    }\r\n    if (pivot == -1) return false;\r\n    std::swap(gauss_jordan[col],\
+    Matrix<U> inverse_matrix(const Matrix<T> &mat, const U EPS = 1e-8) {\r\n  int\
+    \ n = mat.height();\r\n  Matrix<U> gauss_jordan(n, n << 1, 0);\r\n  for (int i\
+    \ = 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) gauss_jordan[i][j] = mat[i][j];\r\
+    \n    gauss_jordan[i][n + i] = 1;\r\n  }\r\n  for (int col = 0; col < n; ++col)\
+    \ {\r\n    int pivot = -1;\r\n    U mx = EPS;\r\n    for (int row = col; row <\
+    \ n; ++row) {\r\n      if (std::abs(gauss_jordan[row][col]) > mx) {\r\n      \
+    \  pivot = row;\r\n        mx = std::abs(gauss_jordan[row][col]);\r\n      }\r\
+    \n    }\r\n    if (pivot == -1) return Matrix<U>(0, 0);\r\n    std::swap(gauss_jordan[col],\
     \ gauss_jordan[pivot]);\r\n    U tmp = gauss_jordan[col][col];\r\n    for (int\
     \ col2 = 0; col2 < (n << 1); ++col2) gauss_jordan[col][col2] /= tmp;\r\n    for\
     \ (int row = 0; row < n; ++row) {\r\n      if (row != col && std::abs(gauss_jordan[row][col])\
     \ > EPS) {\r\n        tmp = gauss_jordan[row][col];\r\n        for (int col2 =\
     \ 0; col2 < (n << 1); ++col2) gauss_jordan[row][col2] -= gauss_jordan[col][col2]\
-    \ * tmp;\r\n      }\r\n    }\r\n  }\r\n  assert(inv.height() == n && inv.width()\
-    \ == n);\r\n  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j]\
-    \ = gauss_jordan[i][n + j];\r\n  return true;\r\n}\r\n"
+    \ * tmp;\r\n      }\r\n    }\r\n  }\r\n  Matrix<U> inv(n, n);\r\n  for (int i\
+    \ = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n +\
+    \ j];\r\n  return inv;\r\n}\r\n"
   dependsOn:
   - math/matrix/matrix.hpp
   isVerificationFile: false
   path: math/matrix/inverse_matrix.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-04 20:20:37+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/matrix/inverse_matrix.hpp
@@ -97,4 +97,4 @@ $O(M^2 N)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inverse<T, U = double>(mat, inv, ε = 1e-8)`|行列 $\mathrm{mat}$ の逆行列が存在するか．|$\mathrm{inv}$ に逆行列が格納される．|
+|`inverse<T, U = double>(mat, ε = 1e-8)`|行列 $\mathrm{mat}$ の逆行列|存在しない場合は空行列となる．|

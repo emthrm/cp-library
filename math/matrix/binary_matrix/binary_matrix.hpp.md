@@ -38,25 +38,25 @@ data:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/matrix/binary_matrix/binary_matrix.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
   code: "/**\r\n * @brief \u30D0\u30A4\u30CA\u30EA\u884C\u5217\r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <bitset>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <int COL = 2500>\r\nstruct BinaryMatrix {\r\n  int m, n;\r\n\r\n  BinaryMatrix(int\
-    \ m, int n = COL, bool def = false) : m(m), n(n), dat(m, std::bitset<COL>(0))\
+    \ <int Col = 2500>\r\nstruct BinaryMatrix {\r\n  int m, n;\r\n\r\n  BinaryMatrix(int\
+    \ m, int n = Col, bool def = false) : m(m), n(n), dat(m, std::bitset<Col>(0))\
     \ {\r\n    if (def) {\r\n      for (int i = 0; i < m; ++i) for (int j = 0; j <\
     \ n; ++j) dat[i][j] = 1;\r\n    }\r\n  }\r\n\r\n  BinaryMatrix pow(long long exponent)\
     \ const {\r\n    BinaryMatrix tmp = *this, res(n, n);\r\n    for (int i = 0; i\
     \ < n; ++i) res[i][i] = 1;\r\n    while (exponent > 0) {\r\n      if (exponent\
     \ & 1) res *= tmp;\r\n      tmp *= tmp;\r\n      exponent >>= 1;\r\n    }\r\n\
-    \    return res;\r\n  }\r\n\r\n  inline const std::bitset<COL> &operator[](const\
-    \ int idx) const { return dat[idx]; }\r\n  inline std::bitset<COL> &operator[](const\
+    \    return res;\r\n  }\r\n\r\n  inline const std::bitset<Col> &operator[](const\
+    \ int idx) const { return dat[idx]; }\r\n  inline std::bitset<Col> &operator[](const\
     \ int idx) { return dat[idx]; }\r\n\r\n  BinaryMatrix &operator=(const BinaryMatrix\
     \ &x) {\r\n    m = x.m;\r\n    n = x.n;\r\n    dat.resize(m);\r\n    for (int\
     \ i = 0; i < m; ++i) dat[i] = x[i];\r\n    return *this;\r\n  }\r\n\r\n  BinaryMatrix\
@@ -69,21 +69,21 @@ data:
     \n    *this = res;\r\n    return *this;\r\n  }\r\n\r\n  BinaryMatrix operator+(const\
     \ BinaryMatrix &x) const { return BinaryMatrix(*this) += x; }\r\n\r\n  BinaryMatrix\
     \ operator*(const BinaryMatrix &x) const { return BinaryMatrix(*this) *= x; }\r\
-    \n\r\nprivate:\r\n  std::vector<std::bitset<COL>> dat;\r\n};\r\n"
+    \n\r\nprivate:\r\n  std::vector<std::bitset<Col>> dat;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/matrix/binary_matrix/binary_matrix.hpp
   requiredBy:
   - math/matrix/binary_matrix/inverse_matrix.hpp
-  - math/matrix/binary_matrix/gauss_jordan.hpp
   - math/matrix/binary_matrix/linear_equation.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  - math/matrix/binary_matrix/gauss_jordan.hpp
+  timestamp: '2021-03-04 17:06:38+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
-  - test/math/matrix/binary_matrix/binary_matrix.test.cpp
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
+  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
+  - test/math/matrix/binary_matrix/binary_matrix.test.cpp
 documentation_of: math/matrix/binary_matrix/binary_matrix.hpp
 layout: document
 redirect_from:
@@ -123,7 +123,7 @@ title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inverse(mat, inv)`|行列 $\mathrm{mat}$ の逆行列が存在するか．|$\mathrm{inv}$ に逆行列が格納される．|
+|`inverse(mat)`|行列 $\mathrm{mat}$ の逆行列|存在しない場合は空行列となる．|
 
 
 ## 参考
@@ -136,5 +136,5 @@ title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
 
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
-- [連立一次方程式](https://onlinejudge.u-aizu.ac.jp/solutions/problem/1308/review/4088796/emthrm/C++14)
+- [連立一次方程式](https://yukicoder.me/submissions/626481)
 - [逆行列](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2624/review/4088806/emthrm/C++14)

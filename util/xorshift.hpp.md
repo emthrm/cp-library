@@ -24,6 +24,9 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
+    path: test/math/is_primitive_root.test.cpp
+    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
+  - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
   _isVerificationFailed: true
@@ -65,8 +68,9 @@ data:
   timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/mod_sqrt.test.cpp
   - test/math/fps/fps.6.test.cpp
+  - test/math/is_primitive_root.test.cpp
+  - test/math/mod_sqrt.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp
   - test/graph/flow/matching/tutte_theorem.test.cpp
 documentation_of: util/xorshift.hpp
@@ -94,5 +98,5 @@ title: xorshift
 ## 参考
 
 - https://ja.wikipedia.org/wiki/Xorshift
-- https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp~~
 - https://nodchip.hatenadiary.org/entry/20090111/1231667839

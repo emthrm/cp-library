@@ -73,10 +73,11 @@ data:
     \ const std::vector<T> &b, const U EPS = 1e-8) {\r\n  int m = a.height(), n =\
     \ a.width();\r\n  Matrix<U> matrix(m, n + 1);\r\n  for (int i = 0; i < m; ++i)\
     \ {\r\n    for (int j = 0; j < n; ++j) matrix[i][j] = a[i][j];\r\n    matrix[i][n]\
-    \ = b[i];\r\n  }\r\n  int rank = gauss_jordan(matrix, EPS, true);\r\n  std::vector<U>\
-    \ res;\r\n  for (int row = rank; row < m; ++row) {\r\n    if (std::abs(matrix[row][n])\
-    \ > EPS) return res;\r\n  }\r\n  res.assign(n, 0);\r\n  for (int i = 0; i < rank;\
-    \ ++i) res[i] = matrix[i][n];\r\n  return res;\r\n}\r\n#line 13 \"test/math/matrix/linear_equation.test.cpp\"\
+    \ = b[i];\r\n  }\r\n  int rank = gauss_jordan(matrix, EPS, true);\r\n  for (int\
+    \ row = rank; row < m; ++row) {\r\n    if (std::abs(matrix[row][n]) > EPS) return\
+    \ std::vector<U>();\r\n  }\r\n  std::vector<U> res(n, 0);\r\n  for (int i = 0,\
+    \ j = 0; i < rank; ++i) {\r\n    while (std::abs(matrix[i][j]) < EPS) ++j;\r\n\
+    \    res[j++] = matrix[i][n];\r\n  }\r\n  return res;\r\n}\r\n#line 13 \"test/math/matrix/linear_equation.test.cpp\"\
     \n\r\nint main() {\r\n  constexpr double EPS = 1e-8;\r\n  std::cout << std::fixed\
     \ << std::setprecision(3);\r\n  int a, b, c, d, e, f;\r\n  while (std::cin >>\
     \ a >> b >> c >> d >> e >> f) {\r\n    Matrix<int> l(2, 2);\r\n    l[0][0] = a;\
@@ -101,7 +102,7 @@ data:
   isVerificationFile: true
   path: test/math/matrix/linear_equation.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-07 03:49:00+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/matrix/linear_equation.test.cpp

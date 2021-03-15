@@ -1,17 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: math/is_primitive_root.hpp
-    title: "\u539F\u59CB\u6839\u5224\u5B9A"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  - icon: ':heavy_check_mark:'
-    path: test/math/is_primitive_root.test.cpp
-    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -30,13 +24,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/divisor.hpp
-  requiredBy:
-  - math/is_primitive_root.hpp
+  requiredBy: []
   timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/divisor.test.cpp
-  - test/math/is_primitive_root.test.cpp
 documentation_of: math/divisor.hpp
 layout: document
 title: "\u7D04\u6570\u5217\u6319"

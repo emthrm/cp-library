@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: math/sieve_of_eratosthenes.hpp
-    title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9 (sieve of Eratosthenes)"
+    path: math/prime_sieve.hpp
+    title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -18,10 +18,10 @@ data:
     document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\
       \u88682"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/euler_phi/euler_phi_init2.hpp: line 6: #pragma once found in a non-first\
@@ -29,23 +29,21 @@ data:
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
     \u6570\u88682\r\n * @docs docs/math/euler_phi/euler_phi.md\r\n */\r\n\r\n#pragma\
     \ once\r\n#include <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n#include\
-    \ \"../sieve_of_eratosthenes.hpp\"\r\n\r\nstd::vector<long long> euler_phi_init2(long\
-    \ long low, long long high) {\r\n  int sqrt_high = std::ceil(std::sqrt(high));\r\
-    \n  std::vector<bool> primes = sieve_of_eratosthenes(sqrt_high);\r\n  std::vector<long\
-    \ long> phi(high - low), rem(high - low);\r\n  std::iota(phi.begin(), phi.end(),\
-    \ low);\r\n  std::iota(rem.begin(), rem.end(), low);\r\n  for (int prime = 2;\
-    \ prime <= sqrt_high; ++prime) {\r\n    if (primes[prime]) {\r\n      for (long\
-    \ long i = (low + (prime - 1)) / prime * prime; i < high; i += prime) {\r\n  \
-    \      phi[i - low] -= phi[i - low] / prime;\r\n        while (rem[i - low] %\
-    \ prime == 0) rem[i - low] /= prime;\r\n      }\r\n    }\r\n  }\r\n  for (int\
-    \ i = 0; i < high - low; ++i) {\r\n    if (rem[i] > 1) phi[i] -= phi[i] / rem[i];\r\
-    \n  }\r\n  return phi;\r\n}\r\n"
+    \ \"../prime_sieve.hpp\"\r\n\r\nstd::vector<long long> euler_phi_init2(long long\
+    \ low, long long high) {\r\n  std::vector<long long> phi(high - low), rem(high\
+    \ - low);\r\n  std::iota(phi.begin(), phi.end(), low);\r\n  std::iota(rem.begin(),\
+    \ rem.end(), low);\r\n  for (int p : prime_sieve(std::ceil(std::sqrt(high)), true))\
+    \ {\r\n    for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {\r\n\
+    \      phi[i - low] -= phi[i - low] / p;\r\n      while (rem[i - low] % p == 0)\
+    \ rem[i - low] /= p;\r\n    }\r\n  }\r\n  for (int i = 0; i < high - low; ++i)\
+    \ {\r\n    if (rem[i] > 1) phi[i] -= phi[i] / rem[i];\r\n  }\r\n  return phi;\r\
+    \n}\r\n"
   dependsOn:
-  - math/sieve_of_eratosthenes.hpp
+  - math/prime_sieve.hpp
   isVerificationFile: false
   path: math/euler_phi/euler_phi_init2.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-27 06:50:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
@@ -58,12 +56,13 @@ title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868
 ---
 # オイラーの $\varphi$ 関数 (Euler's totient function)
 
-$$\begin{aligned} \varphi(n) &= \# \lbrace \,k \in \mathbb{N} \mid k \perp n,\ k \leq n \rbrace \\ &= n \prod_i(1 - \frac{1}{p_i}) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
+$n \in \mathbb{N}^+$ に対して
+$$\begin{aligned} \varphi(n) &= \# \lbrace k \in \mathbb{N} \mid k \perp n,\ 1 \leq k \leq n \rbrace \\ &= n \prod_i \left(1 - \frac{1}{p_i}\right) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
 
 
 ### オイラーの定理
 
-$$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
+$n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \equiv 1 \pmod{n}$ が成り立つ．
 
 
 ## 時間計算量
@@ -99,7 +98,7 @@ $$a^{\varphi(n)} \equiv 1 \pmod{n} \text{．}$$
 - https://ei1333.github.io/algorithm/euler-phi.html
 
 数表2
-- https://github.com/spaghetti-source/algorithm/blob/master/number_theory/euler_phi.cc
+- https://github.com/spaghetti-source/algorithm/blob/87f5b3e4a3c10d8b85048f4fc4e4842ad11e9670/number_theory/euler_phi.cc
 
 
 ## ToDo

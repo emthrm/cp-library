@@ -63,27 +63,29 @@ data:
     \ &b, const U EPS = 1e-8) {\r\n  int m = a.height(), n = a.width();\r\n  Matrix<U>\
     \ matrix(m, n + 1);\r\n  for (int i = 0; i < m; ++i) {\r\n    for (int j = 0;\
     \ j < n; ++j) matrix[i][j] = a[i][j];\r\n    matrix[i][n] = b[i];\r\n  }\r\n \
-    \ int rank = gauss_jordan(matrix, EPS, true);\r\n  std::vector<U> res;\r\n  for\
-    \ (int row = rank; row < m; ++row) {\r\n    if (std::abs(matrix[row][n]) > EPS)\
-    \ return res;\r\n  }\r\n  res.assign(n, 0);\r\n  for (int i = 0; i < rank; ++i)\
-    \ res[i] = matrix[i][n];\r\n  return res;\r\n}\r\n"
+    \ int rank = gauss_jordan(matrix, EPS, true);\r\n  for (int row = rank; row <\
+    \ m; ++row) {\r\n    if (std::abs(matrix[row][n]) > EPS) return std::vector<U>();\r\
+    \n  }\r\n  std::vector<U> res(n, 0);\r\n  for (int i = 0, j = 0; i < rank; ++i)\
+    \ {\r\n    while (std::abs(matrix[i][j]) < EPS) ++j;\r\n    res[j++] = matrix[i][n];\r\
+    \n  }\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <cmath>\r\n#include <vector>\r\n#include \"matrix.hpp\"\
     \r\n#include \"gauss_jordan.hpp\"\r\n\r\ntemplate <typename T, typename U = double>\r\
     \nstd::vector<U> linear_equation(const Matrix<T> &a, const std::vector<T> &b,\
     \ const U EPS = 1e-8) {\r\n  int m = a.height(), n = a.width();\r\n  Matrix<U>\
     \ matrix(m, n + 1);\r\n  for (int i = 0; i < m; ++i) {\r\n    for (int j = 0;\
     \ j < n; ++j) matrix[i][j] = a[i][j];\r\n    matrix[i][n] = b[i];\r\n  }\r\n \
-    \ int rank = gauss_jordan(matrix, EPS, true);\r\n  std::vector<U> res;\r\n  for\
-    \ (int row = rank; row < m; ++row) {\r\n    if (std::abs(matrix[row][n]) > EPS)\
-    \ return res;\r\n  }\r\n  res.assign(n, 0);\r\n  for (int i = 0; i < rank; ++i)\
-    \ res[i] = matrix[i][n];\r\n  return res;\r\n}\r\n"
+    \ int rank = gauss_jordan(matrix, EPS, true);\r\n  for (int row = rank; row <\
+    \ m; ++row) {\r\n    if (std::abs(matrix[row][n]) > EPS) return std::vector<U>();\r\
+    \n  }\r\n  std::vector<U> res(n, 0);\r\n  for (int i = 0, j = 0; i < rank; ++i)\
+    \ {\r\n    while (std::abs(matrix[i][j]) < EPS) ++j;\r\n    res[j++] = matrix[i][n];\r\
+    \n  }\r\n  return res;\r\n}\r\n"
   dependsOn:
   - math/matrix/matrix.hpp
   - math/matrix/gauss_jordan.hpp
   isVerificationFile: false
   path: math/matrix/linear_equation.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-07 03:49:00+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
@@ -118,4 +120,4 @@ $O(M^2 N)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/0004/review/4088546/emthrm/C++14
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/0004/review/5272538/emthrm/C++17

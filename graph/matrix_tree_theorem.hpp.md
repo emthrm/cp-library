@@ -22,10 +22,10 @@ data:
     _deprecated_at_docs: docs/graph/spectral_graph_theory.md
     document_title: "\u884C\u5217\u6728\u5B9A\u7406"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/matrix_tree_theorem.hpp: line 6: #pragma once found in a non-first line\n"
@@ -65,7 +65,7 @@ title: "\u884C\u5217\u6728\u5B9A\u7406"
 
    ラプラシアン行列の任意の余因子は全域木の個数と等しい．
 
-2. ラプラシアン行列における固有値0の個数は連結成分の個数に等しい．
+2. ラプラシアン行列における固有値$0$の個数は連結成分の個数に等しい．
 
 3. 隣接行列の行列式の偶奇と完全マッチングの個数の偶奇は一致する．
 

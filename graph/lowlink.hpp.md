@@ -32,12 +32,12 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
@@ -74,15 +74,15 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/biconnected_component.test.cpp
+  - test/graph/lowlink.1.test.cpp
   - test/graph/lowlink.2.test.cpp
   - test/graph/2-edge-connected_components_lowlink.test.cpp
-  - test/graph/lowlink.1.test.cpp
 documentation_of: graph/lowlink.hpp
 layout: document
 title: lowlink
 ---
 
-深さ優先探索木 (DFS tree) において訪問時刻を $\mathrm{order}$ とおいたときの後退辺 (back edge) を高々一度通ることで到達可能な頂点の $\mathrm{order}$ の最小値である．
+深さ優先探索木 (DFS tree) において訪問時刻を $\mathrm{order}$ とおいたとき，後退辺 (back edge) を高々一度通ることで到達可能な頂点の $\mathrm{order}$ の最小値である．
 
 
 ### 橋 (bridge) / 関節点 (articulation point)

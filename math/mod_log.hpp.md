@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 (\u4E8C\u5206\u7D2F\u4E57\u6CD5\
       , \u30D0\u30A4\u30CA\u30EA\u6CD5)"
@@ -78,7 +78,7 @@ $O(\sqrt{P} \log{P})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`mod_log(g, y, mod)`|$x \text{ s.t. } g^x \equiv y \pmod{\mathrm{md}}$|存在しない場合は $-1$ となる．|
+|`mod_log(g, y, mod)`|$x \text{ s.t. } g^x \equiv y \pmod{\mathrm{mod}}$|存在しない場合は $-1$ となる．|
 
 
 ## 参考

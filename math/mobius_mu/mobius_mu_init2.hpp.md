@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: math/sieve_of_eratosthenes.hpp
-    title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9 (sieve of Eratosthenes)"
+    path: math/prime_sieve.hpp
+    title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
@@ -17,34 +17,32 @@ data:
     _deprecated_at_docs: docs/math/mobius_mu/mobius_mu.md
     document_title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/mobius_mu/mobius_mu_init2.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682\r\
     \n * @docs docs/math/mobius_mu/mobius_mu.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n#include \"../sieve_of_eratosthenes.hpp\"\
+    \ <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n#include \"../prime_sieve.hpp\"\
     \r\n\r\nstd::vector<int> mobius_mu_init2(long long low, long long high) {\r\n\
-    \  int sqrt_high = std::ceil(std::sqrt(high));\r\n  std::vector<bool> is_prime\
-    \ = sieve_of_eratosthenes(sqrt_high);\r\n  std::vector<int> mu(high - low, 1);\r\
-    \n  std::vector<long long> tmp(high - low);\r\n  std::iota(tmp.begin(), tmp.end(),\
-    \ low);\r\n  if (low == 0 && high > 0) mu[0] = 0;\r\n  for (int p = 2; p <= sqrt_high;\
-    \ ++p) {\r\n    if (is_prime[p]) {\r\n      for (long long i = (low + (p - 1))\
-    \ / p * p; i < high; i += p) {\r\n        if ((i / p) % p == 0) {\r\n        \
-    \  mu[i - low] = tmp[i - low] = 0;\r\n        } else {\r\n          mu[i - low]\
-    \ = -mu[i - low];\r\n          tmp[i - low] /= p;\r\n        }\r\n      }\r\n\
-    \    }\r\n  }\r\n  for (int i = 0; i < high - low; ++i) {\r\n    if (tmp[i] >\
-    \ 1) mu[i] = -mu[i];\r\n  }\r\n  return mu;\r\n}\r\n"
+    \  std::vector<int> mu(high - low, 1);\r\n  std::vector<long long> tmp(high -\
+    \ low);\r\n  std::iota(tmp.begin(), tmp.end(), low);\r\n  if (low == 0 && high\
+    \ > 0) mu[0] = 0;\r\n  for (int p : prime_sieve(std::ceil(std::sqrt(high)), true))\
+    \ {\r\n    for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {\r\n\
+    \      if ((i / p) % p == 0) {\r\n        mu[i - low] = tmp[i - low] = 0;\r\n\
+    \      } else {\r\n        mu[i - low] = -mu[i - low];\r\n        tmp[i - low]\
+    \ /= p;\r\n      }\r\n    }\r\n  }\r\n  for (int i = 0; i < high - low; ++i) {\r\
+    \n    if (tmp[i] > 1) mu[i] = -mu[i];\r\n  }\r\n  return mu;\r\n}\r\n"
   dependsOn:
-  - math/sieve_of_eratosthenes.hpp
+  - math/prime_sieve.hpp
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_init2.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-02-27 06:50:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
@@ -117,7 +115,7 @@ $$f(n) = \sum_{d \mid n} g(d) \Leftrightarrow g(n) = \sum_{d \mid n} \mu \left(\
 - プログラミングコンテストチャレンジブック \[第2版\] pp.265-268
 - https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E9%96%A2%E6%95%B0
 - https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E3%81%AE%E5%8F%8D%E8%BB%A2%E5%85%AC%E5%BC%8F
-- https://github.com/spaghetti-source/algorithm/blob/master/number_theory/mobius_mu.cc
+- https://github.com/spaghetti-source/algorithm/blob/e8fde0fea20e323f42e263376302494cda1ae7f7/number_theory/mobius_mu.cc
 
 
 ## ToDo

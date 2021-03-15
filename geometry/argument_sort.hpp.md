@@ -71,7 +71,7 @@ $O(N\log{N})$
 ## 参考
 
 - https://betrue12.hateblo.jp/entry/2020/01/05/151244
-- https://github.com/beet-aizu/library/blob/master/geometry/argsort.cpp
+- https://github.com/beet-aizu/library/blob/78fef02c3ce4f982525361a55adbfc78faabfb93/geometry/argsort.cpp
 
 
 ## Verified

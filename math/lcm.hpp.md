@@ -25,8 +25,8 @@ data:
   isVerificationFile: false
   path: math/lcm.hpp
   requiredBy:
-  - math/carmichal_function.hpp
   - math/carmichal_function_init.hpp
+  - math/carmichal_function.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

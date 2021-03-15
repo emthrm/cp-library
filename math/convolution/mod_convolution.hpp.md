@@ -30,10 +30,10 @@ data:
     document_title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\
       \u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/mod_convolution.hpp: line 6: #pragma once found in a non-first\
@@ -73,7 +73,7 @@ data:
   isVerificationFile: false
   path: math/convolution/mod_convolution.hpp
   requiredBy: []
-  timestamp: '2021-02-15 03:05:11+09:00'
+  timestamp: '2021-03-07 02:53:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/fps/fps.5.test.cpp
@@ -88,9 +88,9 @@ title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F
 ---
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
-$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で DFT を高速に行うアルゴリズムである．
+$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
 
-特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は $p$ の原始根 $\omega$ について
+特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ について
 
 $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
@@ -98,7 +98,7 @@ $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
 $$(\omega^k)^{2^x} \equiv 1 \pmod{p}$$
 
-が成り立つので条件を満たす．
+が成り立つので，条件を満たす．
 
 
 ## 時間計算量
@@ -110,7 +110,7 @@ $O(N\log{N})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`NTT<T>()`|$\mathrm{mod}$ で剰余演算を行う数論変換を考える．||
+|`NTT<T>()`|数論変換を考える．||
 |`sub_dft(a)`|$A$ に対して数論変換を行う．||
 |`dft(a)`|整数列 $A$ に対して数論変換を行ったもの||
 |`idft(a)`|$A$ に対して数論変換の逆変換を行う||

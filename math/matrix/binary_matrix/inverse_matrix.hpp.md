@@ -17,10 +17,10 @@ data:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/matrix/binary_matrix/inverse_matrix.hpp: line 6: #pragma once found in\
@@ -28,24 +28,24 @@ data:
   code: "/**\r\n * @brief \u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\
     \r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\n */\r\n\r\n#pragma\
     \ once\r\n#include <cassert>\r\n#include <utility>\r\n#include \"binary_matrix.hpp\"\
-    \r\n\r\ntemplate <int COL>\r\nbool inverse(const BinaryMatrix<COL> &mat, BinaryMatrix<COL>\
-    \ &inv) {\r\n  int n = mat.n;\r\n  BinaryMatrix<COL> gauss_jordan(n, n << 1, 0);\r\
+    \r\n\r\ntemplate <int Col>\r\nBinaryMatrix<Col> inverse_matrix(const BinaryMatrix<Col>\
+    \ &mat) {\r\n  int n = mat.n;\r\n  BinaryMatrix<Col> gauss_jordan(n, n << 1, 0);\r\
     \n  for (int i = 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) gauss_jordan[i][j]\
     \ = mat[i][j];\r\n    gauss_jordan[i][n + i] = 1;\r\n  }\r\n  for (int col = 0;\
     \ col < n; ++col) {\r\n    int pivot = -1;\r\n    for (int row = col; row < n;\
     \ ++row) {\r\n      if (gauss_jordan[row][col]) {\r\n        pivot = row;\r\n\
-    \        break;\r\n      }\r\n    }\r\n    if (pivot == -1) return false;\r\n\
-    \    std::swap(gauss_jordan[col], gauss_jordan[pivot]);\r\n    for (int row =\
-    \ 0; row < n; ++row) {\r\n      if (row != col && gauss_jordan[row][col]) gauss_jordan[row]\
-    \ ^= gauss_jordan[col];\r\n    }\r\n  }\r\n  assert(inv.n == n && inv.m == n);\r\
-    \n  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n\
-    \ + j];\r\n  return true;\r\n}\r\n"
+    \        break;\r\n      }\r\n    }\r\n    if (pivot == -1) return BinaryMatrix<Col>(0,\
+    \ 0);\r\n    std::swap(gauss_jordan[col], gauss_jordan[pivot]);\r\n    for (int\
+    \ row = 0; row < n; ++row) {\r\n      if (row != col && gauss_jordan[row][col])\
+    \ gauss_jordan[row] ^= gauss_jordan[col];\r\n    }\r\n  }\r\n  BinaryMatrix<Col>\
+    \ inv(n, n);\r\n  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) inv[i][j]\
+    \ = gauss_jordan[i][n + j];\r\n  return inv;\r\n}\r\n"
   dependsOn:
   - math/matrix/binary_matrix/binary_matrix.hpp
   isVerificationFile: false
   path: math/matrix/binary_matrix/inverse_matrix.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-03-04 20:20:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
@@ -88,7 +88,7 @@ title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inverse(mat, inv)`|行列 $\mathrm{mat}$ の逆行列が存在するか．|$\mathrm{inv}$ に逆行列が格納される．|
+|`inverse(mat)`|行列 $\mathrm{mat}$ の逆行列|存在しない場合は空行列となる．|
 
 
 ## 参考
@@ -101,5 +101,5 @@ title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
 
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
-- [連立一次方程式](https://onlinejudge.u-aizu.ac.jp/solutions/problem/1308/review/4088796/emthrm/C++14)
+- [連立一次方程式](https://yukicoder.me/submissions/626481)
 - [逆行列](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2624/review/4088806/emthrm/C++14)

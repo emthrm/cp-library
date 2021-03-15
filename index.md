@@ -10,6 +10,15 @@ data:
       path: data_structure/disjoint_sparse_table.hpp
       title: disjoint sparse table
     - icon: ':heavy_check_mark:'
+      path: data_structure/lazy_segment_tree.hpp
+      title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    - icon: ':heavy_check_mark:'
+      path: data_structure/segment_tree.hpp
+      title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    - icon: ':heavy_check_mark:'
+      path: data_structure/set_managed_by_interval.hpp
+      title: "std::set \u3092\u533A\u9593\u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
+    - icon: ':heavy_check_mark:'
       path: data_structure/sparse_table.hpp
       title: sparse table
   - name: data_structure/bit
@@ -26,14 +35,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/bit/bit_range_add.hpp
       title: "binary indexed tree \u533A\u9593\u52A0\u7B97\u7248"
-  - name: data_structure/segment_tree
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: data_structure/segment_tree/lazy_segment_tree.hpp
-      title: "\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-    - icon: ':heavy_check_mark:'
-      path: data_structure/segment_tree/segment_tree.hpp
-      title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
   - name: data_structure/union-find
     pages:
     - icon: ':x:'
@@ -51,11 +52,17 @@ data:
   - name: dp
     pages:
     - icon: ':x:'
+      path: dp/2d_lis.hpp
+      title: "2\u6B21\u5143 LIS"
+    - icon: ':x:'
       path: dp/cht.hpp
       title: convex hull trick
     - icon: ':x:'
       path: dp/cumulative_sum.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
+    - icon: ':x:'
+      path: dp/knuth_yao_speedup.hpp
+      title: Knuth-Yao speedup
     - icon: ':heavy_check_mark:'
       path: dp/largest_rectangle.hpp
       title: "\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\u306E\u6700\u5927\u9577\u65B9\
@@ -71,30 +78,16 @@ data:
       path: dp/li_chao_tree.hpp
       title: Li Chao tree
     - icon: ':heavy_check_mark:'
-      path: dp/mongedp.hpp
-      title: MongeDP (Knuth-Yao speedup)
+      path: dp/lis.hpp
+      title: "\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     - icon: ':heavy_check_mark:'
       path: dp/slide_min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
       path: dp/subset_sum_problem.hpp
       title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
-  - name: dp/lis
-    pages:
-    - icon: ':x:'
-      path: dp/lis/2d_lis.hpp
-      title: "2\u6B21\u5143 LIS"
-    - icon: ':heavy_check_mark:'
-      path: dp/lis/lis.hpp
-      title: "\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
-    - icon: ':heavy_check_mark:'
-      path: dp/lis/lis_rmq.hpp
-      title: "\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217 RMQ \u7248"
   - name: game
     pages:
-    - icon: ':warning:'
-      path: game/grundy_number.hpp
-      title: "Grundy \u6570 (Grundy number)"
     - icon: ':warning:'
       path: game/misere_nim.hpp
       title: "mis\xE8re Nim"
@@ -208,7 +201,7 @@ data:
       title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
     - icon: ':heavy_check_mark:'
       path: graph/flow/maximum_flow/project_selection_problem.hpp
-      title: "\u71C3\u3084\u3059\u57CB\u3081\u308B (project selection problem)"
+      title: project selection problem
   - name: graph/flow/minimum_cost_flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -226,15 +219,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/mst/kruskal.hpp
       title: "Kruskal \u6CD5"
-    - icon: ':warning:'
-      path: graph/mst/kruskal_heavy.hpp
-      title: "Kruskal \u6CD5 \u91CD\u91CF\u7248"
     - icon: ':heavy_check_mark:'
       path: graph/mst/prim.hpp
       title: "Prim \u6CD5"
-    - icon: ':warning:'
-      path: graph/mst/prim_heavy.hpp
-      title: "Prim \u6CD5 \u91CD\u91CF\u7248"
   - name: graph/shortest_path
     pages:
     - icon: ':heavy_check_mark:'
@@ -270,9 +257,6 @@ data:
       path: graph/tree/lca_euler_tour.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
         \u30FC\u7248"
-    - icon: ':heavy_check_mark:'
-      path: graph/tree/rerooting.hpp
-      title: "\u6728\u306E\u76F4\u5F84 \u5168\u65B9\u4F4D\u6728 DP \u7248"
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -291,14 +275,20 @@ data:
       path: math/catalan_number.hpp
       title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
     - icon: ':heavy_check_mark:'
-      path: math/crt.hpp
+      path: math/chinese_remainder_theorem.hpp
       title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
     - icon: ':heavy_check_mark:'
       path: math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
+      path: math/enumerate_k-th_power.hpp
+      title: $i^k \bmod m \ (0 \leq i \leq n)$
+    - icon: ':heavy_check_mark:'
       path: math/ext_gcd.hpp
       title: "\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5 (extended Euclidean algorithm)"
+    - icon: ':heavy_check_mark:'
+      path: math/floor_sum.hpp
+      title: sum of floor of linear
     - icon: ':heavy_check_mark:'
       path: math/is_prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A (primality test)"
@@ -323,10 +313,13 @@ data:
     - icon: ':x:'
       path: math/linear_congruence.hpp
       title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (linear congruence)"
+    - icon: ':question:'
+      path: math/mod_inv.hpp
+      title: "\u9006\u5143 (inverse element)"
     - icon: ':heavy_check_mark:'
       path: math/mod_log.hpp
       title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/mod_pow.hpp
       title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 (\u4E8C\u5206\u7D2F\u4E57\
         \u6CD5, \u30D0\u30A4\u30CA\u30EA\u6CD5)"
@@ -348,6 +341,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/prime_factorization.hpp
       title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
+    - icon: ':question:'
+      path: math/prime_sieve.hpp
+      title: prime sieve
     - icon: ':heavy_check_mark:'
       path: math/quadratic_equation.hpp
       title: "\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F (quadratic equation)"
@@ -356,10 +352,7 @@ data:
       title: "\u6709\u7406\u6570 (rational number)"
     - icon: ':warning:'
       path: math/segmented_sieve.hpp
-      title: "\u533A\u9593\u7BE9 (segmented sieve)"
-    - icon: ':question:'
-      path: math/sieve_of_eratosthenes.hpp
-      title: "\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9 (sieve of Eratosthenes)"
+      title: segmented sieve
   - name: math/convolution
     pages:
     - icon: ':heavy_check_mark:'
@@ -430,23 +423,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/fps/polynomial_interpolation.hpp
       title: "\u591A\u9805\u5F0F\u88DC\u9593"
-  - name: math/inverse_element
-    pages:
-    - icon: ':warning:'
-      path: math/inverse_element/inv_init.hpp
-      title: "\u9006\u5143\u306E\u6570\u8868"
-    - icon: ':heavy_check_mark:'
-      path: math/inverse_element/mod_inv_extgcd.hpp
-      title: "\u9006\u5143 \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5\u7248"
-    - icon: ':warning:'
-      path: math/inverse_element/mod_inv_extgcd2.hpp
-      title: "\u9006\u5143 \u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5\u72482"
-    - icon: ':x:'
-      path: math/inverse_element/mod_inv_fermat.hpp
-      title: "\u9006\u5143 Fermat \u306E\u5C0F\u5B9A\u7406\u7248"
-    - icon: ':warning:'
-      path: math/inverse_element/mod_inv_phi.hpp
-      title: "\u9006\u5143 \u30AA\u30A4\u30E9\u30FC\u306E\u5B9A\u7406\u7248"
   - name: math/matrix/binary_matrix
     pages:
     - icon: ':question:'
@@ -506,28 +482,20 @@ data:
     - icon: ':warning:'
       path: math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
       title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
-  - name: math/twelvefold_way/binomial_coefficients
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/binomial_coefficients/binom_large_n.hpp
-      title: "\u4E8C\u9805\u4FC2\u6570 $n$ \u306F\u5DE8\u5927"
-    - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/binomial_coefficients/binom_large_n_init.hpp
-      title: "\u4E8C\u9805\u4FC2\u6570 $n$ \u306F\u5DE8\u5927\u306A\u56FA\u5B9A\u5024"
-    - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/binomial_coefficients/binomial_coefficients.hpp
-      title: "\u4E8C\u9805\u4FC2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/binomial_coefficients/pascal.hpp
-      title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
   - name: math/twelvefold_way
     pages:
+    - icon: ':heavy_check_mark:'
+      path: math/twelvefold_way/large_nCk_init.hpp
+      title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
     - icon: ':x:'
       path: math/twelvefold_way/partition_function_init.hpp
       title: "\u5206\u5272\u6570"
     - icon: ':heavy_check_mark:'
       path: math/twelvefold_way/partition_function_init_with_fps.hpp
       title: "\u5206\u5272\u6570 $n = m$ \u7248"
+    - icon: ':heavy_check_mark:'
+      path: math/twelvefold_way/pascal.hpp
+      title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
   - name: math/twelvefold_way/stirling_number
     pages:
     - icon: ':warning:'
@@ -537,10 +505,6 @@ data:
       path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
       title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
         \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-    - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.hpp
-      title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-        \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
     - icon: ':heavy_check_mark:'
       path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
       title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
@@ -607,6 +571,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/z_algorithm.hpp
       title: Z algorithm
+  - name: test/math
+    pages:
+    - icon: ':warning:'
+      path: test/math/prime_sieve.cpp
+      title: "\u6570\u5B66/prime sieve"
   - name: util
     pages:
     - icon: ':warning:'
@@ -628,6 +597,41 @@ data:
       path: test/data_structure/disjoint_sparse_table.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/disjoint sparse table"
     - icon: ':heavy_check_mark:'
+      path: test/data_structure/lazy_segment_tree.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
+        \u30F3\u30C8\u6728"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/range_minimum_query.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
+        \ (range minimum query)"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
+        \u30F3\u30C8\u6728 (range minimum query and range add query)"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/range_minimum_query_and_range_update_query.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
+        \u30F3\u30C8\u6728 (range minimum query and range update query)"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/range_sum_query.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
+        \ (range sum query)"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/range_sum_query_and_range_add_query.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
+        \u30F3\u30C8\u6728 (range sum query and range add query)"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/range_sum_query_and_range_update_query.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
+        \u30F3\u30C8\u6728 (range sum query and range update query)"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/segment_tree.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/set_managed_by_interval.test.cpp
+      title: "\u305D\u306E\u4ED6/std::set \u3092\u533A\u9593\u3067\u7BA1\u7406\u3059\
+        \u308B\u3084\u3064"
+    - icon: ':heavy_check_mark:'
       path: test/data_structure/sparse_table.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
   - name: test/data_structure/bit
@@ -646,44 +650,6 @@ data:
       path: test/data_structure/bit/bit_range_add.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree \u533A\u9593\u52A0\
         \u7B97\u7248"
-  - name: test/data_structure/segment_tree
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/lazy_segment_tree.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/range_minimum_query.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range minimum query)"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/range_minimum_query_and_range_add_query.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range minimum\
-        \ query and range add query)"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/range_minimum_query_and_range_update_query.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range minimum\
-        \ query and range update query)"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/range_sum_query.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        \ (range sum query)"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/range_sum_query_and_range_add_query.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range sum query\
-        \ and range add query)"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/range_sum_query_and_range_update_query.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u9045\u5EF6\u8A55\u4FA1\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range sum query\
-        \ and range update query)"
-    - icon: ':heavy_check_mark:'
-      path: test/data_structure/segment_tree/segment_tree.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-        /\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
   - name: test/data_structure/union-find
     pages:
     - icon: ':x:'
@@ -704,6 +670,9 @@ data:
   - name: test/dp
     pages:
     - icon: ':x:'
+      path: test/dp/2d_lis.test.cpp
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143 LIS"
+    - icon: ':x:'
       path: test/dp/cht.1.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (query(x))"
     - icon: ':x:'
@@ -715,6 +684,9 @@ data:
     - icon: ':x:'
       path: test/dp/cumulative_sum.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
+    - icon: ':x:'
+      path: test/dp/knuth_yao_speedup.test.cpp
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
     - icon: ':heavy_check_mark:'
       path: test/dp/largest_rectangle.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\
@@ -733,27 +705,14 @@ data:
       path: test/dp/li_chao_tree.2.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024)"
     - icon: ':heavy_check_mark:'
-      path: test/dp/mongedp.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/MongeDP"
+      path: test/dp/lis.test.cpp
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     - icon: ':heavy_check_mark:'
       path: test/dp/slide_min.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
       path: test/dp/subset_sum_problem.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
-  - name: test/dp/lis
-    pages:
-    - icon: ':x:'
-      path: test/dp/lis/2d_lis.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/LIS/2\u6B21\u5143 LIS"
-    - icon: ':heavy_check_mark:'
-      path: test/dp/lis/lis.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/LIS/\u6700\u9577\u5897\u52A0\u90E8\u5206\
-        \u5217"
-    - icon: ':heavy_check_mark:'
-      path: test/dp/lis/lis_rmq.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/LIS/\u6700\u9577\u5897\u52A0\u90E8\u5206\
-        \u5217 RMQ \u7248"
   - name: test/game
     pages:
     - icon: ':x:'
@@ -953,8 +912,8 @@ data:
         \u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
     - icon: ':heavy_check_mark:'
       path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/\u71C3\u3084\
-        \u3059\u57CB\u3081\u308B"
+      title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
+        \ problem"
   - name: test/graph/flow/minimum_cost_flow
     pages:
     - icon: ':heavy_check_mark:'
@@ -1018,10 +977,6 @@ data:
       path: test/graph/tree/lca_euler_tour.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\
         \u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-    - icon: ':heavy_check_mark:'
-      path: test/graph/tree/rerooting.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u6728/\u6728\u306E\u76F4\u5F84 \u5168\u65B9\u4F4D\
-        \u6728 DP \u7248"
   - name: test/math
     pages:
     - icon: ':heavy_check_mark:'
@@ -1063,14 +1018,20 @@ data:
       path: test/math/catalan_number.test.cpp
       title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
     - icon: ':heavy_check_mark:'
-      path: test/math/crt.test.cpp
+      path: test/math/chinese_remainder_theorem.test.cpp
       title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
     - icon: ':heavy_check_mark:'
       path: test/math/divisor.test.cpp
       title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
+      path: test/math/enumerate_k-th_power.test.cpp
+      title: "\u6570\u5B66/$i^k \\bmod m \\ (0 \\leq i \\leq n)$"
+    - icon: ':heavy_check_mark:'
       path: test/math/ext_gcd.test.cpp
       title: "\u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
+    - icon: ':heavy_check_mark:'
+      path: test/math/floor_sum.test.cpp
+      title: "\u6570\u5B66/sum of floor of linear"
     - icon: ':heavy_check_mark:'
       path: test/math/is_prime.test.cpp
       title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
@@ -1121,9 +1082,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/rational.test.cpp
       title: "\u6570\u5B66/\u6709\u7406\u6570"
-    - icon: ':x:'
-      path: test/math/sieve_of_eratosthenes.test.cpp
-      title: "\u6570\u5B66/\u30A8\u30E9\u30C8\u30B9\u30C6\u30CD\u30B9\u306E\u7BE9"
   - name: test/math/convolution
     pages:
     - icon: ':heavy_check_mark:'
@@ -1279,32 +1237,29 @@ data:
       path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
         \u306E\u6570\u8868"
-  - name: test/math/twelvefold_way/binomial_coefficients
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/math/twelvefold_way/binomial_coefficients/binom_large_n.test.cpp
-      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u4E8C\u9805\
-        \u4FC2\u6570 $n$ \u306F\u5DE8\u5927"
-    - icon: ':heavy_check_mark:'
-      path: test/math/twelvefold_way/binomial_coefficients/binom_large_n_init.test.cpp
-      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u4E8C\u9805\
-        \u4FC2\u6570 $n$ \u306F\u5DE8\u5927\u306A\u56FA\u5B9A\u5024"
-    - icon: ':heavy_check_mark:'
-      path: test/math/twelvefold_way/binomial_coefficients/binomial_coefficients.test.cpp
-      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u4E8C\u9805\
-        \u4FC2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: test/math/twelvefold_way/binomial_coefficients/pascal.test.cpp
-      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570/\u30D1\u30B9\
-        \u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
   - name: test/math/twelvefold_way
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/math/twelvefold_way/binomial_coefficients.test.cpp
+      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: test/math/twelvefold_way/large_nCk.test.cpp
+      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570 \u5DE8\u5927\
+        \u306A $n$ \u7248"
+    - icon: ':heavy_check_mark:'
+      path: test/math/twelvefold_way/large_nCk_init.test.cpp
+      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
+        \u8868 \u5DE8\u5927\u306A $n$ \u7248"
     - icon: ':x:'
       path: test/math/twelvefold_way/partition_function_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"
     - icon: ':heavy_check_mark:'
       path: test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
+    - icon: ':heavy_check_mark:'
+      path: test/math/twelvefold_way/pascal.test.cpp
+      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\
+        \u89D2\u5F62"
   - name: test/math/twelvefold_way/stirling_number
     pages:
     - icon: ':heavy_check_mark:'
@@ -1312,11 +1267,6 @@ data:
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\
         \u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-    - icon: ':heavy_check_mark:'
-      path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps2.test.cpp
-      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
-        \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\
-        \u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u72482"
     - icon: ':heavy_check_mark:'
       path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\

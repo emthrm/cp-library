@@ -19,10 +19,10 @@ data:
     _deprecated_at_docs: docs/graph/shortest_path/sssp.md
     document_title: "Dijkstra \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/shortest_path/dijkstra.hpp: line 6: #pragma once found in a non-first\
@@ -55,8 +55,8 @@ data:
   timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/noshi_graph.test.cpp
   - test/graph/shortest_path/dijkstra.test.cpp
+  - test/graph/noshi_graph.test.cpp
 documentation_of: graph/shortest_path/dijkstra.hpp
 layout: document
 redirect_from:
@@ -110,13 +110,14 @@ Bellman-Ford 法
 - http://www.prefield.com/algorithm/graph/bellman_ford.html
 
 Dijkstra 法
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/dijkstra.cc
+- https://github.com/spaghetti-source/algorithm/blob/af9a22a92953e903c474e98e79107103adbd0a53/graph/dijkstra.cc
 
 
 ## ToDo
 
 - Shortest Path Faster Algorithm
   - https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm
+  - https://dic.kimiyuki.net/spfa
   - http://hogloid.hatenablog.com/entry/20120409/1333973448
   - https://ei1333.github.io/algorithm/shortest-path-faster-algorithm.html
   - https://ei1333.github.io/luzhiled/snippets/graph/shortest-path-faster-algorithm.html
@@ -124,6 +125,7 @@ Dijkstra 法
   - https://tjkendev.github.io/procon-library/python/graph/spfa.html
   - https://hamukichi.hatenablog.jp/entry/2016/03/03/191304
 - Dijkstra 法の高速化
+  - https://www.slideshare.net/yosupo/ss-46612984
   - skew heap
     - https://github.com/primenumber/ProconLib/blob/master/Structure/SkewHeapDijkstra.cpps
   - Fibonacchi heap
@@ -137,16 +139,24 @@ Dijkstra 法
 - k shortest path routing (Yen's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing
   - https://en.wikipedia.org/wiki/Yen%27s_algorithm
+  - https://dic.kimiyuki.net/yen-algorithm
   - http://inarizuuuushi.hatenablog.com/entry/2018/08/30/222605
   - https://yukicoder.me/problems/no/1069
 - k shortest walk (Eppstein's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing#Variations
+  - https://dic.kimiyuki.net/eppstein-algorithm
   - https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e
+  - https://qiita.com/nariaki3551/items/0ab83541814f98eab322
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
 - $O(\sqrt{N} M \log{C})$
   - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
+- Dial's algorithm
+  - https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Specialized_variants
+  - https://dic.kimiyuki.net/dial
+  - http://bin.t.u-tokyo.ac.jp/startup16/file/6-1.pdf
+  - https://tjkendev.github.io/procon-library/python/graph/dial.html
 
 
 ## Verified

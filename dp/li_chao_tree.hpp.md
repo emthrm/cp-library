@@ -87,14 +87,14 @@ data:
   timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dp/li_chao_tree.2.test.cpp
   - test/dp/li_chao_tree.1.test.cpp
+  - test/dp/li_chao_tree.2.test.cpp
 documentation_of: dp/li_chao_tree.hpp
 layout: document
 title: Li Chao tree
 ---
 
-[CHT](cht.md)において傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
+[convex hull trick](cht.md) において傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
 
 
 ## 時間計算量
@@ -114,7 +114,7 @@ title: Li Chao tree
 |`LiChaoTree<T>(xs, ∞, is_minimized = true)`|解答クエリの $x$ 座標の集合が $\mathrm{xs}$ である Li Chao tree||
 |`add(a, b)`|直線 $f(x) = ax + b$ を追加する．||
 |`add(a, b, left, right)`|線分 $f(x) = ax + b \ (\mathrm{left} \leq x < \mathrm{right})$ を追加する．||
-|`query(x)`|$\min \text{/} \max \lbrace\,f(x) \mid f \in L \rbrace$|オフライン|
+|`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$|オフライン|
 
 
 ## 参考

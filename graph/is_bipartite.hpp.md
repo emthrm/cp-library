@@ -18,12 +18,12 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 193, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
@@ -44,8 +44,8 @@ data:
   timestamp: '2021-02-11 00:27:09+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/data_structure/union-find/undoable_union-find.test.cpp
   - test/graph/is_bipartite.test.cpp
+  - test/data_structure/union-find/undoable_union-find.test.cpp
 documentation_of: graph/is_bipartite.hpp
 layout: document
 title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
@@ -54,8 +54,8 @@ title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
 
 ### 二部グラフ (bipartite graph)
 
-- 各部分集合内の頂点間で辺が存在しないように頂点集合を二つの部分集合に分割できるグラフである．
-- 隣接するものは異なる色となるように頂点を塗る彩色問題において彩色数が2となるグラフ．
+- 各部分集合内の頂点間で辺が存在しないよう，頂点集合を二つの部分集合に分割できるグラフである．
+- [彩色数](chromatic_number.md)$2$のグラフである．
 - 奇数長の閉路を含まないグラフである．
 
 これらはすべて同値である．
@@ -70,7 +70,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color} \in \{0, 1\}^N$ は各頂点の色を表す．|
+|`is_bipartite(graph, color)`|グラフ $\mathrm{graph}$ は二部グラフであるか．|$\mathrm{color} \in {\lbrace 0, 1 \rbrace}^N$ は各頂点の色を表す．|
 
 
 ## 参考

@@ -110,7 +110,7 @@ title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (suffix array)"
 
 ## 参考
 
-- https://github.com/beet-aizu/library/blob/master/string/suffixarray.cpp
+- https://github.com/beet-aizu/library/blob/2ecdc969043f5276c3782a7752592bd3fe856524/string/suffixarray.cpp
 - プログラミングコンテストチャレンジブック \[第2版\] pp.335-339
 - http://wk1080id.hatenablog.com/entry/2018/12/25/005926
 
