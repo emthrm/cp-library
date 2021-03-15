@@ -1,5 +1,4 @@
 #pragma once
-
 #include <vector>
 #include "prime_sieve.hpp"
 #include "mod_pow.hpp"

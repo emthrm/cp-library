@@ -113,6 +113,9 @@ $$\begin{aligned} D_i = \overline{D_{\frac{N}{2} - i}} &= \frac{(R_i + R_{\frac{
 - k-基底 FFT
   - http://xn--w6q13e505b.jp/method/fft/radix.html
   - http://wwwa.pikara.ne.jp/okojisan/stockham/stockham3.html
+- 多変数の畳み込み
+  - https://37zigen.com/truncated-multivariate-convolution/
+  - https://judge.yosupo.jp/problem/multivariate_convolution
 
 
 ## Verified

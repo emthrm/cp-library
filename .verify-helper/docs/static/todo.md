@@ -92,6 +92,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
 # sack (dsu on tree)
 
 ## ToDo
+- https://dic.kimiyuki.net/dsu-on-tree
 - https://codeforces.com/blog/entry/44351
 - https://camypaper.bitbucket.io/2016/12/18/adc2016/
 - https://github.com/beet-aizu/library/blob/master/tree/sack.cpp
@@ -150,6 +151,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
 
 ## ToDo
 - https://en.wikipedia.org/wiki/Top_tree
+- https://scrapbox.io/data-structures/Top_Tree
 - https://niuez.hatenablog.com/entry/2019/08/04/191420
 - https://niuez.hatenablog.com/entry/2019/06/29/161729
 - https://niuez.hatenablog.com/entry/2019/12/14/000036
@@ -178,9 +180,11 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
 - http://hos.ac/blog/#blog0001
 - 二分ヒープ (binary heap)
   - https://ja.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E3%83%92%E3%83%BC%E3%83%97
+  - https://scrapbox.io/data-structures/Binary_Heap
   - https://github.com/eandbsoftware/libraryCPP/blob/master/!BinaryHeap.cpp
 - radix heap
   - https://en.wikipedia.org/wiki/Radix_heap
+  - https://scrapbox.io/data-structures/Radix_Heap
   - https://github.com/iwiwi/radix-heap
   - https://ei1333.github.io/algorithm/radix-heap.html
   - https://lumakernel.github.io/ecasdqina/data-structure/Heap/RadixHeap
@@ -196,6 +200,9 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
   - dual heap
     - https://topcoder.g.hatena.ne.jp/spaghetti_source/20121006/1349491389
     - https://tubo28.me/compprog/algorithm/hogloid-heap/
+  - interval heap
+    - https://en.wikipedia.org/wiki/Double-ended_priority_queue#Interval_heaps
+    - https://scrapbox.io/data-structures/Interval_Heap
 - meldable heap
   - https://en.wikipedia.org/wiki/Randomized_meldable_heap
   - https://topcoder.g.hatena.ne.jp/spaghetti_source/20120831/1346372776
@@ -203,6 +210,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
   - https://trap.jp/post/1050/
   - skew heap
     - https://en.wikipedia.org/wiki/Skew_heap
+    - https://scrapbox.io/data-structures/Skew_Heap
     - https://ei1333.github.io/algorithm/skew-heap.html
     - https://ei1333.github.io/luzhiled/snippets/structure/skew-heap.html
     - https://github.com/beet-aizu/library/blob/master/datastructure/skewheap.cpp
@@ -213,10 +221,12 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
     - https://twitter.com/yamerarenaku/status/1085593085931732992
   - leftist heap
     - https://en.wikipedia.org/wiki/Leftist_tree
+    - https://scrapbox.io/data-structures/Leftist_Heap
     - https://lumakernel.github.io/ecasdqina/data-structure/Heap/LeftistHeap
     - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/leftist_heap.cc
   - pairing heap
     - https://en.wikipedia.org/wiki/Pairing_heap
+    - https://scrapbox.io/data-structures/Pairing_Heap
     - https://topcoder.g.hatena.ne.jp/spaghetti_source/20120929/1348886107
     - https://ei1333.github.io/algorithm/pairing-heap.html
     - https://github.com/eandbsoftware/libraryCPP/blob/master/%23PairingHeap.cpp
@@ -237,6 +247,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
 ## ToDo
 - https://ja.wikipedia.org/wiki/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8
 - https://www.slideshare.net/iwiwi/2-12188757
+- https://scrapbox.io/data-structures/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%81%A8%E3%81%AF
 - http://yosupo.hatenablog.com/entry/2014/12/09/222401
 - https://github.com/ei1333/library/tree/master/structure/bbst
 - https://github.com/beet-aizu/library/tree/master/bbst
@@ -340,6 +351,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
   - http://monyone.github.io/teihen_library/#ShiftAnd
 - ボイヤー-ムーア文字列検索アルゴリズム (Boyer-Moore string search algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%A4%E3%83%A4%E3%83%BC-%E3%83%A0%E3%83%BC%E3%82%A2%E6%96%87%E5%AD%97%E5%88%97%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
+  - https://dic.kimiyuki.net/boyer-moore
   - https://algoful.com/Archive/Algorithm/BMSearch
   - https://g940425.hatenadiary.org/entry/20100522/1274520718
   - http://www.prefield.com/algorithm/string/boyer_moore.html

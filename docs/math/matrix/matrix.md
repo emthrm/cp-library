@@ -57,6 +57,7 @@ documentation_of: math/matrix/matrix.hpp
   - https://www.hamayanhamayan.com/entry/2017/06/13/103352
   - https://takeda25.hatenablog.jp/entry/20130303/1362301095
   - http://miti-7.hatenablog.com/entry/2018/04/28/152259
+  - https://scrapbox.io/data-structures/Wavelet_Matrix
   - https://www.dropbox.com/sh/9lknvq4xay709cn/AAAX61z5W1m20MPkJ8V53l5ma/%23WaveletMatrix.cpp?dl=0
   - https://www.pandanoir.info/entry/2016/03/01/230031
   - https://github.com/MitI-7/Algorithm/wiki/%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E8%A1%8C%E5%88%97

@@ -79,6 +79,7 @@ $\langle O(N), O(\log{N}) \rangle$
 - https://www.hamayanhamayan.com/entry/2017/07/08/173120
 - https://ei1333.hateblo.jp/entry/2017/12/14/000000
 - 動的構築セグメント木
+  - https://scrapbox.io/data-structures/Dynamic_Segment_Tree
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
   - http://degwer.hatenablog.com/entry/20131211/1386757368
   - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
@@ -101,6 +102,8 @@ $\langle O(N), O(\log{N}) \rangle$
     - https://qiita.com/nariaki3551/items/3c5e59b3ece31a4dfce8
     - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree
 - 永続セグメント木
+  - https://scrapbox.io/data-structures/Persistent_Segment_Tree
+  - https://scrapbox.io/data-structures/Persistent_Lazy_Segment_Tree
   - http://sigma425.hatenablog.com/entry/2014/12/30/164148
   - https://ei1333.github.io/algorithm/segment-tree.html
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html

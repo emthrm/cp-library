@@ -54,6 +54,7 @@ $O(N^2)$
     - https://lumakernel.github.io/ecasdqina/algorithm/Hu-Tucker
     -  https://atcoder.jp/contests/kupc2012/submissions/29656
 - monotone minima
+  - https://dic.kimiyuki.net/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://ei1333.github.io/luzhiled/snippets/dp/monotone-minima.html
@@ -63,6 +64,7 @@ $O(N^2)$
   - http://sigma425.hatenablog.com/entry/2015/12/01/162720
 - SMAWK algorithm
   - https://en.wikipedia.org/wiki/SMAWK_algorithm
+  - https://dic.kimiyuki.net/smawk-algorithm
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://drive.google.com/drive/folders/1FMOglXlDlyg6FJiP5QTJ0iSMq7XA2mqy
 - オフライン・オンライン変換

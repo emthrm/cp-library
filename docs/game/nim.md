@@ -23,6 +23,14 @@ $O(N)$
 - プログラミングコンテストチャレンジブック \[第2版\] pp.277-278
 
 
+## ToDo
+
+- nim product
+  - https://drive.google.com/file/d/16g1tfSHUU4NXNTDgaD8FSA1WB4FtJCyV
+  - https://github.com/yosupo06/library-checker-problems/issues/317
+  - https://judge.yosupo.jp/problem/nim_product_64
+
+
 ## Verified
 
 https://atcoder.jp/contests/arc013/submissions/9236426

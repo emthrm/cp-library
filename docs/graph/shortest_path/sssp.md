@@ -51,6 +51,7 @@ Dijkstra 法
 
 - Shortest Path Faster Algorithm
   - https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm
+  - https://dic.kimiyuki.net/spfa
   - http://hogloid.hatenablog.com/entry/20120409/1333973448
   - https://ei1333.github.io/algorithm/shortest-path-faster-algorithm.html
   - https://ei1333.github.io/luzhiled/snippets/graph/shortest-path-faster-algorithm.html
@@ -58,6 +59,7 @@ Dijkstra 法
   - https://tjkendev.github.io/procon-library/python/graph/spfa.html
   - https://hamukichi.hatenablog.jp/entry/2016/03/03/191304
 - Dijkstra 法の高速化
+  - https://www.slideshare.net/yosupo/ss-46612984
   - skew heap
     - https://github.com/primenumber/ProconLib/blob/master/Structure/SkewHeapDijkstra.cpps
   - Fibonacchi heap
@@ -71,16 +73,24 @@ Dijkstra 法
 - k shortest path routing (Yen's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing
   - https://en.wikipedia.org/wiki/Yen%27s_algorithm
+  - https://dic.kimiyuki.net/yen-algorithm
   - http://inarizuuuushi.hatenablog.com/entry/2018/08/30/222605
   - https://yukicoder.me/problems/no/1069
 - k shortest walk (Eppstein's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing#Variations
+  - https://dic.kimiyuki.net/eppstein-algorithm
   - https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e
+  - https://qiita.com/nariaki3551/items/0ab83541814f98eab322
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
 - $O(\sqrt{N} M \log{C})$
   - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
+- Dial's algorithm
+  - https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Specialized_variants
+  - https://dic.kimiyuki.net/dial
+  - http://bin.t.u-tokyo.ac.jp/startup16/file/6-1.pdf
+  - https://tjkendev.github.io/procon-library/python/graph/dial.html
 
 
 ## Verified
