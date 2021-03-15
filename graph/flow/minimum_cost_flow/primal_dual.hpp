@@ -25,7 +25,7 @@ struct PrimalDual {
   std::vector<std::vector<Edge>> graph;
 
   PrimalDual(int n, const U uinf = std::numeric_limits<U>::max())
-  : n(n), uinf(uinf), graph(n), prev_v(n, -1), prev_e(n, -1), potential(n, 0), dist(n) {}
+  : n(n), uinf(uinf), graph(n), prev_v(n, -1), prev_e(n, -1), dist(n), potential(n, 0) {}
 
   void add_edge(int src, int dst, T cap, U cost) {
     has_negative_edge |= cost < 0;
@@ -52,40 +52,38 @@ struct PrimalDual {
     U res = 0;
     bellman_ford(s);
     if (potential[t] >= 0 || dist[t] == uinf) return res;
-    T tmp = tinf;
-    res += calc(s, t, tmp);
+    T f = tinf;
+    res += calc(s, t, f);
     while (true) {
       dijkstra(s);
       if (potential[t] >= 0 || dist[t] == uinf) return res;
-      res += calc(s, t, tmp);
+      res += calc(s, t, f);
     }
   }
 
   std::pair<T, U> min_cost_max_flow(int s, int t, T flow) {
-    T mx = flow;
+    T f = flow;
     U cost = 0;
     if (has_negative_edge) {
       bellman_ford(s);
-      if (dist[t] == uinf) return {mx - flow, cost};
+      if (dist[t] == uinf) return {f - flow, cost};
       cost += calc(s, t, flow);
     }
     while (flow > 0) {
       dijkstra(s);
-      if (dist[t] == uinf) return {mx - flow, cost};
+      if (dist[t] == uinf) return {f - flow, cost};
       cost += calc(s, t, flow);
     }
-    return {mx - flow, cost};
+    return {f, cost};
   }
 
 private:
-  using Pui = std::pair<U, int>;
-
-  int n;
   const T tinf = std::numeric_limits<T>::max();
+  int n;
   bool has_negative_edge = false;
   std::vector<int> prev_v, prev_e;
-  std::vector<U> potential, dist;
-  std::priority_queue<Pui, std::vector<Pui>, std::greater<Pui>> que;
+  std::vector<U> dist, potential;
+  std::priority_queue<std::pair<U, int>, std::vector<std::pair<U, int>>, std::greater<std::pair<U, int>>> que;
 
   void bellman_ford(int s) {
     std::fill(dist.begin(), dist.end(), uinf);
@@ -96,7 +94,7 @@ private:
       for (int i = 0; i < n; ++i) {
         if (dist[i] == uinf) continue;
         for (int j = 0; j < graph[i].size(); ++j) {
-          Edge e = graph[i][j];
+          const Edge &e = graph[i][j];
           if (e.cap > 0 && dist[e.dst] > dist[i] + e.cost) {
             dist[e.dst] = dist[i] + e.cost;
             prev_v[e.dst] = i;
@@ -118,11 +116,11 @@ private:
     dist[s] = 0;
     que.emplace(0, s);
     while (!que.empty()) {
-      Pui pr = que.top(); que.pop();
+      std::pair<U, int> pr = que.top(); que.pop();
       int ver = pr.second;
       if (dist[ver] < pr.first) continue;
       for (int i = 0; i < graph[ver].size(); ++i) {
-        Edge e = graph[ver][i];
+        const Edge &e = graph[ver][i];
         U nx = dist[ver] + e.cost + potential[ver] - potential[e.dst];
         if (e.cap > 0 && dist[e.dst] > nx) {
           dist[e.dst] = nx;

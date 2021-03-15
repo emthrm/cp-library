@@ -49,8 +49,8 @@ struct PrimalDual2 {
       }
     }
     std::vector<int> prev_v(n + 2, -1), prev_e(n + 2, -1);
-    std::vector<U> potential(n + 2, 0), dist(n + 2);
-    std::priority_queue<Pui, std::vector<Pui>, std::greater<Pui>> que;
+    std::vector<U> dist(n + 2), potential(n + 2, 0);
+    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U, int>>, std::greater<std::pair<U, int>>> que;
     while (flow > 0) {
       std::fill(dist.begin(), dist.end(), uinf);
       dist[n] = 0;
@@ -59,7 +59,7 @@ struct PrimalDual2 {
         U fst; int ver; std::tie(fst, ver) = que.top(); que.pop();
         if (dist[ver] < fst) continue;
         for (int i = 0; i < graph[ver].size(); ++i) {
-          Edge &e = graph[ver][i];
+          const Edge &e = graph[ver][i];
           U nx = dist[ver] + e.cost + potential[ver] - potential[e.dst];
           if (e.cap > 0 && dist[e.dst] > nx) {
             dist[e.dst] = nx;
@@ -95,8 +95,6 @@ struct PrimalDual2 {
   }
 
 private:
-  using Pui = std::pair<U, int>;
-
   int n;
   U res = 0;
   std::vector<T> d;
