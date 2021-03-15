@@ -28,32 +28,28 @@ struct Dinic {
   T maximum_flow(int s, int t, T limit) {
     T res = 0;
     while (true) {
-      bfs(s);
+      std::fill(level.begin(), level.end(), -1);
+      std::queue<int> que;
+      level[s] = 0;
+      que.emplace(s);
+      while (!que.empty()) {
+        int ver = que.front(); que.pop();
+        for (const Edge &e : graph[ver]) {
+          if (level[e.dst] == -1 && e.cap > 0) {
+            level[e.dst] = level[ver] + 1;
+            que.emplace(e.dst);
+          }
+        }
+      }
       if (level[t] == -1) return res;
       std::fill(itr.begin(), itr.end(), 0);
-      T tmp;
-      while ((tmp = dfs(s, t, limit)) > 0) res += tmp;
+      T f;
+      while ((f = dfs(s, t, limit)) > 0) res += f;
     }
   }
 
 private:
   std::vector<int> level, itr;
-
-  void bfs(int s) {
-    std::fill(level.begin(), level.end(), -1);
-    std::queue<int> que;
-    level[s] = 0;
-    que.emplace(s);
-    while (!que.empty()) {
-      int ver = que.front(); que.pop();
-      for (const Edge &e : graph[ver]) {
-        if (level[e.dst] == -1 && e.cap > 0) {
-          level[e.dst] = level[ver] + 1;
-          que.emplace(e.dst);
-        }
-      }
-    }
-  }
 
   T dfs(int ver, int t, T flow) {
     if (ver == t) return flow;
