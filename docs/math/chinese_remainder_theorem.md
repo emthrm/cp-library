@@ -1,6 +1,6 @@
 ---
 title: 中国剰余定理 (Chinese remainder theorem)
-documentation_of: math/crt.hpp
+documentation_of: math/chinese_remainder_theorem.hpp
 ---
 
 連立合同式
@@ -20,18 +20,20 @@ $$x \equiv r \pmod{\mathrm{lcm}(m_1, m_2,..., m_k)}$$
 
 ## 時間計算量
 
-$\mathrm{lcm}(m_1, m_2,..., m_k) = \mathrm{lcm}(M)$ とおくと $O(N \log{\mathrm{lcm}(M)})$．
+$O(N \log{\mathrm{lcm}(m_1,...)})$
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`crt(b, m)`|$x \equiv r \pmod{\mathrm{lcm}(m_1,...)} \text{ s.t. } x \equiv b_i \pmod{m_i}$|存在しない場合は $(0, -1)$ となる．|
+|`chinese_remainder_theorem(b, m)`|$x \equiv r \pmod{\mathrm{lcm}(m_1,...)} \text{ s.t. } x \equiv b_i \pmod{m_i}$|存在しない場合は $(0, 0)$ となる．|
 
 
 ## 参考
 
+- https://rsk0315.hatenablog.com/entry/2021/01/18/065720#crt
+- https://github.com/atcoder/ac-library/blob/master/atcoder/math.hpp#L33-L80
 - https://qiita.com/drken/items/ae02240cd1f8edfc86fd
 - https://mathtrain.jp/remainder
 
@@ -56,4 +58,4 @@ $\mathrm{lcm}(m_1, m_2,..., m_k) = \mathrm{lcm}(M)$ とおくと $O(N \log{\math
 
 ## Verified
 
-https://yukicoder.me/submissions/444959
+https://yukicoder.me/submissions/630411
