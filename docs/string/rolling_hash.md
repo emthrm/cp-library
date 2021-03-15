@@ -26,7 +26,7 @@ $\langle O(\lvert S \rvert), O(1) \rangle$
 ## 参考
 
 - https://ei1333.github.io/luzhiled/snippets/string/rolling-hash.html
-- https://github.com/drken1215/algorithm/blob/master/String/rolling_hash.cpp
+- https://github.com/drken1215/algorithm/blob/5f6710d0f5a92456528100ae7d8b8c4f70ed99e2/String/rolling_hash.cpp
 
 
 ## ToDo

@@ -32,7 +32,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 参考
 
-- https://github.com/beet-aizu/library/blob/master/graph/stronglyconnectedcomponent.cpp
+- https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 
 備考
 - https://twitter.com/noshi91/status/1172798654450520064

@@ -23,7 +23,7 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
 - https://www.slideshare.net/wata_orz/ss-12131479
 - http://drken1215.hatenablog.com/entry/2019/01/16/030000
 - https://www.learning-algorithms.com/entry/2018/01/27/235959
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/chromatic_number.cc
+- https://github.com/spaghetti-source/algorithm/blob/b541e0b06aa4145592527b7de8e2caa8720bac22/graph/chromatic_number.cc
 
 
 ## ToDo

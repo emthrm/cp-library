@@ -15,7 +15,7 @@ documentation_of: math/bigint.hpp
 ## 参考
 
 - https://lumakernel.github.io/ecasdqina/misc/BigInteger
-- https://github.com/spaghetti-source/algorithm/blob/master/math/bigint.cc
+- https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
 
 カラツバ法
 - http://xn--w6q13e505b.jp/method/karatsuba.html

@@ -25,7 +25,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 参考
 
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/topological_sort.cc
+- https://github.com/spaghetti-source/algorithm/blob/8b1daaa3e80e5d954aac2632ef2299b1b86c55ed/graph/topological_sort.cc
 
 
 ## ToDo

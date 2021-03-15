@@ -44,7 +44,7 @@ Bellman-Ford 法
 - http://www.prefield.com/algorithm/graph/bellman_ford.html
 
 Dijkstra 法
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/dijkstra.cc
+- https://github.com/spaghetti-source/algorithm/blob/af9a22a92953e903c474e98e79107103adbd0a53/graph/dijkstra.cc
 
 
 ## ToDo

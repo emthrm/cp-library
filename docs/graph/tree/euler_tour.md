@@ -33,7 +33,7 @@ $O(\lvert V \rvert)$
 ## 参考
 
 - http://beet-aizu.hatenablog.com/entry/2019/07/08/174727
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/least_common_ancestor_sparsetable.cc
+- https://github.com/spaghetti-source/algorithm/blob/41bc0bbb1767692eb9bdeeceb332b2b8cc17329a/graph/least_common_ancestor_sparsetable.cc
 
 
 ## Verified

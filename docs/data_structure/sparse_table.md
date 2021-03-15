@@ -24,7 +24,7 @@ $\langle O(N\log{N}), O(1) \rangle$
 ## 参考
 
 - http://tookunn.hatenablog.com/entry/2016/07/13/211148
-- https://github.com/drken1215/algorithm/blob/master/DataStructure/sparse_table.cpp
+- https://github.com/drken1215/algorithm/blob/0db023d94ca9c79a24ef13f5905e6bab056bdafe/DataStructure/sparse_table.cpp
 
 
 ## Verified

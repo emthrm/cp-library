@@ -35,7 +35,7 @@ $$a^{\lambda(n)} \equiv 1 \pmod{n}$$
 
 - http://integers.hatenablog.com/entry/2017/06/08/191649
 - https://en.wikipedia.org/wiki/Carmichael_function
-- https://github.com/spaghetti-source/algorithm/blob/master/number_theory/carmichael_lambda.cc
+- https://github.com/spaghetti-source/algorithm/blob/8af3698b8a7583035857280ab324c8ae75c70374/number_theory/carmichael_lambda.cc
 
 
 ## ToDo

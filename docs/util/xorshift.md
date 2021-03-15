@@ -23,5 +23,5 @@ documentation_of: util/xorshift.hpp
 ## 参考
 
 - https://ja.wikipedia.org/wiki/Xorshift
-- https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp~~
 - https://nodchip.hatenadiary.org/entry/20090111/1231667839

@@ -40,7 +40,7 @@
 - https://yukicoder.me/wiki/lowest_common_ancestor
 
 オイラーツアー
-- https://github.com/drken1215/algorithm/blob/master/DataStructureOnTree/euler_tour_on_nodes.cpp#L149
+- https://github.com/drken1215/algorithm/blob/efb8cf052b095e49e70135a6fb628308d06f49b2/DataStructureOnTree/euler_tour_on_nodes.cpp
 
 
 ## ToDo

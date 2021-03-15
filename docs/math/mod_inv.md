@@ -25,4 +25,4 @@ $O(\log{M})$
 ## 参考
 
 - https://qiita.com/drken/items/3b4fdf0a78e7a138cd9a
-- https://github.com/kirika-comp/articles/blob/pre-releases/pre-seisuuron.pdf
+- https://github.com/kirika-comp/articles/blob/c16612f266202ec6ce0f462601dd4db110add534/pre-seisuuron.pdf

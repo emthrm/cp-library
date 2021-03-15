@@ -48,7 +48,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 - http://www.prefield.com/algorithm/graph/directed_euler_path.html
 
 オイラー路 無向グラフ版
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/eulerian_path_undirected.cc
+- https://github.com/spaghetti-source/algorithm/blob/2c70d7af4d132513fa699a5de5b2aaf21aaf7890/graph/eulerian_path_undirected.cc
 
 
 ## Verified

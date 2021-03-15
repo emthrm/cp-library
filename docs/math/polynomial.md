@@ -52,8 +52,8 @@ documentation_of: math/polynomial.hpp
 
 ## 参考
 
-- https://github.com/beet-aizu/library/blob/master/polynomial/polynomial.cpp
-- https://github.com/primenumber/ProconLib/blob/master/Math/Polynomial.cpp
+- https://github.com/beet-aizu/library/blob/29e15f77befa18d06b1f61221c509b5a58f4cb4c/polynomial/polynomial.cpp
+- https://github.com/primenumber/ProconLib/blob/dc175741e461e88f69350532b47fa57527b38fa3/Math/Polynomial.cpp
 
 
 ## ToDo

@@ -54,7 +54,7 @@ KMP 法
 - https://snuke.hatenablog.com/entry/2015/04/05/184819
 
 パターンマッチング
-- https://github.com/drken1215/algorithm/blob/master/String/knuth_morris_pratt.cpp
+- https://github.com/drken1215/algorithm/blob/d41481f5011e8b129128050627faddebe2add91a/String/knuth_morris_pratt.cpp
 
 
 ## Verified

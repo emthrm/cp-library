@@ -24,7 +24,7 @@ $O(\lvert S \rvert)$
 
 ## 参考
 
-- https://github.com/beet-aizu/library/blob/master/string/trie.cpp
+- https://github.com/beet-aizu/library/blob/2ecdc969043f5276c3782a7752592bd3fe856524/string/trie.cpp
 
 
 ## ToDo

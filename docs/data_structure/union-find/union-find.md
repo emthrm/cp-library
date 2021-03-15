@@ -70,14 +70,14 @@
 - https://ei1333.github.io/algorithm/union-find.html
 
 union-find 木
-- https://github.com/spaghetti-source/algorithm/blob/master/data_structure/union_find.cc
+- https://github.com/spaghetti-source/algorithm/blob/6c4a86dea5a487dbdd5fe96b3589d950e42c370d/data_structure/union_find.cc
 
 重みつき union-find 木
 - https://qiita.com/drken/items/cce6fc5c579051e64fab
 
 部分永続 union-find 木
 - https://camypaper.bitbucket.io/2016/12/18/adc2016/
-- https://github.com/drken1215/algorithm/blob/master/DataStructure/partially_persistent_union_find_tree.cpp
+- https://github.com/drken1215/algorithm/blob/86a29ca7b6c24132e8ba6b002c4ddd2ab201d4e7/DataStructure/partially_persistent_union_find_tree.cpp
 
 undo 可能 union-find 木
 - https://snuke.hatenablog.com/entry/2016/07/01/000000

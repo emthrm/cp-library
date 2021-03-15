@@ -24,7 +24,7 @@ $O(\lvert S \rvert)$
 ## 参考
 
 - https://snuke.hatenablog.com/entry/2014/12/02/235837
-- https://github.com/drken1215/algorithm/blob/master/String/manacher.cpp
+- https://github.com/drken1215/algorithm/blob/d4d987bfd9205655862986b3d27339381b1ffaf7/String/manacher.cpp
 
 
 ## ToDo

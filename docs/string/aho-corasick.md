@@ -27,7 +27,7 @@ documentation_of: string/aho-corasick.hpp
 
 - https://naoya-2.hatenadiary.org/entry/20090405/aho_corasick
 - https://ei1333.github.io/luzhiled/snippets/string/aho-corasick.html
-- https://github.com/beet-aizu/library/blob/master/string/ahocorasick.cpp
+- https://github.com/beet-aizu/library/blob/02578ddfa9d2a46e3c724df82e84797dd41eabac/string/ahocorasick.cpp
 
 
 ## Verified

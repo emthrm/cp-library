@@ -34,7 +34,7 @@ Prim 法
 - http://www.prefield.com/algorithm/graph/prim.html
 
 Kruskal 法
-- https://github.com/spaghetti-source/algorithm/blob/master/graph/kruskal.cc
+- https://github.com/spaghetti-source/algorithm/blob/64d34fb9b940a3e933cf36c4dd26b7457b42f50b/graph/kruskal.cc
 
 
 ## ToDo

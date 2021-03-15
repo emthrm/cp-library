@@ -45,7 +45,7 @@ $$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \su
 - https://tubo28.me/compprog/algorithm/lagrange_interpolation/
 
 多項式補間
-- https://github.com/ei1333/library/blob/master/math/fps/polynomial-interpolation.cpp
+- https://github.com/ei1333/library/blob/c5a89ad7cb3855ebb448da00a629504e26adce24/math/fps/polynomial-interpolation.cpp
 
 
 ## ToDo

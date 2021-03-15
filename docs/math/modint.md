@@ -17,7 +17,7 @@ documentation_of: math/modint.hpp
 
 ## 参考
 
-- https://github.com/eandbsoftware/libraryCPP/blob/master/!ModInt.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!ModInt.cpp~~
 - https://noshi91.hatenablog.com/entry/2019/03/31/174006
 - https://ei1333.github.io/algorithm/combination.html
 

@@ -37,7 +37,7 @@ $\langle O(\lvert V \rvert), O(\log{\lvert V \rvert}) \rangle$
 
 - https://www.slideshare.net/hcpc_hokudai/study-20150107
 - http://beet-aizu.hatenablog.com/entry/2017/12/12/235950
-- https://github.com/beet-aizu/library/blob/master/tree/heavylightdecomposition.cpp
+- https://github.com/beet-aizu/library/blob/627950ae389af108b3c3f431f057c58891b0ba72/tree/heavylightdecomposition.cpp
 - https://codeforces.com/blog/entry/53170
 
 
