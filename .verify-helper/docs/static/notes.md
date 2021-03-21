@@ -34,3 +34,11 @@ $a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して
 が成り立つ．
 
 > https://hackmd.io/@qLethon/B1ZGcrbnI
+
+---
+
+$f_i(x) \coloneqq \min(\max(x + a_i, b_i), c_i)$ とおくと
+$$\begin{aligned} f_2 \circ f_1(x) &= \min(\max(\min(\max(x + a_1, b_1), c_1) + a_2, b_2), c_2) \\ &= \min(\max(\min(\max(x + a_1 + a_2, b_1 + a_2), c_1 + a_2), b_2), c_2) \\ &= \min(\min(\max(\max(x + a_1 + a_2, b_1 + a_2), b_2), \max(c_1 + a_2, b_2)), c_2) \\ &= \min(\min(\max(x + a_1 + a_2, \max(b_1 + a_2, b_2)), \max(c_1 + a_2, b_2)), c_2) \\ &= \min(\max(x + a_1 + a_2, \max(b_1 + a_2, b_2)), \min(\max(c_1 + a_2, b_2), c_2)) \\ &= \min(\max(x + A, B), C) \end{aligned}$$
+が成り立つ．ただし $A \coloneqq a_1 + a_2,\ B \coloneqq \max(b_1 + a_2, b_2),\ C \coloneqq \min(\max(c_1 + a_2, b_2), c_2)$ である．
+
+> https://atcoder.jp/contests/abc196/editorial/948
