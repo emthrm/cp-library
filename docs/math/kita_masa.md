@@ -21,8 +21,9 @@ $O(K^2 \log{N})$
 ## 参考
 
 - https://lumakernel.github.io/ecasdqina/algorithm/Kitamasa
-- http://sugarknri.hatenablog.com/entry/2017/11/18/233936
+- ~~http://sugarknri.hatenablog.com/entry/2017/11/18/233936~~
 - http://yosupo.hatenablog.com/entry/2015/03/27/025132
+- https://tjkendev.github.io/procon-library/cpp/series/kitamasa.html
 
 
 ## ToDo
@@ -33,11 +34,12 @@ $O(K^2 \log{N})$
   - https://yukicoder.me/problems/no/215/editorial
   - http://kmjp.hatenablog.jp/entry/2015/06/03/1000
   - http://sugarknri.hatenablog.com/entry/2017/11/18/233936
-  - http://q.c.titech.ac.jp/docs/progs/polynomial_division.html
 - Bostan-Mori のアルゴリズム
+  - http://q.c.titech.ac.jp/docs/progs/polynomial_division.html
   - https://qiita.com/ryuhe1/items/da5acbcce4ac1911f47a
+  - https://atcoder.jp/contests/abc198/submissions/21708598
 
 
 ## Verified
 
-https://atcoder.jp/contests/tdpc/submissions/9303052
+https://yukicoder.me/submissions/647774

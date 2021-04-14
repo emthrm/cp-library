@@ -98,12 +98,13 @@ documentation_of: math/fps/fps.hpp
 
 ## 参考
 
-- http://lattemalta.hatenablog.jp/entry/2019/09/29/231332
+- ~~http://lattemalta.hatenablog.jp/entry/2019/09/29/231332~~
 - https://maspypy.com/category/%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0%e8%a7%a3%e8%aa%ac
 - https://science-log.com/%e3%83%9b%e3%83%bc%e3%83%a0%e3%83%9a%e3%83%bc%e3%82%b8/%e6%95%b0%e5%ad%a6top%e3%83%9a%e3%83%bc%e3%82%b8/%e8%a7%a3%e6%9e%90top/%e6%af%8d%e9%96%a2%e6%95%b0%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6/
 - https://codeforces.com/blog/entry/56422
-- http://sugarknri.hatenablog.com/entry/2019/10/08/001359
-- https://github.com/ei1333/library/commit/d7e8da80351ac962978692b1a60d2728783afb26#diff-5769d659f0cbf5035e237e5e0ba5d05d60588ff501de18d9b4a73fa5ec1cc5a1
+- ~~http://sugarknri.hatenablog.com/entry/2019/10/08/001359~~
+- https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
+- https://yukicoder.me/wiki/polynomial_techniques
 
 
 ## ToDo
@@ -128,6 +129,8 @@ documentation_of: math/fps/fps.hpp
   - https://github.com/ei1333/library/blob/master/math/fps/berlekamp-massey.cpp
   - https://yukicoder.me/submissions/427818
   - https://judge.yosupo.jp/problem/find_linear_recurrence
+- $x^n \bmod f(x)$
+  - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
 - 多項式ハッシュ
   - https://yukicoder.me/wiki/polynomial_techniques
   - https://github.com/beet-aizu/library/blob/master/polynomial/hash.cpp

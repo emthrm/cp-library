@@ -4,29 +4,31 @@
 
 template <typename T>
 T kita_masa(const std::vector<T> &c, const std::vector<T> &a, long long n) {
+  if (n == 0) return a[0];
   int k = c.size();
-  std::vector<T> coefficient((k << 1) - 1, 0);
-  coefficient[0] = 1;
-  int now = 0;
-  std::vector<std::vector<T>> base(2, std::vector<T>((k << 1) - 1, 0));
-  base[now][1] = 1;
-  for (; n > 0; n >>= 1) {
-    if (n & 1) {
-      fill(base[now ^ 1].begin(), base[now ^ 1].end(), 0);
-      for (int i = 0; i < k; ++i) for (int j = 0; j < k; ++j) base[now ^ 1][i + j] += coefficient[i] * base[now][j];
-      fill(coefficient.begin(), coefficient.end(), 0);
-      for (int i = (k << 1) - 2; i >= k; --i) {
-        coefficient[i] += base[now ^ 1][i];
-        for (int j = 0; j < k; ++j) coefficient[i - k + j] += coefficient[i] * c[j];
-      }
-      for (int i = 0; i < k; ++i) coefficient[i] += base[now ^ 1][i];
+  std::vector<T> coefficient[3];
+  for (int i = 0; i < 3; ++i) coefficient[i].assign(k, 0);
+  if (k == 1) {
+    coefficient[0][0] = c[0] * a[0];
+  } else {
+    coefficient[0][1] = 1;
+  }
+  auto succ = [&c, k, &coefficient]() -> void {
+    for (int i = 0; i < k - 1; ++i) coefficient[0][i] += coefficient[0].back() * c[i + 1];
+    coefficient[0].back() *= c[0];
+    std::rotate(coefficient[0].begin(), coefficient[0].begin() + k - 1, coefficient[0].end());
+  };
+  for (int bit = 62 - __builtin_clzll(n); bit >= 0; --bit) {
+    for (int i = 1; i < 3; ++i) std::copy(coefficient[0].begin(), coefficient[0].end(), coefficient[i].begin());
+    for (T &e : coefficient[1]) e *= coefficient[2][0];
+    for (int i = 1; i < k; ++i) {
+      succ();
+      for (int j = 0; j < k; ++j) coefficient[1][j] += coefficient[2][i] * coefficient[0][j];
     }
-    fill(base[now ^ 1].begin(), base[now ^ 1].end(), 0);
-    for (int i = 0; i < k; ++i) for (int j = 0; j < k; ++j) base[now ^ 1][i + j] += base[now][i] * base[now][j];
-    now ^= 1;
-    for (int i = (k << 1) - 2; i >= k; --i) for (int j = 0; j < k; ++j) base[now][i - k + j] += base[now][i] * c[j];
+    coefficient[0].swap(coefficient[1]);
+    if (n >> bit & 1) succ();
   }
   T res = 0;
-  for (int i = 0; i < k; ++i) res += coefficient[i] * a[i];
+  for (int i = 0; i < k; ++i) res += coefficient[0][i] * a[i];
   return res;
 }
