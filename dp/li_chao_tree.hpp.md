@@ -87,8 +87,8 @@ data:
   timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dp/li_chao_tree.1.test.cpp
   - test/dp/li_chao_tree.2.test.cpp
+  - test/dp/li_chao_tree.1.test.cpp
 documentation_of: dp/li_chao_tree.hpp
 layout: document
 title: Li Chao tree

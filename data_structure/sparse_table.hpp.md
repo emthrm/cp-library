@@ -61,14 +61,14 @@ data:
   isVerificationFile: false
   path: data_structure/sparse_table.hpp
   requiredBy:
-  - graph/tree/lca_euler_tour.hpp
   - string/lcp.hpp
+  - graph/tree/lca_euler_tour.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/lca_euler_tour.test.cpp
   - test/data_structure/sparse_table.test.cpp
   - test/string/lcp.test.cpp
+  - test/graph/tree/lca_euler_tour.test.cpp
 documentation_of: data_structure/sparse_table.hpp
 layout: document
 title: sparse table

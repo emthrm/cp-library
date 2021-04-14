@@ -106,9 +106,9 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/dp/cht.2.test.cpp
-  - test/dp/cht.1.test.cpp
   - test/dp/cht.3.test.cpp
+  - test/dp/cht.1.test.cpp
+  - test/dp/cht.2.test.cpp
 documentation_of: dp/cht.hpp
 layout: document
 title: convex hull trick

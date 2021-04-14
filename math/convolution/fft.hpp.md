@@ -153,8 +153,8 @@ data:
   verifiedWith:
   - test/math/fps/fps.5.test.cpp
   - test/math/fps/faulhaber_with_fps.test.cpp
-  - test/math/convolution/fft.test.cpp
   - test/math/convolution/mod_convolution.test.cpp
+  - test/math/convolution/fft.test.cpp
   - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: math/convolution/fft.hpp
 layout: document

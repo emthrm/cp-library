@@ -154,7 +154,7 @@ $\text{amortized } O(\log{n})$ ?
 |`erase(x)`|集合から $x$ を削除する．|返り値は削除された要素の次を指すイテレータと実際に削除したかである．|
 |`erase(left, right)`|集合から $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を削除する．|返り値は削除された要素の次を指すイテレータと削除した要素数である．|
 |`insert(x)`|集合に $x$ を挿入する．|返り値は要素へのイテレータと挿入されたかどうかである．|
-|`insert(left, right)`|集合に $x$ を挿入する．|返り値は要素へのイテレータと挿入した要素数である．|
+|`insert(left, right)`|集合に $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を挿入する．|返り値は要素へのイテレータと挿入した要素数である．|
 |`mex(x = 0)`|mex||
 
 

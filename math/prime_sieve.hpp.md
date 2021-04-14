@@ -18,9 +18,6 @@ data:
   - icon: ':x:'
     path: math/osa_k.hpp
     title: "osa_k \u6CD5"
-  - icon: ':warning:'
-    path: test/math/prime_sieve.cpp
-    title: "\u6570\u5B66/prime sieve"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp
@@ -30,12 +27,18 @@ data:
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
   - icon: ':x:'
+    path: test/math/fast_divisor.test.cpp
+    title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
+  - icon: ':x:'
     path: test/math/mobius_mu/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
   - icon: ':x:'
     path: test/math/osa_k.test.cpp
     title: "\u6570\u5B66/osa_k \u6CD5"
+  - icon: ':heavy_check_mark:'
+    path: test/math/prime_sieve.test.cpp
+    title: "\u6570\u5B66/prime sieve"
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -61,19 +64,20 @@ data:
   isVerificationFile: false
   path: math/prime_sieve.hpp
   requiredBy:
-  - math/enumerate_k-th_power.hpp
   - math/mobius_mu/mobius_mu_init2.hpp
-  - math/euler_phi/euler_phi_init2.hpp
   - math/osa_k.hpp
   - math/carmichal_function_init.hpp
-  - test/math/prime_sieve.cpp
+  - math/enumerate_k-th_power.hpp
+  - math/euler_phi/euler_phi_init2.hpp
   timestamp: '2021-02-27 06:50:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
+  - test/math/fast_divisor.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
   - test/math/osa_k.test.cpp
   - test/math/euler_phi/euler_phi_init2.test.cpp
+  - test/math/prime_sieve.test.cpp
 documentation_of: math/prime_sieve.hpp
 layout: document
 title: prime sieve

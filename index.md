@@ -298,7 +298,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/jacobi_symbol.hpp
       title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/kita_masa.hpp
       title: "\u304D\u305F\u307E\u3055\u6CD5"
     - icon: ':x:'
@@ -571,11 +571,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/z_algorithm.hpp
       title: Z algorithm
-  - name: test/math
-    pages:
-    - icon: ':warning:'
-      path: test/math/prime_sieve.cpp
-      title: "\u6570\u5B66/prime sieve"
   - name: util
     pages:
     - icon: ':warning:'
@@ -1029,6 +1024,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/ext_gcd.test.cpp
       title: "\u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
+    - icon: ':x:'
+      path: test/math/fast_divisor.test.cpp
+      title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
     - icon: ':heavy_check_mark:'
       path: test/math/floor_sum.test.cpp
       title: "\u6570\u5B66/sum of floor of linear"
@@ -1041,7 +1039,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/jacobi_symbol.test.cpp
       title: "\u6570\u5B66/\u30E4\u30B3\u30D3\u8A18\u53F7"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/kita_masa.test.cpp
       title: "\u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5"
     - icon: ':x:'
@@ -1076,6 +1074,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/prime_factorization.test.cpp
       title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
+    - icon: ':heavy_check_mark:'
+      path: test/math/prime_sieve.test.cpp
+      title: "\u6570\u5B66/prime sieve"
     - icon: ':heavy_check_mark:'
       path: test/math/quadratic_equation.test.cpp
       title: "\u6570\u5B66/\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F"

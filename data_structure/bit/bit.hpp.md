@@ -25,10 +25,10 @@ data:
     _deprecated_at_docs: docs/data_structure/bit/bit.md
     document_title: binary indexed tree
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.2/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/bit/bit.hpp: line 6: #pragma once found in a non-first line\n"
@@ -57,10 +57,10 @@ data:
   timestamp: '2021-02-13 04:45:32+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/misc/mo.test.cpp
+  - test/misc/inversion_number.test.cpp
   - test/data_structure/bit/bit.2.test.cpp
   - test/data_structure/bit/bit.1.test.cpp
-  - test/misc/inversion_number.test.cpp
-  - test/misc/mo.test.cpp
 documentation_of: data_structure/bit/bit.hpp
 layout: document
 redirect_from:
