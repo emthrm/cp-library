@@ -54,4 +54,4 @@ $$A_{ij} = \begin{cases} \text{頂点 } i \text{ の次数} & (i = j) \\ -(\text
 
 ## Verified
 
-- [行列木定理](https://atcoder.jp/contests/arc018/submissions/9306140)
+- [行列木定理](https://atcoder.jp/contests/jsc2021/submissions/21877707)
