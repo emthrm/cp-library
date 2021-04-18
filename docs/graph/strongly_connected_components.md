@@ -1,11 +1,9 @@
 ---
-title: 強連結成分分解 (strongly connected components)
-documentation_of: graph/scc.hpp
+title: 強連結成分 (strongly connected components) 分解
+documentation_of: graph/strongly_connected_components.hpp
 ---
 
-有向グラフを共通部分のない強連結成分に分解することである．
-
-- Kosaraju's algorithm
+有向グラフを共通部分の存在しない強連結成分に分解することである．
 
 
 ## 時間計算量
@@ -14,6 +12,8 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 
 ## 使用法
+
+- Kosaraju's algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
@@ -32,6 +32,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 参考
 
+Kosaraju's algorithm
 - https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 
 備考
@@ -50,4 +51,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Verified
 
-https://judge.yosupo.jp/submission/4441
+- [Kosaraju's algorithm](https://judge.yosupo.jp/submission/4441)

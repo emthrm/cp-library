@@ -1,11 +1,11 @@
 ---
-title: 二重頂点連結成分分解 (biconnected component)
+title: 二重頂点連結成分 (biconnected component) 分解
 documentation_of: graph/biconnected_component.hpp
 ---
 
-無向グラフから関節点を含まない辺集合に分割することである．
+無向グラフを関節点の存在しない辺集合に分割することである．
 
-各集合には任意の相異なる3点を始点, 経由点, 終点とする単純パスが存在する．
+それぞれの成分には，任意の相異なる3点を始点・経由点・終点とする単純パスが存在する．
 
 
 ### block-cut tree
@@ -33,7 +33,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BiconnectedComponent(graph, 重量版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解 を考える．|[lowlink](lowlink.md)|
+|`BiconnectedComponent(graph, 重量版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える．|[lowlink](lowlink.md)|
 |`block[i]`|縮約後のグラフのブロック $i$ に含まれる辺||
 |`id[i]`|元のグラフの頂点 $i$ を含むブロック|重量版のみ|
 |`vertices[i]`|縮約後のグラフのブロック $i$ に含まれる頂点|重量版のみ|

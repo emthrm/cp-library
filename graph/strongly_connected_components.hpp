@@ -4,12 +4,12 @@
 #include "edge.hpp"
 
 template <typename CostType>
-struct SCC {
+struct StronglyConnectedComponents {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices;
   std::vector<std::vector<Edge<CostType>>> comp;
 
-  SCC(const std::vector<std::vector<Edge<CostType>>> &graph, bool heavy = false) : graph(graph), heavy(heavy) {
+  StronglyConnectedComponents(const std::vector<std::vector<Edge<CostType>>> &graph, bool heavy = false) : graph(graph), heavy(heavy) {
     n = graph.size();
     rev_graph.resize(n);
     for (int i = 0; i < n; ++i) for (const Edge<CostType> &e : graph[i]) {

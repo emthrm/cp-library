@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include "../../graph/edge.hpp"
-#include "../../graph/scc.hpp"
+#include "../../graph/strongly_connected_components.hpp"
 
 int main() {
   int n, m;
@@ -17,7 +17,7 @@ int main() {
     std::cin >> a >> b;
     graph[a].emplace_back(a, b);
   }
-  SCC<bool> scc(graph, true);
+  StronglyConnectedComponents<bool> scc(graph, true);
   int k = scc.vertices.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

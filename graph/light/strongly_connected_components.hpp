@@ -2,11 +2,11 @@
 // #include <algorithm>
 #include <vector>
 
-struct SCC {
+struct StronglyConnectedComponents {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, comp;
 
-  SCC(const std::vector<std::vector<int>> &graph, bool heavy = false) : graph(graph), heavy(heavy) {
+  StronglyConnectedComponents(const std::vector<std::vector<int>> &graph, bool heavy = false) : graph(graph), heavy(heavy) {
     n = graph.size();
     rev_graph.resize(n);
     for (int i = 0; i < n; ++i) for (int e : graph[i]) rev_graph[e].emplace_back(i);

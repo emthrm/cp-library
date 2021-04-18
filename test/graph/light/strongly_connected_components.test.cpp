@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../graph/light/scc.hpp"
+#include "../../../graph/light/strongly_connected_components.hpp"
 
 int main() {
   int n, m;
@@ -13,7 +13,7 @@ int main() {
     std::cin >> a >> b;
     graph[a].emplace_back(b);
   }
-  SCC scc(graph, true);
+  StronglyConnectedComponents scc(graph, true);
   int k = scc.vertices.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

@@ -6,7 +6,7 @@
 template <typename CostType>
 struct Lowlink {
   std::vector<std::vector<Edge<CostType>>> graph;
-  std::vector<int> ap;
+  std::vector<int> order, lowlink, ap;
   std::vector<Edge<CostType>> bridge;
 
   Lowlink(const std::vector<std::vector<Edge<CostType>>> &graph) : graph(graph) {
@@ -23,7 +23,6 @@ struct Lowlink {
     // });
   }
 
-  std::vector<int> order, lowlink;
 private:
   void dfs(int par, int ver, int &tm) {
     order[ver] = lowlink[ver] = tm++;
