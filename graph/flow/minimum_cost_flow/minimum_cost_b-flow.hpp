@@ -1,19 +1,21 @@
 /**
- * @brief 主双対法2
+ * @brief 最小費用 $\bm{b}$-フロー 最短路反復法版
  * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
  */
 
 #pragma once
 #include <algorithm>
+#include <cassert>
 #include <functional>
 #include <limits>
+#include <numeric>
 #include <queue>
 #include <tuple>
 #include <utility>
 #include <vector>
 
 template <typename T, typename U>
-struct PrimalDual2 {
+struct MinimumCostBFlow {
   struct Edge {
     int dst, rev;
     T cap;
@@ -24,12 +26,13 @@ struct PrimalDual2 {
   const U uinf;
   std::vector<std::vector<Edge>> graph;
 
-  PrimalDual2(int n, const U uinf = std::numeric_limits<U>::max()) : n(n), uinf(uinf), graph(n + 2), d(n + 2, 0) {}
+  MinimumCostBFlow(int n, const U uinf = std::numeric_limits<U>::max())
+  : n(n), uinf(uinf), graph(n + 2), b(n + 2, 0) {}
 
   void add_edge(int src, int dst, T cap, U cost) {
     if (cost < 0) {
-      d[src] -= cap;
-      d[dst] += cap;
+      b[src] -= cap;
+      b[dst] += cap;
       res += cost * cap;
       std::swap(src, dst);
       cost = -cost;
@@ -38,14 +41,17 @@ struct PrimalDual2 {
     graph[dst].emplace_back(src, 0, -cost, graph[src].size() - 1);
   }
 
-  U minimum_cost_flow() {
+  void supply_or_demand(int ver, T amount) { b[ver] += amount; }
+
+  U solve() {
+    assert(std::accumulate(b.begin(), b.end(), T(0)) == 0);
     T flow = 0;
     for (int i = 0; i < n; ++i) {
-      if (d[i] > 0) {
-        add_edge(n, i, d[i], 0);
-        flow += d[i];
-      } else if (d[i] < 0) {
-        add_edge(i, n + 1, -d[i], 0);
+      if (b[i] > 0) {
+        add_edge(n, i, b[i], 0);
+        flow += b[i];
+      } else if (b[i] < 0) {
+        add_edge(i, n + 1, -b[i], 0);
       }
     }
     std::vector<int> prev_v(n + 2, -1), prev_e(n + 2, -1);
@@ -88,14 +94,14 @@ struct PrimalDual2 {
     return res;
   }
 
-  U minimum_cost_flow(int s, int t, T flow) {
-    d[s] += flow;
-    d[t] -= flow;
-    return minimum_cost_flow();
+  U solve(int s, int t, T flow) {
+    supply_or_demand(s, flow);
+    supply_or_demand(t, -flow);
+    return solve();
   }
 
 private:
   int n;
   U res = 0;
-  std::vector<T> d;
+  std::vector<T> b;
 };

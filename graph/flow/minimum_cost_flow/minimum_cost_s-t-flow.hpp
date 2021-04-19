@@ -1,5 +1,5 @@
 /**
- * @brief 主双対法
+ * @brief 最小費用 $s$-$t$-フロー 最短路反復法版
  * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
  */
 
@@ -13,7 +13,7 @@
 #include <vector>
 
 template <typename T, typename U>
-struct PrimalDual {
+struct MinimumCostSTFlow {
   struct Edge {
     int dst, rev;
     T cap;
@@ -24,7 +24,7 @@ struct PrimalDual {
   const U uinf;
   std::vector<std::vector<Edge>> graph;
 
-  PrimalDual(int n, const U uinf = std::numeric_limits<U>::max())
+  MinimumCostSTFlow(int n, const U uinf = std::numeric_limits<U>::max())
   : n(n), uinf(uinf), graph(n), prev_v(n, -1), prev_e(n, -1), dist(n), potential(n, 0) {}
 
   void add_edge(int src, int dst, T cap, U cost) {
@@ -33,44 +33,47 @@ struct PrimalDual {
     graph[dst].emplace_back(src, 0, -cost, graph[src].size() - 1);
   }
 
-  U minimum_cost_flow(int s, int t, T flow) {
+  U solve(int s, int t, T flow) {
     U res = 0;
-    if (has_negative_edge) {
-      bellman_ford(s);
-      if (dist[t] == uinf) return uinf;
-      res += calc(s, t, flow);
-    }
     while (flow > 0) {
-      dijkstra(s);
+      if (has_negative_edge) {
+        bellman_ford(s);
+        has_negative_edge = false;
+      } else {
+        dijkstra(s);
+      }
       if (dist[t] == uinf) return uinf;
       res += calc(s, t, flow);
     }
     return res;
   }
 
-  U minimum_cost_flow(int s, int t) {
+  U solve(int s, int t) {
     U res = 0;
-    bellman_ford(s);
-    if (potential[t] >= 0 || dist[t] == uinf) return res;
     T f = tinf;
-    res += calc(s, t, f);
+    bool init = false;
     while (true) {
-      dijkstra(s);
+      if (init) {
+        dijkstra(s);
+      } else {
+        bellman_ford(s);
+        init = true;
+      }
       if (potential[t] >= 0 || dist[t] == uinf) return res;
       res += calc(s, t, f);
     }
   }
 
-  std::pair<T, U> min_cost_max_flow(int s, int t, T flow) {
+  std::pair<T, U> minimum_cost_maximum_flow(int s, int t, T flow) {
     T f = flow;
     U cost = 0;
-    if (has_negative_edge) {
-      bellman_ford(s);
-      if (dist[t] == uinf) return {f - flow, cost};
-      cost += calc(s, t, flow);
-    }
     while (flow > 0) {
-      dijkstra(s);
+      if (has_negative_edge) {
+        bellman_ford(s);
+        has_negative_edge = false;
+      } else {
+        dijkstra(s);
+      }
       if (dist[t] == uinf) return {f - flow, cost};
       cost += calc(s, t, flow);
     }

@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/最小費用流/主双対法 (min_cost_max_flow(s, t, flow))
+ * @brief グラフ/フロー/最小費用流/最小費用 $s$-$t$-フロー 最短路反復法版 (minimum_cost_maximum_flow(s, t, flow))
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088"
 
@@ -8,7 +8,7 @@
 #include <iterator>
 #include <tuple>
 #include <vector>
-#include "../../../../graph/flow/minimum_cost_flow/primal_dual.hpp"
+#include "../../../../graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
 
 int main() {
   struct Train {
@@ -36,33 +36,33 @@ int main() {
       arrive[i].erase(std::unique(arrive[i].begin(), arrive[i].end()), arrive[i].end());
       ver += arrive[i].size() * 2;
     }
-    PrimalDual<int, long long> pd(ver + 2);
+    MinimumCostSTFlow<int, long long> mcf(ver + 2);
     const int s = ver, t = ver + 1;
-    for (int i = 0; i < m.front().size(); ++i) pd.add_edge(s, i, 1, 0);
+    for (int i = 0; i < m.front().size(); ++i) mcf.add_edge(s, i, 1, 0);
     int cur = 0;
     for (int i = 0; i < n - 1; ++i) {
       int sz = m[i].size();
       for (int j = 0; j < sz; ++j) {
         int idx = std::distance(arrive[i].begin(), std::lower_bound(arrive[i].begin(), arrive[i].end(), m[i][j].y));
-        pd.add_edge(cur + j, cur + sz + idx, 1, m[i][j].c);
+        mcf.add_edge(cur + j, cur + sz + idx, 1, m[i][j].c);
       }
       cur += sz;
       sz = arrive[i].size();
-      for (int j = 0; j < sz; ++j) pd.add_edge(cur + j, cur + sz + j, 1, 0);
+      for (int j = 0; j < sz; ++j) mcf.add_edge(cur + j, cur + sz + j, 1, 0);
       cur += sz;
       if (i + 1 < n - 1) {
         for (int j = 0; j < sz; ++j) for (int k = 0; k < m[i + 1].size(); ++k) {
-          if (arrive[i][j] <= m[i + 1][k].x) pd.add_edge(cur + j, cur + sz + k, 1, 0);
+          if (arrive[i][j] <= m[i + 1][k].x) mcf.add_edge(cur + j, cur + sz + k, 1, 0);
         }
         cur += sz;
       }
     }
-    for (int i = ver - arrive.back().size(); i < ver; ++i) pd.add_edge(i, ver + 1, 1, 0);
+    for (int i = ver - arrive.back().size(); i < ver; ++i) mcf.add_edge(i, ver + 1, 1, 0);
     int g;
     std::cin >> g;
     int ans_class;
     long long ans_fare;
-    std::tie(ans_class, ans_fare) = pd.min_cost_max_flow(ver, ver + 1, g);
+    std::tie(ans_class, ans_fare) = mcf.minimum_cost_maximum_flow(ver, ver + 1, g);
     std::cout << ans_class << ' ' << ans_fare << '\n';
   }
   return 0;

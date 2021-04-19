@@ -6,7 +6,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "../../../../graph/flow/minimum_cost_flow/primal_dual2.hpp"
+#include "../../../../graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp"
 #include "../../../../graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.hpp"
 #include "../../../../graph/edge.hpp"
 
@@ -14,7 +14,7 @@ int main() {
   constexpr int INF = std::numeric_limits<int>::max();
   int n, m;
   std::cin >> n >> m;
-  MinimumCostFlowWithMinimumFlowConstraint<PrimalDual2, long long, long long> pd(n, INF);
+  MinimumCostFlowWithMinimumFlowConstraint<MinimumCostBFlow, long long, long long> pd(n, INF);
   std::vector<std::vector<Edge<int>>> graph(n);
   while (m--) {
     int x, y, s;
