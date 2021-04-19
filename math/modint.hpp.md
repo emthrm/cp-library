@@ -32,6 +32,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/large_nCk_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
+  - icon: ':x:'
+    path: math/twelvefold_way/lucas.hpp
+    title: math/twelvefold_way/lucas.hpp
   - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
@@ -184,6 +187,9 @@ data:
     path: test/math/twelvefold_way/large_nCk_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
       \u8868 \u5DE8\u5927\u306A $n$ \u7248"
+  - icon: ':x:'
+    path: test/math/twelvefold_way/lucas.test.cpp
+    title: test/math/twelvefold_way/lucas.test.cpp
   - icon: ':x:'
     path: test/math/twelvefold_way/partition_function_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"
@@ -445,6 +451,7 @@ data:
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
   - math/twelvefold_way/large_nCk_init.hpp
+  - math/twelvefold_way/lucas.hpp
   - math/fps/eulerian_number_init_with_fps.hpp
   - math/fps/faulhaber_with_lagrange_interpolation.hpp
   - math/fps/faulhaber_with_fps.hpp
@@ -468,6 +475,7 @@ data:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
+  - test/math/twelvefold_way/lucas.test.cpp
   - test/math/twelvefold_way/binomial_coefficients.test.cpp
   - test/math/twelvefold_way/large_nCk.test.cpp
   - test/math/twelvefold_way/large_nCk_init.test.cpp

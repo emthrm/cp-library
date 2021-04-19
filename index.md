@@ -116,11 +116,14 @@ data:
       title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
     - icon: ':x:'
       path: graph/biconnected_component.hpp
-      title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (biconnected\
-        \ component)"
+      title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)\
+        \ \u5206\u89E3"
     - icon: ':heavy_check_mark:'
       path: graph/chromatic_number.hpp
       title: "\u5F69\u8272\u6570 (chromatic number)"
+    - icon: ':x:'
+      path: graph/connencted_component_of_complement_graph.hpp
+      title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
     - icon: ':heavy_check_mark:'
       path: graph/detect_bridge.hpp
       title: "\u6A4B\u306E\u691C\u51FA"
@@ -162,8 +165,9 @@ data:
       path: graph/rotate.hpp
       title: "\u56DE\u8EE2 (rotation)"
     - icon: ':heavy_check_mark:'
-      path: graph/scc.hpp
-      title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (strongly connected components)"
+      path: graph/strongly_connected_components.hpp
+      title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\
+        \u89E3"
     - icon: ':x:'
       path: graph/topological_sort.hpp
       title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological\
@@ -172,6 +176,9 @@ data:
       path: graph/tsp.hpp
       title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
         \ salesman problem)"
+    - icon: ':heavy_check_mark:'
+      path: graph/unicyclic_graph.hpp
+      title: unicyclic graph (1-tree)
   - name: graph/flow/matching
     pages:
     - icon: ':heavy_check_mark:'
@@ -205,15 +212,17 @@ data:
   - name: graph/flow/minimum_cost_flow
     pages:
     - icon: ':heavy_check_mark:'
+      path: graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
+      title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
+        \u53CD\u5FA9\u6CD5\u7248"
+    - icon: ':heavy_check_mark:'
       path: graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.hpp
       title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528\
         \u6D41"
     - icon: ':question:'
-      path: graph/flow/minimum_cost_flow/primal_dual.hpp
-      title: "\u4E3B\u53CC\u5BFE\u6CD5"
-    - icon: ':heavy_check_mark:'
-      path: graph/flow/minimum_cost_flow/primal_dual2.hpp
-      title: "\u4E3B\u53CC\u5BFE\u6CD52"
+      path: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
+      title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
+        \u53CD\u5FA9\u6CD5\u7248"
   - name: graph/mst
     pages:
     - icon: ':heavy_check_mark:'
@@ -487,6 +496,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/twelvefold_way/large_nCk_init.hpp
       title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
+    - icon: ':x:'
+      path: math/twelvefold_way/lucas.hpp
+      title: math/twelvefold_way/lucas.hpp
     - icon: ':x:'
       path: math/twelvefold_way/partition_function_init.hpp
       title: "\u5206\u5272\u6570"
@@ -826,6 +838,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/chromatic_number.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5F69\u8272\u6570"
+    - icon: ':x:'
+      path: test/graph/connencted_component_of_complement_graph.test.cpp
+      title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
+        \u5206\u89E3"
     - icon: ':heavy_check_mark:'
       path: test/graph/detect_bridge.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u691C\u51FA"
@@ -867,7 +883,7 @@ data:
       path: test/graph/rotate.test.cpp
       title: "\u30B0\u30E9\u30D5/\u56DE\u8EE2"
     - icon: ':heavy_check_mark:'
-      path: test/graph/scc.test.cpp
+      path: test/graph/strongly_connected_components.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
     - icon: ':x:'
       path: test/graph/topological_sort.test.cpp
@@ -876,6 +892,9 @@ data:
       path: test/graph/tsp.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
         \u984C"
+    - icon: ':heavy_check_mark:'
+      path: test/graph/unicyclic_graph.test.cpp
+      title: "\u30B0\u30E9\u30D5/unicyclic graph"
   - name: test/graph/flow/matching
     pages:
     - icon: ':heavy_check_mark:'
@@ -916,17 +935,20 @@ data:
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41\
         /\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528\u6D41"
     - icon: ':heavy_check_mark:'
-      path: test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp
+      path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41\
-        /\u4E3B\u53CC\u5BFE\u6CD5 (minimum_cost_flow(s, t, flow))"
+        /\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
+        \u5FA9\u6CD5\u7248 (solve(s, t, flow))"
     - icon: ':heavy_check_mark:'
-      path: test/graph/flow/minimum_cost_flow/primal_dual.2.test.cpp
+      path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41\
-        /\u4E3B\u53CC\u5BFE\u6CD5 (minimum_cost_flow(s, t))"
+        /\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
+        \u5FA9\u6CD5\u7248 (solve(s, t))"
     - icon: ':heavy_check_mark:'
-      path: test/graph/flow/minimum_cost_flow/primal_dual.3.test.cpp
+      path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41\
-        /\u4E3B\u53CC\u5BFE\u6CD5 (min_cost_max_flow(s, t, flow))"
+        /\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
+        \u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))"
   - name: test/graph/mst
     pages:
     - icon: ':heavy_check_mark:'
@@ -1251,6 +1273,9 @@ data:
       path: test/math/twelvefold_way/large_nCk_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
         \u8868 \u5DE8\u5927\u306A $n$ \u7248"
+    - icon: ':x:'
+      path: test/math/twelvefold_way/lucas.test.cpp
+      title: test/math/twelvefold_way/lucas.test.cpp
     - icon: ':x:'
       path: test/math/twelvefold_way/partition_function_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"

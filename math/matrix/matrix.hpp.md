@@ -120,11 +120,6 @@ title: "\u884C\u5217 (matrix)"
 ---
 
 
-### 行列累乗
-
-繰り返し二乗法を用いて行列の積を求めるアルゴリズムである．
-
-
 ## 時間計算量
 
 |処理|時間計算量|
@@ -208,4 +203,4 @@ title: "\u884C\u5217 (matrix)"
 
 ## Verified
 
-https://atcoder.jp/contests/arc050/submissions/9305863
+https://judge.yosupo.jp/submission/45071

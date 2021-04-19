@@ -16,27 +16,28 @@ data:
     \n#include <limits>\r\n\r\ntemplate <template <typename, typename> class C, typename\
     \ T, typename U>\r\nstruct MinimumCostFlowWithMinimumFlowConstraint {\r\n  const\
     \ U uinf;\r\n\r\n  MinimumCostFlowWithMinimumFlowConstraint(int n, const U M,\
-    \ const U uinf = std::numeric_limits<U>::max()) : M(M), uinf(uinf), pd(n, uinf)\
-    \ {}\r\n\r\n  void add_edge(int src, int dst, T lb, T ub, U cost) {\r\n    pd.add_edge(src,\
-    \ dst, ub - lb, cost);\r\n    pd.add_edge(src, dst, lb, cost - M);\r\n    lb_sum\
-    \ += lb;\r\n  }\r\n\r\n  U solve(int s, int t, T flow) {\r\n    U tmp = pd.minimum_cost_flow(s,\
-    \ t, flow);\r\n    return tmp == uinf ? uinf : tmp + M * lb_sum;\r\n  }\r\n\r\n\
-    private:\r\n  const U M;\r\n  T lb_sum = 0;\r\n  C<T, U> pd;\r\n};\r\n"
+    \ const U uinf = std::numeric_limits<U>::max())\r\n  : M(M), uinf(uinf), mcf(n,\
+    \ uinf) {}\r\n\r\n  void add_edge(int src, int dst, T lb, T ub, U cost) {\r\n\
+    \    mcf.add_edge(src, dst, ub - lb, cost);\r\n    mcf.add_edge(src, dst, lb,\
+    \ cost - M);\r\n    lb_sum += lb;\r\n  }\r\n\r\n  U solve(int s, int t, T flow)\
+    \ {\r\n    U tmp = mcf.solve(s, t, flow);\r\n    return tmp == uinf ? uinf : tmp\
+    \ + M * lb_sum;\r\n  }\r\n\r\nprivate:\r\n  const U M;\r\n  T lb_sum = 0;\r\n\
+    \  C<T, U> mcf;\r\n};\r\n"
   code: "#pragma once\r\n#include <limits>\r\n\r\ntemplate <template <typename, typename>\
     \ class C, typename T, typename U>\r\nstruct MinimumCostFlowWithMinimumFlowConstraint\
     \ {\r\n  const U uinf;\r\n\r\n  MinimumCostFlowWithMinimumFlowConstraint(int n,\
-    \ const U M, const U uinf = std::numeric_limits<U>::max()) : M(M), uinf(uinf),\
-    \ pd(n, uinf) {}\r\n\r\n  void add_edge(int src, int dst, T lb, T ub, U cost)\
-    \ {\r\n    pd.add_edge(src, dst, ub - lb, cost);\r\n    pd.add_edge(src, dst,\
+    \ const U M, const U uinf = std::numeric_limits<U>::max())\r\n  : M(M), uinf(uinf),\
+    \ mcf(n, uinf) {}\r\n\r\n  void add_edge(int src, int dst, T lb, T ub, U cost)\
+    \ {\r\n    mcf.add_edge(src, dst, ub - lb, cost);\r\n    mcf.add_edge(src, dst,\
     \ lb, cost - M);\r\n    lb_sum += lb;\r\n  }\r\n\r\n  U solve(int s, int t, T\
-    \ flow) {\r\n    U tmp = pd.minimum_cost_flow(s, t, flow);\r\n    return tmp ==\
-    \ uinf ? uinf : tmp + M * lb_sum;\r\n  }\r\n\r\nprivate:\r\n  const U M;\r\n \
-    \ T lb_sum = 0;\r\n  C<T, U> pd;\r\n};\r\n"
+    \ flow) {\r\n    U tmp = mcf.solve(s, t, flow);\r\n    return tmp == uinf ? uinf\
+    \ : tmp + M * lb_sum;\r\n  }\r\n\r\nprivate:\r\n  const U M;\r\n  T lb_sum = 0;\r\
+    \n  C<T, U> mcf;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.hpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
+  timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp

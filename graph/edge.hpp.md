@@ -11,11 +11,14 @@ data:
     title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
   - icon: ':x:'
     path: graph/biconnected_component.hpp
-    title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (biconnected\
-      \ component)"
+    title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)\
+      \ \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: graph/chromatic_number.hpp
     title: "\u5F69\u8272\u6570 (chromatic number)"
+  - icon: ':x:'
+    path: graph/connencted_component_of_complement_graph.hpp
+    title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: graph/detect_bridge.hpp
     title: "\u6A4B\u306E\u691C\u51FA"
@@ -50,14 +53,14 @@ data:
     path: graph/noshi_graph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
   - icon: ':heavy_check_mark:'
-    path: graph/scc.hpp
-    title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (strongly connected components)"
-  - icon: ':heavy_check_mark:'
     path: graph/shortest_path/bellman-ford.hpp
     title: "Bellman-Ford \u6CD5"
   - icon: ':question:'
     path: graph/shortest_path/dijkstra.hpp
     title: "Dijkstra \u6CD5"
+  - icon: ':heavy_check_mark:'
+    path: graph/strongly_connected_components.hpp
+    title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\u89E3"
   - icon: ':x:'
     path: graph/topological_sort.hpp
     title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological sort)"
@@ -87,6 +90,9 @@ data:
     path: graph/tsp.hpp
     title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
       \ salesman problem)"
+  - icon: ':heavy_check_mark:'
+    path: graph/unicyclic_graph.hpp
+    title: unicyclic graph (1-tree)
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/data_structure/union-find/undoable_union-find.test.cpp
@@ -107,6 +113,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/chromatic_number.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F69\u8272\u6570"
+  - icon: ':x:'
+    path: test/graph/connencted_component_of_complement_graph.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
+      \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/detect_bridge.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u691C\u51FA"
@@ -147,14 +157,14 @@ data:
     path: test/graph/noshi_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
   - icon: ':heavy_check_mark:'
-    path: test/graph/scc.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/bellman-ford.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford \u6CD5"
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/dijkstra.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
+  - icon: ':heavy_check_mark:'
+    path: test/graph/strongly_connected_components.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':x:'
     path: test/graph/topological_sort.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8"
@@ -187,6 +197,9 @@ data:
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
   - icon: ':heavy_check_mark:'
+    path: test/graph/unicyclic_graph.test.cpp
+    title: "\u30B0\u30E9\u30D5/unicyclic graph"
+  - icon: ':heavy_check_mark:'
     path: test/math/basis.test.cpp
     title: "\u6570\u5B66/\u57FA\u5E95"
   _isVerificationFailed: true
@@ -214,6 +227,7 @@ data:
   isVerificationFile: false
   path: graph/edge.hpp
   requiredBy:
+  - graph/strongly_connected_components.hpp
   - graph/noshi_graph.hpp
   - graph/2-edge-connected_components_lowlink.hpp
   - graph/tree/double_sweep.hpp
@@ -223,7 +237,6 @@ data:
   - graph/tree/lca_doubling.hpp
   - graph/tree/hld.hpp
   - graph/tree/centroid.hpp
-  - graph/scc.hpp
   - graph/tsp.hpp
   - graph/chromatic_number.hpp
   - graph/girth_in_undirected_graph.hpp
@@ -231,10 +244,12 @@ data:
   - graph/mst/kruskal.hpp
   - graph/lowlink.hpp
   - graph/detect_directed_cycle.hpp
+  - graph/unicyclic_graph.hpp
   - graph/is_bipartite.hpp
   - graph/biconnected_component.hpp
   - graph/shortest_path/dijkstra.hpp
   - graph/shortest_path/bellman-ford.hpp
+  - graph/connencted_component_of_complement_graph.hpp
   - graph/detect_bridge.hpp
   - graph/eulerian_trail_in_directed_graph.hpp
   - graph/matrix_tree_theorem.hpp
@@ -256,7 +271,7 @@ data:
   - test/graph/tree/hld.2.test.cpp
   - test/graph/is_bipartite.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
-  - test/graph/scc.test.cpp
+  - test/graph/unicyclic_graph.test.cpp
   - test/graph/mst/prim.test.cpp
   - test/graph/mst/kruskal.test.cpp
   - test/graph/tsp.test.cpp
@@ -268,8 +283,10 @@ data:
   - test/graph/shortest_path/bellman-ford.test.cpp
   - test/graph/biconnected_component.test.cpp
   - test/graph/eulerian_trail_in_directed_graph.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/chromatic_number.test.cpp
+  - test/graph/strongly_connected_components.test.cpp
   - test/graph/noshi_graph.test.cpp
   - test/graph/girth.test.cpp
   - test/graph/detect_bridge.test.cpp

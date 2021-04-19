@@ -6,8 +6,9 @@ data:
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\
       \u30DE\u30C3\u30C1\u30F3\u30B0"
   - icon: ':question:'
-    path: graph/flow/minimum_cost_flow/primal_dual.hpp
-    title: "\u4E3B\u53CC\u5BFE\u6CD5"
+    path: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
+    title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
+      \u53CD\u5FA9\u6CD5\u7248"
   - icon: ':question:'
     path: math/bigint.hpp
     title: "\u591A\u500D\u9577\u6574\u6570"
@@ -55,11 +56,11 @@ data:
   dependsOn:
   - math/bigint.hpp
   - graph/flow/matching/weighted_bipartite_matching.hpp
-  - graph/flow/minimum_cost_flow/primal_dual.hpp
+  - graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   isVerificationFile: true
   path: test/math/bigint.01.test.cpp
   requiredBy: []
-  timestamp: '2021-03-15 23:38:13+09:00'
+  timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.01.test.cpp

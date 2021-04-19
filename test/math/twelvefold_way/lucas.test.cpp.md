@@ -2,35 +2,36 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: math/matrix/matrix.hpp
-    title: "\u884C\u5217 (matrix)"
-  - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
+  - icon: ':x:'
+    path: math/twelvefold_way/lucas.hpp
+    title: math/twelvefold_way/lucas.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/matrix_product
-    document_title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
+    IGNORE: ''
+    IGNORE_IF_CLANG: ''
+    IGNORE_IF_GCC: ''
     links:
-    - https://judge.yosupo.jp/problem/matrix_product
-  bundledCode: "#line 1 \"test/math/matrix/matrix.test.cpp\"\n/*\r\n * @brief \u6570\
-    \u5B66/\u884C\u5217/\u884C\u5217\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\
-    \r\n\r\n#include <iostream>\r\n#line 2 \"math/modint.hpp\"\n// #include <algorithm>\r\
-    \n// #include <cassert>\r\n#line 5 \"math/modint.hpp\"\n#include <utility>\r\n\
-    #include <vector>\r\n\r\n// template <int M>\r\n// struct MInt {\r\n//   unsigned\
-    \ int val;\r\n//   MInt(): val(0) {}\r\n//   MInt(long long x) : val(x >= 0 ?\
-    \ x % M : x % M + M) {}\r\n//   static constexpr int get_mod() { return M; }\r\
-    \n//   static void set_mod(int divisor) { assert(divisor == M); }\r\n//   static\
-    \ void init(int x = 10000000) { inv(x, true); fact(x); fact_inv(x); }\r\n//  \
-    \ static MInt inv(int x, bool init = false) {\r\n//     // assert(0 <= x && x\
-    \ < M && std::__gcd(x, M) == 1);\r\n//     static std::vector<MInt> inverse{0,\
-    \ 1};\r\n//     int prev = inverse.size();\r\n//     if (init && x >= prev) {\r\
-    \n//       // \"x!\" and \"M\" must be disjoint.\r\n//       inverse.resize(x\
+    - https://atcoder.jp/contests/arc117/tasks/arc117_c
+  bundledCode: "#line 1 \"test/math/twelvefold_way/lucas.test.cpp\"\n#define IGNORE\r\
+    \n#define PROBLEM \"https://atcoder.jp/contests/arc117/tasks/arc117_c\"\r\n\r\n\
+    #include <iostream>\r\n#include <map>\r\n#include <string>\r\n#line 2 \"math/modint.hpp\"\
+    \n// #include <algorithm>\r\n// #include <cassert>\r\n#line 5 \"math/modint.hpp\"\
+    \n#include <utility>\r\n#include <vector>\r\n\r\n// template <int M>\r\n// struct\
+    \ MInt {\r\n//   unsigned int val;\r\n//   MInt(): val(0) {}\r\n//   MInt(long\
+    \ long x) : val(x >= 0 ? x % M : x % M + M) {}\r\n//   static constexpr int get_mod()\
+    \ { return M; }\r\n//   static void set_mod(int divisor) { assert(divisor == M);\
+    \ }\r\n//   static void init(int x = 10000000) { inv(x, true); fact(x); fact_inv(x);\
+    \ }\r\n//   static MInt inv(int x, bool init = false) {\r\n//     // assert(0\
+    \ <= x && x < M && std::__gcd(x, M) == 1);\r\n//     static std::vector<MInt>\
+    \ inverse{0, 1};\r\n//     int prev = inverse.size();\r\n//     if (init && x\
+    \ >= prev) {\r\n//       // \"x!\" and \"M\" must be disjoint.\r\n//       inverse.resize(x\
     \ + 1);\r\n//       for (int i = prev; i <= x; ++i) inverse[i] = -inverse[M %\
     \ i] * (M / i);\r\n//     }\r\n//     if (x < inverse.size()) return inverse[x];\r\
     \n//     unsigned int a = x, b = M; int u = 1, v = 0;\r\n//     while (b) {\r\n\
@@ -132,64 +133,39 @@ data:
     \ { long long val; is >> val; x = MInt(val); return is; }\r\nprivate:\r\n  static\
     \ int &mod() { static int divisor = 0; return divisor; }\r\n};\r\nnamespace std\
     \ { template <int ID> MInt<ID> abs(const MInt<ID> &x) { return x; } }\r\n#line\
-    \ 4 \"math/matrix/matrix.hpp\"\n\r\ntemplate <typename T>\r\nstruct Matrix {\r\
-    \n  Matrix(int m, int n, T val = 0) : dat(m, std::vector<T>(n, val)) {}\r\n\r\n\
-    \  int height() const { return dat.size(); }\r\n\r\n  int width() const { return\
-    \ dat.front().size(); }\r\n\r\n  Matrix pow(long long exponent) const {\r\n  \
-    \  int n = height();\r\n    Matrix<T> tmp = *this, res(n, n, 0);\r\n    for (int\
-    \ i = 0; i < n; ++i) res[i][i] = 1;\r\n    while (exponent > 0) {\r\n      if\
-    \ (exponent & 1) res *= tmp;\r\n      tmp *= tmp;\r\n      exponent >>= 1;\r\n\
-    \    }\r\n    return res;\r\n  }\r\n\r\n  inline const std::vector<T> &operator[](const\
-    \ int idx) const { return dat[idx]; }\r\n  inline std::vector<T> &operator[](const\
-    \ int idx) { return dat[idx]; }\r\n\r\n  Matrix &operator=(const Matrix &x) {\r\
-    \n    int m = x.height(), n = x.width();\r\n    dat.resize(m, std::vector<T>(n));\r\
-    \n    for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j) dat[i][j] = x[i][j];\r\
-    \n    return *this;\r\n  }\r\n\r\n  Matrix &operator+=(const Matrix &x) {\r\n\
-    \    int m = height(), n = width();\r\n    for (int i = 0; i < m; ++i) for (int\
-    \ j = 0; j < n; ++j) dat[i][j] += x[i][j];\r\n    return *this;\r\n  }\r\n\r\n\
-    \  Matrix &operator-=(const Matrix &x) {\r\n    int m = height(), n = width();\r\
-    \n    for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j) dat[i][j] -= x[i][j];\r\
-    \n    return *this;\r\n  }\r\n\r\n  Matrix &operator*=(const Matrix &x) {\r\n\
-    \    int m = height(), n = x.width(), l = width();\r\n    std::vector<std::vector<T>>\
-    \ res(m, std::vector<T>(n, 0));\r\n    for (int i = 0; i < m; ++i) for (int j\
-    \ = 0; j < n; ++j) {\r\n      for (int k = 0; k < l; ++k) res[i][j] += dat[i][k]\
-    \ * x[k][j];\r\n    }\r\n    std::swap(dat, res);\r\n    return *this;\r\n  }\r\
-    \n\r\n  Matrix operator+(const Matrix &x) const { return Matrix(*this) += x; }\r\
-    \n\r\n  Matrix operator-(const Matrix &x) const { return Matrix(*this) -= x; }\r\
-    \n\r\n  Matrix operator*(const Matrix &x) const { return Matrix(*this) *= x; }\r\
-    \n\r\nprivate:\r\n  std::vector<std::vector<T>> dat;\r\n};\r\n#line 9 \"test/math/matrix/matrix.test.cpp\"\
-    \n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
-    \n  int n, m, k;\r\n  std::cin >> n >> m >> k;\r\n  Matrix<ModInt> a(n, m), b(m,\
-    \ k);\r\n  for (int i = 0; i < n; ++i) {\r\n    for (int j = 0; j < m; ++j) {\r\
-    \n      std::cin >> a[i][j];\r\n    }\r\n  }\r\n  for (int i = 0; i < m; ++i)\
-    \ {\r\n    for (int j = 0; j < k; ++j) {\r\n      std::cin >> b[i][j];\r\n   \
-    \ }\r\n  }\r\n  Matrix<ModInt> c = a * b;\r\n  for (int i = 0; i < n; ++i) {\r\
-    \n    for (int j = 0; j < k; ++j) {\r\n      std::cout << c[i][j] << \" \\n\"\
-    [j + 1 == k];\r\n    }\r\n  }\r\n  return 0;\r\n}\r\n"
-  code: "/*\r\n * @brief \u6570\u5B66/\u884C\u5217/\u884C\u5217\r\n */\r\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\r\n\r\n#include <iostream>\r\
-    \n#include \"../../../math/modint.hpp\"\r\n#include \"../../../math/matrix/matrix.hpp\"\
-    \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
-    \n  int n, m, k;\r\n  std::cin >> n >> m >> k;\r\n  Matrix<ModInt> a(n, m), b(m,\
-    \ k);\r\n  for (int i = 0; i < n; ++i) {\r\n    for (int j = 0; j < m; ++j) {\r\
-    \n      std::cin >> a[i][j];\r\n    }\r\n  }\r\n  for (int i = 0; i < m; ++i)\
-    \ {\r\n    for (int j = 0; j < k; ++j) {\r\n      std::cin >> b[i][j];\r\n   \
-    \ }\r\n  }\r\n  Matrix<ModInt> c = a * b;\r\n  for (int i = 0; i < n; ++i) {\r\
-    \n    for (int j = 0; j < k; ++j) {\r\n      std::cout << c[i][j] << \" \\n\"\
-    [j + 1 == k];\r\n    }\r\n  }\r\n  return 0;\r\n}\r\n"
+    \ 3 \"math/twelvefold_way/lucas.hpp\"\n\r\ntemplate <int P>\r\nMInt<P> lucas(int\
+    \ n, int k) {\r\n  using ModInt = MInt<P>;\r\n  if (n < 0 || n < k || k < 0) return\
+    \ 0;\r\n  ModInt::init(P - 1);\r\n  ModInt binom = 1;\r\n  for (; n > 0 || k >\
+    \ 0; n /= P, k /= P) binom *= ModInt::nCk(n % P, k % P);\r\n  return binom;\r\n\
+    }\r\n#line 9 \"test/math/twelvefold_way/lucas.test.cpp\"\n\r\nint main() {\r\n\
+    \  constexpr int C = 3;\r\n  using ModInt = MInt<C>;\r\n  const std::string BWR\
+    \ = \"BWR\";\r\n  std::map<char, int> mp;\r\n  for (int i = 0; i < C; ++i) mp[BWR[i]]\
+    \ = i;\r\n\r\n  int n;\r\n  std::cin >> n;\r\n  std::string c;\r\n  std::cin >>\
+    \ c;\r\n  ModInt ans = 0;\r\n  for (int i = 0; i < n; ++i) ans += lucas<C>(n -\
+    \ 1, i) * mp[c[i]];\r\n  if (n % 2 == 0) ans = -ans;\r\n  std::cout << BWR[ans.val]\
+    \ << '\\n';\r\n  return 0;\r\n}\r\n"
+  code: "#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/arc117/tasks/arc117_c\"\
+    \r\n\r\n#include <iostream>\r\n#include <map>\r\n#include <string>\r\n#include\
+    \ \"../../../math/modint.hpp\"\r\n#include \"../../../math/twelvefold_way/lucas.hpp\"\
+    \r\n\r\nint main() {\r\n  constexpr int C = 3;\r\n  using ModInt = MInt<C>;\r\n\
+    \  const std::string BWR = \"BWR\";\r\n  std::map<char, int> mp;\r\n  for (int\
+    \ i = 0; i < C; ++i) mp[BWR[i]] = i;\r\n\r\n  int n;\r\n  std::cin >> n;\r\n \
+    \ std::string c;\r\n  std::cin >> c;\r\n  ModInt ans = 0;\r\n  for (int i = 0;\
+    \ i < n; ++i) ans += lucas<C>(n - 1, i) * mp[c[i]];\r\n  if (n % 2 == 0) ans =\
+    \ -ans;\r\n  std::cout << BWR[ans.val] << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
-  - math/matrix/matrix.hpp
+  - math/twelvefold_way/lucas.hpp
   isVerificationFile: true
-  path: test/math/matrix/matrix.test.cpp
+  path: test/math/twelvefold_way/lucas.test.cpp
   requiredBy: []
-  timestamp: '2021-04-15 17:00:17+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2021-04-20 03:00:25+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/math/matrix/matrix.test.cpp
+documentation_of: test/math/twelvefold_way/lucas.test.cpp
 layout: document
 redirect_from:
-- /verify/test/math/matrix/matrix.test.cpp
-- /verify/test/math/matrix/matrix.test.cpp.html
-title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
+- /verify/test/math/twelvefold_way/lucas.test.cpp
+- /verify/test/math/twelvefold_way/lucas.test.cpp.html
+title: test/math/twelvefold_way/lucas.test.cpp
 ---

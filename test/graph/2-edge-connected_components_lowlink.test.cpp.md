@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/graph/2-edge-connected_components_lowlink.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-04-18 15:42:16+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/2-edge-connected_components_lowlink.test.cpp

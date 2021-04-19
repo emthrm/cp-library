@@ -9,9 +9,14 @@
 - The accuracy of this library is not guaranteed.
 - The author is not responsible for any damage arising from this library.
 - It is highly recommended to refer to the links.
-- This library requires C++11.
+- This library requires C++11 and GCC built-in functions.
 
 
 ## Thanks
 
 [Online Judge Verify Helper](https://github.com/kmyk/online-judge-verify-helper)
+
+
+## License
+
+[Unlicense](./LICENSE)

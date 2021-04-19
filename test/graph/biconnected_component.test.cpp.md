@@ -6,8 +6,8 @@ data:
     title: "union-find \u6728"
   - icon: ':x:'
     path: graph/biconnected_component.hpp
-    title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\u89E3 (biconnected\
-      \ component)"
+    title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)\
+      \ \u5206\u89E3"
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
@@ -103,7 +103,7 @@ data:
   isVerificationFile: true
   path: test/graph/biconnected_component.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-04-18 15:42:16+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/biconnected_component.test.cpp

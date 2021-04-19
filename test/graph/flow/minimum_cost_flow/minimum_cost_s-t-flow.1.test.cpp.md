@@ -2,8 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: graph/flow/minimum_cost_flow/primal_dual.hpp
-    title: "\u4E3B\u53CC\u5BFE\u6CD5"
+    path: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
+    title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
+      \u53CD\u5FA9\u6CD5\u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -13,7 +14,8 @@ data:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
     document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
-      \u6D41/\u4E3B\u53CC\u5BFE\u6CD5 (minimum_cost_flow(s, t, flow))"
+      \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
+      \u53CD\u5FA9\u6CD5\u7248 (solve(s, t, flow))"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -24,30 +26,31 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ graph/flow/minimum_cost_flow/primal_dual.hpp: line 6: #pragma once found in\
-    \ a non-first line\n"
+    \ graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp: line 6: #pragma once\
+    \ found in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
-    \u6D41/\u4E3B\u53CC\u5BFE\u6CD5 (minimum_cost_flow(s, t, flow))\r\n */\r\n#define\
-    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
-    \r\n\r\n#include <iostream>\r\n#include \"../../../../graph/flow/minimum_cost_flow/primal_dual.hpp\"\
-    \r\n\r\nint main() {\r\n  int v, e, f;\r\n  std::cin >> v >> e >> f;\r\n  PrimalDual<int,\
-    \ int> pd(v);\r\n  while (e--) {\r\n    int u, v, c, d;\r\n    std::cin >> u >>\
-    \ v >> c >> d;\r\n    pd.add_edge(u, v, c, d);\r\n  }\r\n  int ans = pd.minimum_cost_flow(0,\
-    \ v - 1, f);\r\n  std::cout << (ans == pd.uinf ? -1 : ans) << '\\n';\r\n  return\
+    \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
+    \u5FA9\u6CD5\u7248 (solve(s, t, flow))\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\"\
+    \r\n\r\n#include <iostream>\r\n#include \"../../../../graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
+    \r\n\r\nint main() {\r\n  int v, e, f;\r\n  std::cin >> v >> e >> f;\r\n  MinimumCostSTFlow<int,\
+    \ int> mcf(v);\r\n  while (e--) {\r\n    int u, v, c, d;\r\n    std::cin >> u\
+    \ >> v >> c >> d;\r\n    mcf.add_edge(u, v, c, d);\r\n  }\r\n  int ans = mcf.solve(0,\
+    \ v - 1, f);\r\n  std::cout << (ans == mcf.uinf ? -1 : ans) << '\\n';\r\n  return\
     \ 0;\r\n}\r\n"
   dependsOn:
-  - graph/flow/minimum_cost_flow/primal_dual.hpp
+  - graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   isVerificationFile: true
-  path: test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp
+  path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
   requiredBy: []
-  timestamp: '2021-03-15 23:38:13+09:00'
+  timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp
+documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
 layout: document
 redirect_from:
-- /verify/test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp
-- /verify/test/graph/flow/minimum_cost_flow/primal_dual.1.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u4E3B\
-  \u53CC\u5BFE\u6CD5 (minimum_cost_flow(s, t, flow))"
+- /verify/test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
+- /verify/test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp.html
+title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
+  \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\
+  \u7248 (solve(s, t, flow))"
 ---

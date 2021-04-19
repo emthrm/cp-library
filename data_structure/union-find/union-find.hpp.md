@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':x:'
+    path: graph/connencted_component_of_complement_graph.hpp
+    title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: graph/mst/kruskal.hpp
     title: "Kruskal \u6CD5"
@@ -13,6 +16,10 @@ data:
     path: test/graph/biconnected_component.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
       \u89E3"
+  - icon: ':x:'
+    path: test/graph/connencted_component_of_complement_graph.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
+      \u5206\u89E3"
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
@@ -48,12 +55,14 @@ data:
   path: data_structure/union-find/union-find.hpp
   requiredBy:
   - graph/mst/kruskal.hpp
+  - graph/connencted_component_of_complement_graph.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/data_structure/union-find/union-find.test.cpp
   - test/graph/mst/kruskal.test.cpp
   - test/graph/biconnected_component.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document

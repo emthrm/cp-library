@@ -7,7 +7,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/scc.test.cpp
+    path: test/graph/strongly_connected_components.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -24,25 +24,25 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n// #include <algorithm>\r\n#include <vector>\r\n#include\
-    \ \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct SCC {\r\n  std::vector<int>\
-    \ id;\r\n  std::vector<std::vector<int>> vertices;\r\n  std::vector<std::vector<Edge<CostType>>>\
-    \ comp;\r\n\r\n  SCC(const std::vector<std::vector<Edge<CostType>>> &graph, bool\
-    \ heavy = false) : graph(graph), heavy(heavy) {\r\n    n = graph.size();\r\n \
-    \   rev_graph.resize(n);\r\n    for (int i = 0; i < n; ++i) for (const Edge<CostType>\
-    \ &e : graph[i]) {\r\n      rev_graph[e.dst].emplace_back(e.dst, e.src, e.cost);\r\
-    \n    }\r\n    used.assign(n, false);\r\n    id.assign(n, -1);\r\n    for (int\
-    \ i = 0; i < n; ++i) {\r\n      if (!used[i]) dfs(i);\r\n    }\r\n    int now\
-    \ = 0;\r\n    for (int i = n - 1; i >= 0; --i) {\r\n      if (id[order[i]] ==\
-    \ -1) {\r\n        if (heavy) vertices.emplace_back();\r\n        rev_dfs(order[i],\
-    \ now++);\r\n      }\r\n    }\r\n    comp.resize(now);\r\n    for (int i = 0;\
-    \ i < n; ++i) for (const Edge<CostType> &e : graph[i]) {\r\n      if (id[i] !=\
-    \ id[e.dst]) comp[id[i]].emplace_back(id[i], id[e.dst], e.cost);\r\n    }\r\n\
-    \    // if (heavy) {\r\n    //   for (int i = 0; i < now; ++i) std::sort(vertices[i].begin(),\
-    \ vertices[i].end());\r\n    // }\r\n  }\r\n\r\nprivate:\r\n  bool heavy;\r\n\
-    \  int n;\r\n  std::vector<std::vector<Edge<CostType>>> graph, rev_graph;\r\n\
-    \  std::vector<bool> used;\r\n  std::vector<int> order;\r\n\r\n  void dfs(int\
-    \ ver) {\r\n    used[ver] = true;\r\n    for (const Edge<CostType> &e : graph[ver])\
-    \ {\r\n      if (!used[e.dst]) dfs(e.dst);\r\n    }\r\n    order.emplace_back(ver);\r\
+    \ \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct StronglyConnectedComponents\
+    \ {\r\n  std::vector<int> id;\r\n  std::vector<std::vector<int>> vertices;\r\n\
+    \  std::vector<std::vector<Edge<CostType>>> comp;\r\n\r\n  StronglyConnectedComponents(const\
+    \ std::vector<std::vector<Edge<CostType>>> &graph, bool heavy = false) : graph(graph),\
+    \ heavy(heavy) {\r\n    n = graph.size();\r\n    rev_graph.resize(n);\r\n    for\
+    \ (int i = 0; i < n; ++i) for (const Edge<CostType> &e : graph[i]) {\r\n     \
+    \ rev_graph[e.dst].emplace_back(e.dst, e.src, e.cost);\r\n    }\r\n    used.assign(n,\
+    \ false);\r\n    id.assign(n, -1);\r\n    for (int i = 0; i < n; ++i) {\r\n  \
+    \    if (!used[i]) dfs(i);\r\n    }\r\n    int now = 0;\r\n    for (int i = n\
+    \ - 1; i >= 0; --i) {\r\n      if (id[order[i]] == -1) {\r\n        if (heavy)\
+    \ vertices.emplace_back();\r\n        rev_dfs(order[i], now++);\r\n      }\r\n\
+    \    }\r\n    comp.resize(now);\r\n    for (int i = 0; i < n; ++i) for (const\
+    \ Edge<CostType> &e : graph[i]) {\r\n      if (id[i] != id[e.dst]) comp[id[i]].emplace_back(id[i],\
+    \ id[e.dst], e.cost);\r\n    }\r\n    // if (heavy) {\r\n    //   for (int i =\
+    \ 0; i < now; ++i) std::sort(vertices[i].begin(), vertices[i].end());\r\n    //\
+    \ }\r\n  }\r\n\r\nprivate:\r\n  bool heavy;\r\n  int n;\r\n  std::vector<std::vector<Edge<CostType>>>\
+    \ graph, rev_graph;\r\n  std::vector<bool> used;\r\n  std::vector<int> order;\r\
+    \n\r\n  void dfs(int ver) {\r\n    used[ver] = true;\r\n    for (const Edge<CostType>\
+    \ &e : graph[ver]) {\r\n      if (!used[e.dst]) dfs(e.dst);\r\n    }\r\n    order.emplace_back(ver);\r\
     \n  }\r\n\r\n  void rev_dfs(int ver, int now) {\r\n    id[ver] = now;\r\n    if\
     \ (heavy) vertices[now].emplace_back(ver);\r\n    for (const Edge<CostType> &e\
     \ : rev_graph[ver]) {\r\n      if (id[e.dst] == -1) rev_dfs(e.dst, now);\r\n \
@@ -50,20 +50,18 @@ data:
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
-  path: graph/scc.hpp
+  path: graph/strongly_connected_components.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-04-18 15:42:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/scc.test.cpp
-documentation_of: graph/scc.hpp
+  - test/graph/strongly_connected_components.test.cpp
+documentation_of: graph/strongly_connected_components.hpp
 layout: document
-title: "\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3 (strongly connected components)"
+title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\u89E3"
 ---
 
-有向グラフを共通部分のない強連結成分に分解することである．
-
-- Kosaraju's algorithm
+有向グラフを共通部分の存在しない強連結成分に分解することである．
 
 
 ## 時間計算量
@@ -72,6 +70,8 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 
 ## 使用法
+
+- Kosaraju's algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
@@ -90,6 +90,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 参考
 
+Kosaraju's algorithm
 - https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 
 備考
@@ -108,4 +109,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Verified
 
-https://judge.yosupo.jp/submission/4441
+- [Kosaraju's algorithm](https://judge.yosupo.jp/submission/4441)

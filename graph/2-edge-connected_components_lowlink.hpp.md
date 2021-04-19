@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: graph/2-edge-connected_components_lowlink.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-04-18 15:42:16+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/2-edge-connected_components_lowlink.test.cpp
@@ -66,11 +66,11 @@ redirect_from:
 - /library/graph/2-edge-connected_components_lowlink.hpp.html
 title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
 ---
-# 二重辺連結成分分解 (2-edge-connected components)
+# 二重辺連結成分 (2-edge-connected component) 分解
 
-無向グラフから橋を除いた部分グラフを構築することである．
+無向グラフを橋の存在しない部分グラフに分解することである．
 
-各成分内で任意の3点を始点, 経由点, 終点とする辺素パスが存在し, 任意の2点を結ぶ2本以上の辺素パスが存在する．
+それぞれの成分には，任意の3点を始点・経由点・終点とする辺素パスが存在し，さらに任意の2点を結ぶ2本以上の辺素パスが存在する．
 
 
 ### bridge-block tree

@@ -2,8 +2,9 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: graph/flow/minimum_cost_flow/primal_dual.hpp
-    title: "\u4E3B\u53CC\u5BFE\u6CD5"
+    path: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
+    title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
+      \u53CD\u5FA9\u6CD5\u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':x:'
@@ -32,25 +33,26 @@ data:
     \ in a non-first line\n"
   code: "/**\r\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\
     \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0\r\n * @docs docs/graph/flow/matching/matching.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../minimum_cost_flow/primal_dual.hpp\"\
+    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \r\n\r\ntemplate <typename T>\r\nstruct WeightedBipartiteMatching {\r\n  WeightedBipartiteMatching(int\
-    \ left, int right) : left(left), right(right), pd(left + right + 2) {}\r\n\r\n\
-    \  void add_edge(int src, int dst, T cost) { pd.add_edge(src, left + dst, 1, -cost);\
-    \ }\r\n\r\n  T solve() {\r\n    for (int i = 0; i < left; ++i) pd.add_edge(left\
-    \ + right, i, 1, 0);\r\n    for (int i = 0; i < right; ++i) pd.add_edge(left +\
-    \ i, left + right + 1, 1, 0);\r\n    return -pd.min_cost_max_flow(left + right,\
-    \ left + right + 1, left).second;\r\n  }\r\n\r\n  std::vector<int> matching()\
+    \ left, int right) : left(left), right(right), mcf(left + right + 2) {}\r\n\r\n\
+    \  void add_edge(int src, int dst, T cost) { mcf.add_edge(src, left + dst, 1,\
+    \ -cost); }\r\n\r\n  T solve() {\r\n    for (int i = 0; i < left; ++i) mcf.add_edge(left\
+    \ + right, i, 1, 0);\r\n    for (int i = 0; i < right; ++i) mcf.add_edge(left\
+    \ + i, left + right + 1, 1, 0);\r\n    return -mcf.minimum_cost_maximum_flow(left\
+    \ + right, left + right + 1, left).second;\r\n  }\r\n\r\n  std::vector<int> matching()\
     \ const {\r\n    std::vector<int> res(left, -1);\r\n    for (int i = 0; i < left;\
-    \ ++i) {\r\n      for (auto e : pd.graph[i]) {\r\n        if (e.cap == 0 && left\
+    \ ++i) {\r\n      for (auto e : mcf.graph[i]) {\r\n        if (e.cap == 0 && left\
     \ <= e.dst && e.dst < left + right) {\r\n          res[i] = e.dst - left;\r\n\
     \          break;\r\n        }\r\n      }\r\n    }\r\n    return res;\r\n  }\r\
-    \n\r\nprivate:\r\n  int left, right;\r\n  PrimalDual<int, T> pd;\r\n};\r\n"
+    \n\r\nprivate:\r\n  int left, right;\r\n  MinimumCostSTFlow<int, T> mcf;\r\n};\r\
+    \n"
   dependsOn:
-  - graph/flow/minimum_cost_flow/primal_dual.hpp
+  - graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   isVerificationFile: false
   path: graph/flow/matching/weighted_bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2021-03-15 23:38:13+09:00'
+  timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/bigint.01.test.cpp
