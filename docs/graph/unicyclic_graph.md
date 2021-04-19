@@ -3,7 +3,7 @@ title: unicyclic graph (1-tree)
 documentation_of: graph/unicyclic_graph.hpp
 ---
 
-閉路をただ一つだけ含む単純連結無向グラフである．俗に漫画家の名前を用いて表現される．
+閉路をただ一つだけ含む単純連結無向グラフである．俗に[ある漫画家の名前を用いて表現される](https://twitter.com/chokudai/status/772440823170379776)．
 
 
 ## 時間計算量
