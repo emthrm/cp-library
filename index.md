@@ -213,8 +213,8 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
-      title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
-        \u53CD\u5FA9\u6CD5\u7248"
+      title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC \u6700\
+        \u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248"
     - icon: ':heavy_check_mark:'
       path: graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.hpp
       title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528\
@@ -498,7 +498,7 @@ data:
       title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
     - icon: ':x:'
       path: math/twelvefold_way/lucas.hpp
-      title: math/twelvefold_way/lucas.hpp
+      title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
     - icon: ':x:'
       path: math/twelvefold_way/partition_function_init.hpp
       title: "\u5206\u5272\u6570"
@@ -1275,7 +1275,7 @@ data:
         \u8868 \u5DE8\u5927\u306A $n$ \u7248"
     - icon: ':x:'
       path: test/math/twelvefold_way/lucas.test.cpp
-      title: test/math/twelvefold_way/lucas.test.cpp
+      title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
     - icon: ':x:'
       path: test/math/twelvefold_way/partition_function_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"

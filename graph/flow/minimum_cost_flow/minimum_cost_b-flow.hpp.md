@@ -12,8 +12,8 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
-    document_title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\
-      \u8DEF\u53CD\u5FA9\u6CD5\u7248"
+    document_title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC\
+      \ \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -23,8 +23,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\
-    \u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248\r\n * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md\r\
+  code: "/**\r\n * @brief \u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC\
+    \ \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248\r\n * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include\
     \ <functional>\r\n#include <limits>\r\n#include <numeric>\r\n#include <queue>\r\
     \n#include <tuple>\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate\
@@ -69,7 +69,7 @@ data:
   isVerificationFile: false
   path: graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
   requiredBy: []
-  timestamp: '2021-04-20 01:59:26+09:00'
+  timestamp: '2021-04-20 11:12:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
@@ -78,8 +78,8 @@ layout: document
 redirect_from:
 - /library/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
 - /library/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp.html
-title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
-  \u5FA9\u6CD5\u7248"
+title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\
+  \u8DEF\u53CD\u5FA9\u6CD5\u7248"
 ---
 # 最小費用流 (minimum cost flow)
 
@@ -91,7 +91,7 @@ title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF
 ||計算量|
 |:--:|:--:|
 |最小費用 $s$-$t$-フロー 最短路反復法版|$O(\lvert V \rvert \lvert E \rvert + F \lvert E \rvert \log{\lvert V \rvert})$|
-|最小費用 $\bm{b}$-フロー 最短路反復法版|コスト負の辺の容量の総和を $F^{\prime}$ とおくと $O((F + F^{\prime})\lvert E \rvert \log{\lvert V \rvert})$．|
+|最小費用 $\boldsymbol{b}$-フロー 最短路反復法版|コスト負の辺の容量の総和を $F^{\prime}$ とおくと $O((F + F^{\prime})\lvert E \rvert \log{\lvert V \rvert})$．|
 
 
 ## 使用法
@@ -108,11 +108,11 @@ title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF
 |`solve(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときのコストの最小値|流量は $\mathrm{tinf} - f$ である．|
 |`minimum_cost_maximum_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流したいときの最小費用最大流|返り値は最大流と最小費用である．|
 
-- 最小費用 $\bm{b}$-フロー 最短路反復法版
+- 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`MinimumCostBFlow<フロー, コスト>(n, ∞)`|頂点数 $N$ の最小費用 $\bm{b}$-フローを考える．||
+|`MinimumCostBFlow<フロー, コスト>(n, ∞)`|頂点数 $N$ の最小費用 $\boldsymbol{b}$-フローを考える．||
 |`uinf`|$\infty$|型はコストと等しい．|
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を張る．||
@@ -133,7 +133,7 @@ title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF
 最小費用 $s$-$t$-フロー 最短路反復法版
 - http://sigma425.hatenablog.com/entry/2014/10/12/122018
 
-最小費用 $\bm{b}$-フロー 最短路反復法版
+最小費用 $\boldsymbol{b}$-フロー 最短路反復法版
 - https://snuke.hatenablog.com/entry/2017/06/07/115821
 
 
@@ -141,7 +141,7 @@ title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF
 
 - 容量スケーリング
   - https://misawa.github.io/others/flow/lets_use_capacity_scaling.html
-- 最小費用 $\bm{b}$-フロー
+- 最小費用 $\boldsymbol{b}$-フロー
   - https://misawa.github.io/others/flow/library_design.html
   - https://twitter.com/Mi_Sawa/status/1283768916775321601
   - https://judge.yosupo.jp/problem/min_cost_b_flow
@@ -154,4 +154,4 @@ title: "\u6700\u5C0F\u8CBB\u7528 $\\bm{b}$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF
   - [`solve(s, t, flow)`](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_6_B/review/4092721/emthrm/C++14)
   - [`solve(s, t)`](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2293/review/4085999/emthrm/C++14)
   - [`minimum_cost_maximum_flow(s, t, flow)`](https://onlinejudge.u-aizu.ac.jp/solutions/problem/1088/review/4086009/emthrm/C++14)
-- [最小費用 $\bm{b}$-フロー 最短路反復法版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2230/review/4224563/emthrm/C++14)
+- [最小費用 $\boldsymbol{b}$-フロー 最短路反復法版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2230/review/4224563/emthrm/C++14)

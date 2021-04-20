@@ -34,7 +34,7 @@ data:
     title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
   - icon: ':x:'
     path: math/twelvefold_way/lucas.hpp
-    title: math/twelvefold_way/lucas.hpp
+    title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
   - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
@@ -189,7 +189,7 @@ data:
       \u8868 \u5DE8\u5927\u306A $n$ \u7248"
   - icon: ':x:'
     path: test/math/twelvefold_way/lucas.test.cpp
-    title: test/math/twelvefold_way/lucas.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
   - icon: ':x:'
     path: test/math/twelvefold_way/partition_function_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"

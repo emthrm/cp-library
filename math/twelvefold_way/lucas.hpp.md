@@ -8,7 +8,7 @@ data:
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/math/twelvefold_way/lucas.test.cpp
-    title: test/math/twelvefold_way/lucas.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':x:'
@@ -146,8 +146,29 @@ data:
   - test/math/twelvefold_way/lucas.test.cpp
 documentation_of: math/twelvefold_way/lucas.hpp
 layout: document
-redirect_from:
-- /library/math/twelvefold_way/lucas.hpp
-- /library/math/twelvefold_way/lucas.hpp.html
-title: math/twelvefold_way/lucas.hpp
+title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
 ---
+
+$p \in \mathrm{P},\ n, k \in \mathrm{N}$ に対して，$$\binom{n}{k} \equiv \prod_{i \in \mathbb{N}} \binom{\left\lfloor \frac{n}{p^i} \right\rfloor \bmod{p}}{\left\lfloor \frac{k}{p^i} \right\rfloor \bmod{p}} \pmod{p}$$ が成り立つ．
+
+
+## 時間計算量
+
+$O(P + \log_P{N})$
+
+
+## 使用法
+
+||説明|
+|:--:|:--:|
+|`lucas<P>(n, k)`|$\binom{n}{k} \bmod{p}$|
+
+
+## 参考
+
+- https://manabitimes.jp/math/1324
+
+
+## Verified
+
+https://atcoder.jp/contests/arc117/submissions/21896797
