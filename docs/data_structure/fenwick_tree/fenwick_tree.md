@@ -109,4 +109,4 @@ $S = \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $S$ を $S_b
   - [`lower_bound(val)`](https://atcoder.jp/contests/arc033/submissions/9261672)
 - [区間加算クエリ対応 Fenwick tree](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_G/review/4191837/emthrm/C++14)
 - 2次元 Fenwick tree
-- [区間加算クエリ対応2次元 Fenwick tree](https://codeforces.com/contest/1200/submission/71571647)
+- [区間加算クエリ対応2次元 Fenwick tree](https://yukicoder.me/submissions/651161)
