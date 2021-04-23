@@ -1,14 +1,15 @@
 /*
- * @brief データ構造/BIT/binary indexed tree (lower_bound(val))
+ * @brief データ構造/Fenwick tree/Fenwick tree (lower_bound(val))
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/arc033/tasks/arc033_3"
 
 #include <iostream>
-#include "../../../data_structure/bit/bit.hpp"
+#include "../../../data_structure/fenwick_tree/fenwick_tree.hpp"
 
 int main() {
-  BIT<int> bit(200001);
+  constexpr int M = 200000;
+  FenwickTree<int> bit(M + 1);
   int q;
   std::cin >> q;
   while (q--) {

@@ -7,13 +7,14 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
-#include "../../data_structure/bit/bit.hpp"
+#include "../../data_structure/fenwick_tree/fenwick_tree.hpp"
 #include "../../misc/mo.hpp"
 
 std::vector<int> a;
 long long inv = 0;
 int l = 0, r = 0, m;
-BIT<int> bit(100000);
+constexpr int M = 100000;
+FenwickTree<int> bit(M);
 
 void Mo::add(int idx) const {
   if (idx + 1 == l) {

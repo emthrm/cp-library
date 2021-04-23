@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iterator>
 #include <vector>
-#include "../data_structure/bit/bit.hpp"
+#include "../data_structure/fenwick_tree/fenwick_tree.hpp"
 
 template <typename T>
 long long inversion_number(const std::vector<T> &a) {
@@ -10,7 +10,7 @@ long long inversion_number(const std::vector<T> &a) {
   std::vector<T> comp(a);
   std::sort(comp.begin(), comp.end());
   comp.erase(std::unique(comp.begin(), comp.end()), comp.end());
-  BIT<int> bit(comp.size());
+  FenwickTree<int> bit(comp.size());
   long long res = 0;
   for (int i = 0; i < n; ++i) {
     int idx = std::distance(comp.begin(), std::lower_bound(comp.begin(), comp.end(), a[i]));

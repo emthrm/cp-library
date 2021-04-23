@@ -1,14 +1,14 @@
 /**
- * @brief binary indexed tree
- * @docs docs/data_structure/bit/bit.md
+ * @brief Fenwick tree
+ * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
  */
 
 #pragma once
 #include <vector>
 
 template <typename Abelian>
-struct BIT {
-  BIT(int n, const Abelian ID = 0) : n(n), ID(ID), dat(n, ID) {}
+struct FenwickTree {
+  FenwickTree(int n, const Abelian ID = 0) : n(n), ID(ID), dat(n, ID) {}
 
   void add(int idx, Abelian val) {
     while (idx < n) {

@@ -1,14 +1,14 @@
 /**
- * @brief binary indexed tree 区間加算版
- * @docs docs/data_structure/bit/bit.md
+ * @brief 区間加算クエリ対応 Fenwick tree
+ * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
  */
 
 #pragma once
 #include <vector>
 
 template <typename Abelian>
-struct BITRangeAdd {
-  BITRangeAdd(int n_, const Abelian ID = 0) : n(n_), ID(ID) {
+struct FenwickTreeSupportingRangeAddQuery {
+  FenwickTreeSupportingRangeAddQuery(int n_, const Abelian ID = 0) : n(n_), ID(ID) {
     ++n;
     dat_const.assign(n, ID);
     dat_linear.assign(n, ID);

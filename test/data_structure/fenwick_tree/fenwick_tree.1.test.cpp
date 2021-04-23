@@ -1,15 +1,15 @@
 /*
- * @brief データ構造/BIT/binary indexed tree (sum(left, right))
+ * @brief データ構造/Fenwick tree/Fenwick tree (sum(left, right))
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
 #include <iostream>
-#include "../../../data_structure/bit/bit.hpp"
+#include "../../../data_structure/fenwick_tree/fenwick_tree.hpp"
 
 int main() {
   int n, q;
   std::cin >> n >> q;
-  BIT<long long> bit(n);
+  FenwickTree<long long> bit(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y;

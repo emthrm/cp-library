@@ -1,14 +1,14 @@
 /**
- * @brief 2次元 BIT 領域加算版
- * @docs docs/data_structure/bit/bit.md
+ * @brief 区間加算クエリ対応2次元 Fenwick tree
+ * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
  */
 
 #pragma once
 #include <vector>
 
 template <typename Abelian>
-struct BIT2DRangeAdd {
-  BIT2DRangeAdd(int height_, int width_, const Abelian ID = 0) : height(height_), width(width_), ID(ID) {
+struct FenwickTree2DSupportingRangeAddQuery {
+  FenwickTree2DSupportingRangeAddQuery(int height_, int width_, const Abelian ID = 0) : height(height_), width(width_), ID(ID) {
     ++height; ++width;
     dat_const.assign(height, std::vector<Abelian>(width, ID));
     dat_linear[0].assign(height, std::vector<Abelian>(width, ID));

@@ -7,7 +7,7 @@
 #include <vector>
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/hld.hpp"
-#include "../../../data_structure/bit/bit_range_add.hpp"
+#include "../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {
   int n, q;
@@ -20,7 +20,7 @@ int main() {
     graph[b].emplace_back(b, a, 0);
   }
   HLD<long long> hld(graph, 0);
-  BITRangeAdd<long long> bit(n - 1);
+  FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
   auto f = [&bit](int l, int r) -> long long { return bit.sum(l, r); };
   auto g = [](long long a, long long b) -> long long { return a + b; };
   while (q--) {

@@ -1,15 +1,15 @@
 /*
- * @brief データ構造/BIT/binary indexed tree 区間加算版
+ * @brief データ構造/Fenwick tree/区間加算クエリ対応 Fenwick tree
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G"
 
 #include <iostream>
-#include "../../../data_structure/bit/bit_range_add.hpp"
+#include "../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {
   int n, q;
   std::cin >> n >> q;
-  BITRangeAdd<long long> bit(n);
+  FenwickTreeSupportingRangeAddQuery<long long> bit(n);
   while (q--) {
     int kind, s, t;
     std::cin >> kind >> s >> t;

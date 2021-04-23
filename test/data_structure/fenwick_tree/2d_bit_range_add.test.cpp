@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/BIT/2次元 BIT 領域加算版
+ * @brief データ構造/Fenwick tree/区間加算クエリ対応2次元 Fenwick tree
  */
 #define IGNORE
 #define PROBLEM "https://codeforces.com/problemset/problem/1200/D"
@@ -7,14 +7,14 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include "../../../data_structure/bit/2d_bit_range_add.hpp"
+#include "../../../data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {
   int n, k;
   std::cin >> n >> k;
   std::vector<std::vector<char>> cf(n, std::vector<char>(n));
   for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) std::cin >> cf[i][j];
-  BIT2DRangeAdd<int> bit(n, n);
+  FenwickTree2DSupportingRangeAddQuery<int> bit(n, n);
   for (int i = 0; i < n; ++i) {
     int mn = n, mx = -1;
     for (int j = 0; j < n; ++j) {

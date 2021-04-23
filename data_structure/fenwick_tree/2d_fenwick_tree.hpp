@@ -1,14 +1,14 @@
 /**
- * @brief 2次元 BIT
- * @docs docs/data_structure/bit/bit.md
+ * @brief 2次元 Fenwick tree
+ * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
  */
 
 #pragma once
 #include <vector>
 
 template <typename Abelian>
-struct BIT2D {
-  BIT2D(int height_, int width_, const Abelian ID = 0) : height(height_), width(width_), ID(ID) {
+struct FenwickTree2D {
+  FenwickTree2D(int height_, int width_, const Abelian ID = 0) : height(height_), width(width_), ID(ID) {
     dat.assign(++height, std::vector<Abelian>(++width, ID));
   }
 
