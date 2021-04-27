@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/union-find 木/重みつき union-find 木
+ * @brief データ構造/union-find/重みつき union-find
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 

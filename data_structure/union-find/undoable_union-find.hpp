@@ -1,5 +1,5 @@
 /**
- * @brief undo 可能 union-find 木
+ * @brief undo 可能 union-find
  * @docs docs/data_structure/union-find/union-find.md
  */
 

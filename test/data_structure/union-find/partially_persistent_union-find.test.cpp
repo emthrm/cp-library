@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/union-find 木/部分永続 union-find 木
+ * @brief データ構造/union-find/部分永続 union-find
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/code-thanks-festival-2017-open/tasks/code_thanks_festival_2017_h"

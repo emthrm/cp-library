@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/union-find 木/undo 可能 union-find 木
+ * @brief データ構造/union-find/undo 可能 union-find
  */
 #define IGNORE
 #define PROBLEM "https://codeforces.com/contest/1444/problem/C"
