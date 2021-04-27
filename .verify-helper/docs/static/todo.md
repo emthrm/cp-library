@@ -22,9 +22,11 @@
 
 
 # 階乗 (factorial)
+
 $$n! = \prod_{i = 1}^n i \text{．}$$
 
 ### ウィルソンの定理
+
 $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
 
 ## ToDo
