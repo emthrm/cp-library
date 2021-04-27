@@ -8,7 +8,7 @@
 #include <vector>
 
 template <typename T>
-std::map<T, int> mobius_mu_divisor(T n) {
+std::map<T, int> mobius_mu_focusing_on_divisor(T n) {
   std::vector<T> primes;
   for (T i = 2; i * i <= n; ++i) {
     if (n % i == 0) {

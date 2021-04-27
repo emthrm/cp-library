@@ -8,7 +8,7 @@
 #include <map>
 #include <utility>
 #include "../../../math/modint.hpp"
-#include "../../../math/mobius_mu/mobius_mu_divisor.hpp"
+#include "../../../math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
 
 int main() {
   using ModInt = MInt<0>;
@@ -19,7 +19,7 @@ int main() {
   ModInt ans = 1;
   for (int i = m; i >= 2; --i) {
     if (mp.count(i) == 0) {
-      for (const std::pair<int, int> &pr : mobius_mu_divisor(i)) mp[pr.first] = pr.second;
+      for (const std::pair<int, int> &pr : mobius_mu_focusing_on_divisor(i)) mp[pr.first] = pr.second;
     }
     ans -= (ModInt(m) / (m - m / i) - 1) * mp[i];
   }
