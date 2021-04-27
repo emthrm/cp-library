@@ -1,5 +1,5 @@
 ---
-title: 転倒数 (反転数 / inversion number)
+title: 転倒数 (inversion number)
 documentation_of: misc/inversion_number.hpp
 ---
 
