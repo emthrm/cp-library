@@ -24,7 +24,7 @@ int main() {
   while (q--) {
     int u, v;
     std::cin >> u >> v;
-    std::cout << hld.lca(u, v) << '\n';
+    std::cout << hld.lowest_common_ancestor(u, v) << '\n';
   }
   return 0;
 }

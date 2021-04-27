@@ -8,7 +8,7 @@
 #include <vector>
 #include "../../graph/edge.hpp"
 #include "../../graph/2-edge-connected_components_lowlink.hpp"
-#include "../../graph/tree/lca_doubling.hpp"
+#include "../../graph/tree/lowest_common_ancestor_by_doubling.hpp"
 
 int main() {
   int n, m;
@@ -22,7 +22,7 @@ int main() {
     graph[y].emplace_back(y, x, 1);
   }
   TwoEdgeConnectedComponents<int> twcc(graph);
-  LCADoubling<int> lca(twcc.comp);
+  LowestCommonAncestorByDoubling<int> lca(twcc.comp);
   lca.build();
   int q;
   std::cin >> q;
