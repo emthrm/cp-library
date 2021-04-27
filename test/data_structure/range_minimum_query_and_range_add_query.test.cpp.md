@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   requiredBy: []
-  timestamp: '2021-03-04 19:38:44+09:00'
+  timestamp: '2021-04-27 20:26:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/range_minimum_query_and_range_add_query.test.cpp

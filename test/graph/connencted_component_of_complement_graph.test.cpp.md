@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: data_structure/union-find/union-find.hpp
-    title: "union-find \u6728"
+    title: union-find
   - icon: ':x:'
     path: graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
@@ -51,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/graph/connencted_component_of_complement_graph.test.cpp
   requiredBy: []
-  timestamp: '2021-04-18 15:42:16+09:00'
+  timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/connencted_component_of_complement_graph.test.cpp

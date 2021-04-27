@@ -9,18 +9,18 @@ data:
     path: math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
-    path: math/convolution/ntt.hpp
+    path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':warning:'
-    path: math/fps/eulerian_number_init_with_fps.hpp
+    path: math/formal_power_series/eulerian_number_init_by_fps.hpp
     title: "Eulerian number \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
   - icon: ':heavy_check_mark:'
-    path: math/fps/faulhaber_with_fps.hpp
+    path: math/formal_power_series/faulhaber_by_fps.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
       \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':heavy_check_mark:'
-    path: math/fps/faulhaber_with_lagrange_interpolation.hpp
+    path: math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
       \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
   - icon: ':heavy_check_mark:'
@@ -42,7 +42,7 @@ data:
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
   - icon: ':heavy_check_mark:'
-    path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
+    path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   _extendedVerifiedWith:
@@ -54,7 +54,7 @@ data:
     path: test/data_structure/segment_tree.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
   - icon: ':heavy_check_mark:'
-    path: test/dp/subset_sum_problem.test.cpp
+    path: test/dynamic_programming/subset_sum_problem.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
@@ -78,7 +78,7 @@ data:
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\
       \u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
-    path: test/math/convolution/ntt.test.cpp
+    path: test/math/convolution/number_theoretic_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
   - icon: ':heavy_check_mark:'
     path: test/math/convolution/xor_convolution.test.cpp
@@ -89,41 +89,41 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/faulhaber_with_fps.test.cpp
+    path: test/math/fps/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp
+    path: test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\
       \u88DC\u9593\u7248"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.1.test.cpp
+    path: test/math/fps/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.2.test.cpp
+    path: test/math/fps/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u9006\u5143)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.3.test.cpp
+    path: test/math/fps/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.4.test.cpp
+    path: test/math/fps/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u51AA\u4E57)"
   - icon: ':x:'
-    path: test/math/fps/fps.5.test.cpp
+    path: test/math/fps/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow(exponend, md))"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.6.test.cpp
+    path: test/math/fps/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.7.test.cpp
+    path: test/math/fps/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (translate(c))"
   - icon: ':heavy_check_mark:'
@@ -155,7 +155,7 @@ data:
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570"
   - icon: ':x:'
-    path: test/math/mobius_mu/mobius_mu_divisor.test.cpp
+    path: test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570 \u7D04\u6570\u7248"
   - icon: ':x:'
@@ -194,7 +194,7 @@ data:
     path: test/math/twelvefold_way/partition_function_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"
   - icon: ':heavy_check_mark:'
-    path: test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
+    path: test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
@@ -445,67 +445,67 @@ data:
   isVerificationFile: false
   path: math/modint.hpp
   requiredBy:
+  - math/twelvefold_way/lucas.hpp
   - math/twelvefold_way/bell_number/bell_number_init.hpp
   - math/twelvefold_way/bell_number/bell_number.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - math/twelvefold_way/large_nCk_init.hpp
-  - math/twelvefold_way/lucas.hpp
-  - math/fps/eulerian_number_init_with_fps.hpp
-  - math/fps/faulhaber_with_lagrange_interpolation.hpp
-  - math/fps/faulhaber_with_fps.hpp
-  - math/catalan_number.hpp
+  - math/convolution/number_theoretic_transform.hpp
   - math/convolution/mod_convolution.hpp
-  - math/convolution/ntt.hpp
+  - math/catalan_number.hpp
+  - math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
+  - math/formal_power_series/eulerian_number_init_by_fps.hpp
+  - math/formal_power_series/faulhaber_by_fps.hpp
   timestamp: '2021-03-07 02:53:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/data_structure/lazy_segment_tree.test.cpp
-  - test/data_structure/segment_tree.test.cpp
-  - test/math/mobius_mu/mobius_mu_init.test.cpp
-  - test/math/mobius_mu/mobius_mu_divisor.test.cpp
-  - test/math/mobius_mu/mobius_mu_init2.test.cpp
-  - test/math/mobius_mu/mobius_mu.test.cpp
-  - test/math/twelvefold_way/partition_function_init.test.cpp
+  - test/math/twelvefold_way/large_nCk.test.cpp
+  - test/math/twelvefold_way/lucas.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/binomial_coefficients.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
-  - test/math/twelvefold_way/lucas.test.cpp
-  - test/math/twelvefold_way/binomial_coefficients.test.cpp
-  - test/math/twelvefold_way/large_nCk.test.cpp
+  - test/math/twelvefold_way/partition_function_init.test.cpp
   - test/math/twelvefold_way/large_nCk_init.test.cpp
-  - test/math/montmort_number.test.cpp
-  - test/math/fps/fps.4.test.cpp
-  - test/math/fps/bernoulli_number.test.cpp
-  - test/math/fps/multipoint_evaluation.test.cpp
-  - test/math/fps/fps.5.test.cpp
-  - test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/fps.6.test.cpp
-  - test/math/fps/fps.1.test.cpp
-  - test/math/fps/fps.2.test.cpp
-  - test/math/fps/fps.7.test.cpp
-  - test/math/fps/faulhaber_with_fps.test.cpp
-  - test/math/fps/fps.3.test.cpp
-  - test/math/catalan_number.test.cpp
-  - test/math/convolution/and_convolution.test.cpp
-  - test/math/convolution/ntt.test.cpp
-  - test/math/convolution/gcd_convolution.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
-  - test/math/convolution/xor_convolution.test.cpp
+  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
+  - test/math/mobius_mu/mobius_mu_init.test.cpp
+  - test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
+  - test/math/mobius_mu/mobius_mu_init2.test.cpp
+  - test/math/mobius_mu/mobius_mu.test.cpp
   - test/math/lagrange_interpolation.test.cpp
+  - test/math/montmort_number.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
+  - test/math/convolution/gcd_convolution.test.cpp
+  - test/math/convolution/xor_convolution.test.cpp
+  - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/number_theoretic_transform.test.cpp
+  - test/math/fps/formal_power_series.2.test.cpp
+  - test/math/fps/formal_power_series.4.test.cpp
+  - test/math/fps/multipoint_evaluation.test.cpp
+  - test/math/fps/formal_power_series.6.test.cpp
+  - test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+  - test/math/fps/formal_power_series.5.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/fps/bernoulli_number.test.cpp
+  - test/math/fps/formal_power_series.1.test.cpp
+  - test/math/fps/faulhaber_by_fps.test.cpp
+  - test/math/fps/formal_power_series.3.test.cpp
+  - test/math/fps/formal_power_series.7.test.cpp
+  - test/math/lagrange_interpolation2.test.cpp
   - test/math/matrix/matrix.test.cpp
   - test/math/matrix/determinant.test.cpp
-  - test/math/lagrange_interpolation2.test.cpp
+  - test/math/catalan_number.test.cpp
   - test/math/kita_masa.test.cpp
-  - test/graph/tree/centroid.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/data_structure/lazy_segment_tree.test.cpp
+  - test/data_structure/segment_tree.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
-  - test/dp/subset_sum_problem.test.cpp
+  - test/graph/tree/centroid.test.cpp
 documentation_of: math/modint.hpp
 layout: document
 title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"

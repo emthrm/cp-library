@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: data_structure/union-find/weighted_union-find.hpp
-    title: "\u91CD\u307F\u3064\u304D union-find \u6728"
+    title: "\u91CD\u307F\u3064\u304D union-find"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,8 +12,8 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
-    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u91CD\u307F\
-      \u3064\u304D union-find \u6728"
+    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u91CD\u307F\u3064\u304D\
+      \ union-find"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -26,8 +26,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/weighted_union-find.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u91CD\u307F\
-    \u3064\u304D union-find \u6728\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B\"\
+  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u91CD\u307F\u3064\
+    \u304D union-find\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B\"\
     \r\n\r\n#include <iostream>\r\n#include \"../../../data_structure/union-find/weighted_union-find.hpp\"\
     \r\n\r\nint main() {\r\n  int n, q;\r\n  std::cin >> n >> q;\r\n  WeightedUnionFind<int>\
     \ uf(n);\r\n  while (q--) {\r\n    int query;\r\n    std::cin >> query;\r\n  \
@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/union-find/weighted_union-find.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 04:45:32+09:00'
+  timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/union-find/weighted_union-find.test.cpp
@@ -49,6 +49,5 @@ layout: document
 redirect_from:
 - /verify/test/data_structure/union-find/weighted_union-find.test.cpp
 - /verify/test/data_structure/union-find/weighted_union-find.test.cpp.html
-title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u91CD\u307F\u3064\u304D\
-  \ union-find \u6728"
+title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u91CD\u307F\u3064\u304D union-find"
 ---

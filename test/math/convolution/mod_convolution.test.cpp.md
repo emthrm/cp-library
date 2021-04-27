@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: math/convolution/fft.hpp
+    path: math/convolution/fast_fourier_transform.hpp
     title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
   - icon: ':question:'
     path: math/convolution/mod_convolution.hpp
@@ -47,11 +47,11 @@ data:
   dependsOn:
   - math/modint.hpp
   - math/convolution/mod_convolution.hpp
-  - math/convolution/fft.hpp
+  - math/convolution/fast_fourier_transform.hpp
   isVerificationFile: true
   path: test/math/convolution/mod_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-03-07 02:53:11+09:00'
+  timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/convolution/mod_convolution.test.cpp

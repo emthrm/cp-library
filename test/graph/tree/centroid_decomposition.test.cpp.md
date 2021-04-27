@@ -8,7 +8,7 @@ data:
     path: graph/tree/centroid_decomposition.hpp
     title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
   - icon: ':question:'
-    path: math/convolution/fft.hpp
+    path: math/convolution/fast_fourier_transform.hpp
     title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -34,13 +34,13 @@ data:
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/frequency_table_of_tree_distance\"\
     \r\n\r\n#include <cmath>\r\n#include <functional>\r\n#include <iostream>\r\n#include\
     \ <vector>\r\n#include \"../../../graph/edge.hpp\"\r\n#include \"../../../graph/tree/centroid_decomposition.hpp\"\
-    \r\n#include \"../../../math/convolution/fft.hpp\"\r\n\r\nint main() {\r\n  int\
-    \ n;\r\n  std::cin >> n;\r\n  std::vector<std::vector<Edge<bool>>> graph(n);\r\
-    \n  for (int i = 0; i < n - 1; ++i) {\r\n    int a, b;\r\n    std::cin >> a >>\
-    \ b;\r\n    graph[a].emplace_back(a, b);\r\n    graph[b].emplace_back(b, a);\r\
-    \n  }\r\n  CentroidDecomposition<bool> cd(graph);\r\n  std::vector<bool> visited(n,\
-    \ false);\r\n  std::vector<long long> x(n, 0);\r\n  std::function<void(int)> rec\
-    \ = [n, &graph, &cd, &visited, &x, &rec](int root) -> void {\r\n    visited[root]\
+    \r\n#include \"../../../math/convolution/fast_fourier_transform.hpp\"\r\n\r\n\
+    int main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<std::vector<Edge<bool>>>\
+    \ graph(n);\r\n  for (int i = 0; i < n - 1; ++i) {\r\n    int a, b;\r\n    std::cin\
+    \ >> a >> b;\r\n    graph[a].emplace_back(a, b);\r\n    graph[b].emplace_back(b,\
+    \ a);\r\n  }\r\n  CentroidDecomposition<bool> cd(graph);\r\n  std::vector<bool>\
+    \ visited(n, false);\r\n  std::vector<long long> x(n, 0);\r\n  std::function<void(int)>\
+    \ rec = [n, &graph, &cd, &visited, &x, &rec](int root) -> void {\r\n    visited[root]\
     \ = true;\r\n    std::vector<int> cnt{1};\r\n    for (const Edge<bool> &child\
     \ : graph[root]) {\r\n      if (visited[child.dst]) continue;\r\n      std::vector<int>\
     \ sub_cnt{0};\r\n      std::function<void(int, int, int)> dfs = [&graph, &visited,\
@@ -49,21 +49,21 @@ data:
     \ <= dist) sub_cnt.resize(dist + 1, 0);\r\n        ++sub_cnt[dist];\r\n      \
     \  for (const Edge<bool> &e : graph[ver]) {\r\n          if (!visited[e.dst] &&\
     \ e.dst != par) dfs(ver, e.dst, dist + 1);\r\n        }\r\n      };\r\n      dfs(root,\
-    \ child.dst, 1);\r\n      std::vector<fft::Real> f = fft::convolution(sub_cnt,\
+    \ child.dst, 1);\r\n      std::vector<fast_fourier_transform::Real> f = fast_fourier_transform::convolution(sub_cnt,\
     \ sub_cnt);\r\n      for (int i = 0; i < f.size() && i < n; ++i) x[i] -= std::round(f[i]);\r\
-    \n    }\r\n    std::vector<fft::Real> f = fft::convolution(cnt, cnt);\r\n    for\
-    \ (int i = 0; i < f.size() && i < n; ++i) x[i] += std::round(f[i]);\r\n    for\
-    \ (int e : cd.comp[root]) rec(e);\r\n  };\r\n  rec(cd.root);\r\n  for (int i =\
-    \ 1; i < n; ++i) std::cout << x[i] / 2 << \" \\n\"[i + 1 == n];\r\n  return 0;\r\
-    \n}\r\n"
+    \n    }\r\n    std::vector<fast_fourier_transform::Real> f = fast_fourier_transform::convolution(cnt,\
+    \ cnt);\r\n    for (int i = 0; i < f.size() && i < n; ++i) x[i] += std::round(f[i]);\r\
+    \n    for (int e : cd.comp[root]) rec(e);\r\n  };\r\n  rec(cd.root);\r\n  for\
+    \ (int i = 1; i < n; ++i) std::cout << x[i] / 2 << \" \\n\"[i + 1 == n];\r\n \
+    \ return 0;\r\n}\r\n"
   dependsOn:
   - graph/edge.hpp
   - graph/tree/centroid_decomposition.hpp
-  - math/convolution/fft.hpp
+  - math/convolution/fast_fourier_transform.hpp
   isVerificationFile: true
   path: test/graph/tree/centroid_decomposition.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid_decomposition.test.cpp

@@ -3,11 +3,11 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: string/lcp.hpp
+    path: string/longest_common_prefix.hpp
     title: longest common prefix
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/string/lcp.test.cpp
+    path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
   - icon: ':heavy_check_mark:'
     path: test/string/suffix_array.test.cpp
@@ -79,11 +79,11 @@ data:
   isVerificationFile: false
   path: string/suffix_array.hpp
   requiredBy:
-  - string/lcp.hpp
+  - string/longest_common_prefix.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/string/lcp.test.cpp
+  - test/string/longest_common_prefix.test.cpp
   - test/string/suffix_array.test.cpp
 documentation_of: string/suffix_array.hpp
 layout: document

@@ -6,12 +6,12 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: graph/tree/lca_euler_tour.hpp
+    path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/tree/lca_euler_tour.test.cpp
+    path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   _isVerificationFailed: false
@@ -55,11 +55,11 @@ data:
   isVerificationFile: false
   path: graph/tree/euler_tour.hpp
   requiredBy:
-  - graph/tree/lca_euler_tour.hpp
+  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/lca_euler_tour.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: graph/tree/euler_tour.hpp
 layout: document
 title: "\u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC (Euler tour)"

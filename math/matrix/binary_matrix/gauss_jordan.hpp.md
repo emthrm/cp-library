@@ -60,8 +60,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
-  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
+  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
 documentation_of: math/matrix/binary_matrix/gauss_jordan.hpp
 layout: document
 redirect_from:

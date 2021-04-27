@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':question:'
-    path: data_structure/bit/bit.hpp
-    title: binary indexed tree
+    path: data_structure/fenwick_tree/fenwick_tree.hpp
+    title: Fenwick tree
   - icon: ':heavy_check_mark:'
     path: misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (\u53CD\u8EE2\u6570 / inversion number)"
@@ -28,7 +28,8 @@ data:
     \  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ data_structure/bit/bit.hpp: line 6: #pragma once found in a non-first line\n"
+    \ data_structure/fenwick_tree/fenwick_tree.hpp: line 6: #pragma once found in\
+    \ a non-first line\n"
   code: "/*\r\n * @brief \u305D\u306E\u4ED6/\u8EE2\u5012\u6570\r\n */\r\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D\"\r\n\r\
     \n#include <iostream>\r\n#include <vector>\r\n#include \"../../misc/inversion_number.hpp\"\
@@ -37,11 +38,11 @@ data:
     \ << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - misc/inversion_number.hpp
-  - data_structure/bit/bit.hpp
+  - data_structure/fenwick_tree/fenwick_tree.hpp
   isVerificationFile: true
   path: test/misc/inversion_number.test.cpp
   requiredBy: []
-  timestamp: '2021-02-13 04:45:32+09:00'
+  timestamp: '2021-04-24 04:29:28+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/misc/inversion_number.test.cpp

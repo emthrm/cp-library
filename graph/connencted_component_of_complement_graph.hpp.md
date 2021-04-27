@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: data_structure/union-find/union-find.hpp
-    title: "union-find \u6728"
+    title: union-find
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: graph/connencted_component_of_complement_graph.hpp
   requiredBy: []
-  timestamp: '2021-04-18 15:42:16+09:00'
+  timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/connencted_component_of_complement_graph.test.cpp

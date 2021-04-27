@@ -24,7 +24,7 @@ data:
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
       \u30F3\u30C8\u6728 (range sum query and range update query)"
   - icon: ':heavy_check_mark:'
-    path: test/graph/tree/lca_euler_tour.test.cpp
+    path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   _isVerificationFailed: false
@@ -107,58 +107,64 @@ data:
     \ idx < p2);\r\n    sub_apply(idx << 1, lazy[idx]);\r\n    sub_apply((idx << 1)\
     \ + 1, lazy[idx]);\r\n    lazy[idx] = T::o_id();\r\n  }\r\n};\r\n\r\nnamespace\
     \ monoid {\r\ntemplate <typename T>\r\nstruct RangeMinimumAndUpdateQuery {\r\n\
-    \  using Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr T m_id()\
-    \ { return std::numeric_limits<T>::max(); }\r\n  static constexpr T o_id() { return\
-    \ std::numeric_limits<T>::max(); }\r\n  static T m_merge(const T &a, const T &b)\
-    \ { return std::min(a, b); }\r\n  static T o_merge(const T &a, const T &b) { return\
-    \ b == o_id() ? a : b; }\r\n  static T apply(const T &a, const T &b) { return\
-    \ b == o_id()? a : b; }\r\n};\r\n\r\ntemplate <typename T>\r\nstruct RangeMaximumAndUpdateQuery\
+    \  using Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr Monoid\
+    \ m_id() { return std::numeric_limits<Monoid>::max(); }\r\n  static constexpr\
+    \ OperatorMonoid o_id() { return std::numeric_limits<OperatorMonoid>::max(); }\r\
+    \n  static Monoid m_merge(const Monoid &a, const Monoid &b) { return std::min(a,\
+    \ b); }\r\n  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid\
+    \ &b) { return b == o_id() ? a : b; }\r\n  static Monoid apply(const Monoid &a,\
+    \ const OperatorMonoid &b) { return b == o_id()? a : b; }\r\n};\r\n\r\ntemplate\
+    \ <typename T>\r\nstruct RangeMaximumAndUpdateQuery {\r\n  using Monoid = T;\r\
+    \n  using OperatorMonoid = T;\r\n  static constexpr Monoid m_id() { return std::numeric_limits<Monoid>::lowest();\
+    \ }\r\n  static constexpr OperatorMonoid o_id() { return std::numeric_limits<OperatorMonoid>::lowest();\
+    \ }\r\n  static Monoid m_merge(const Monoid &a, const Monoid &b) { return std::max(a,\
+    \ b); }\r\n  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid\
+    \ &b) { return b == o_id() ? a : b; }\r\n  static Monoid apply(const Monoid &a,\
+    \ const OperatorMonoid &b) { return b == o_id()? a : b; }\r\n};\r\n\r\ntemplate\
+    \ <typename T, T Inf>\r\nstruct RangeMinimumAndAddQuery {\r\n  using Monoid =\
+    \ T;\r\n  using OperatorMonoid = T;\r\n  static constexpr Monoid m_id() { return\
+    \ Inf; }\r\n  static constexpr OperatorMonoid o_id() { return 0; }\r\n  static\
+    \ Monoid m_merge(const Monoid &a, const Monoid &b) { return std::min(a, b); }\r\
+    \n  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid\
+    \ &b) { return a + b; }\r\n  static Monoid apply(const Monoid &a, const OperatorMonoid\
+    \ &b) { return a + b; }\r\n};\r\n\r\ntemplate <typename T, T Inf>\r\nstruct RangeMaximumAndAddQuery\
     \ {\r\n  using Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr\
-    \ T m_id() { return std::numeric_limits<T>::lowest(); }\r\n  static constexpr\
-    \ T o_id() { return std::numeric_limits<T>::lowest(); }\r\n  static T m_merge(const\
-    \ T &a, const T &b) { return std::max(a, b); }\r\n  static T o_merge(const T &a,\
-    \ const T &b) { return b == o_id() ? a : b; }\r\n  static T apply(const T &a,\
-    \ const T &b) { return b == o_id()? a : b; }\r\n};\r\n\r\ntemplate <typename T,\
-    \ T Inf>\r\nstruct RangeMinimumAndAddQuery {\r\n  using Monoid = T;\r\n  using\
-    \ OperatorMonoid = T;\r\n  static constexpr T m_id() { return Inf; }\r\n  static\
-    \ constexpr T o_id() { return 0; }\r\n  static T m_merge(const T &a, const T &b)\
-    \ { return std::min(a, b); }\r\n  static T o_merge(const T &a, const T &b) { return\
-    \ a + b; }\r\n  static T apply(const T &a, const T &b) { return a + b; }\r\n};\r\
-    \n\r\ntemplate <typename T, T Inf>\r\nstruct RangeMaximumAndAddQuery {\r\n  using\
-    \ Monoid = T;\r\n  using OperatorMonoid = T;\r\n  static constexpr T m_id() {\
-    \ return -Inf; }\r\n  static constexpr T o_id() { return 0; }\r\n  static T m_merge(const\
-    \ T &a, const T &b) { return std::max(a, b); }\r\n  static T o_merge(const T &a,\
-    \ const T &b) { return a + b; }\r\n  static T apply(const T &a, const T &b) {\
-    \ return a + b; }\r\n};\r\n\r\ntemplate <typename T>\r\nstruct RangeSumAndUpdateQuery\
-    \ {\r\n  struct Node {\r\n    T sum;\r\n    int len;\r\n  };\r\n  static std::vector<Node>\
-    \ init(int n) { return std::vector<Node>(n, Node{0, 1}); }\r\n  using Monoid =\
-    \ Node;\r\n  using OperatorMonoid = T;\r\n  static constexpr Node m_id() { return\
-    \ {0, 0}; }\r\n  static constexpr T o_id() { return std::numeric_limits<T>::max();\
-    \ }\r\n  static Node m_merge(const Node &a, const Node &b) { return Node{a.sum\
-    \ + b.sum, a.len + b.len}; }\r\n  static T o_merge(const T &a, const T &b) { return\
-    \ b == o_id() ? a : b; }\r\n  static Node apply(const Node &a, const T &b) { return\
-    \ Node{b == o_id() ? a.sum : b * a.len, a.len}; }\r\n};\r\n\r\ntemplate <typename\
-    \ T>\r\nstruct RangeSumAndAddQuery {\r\n  struct Node {\r\n    T sum;\r\n    int\
-    \ len;\r\n  };\r\n  static std::vector<Node> init(int n) { return std::vector<Node>(n,\
-    \ Node{0, 1}); }\r\n  using Monoid = Node;\r\n  using OperatorMonoid = T;\r\n\
-    \  static constexpr Node m_id() { return {0, 0}; }\r\n  static constexpr T o_id()\
-    \ { return 0; }\r\n  static Node m_merge(const Node &a, const Node &b) { return\
-    \ Node{a.sum + b.sum, a.len + b.len}; }\r\n  static T o_merge(const T &a, const\
-    \ T &b) { return a + b; }\r\n  static Node apply(const Node &a, const T &b) {\
-    \ return Node{a.sum + b * a.len, a.len}; }\r\n};\r\n}  // monoid\r\n"
+    \ Monoid m_id() { return -Inf; }\r\n  static constexpr OperatorMonoid o_id() {\
+    \ return 0; }\r\n  static Monoid m_merge(const Monoid &a, const Monoid &b) { return\
+    \ std::max(a, b); }\r\n  static OperatorMonoid o_merge(const OperatorMonoid &a,\
+    \ const OperatorMonoid &b) { return a + b; }\r\n  static Monoid apply(const Monoid\
+    \ &a, const OperatorMonoid &b) { return a + b; }\r\n};\r\n\r\ntemplate <typename\
+    \ T>\r\nstruct RangeSumAndUpdateQuery {\r\n  using Monoid = struct {\r\n    T\
+    \ sum;\r\n    int len;\r\n  };\r\n  using OperatorMonoid = T;\r\n  static std::vector<Monoid>\
+    \ init(int n) { return std::vector<Monoid>(n, Monoid{0, 1}); }\r\n  static constexpr\
+    \ Monoid m_id() { return {0, 0}; }\r\n  static constexpr OperatorMonoid o_id()\
+    \ { return std::numeric_limits<OperatorMonoid>::max(); }\r\n  static Monoid m_merge(const\
+    \ Monoid &a, const Monoid &b) { return Monoid{a.sum + b.sum, a.len + b.len}; }\r\
+    \n  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid\
+    \ &b) { return b == o_id() ? a : b; }\r\n  static Monoid apply(const Monoid &a,\
+    \ const OperatorMonoid &b) { return Monoid{b == o_id() ? a.sum : b * a.len, a.len};\
+    \ }\r\n};\r\n\r\ntemplate <typename T>\r\nstruct RangeSumAndAddQuery {\r\n  using\
+    \ Monoid = struct {\r\n    T sum;\r\n    int len;\r\n  };\r\n  using OperatorMonoid\
+    \ = T;\r\n  static std::vector<Monoid> init(int n) { return std::vector<Monoid>(n,\
+    \ Monoid{0, 1}); }\r\n  static constexpr Monoid m_id() { return {0, 0}; }\r\n\
+    \  static constexpr OperatorMonoid o_id() { return 0; }\r\n  static Monoid m_merge(const\
+    \ Monoid &a, const Monoid &b) { return Monoid{a.sum + b.sum, a.len + b.len}; }\r\
+    \n  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid\
+    \ &b) { return a + b; }\r\n  static Monoid apply(const Monoid &a, const OperatorMonoid\
+    \ &b) { return Monoid{a.sum + b * a.len, a.len}; }\r\n};\r\n}  // monoid\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2021-03-04 19:38:44+09:00'
+  timestamp: '2021-04-27 20:26:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
-  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/lazy_segment_tree.test.cpp
-  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+  - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
   - test/data_structure/range_sum_query_and_range_update_query.test.cpp
-  - test/graph/tree/lca_euler_tour.test.cpp
+  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
+  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:

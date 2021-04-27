@@ -8,8 +8,7 @@ data:
   _extendedVerifiedWith:
   - icon: ':x:'
     path: test/data_structure/union-find/undoable_union-find.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/undo \u53EF\u80FD union-find\
-      \ \u6728"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/undo \u53EF\u80FD union-find"
   - icon: ':x:'
     path: test/graph/is_bipartite.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"

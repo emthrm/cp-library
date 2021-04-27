@@ -65,17 +65,17 @@ data:
   path: math/prime_sieve.hpp
   requiredBy:
   - math/mobius_mu/mobius_mu_init2.hpp
+  - math/euler_phi/euler_phi_init2.hpp
+  - math/enumerate_k-th_power.hpp
   - math/osa_k.hpp
   - math/carmichal_function_init.hpp
-  - math/enumerate_k-th_power.hpp
-  - math/euler_phi/euler_phi_init2.hpp
   timestamp: '2021-02-27 06:50:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
-  - test/math/fast_divisor.test.cpp
-  - test/math/enumerate_k-th_power.test.cpp
   - test/math/osa_k.test.cpp
+  - test/math/enumerate_k-th_power.test.cpp
+  - test/math/fast_divisor.test.cpp
   - test/math/euler_phi/euler_phi_init2.test.cpp
   - test/math/prime_sieve.test.cpp
 documentation_of: math/prime_sieve.hpp

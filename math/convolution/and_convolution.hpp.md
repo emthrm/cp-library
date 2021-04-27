@@ -2,10 +2,10 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: math/convolution/fmt.hpp
+    path: math/convolution/fast_mobius_transform.hpp
     title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
   - icon: ':question:'
-    path: math/convolution/fzt.hpp
+    path: math/convolution/fast_zeta_transform.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
@@ -30,19 +30,20 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F\
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <vector>\r\n#include \"fzt.hpp\"\r\n#include \"fmt.hpp\"\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> and_convolution(const std::vector<T> &a, const\
-    \ std::vector<T> &b, const T ID = 0) {\r\n  auto add = [](const T &a, const T\
-    \ &b) -> T { return a + b; };\r\n  std::vector<T> fzt_a = fzt(a, true, ID, add),\
-    \ fzt_b = fzt(b, true, ID, add);\r\n  int n = fzt_a.size();\r\n  for (int i =\
-    \ 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return fmt(fzt_a, true);\r\n}\r\n"
+    \n#include <vector>\r\n#include \"fast_zeta_transform.hpp\"\r\n#include \"fast_mobius_transform.hpp\"\
+    \r\n\r\ntemplate <typename T>\r\nstd::vector<T> and_convolution(const std::vector<T>\
+    \ &a, const std::vector<T> &b, const T ID = 0) {\r\n  auto add = [](const T &a,\
+    \ const T &b) -> T { return a + b; };\r\n  std::vector<T> fzt_a = fast_zeta_transform(a,\
+    \ true, ID, add), fzt_b = fast_zeta_transform(b, true, ID, add);\r\n  int n =\
+    \ fzt_a.size();\r\n  for (int i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return\
+    \ fast_mobius_transform(fzt_a, true);\r\n}\r\n"
   dependsOn:
-  - math/convolution/fzt.hpp
-  - math/convolution/fmt.hpp
+  - math/convolution/fast_zeta_transform.hpp
+  - math/convolution/fast_mobius_transform.hpp
   isVerificationFile: false
   path: math/convolution/and_convolution.hpp
   requiredBy: []
-  timestamp: '2021-02-13 04:45:32+09:00'
+  timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp

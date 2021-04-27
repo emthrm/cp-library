@@ -3,22 +3,22 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: graph/tree/lca_euler_tour.hpp
+    path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
   - icon: ':heavy_check_mark:'
-    path: string/lcp.hpp
+    path: string/longest_common_prefix.hpp
     title: longest common prefix
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/sparse_table.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
   - icon: ':heavy_check_mark:'
-    path: test/graph/tree/lca_euler_tour.test.cpp
+    path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   - icon: ':heavy_check_mark:'
-    path: test/string/lcp.test.cpp
+    path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
   _isVerificationFailed: false
   _pathExtension: hpp
@@ -61,14 +61,14 @@ data:
   isVerificationFile: false
   path: data_structure/sparse_table.hpp
   requiredBy:
-  - string/lcp.hpp
-  - graph/tree/lca_euler_tour.hpp
+  - string/longest_common_prefix.hpp
+  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/string/longest_common_prefix.test.cpp
   - test/data_structure/sparse_table.test.cpp
-  - test/string/lcp.test.cpp
-  - test/graph/tree/lca_euler_tour.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: data_structure/sparse_table.hpp
 layout: document
 title: sparse table

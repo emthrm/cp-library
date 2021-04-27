@@ -5,7 +5,7 @@ data:
     path: graph/edge.hpp
     title: "\u8FBA"
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/2-edge-connected_components_lowlink.hpp
     title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
   - icon: ':x:'
@@ -13,10 +13,6 @@ data:
     title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)\
       \ \u5206\u89E3"
   _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/graph/2-edge-connected_components_lowlink.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
-      \ lowlink \u7248"
   - icon: ':x:'
     path: test/graph/biconnected_component.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
@@ -72,9 +68,8 @@ data:
   timestamp: '2021-04-18 15:42:16+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/lowlink.2.test.cpp
   - test/graph/lowlink.1.test.cpp
-  - test/graph/2-edge-connected_components_lowlink.test.cpp
+  - test/graph/lowlink.2.test.cpp
   - test/graph/biconnected_component.test.cpp
 documentation_of: graph/lowlink.hpp
 layout: document

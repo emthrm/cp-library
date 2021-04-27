@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: data_structure/union-find/partially_persistent_union-find.hpp
-    title: "\u90E8\u5206\u6C38\u7D9A union-find \u6728"
+    title: "\u90E8\u5206\u6C38\u7D9A union-find"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -14,8 +14,8 @@ data:
     IGNORE: ''
     IGNORE_IF_CLANG: ''
     IGNORE_IF_GCC: ''
-    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u90E8\u5206\
-      \u6C38\u7D9A union-find \u6728"
+    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u90E8\u5206\u6C38\u7D9A\
+      \ union-find"
     links:
     - https://atcoder.jp/contests/code-thanks-festival-2017-open/tasks/code_thanks_festival_2017_h
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -28,9 +28,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/partially_persistent_union-find.hpp: line 6: #pragma\
     \ once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u90E8\u5206\
-    \u6C38\u7D9A union-find \u6728\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"\
-    https://atcoder.jp/contests/code-thanks-festival-2017-open/tasks/code_thanks_festival_2017_h\"\
+  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u90E8\u5206\u6C38\
+    \u7D9A union-find\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/code-thanks-festival-2017-open/tasks/code_thanks_festival_2017_h\"\
     \r\n\r\n#include <iostream>\r\n#include \"../../../data_structure/union-find/partially_persistent_union-find.hpp\"\
     \r\n\r\nint main() {\r\n  int n, m;\r\n  std::cin >> n >> m;\r\n  PartiallyPersistentUnionFind\
     \ uf(n);\r\n  for (int i = 0; i < m; ++i) {\r\n    int a, b;\r\n    std::cin >>\
@@ -46,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/union-find/partially_persistent_union-find.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/data_structure/union-find/partially_persistent_union-find.test.cpp
@@ -54,6 +53,5 @@ layout: document
 redirect_from:
 - /verify/test/data_structure/union-find/partially_persistent_union-find.test.cpp
 - /verify/test/data_structure/union-find/partially_persistent_union-find.test.cpp.html
-title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u90E8\u5206\u6C38\u7D9A\
-  \ union-find \u6728"
+title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u90E8\u5206\u6C38\u7D9A union-find"
 ---

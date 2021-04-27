@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: math/lcm.hpp
+    path: math/least_common_multiple.hpp
     title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
   - icon: ':question:'
     path: math/prime_sieve.hpp
@@ -27,7 +27,7 @@ data:
   code: "/**\r\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\
     \u8868\r\n * @docs docs/math/carmichal_function.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n#include \"prime_sieve.hpp\"\
-    \r\n#include \"lcm.hpp\"\r\n\r\nstd::vector<long long> carmichal_function_init(long\
+    \r\n#include \"least_common_multiple.hpp\"\r\n\r\nstd::vector<long long> carmichal_function_init(long\
     \ long low, long long high) {\r\n  std::vector<long long> res(high - low, 1),\
     \ tmp(high - low);\r\n  std::iota(tmp.begin(), tmp.end(), low);\r\n  if (low ==\
     \ 0 && high > 0) res[0] = 0;\r\n  for (long long i = (low + 7) / 8 * 8; i < high;\
@@ -41,11 +41,11 @@ data:
     \n}\r\n"
   dependsOn:
   - math/prime_sieve.hpp
-  - math/lcm.hpp
+  - math/least_common_multiple.hpp
   isVerificationFile: false
   path: math/carmichal_function_init.hpp
   requiredBy: []
-  timestamp: '2021-02-27 06:50:10+09:00'
+  timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/carmichal_function_init.hpp

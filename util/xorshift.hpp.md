@@ -20,7 +20,7 @@ data:
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u30BF\
       \u30C3\u30C8\u306E\u5B9A\u7406"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.6.test.cpp
+    path: test/math/fps/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
@@ -62,16 +62,16 @@ data:
   isVerificationFile: false
   path: util/xorshift.hpp
   requiredBy:
-  - geometry/smallest_enclosing_circle.hpp
   - math/mod_sqrt.hpp
+  - geometry/smallest_enclosing_circle.hpp
   - graph/flow/matching/tutte_theorem.hpp
   timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/geometry/smallest_enclosing_circle.test.cpp
-  - test/math/is_primitive_root.test.cpp
+  - test/math/fps/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
-  - test/math/fps/fps.6.test.cpp
+  - test/math/is_primitive_root.test.cpp
+  - test/geometry/smallest_enclosing_circle.test.cpp
   - test/graph/flow/matching/tutte_theorem.test.cpp
 documentation_of: util/xorshift.hpp
 layout: document

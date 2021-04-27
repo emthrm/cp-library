@@ -19,7 +19,7 @@ data:
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m \\ (0 \\leq i \\leq n)$"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.6.test.cpp
+    path: test/math/fps/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
@@ -52,18 +52,18 @@ data:
   isVerificationFile: false
   path: math/mod_pow.hpp
   requiredBy:
-  - math/mod_sqrt.hpp
   - math/mod_log.hpp
   - math/is_primitive_root.hpp
+  - math/mod_sqrt.hpp
   - math/enumerate_k-th_power.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/is_primitive_root.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
-  - test/math/mod_log.test.cpp
+  - test/math/fps/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
-  - test/math/fps/fps.6.test.cpp
+  - test/math/is_primitive_root.test.cpp
+  - test/math/mod_log.test.cpp
   - test/math/mod_pow.test.cpp
 documentation_of: math/mod_pow.hpp
 layout: document

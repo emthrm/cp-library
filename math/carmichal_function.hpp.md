@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: math/lcm.hpp
+    path: math/least_common_multiple.hpp
     title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
@@ -21,7 +21,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/carmichal_function.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\r\n * @docs\
-    \ docs/math/carmichal_function.md\r\n */\r\n\r\n#pragma once\r\n#include \"lcm.hpp\"\
+    \ docs/math/carmichal_function.md\r\n */\r\n\r\n#pragma once\r\n#include \"least_common_multiple.hpp\"\
     \r\n\r\nlong long carmichal_function(long long n) {\r\n  long long res = 1;\r\n\
     \  if (n % 8 == 0) n >>= 1;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n\
     \    if (n % i == 0) {\r\n      n /= i;\r\n      long long phi = i - 1;\r\n  \
@@ -29,11 +29,11 @@ data:
     \n      res = __lcm(res, phi);\r\n    }\r\n  }\r\n  if (n > 1) res = __lcm(res,\
     \ n - 1);\r\n  return res;\r\n}\r\n"
   dependsOn:
-  - math/lcm.hpp
+  - math/least_common_multiple.hpp
   isVerificationFile: false
   path: math/carmichal_function.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
+  timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/carmichal_function.hpp

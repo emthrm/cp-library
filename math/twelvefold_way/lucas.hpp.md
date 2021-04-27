@@ -149,7 +149,9 @@ layout: document
 title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
 ---
 
-$p \in \mathrm{P},\ n, k \in \mathrm{N}$ に対して，$$\binom{n}{k} \equiv \prod_{i \in \mathbb{N}} \binom{\left\lfloor \frac{n}{p^i} \right\rfloor \bmod{p}}{\left\lfloor \frac{k}{p^i} \right\rfloor \bmod{p}} \pmod{p}$$ が成り立つ．
+$p \in \mathrm{P},\ n, k \in \mathrm{N}$ に対して，
+$$\binom{n}{k} \equiv \prod_{i \in \mathbb{N}} \binom{\left\lfloor \frac{n}{p^i} \right\rfloor \bmod{p}}{\left\lfloor \frac{k}{p^i} \right\rfloor \bmod{p}} \pmod{p}$$
+が成り立つ．
 
 
 ## 時間計算量

@@ -29,7 +29,7 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ||説明|
 |:--:|:--:|
-|`partition_function_init_with_fps<T>(n)`|$n = m$ のときの分割数の数表|
+|`partition_function_init_by_fps<T>(n)`|$n = m$ のときの分割数の数表|
 
 
 ## 参考

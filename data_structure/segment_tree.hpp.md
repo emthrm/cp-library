@@ -59,19 +59,19 @@ data:
     \    }\n      val = nx;\n    } while (__builtin_popcount(right) > 1);\n    return\
     \ -1;\n  }\n\nprivate:\n  int n, p2 = 1;\n  std::vector<Monoid> dat;\n};\n\nnamespace\
     \ monoid {\ntemplate <typename T>\nstruct RangeMinimumQuery {\n  using Monoid\
-    \ = T;\n  static constexpr T id() { return std::numeric_limits<T>::max(); }\n\
-    \  static T merge(const T &a, const T &b) { return std::min(a, b); }\n};\n\ntemplate\
-    \ <typename T>\nstruct RangeMaximumQuery {\n  using Monoid = T;\n  static constexpr\
-    \ T id() { return std::numeric_limits<T>::lowest(); }\n  static T merge(const\
-    \ T &a, const T &b) { return std::max(a, b); }\n};\n\ntemplate <typename T>\n\
-    struct RangeSumQuery {\n  using Monoid = T;\n  static constexpr T id() { return\
-    \ 0; }\n  static T merge(const T &a, const T &b) { return a + b; }\n};\n}  //\
-    \ monoid\n"
+    \ = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
+    \ }\n  static Monoid merge(const Monoid &a, const Monoid &b) { return std::min(a,\
+    \ b); }\n};\n\ntemplate <typename T>\nstruct RangeMaximumQuery {\n  using Monoid\
+    \ = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::lowest();\
+    \ }\n  static Monoid merge(const Monoid &a, const Monoid &b) { return std::max(a,\
+    \ b); }\n};\n\ntemplate <typename T>\nstruct RangeSumQuery {\n  using Monoid =\
+    \ T;\n  static constexpr Monoid id() { return 0; }\n  static Monoid merge(const\
+    \ Monoid &a, const Monoid &b) { return a + b; }\n};\n}  // monoid\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2021-03-04 19:38:44+09:00'
+  timestamp: '2021-04-27 20:26:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/range_sum_query.test.cpp

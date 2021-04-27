@@ -21,70 +21,71 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/sparse_table.hpp
       title: sparse table
-  - name: data_structure/bit
+  - name: data_structure/fenwick_tree
     pages:
     - icon: ':warning:'
-      path: data_structure/bit/2d_bit.hpp
-      title: "2\u6B21\u5143 BIT"
-    - icon: ':x:'
-      path: data_structure/bit/2d_bit_range_add.hpp
-      title: "2\u6B21\u5143 BIT \u9818\u57DF\u52A0\u7B97\u7248"
-    - icon: ':question:'
-      path: data_structure/bit/bit.hpp
-      title: binary indexed tree
+      path: data_structure/fenwick_tree/2d_fenwick_tree.hpp
+      title: "2\u6B21\u5143 Fenwick tree"
     - icon: ':heavy_check_mark:'
-      path: data_structure/bit/bit_range_add.hpp
-      title: "binary indexed tree \u533A\u9593\u52A0\u7B97\u7248"
+      path: data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp
+      title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\u5143\
+        \ Fenwick tree"
+    - icon: ':question:'
+      path: data_structure/fenwick_tree/fenwick_tree.hpp
+      title: Fenwick tree
+    - icon: ':heavy_check_mark:'
+      path: data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
+      title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
   - name: data_structure/union-find
     pages:
     - icon: ':x:'
       path: data_structure/union-find/partially_persistent_union-find.hpp
-      title: "\u90E8\u5206\u6C38\u7D9A union-find \u6728"
+      title: "\u90E8\u5206\u6C38\u7D9A union-find"
     - icon: ':x:'
       path: data_structure/union-find/undoable_union-find.hpp
-      title: "undo \u53EF\u80FD union-find \u6728"
+      title: "undo \u53EF\u80FD union-find"
     - icon: ':question:'
       path: data_structure/union-find/union-find.hpp
-      title: "union-find \u6728"
+      title: union-find
     - icon: ':heavy_check_mark:'
       path: data_structure/union-find/weighted_union-find.hpp
-      title: "\u91CD\u307F\u3064\u304D union-find \u6728"
-  - name: dp
+      title: "\u91CD\u307F\u3064\u304D union-find"
+  - name: dynamic_programming
     pages:
     - icon: ':x:'
-      path: dp/2d_lis.hpp
-      title: "2\u6B21\u5143 LIS"
+      path: dynamic_programming/2d_longest_increasing_subsequence.hpp
+      title: "2\u6B21\u5143\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     - icon: ':x:'
-      path: dp/cht.hpp
+      path: dynamic_programming/convex_hull_trick.hpp
       title: convex hull trick
     - icon: ':x:'
-      path: dp/cumulative_sum.hpp
+      path: dynamic_programming/cumulative_sum.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':x:'
-      path: dp/knuth_yao_speedup.hpp
+      path: dynamic_programming/knuth_yao_speedup.hpp
       title: Knuth-Yao speedup
     - icon: ':heavy_check_mark:'
-      path: dp/largest_rectangle.hpp
+      path: dynamic_programming/largest_rectangle.hpp
       title: "\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\u306E\u6700\u5927\u9577\u65B9\
         \u5F62 (largest rectangle in a histogram)"
+    - icon: ':heavy_check_mark:'
+      path: dynamic_programming/levenshtein_distance.hpp
+      title: "\u30EC\u30FC\u30D9\u30F3\u30B7\u30E5\u30BF\u30A4\u30F3\u8DDD\u96E2 (Levenshtein\
+        \ distance) / \u7DE8\u96C6\u8DDD\u96E2 (edit distance)"
+    - icon: ':heavy_check_mark:'
+      path: dynamic_programming/li_chao_tree.hpp
+      title: Li Chao tree
     - icon: ':x:'
-      path: dp/lcs.hpp
+      path: dynamic_programming/longest_common_subsequence.hpp
       title: "\u6700\u9577\u5171\u901A\u90E8\u5206\u5217 (longest common subsequence)"
     - icon: ':heavy_check_mark:'
-      path: dp/levenshtein_distance.hpp
-      title: "\u30EC\u30FC\u30D9\u30F3\u30B7\u30E5\u30BF\u30A4\u30F3\u8DDD\u96E2 (Levenshtein\
-        \ distance / \u7DE8\u96C6\u8DDD\u96E2 / edit distance)"
-    - icon: ':heavy_check_mark:'
-      path: dp/li_chao_tree.hpp
-      title: Li Chao tree
-    - icon: ':heavy_check_mark:'
-      path: dp/lis.hpp
+      path: dynamic_programming/longest_increasing_subsequence.hpp
       title: "\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     - icon: ':heavy_check_mark:'
-      path: dp/slide_min.hpp
+      path: dynamic_programming/slide_min.hpp
       title: "\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
-      path: dp/subset_sum_problem.hpp
+      path: dynamic_programming/subset_sum_problem.hpp
       title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
   - name: game
     pages:
@@ -111,7 +112,7 @@ data:
       path: graph/2-edge-connected_components_imos.hpp
       title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\u3082\u3059\
         \u6CD5\u7248"
-    - icon: ':x:'
+    - icon: ':warning:'
       path: graph/2-edge-connected_components_lowlink.hpp
       title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
     - icon: ':x:'
@@ -152,6 +153,9 @@ data:
     - icon: ':x:'
       path: graph/is_bipartite.hpp
       title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
+    - icon: ':heavy_check_mark:'
+      path: graph/kruskal.hpp
+      title: "Kruskal \u6CD5"
     - icon: ':question:'
       path: graph/lowlink.hpp
       title: lowlink
@@ -161,6 +165,9 @@ data:
     - icon: ':x:'
       path: graph/noshi_graph.hpp
       title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
+    - icon: ':heavy_check_mark:'
+      path: graph/prim.hpp
+      title: "Prim \u6CD5"
     - icon: ':heavy_check_mark:'
       path: graph/rotate.hpp
       title: "\u56DE\u8EE2 (rotation)"
@@ -173,7 +180,7 @@ data:
       title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological\
         \ sort)"
     - icon: ':heavy_check_mark:'
-      path: graph/tsp.hpp
+      path: graph/traveling_salesman_problem.hpp
       title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
         \ salesman problem)"
     - icon: ':heavy_check_mark:'
@@ -223,14 +230,6 @@ data:
       path: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
       title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
         \u53CD\u5FA9\u6CD5\u7248"
-  - name: graph/mst
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: graph/mst/kruskal.hpp
-      title: "Kruskal \u6CD5"
-    - icon: ':heavy_check_mark:'
-      path: graph/mst/prim.hpp
-      title: "Prim \u6CD5"
   - name: graph/shortest_path
     pages:
     - icon: ':heavy_check_mark:'
@@ -257,13 +256,13 @@ data:
       path: graph/tree/euler_tour.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC (Euler tour)"
     - icon: ':heavy_check_mark:'
-      path: graph/tree/hld.hpp
+      path: graph/tree/heavy-light_decomposition.hpp
       title: "HL \u5206\u89E3 (heavy-light decomposition)"
-    - icon: ':question:'
-      path: graph/tree/lca_doubling.hpp
+    - icon: ':heavy_check_mark:'
+      path: graph/tree/lowest_common_ancestor_by_doubling.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
     - icon: ':heavy_check_mark:'
-      path: graph/tree/lca_euler_tour.hpp
+      path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
         \u30FC\u7248"
   - name: math
@@ -317,7 +316,7 @@ data:
       path: math/lagrange_interpolation2.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u72482"
     - icon: ':heavy_check_mark:'
-      path: math/lcm.hpp
+      path: math/least_common_multiple.hpp
       title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
     - icon: ':x:'
       path: math/linear_congruence.hpp
@@ -368,13 +367,13 @@ data:
       path: math/convolution/and_convolution.hpp
       title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':question:'
-      path: math/convolution/fft.hpp
+      path: math/convolution/fast_fourier_transform.hpp
       title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
     - icon: ':heavy_check_mark:'
-      path: math/convolution/fmt.hpp
+      path: math/convolution/fast_mobius_transform.hpp
       title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
     - icon: ':question:'
-      path: math/convolution/fzt.hpp
+      path: math/convolution/fast_zeta_transform.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
     - icon: ':x:'
       path: math/convolution/gcd_convolution.hpp
@@ -383,7 +382,7 @@ data:
       path: math/convolution/mod_convolution.hpp
       title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':heavy_check_mark:'
-      path: math/convolution/ntt.hpp
+      path: math/convolution/number_theoretic_transform.hpp
       title: "\u6570\u8AD6\u5909\u63DB"
     - icon: ':warning:'
       path: math/convolution/or_convolution.hpp
@@ -403,34 +402,34 @@ data:
       path: math/euler_phi/euler_phi_init2.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
         2"
-  - name: math/fps
+  - name: math/formal_power_series
     pages:
     - icon: ':heavy_check_mark:'
-      path: math/fps/bernoulli_number.hpp
+      path: math/formal_power_series/bernoulli_number.hpp
       title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
     - icon: ':warning:'
-      path: math/fps/eulerian_number_init.hpp
+      path: math/formal_power_series/eulerian_number_init.hpp
       title: "Eulerian number \u306E\u6570\u8868"
     - icon: ':warning:'
-      path: math/fps/eulerian_number_init_with_fps.hpp
+      path: math/formal_power_series/eulerian_number_init_by_fps.hpp
       title: "Eulerian number \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
         \u7248"
     - icon: ':heavy_check_mark:'
-      path: math/fps/faulhaber_with_fps.hpp
+      path: math/formal_power_series/faulhaber_by_fps.hpp
       title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
         \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
     - icon: ':heavy_check_mark:'
-      path: math/fps/faulhaber_with_lagrange_interpolation.hpp
+      path: math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
       title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
         \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
     - icon: ':question:'
-      path: math/fps/fps.hpp
+      path: math/formal_power_series/formal_power_series.hpp
       title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
     - icon: ':heavy_check_mark:'
-      path: math/fps/multipoint_evaluation.hpp
+      path: math/formal_power_series/multipoint_evaluation.hpp
       title: multipoint evaluation
     - icon: ':heavy_check_mark:'
-      path: math/fps/polynomial_interpolation.hpp
+      path: math/formal_power_series/polynomial_interpolation.hpp
       title: "\u591A\u9805\u5F0F\u88DC\u9593"
   - name: math/matrix/binary_matrix
     pages:
@@ -472,7 +471,7 @@ data:
       path: math/mobius_mu/mobius_mu.hpp
       title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570"
     - icon: ':x:'
-      path: math/mobius_mu/mobius_mu_divisor.hpp
+      path: math/mobius_mu/mobius_mu_focusing_on_divisor.hpp
       title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
     - icon: ':x:'
       path: math/mobius_mu/mobius_mu_init.hpp
@@ -489,7 +488,7 @@ data:
       path: math/twelvefold_way/bell_number/bell_number_init.hpp
       title: "\u30D9\u30EB\u6570\u306E\u6570\u8868"
     - icon: ':warning:'
-      path: math/twelvefold_way/bell_number/bell_number_init_with_fps.hpp
+      path: math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
       title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
   - name: math/twelvefold_way
     pages:
@@ -503,7 +502,7 @@ data:
       path: math/twelvefold_way/partition_function_init.hpp
       title: "\u5206\u5272\u6570"
     - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/partition_function_init_with_fps.hpp
+      path: math/twelvefold_way/partition_function_init_by_fps.hpp
       title: "\u5206\u5272\u6570 $n = m$ \u7248"
     - icon: ':heavy_check_mark:'
       path: math/twelvefold_way/pascal.hpp
@@ -514,7 +513,7 @@ data:
       path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init.hpp
       title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
     - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.hpp
+      path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
       title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
         \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
     - icon: ':heavy_check_mark:'
@@ -524,7 +523,7 @@ data:
       path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
       title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
     - icon: ':heavy_check_mark:'
-      path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.hpp
+      path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
       title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
         \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - name: misc
@@ -548,26 +547,26 @@ data:
       title: "\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5 (Aho-Corasick\
         \ algorithm)"
     - icon: ':heavy_check_mark:'
-      path: string/kmp.hpp
-      title: "KMP \u6CD5"
+      path: string/knuth-morris-pratt.hpp
+      title: Knuth-Morris-Pratt algorithm
     - icon: ':heavy_check_mark:'
-      path: string/lcp.hpp
+      path: string/longest_common_prefix.hpp
       title: longest common prefix
     - icon: ':heavy_check_mark:'
       path: string/manacher.hpp
       title: Manacher
     - icon: ':question:'
-      path: string/mp.hpp
-      title: "MP \u6CD5"
+      path: string/morris-pratt.hpp
+      title: morris-pratt
     - icon: ':warning:'
       path: string/replace.hpp
       title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
-    - icon: ':x:'
-      path: string/rle.hpp
-      title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E (run length encoding)"
     - icon: ':heavy_check_mark:'
       path: string/rolling_hash.hpp
       title: "\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5 (rolling hash)"
+    - icon: ':x:'
+      path: string/run_length_encoding.hpp
+      title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E (run length encoding)"
     - icon: ':x:'
       path: string/split.hpp
       title: "\u6587\u5B57\u5217\u306E\u5206\u5272"
@@ -641,84 +640,83 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/data_structure/sparse_table.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
-  - name: test/data_structure/bit
+  - name: test/data_structure/fenwick_tree
     pages:
-    - icon: ':x:'
-      path: test/data_structure/bit/2d_bit_range_add.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/2\u6B21\u5143 BIT \u9818\u57DF\u52A0\
-        \u7B97\u7248"
     - icon: ':heavy_check_mark:'
-      path: test/data_structure/bit/bit.1.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree (sum(left, right))"
-    - icon: ':x:'
-      path: test/data_structure/bit/bit.2.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree (lower_bound(val))"
+      path: test/data_structure/fenwick_tree/2d_bit_range_add.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/\u533A\u9593\u52A0\u7B97\
+        \u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\u5143 Fenwick tree"
     - icon: ':heavy_check_mark:'
-      path: test/data_structure/bit/bit_range_add.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/BIT/binary indexed tree \u533A\u9593\u52A0\
-        \u7B97\u7248"
+      path: test/data_structure/fenwick_tree/bit_range_add.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/\u533A\u9593\u52A0\u7B97\
+        \u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
+    - icon: ':heavy_check_mark:'
+      path: test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left,\
+        \ right))"
+    - icon: ':x:'
+      path: test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (lower_bound(val))"
   - name: test/data_structure/union-find
     pages:
     - icon: ':x:'
       path: test/data_structure/union-find/partially_persistent_union-find.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u90E8\u5206\u6C38\u7D9A\
-        \ union-find \u6728"
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u90E8\u5206\u6C38\u7D9A union-find"
     - icon: ':x:'
       path: test/data_structure/union-find/undoable_union-find.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/undo \u53EF\u80FD union-find\
-        \ \u6728"
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/undo \u53EF\u80FD union-find"
     - icon: ':heavy_check_mark:'
       path: test/data_structure/union-find/union-find.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/union-find \u6728"
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/union-find"
     - icon: ':heavy_check_mark:'
       path: test/data_structure/union-find/weighted_union-find.test.cpp
-      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/\u91CD\u307F\u3064\u304D\
-        \ union-find \u6728"
-  - name: test/dp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u91CD\u307F\u3064\u304D union-find"
+  - name: test/dynamic_programming
     pages:
     - icon: ':x:'
-      path: test/dp/2d_lis.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143 LIS"
+      path: test/dynamic_programming/2d_longest_increasing_subsequence.test.cpp
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u6700\u9577\u5897\u52A0\
+        \u90E8\u5206\u5217"
     - icon: ':x:'
-      path: test/dp/cht.1.test.cpp
+      path: test/dynamic_programming/convex_hull_trick.1.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (query(x))"
     - icon: ':x:'
-      path: test/dp/cht.2.test.cpp
+      path: test/dynamic_programming/convex_hull_trick.2.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotone_inc_query(x))"
     - icon: ':x:'
-      path: test/dp/cht.3.test.cpp
+      path: test/dynamic_programming/convex_hull_trick.3.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotone_dec_query(x))"
     - icon: ':x:'
-      path: test/dp/cumulative_sum.test.cpp
+      path: test/dynamic_programming/cumulative_sum.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':x:'
-      path: test/dp/knuth_yao_speedup.test.cpp
+      path: test/dynamic_programming/knuth_yao_speedup.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
     - icon: ':heavy_check_mark:'
-      path: test/dp/largest_rectangle.test.cpp
+      path: test/dynamic_programming/largest_rectangle.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\
         \u306E\u6700\u5927\u9577\u65B9\u5F62"
-    - icon: ':x:'
-      path: test/dp/lcs.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5171\u901A\u90E8\u5206\u5217"
     - icon: ':heavy_check_mark:'
-      path: test/dp/levenshtein_distance.test.cpp
+      path: test/dynamic_programming/levenshtein_distance.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30EC\u30FC\u30D9\u30F3\u30B7\u30E5\u30BF\
         \u30A4\u30F3\u8DDD\u96E2"
     - icon: ':heavy_check_mark:'
-      path: test/dp/li_chao_tree.1.test.cpp
+      path: test/dynamic_programming/li_chao_tree.1.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5C0F\u5024)"
     - icon: ':heavy_check_mark:'
-      path: test/dp/li_chao_tree.2.test.cpp
+      path: test/dynamic_programming/li_chao_tree.2.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024)"
+    - icon: ':x:'
+      path: test/dynamic_programming/longest_common_subsequence.test.cpp
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5171\u901A\u90E8\u5206\u5217"
     - icon: ':heavy_check_mark:'
-      path: test/dp/lis.test.cpp
+      path: test/dynamic_programming/longest_increasing_subsequence.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     - icon: ':heavy_check_mark:'
-      path: test/dp/slide_min.test.cpp
+      path: test/dynamic_programming/slide_min.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024"
     - icon: ':heavy_check_mark:'
-      path: test/dp/subset_sum_problem.test.cpp
+      path: test/dynamic_programming/subset_sum_problem.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
   - name: test/game
     pages:
@@ -829,8 +827,7 @@ data:
         \ \u3044\u3082\u3059\u6CD5\u7248"
     - icon: ':x:'
       path: test/graph/2-edge-connected_components_lowlink.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
-        \ lowlink \u7248"
+      title: test/graph/2-edge-connected_components_lowlink.test.cpp
     - icon: ':x:'
       path: test/graph/biconnected_component.test.cpp
       title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
@@ -868,6 +865,9 @@ data:
       path: test/graph/is_bipartite.test.cpp
       title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
+      path: test/graph/kruskal.test.cpp
+      title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
+    - icon: ':heavy_check_mark:'
       path: test/graph/lowlink.1.test.cpp
       title: "\u30B0\u30E9\u30D5/lowlink (\u6A4B)"
     - icon: ':heavy_check_mark:'
@@ -880,6 +880,9 @@ data:
       path: test/graph/noshi_graph.test.cpp
       title: "\u30B0\u30E9\u30D5/\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
     - icon: ':heavy_check_mark:'
+      path: test/graph/prim.test.cpp
+      title: "\u30B0\u30E9\u30D5/Prim \u6CD5"
+    - icon: ':heavy_check_mark:'
       path: test/graph/rotate.test.cpp
       title: "\u30B0\u30E9\u30D5/\u56DE\u8EE2"
     - icon: ':heavy_check_mark:'
@@ -889,7 +892,7 @@ data:
       path: test/graph/topological_sort.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8"
     - icon: ':heavy_check_mark:'
-      path: test/graph/tsp.test.cpp
+      path: test/graph/traveling_salesman_problem.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
         \u984C"
     - icon: ':heavy_check_mark:'
@@ -949,14 +952,6 @@ data:
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41\
         /\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
         \u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))"
-  - name: test/graph/mst
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/graph/mst/kruskal.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u6700\u5C0F\u5168\u57DF\u6728/Kruskal \u6CD5"
-    - icon: ':heavy_check_mark:'
-      path: test/graph/mst/prim.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u6700\u5C0F\u5168\u57DF\u6728/Prim \u6CD5"
   - name: test/graph/shortest_path
     pages:
     - icon: ':heavy_check_mark:'
@@ -980,18 +975,18 @@ data:
       path: test/graph/tree/double_sweep.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/double sweep"
     - icon: ':heavy_check_mark:'
-      path: test/graph/tree/hld.1.test.cpp
+      path: test/graph/tree/heavy-light_decomposition.1.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
     - icon: ':heavy_check_mark:'
-      path: test/graph/tree/hld.2.test.cpp
+      path: test/graph/tree/heavy-light_decomposition.2.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\u901A\u7956\
         \u5148)"
     - icon: ':heavy_check_mark:'
-      path: test/graph/tree/lca_doubling.test.cpp
+      path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\
         \u30D6\u30EA\u30F3\u30B0\u7248"
     - icon: ':heavy_check_mark:'
-      path: test/graph/tree/lca_euler_tour.test.cpp
+      path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\
         \u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   - name: test/math
@@ -1073,7 +1068,7 @@ data:
       title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\
         \u4FA1\u72482"
     - icon: ':heavy_check_mark:'
-      path: test/math/lcm.test.cpp
+      path: test/math/least_common_multiple.test.cpp
       title: "\u6570\u5B66/\u6700\u5C0F\u516C\u500D\u6570"
     - icon: ':x:'
       path: test/math/linear_congruence.test.cpp
@@ -1112,15 +1107,15 @@ data:
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
     - icon: ':x:'
-      path: test/math/convolution/fft.test.cpp
+      path: test/math/convolution/fast_fourier_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30D5\u30FC\u30EA\
         \u30A8\u5909\u63DB"
     - icon: ':heavy_check_mark:'
-      path: test/math/convolution/fmt.test.cpp
+      path: test/math/convolution/fast_mobius_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30E1\u30D3\u30A6\
         \u30B9\u5909\u63DB"
     - icon: ':x:'
-      path: test/math/convolution/fzt.test.cpp
+      path: test/math/convolution/fast_zeta_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30BC\u30FC\u30BF\
         \u5909\u63DB"
     - icon: ':x:'
@@ -1132,7 +1127,7 @@ data:
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\
         \u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':heavy_check_mark:'
-      path: test/math/convolution/ntt.test.cpp
+      path: test/math/convolution/number_theoretic_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
     - icon: ':heavy_check_mark:'
       path: test/math/convolution/xor_convolution.test.cpp
@@ -1159,41 +1154,41 @@ data:
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\
         \u30FC\u30A4\u6570"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/faulhaber_with_fps.test.cpp
+      path: test/math/fps/faulhaber_by_fps.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
         \u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\
         \u6570\u7248"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/faulhaber_with_lagrange_interpolation.test.cpp
+      path: test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
         \u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\
         \u30E5\u88DC\u9593\u7248"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/fps.1.test.cpp
+      path: test/math/fps/formal_power_series.1.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u6307\u6570)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/fps.2.test.cpp
+      path: test/math/fps/formal_power_series.2.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u9006\u5143)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/fps.3.test.cpp
+      path: test/math/fps/formal_power_series.3.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u5BFE\u6570)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/fps.4.test.cpp
+      path: test/math/fps/formal_power_series.4.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u51AA\u4E57)"
     - icon: ':x:'
-      path: test/math/fps/fps.5.test.cpp
+      path: test/math/fps/formal_power_series.5.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (mod_pow(exponend, md))"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/fps.6.test.cpp
+      path: test/math/fps/formal_power_series.6.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u5E73\u65B9\u6839)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/fps.7.test.cpp
+      path: test/math/fps/formal_power_series.7.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (translate(c))"
     - icon: ':heavy_check_mark:'
@@ -1240,7 +1235,7 @@ data:
       title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
         \u30B9\u95A2\u6570"
     - icon: ':x:'
-      path: test/math/mobius_mu/mobius_mu_divisor.test.cpp
+      path: test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
       title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
         \u30B9\u95A2\u6570 \u7D04\u6570\u7248"
     - icon: ':x:'
@@ -1280,7 +1275,7 @@ data:
       path: test/math/twelvefold_way/partition_function_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"
     - icon: ':heavy_check_mark:'
-      path: test/math/twelvefold_way/partition_function_init_with_fps.test.cpp
+      path: test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
     - icon: ':heavy_check_mark:'
       path: test/math/twelvefold_way/pascal.test.cpp
@@ -1328,26 +1323,26 @@ data:
       title: "\u6587\u5B57\u5217/\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\
         \u6CD5"
     - icon: ':heavy_check_mark:'
-      path: test/string/kmp.test.cpp
-      title: "\u6587\u5B57\u5217/KMP \u6CD5"
+      path: test/string/knuth-morris-pratt.test.cpp
+      title: "\u6587\u5B57\u5217/Knuth-Morris-Pratt algorithm"
     - icon: ':heavy_check_mark:'
-      path: test/string/lcp.test.cpp
+      path: test/string/longest_common_prefix.test.cpp
       title: "\u6587\u5B57\u5217/longest common prefix"
     - icon: ':heavy_check_mark:'
       path: test/string/manacher.test.cpp
       title: "\u6587\u5B57\u5217/Manacher"
     - icon: ':heavy_check_mark:'
-      path: test/string/mp.1.test.cpp
-      title: "\u6587\u5B57\u5217/MP \u6CD5 (match(t))"
+      path: test/string/morris-pratt.1.test.cpp
+      title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))"
     - icon: ':x:'
-      path: test/string/mp.2.test.cpp
-      title: "\u6587\u5B57\u5217/MP \u6CD5 (period(idx))"
-    - icon: ':x:'
-      path: test/string/rle.test.cpp
-      title: "\u6587\u5B57\u5217/\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
+      path: test/string/morris-pratt.2.test.cpp
+      title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))"
     - icon: ':heavy_check_mark:'
       path: test/string/rolling_hash.test.cpp
       title: "\u6587\u5B57\u5217/\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5"
+    - icon: ':x:'
+      path: test/string/run_length_encoding.test.cpp
+      title: "\u6587\u5B57\u5217/\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
     - icon: ':x:'
       path: test/string/split.test.cpp
       title: "\u6587\u5B57\u5217/\u6587\u5B57\u5217\u306E\u5206\u5272"

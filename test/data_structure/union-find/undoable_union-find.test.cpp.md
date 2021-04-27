@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':x:'
     path: data_structure/union-find/undoable_union-find.hpp
-    title: "undo \u53EF\u80FD union-find \u6728"
+    title: "undo \u53EF\u80FD union-find"
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
@@ -20,8 +20,7 @@ data:
     IGNORE: ''
     IGNORE_IF_CLANG: ''
     IGNORE_IF_GCC: ''
-    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/undo \u53EF\u80FD\
-      \ union-find \u6728"
+    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/undo \u53EF\u80FD union-find"
     links:
     - https://codeforces.com/contest/1444/problem/C
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -33,8 +32,8 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/undo \u53EF\
-    \u80FD union-find \u6728\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://codeforces.com/contest/1444/problem/C\"\
+  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find/undo \u53EF\u80FD\
+    \ union-find\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://codeforces.com/contest/1444/problem/C\"\
     \r\n\r\n#include <algorithm>\r\n#include <iostream>\r\n#include <iterator>\r\n\
     #include <map>\r\n#include <queue>\r\n#include <set>\r\n#include <tuple>\r\n#include\
     \ <utility>\r\n#include <vector>\r\n#include \"../../../graph/edge.hpp\"\r\n#include\
@@ -90,7 +89,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/union-find/undoable_union-find.test.cpp
   requiredBy: []
-  timestamp: '2021-02-11 04:31:13+09:00'
+  timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/data_structure/union-find/undoable_union-find.test.cpp
@@ -98,6 +97,5 @@ layout: document
 redirect_from:
 - /verify/test/data_structure/union-find/undoable_union-find.test.cpp
 - /verify/test/data_structure/union-find/undoable_union-find.test.cpp.html
-title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find \u6728/undo \u53EF\u80FD union-find\
-  \ \u6728"
+title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/undo \u53EF\u80FD union-find"
 ---

@@ -11,7 +11,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/fps.6.test.cpp
+    path: test/math/fps/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
@@ -54,8 +54,8 @@ data:
   timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/fps/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
-  - test/math/fps/fps.6.test.cpp
 documentation_of: math/mod_sqrt.hpp
 layout: document
 redirect_from:

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: data_structure/union-find/union-find.hpp
-    title: "union-find \u6728"
+    title: union-find
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
@@ -71,7 +71,7 @@ data:
   isVerificationFile: true
   path: test/graph/matrix_tree_theorem.test.cpp
   requiredBy: []
-  timestamp: '2021-04-19 05:17:52+09:00'
+  timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/matrix_tree_theorem.test.cpp

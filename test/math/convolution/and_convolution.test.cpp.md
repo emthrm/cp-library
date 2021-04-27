@@ -5,10 +5,10 @@ data:
     path: math/convolution/and_convolution.hpp
     title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
-    path: math/convolution/fmt.hpp
+    path: math/convolution/fast_mobius_transform.hpp
     title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
   - icon: ':question:'
-    path: math/convolution/fzt.hpp
+    path: math/convolution/fast_zeta_transform.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
   - icon: ':question:'
     path: math/modint.hpp
@@ -48,12 +48,12 @@ data:
   dependsOn:
   - math/modint.hpp
   - math/convolution/and_convolution.hpp
-  - math/convolution/fzt.hpp
-  - math/convolution/fmt.hpp
+  - math/convolution/fast_zeta_transform.hpp
+  - math/convolution/fast_mobius_transform.hpp
   isVerificationFile: true
   path: test/math/convolution/and_convolution.test.cpp
   requiredBy: []
-  timestamp: '2021-03-07 02:53:11+09:00'
+  timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/and_convolution.test.cpp

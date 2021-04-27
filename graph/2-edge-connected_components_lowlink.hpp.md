@@ -8,14 +8,10 @@ data:
     path: graph/lowlink.hpp
     title: lowlink
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test/graph/2-edge-connected_components_lowlink.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
-      \ lowlink \u7248"
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/graph/2-edge-connected_components.md
     document_title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink\
@@ -56,9 +52,8 @@ data:
   path: graph/2-edge-connected_components_lowlink.hpp
   requiredBy: []
   timestamp: '2021-04-18 15:42:16+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test/graph/2-edge-connected_components_lowlink.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: graph/2-edge-connected_components_lowlink.hpp
 layout: document
 redirect_from:
