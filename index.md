@@ -112,7 +112,7 @@ data:
       path: graph/2-edge-connected_components_imos.hpp
       title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\u3082\u3059\
         \u6CD5\u7248"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/2-edge-connected_components_lowlink.hpp
       title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
     - icon: ':x:'
@@ -258,7 +258,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/tree/heavy-light_decomposition.hpp
       title: "HL \u5206\u89E3 (heavy-light decomposition)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: graph/tree/lowest_common_ancestor_by_doubling.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
     - icon: ':heavy_check_mark:'
@@ -827,7 +827,8 @@ data:
         \ \u3044\u3082\u3059\u6CD5\u7248"
     - icon: ':x:'
       path: test/graph/2-edge-connected_components_lowlink.test.cpp
-      title: test/graph/2-edge-connected_components_lowlink.test.cpp
+      title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
+        \ lowlink \u7248"
     - icon: ':x:'
       path: test/graph/biconnected_component.test.cpp
       title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\

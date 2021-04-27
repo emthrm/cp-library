@@ -115,7 +115,7 @@ $\langle O(\lvert V \rvert), O(\log{\lvert V \rvert}) \rangle$
 |`e_query(u, v, f, g, 単位元)`|頂点 $u, v$ 間の辺における $f$ を基に $g$ でまとめたクエリの解|
 |`subtree_e_update(ver, f)`|頂点 $\mathrm{ver}$ の部分木の辺に対して $f$ を基に更新する．|
 |`subtree_e_query<T>(ver, f)`|頂点 $\mathrm{ver}$ の部分木の辺における $f$ を基にしたクエリの解|
-|`lowest_common_ancestor(u, v)`|頂点 $u, v$ の[最小共通祖先](lca.md)|
+|`lowest_common_ancestor(u, v)`|頂点 $u, v$ の[最小共通祖先](lowest_common_ancestor.md)|
 
 
 ## 参考
