@@ -69,6 +69,7 @@
 "test/graph/light/strongly_connected_components.test.cpp": "2021-04-18 15:42:16 +0900",
 "test/graph/light/tree/centroid_decomposition.test.cpp": "2021-04-27 20:17:50 +0900",
 "test/graph/light/tree/heavy-light_decomposition.1.test.cpp": "2021-04-27 20:17:50 +0900",
+"test/graph/light/tree/heavy-light_decomposition.2.test.cpp": "2021-04-28 00:20:01 +0900",
 "test/graph/light/tree/lowest_common_ancestor_by_doubling.test.cpp": "2021-04-27 20:17:50 +0900",
 "test/graph/light/tree/lowest_common_ancestor_by_euler_tour.test.cpp": "2021-04-27 20:26:06 +0900",
 "test/graph/light/unicyclic_graph.test.cpp": "2021-04-19 05:48:55 +0900",
