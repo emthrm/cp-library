@@ -13,7 +13,7 @@ $O(\sigma \lvert S \rvert)$．
 
 ||説明|
 |:--:|:--:|
-|`nx_init(s, 基準 = 'a', σ = 26)`|$S$ の $i$ 文字目以降 (inclusive) で最初に文字 $c$ が現れるインデックス|
+|`subsequence_dp(s, 基準 = 'a', σ = 26)`|$S$ の $i$ 文字目以降 (inclusive) で最初に文字 $c$ が現れるインデックス|
 
 
 ## 参考

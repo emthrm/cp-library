@@ -14,7 +14,7 @@ int main() {
   int n, q;
   std::string s;
   std::cin >> n >> q >> s;
-  std::vector<std::vector<int>> nx = nx_init(s);
+  std::vector<std::vector<int>> nx = subsequence_dp(s);
   std::vector<std::vector<std::vector<int>>> dp(D + 1, std::vector<std::vector<int>>(D + 1, std::vector<int>(D + 1, n)));
   dp[0][0][0] = -1;
   std::vector<int> len(3, 0);

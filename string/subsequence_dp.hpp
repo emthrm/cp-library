@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-std::vector<std::vector<int>> nx_init(const std::string &s, const char basis = 'a', const int sigma = 26) {
+std::vector<std::vector<int>> subsequence_dp(const std::string &s, const char basis = 'a', const int sigma = 26) {
   int n = s.size();
   std::vector<std::vector<int>> nx(n, std::vector<int>(sigma, n));
   nx[n - 1][s[n - 1] - basis] = n - 1;
