@@ -56,7 +56,7 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`stirling_number_of_the_first_kind_init_with_fps<T>(n)`|第1種スターリング数 $s(n, k) \ (0 \leq k \leq n)$ の数表|$x^{\underline{n}} = \sum_{k = 0}^n s(n, k) x^k$|
+|`stirling_number_of_the_first_kind_init_by_fps<T>(n)`|第1種スターリング数 $s(n, k) \ (0 \leq k \leq n)$ の数表|$x^{\underline{n}} = \sum_{k = 0}^n s(n, k) x^k$|
 
 - 第2種スターリング数
 
@@ -74,7 +74,7 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ||説明|
 |:--:|:--:|
-|`stirling_number_of_the_second_kind_init_with_fps<T>(n)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|
+|`stirling_number_of_the_second_kind_init_by_fps<T>(n)`|第2種スターリング数 $S(n, k) \ (0 \leq k \leq n)$ の数表|
 
 
 ## 参考

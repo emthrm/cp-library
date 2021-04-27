@@ -8,7 +8,7 @@
 #include <numeric>
 #include <vector>
 #include "prime_sieve.hpp"
-#include "lcm.hpp"
+#include "least_common_multiple.hpp"
 
 std::vector<long long> carmichal_function_init(long long low, long long high) {
   std::vector<long long> res(high - low, 1), tmp(high - low);

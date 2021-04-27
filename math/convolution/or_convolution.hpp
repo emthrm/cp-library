@@ -5,13 +5,13 @@
 
 #pragma once
 #include <vector>
-#include "fzt.hpp"
-#include "fmt.hpp"
+#include "fast_zeta_transform.hpp"
+#include "fast_mobius_transform.hpp"
 
 template <typename T>
 std::vector<T> or_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID = 0) {
-  std::vector<T> fzt_a = fzt(a, false, ID), fzt_b = fzt(b, false, ID);
+  std::vector<T> fzt_a = fast_zeta_transform(a, false, ID), fzt_b = fast_zeta_transform(b, false, ID);
   int n = fzt_a.size();
   for (int i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];
-  return fmt(fzt_a, false);
+  return fast_mobius_transform(fzt_a, false);
 }

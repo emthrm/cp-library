@@ -1,12 +1,12 @@
 /**
  * @brief 任意の法の下での畳み込み
- * @docs docs/math/convolution/ntt.md
+ * @docs docs/math/convolution/number_theoretic_transform.md
  */
 
 #pragma once
 #include <vector>
 #include "../modint.hpp"
-#include "fft.hpp"
+#include "fast_fourier_transform.hpp"
 
 template <int T>
 std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>> &a, const std::vector<MInt<T>> &b, const int pre = 15) {
@@ -14,27 +14,27 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>> &a, const std::v
   int a_sz = a.size(), b_sz = b.size(), sz = a_sz + b_sz - 1, lg = 1;
   while ((1 << lg) < sz) ++lg;
   int n = 1 << lg;
-  std::vector<fft::Complex> A(n), B(n);
+  std::vector<fast_fourier_transform::Complex> A(n), B(n);
   for (int i = 0; i < a_sz; ++i) {
     int ai = a[i].val;
-    A[i] = fft::Complex(ai & ((1 << pre) - 1), ai >> pre);
+    A[i] = fast_fourier_transform::Complex(ai & ((1 << pre) - 1), ai >> pre);
   }
   for (int i = 0; i < b_sz; ++i) {
     int bi = b[i].val;
-    B[i] = fft::Complex(bi & ((1 << pre) - 1), bi >> pre);
+    B[i] = fast_fourier_transform::Complex(bi & ((1 << pre) - 1), bi >> pre);
   }
-  fft::sub_dft(A);
-  fft::sub_dft(B);
+  fast_fourier_transform::dft(A);
+  fast_fourier_transform::dft(B);
   int half = n >> 1;
-  fft::Complex tmp_a = A[0], tmp_b = B[0];
+  fast_fourier_transform::Complex tmp_a = A[0], tmp_b = B[0];
   A[0] = {tmp_a.re * tmp_b.re, tmp_a.im * tmp_b.im};
   B[0] = {tmp_a.re * tmp_b.im + tmp_a.im * tmp_b.re, 0};
   for (int i = 1; i < half; ++i) {
     int j = n - i;
-    fft::Complex a_l_i = (A[i] + A[j].conj()).mul_real(0.5), a_h_i = (A[j].conj() - A[i]).mul_pin(0.5);
-    fft::Complex b_l_i = (B[i] + B[j].conj()).mul_real(0.5), b_h_i = (B[j].conj() - B[i]).mul_pin(0.5);
-    fft::Complex a_l_j = (A[j] + A[i].conj()).mul_real(0.5), a_h_j = (A[i].conj() - A[j]).mul_pin(0.5);
-    fft::Complex b_l_j = (B[j] + B[i].conj()).mul_real(0.5), b_h_j = (B[i].conj() - B[j]).mul_pin(0.5);
+    fast_fourier_transform::Complex a_l_i = (A[i] + A[j].conj()).mul_real(0.5), a_h_i = (A[j].conj() - A[i]).mul_pin(0.5);
+    fast_fourier_transform::Complex b_l_i = (B[i] + B[j].conj()).mul_real(0.5), b_h_i = (B[j].conj() - B[i]).mul_pin(0.5);
+    fast_fourier_transform::Complex a_l_j = (A[j] + A[i].conj()).mul_real(0.5), a_h_j = (A[i].conj() - A[j]).mul_pin(0.5);
+    fast_fourier_transform::Complex b_l_j = (B[j] + B[i].conj()).mul_real(0.5), b_h_j = (B[i].conj() - B[j]).mul_pin(0.5);
     A[i] = a_l_i * b_l_i + (a_h_i * b_h_i).mul_pin(1);
     B[i] = a_l_i * b_h_i + a_h_i * b_l_i;
     A[j] = a_l_j * b_l_j + (a_h_j * b_h_j).mul_pin(1);
@@ -43,8 +43,8 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>> &a, const std::v
   tmp_a = A[half]; tmp_b = B[half];
   A[half] = {tmp_a.re * tmp_b.re, tmp_a.im * tmp_b.im};
   B[half] = {tmp_a.re * tmp_b.im + tmp_a.im * tmp_b.re, 0};
-  fft::idft(A);
-  fft::idft(B);
+  fast_fourier_transform::idft(A);
+  fast_fourier_transform::idft(B);
   std::vector<ModInt> res(sz);
   ModInt tmp1 = 1 << pre, tmp2 = 1LL << (pre << 1);
   for (int i = 0; i < sz; ++i) {

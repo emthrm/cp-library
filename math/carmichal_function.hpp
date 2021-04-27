@@ -4,7 +4,7 @@
  */
 
 #pragma once
-#include "lcm.hpp"
+#include "least_common_multiple.hpp"
 
 long long carmichal_function(long long n) {
   long long res = 1;

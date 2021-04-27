@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 #include "../../../../graph/light/tree/centroid_decomposition.hpp"
-#include "../../../../math/convolution/fft.hpp"
+#include "../../../../math/convolution/fast_fourier_transform.hpp"
 
 int main() {
   int n;
@@ -36,10 +36,10 @@ int main() {
         }
       };
       dfs(root, child, 1);
-      std::vector<fft::Real> f = fft::convolution(sub_cnt, sub_cnt);
+      std::vector<fast_fourier_transform::Real> f = fast_fourier_transform::convolution(sub_cnt, sub_cnt);
       for (int i = 0; i < f.size() && i < n; ++i) x[i] -= std::round(f[i]);
     }
-    std::vector<fft::Real> f = fft::convolution(cnt, cnt);
+    std::vector<fast_fourier_transform::Real> f = fast_fourier_transform::convolution(cnt, cnt);
     for (int i = 0; i < f.size() && i < n; ++i) x[i] += std::round(f[i]);
     for (int e : cd.comp[root]) rec(e);
   };
