@@ -96,21 +96,21 @@ namespace monoid {
 template <typename T>
 struct RangeMinimumQuery {
   using Monoid = T;
-  static constexpr T id() { return std::numeric_limits<T>::max(); }
-  static T merge(const T &a, const T &b) { return std::min(a, b); }
+  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max(); }
+  static Monoid merge(const Monoid &a, const Monoid &b) { return std::min(a, b); }
 };
 
 template <typename T>
 struct RangeMaximumQuery {
   using Monoid = T;
-  static constexpr T id() { return std::numeric_limits<T>::lowest(); }
-  static T merge(const T &a, const T &b) { return std::max(a, b); }
+  static constexpr Monoid id() { return std::numeric_limits<Monoid>::lowest(); }
+  static Monoid merge(const Monoid &a, const Monoid &b) { return std::max(a, b); }
 };
 
 template <typename T>
 struct RangeSumQuery {
   using Monoid = T;
-  static constexpr T id() { return 0; }
-  static T merge(const T &a, const T &b) { return a + b; }
+  static constexpr Monoid id() { return 0; }
+  static Monoid merge(const Monoid &a, const Monoid &b) { return a + b; }
 };
 }  // monoid

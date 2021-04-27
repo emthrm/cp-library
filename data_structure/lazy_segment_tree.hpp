@@ -160,75 +160,73 @@ template <typename T>
 struct RangeMinimumAndUpdateQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return std::numeric_limits<T>::max(); }
-  static constexpr T o_id() { return std::numeric_limits<T>::max(); }
-  static T m_merge(const T &a, const T &b) { return std::min(a, b); }
-  static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
-  static T apply(const T &a, const T &b) { return b == o_id()? a : b; }
+  static constexpr Monoid m_id() { return std::numeric_limits<Monoid>::max(); }
+  static constexpr OperatorMonoid o_id() { return std::numeric_limits<OperatorMonoid>::max(); }
+  static Monoid m_merge(const Monoid &a, const Monoid &b) { return std::min(a, b); }
+  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return b == o_id() ? a : b; }
+  static Monoid apply(const Monoid &a, const OperatorMonoid &b) { return b == o_id()? a : b; }
 };
 
 template <typename T>
 struct RangeMaximumAndUpdateQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return std::numeric_limits<T>::lowest(); }
-  static constexpr T o_id() { return std::numeric_limits<T>::lowest(); }
-  static T m_merge(const T &a, const T &b) { return std::max(a, b); }
-  static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
-  static T apply(const T &a, const T &b) { return b == o_id()? a : b; }
+  static constexpr Monoid m_id() { return std::numeric_limits<Monoid>::lowest(); }
+  static constexpr OperatorMonoid o_id() { return std::numeric_limits<OperatorMonoid>::lowest(); }
+  static Monoid m_merge(const Monoid &a, const Monoid &b) { return std::max(a, b); }
+  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return b == o_id() ? a : b; }
+  static Monoid apply(const Monoid &a, const OperatorMonoid &b) { return b == o_id()? a : b; }
 };
 
 template <typename T, T Inf>
 struct RangeMinimumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return Inf; }
-  static constexpr T o_id() { return 0; }
-  static T m_merge(const T &a, const T &b) { return std::min(a, b); }
-  static T o_merge(const T &a, const T &b) { return a + b; }
-  static T apply(const T &a, const T &b) { return a + b; }
+  static constexpr Monoid m_id() { return Inf; }
+  static constexpr OperatorMonoid o_id() { return 0; }
+  static Monoid m_merge(const Monoid &a, const Monoid &b) { return std::min(a, b); }
+  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return a + b; }
+  static Monoid apply(const Monoid &a, const OperatorMonoid &b) { return a + b; }
 };
 
 template <typename T, T Inf>
 struct RangeMaximumAndAddQuery {
   using Monoid = T;
   using OperatorMonoid = T;
-  static constexpr T m_id() { return -Inf; }
-  static constexpr T o_id() { return 0; }
-  static T m_merge(const T &a, const T &b) { return std::max(a, b); }
-  static T o_merge(const T &a, const T &b) { return a + b; }
-  static T apply(const T &a, const T &b) { return a + b; }
+  static constexpr Monoid m_id() { return -Inf; }
+  static constexpr OperatorMonoid o_id() { return 0; }
+  static Monoid m_merge(const Monoid &a, const Monoid &b) { return std::max(a, b); }
+  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return a + b; }
+  static Monoid apply(const Monoid &a, const OperatorMonoid &b) { return a + b; }
 };
 
 template <typename T>
 struct RangeSumAndUpdateQuery {
-  struct Node {
+  using Monoid = struct {
     T sum;
     int len;
   };
-  static std::vector<Node> init(int n) { return std::vector<Node>(n, Node{0, 1}); }
-  using Monoid = Node;
   using OperatorMonoid = T;
-  static constexpr Node m_id() { return {0, 0}; }
-  static constexpr T o_id() { return std::numeric_limits<T>::max(); }
-  static Node m_merge(const Node &a, const Node &b) { return Node{a.sum + b.sum, a.len + b.len}; }
-  static T o_merge(const T &a, const T &b) { return b == o_id() ? a : b; }
-  static Node apply(const Node &a, const T &b) { return Node{b == o_id() ? a.sum : b * a.len, a.len}; }
+  static std::vector<Monoid> init(int n) { return std::vector<Monoid>(n, Monoid{0, 1}); }
+  static constexpr Monoid m_id() { return {0, 0}; }
+  static constexpr OperatorMonoid o_id() { return std::numeric_limits<OperatorMonoid>::max(); }
+  static Monoid m_merge(const Monoid &a, const Monoid &b) { return Monoid{a.sum + b.sum, a.len + b.len}; }
+  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return b == o_id() ? a : b; }
+  static Monoid apply(const Monoid &a, const OperatorMonoid &b) { return Monoid{b == o_id() ? a.sum : b * a.len, a.len}; }
 };
 
 template <typename T>
 struct RangeSumAndAddQuery {
-  struct Node {
+  using Monoid = struct {
     T sum;
     int len;
   };
-  static std::vector<Node> init(int n) { return std::vector<Node>(n, Node{0, 1}); }
-  using Monoid = Node;
   using OperatorMonoid = T;
-  static constexpr Node m_id() { return {0, 0}; }
-  static constexpr T o_id() { return 0; }
-  static Node m_merge(const Node &a, const Node &b) { return Node{a.sum + b.sum, a.len + b.len}; }
-  static T o_merge(const T &a, const T &b) { return a + b; }
-  static Node apply(const Node &a, const T &b) { return Node{a.sum + b * a.len, a.len}; }
+  static std::vector<Monoid> init(int n) { return std::vector<Monoid>(n, Monoid{0, 1}); }
+  static constexpr Monoid m_id() { return {0, 0}; }
+  static constexpr OperatorMonoid o_id() { return 0; }
+  static Monoid m_merge(const Monoid &a, const Monoid &b) { return Monoid{a.sum + b.sum, a.len + b.len}; }
+  static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) { return a + b; }
+  static Monoid apply(const Monoid &a, const OperatorMonoid &b) { return Monoid{a.sum + b * a.len, a.len}; }
 };
 }  // monoid
