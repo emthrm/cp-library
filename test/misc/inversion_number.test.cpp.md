@@ -6,7 +6,7 @@ data:
     title: Fenwick tree
   - icon: ':heavy_check_mark:'
     path: misc/inversion_number.hpp
-    title: "\u8EE2\u5012\u6570 (\u53CD\u8EE2\u6570 / inversion number)"
+    title: "\u8EE2\u5012\u6570 (inversion number)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

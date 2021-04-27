@@ -44,7 +44,7 @@ data:
   - test/misc/inversion_number.test.cpp
 documentation_of: misc/inversion_number.hpp
 layout: document
-title: "\u8EE2\u5012\u6570 (\u53CD\u8EE2\u6570 / inversion number)"
+title: "\u8EE2\u5012\u6570 (inversion number)"
 ---
 
 数列 $A$ について $A_i > A_j \ (i < j)$ を満たす $(i, j)$ の個数である．

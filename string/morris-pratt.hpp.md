@@ -14,7 +14,7 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/string/knuth-morris-pratt.md
-    document_title: morris-pratt
+    document_title: Morris-Pratt algorithm
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.4/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -23,7 +23,7 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief morris-pratt\r\n * @docs docs/string/knuth-morris-pratt.md\r\
+  code: "/**\r\n * @brief Morris-Pratt algorithm\r\n * @docs docs/string/knuth-morris-pratt.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\nstruct\
     \ MorrisPratt {\r\n  std::vector<int> border;\r\n\r\n  MorrisPratt(const std::string\
     \ &s) : str(s) {\r\n    int n = str.length();\r\n    border.assign(1, -1);\r\n\
@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: string/morris-pratt.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-04-28 01:24:53+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/string/morris-pratt.1.test.cpp
@@ -51,7 +51,7 @@ layout: document
 redirect_from:
 - /library/string/morris-pratt.hpp
 - /library/string/morris-pratt.hpp.html
-title: morris-pratt
+title: Morris-Pratt algorithm
 ---
 # Knuth-Morris-Pratt algorithm
 

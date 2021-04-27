@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: string/morris-pratt.hpp
-    title: morris-pratt
+    title: Morris-Pratt algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/string/morris-pratt.1.test.cpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-04-28 01:24:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/morris-pratt.1.test.cpp

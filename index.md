@@ -533,7 +533,7 @@ data:
       title: 2-SAT
     - icon: ':heavy_check_mark:'
       path: misc/inversion_number.hpp
-      title: "\u8EE2\u5012\u6570 (\u53CD\u8EE2\u6570 / inversion number)"
+      title: "\u8EE2\u5012\u6570 (inversion number)"
     - icon: ':heavy_check_mark:'
       path: misc/mo.hpp
       title: Mo's algorithm
@@ -557,7 +557,7 @@ data:
       title: Manacher
     - icon: ':question:'
       path: string/morris-pratt.hpp
-      title: morris-pratt
+      title: Morris-Pratt algorithm
     - icon: ':warning:'
       path: string/replace.hpp
       title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
