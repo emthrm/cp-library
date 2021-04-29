@@ -120,4 +120,4 @@ std::vector<Real> convolution(const std::vector<T> &a, const std::vector<T> &b) 
   res.resize(sz);
   return res;
 }
-}  // fft
+}  // fast_fourier_transform
