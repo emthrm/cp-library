@@ -67,6 +67,7 @@ $O(1)$
 - 三次方程式 (cubic equation)
   - https://ja.wikipedia.org/wiki/%E4%B8%89%E6%AC%A1%E6%96%B9%E7%A8%8B%E5%BC%8F
   - https://tubo28.me/compprog/algorithm/cubic/
+  - https://cafecoder.top/contests/test003/tasks/test003_b
 
 
 ## Verify

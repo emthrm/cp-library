@@ -111,6 +111,8 @@ Dinic 法
   - https://judge.yosupo.jp/problem/global_minimum_cut_of_dynamic_star_augmented_graph
 - 最大カット
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/maximum_cut.cc
+- 二部グラフの場合の計算量
+  - https://twitter.com/Mi_Sawa/status/1391968412184682498
 
 
 ## Verified

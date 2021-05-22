@@ -64,6 +64,11 @@ $O(WH)$
 |`rotate(grid, angle, 基準 = ' ')`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \lbrace 45, 90 \rbrace$|
 
 
+## 参考
+
+- https://kagamiz.hatenablog.com/entry/2014/12/21/213931
+
+
 ## Verified
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2953/review/4082725/emthrm/C++14

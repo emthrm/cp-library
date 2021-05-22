@@ -360,31 +360,31 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-  - math/twelvefold_way/partition_function_init_by_fps.hpp
   - math/formal_power_series/bernoulli_number.hpp
   - math/formal_power_series/eulerian_number_init_by_fps.hpp
   - math/formal_power_series/faulhaber_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
+  - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
+  - math/twelvefold_way/partition_function_init_by_fps.hpp
   - dynamic_programming/subset_sum_problem.hpp
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
-  - test/math/fps/formal_power_series.2.test.cpp
-  - test/math/fps/formal_power_series.4.test.cpp
-  - test/math/fps/multipoint_evaluation.test.cpp
-  - test/math/fps/formal_power_series.6.test.cpp
-  - test/math/fps/formal_power_series.5.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/bernoulli_number.test.cpp
-  - test/math/fps/formal_power_series.1.test.cpp
   - test/math/fps/faulhaber_by_fps.test.cpp
-  - test/math/fps/formal_power_series.3.test.cpp
+  - test/math/fps/formal_power_series.5.test.cpp
+  - test/math/fps/multipoint_evaluation.test.cpp
+  - test/math/fps/formal_power_series.2.test.cpp
+  - test/math/fps/formal_power_series.1.test.cpp
+  - test/math/fps/bernoulli_number.test.cpp
   - test/math/fps/formal_power_series.7.test.cpp
+  - test/math/fps/formal_power_series.4.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/fps/formal_power_series.6.test.cpp
+  - test/math/fps/formal_power_series.3.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
   - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: math/formal_power_series/formal_power_series.hpp
 layout: document

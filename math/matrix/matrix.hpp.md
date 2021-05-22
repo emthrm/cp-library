@@ -100,20 +100,20 @@ data:
   isVerificationFile: false
   path: math/matrix/matrix.hpp
   requiredBy:
-  - math/matrix/linear_equation.hpp
   - math/matrix/gauss_jordan.hpp
   - math/matrix/determinant.hpp
   - math/matrix/inverse_matrix.hpp
-  - graph/matrix_tree_theorem.hpp
+  - math/matrix/linear_equation.hpp
   - graph/flow/matching/tutte_theorem.hpp
+  - graph/matrix_tree_theorem.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/linear_equation.test.cpp
   - test/math/matrix/matrix.test.cpp
   - test/math/matrix/determinant.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
+  - test/math/matrix/linear_equation.test.cpp
   - test/graph/flow/matching/tutte_theorem.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"

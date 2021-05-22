@@ -445,65 +445,65 @@ data:
   isVerificationFile: false
   path: math/modint.hpp
   requiredBy:
-  - math/twelvefold_way/lucas.hpp
-  - math/twelvefold_way/bell_number/bell_number_init.hpp
-  - math/twelvefold_way/bell_number/bell_number.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-  - math/twelvefold_way/large_nCk_init.hpp
+  - math/catalan_number.hpp
   - math/convolution/number_theoretic_transform.hpp
   - math/convolution/mod_convolution.hpp
-  - math/catalan_number.hpp
   - math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   - math/formal_power_series/eulerian_number_init_by_fps.hpp
   - math/formal_power_series/faulhaber_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
+  - math/twelvefold_way/bell_number/bell_number_init.hpp
+  - math/twelvefold_way/bell_number/bell_number.hpp
+  - math/twelvefold_way/large_nCk_init.hpp
+  - math/twelvefold_way/lucas.hpp
   timestamp: '2021-03-07 02:53:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/twelvefold_way/large_nCk.test.cpp
-  - test/math/twelvefold_way/lucas.test.cpp
-  - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
-  - test/math/twelvefold_way/bell_number/bell_number.test.cpp
-  - test/math/twelvefold_way/binomial_coefficients.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/partition_function_init.test.cpp
-  - test/math/twelvefold_way/large_nCk_init.test.cpp
-  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
-  - test/math/mobius_mu/mobius_mu_init.test.cpp
+  - test/math/kita_masa.test.cpp
+  - test/math/lagrange_interpolation.test.cpp
   - test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
+  - test/math/mobius_mu/mobius_mu_init.test.cpp
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
   - test/math/mobius_mu/mobius_mu.test.cpp
-  - test/math/lagrange_interpolation.test.cpp
-  - test/math/montmort_number.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
-  - test/math/convolution/gcd_convolution.test.cpp
-  - test/math/convolution/xor_convolution.test.cpp
-  - test/math/convolution/and_convolution.test.cpp
-  - test/math/convolution/number_theoretic_transform.test.cpp
-  - test/math/fps/formal_power_series.2.test.cpp
-  - test/math/fps/formal_power_series.4.test.cpp
-  - test/math/fps/multipoint_evaluation.test.cpp
-  - test/math/fps/formal_power_series.6.test.cpp
-  - test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
-  - test/math/fps/formal_power_series.5.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/bernoulli_number.test.cpp
-  - test/math/fps/formal_power_series.1.test.cpp
-  - test/math/fps/faulhaber_by_fps.test.cpp
-  - test/math/fps/formal_power_series.3.test.cpp
-  - test/math/fps/formal_power_series.7.test.cpp
-  - test/math/lagrange_interpolation2.test.cpp
   - test/math/matrix/matrix.test.cpp
   - test/math/matrix/determinant.test.cpp
+  - test/math/lagrange_interpolation2.test.cpp
+  - test/math/fps/faulhaber_by_fps.test.cpp
+  - test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+  - test/math/fps/formal_power_series.5.test.cpp
+  - test/math/fps/multipoint_evaluation.test.cpp
+  - test/math/fps/formal_power_series.2.test.cpp
+  - test/math/fps/formal_power_series.1.test.cpp
+  - test/math/fps/bernoulli_number.test.cpp
+  - test/math/fps/formal_power_series.7.test.cpp
+  - test/math/fps/formal_power_series.4.test.cpp
+  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/fps/formal_power_series.6.test.cpp
+  - test/math/fps/formal_power_series.3.test.cpp
+  - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/gcd_convolution.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
+  - test/math/convolution/xor_convolution.test.cpp
+  - test/math/convolution/number_theoretic_transform.test.cpp
+  - test/math/twelvefold_way/large_nCk_init.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
+  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
+  - test/math/twelvefold_way/binomial_coefficients.test.cpp
+  - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
+  - test/math/twelvefold_way/bell_number/bell_number.test.cpp
+  - test/math/twelvefold_way/lucas.test.cpp
+  - test/math/twelvefold_way/large_nCk.test.cpp
+  - test/math/twelvefold_way/partition_function_init.test.cpp
+  - test/math/montmort_number.test.cpp
   - test/math/catalan_number.test.cpp
-  - test/math/kita_masa.test.cpp
-  - test/dynamic_programming/subset_sum_problem.test.cpp
   - test/data_structure/lazy_segment_tree.test.cpp
   - test/data_structure/segment_tree.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/tree/centroid.test.cpp
 documentation_of: math/modint.hpp
@@ -548,6 +548,9 @@ title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   - https://yukicoder.me/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%A1%E3%83%AA%E4%B9%97%E7%AE%97
   - https://lumakernel.github.io/ecasdqina/math/Montgomery
   - http://dec9ue.hatenablog.com/entry/2013/04/25/003258
+- Barrett reduction
+  - https://en.wikipedia.org/wiki/Barrett_reduction
+  - https://natsugiri.hatenablog.com/entry/2020/04/06/030559
 - 実行時 ModInt の高速化
   - https://twitter.com/risujiroh/status/1302857570462228483
 - $\bmod 998244353$ の高速化

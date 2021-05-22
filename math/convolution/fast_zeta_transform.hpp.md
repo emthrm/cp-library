@@ -46,13 +46,13 @@ data:
   isVerificationFile: false
   path: math/convolution/fast_zeta_transform.hpp
   requiredBy:
-  - math/convolution/and_convolution.hpp
   - math/convolution/or_convolution.hpp
+  - math/convolution/and_convolution.hpp
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/convolution/fast_zeta_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fast_zeta_transform.test.cpp
 documentation_of: math/convolution/fast_zeta_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"

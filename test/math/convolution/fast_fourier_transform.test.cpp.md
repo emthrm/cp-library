@@ -77,12 +77,13 @@ data:
     \ - i] * c[n - i];\r\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\r\
     \n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\n  }\r\n  c[half]\
     \ = Complex(c[half].re * c[half].im, 0);\r\n  std::vector<Real> res = idft_to_real(c);\r\
-    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fft\r\n#line 10 \"test/math/convolution/fast_fourier_transform.test.cpp\"\
-    \n\r\nint main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<int> a(n +\
-    \ 1, 0), b(n + 1, 0);\r\n  for (int i = 1; i <= n; ++i) std::cin >> a[i] >> b[i];\r\
-    \n  std::vector<fast_fourier_transform::Real> ans = fast_fourier_transform::convolution(a,\
-    \ b);\r\n  for (int i = 1; i <= n * 2; ++i) std::cout << static_cast<long long>(ans[i]\
-    \ + 0.5) << '\\n';\r\n  return 0;\r\n}\r\n"
+    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fast_fourier_transform\r\n\
+    #line 10 \"test/math/convolution/fast_fourier_transform.test.cpp\"\n\r\nint main()\
+    \ {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<int> a(n + 1, 0), b(n + 1,\
+    \ 0);\r\n  for (int i = 1; i <= n; ++i) std::cin >> a[i] >> b[i];\r\n  std::vector<fast_fourier_transform::Real>\
+    \ ans = fast_fourier_transform::convolution(a, b);\r\n  for (int i = 1; i <= n\
+    \ * 2; ++i) std::cout << static_cast<long long>(ans[i] + 0.5) << '\\n';\r\n  return\
+    \ 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30D5\u30FC\
     \u30EA\u30A8\u5909\u63DB\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/atc001/tasks/fft_c\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../math/convolution/fast_fourier_transform.hpp\"\
@@ -96,7 +97,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/fast_fourier_transform.test.cpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-04-30 03:28:40+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/convolution/fast_fourier_transform.test.cpp

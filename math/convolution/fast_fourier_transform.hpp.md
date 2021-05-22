@@ -86,7 +86,7 @@ data:
     \ - i] * c[n - i];\r\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\r\
     \n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\n  }\r\n  c[half]\
     \ = Complex(c[half].re * c[half].im, 0);\r\n  std::vector<Real> res = idft_to_real(c);\r\
-    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fft\r\n"
+    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fast_fourier_transform\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <cmath>\r\
     \n#include <utility>\r\n#include <vector>\r\n\r\nnamespace fast_fourier_transform\
     \ {\r\nusing Real = double;\r\nstruct Complex {\r\n  Real re, im;\r\n  Complex(Real\
@@ -142,19 +142,19 @@ data:
     \ - i] * c[n - i];\r\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\r\
     \n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\n  }\r\n  c[half]\
     \ = Complex(c[half].re * c[half].im, 0);\r\n  std::vector<Real> res = idft_to_real(c);\r\
-    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fft\r\n"
+    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fast_fourier_transform\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/fast_fourier_transform.hpp
   requiredBy:
   - math/convolution/mod_convolution.hpp
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-04-30 03:28:40+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/convolution/mod_convolution.test.cpp
-  - test/math/convolution/fast_fourier_transform.test.cpp
-  - test/math/fps/formal_power_series.5.test.cpp
   - test/math/fps/faulhaber_by_fps.test.cpp
+  - test/math/fps/formal_power_series.5.test.cpp
+  - test/math/convolution/fast_fourier_transform.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
   - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: math/convolution/fast_fourier_transform.hpp
 layout: document
