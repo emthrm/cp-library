@@ -33,6 +33,8 @@ $O(N\log{N})$
 
 - longest Zig-Zag subsequence
   - https://github.com/spaghetti-source/algorithm/blob/master/dynamic_programming/longest_zigzag_subsequence.cc
+- range longest increasing subsequence query
+  - https://twitter.com/noshi91/status/1388201116148539393
 
 
 ## Verified

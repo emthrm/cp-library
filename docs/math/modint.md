@@ -40,6 +40,9 @@ documentation_of: math/modint.hpp
   - https://yukicoder.me/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%A1%E3%83%AA%E4%B9%97%E7%AE%97
   - https://lumakernel.github.io/ecasdqina/math/Montgomery
   - http://dec9ue.hatenablog.com/entry/2013/04/25/003258
+- Barrett reduction
+  - https://en.wikipedia.org/wiki/Barrett_reduction
+  - https://natsugiri.hatenablog.com/entry/2020/04/06/030559
 - 実行時 ModInt の高速化
   - https://twitter.com/risujiroh/status/1302857570462228483
 - $\bmod 998244353$ の高速化

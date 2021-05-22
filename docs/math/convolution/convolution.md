@@ -79,6 +79,7 @@ $O(N\log{N})$
   - https://twitter.com/gmm_tea/status/1355754279751938053
   - https://twitter.com/Ryuhei_Mori/status/1356074005447340035
   - https://twitter.com/noshi91/status/1356075579896811523
+  - https://ngtkana.hatenablog.com/entry/2021/04/25/135636
 
 
 ## Verified
