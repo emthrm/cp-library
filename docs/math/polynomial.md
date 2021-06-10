@@ -62,5 +62,6 @@ documentation_of: math/polynomial.hpp
 - 除算の高速化
   - https://github.com/spaghetti-source/algorithm/blob/master/math/polynomial_int.cc
   - http://people.csail.mit.edu/madhu/ST12/scribe/lect06.pdf
+  - https://judge.yosupo.jp/problem/division_of_polynomials
 - DKA 法
   - https://drive.google.com/file/d/1Fb5TPXzEQVKzYDwhNN2XZpWZWa49aCIY
