@@ -1,12 +1,12 @@
 /*
- * @brief グラフ/回転
+ * @brief その他/回転
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2953"
 
 #include <iostream>
 #include <set>
 #include <vector>
-#include "../../graph/rotate.hpp"
+#include "../../misc/rotate.hpp"
 
 int main() {
   int h, w;

@@ -1,6 +1,6 @@
 ---
 title: 回転 (rotation)
-documentation_of: graph/rotate.hpp
+documentation_of: misc/rotate.hpp
 ---
 
 点の回転は
