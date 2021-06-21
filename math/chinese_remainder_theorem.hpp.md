@@ -100,11 +100,6 @@ $O(N \log{\mathrm{lcm}(m_1,...)})$
   - https://lumakernel.github.io/ecasdqina/math/number-theory/Garner
   - https://cp-algorithms.com/algebra/chinese-remainder-theorem.html
   - http://flex.phys.tohoku.ac.jp/~maru/implementations/garner.php
-- Lucas の定理 (Lucas's theorem)
-  - https://en.wikipedia.org/wiki/Lucas%27s_theorem
-  - https://mathtrain.jp/lucastheorem
-  - http://spinda2.blog48.fc2.com/blog-entry-399.html
-  - https://ferin-tech.hatenablog.com/entry/2018/01/17/010829
 
 
 ## Verified

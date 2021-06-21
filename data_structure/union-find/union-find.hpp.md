@@ -59,11 +59,11 @@ data:
   timestamp: '2021-04-27 21:35:04+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/data_structure/union-find/union-find.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/biconnected_component.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/kruskal.test.cpp
+  - test/data_structure/union-find/union-find.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:

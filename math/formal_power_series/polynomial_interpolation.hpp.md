@@ -7,7 +7,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/polynomial_interpolation.test.cpp
+    path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
   _isVerificationFailed: false
@@ -42,7 +42,7 @@ data:
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fps/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
 documentation_of: math/formal_power_series/polynomial_interpolation.hpp
 layout: document
 redirect_from:

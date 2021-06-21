@@ -81,8 +81,8 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/determinant.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
+  - test/math/matrix/determinant.test.cpp
 documentation_of: math/matrix/determinant.hpp
 layout: document
 title: "\u884C\u5217\u5F0F (determinant)"
@@ -104,6 +104,14 @@ $O(N^3)$
 ## 参考
 
 - https://github.com/beet-aizu/library/blob/ebcad58b8480962339b18e316b826e56752b90c8/matrix/matrix.cpp
+
+
+## ToDo
+
+- 固有多項式 (characteristic polynomial)
+  - https://ja.wikipedia.org/wiki/%E5%9B%BA%E6%9C%89%E5%A4%9A%E9%A0%85%E5%BC%8F
+  - https://github.com/yosupo06/library-checker-problems/issues/665
+  - https://judge.yosupo.jp/problem/characteristic_polynomial
 
 
 ## Verified

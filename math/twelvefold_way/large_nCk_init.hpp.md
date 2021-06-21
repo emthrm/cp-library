@@ -91,7 +91,9 @@ http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
 ## ToDo
 
-https://w.atwiki.jp/uwicoder/pages/2118.html
+- https://w.atwiki.jp/uwicoder/pages/2118.html
+- https://ferin-tech.hatenablog.com/entry/2018/01/17/010829
+- https://judge.yosupo.jp/problem/binomial_coefficient
 
 
 ## Verified

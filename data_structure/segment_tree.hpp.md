@@ -74,9 +74,9 @@ data:
   timestamp: '2021-04-27 20:26:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_minimum_query.test.cpp
-  - test/data_structure/segment_tree.test.cpp
   - test/data_structure/range_sum_query.test.cpp
+  - test/data_structure/segment_tree.test.cpp
+  - test/data_structure/range_minimum_query.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document
 redirect_from:

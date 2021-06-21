@@ -55,8 +55,8 @@ data:
   timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/bigint.01.test.cpp
   - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
+  - test/math/bigint.01.test.cpp
 documentation_of: graph/flow/matching/weighted_bipartite_matching.hpp
 layout: document
 redirect_from:

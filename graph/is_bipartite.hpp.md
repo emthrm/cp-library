@@ -43,8 +43,8 @@ data:
   timestamp: '2021-02-11 00:27:09+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/data_structure/union-find/undoable_union-find.test.cpp
   - test/graph/is_bipartite.test.cpp
+  - test/data_structure/union-find/undoable_union-find.test.cpp
 documentation_of: graph/is_bipartite.hpp
 layout: document
 title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"

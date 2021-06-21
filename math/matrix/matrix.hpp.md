@@ -15,7 +15,7 @@ data:
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss-Jordan elimination)"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/inverse_matrix.hpp
     title: "\u9006\u884C\u5217 (inverse matrix)"
   - icon: ':x:'
@@ -32,6 +32,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
+  - icon: ':heavy_check_mark:'
+    path: test/math/matrix/inverse_matrix.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
   - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
@@ -100,20 +103,21 @@ data:
   isVerificationFile: false
   path: math/matrix/matrix.hpp
   requiredBy:
-  - math/matrix/gauss_jordan.hpp
-  - math/matrix/determinant.hpp
-  - math/matrix/inverse_matrix.hpp
-  - math/matrix/linear_equation.hpp
   - graph/flow/matching/tutte_theorem.hpp
   - graph/matrix_tree_theorem.hpp
+  - math/matrix/determinant.hpp
+  - math/matrix/inverse_matrix.hpp
+  - math/matrix/gauss_jordan.hpp
+  - math/matrix/linear_equation.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/matrix.test.cpp
-  - test/math/matrix/determinant.test.cpp
-  - test/math/matrix/linear_equation.test.cpp
   - test/graph/flow/matching/tutte_theorem.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
+  - test/math/matrix/inverse_matrix.test.cpp
+  - test/math/matrix/matrix.test.cpp
+  - test/math/matrix/linear_equation.test.cpp
+  - test/math/matrix/determinant.test.cpp
 documentation_of: math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"

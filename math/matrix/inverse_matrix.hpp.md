@@ -5,10 +5,13 @@ data:
     path: math/matrix/matrix.hpp
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/math/matrix/inverse_matrix.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/matrix/inverse_matrix.hpp\"\n#include <cassert>\r\n\
@@ -80,8 +83,9 @@ data:
   path: math/matrix/inverse_matrix.hpp
   requiredBy: []
   timestamp: '2021-03-04 20:20:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/math/matrix/inverse_matrix.test.cpp
 documentation_of: math/matrix/inverse_matrix.hpp
 layout: document
 title: "\u9006\u884C\u5217 (inverse matrix)"
@@ -98,3 +102,8 @@ $O(M^2 N)$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`inverse<T, U = double>(mat, ε = 1e-8)`|行列 $\mathrm{mat}$ の逆行列|存在しない場合は空行列となる．|
+
+
+## Verified
+
+https://judge.yosupo.jp/submission/50854

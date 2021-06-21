@@ -67,15 +67,15 @@ data:
   isVerificationFile: false
   path: graph/lowlink.hpp
   requiredBy:
-  - graph/2-edge-connected_components_lowlink.hpp
   - graph/biconnected_component.hpp
+  - graph/2-edge-connected_components_lowlink.hpp
   timestamp: '2021-04-18 15:42:16+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/lowlink.1.test.cpp
-  - test/graph/lowlink.2.test.cpp
   - test/graph/biconnected_component.test.cpp
   - test/graph/2-edge-connected_components_lowlink.test.cpp
+  - test/graph/lowlink.2.test.cpp
 documentation_of: graph/lowlink.hpp
 layout: document
 title: lowlink

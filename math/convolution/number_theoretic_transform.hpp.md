@@ -13,38 +13,38 @@ data:
     path: test/math/convolution/number_theoretic_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/bernoulli_number.test.cpp
+    path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.1.test.cpp
+    path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.2.test.cpp
+    path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u9006\u5143)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.3.test.cpp
+    path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.4.test.cpp
+    path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u51AA\u4E57)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.6.test.cpp
+    path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.7.test.cpp
+    path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (translate(c))"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/multipoint_evaluation.test.cpp
+    path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/polynomial_interpolation.test.cpp
+    path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
   - icon: ':heavy_check_mark:'
@@ -133,20 +133,20 @@ data:
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fps/multipoint_evaluation.test.cpp
-  - test/math/fps/formal_power_series.2.test.cpp
-  - test/math/fps/formal_power_series.1.test.cpp
-  - test/math/fps/bernoulli_number.test.cpp
-  - test/math/fps/formal_power_series.7.test.cpp
-  - test/math/fps/formal_power_series.4.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/formal_power_series.6.test.cpp
-  - test/math/fps/formal_power_series.3.test.cpp
-  - test/math/convolution/number_theoretic_transform.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
-  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/convolution/number_theoretic_transform.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
 documentation_of: math/convolution/number_theoretic_transform.hpp
 layout: document
 redirect_from:
@@ -215,6 +215,8 @@ e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
   - https://github.com/spaghetti-source/algorithm/blob/master/math/fast_modulo_transform.cc
   - https://satanic0258.github.io/snippets/math/NumberTheoreticTransform.html
   - https://judge.yosupo.jp/problem/convolution_mod_1000000007
+  - https://github.com/yosupo06/library-checker-problems/issues/664
+  - https://judge.yosupo.jp/problem/convolution_mod_2_64
 
 
 ## Verified

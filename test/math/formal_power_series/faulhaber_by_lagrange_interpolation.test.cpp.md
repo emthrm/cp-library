@@ -47,16 +47,16 @@ data:
   - math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   - math/lagrange_interpolation2.hpp
   isVerificationFile: true
-  path: test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+  path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-06-21 17:13:44+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+documentation_of: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
 layout: document
 redirect_from:
-- /verify/test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
-- /verify/test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp.html
+- /verify/test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
+- /verify/test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp.html
 title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
   \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\
   \u9593\u7248"

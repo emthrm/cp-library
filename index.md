@@ -169,9 +169,6 @@ data:
       path: graph/prim.hpp
       title: "Prim \u6CD5"
     - icon: ':heavy_check_mark:'
-      path: graph/rotate.hpp
-      title: "\u56DE\u8EE2 (rotation)"
-    - icon: ':heavy_check_mark:'
       path: graph/strongly_connected_components.hpp
       title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\
         \u89E3"
@@ -343,7 +340,7 @@ data:
     - icon: ':x:'
       path: math/osa_k.hpp
       title: "osa_k \u6CD5"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/polynomial.hpp
       title: "\u591A\u9805\u5F0F (polynomial)"
     - icon: ':heavy_check_mark:'
@@ -456,7 +453,7 @@ data:
       path: math/matrix/gauss_jordan.hpp
       title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
         \u6CD5 (Gauss-Jordan elimination)"
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: math/matrix/inverse_matrix.hpp
       title: "\u9006\u884C\u5217 (inverse matrix)"
     - icon: ':x:'
@@ -537,6 +534,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: misc/mo.hpp
       title: Mo's algorithm
+    - icon: ':heavy_check_mark:'
+      path: misc/rotate.hpp
+      title: "\u56DE\u8EE2 (rotation)"
     - icon: ':heavy_check_mark:'
       path: misc/sqrt_decomposition.hpp
       title: "\u5E73\u65B9\u5206\u5272 (sqrt decomposition)"
@@ -884,9 +884,6 @@ data:
       path: test/graph/prim.test.cpp
       title: "\u30B0\u30E9\u30D5/Prim \u6CD5"
     - icon: ':heavy_check_mark:'
-      path: test/graph/rotate.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u56DE\u8EE2"
-    - icon: ':heavy_check_mark:'
       path: test/graph/strongly_connected_components.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
     - icon: ':x:'
@@ -1089,6 +1086,9 @@ data:
     - icon: ':x:'
       path: test/math/osa_k.test.cpp
       title: "\u6570\u5B66/osa_k \u6CD5"
+    - icon: ':x:'
+      path: test/math/polynomial.test.cpp
+      title: "\u6570\u5B66/\u591A\u9805\u5F0F"
     - icon: ':heavy_check_mark:'
       path: test/math/prime_factorization.test.cpp
       title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
@@ -1148,55 +1148,55 @@ data:
       path: test/math/euler_phi/euler_phi_init2.test.cpp
       title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
         /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  - name: test/math/fps
+  - name: test/math/formal_power_series
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/bernoulli_number.test.cpp
+      path: test/math/formal_power_series/bernoulli_number.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\
         \u30FC\u30A4\u6570"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/faulhaber_by_fps.test.cpp
+      path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
         \u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\
         \u6570\u7248"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+      path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
         \u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\
         \u30E5\u88DC\u9593\u7248"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/formal_power_series.1.test.cpp
+      path: test/math/formal_power_series/formal_power_series.1.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u6307\u6570)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/formal_power_series.2.test.cpp
+      path: test/math/formal_power_series/formal_power_series.2.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u9006\u5143)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/formal_power_series.3.test.cpp
+      path: test/math/formal_power_series/formal_power_series.3.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u5BFE\u6570)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/formal_power_series.4.test.cpp
+      path: test/math/formal_power_series/formal_power_series.4.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u51AA\u4E57)"
     - icon: ':x:'
-      path: test/math/fps/formal_power_series.5.test.cpp
+      path: test/math/formal_power_series/formal_power_series.5.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (mod_pow(exponend, md))"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/formal_power_series.6.test.cpp
+      path: test/math/formal_power_series/formal_power_series.6.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u5E73\u65B9\u6839)"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/formal_power_series.7.test.cpp
+      path: test/math/formal_power_series/formal_power_series.7.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (translate(c))"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/multipoint_evaluation.test.cpp
+      path: test/math/formal_power_series/multipoint_evaluation.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
     - icon: ':heavy_check_mark:'
-      path: test/math/fps/polynomial_interpolation.test.cpp
+      path: test/math/formal_power_series/polynomial_interpolation.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\
         \u88DC\u9593"
   - name: test/math/matrix/binary_matrix
@@ -1223,6 +1223,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/matrix/determinant.test.cpp
       title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
+    - icon: ':heavy_check_mark:'
+      path: test/math/matrix/inverse_matrix.test.cpp
+      title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
     - icon: ':x:'
       path: test/math/matrix/linear_equation.test.cpp
       title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
@@ -1314,6 +1317,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/misc/mo.test.cpp
       title: "\u305D\u306E\u4ED6/Mo's algorithm"
+    - icon: ':heavy_check_mark:'
+      path: test/misc/rotate.test.cpp
+      title: "\u305D\u306E\u4ED6/\u56DE\u8EE2"
     - icon: ':heavy_check_mark:'
       path: test/misc/sqrt_decomposition.test.cpp
       title: "\u305D\u306E\u4ED6/\u5E73\u65B9\u5206\u5272"

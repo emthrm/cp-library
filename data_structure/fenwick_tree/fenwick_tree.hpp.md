@@ -58,8 +58,8 @@ data:
   timestamp: '2021-04-24 04:29:28+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/misc/mo.test.cpp
   - test/misc/inversion_number.test.cpp
+  - test/misc/mo.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
 documentation_of: data_structure/fenwick_tree/fenwick_tree.hpp

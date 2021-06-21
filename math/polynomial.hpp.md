@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/math/polynomial.test.cpp
+    title: "\u6570\u5B66/\u591A\u9805\u5F0F"
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/polynomial.hpp\"\n#include <algorithm>\r\n#include\
@@ -161,8 +164,9 @@ data:
   path: math/polynomial.hpp
   requiredBy: []
   timestamp: '2021-02-12 01:21:30+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/math/polynomial.test.cpp
 documentation_of: math/polynomial.hpp
 layout: document
 title: "\u591A\u9805\u5F0F (polynomial)"
@@ -227,5 +231,6 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 - 除算の高速化
   - https://github.com/spaghetti-source/algorithm/blob/master/math/polynomial_int.cc
   - http://people.csail.mit.edu/madhu/ST12/scribe/lect06.pdf
+  - https://judge.yosupo.jp/problem/division_of_polynomials
 - DKA 法
   - https://drive.google.com/file/d/1Fb5TPXzEQVKzYDwhNN2XZpWZWa49aCIY

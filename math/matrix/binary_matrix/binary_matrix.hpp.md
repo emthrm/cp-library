@@ -74,15 +74,15 @@ data:
   isVerificationFile: false
   path: math/matrix/binary_matrix/binary_matrix.hpp
   requiredBy:
-  - math/matrix/binary_matrix/gauss_jordan.hpp
   - math/matrix/binary_matrix/inverse_matrix.hpp
+  - math/matrix/binary_matrix/gauss_jordan.hpp
   - math/matrix/binary_matrix/linear_equation.hpp
   timestamp: '2021-03-04 17:06:38+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
-  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/binary_matrix.test.cpp
 documentation_of: math/matrix/binary_matrix/binary_matrix.hpp
 layout: document

@@ -14,12 +14,12 @@ data:
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\
       \u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/faulhaber_by_fps.test.cpp
+    path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
   - icon: ':x:'
-    path: test/math/fps/formal_power_series.5.test.cpp
+    path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow(exponend, md))"
   _isVerificationFailed: true
@@ -79,9 +79,9 @@ data:
   timestamp: '2021-04-30 03:28:40+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/fps/faulhaber_by_fps.test.cpp
-  - test/math/fps/formal_power_series.5.test.cpp
   - test/math/convolution/mod_convolution.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
 documentation_of: math/convolution/mod_convolution.hpp
 layout: document
 redirect_from:
@@ -150,6 +150,8 @@ e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
   - https://github.com/spaghetti-source/algorithm/blob/master/math/fast_modulo_transform.cc
   - https://satanic0258.github.io/snippets/math/NumberTheoreticTransform.html
   - https://judge.yosupo.jp/problem/convolution_mod_1000000007
+  - https://github.com/yosupo06/library-checker-problems/issues/664
+  - https://judge.yosupo.jp/problem/convolution_mod_2_64
 
 
 ## Verified

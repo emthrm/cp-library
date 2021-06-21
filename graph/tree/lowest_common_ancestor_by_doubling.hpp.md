@@ -64,8 +64,8 @@ data:
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
   - test/graph/2-edge-connected_components_lowlink.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
 documentation_of: graph/tree/lowest_common_ancestor_by_doubling.hpp
 layout: document
 redirect_from:

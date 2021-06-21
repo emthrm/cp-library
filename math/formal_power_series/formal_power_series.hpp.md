@@ -35,47 +35,47 @@ data:
     path: test/dynamic_programming/subset_sum_problem.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/bernoulli_number.test.cpp
+    path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/faulhaber_by_fps.test.cpp
+    path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.1.test.cpp
+    path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.2.test.cpp
+    path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u9006\u5143)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.3.test.cpp
+    path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.4.test.cpp
+    path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u51AA\u4E57)"
   - icon: ':x:'
-    path: test/math/fps/formal_power_series.5.test.cpp
+    path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow(exponend, md))"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.6.test.cpp
+    path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/formal_power_series.7.test.cpp
+    path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (translate(c))"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/multipoint_evaluation.test.cpp
+    path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/polynomial_interpolation.test.cpp
+    path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
   - icon: ':heavy_check_mark:'
@@ -360,32 +360,32 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - math/formal_power_series/bernoulli_number.hpp
-  - math/formal_power_series/eulerian_number_init_by_fps.hpp
-  - math/formal_power_series/faulhaber_by_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
+  - dynamic_programming/subset_sum_problem.hpp
   - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   - math/twelvefold_way/partition_function_init_by_fps.hpp
-  - dynamic_programming/subset_sum_problem.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
+  - math/formal_power_series/faulhaber_by_fps.hpp
+  - math/formal_power_series/eulerian_number_init_by_fps.hpp
+  - math/formal_power_series/bernoulli_number.hpp
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/fps/faulhaber_by_fps.test.cpp
-  - test/math/fps/formal_power_series.5.test.cpp
-  - test/math/fps/multipoint_evaluation.test.cpp
-  - test/math/fps/formal_power_series.2.test.cpp
-  - test/math/fps/formal_power_series.1.test.cpp
-  - test/math/fps/bernoulli_number.test.cpp
-  - test/math/fps/formal_power_series.7.test.cpp
-  - test/math/fps/formal_power_series.4.test.cpp
-  - test/math/fps/polynomial_interpolation.test.cpp
-  - test/math/fps/formal_power_series.6.test.cpp
-  - test/math/fps/formal_power_series.3.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
-  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
 documentation_of: math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"

@@ -50,8 +50,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
-  - test/math/euler_phi/euler_phi.test.cpp
   - test/math/euler_phi/euler_phi_init.test.cpp
+  - test/math/euler_phi/euler_phi.test.cpp
   - test/math/is_primitive_root.test.cpp
 documentation_of: math/euler_phi/euler_phi.hpp
 layout: document

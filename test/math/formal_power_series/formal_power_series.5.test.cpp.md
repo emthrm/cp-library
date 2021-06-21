@@ -63,16 +63,16 @@ data:
   - math/convolution/mod_convolution.hpp
   - math/convolution/fast_fourier_transform.hpp
   isVerificationFile: true
-  path: test/math/fps/formal_power_series.5.test.cpp
+  path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2021-04-30 03:28:40+09:00'
+  timestamp: '2021-06-21 17:13:44+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/math/fps/formal_power_series.5.test.cpp
+documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp
 layout: document
 redirect_from:
-- /verify/test/math/fps/formal_power_series.5.test.cpp
-- /verify/test/math/fps/formal_power_series.5.test.cpp.html
+- /verify/test/math/formal_power_series/formal_power_series.5.test.cpp
+- /verify/test/math/formal_power_series/formal_power_series.5.test.cpp.html
 title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
   \u7D1A\u6570 (mod_pow(exponend, md))"
 ---

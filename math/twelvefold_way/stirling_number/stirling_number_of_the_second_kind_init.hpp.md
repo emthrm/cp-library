@@ -50,8 +50,8 @@ data:
   timestamp: '2021-03-07 02:53:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
 documentation_of: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
 layout: document
 redirect_from:

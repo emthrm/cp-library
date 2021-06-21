@@ -8,7 +8,7 @@ data:
       \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+    path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\
       \u88DC\u9593\u7248"
@@ -50,7 +50,7 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/lagrange_interpolation2.test.cpp
-  - test/math/fps/faulhaber_by_lagrange_interpolation.test.cpp
+  - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
 documentation_of: math/lagrange_interpolation2.hpp
 layout: document
 redirect_from:
