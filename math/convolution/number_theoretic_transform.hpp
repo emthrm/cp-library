@@ -25,39 +25,21 @@ struct NumberTheoreticTransform {
     assert(false);
   }
 
-  void sub_dft(std::vector<ModInt> &a) {
-    int n = a.size();
-    assert(__builtin_popcount(n) == 1);
-    calc(n);
-    int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);
-    for (int i = 0; i < n; ++i) {
-      int j = butterfly[i] >> shift;
-      if (i < j) std::swap(a[i], a[j]);
-    }
-    for (int block = 1; block < n; block <<= 1) {
-      int den = __builtin_ctz(block);
-      for (int i = 0; i < n; i += (block << 1)) for (int j = 0; j < block; ++j) {
-        ModInt tmp = a[i + j + block] * omega[den][j];
-        a[i + j + block] = a[i + j] - tmp;
-        a[i + j] += tmp;
-      }
-    }
-  }
-
   template <typename U>
   std::vector<ModInt> dft(const std::vector<U> &a) {
-    int n = a.size(), lg = 1;
+    const int n = a.size();
+    int lg = 1;
     while ((1 << lg) < n) ++lg;
     std::vector<ModInt> A(1 << lg, 0);
     for (int i = 0; i < n; ++i) A[i] = a[i];
-    sub_dft(A);
+    calc(A);
     return A;
   }
 
   void idft(std::vector<ModInt> &a) {
-    int n = a.size();
+    const int n = a.size();
     assert(__builtin_popcount(n) == 1);
-    sub_dft(a);
+    calc(a);
     std::reverse(a.begin() + 1, a.end());
     ModInt inv_n = ModInt::inv(n);
     for (int i = 0; i < n; ++i) a[i] *= inv_n;
@@ -65,17 +47,18 @@ struct NumberTheoreticTransform {
 
   template <typename U>
   std::vector<ModInt> convolution(const std::vector<U> &a, const std::vector<U> &b) {
-    int a_sz = a.size(), b_sz = b.size(), sz = a_sz + b_sz - 1, lg = 1;
-    while ((1 << lg) < sz) ++lg;
-    int n = 1 << lg;
+    const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
+    int lg = 1;
+    while ((1 << lg) < c_size) ++lg;
+    const int n = 1 << lg;
     std::vector<ModInt> A(n, 0), B(n, 0);
-    for (int i = 0; i < a_sz; ++i) A[i] = a[i];
-    for (int i = 0; i < b_sz; ++i) B[i] = b[i];
-    sub_dft(A);
-    sub_dft(B);
+    for (int i = 0; i < a_size; ++i) A[i] = a[i];
+    for (int i = 0; i < b_size; ++i) B[i] = b[i];
+    calc(A);
+    calc(B);
     for (int i = 0; i < n; ++i) A[i] *= B[i];
     idft(A);
-    A.resize(sz);
+    A.resize(c_size);
     return A;
   }
 
@@ -111,21 +94,34 @@ private:
   std::vector<int> butterfly{0};
   std::vector<std::vector<ModInt>> omega{{1}};
 
-  void calc(int n) {
-    int prev_n = butterfly.size();
-    if (n <= prev_n) return;
-    assert(n <= n_max);
-    butterfly.resize(n);
-    int prev_lg = omega.size(), lg = __builtin_ctz(n);
-    for (int i = 1; i < prev_n; ++i) butterfly[i] <<= lg - prev_lg;
-    for (int i = prev_n; i < n; ++i) butterfly[i] = (butterfly[i >> 1] >> 1) | ((i & 1) << (lg - 1));
-    omega.resize(lg);
-    for (int i = prev_lg; i < lg; ++i) {
-      omega[i].resize(1 << i);
-      ModInt tmp = root.pow((ModInt::get_mod() - 1) / (1 << (i + 1)));
-      for (int j = 0; j < (1 << (i - 1)); ++j) {
-        omega[i][j << 1] = omega[i - 1][j];
-        omega[i][(j << 1) + 1] = omega[i - 1][j] * tmp;
+  void calc(std::vector<ModInt> &a) {
+    const int n = a.size(), prev_n = butterfly.size();
+    if (n > prev_n) {
+      assert(n <= n_max);
+      butterfly.resize(n);
+      const int prev = omega.size(), lg = __builtin_ctz(n);
+      for (int i = 1; i < prev_n; ++i) butterfly[i] <<= lg - prev;
+      for (int i = prev_n; i < n; ++i) butterfly[i] = (butterfly[i >> 1] >> 1) | ((i & 1) << (lg - 1));
+      omega.resize(lg);
+      for (int i = prev; i < lg; ++i) {
+        omega[i].resize(1 << i);
+        ModInt tmp = root.pow((ModInt::get_mod() - 1) / (1 << (i + 1)));
+        for (int j = 0; j < (1 << (i - 1)); ++j) {
+          omega[i][j << 1] = omega[i - 1][j];
+          omega[i][(j << 1) + 1] = omega[i - 1][j] * tmp;
+        }
+      }
+    }
+    const int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);
+    for (int i = 0; i < n; ++i) {
+      const int j = butterfly[i] >> shift;
+      if (i < j) std::swap(a[i], a[j]);
+    }
+    for (int block = 1, den = 0; block < n; block <<= 1, ++den) {
+      for (int i = 0; i < n; i += (block << 1)) for (int j = 0; j < block; ++j) {
+        ModInt tmp = a[i + j + block] * omega[den][j];
+        a[i + j + block] = a[i + j] - tmp;
+        a[i + j] += tmp;
       }
     }
   }
