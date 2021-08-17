@@ -51,13 +51,18 @@ $O(N\log{N})$
 
 ## 参考
 
+- https://leaf1415.hatenablog.com/entry/2021/08/04/125751
 - https://codeforces.com/blog/entry/48417
-- https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 - http://kazuma8128.hatenablog.com/entry/2018/05/31/144519
 - https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
 
+高速ウォルシュ・アダマール変換
+- https://cympfh.cc/aiura/hadamard-xor-convolution
+- https://twitter.com/maspy_stars/status/1350467886775603200
+
 添え字 gcd での畳み込み
   - https://noshi91.hatenablog.com/entry/2019/09/23/002445
+  - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 
 
 ## ToDo
@@ -71,15 +76,21 @@ $O(N\log{N})$
   - https://judge.yosupo.jp/problem/subset_convolution
   - https://twitter.com/noshi91/status/1315347967990140928
   - https://twitter.com/noshi91/status/1315504267927584768
-  - https://twitter.com/beet_aizu/status/1339049679728779264
+  - ~~https://twitter.com/beet_aizu/status/1339049679728779264~~
   - https://twitter.com/noshi91/status/1339077655715430401
+  - https://ngtkana.hatenablog.com/entry/2021/04/25/135636
   - https://atcoder.jp/contests/xmascon20/tasks/xmascon20_h
+  - https://hos-lyric.hatenablog.com/entry/2021/01/14/201231
   - https://twitter.com/heno_code/status/1342124587849400320
   - https://twitter.com/tpyneriver/status/1356095139035242497
   - https://twitter.com/gmm_tea/status/1355754279751938053
   - https://twitter.com/Ryuhei_Mori/status/1356074005447340035
   - https://twitter.com/noshi91/status/1356075579896811523
-  - https://ngtkana.hatenablog.com/entry/2021/04/25/135636
+  - https://atcoder.jp/contests/abc213/tasks/abc213_g
+  - https://twitter.com/tpyneriver/status/1425483346927177736
+  - https://twitter.com/_su1sen/status/1425871066916790281
+  - https://atcoder.jp/contests/abc213/submissions/24925408
+  - https://atcoder.jp/contests/abc213/submissions/24953805
 
 
 ## Verified

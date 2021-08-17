@@ -4,28 +4,28 @@
  */
 
 #pragma once
+#include <algorithm>
 #include <vector>
 
 template <typename T>
-std::vector<T> xor_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID = 0) {
-  auto fwht = [&](std::vector<T> v) -> std::vector<T> {
-    int n = v.size(), p = 1;
-    while ((1 << p) < n) ++p;
-    n = 1 << p;
-    v.resize(n, ID);
-    for (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {
-      if ((j & i) == 0) {
-        T tmp1 = v[j], tmp2 = v[j | i];
-        v[j] = tmp1 + tmp2;
-        v[j | i] = tmp1 - tmp2;
-      }
+std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {
+  int n = std::max(a.size(), b.size()), p = 1;
+  while ((1 << p) < n) ++p;
+  n = 1 << p;
+  a.resize(n, ID);
+  b.resize(n, ID);
+  auto fwht = [n](std::vector<T> &v) -> void {
+    for (int i = 1; i < n; i <<= 1) for (int s = 0; s < n; ++s) {
+      if (s & i) continue;
+      T tmp1 = v[s], tmp2 = v[s | i];
+      v[s] = tmp1 + tmp2;
+      v[s | i] = tmp1 - tmp2;
     }
-    return v;
   };
-  std::vector<T> fwht_a = fwht(a), fwht_b = fwht(b);
-  int n = fwht_a.size();
-  for (int i = 0; i < n; ++i) fwht_a[i] *= fwht_b[i];
-  std::vector<T> res = fwht(fwht_a);
-  for (int i = 0; i < n; ++i) res[i] /= n;
-  return res;
+  fwht(a);
+  fwht(b);
+  for (int i = 0; i < n; ++i) a[i] *= b[i];
+  fwht(a);
+  for (int i = 0; i < n; ++i) a[i] /= n;
+  return a;
 }

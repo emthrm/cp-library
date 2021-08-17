@@ -134,6 +134,14 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 - 多項式ハッシュ
   - https://yukicoder.me/wiki/polynomial_techniques
   - https://github.com/beet-aizu/library/blob/master/polynomial/hash.cpp
+- ディリクレ級数 (Dirichlet series)
+  - https://ja.wikipedia.org/wiki/%E3%83%87%E3%82%A3%E3%83%AA%E3%82%AF%E3%83%AC%E7%B4%9A%E6%95%B0
+  - https://maspypy.com/%e6%95%b0%e5%ad%a6-%e7%95%b3%e3%81%bf%e8%be%bc%e3%81%bf%e5%85%a5%e9%96%80%ef%bc%9adirichlet%e7%a9%8d%e3%81%a8%e3%82%bc%e3%83%bc%e3%82%bf%e5%a4%89%e6%8f%9b%e3%83%bb%e3%83%a1%e3%83%93%e3%82%a6
+  - https://maspypy.com/dirichlet-%e7%a9%8d%e3%81%a8%e3%80%81%e6%95%b0%e8%ab%96%e9%96%a2%e6%95%b0%e3%81%ae%e7%b4%af%e7%a9%8d%e5%92%8c
+  - https://twitter.com/cureskol/status/1377226831359701006
+  - https://yukicoder.me/problems/no/1532
+  - https://atcoder.jp/contests/arc116/submissions/21399687
+  - https://atcoder.jp/contests/abc020/submissions/21426601
 
 
 ## Verified

@@ -1,6 +1,6 @@
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
-$n$ の逆元と位数 $n$ の元が存在する剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
+剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
 
 特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ について
 

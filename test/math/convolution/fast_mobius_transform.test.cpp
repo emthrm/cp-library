@@ -27,7 +27,7 @@ int main() {
     long long l = 1;
     for (int j = 0; j < n; ++j) {
       if (i >> j & 1) {
-        long long g = std::__gcd(l, a[j]);
+        const long long g = std::__gcd(l, a[j]);
         l /= g;
         if (std::log10(l) + std::log10(a[j]) > 18) {
           l = m + 1;
@@ -38,12 +38,12 @@ int main() {
     }
     g[i] = m / l;
   }
-  std::vector<long long> f = fast_mobius_transform(g, false);
+  g = fast_mobius_transform(g, false);
   double ans = 0;
   for (int bit = 0; bit < (1 << n); ++bit) {
     double P = 1;
     for (int i = 0; i < n; ++i) P *= (bit >> i & 1 ? p[i] : 1 - p[i]);
-    ans += P * std::abs(f[bit]);
+    ans += P * std::abs(g[bit]);
   }
   std::cout << std::fixed << std::setprecision(8) << ans << '\n';
   return 0;
