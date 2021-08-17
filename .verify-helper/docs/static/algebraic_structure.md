@@ -21,10 +21,25 @@
 
   $a + b = b + a$
 
-を満たす, すなわち群演算が可換な $(G, +)$ である．
+を満たす，すなわち群演算が可換な $(G, +)$ である．
 
 
-### モノイド (単位的半群, monoid)
+### 帯 (band)
+
+二項演算 $\cdot$ が定義されている集合 $S$ について $\forall a, b, c \in G$ とおくと
+
+- 結合律
+
+  $(a \cdot b) \cdot c = a \cdot (b \cdot c)$
+
+- 冪等律
+
+  $a \cdot a = a$
+
+を満たす $(S, \cdot)$，すなわち冪等律を満たす半群である．
+
+
+### 単位的半群 (monoid)
 
 二項演算 $\cdot$ が定義されている集合 $G$ について
 
@@ -39,36 +54,6 @@
 を満たす $(S, \cdot, e)$ である．
 
 e.g. $(\mathbb{Z}, +, 0),\ (\mathbb{R}, \ast, 1)$
-
-
-### 半群 (semigroup)
-
-二項演算 $\cdot$ が定義されている集合 $S$ について
-
-- 結合律
-
-  $\forall a, b, c \in S,\ (a · b) · c = a · (b · c)$
-
-を満たす $(S, \cdot)$ である．
-
-
-### meet-semilattice
-
-二項演算 $\land$ が定義されている集合 $S$ について $\forall a, b, c \in S$ とおくと
-
-- associativity
-
-  $(a \land b) \land c = a \land (b \land c)$，
-
-- commutativity
-
-  $a \land b = b \land a$，
-
-- idempotency
-
-  $a \land a = a$
-
-を満たす $(S, \land)$ である．
 
 
 ### 半環 (semi-ring, rig)
@@ -90,23 +75,56 @@ $+$ (加法, 和) と $\cdot$ (乗法, 積) が定義されている集合 $R$ �
 e.g. $(\mathbb{N}, \oplus, \land, 0, \text{0xFFFF...})$
 
 
+### 半群 (semigroup)
+
+二項演算 $\cdot$ が定義されている集合 $S$ について
+
+- 結合律
+
+  $\forall a, b, c \in S,\ (a \cdot b) \cdot c = a \cdot (b \cdot c)$
+
+を満たす $(S, \cdot)$ である．
+
+
+### 交わり半束 (meet-semilattice)
+
+二項演算 $\land$ が定義されている集合 $S$ について $\forall a, b, c \in S$ とおくと
+
+- associativity
+
+  $(a \land b) \land c = a \land (b \land c)$，
+
+- commutativity
+
+  $a \land b = b \land a$，
+
+- idempotency
+
+  $a \land a = a$
+
+を満たす $(S, \land)$ である．
+
+
 ## 参考
 
 アーベル群
 - https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%83%99%E3%83%AB%E7%BE%A4
 
-モノイド
+帯
+- https://en.wikipedia.org/wiki/Band_(algebra)
+
+単位的半群
 - http://koba-e964.hatenablog.com/entry/2016/12/14/214132
 - https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8E%E3%82%A4%E3%83%89
 - http://beet-aizu.hatenablog.com/entry/2017/09/10/132258
 
-半群
-- https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4
-
-meet-semilattice
-- http://koba-e964.hatenablog.com/entry/2016/12/14/214132
-- https://en.wikipedia.org/wiki/Semilattice
-
 半環
 - https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%92%B0
 - https://www.slideshare.net/chokudai/abc009
+
+半群
+- https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4
+
+交わり半束
+- http://koba-e964.hatenablog.com/entry/2016/12/14/214132
+- https://en.wikipedia.org/wiki/Semilattice
