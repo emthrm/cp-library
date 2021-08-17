@@ -91,6 +91,10 @@ Dijkstra 法
   - https://dic.kimiyuki.net/dial
   - http://bin.t.u-tokyo.ac.jp/startup16/file/6-1.pdf
   - https://tjkendev.github.io/procon-library/python/graph/dial.html
+- shortest non-zero path in group-labeled graphs
+  - https://ygussany.hatenablog.com/entry/2019/12/04/000000
+  - https://gist.github.com/wata-orz/d3037bd0b919c76dd9ddc0379e1e3192
+  - https://yukicoder.me/problems/no/1602
 
 
 ## Verified

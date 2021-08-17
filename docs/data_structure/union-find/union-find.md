@@ -99,6 +99,7 @@ undo 可能 union-find
 - dynamic connectivity
   - https://en.wikipedia.org/wiki/Dynamic_connectivity
   - https://yukicoder.me/wiki/offline_dsp
+  - https://twitter.com/noshi91/status/1420179696965197824
   - https://ei1333.hateblo.jp/entry/2017/12/14/000000
   - https://ei1333.github.io/luzhiled/snippets/other/offline-dynamic-connectivity.html
   - https://github.com/beet-aizu/library/blob/master/datastructure/dynamicconnectivity.cpp
