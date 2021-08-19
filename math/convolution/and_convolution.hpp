@@ -10,7 +10,7 @@
 #include "fast_mobius_transform.hpp"
 
 template <typename T>
-std::vector<T> and_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID = 0) {
+std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {
   int n = std::max(a.size(), b.size());
   a.resize(n, ID);
   b.resize(n, ID);
