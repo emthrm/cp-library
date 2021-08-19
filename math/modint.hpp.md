@@ -69,7 +69,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/catalan_number.test.cpp
     title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/and_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"

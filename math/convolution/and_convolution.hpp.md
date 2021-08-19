@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/fast_mobius_transform.hpp
     title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/fast_zeta_transform.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/and_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -32,20 +32,19 @@ data:
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <algorithm>\r\n#include <vector>\r\n#include \"fast_zeta_transform.hpp\"\
     \r\n#include \"fast_mobius_transform.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ and_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID\
-    \ = 0) {\r\n  int n = std::max(a.size(), b.size());\r\n  a.resize(n, ID);\r\n\
-    \  b.resize(n, ID);\r\n  std::vector<T> fzt_a = fast_zeta_transform(a, true, ID),\
-    \ fzt_b = fast_zeta_transform(b, true, ID);\r\n  n = fzt_a.size();\r\n  for (int\
-    \ i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return fast_mobius_transform(fzt_a,\
-    \ true);\r\n}\r\n"
+    \ and_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {\r\n  int\
+    \ n = std::max(a.size(), b.size());\r\n  a.resize(n, ID);\r\n  b.resize(n, ID);\r\
+    \n  std::vector<T> fzt_a = fast_zeta_transform(a, true, ID), fzt_b = fast_zeta_transform(b,\
+    \ true, ID);\r\n  n = fzt_a.size();\r\n  for (int i = 0; i < n; ++i) fzt_a[i]\
+    \ *= fzt_b[i];\r\n  return fast_mobius_transform(fzt_a, true);\r\n}\r\n"
   dependsOn:
   - math/convolution/fast_zeta_transform.hpp
   - math/convolution/fast_mobius_transform.hpp
   isVerificationFile: false
   path: math/convolution/and_convolution.hpp
   requiredBy: []
-  timestamp: '2021-08-20 04:54:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-08-20 05:03:13+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp
 documentation_of: math/convolution/and_convolution.hpp

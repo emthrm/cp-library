@@ -371,16 +371,16 @@ data:
       title: segmented sieve
   - name: math/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/and_convolution.hpp
       title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':question:'
       path: math/convolution/fast_fourier_transform.hpp
       title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/fast_mobius_transform.hpp
       title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: math/convolution/fast_zeta_transform.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
     - icon: ':x:'
@@ -1125,7 +1125,7 @@ data:
       title: "\u6570\u5B66/\u6709\u7406\u6570"
   - name: test/math/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/and_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
