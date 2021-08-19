@@ -55,16 +55,13 @@ $O(N^2)$
   - https://lumakernel.github.io/ecasdqina/math/Monge
   - https://lumakernel.github.io/ecasdqina/dynamic-programming/speedup/Monotone-Minima
   - http://sigma425.hatenablog.com/entry/2015/12/01/162720
+  - https://docs.google.com/presentation/d/1cgPtVG4j4Ima6Exf_Kw1IdYVfmfDJSGwaEgOMgPkWHg/
 - SMAWK algorithm
   - https://en.wikipedia.org/wiki/SMAWK_algorithm
   - https://dic.kimiyuki.net/smawk-algorithm
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://drive.google.com/drive/folders/1FMOglXlDlyg6FJiP5QTJ0iSMq7XA2mqy
   - https://noshi91.github.io/Library/algorithm/smawk.cpp
-- オフライン・オンライン変換
-  - https://qiita.com/tmaehara/items/0687af2cfb807cde7860
-  - https://github.com/ei1333/library/blob/master/dp/online-offline-dp.cpp
-  - https://docs.google.com/presentation/d/1cgPtVG4j4Ima6Exf_Kw1IdYVfmfDJSGwaEgOMgPkWHg
 - divide and conquer
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://www.hamayanhamayan.com/entry/2017/03/20/234711
