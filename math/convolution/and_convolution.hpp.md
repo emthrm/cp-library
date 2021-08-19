@@ -33,10 +33,10 @@ data:
     \n#include <algorithm>\r\n#include <vector>\r\n#include \"fast_zeta_transform.hpp\"\
     \r\n#include \"fast_mobius_transform.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
     \ and_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID\
-    \ = 0) {\r\n  int n = std::max(fzt_a.size(), fzt_b.size());\r\n  a.resize(n, ID);\r\
-    \n  b.resize(n, ID);\r\n  std::vector<T> fzt_a = fast_zeta_transform(a, true,\
-    \ ID), fzt_b = fast_zeta_transform(b, true, ID);\r\n  n = fzt_a.size();\r\n  for\
-    \ (int i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return fast_mobius_transform(fzt_a,\
+    \ = 0) {\r\n  int n = std::max(a.size(), b.size());\r\n  a.resize(n, ID);\r\n\
+    \  b.resize(n, ID);\r\n  std::vector<T> fzt_a = fast_zeta_transform(a, true, ID),\
+    \ fzt_b = fast_zeta_transform(b, true, ID);\r\n  n = fzt_a.size();\r\n  for (int\
+    \ i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];\r\n  return fast_mobius_transform(fzt_a,\
     \ true);\r\n}\r\n"
   dependsOn:
   - math/convolution/fast_zeta_transform.hpp
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: math/convolution/and_convolution.hpp
   requiredBy: []
-  timestamp: '2021-08-18 00:31:23+09:00'
+  timestamp: '2021-08-20 04:54:09+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp
