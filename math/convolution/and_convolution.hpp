@@ -11,7 +11,7 @@
 
 template <typename T>
 std::vector<T> and_convolution(const std::vector<T> &a, const std::vector<T> &b, const T ID = 0) {
-  int n = std::max(fzt_a.size(), fzt_b.size());
+  int n = std::max(a.size(), b.size());
   a.resize(n, ID);
   b.resize(n, ID);
   std::vector<T> fzt_a = fast_zeta_transform(a, true, ID), fzt_b = fast_zeta_transform(b, true, ID);
