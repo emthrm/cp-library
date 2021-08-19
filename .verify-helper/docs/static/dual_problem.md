@@ -141,7 +141,7 @@ $$\min \begin{pmatrix} d_{(1, 2)} = 2 \\ d_{(2, 3)} = 1 \\ P = 3 \end{pmatrix}^{
 - http://tokoharuland.hateblo.jp/entry/2016/12/06/223614
 - https://www.slideshare.net/wata_orz/ss-91375739
 - http://beet-aizu.hatenablog.com/entry/2019/10/20/150649
-- プログラミングコンテストチャレンジブック \[第2版\] pp.223-224
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.223-224，マイナビ出版（2012）．
 - https://paper.dropbox.com/doc/YqGiA3I6bDbMWWWsUc1an
 - 最大フロー最小カット定理
   - http://hos.ac/slides/20150319_flow.pdf

@@ -105,7 +105,7 @@ documentation_of: geometry/geometry.hpp
 - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
 
 最近点対
-- プログラミングコンテストチャレンジブック \[第2版\] pp.324-326
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.324-326，マイナビ出版（2012）．
 
 接点
 - https://mathtrain.jp/ennosessen

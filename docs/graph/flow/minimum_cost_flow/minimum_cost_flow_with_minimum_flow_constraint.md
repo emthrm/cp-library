@@ -21,7 +21,7 @@ documentation_of: graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_fl
 
 ## 参考
 
-- プログラミングコンテストチャレンジブック \[第2版\] p.204
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.204，マイナビ出版（2012）．
 
 
 ## Verified

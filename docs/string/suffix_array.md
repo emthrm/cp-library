@@ -24,7 +24,7 @@ documentation_of: string/suffix_array.hpp
 ## 参考
 
 - https://github.com/beet-aizu/library/blob/2ecdc969043f5276c3782a7752592bd3fe856524/string/suffixarray.cpp
-- プログラミングコンテストチャレンジブック \[第2版\] pp.335-339
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.335-339，マイナビ出版（2012）．
 - http://wk1080id.hatenablog.com/entry/2018/12/25/005926
 
 

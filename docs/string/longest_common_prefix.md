@@ -26,7 +26,7 @@ documentation_of: string/longest_common_prefix.hpp
 ## 参考
 
 - https://github.com/beet-aizu/library/blob/8ca8433c2baf5ddd8efca091927475ad03caadce/string/longestcommonprefix.cpp
-- プログラミングコンテストチャレンジブック \[第2版\] pp.339-340
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.339-340，マイナビ出版（2012）．
 
 
 ## Verified
