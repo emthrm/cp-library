@@ -18,6 +18,6 @@ int main() {
     std::cin >> s >> t;
     graph[s].emplace_back(s, t);
   }
-  for (int ver : topological_sort(graph)) std::cout << ver << '\n';
+  for (const int ver : topological_sort(graph)) std::cout << ver << '\n';
   return 0;
 }

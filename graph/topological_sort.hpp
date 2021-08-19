@@ -5,7 +5,7 @@
 
 template <typename CostType>
 std::vector<int> topological_sort(const std::vector<std::vector<Edge<CostType>>> &graph) {
-  int n = graph.size();
+  const int n = graph.size();
   std::vector<int> deg(n, 0);
   for (int i = 0; i < n; ++i) {
     for (const Edge<CostType> &e : graph[i]) ++deg[e.dst];
@@ -16,7 +16,7 @@ std::vector<int> topological_sort(const std::vector<std::vector<Edge<CostType>>>
   }
   std::vector<int> res;
   while (!que.empty()) {
-    int ver = que.front(); que.pop();
+    const int ver = que.front(); que.pop();
     res.emplace_back(ver);
     for (const Edge<CostType> &e : graph[ver]) {
       if (--deg[e.dst] == 0) que.emplace(e.dst);
