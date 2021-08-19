@@ -23,10 +23,10 @@ data:
     document_title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\
       \u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/weighted_bipartite_matching.hpp: line 6: #pragma once found\
@@ -55,8 +55,8 @@ data:
   timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
   - test/math/bigint.01.test.cpp
+  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
 documentation_of: graph/flow/matching/weighted_bipartite_matching.hpp
 layout: document
 redirect_from:
@@ -169,7 +169,7 @@ title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927
 
 ## 参考
 
-- プログラミングコンテストチャレンジブック \[第2版\] pp.195-199
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）．
 
 性質3
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605
@@ -210,6 +210,7 @@ Hopcroft-Karp algorithm
 - 一般グラフの重み付き最大マッチング
   - https://min-25.hatenablog.com/entry/2016/11/21/222625
   - http://www.prefield.com/algorithm/graph/minimum_weight_matching.html
+  - https://judge.yosupo.jp/problem/general_weighted_matching
 - 木の最小辺被覆
   - https://twitter.com/Ymgch_K/status/964058288747831296
 - 最大独立集合
@@ -219,6 +220,12 @@ Hopcroft-Karp algorithm
   - https://github.com/ei1333/library/blob/master/graph/others/maximum-independent-set.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Graph/MaximumIndependentSet.cpp
   - https://judge.yosupo.jp/problem/maximum_independent_set
+- 木上の独立集合
+  - https://github.com/noshi91/blog/tree/master/codes/typical90/input
+  - https://atcoder.jp/contests/typical90/tasks/typical90_z
+  - https://twitter.com/noshi91/status/1387447778167513088
+  - https://twitter.com/noshi91/status/1387448827838353411
+  - https://twitter.com/noshi91/status/1387456359587729411
 - 二部グラフの最小頂点被覆
   - https://www.slideshare.net/drken1215/2-86838670
 - 最大クリーク

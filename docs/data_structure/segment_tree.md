@@ -101,6 +101,10 @@ $\langle O(N), O(\log{N}) \rangle$
     - https://www.slideshare.net/satashun/2013-25814388
     - https://qiita.com/nariaki3551/items/3c5e59b3ece31a4dfce8
     - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree
+  - range tree
+    - https://en.wikipedia.org/wiki/Range_tree
+    - https://kopricky.github.io/code/SegmentTrees/rangetree_pointupdate.html
+    - https://yukicoder.me/problems/no/1625
 - 永続セグメント木
   - https://scrapbox.io/data-structures/Persistent_Segment_Tree
   - https://scrapbox.io/data-structures/Persistent_Lazy_Segment_Tree

@@ -36,7 +36,7 @@ $$(m - 1)! \equiv -1 \pmod{m} \text{．}$$
   - https://ei1333.github.io/luzhiled/snippets/math/factorial.html
   - https://codeforces.com/blog/entry/68885
 - ある素数 $p$ について $n! = a p^e$ を満たす $a \bmod p$ を求める．
-  - プログラミングコンテストチャレンジブック \[第2版\] pp.262-263
+  - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.262-263，マイナビ出版（2012）．
 
 
 # 完備辞書

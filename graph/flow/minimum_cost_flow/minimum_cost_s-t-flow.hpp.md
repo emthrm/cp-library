@@ -38,10 +38,10 @@ data:
     document_title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\
       \u8DEF\u53CD\u5FA9\u6CD5\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp: line 6: #pragma once\
@@ -110,11 +110,11 @@ data:
   timestamp: '2021-04-20 01:59:26+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/bigint.01.test.cpp
+  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
-  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
-  - test/math/bigint.01.test.cpp
 documentation_of: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
 layout: document
 redirect_from:
@@ -170,7 +170,7 @@ title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u
 
 ## 参考
 
-- プログラミングコンテストチャレンジブック \[第2版\] pp.199-205
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.199-205，マイナビ出版（2012）．
 
 最小費用 $s$-$t$-フロー 最短路反復法版
 - http://sigma425.hatenablog.com/entry/2014/10/12/122018

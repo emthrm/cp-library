@@ -62,17 +62,17 @@ data:
   isVerificationFile: false
   path: util/xorshift.hpp
   requiredBy:
+  - math/mod_sqrt.hpp
   - graph/flow/matching/tutte_theorem.hpp
   - geometry/smallest_enclosing_circle.hpp
-  - math/mod_sqrt.hpp
   timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/mod_sqrt.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/is_primitive_root.test.cpp
   - test/graph/flow/matching/tutte_theorem.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp
-  - test/math/is_primitive_root.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/mod_sqrt.test.cpp
 documentation_of: util/xorshift.hpp
 layout: document
 title: xorshift

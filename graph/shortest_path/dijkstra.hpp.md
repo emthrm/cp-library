@@ -19,10 +19,10 @@ data:
     _deprecated_at_docs: docs/graph/shortest_path/sssp.md
     document_title: "Dijkstra \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/shortest_path/dijkstra.hpp: line 6: #pragma once found in a non-first\
@@ -157,6 +157,10 @@ Dijkstra 法
   - https://dic.kimiyuki.net/dial
   - http://bin.t.u-tokyo.ac.jp/startup16/file/6-1.pdf
   - https://tjkendev.github.io/procon-library/python/graph/dial.html
+- shortest non-zero path in group-labeled graphs
+  - https://ygussany.hatenablog.com/entry/2019/12/04/000000
+  - https://gist.github.com/wata-orz/d3037bd0b919c76dd9ddc0379e1e3192
+  - https://yukicoder.me/problems/no/1602
 
 
 ## Verified

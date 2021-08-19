@@ -22,7 +22,7 @@ $A + B = (A \oplus B) + 2(A \wedge B)$ が成り立つ．
 
 $n \leq 10^9$ を満たす自然数 $n$ の約数の個数の最大値は $800$ 程度である．
 
-> プログラミングコンテストチャレンジブック \[第2版\] p.267
+> 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.267，マイナビ出版（2012）．
 
 ---
 
@@ -44,3 +44,9 @@ $$\begin{aligned} f_2 \circ f_1(x) &= \min(\max(\min(\max(x + a_1, b_1), c_1) + 
 が成り立つ．ただし $A \mathrel{:=} a_1 + a_2,\ B \mathrel{:=} \max(b_1 + a_2, b_2),\ C \mathrel{:=} \min(\max(c_1 + a_2, b_2), c_2)$ である．
 
 > https://atcoder.jp/contests/abc196/editorial/948
+
+---
+
+$x > 0$ ならば `std::sqrt(x * x) == x` が成り立つ．
+
+> https://fixedpoint.jp/2016/03/18/sqrt-of-square-of-fp-number.html

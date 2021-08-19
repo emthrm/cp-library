@@ -18,6 +18,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/set_managed_by_interval.hpp
       title: "std::set \u3092\u533A\u9593\u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
+    - icon: ':x:'
+      path: data_structure/slope_trick.hpp
+      title: slope trick
     - icon: ':heavy_check_mark:'
       path: data_structure/sparse_table.hpp
       title: sparse table
@@ -56,12 +59,16 @@ data:
       path: dynamic_programming/2d_longest_increasing_subsequence.hpp
       title: "2\u6B21\u5143\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     - icon: ':x:'
+      path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
+      title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
+        \u63DB"
+    - icon: ':x:'
       path: dynamic_programming/convex_hull_trick.hpp
       title: convex hull trick
     - icon: ':x:'
       path: dynamic_programming/cumulative_sum.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dynamic_programming/knuth_yao_speedup.hpp
       title: Knuth-Yao speedup
     - icon: ':heavy_check_mark:'
@@ -168,6 +175,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/prim.hpp
       title: "Prim \u6CD5"
+    - icon: ':x:'
+      path: graph/reachability_on_dag.hpp
+      title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054\
+        \u53EF\u80FD\u6027\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
       path: graph/strongly_connected_components.hpp
       title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\
@@ -360,16 +371,16 @@ data:
       title: segmented sieve
   - name: math/convolution
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/convolution/and_convolution.hpp
       title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':question:'
       path: math/convolution/fast_fourier_transform.hpp
       title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/convolution/fast_mobius_transform.hpp
       title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-    - icon: ':question:'
+    - icon: ':x:'
       path: math/convolution/fast_zeta_transform.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
     - icon: ':x:'
@@ -378,7 +389,7 @@ data:
     - icon: ':question:'
       path: math/convolution/mod_convolution.hpp
       title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: math/convolution/number_theoretic_transform.hpp
       title: "\u6570\u8AD6\u5909\u63DB"
     - icon: ':warning:'
@@ -637,6 +648,9 @@ data:
       path: test/data_structure/set_managed_by_interval.test.cpp
       title: "\u305D\u306E\u4ED6/std::set \u3092\u533A\u9593\u3067\u7BA1\u7406\u3059\
         \u308B\u3084\u3064"
+    - icon: ':x:'
+      path: test/data_structure/slope_trick.test.cpp
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/slope trick"
     - icon: ':heavy_check_mark:'
       path: test/data_structure/sparse_table.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
@@ -678,6 +692,10 @@ data:
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u6700\u9577\u5897\u52A0\
         \u90E8\u5206\u5217"
     - icon: ':x:'
+      path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
+        \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
+    - icon: ':x:'
       path: test/dynamic_programming/convex_hull_trick.1.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (query(x))"
     - icon: ':x:'
@@ -689,7 +707,7 @@ data:
     - icon: ':x:'
       path: test/dynamic_programming/cumulative_sum.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/dynamic_programming/knuth_yao_speedup.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
     - icon: ':heavy_check_mark:'
@@ -883,6 +901,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/prim.test.cpp
       title: "\u30B0\u30E9\u30D5/Prim \u6CD5"
+    - icon: ':x:'
+      path: test/graph/reachability_on_dag.test.cpp
+      title: "\u30B0\u30E9\u30D5/\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\
+        \u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
       path: test/graph/strongly_connected_components.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
@@ -1103,7 +1125,7 @@ data:
       title: "\u6570\u5B66/\u6709\u7406\u6570"
   - name: test/math/convolution
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/convolution/and_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"

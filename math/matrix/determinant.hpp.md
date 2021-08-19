@@ -81,8 +81,8 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/matrix_tree_theorem.test.cpp
   - test/math/matrix/determinant.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: math/matrix/determinant.hpp
 layout: document
 title: "\u884C\u5217\u5F0F (determinant)"

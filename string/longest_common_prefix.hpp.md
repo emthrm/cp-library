@@ -48,32 +48,31 @@ data:
     \     if (!finished) (s_idx == s_sz && t_idx < t_sz ? lb : ub) = mid;\r\n    }\r\
     \n    return ub;\r\n  }\r\n};\r\n#line 3 \"data_structure/sparse_table.hpp\"\n\
     #include <functional>\r\n#line 5 \"data_structure/sparse_table.hpp\"\n\r\ntemplate\
-    \ <typename MeetSemilattice>\r\nstruct SparseTable {\r\n  using Fn = std::function<MeetSemilattice(MeetSemilattice,\
-    \ MeetSemilattice)>;\r\n\r\n  SparseTable() {}\r\n\r\n  SparseTable(const std::vector<MeetSemilattice>\
-    \ &a, Fn fn) { init(a, fn); }\r\n\r\n  void init(const std::vector<MeetSemilattice>\
-    \ &a, Fn fn_) {\r\n    is_built = true;\r\n    fn = fn_;\r\n    int n = a.size(),\
-    \ table_h = 0;\r\n    lg.assign(n + 1, 0);\r\n    for (int i = 2; i <= n; ++i)\
-    \ lg[i] = lg[i >> 1] + 1;\r\n    while ((1 << table_h) <= n) ++table_h;\r\n  \
-    \  dat.assign(table_h, std::vector<MeetSemilattice>(n));\r\n    for (int j = 0;\
-    \ j < n; ++j) dat[0][j] = a[j];\r\n    for (int i = 1; i < table_h; ++i) for (int\
-    \ j = 0; j + (1 << i) <= n; ++j) {\r\n      dat[i][j] = fn(dat[i - 1][j], dat[i\
-    \ - 1][j + (1 << (i - 1))]);\r\n    }\r\n  }\r\n\r\n  MeetSemilattice query(int\
-    \ left, int right) const {\r\n    assert(is_built && left < right);\r\n    int\
-    \ h = lg[right - left];\r\n    return fn(dat[h][left], dat[h][right - (1 << h)]);\r\
-    \n  }\r\n\r\nprivate:\r\n  bool is_built = false;\r\n  Fn fn;\r\n  std::vector<int>\
-    \ lg;\r\n  std::vector<std::vector<MeetSemilattice>> dat;\r\n};\r\n#line 9 \"\
-    string/longest_common_prefix.hpp\"\n\r\ntemplate <typename T = std::string>\r\n\
-    struct LongestCommonPrefix : SuffixArray<T> {\r\n  std::vector<int> lcp_array;\r\
-    \n\r\n  LongestCommonPrefix(const T &s) : SuffixArray<T>(s) {\r\n    int n = s.size();\r\
-    \n    lcp_array.resize(n);\r\n    int common = 0;\r\n    for (int i = 0; i < n;\
-    \ ++i) {\r\n      int j = this->sa[this->rank[i] - 1];\r\n      if (common > 0)\
-    \ --common;\r\n      for (; i + common < n && j + common < n; ++common) {\r\n\
-    \        if (s[i + common] != s[j + common]) break;\r\n      }\r\n      lcp_array[this->rank[i]\
-    \ - 1] = common;\r\n    }\r\n    st.init(lcp_array, [](int a, int b) -> int {\
-    \ return std::min(a, b); });\r\n  }\r\n\r\n  int query(int i, int j) const {\r\
-    \n    assert(i != j);\r\n    i = this->rank[i];\r\n    j = this->rank[j];\r\n\
-    \    if (i > j) std::swap(i, j);\r\n    return st.query(i, j);\r\n  }\r\n\r\n\
-    private:\r\n  SparseTable<int> st;\r\n};\r\n"
+    \ <typename Band>\r\nstruct SparseTable {\r\n  using Fn = std::function<Band(Band,\
+    \ Band)>;\r\n\r\n  SparseTable() {}\r\n\r\n  SparseTable(const std::vector<Band>\
+    \ &a, Fn fn) { init(a, fn); }\r\n\r\n  void init(const std::vector<Band> &a, Fn\
+    \ fn_) {\r\n    is_built = true;\r\n    fn = fn_;\r\n    int n = a.size(), table_h\
+    \ = 0;\r\n    lg.assign(n + 1, 0);\r\n    for (int i = 2; i <= n; ++i) lg[i] =\
+    \ lg[i >> 1] + 1;\r\n    while ((1 << table_h) <= n) ++table_h;\r\n    dat.assign(table_h,\
+    \ std::vector<Band>(n));\r\n    for (int j = 0; j < n; ++j) dat[0][j] = a[j];\r\
+    \n    for (int i = 1; i < table_h; ++i) for (int j = 0; j + (1 << i) <= n; ++j)\
+    \ {\r\n      dat[i][j] = fn(dat[i - 1][j], dat[i - 1][j + (1 << (i - 1))]);\r\n\
+    \    }\r\n  }\r\n\r\n  Band query(int left, int right) const {\r\n    assert(is_built\
+    \ && left < right);\r\n    int h = lg[right - left];\r\n    return fn(dat[h][left],\
+    \ dat[h][right - (1 << h)]);\r\n  }\r\n\r\nprivate:\r\n  bool is_built = false;\r\
+    \n  Fn fn;\r\n  std::vector<int> lg;\r\n  std::vector<std::vector<Band>> dat;\r\
+    \n};\r\n#line 9 \"string/longest_common_prefix.hpp\"\n\r\ntemplate <typename T\
+    \ = std::string>\r\nstruct LongestCommonPrefix : SuffixArray<T> {\r\n  std::vector<int>\
+    \ lcp_array;\r\n\r\n  LongestCommonPrefix(const T &s) : SuffixArray<T>(s) {\r\n\
+    \    int n = s.size();\r\n    lcp_array.resize(n);\r\n    int common = 0;\r\n\
+    \    for (int i = 0; i < n; ++i) {\r\n      int j = this->sa[this->rank[i] - 1];\r\
+    \n      if (common > 0) --common;\r\n      for (; i + common < n && j + common\
+    \ < n; ++common) {\r\n        if (s[i + common] != s[j + common]) break;\r\n \
+    \     }\r\n      lcp_array[this->rank[i] - 1] = common;\r\n    }\r\n    st.init(lcp_array,\
+    \ [](int a, int b) -> int { return std::min(a, b); });\r\n  }\r\n\r\n  int query(int\
+    \ i, int j) const {\r\n    assert(i != j);\r\n    i = this->rank[i];\r\n    j\
+    \ = this->rank[j];\r\n    if (i > j) std::swap(i, j);\r\n    return st.query(i,\
+    \ j);\r\n  }\r\n\r\nprivate:\r\n  SparseTable<int> st;\r\n};\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <string>\r\
     \n#include <utility>\r\n#include <vector>\r\n#include \"suffix_array.hpp\"\r\n\
     #include \"../data_structure/sparse_table.hpp\"\r\n\r\ntemplate <typename T =\
@@ -94,7 +93,7 @@ data:
   isVerificationFile: false
   path: string/longest_common_prefix.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-08-17 16:32:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/longest_common_prefix.test.cpp
@@ -126,7 +125,7 @@ title: longest common prefix
 ## 参考
 
 - https://github.com/beet-aizu/library/blob/8ca8433c2baf5ddd8efca091927475ad03caadce/string/longestcommonprefix.cpp
-- プログラミングコンテストチャレンジブック \[第2版\] pp.339-340
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.339-340，マイナビ出版（2012）．
 
 
 ## Verified

@@ -52,19 +52,19 @@ data:
   isVerificationFile: false
   path: math/mod_pow.hpp
   requiredBy:
-  - math/mod_log.hpp
-  - math/mod_sqrt.hpp
   - math/enumerate_k-th_power.hpp
   - math/is_primitive_root.hpp
+  - math/mod_log.hpp
+  - math/mod_sqrt.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/is_primitive_root.test.cpp
-  - test/math/mod_pow.test.cpp
-  - test/math/mod_log.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
+  - test/math/mod_log.test.cpp
+  - test/math/mod_pow.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
+  - test/math/is_primitive_root.test.cpp
 documentation_of: math/mod_pow.hpp
 layout: document
 title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 (\u4E8C\u5206\u7D2F\u4E57\u6CD5\
@@ -88,7 +88,7 @@ $O(\log{N})$
 
 ## 参考
 
-- プログラミングコンテストチャレンジブック \[第2版\] pp.114-116
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.114-116，マイナビ出版（2012）．
 
 
 ## Verified

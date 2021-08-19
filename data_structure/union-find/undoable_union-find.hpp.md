@@ -13,10 +13,10 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "undo \u53EF\u80FD union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/undoable_union-find.hpp: line 6: #pragma once found\
@@ -152,6 +152,7 @@ undo 可能 union-find
 - dynamic connectivity
   - https://en.wikipedia.org/wiki/Dynamic_connectivity
   - https://yukicoder.me/wiki/offline_dsp
+  - https://twitter.com/noshi91/status/1420179696965197824
   - https://ei1333.hateblo.jp/entry/2017/12/14/000000
   - https://ei1333.github.io/luzhiled/snippets/other/offline-dynamic-connectivity.html
   - https://github.com/beet-aizu/library/blob/master/datastructure/dynamicconnectivity.cpp

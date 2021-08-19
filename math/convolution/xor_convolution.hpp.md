@@ -14,32 +14,30 @@ data:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/xor_convolution.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T> xor_convolution(const\
-    \ std::vector<T> &a, const std::vector<T> &b, const T ID = 0) {\r\n  auto fwht\
-    \ = [&](std::vector<T> v) -> std::vector<T> {\r\n    int n = v.size(), p = 1;\r\
-    \n    while ((1 << p) < n) ++p;\r\n    n = 1 << p;\r\n    v.resize(n, ID);\r\n\
-    \    for (int i = 1; i < n; i <<= 1) for (int j = 0; j < n; ++j) {\r\n      if\
-    \ ((j & i) == 0) {\r\n        T tmp1 = v[j], tmp2 = v[j | i];\r\n        v[j]\
-    \ = tmp1 + tmp2;\r\n        v[j | i] = tmp1 - tmp2;\r\n      }\r\n    }\r\n  \
-    \  return v;\r\n  };\r\n  std::vector<T> fwht_a = fwht(a), fwht_b = fwht(b);\r\
-    \n  int n = fwht_a.size();\r\n  for (int i = 0; i < n; ++i) fwht_a[i] *= fwht_b[i];\r\
-    \n  std::vector<T> res = fwht(fwht_a);\r\n  for (int i = 0; i < n; ++i) res[i]\
-    \ /= n;\r\n  return res;\r\n}\r\n"
+    \n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
+    \ xor_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {\r\n  int\
+    \ n = std::max(a.size(), b.size()), p = 1;\r\n  while ((1 << p) < n) ++p;\r\n\
+    \  n = 1 << p;\r\n  a.resize(n, ID);\r\n  b.resize(n, ID);\r\n  auto fwht = [n](std::vector<T>\
+    \ &v) -> void {\r\n    for (int i = 1; i < n; i <<= 1) for (int s = 0; s < n;\
+    \ ++s) {\r\n      if (s & i) continue;\r\n      T tmp1 = v[s], tmp2 = v[s | i];\r\
+    \n      v[s] = tmp1 + tmp2;\r\n      v[s | i] = tmp1 - tmp2;\r\n    }\r\n  };\r\
+    \n  fwht(a);\r\n  fwht(b);\r\n  for (int i = 0; i < n; ++i) a[i] *= b[i];\r\n\
+    \  fwht(a);\r\n  for (int i = 0; i < n; ++i) a[i] /= n;\r\n  return a;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/xor_convolution.hpp
   requiredBy: []
-  timestamp: '2021-02-13 04:45:32+09:00'
+  timestamp: '2021-08-18 00:31:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/xor_convolution.test.cpp
@@ -103,13 +101,18 @@ $O(N\log{N})$
 
 ## 参考
 
+- https://leaf1415.hatenablog.com/entry/2021/08/04/125751
 - https://codeforces.com/blog/entry/48417
-- https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 - http://kazuma8128.hatenablog.com/entry/2018/05/31/144519
 - https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
 
+高速ウォルシュ・アダマール変換
+- https://cympfh.cc/aiura/hadamard-xor-convolution
+- https://twitter.com/maspy_stars/status/1350467886775603200
+
 添え字 gcd での畳み込み
   - https://noshi91.hatenablog.com/entry/2019/09/23/002445
+  - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 
 
 ## ToDo
@@ -123,15 +126,21 @@ $O(N\log{N})$
   - https://judge.yosupo.jp/problem/subset_convolution
   - https://twitter.com/noshi91/status/1315347967990140928
   - https://twitter.com/noshi91/status/1315504267927584768
-  - https://twitter.com/beet_aizu/status/1339049679728779264
+  - ~~https://twitter.com/beet_aizu/status/1339049679728779264~~
   - https://twitter.com/noshi91/status/1339077655715430401
+  - https://ngtkana.hatenablog.com/entry/2021/04/25/135636
   - https://atcoder.jp/contests/xmascon20/tasks/xmascon20_h
+  - https://hos-lyric.hatenablog.com/entry/2021/01/14/201231
   - https://twitter.com/heno_code/status/1342124587849400320
   - https://twitter.com/tpyneriver/status/1356095139035242497
   - https://twitter.com/gmm_tea/status/1355754279751938053
   - https://twitter.com/Ryuhei_Mori/status/1356074005447340035
   - https://twitter.com/noshi91/status/1356075579896811523
-  - https://ngtkana.hatenablog.com/entry/2021/04/25/135636
+  - https://atcoder.jp/contests/abc213/tasks/abc213_g
+  - https://twitter.com/tpyneriver/status/1425483346927177736
+  - https://twitter.com/_su1sen/status/1425871066916790281
+  - https://atcoder.jp/contests/abc213/submissions/24925408
+  - https://atcoder.jp/contests/abc213/submissions/24953805
 
 
 ## Verified

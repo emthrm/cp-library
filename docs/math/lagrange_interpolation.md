@@ -5,7 +5,7 @@ $x_i \neq x_j \ (1 \leq i < j \leq N)$ を満たす $(x_i, y_i)$ について $f
 
 ### ラグランジュの補間多項式 (interpolation polynomial in the Lagrange form)
 
-$$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \sum_{i = 1}^N \dfrac{f(x_i)}{g^{\prime}(x_i)} \prod_{j \neq i} (x - x_j) \text{ where } g(x) = \prod_{i = 1}^N (x - x_i). \\ \left( \because g^{\prime}(x) = \sum_{i = 1}^N \prod_{j \neq i} (x - x_j) \text{ より } g^{\prime}(x_i) = \prod_{j \neq i} (x - x_j)\text{．}\right)$$
+$$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \sum_{i = 1}^N \dfrac{f(x_i)}{g^{\prime}(x_i)} \prod_{j \neq i} (x - x_j) \text{ where } g(x) = \prod_{i = 1}^N (x - x_i). \\ \left( \because g^{\prime}(x) = \sum_{i = 1}^N \prod_{j \neq i} (x - x_j) \text{ より } g^{\prime}(x_i) = \prod_{j \neq i} (x_i - x_j)\text{．}\right)$$
 
 
 ## 時間計算量
@@ -56,6 +56,10 @@ $$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \su
 - ニュートン補間 (Newtonian interpolation)
   - https://ja.wikipedia.org/wiki/%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E8%A3%9C%E9%96%93
   - https://twitter.com/noshi91/status/1160191749416898560
+- shift of sampling points of polynomial
+  - https://ei1333.hateblo.jp/entry/2021/07/08/221742
+  - https://hly1204.github.io/library/math/formal_power_series/sample_points_shift.hpp
+  - https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
 
 
 ## Verified

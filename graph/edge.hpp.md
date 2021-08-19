@@ -52,6 +52,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/prim.hpp
     title: "Prim \u6CD5"
+  - icon: ':x:'
+    path: graph/reachability_on_dag.hpp
+    title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054\
+      \u53EF\u80FD\u6027\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: graph/shortest_path/bellman-ford.hpp
     title: "Bellman-Ford \u6CD5"
@@ -155,6 +159,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/prim.test.cpp
     title: "\u30B0\u30E9\u30D5/Prim \u6CD5"
+  - icon: ':x:'
+    path: test/graph/reachability_on_dag.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\
+      \u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/bellman-ford.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford \u6CD5"
@@ -207,10 +215,10 @@ data:
   attributes:
     document_title: "\u8FBA"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.5/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
@@ -226,69 +234,71 @@ data:
   isVerificationFile: false
   path: graph/edge.hpp
   requiredBy:
-  - graph/biconnected_component.hpp
-  - graph/prim.hpp
-  - graph/lowlink.hpp
-  - graph/eulerian_trail_in_directed_graph.hpp
-  - graph/traveling_salesman_problem.hpp
-  - graph/kruskal.hpp
-  - graph/girth_in_directed_graph.hpp
-  - graph/unicyclic_graph.hpp
-  - graph/strongly_connected_components.hpp
-  - graph/detect_directed_cycle.hpp
-  - graph/chromatic_number.hpp
-  - graph/topological_sort.hpp
-  - graph/girth_in_undirected_graph.hpp
-  - graph/detect_bridge.hpp
-  - graph/is_bipartite.hpp
-  - graph/2-edge-connected_components_lowlink.hpp
   - graph/connencted_component_of_complement_graph.hpp
-  - graph/tree/heavy-light_decomposition.hpp
-  - graph/tree/centroid.hpp
-  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
+  - graph/prim.hpp
+  - graph/reachability_on_dag.hpp
+  - graph/girth_in_undirected_graph.hpp
+  - graph/2-edge-connected_components_imos.hpp
+  - graph/noshi_graph.hpp
   - graph/tree/euler_tour.hpp
+  - graph/tree/centroid.hpp
+  - graph/tree/heavy-light_decomposition.hpp
+  - graph/tree/double_sweep.hpp
   - graph/tree/centroid_decomposition.hpp
   - graph/tree/lowest_common_ancestor_by_doubling.hpp
-  - graph/tree/double_sweep.hpp
-  - graph/2-edge-connected_components_imos.hpp
-  - graph/matrix_tree_theorem.hpp
-  - graph/noshi_graph.hpp
-  - graph/shortest_path/bellman-ford.hpp
+  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
+  - graph/strongly_connected_components.hpp
+  - graph/girth_in_directed_graph.hpp
+  - graph/detect_directed_cycle.hpp
+  - graph/traveling_salesman_problem.hpp
+  - graph/unicyclic_graph.hpp
+  - graph/eulerian_trail_in_directed_graph.hpp
+  - graph/detect_bridge.hpp
+  - graph/chromatic_number.hpp
+  - graph/topological_sort.hpp
+  - graph/lowlink.hpp
+  - graph/biconnected_component.hpp
+  - graph/2-edge-connected_components_lowlink.hpp
+  - graph/kruskal.hpp
+  - graph/is_bipartite.hpp
   - graph/shortest_path/dijkstra.hpp
+  - graph/shortest_path/bellman-ford.hpp
+  - graph/matrix_tree_theorem.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/eulerian_trail_in_directed_graph.test.cpp
-  - test/graph/strongly_connected_components.test.cpp
-  - test/graph/lowlink.1.test.cpp
-  - test/graph/is_bipartite.test.cpp
-  - test/graph/noshi_graph.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
-  - test/graph/detect_bridge.test.cpp
-  - test/graph/chromatic_number.test.cpp
+  - test/math/basis.test.cpp
   - test/graph/prim.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
-  - test/graph/biconnected_component.test.cpp
-  - test/graph/2-edge-connected_components_lowlink.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
-  - test/graph/traveling_salesman_problem.test.cpp
-  - test/graph/detect_directed_cycle.test.cpp
-  - test/graph/2-edge-connected_components_imos.test.cpp
+  - test/graph/kruskal.test.cpp
+  - test/graph/reachability_on_dag.test.cpp
   - test/graph/topological_sort.test.cpp
+  - test/graph/strongly_connected_components.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/graph/2-edge-connected_components_lowlink.test.cpp
+  - test/graph/eulerian_trail_in_directed_graph.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
   - test/graph/unicyclic_graph.test.cpp
-  - test/graph/girth.test.cpp
+  - test/graph/is_bipartite.test.cpp
+  - test/graph/tree/heavy-light_decomposition.2.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/graph/tree/centroid_decomposition.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
-  - test/graph/tree/heavy-light_decomposition.2.test.cpp
   - test/graph/tree/double_sweep.test.cpp
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/graph/tree/centroid.test.cpp
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
+  - test/graph/detect_directed_cycle.test.cpp
+  - test/graph/girth.test.cpp
+  - test/graph/biconnected_component.test.cpp
+  - test/graph/detect_bridge.test.cpp
   - test/graph/lowlink.2.test.cpp
-  - test/graph/shortest_path/dijkstra.test.cpp
+  - test/graph/chromatic_number.test.cpp
+  - test/graph/traveling_salesman_problem.test.cpp
+  - test/graph/lowlink.1.test.cpp
+  - test/graph/noshi_graph.test.cpp
+  - test/graph/2-edge-connected_components_imos.test.cpp
   - test/graph/shortest_path/bellman-ford.test.cpp
-  - test/graph/kruskal.test.cpp
-  - test/math/basis.test.cpp
+  - test/graph/shortest_path/dijkstra.test.cpp
   - test/data_structure/union-find/undoable_union-find.test.cpp
 documentation_of: graph/edge.hpp
 layout: document

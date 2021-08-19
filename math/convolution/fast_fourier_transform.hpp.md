@@ -43,50 +43,48 @@ data:
     \ * r, im * r); }\r\n  inline Complex mul_pin(Real r) const { return Complex(-im\
     \ * r, re * r); }\r\n  inline Complex conj() const { return Complex(re, -im);\
     \ }\r\n};\r\n\r\nstd::vector<int> butterfly{0};\r\nstd::vector<std::vector<Complex>>\
-    \ zeta{{{1, 0}}};\r\n\r\nvoid init(int n) {\r\n  int prev_n = butterfly.size();\r\
-    \n  if (n <= prev_n) return;\r\n  butterfly.resize(n);\r\n  int prev_lg = zeta.size(),\
+    \ zeta{{{1, 0}}};\r\n\r\nvoid init(int n) {\r\n  const int prev_n = butterfly.size();\r\
+    \n  if (n <= prev_n) return;\r\n  butterfly.resize(n);\r\n  const int prev = zeta.size(),\
     \ lg = __builtin_ctz(n);\r\n  for (int i = 1; i < prev_n; ++i) butterfly[i] <<=\
-    \ lg - prev_lg;\r\n  for (int i = prev_n; i < n; ++i) butterfly[i] = (butterfly[i\
+    \ lg - prev;\r\n  for (int i = prev_n; i < n; ++i) butterfly[i] = (butterfly[i\
     \ >> 1] >> 1) | ((i & 1) << (lg - 1));\r\n  zeta.resize(lg);\r\n  for (int i =\
-    \ prev_lg; i < lg; ++i) {\r\n    zeta[i].resize(1 << i);\r\n    Real angle = -3.14159265358979323846\
+    \ prev; i < lg; ++i) {\r\n    zeta[i].resize(1 << i);\r\n    Real angle = -3.14159265358979323846\
     \ * 2 / (1 << (i + 1));\r\n    for (int j = 0; j < (1 << (i - 1)); ++j) {\r\n\
     \      zeta[i][j << 1] = zeta[i - 1][j];\r\n      Real theta = angle * ((j <<\
     \ 1) + 1);\r\n      zeta[i][(j << 1) + 1] = {std::cos(theta), std::sin(theta)};\r\
-    \n    }\r\n  }\r\n}\r\n\r\nvoid dft(std::vector<Complex> &a) {\r\n  int n = a.size();\r\
-    \n  assert(__builtin_popcount(n) == 1);\r\n  init(n);\r\n  int shift = __builtin_ctz(butterfly.size())\
-    \ - __builtin_ctz(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    int j = butterfly[i]\
-    \ >> shift;\r\n    if (i < j) std::swap(a[i], a[j]);\r\n  }\r\n  for (int block\
-    \ = 1; block < n; block <<= 1) {\r\n    int den = __builtin_ctz(block);\r\n  \
-    \  for (int i = 0; i < n; i += (block << 1)) for (int j = 0; j < block; ++j) {\r\
-    \n      Complex tmp = a[i + j + block] * zeta[den][j];\r\n      a[i + j + block]\
-    \ = a[i + j] - tmp;\r\n      a[i + j] = a[i + j] + tmp;\r\n    }\r\n  }\r\n}\r\
-    \n\r\ntemplate <typename T>\r\nstd::vector<Complex> real_dft(const std::vector<T>\
-    \ &a) {\r\n  int sz = a.size(), lg = 1;\r\n  while ((1 << lg) < sz) ++lg;\r\n\
-    \  std::vector<Complex> c(1 << lg);\r\n  for (int i = 0; i < sz; ++i) c[i].re\
-    \ = a[i];\r\n  dft(c);\r\n  return c;\r\n}\r\n\r\nstd::vector<Real> idft_to_real(std::vector<Complex>\
-    \ &a) {\r\n  int n = a.size(), half = n >> 1, quarter = half >> 1;\r\n  assert(__builtin_popcount(n)\
-    \ == 1);\r\n  init(n);\r\n  a[0] = (a[0] + a[half] + (a[0] - a[half]).mul_pin(1)).mul_real(0.5);\r\
-    \n  int den = __builtin_ctz(half);\r\n  for (int i = 1; i < quarter; ++i) {\r\n\
-    \    int j = half - i;\r\n    Complex tmp1 = a[i] + a[j].conj(), tmp2 = ((a[i]\
-    \ - a[j].conj()) * zeta[den][j]).mul_pin(1);\r\n    a[i] = (tmp1 - tmp2).mul_real(0.5);\r\
-    \n    a[j] = (tmp1 + tmp2).mul_real(0.5).conj();\r\n  }\r\n  if (quarter > 0)\
-    \ a[quarter] = a[quarter].conj();\r\n  a.resize(half);\r\n  dft(a);\r\n  std::reverse(a.begin()\
-    \ + 1, a.end());\r\n  Real r = 1.0 / half;\r\n  std::vector<Real> res(n);\r\n\
-    \  for (int i = 0; i < n; ++i) res[i] = (i & 1 ? a[i >> 1].im : a[i >> 1].re)\
-    \ * r;\r\n  return res;\r\n}\r\n\r\nvoid idft(std::vector<Complex> &a) {\r\n \
-    \ int n = a.size();\r\n  dft(a);\r\n  std::reverse(a.begin() + 1, a.end());\r\n\
-    \  Real r = 1.0 / n;\r\n  for (int i = 0; i < n; ++i) a[i] = a[i].mul_real(r);\r\
-    \n}\r\n\r\ntemplate <typename T>\r\nstd::vector<Real> convolution(const std::vector<T>\
-    \ &a, const std::vector<T> &b) {\r\n  int a_sz = a.size(), b_sz = b.size(), sz\
-    \ = a_sz + b_sz - 1, lg = 1;\r\n  while ((1 << lg) < sz) ++lg;\r\n  int n = 1\
-    \ << lg;\r\n  std::vector<Complex> c(n);\r\n  for (int i = 0; i < a_sz; ++i) c[i].re\
-    \ = a[i];\r\n  for (int i = 0; i < b_sz; ++i) c[i].im = b[i];\r\n  dft(c);\r\n\
-    \  c[0] = Complex(c[0].re * c[0].im, 0);\r\n  int half = n >> 1;\r\n  for (int\
-    \ i = 1; i < half; ++i) {\r\n    Complex i_square = c[i] * c[i], j_square = c[n\
-    \ - i] * c[n - i];\r\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\r\
-    \n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\n  }\r\n  c[half]\
-    \ = Complex(c[half].re * c[half].im, 0);\r\n  std::vector<Real> res = idft_to_real(c);\r\
-    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fast_fourier_transform\r\n"
+    \n    }\r\n  }\r\n}\r\n\r\nvoid dft(std::vector<Complex> &a) {\r\n  const int\
+    \ n = a.size();\r\n  assert(__builtin_popcount(n) == 1);\r\n  init(n);\r\n  const\
+    \ int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);\r\n  for (int\
+    \ i = 0; i < n; ++i) {\r\n    const int j = butterfly[i] >> shift;\r\n    if (i\
+    \ < j) std::swap(a[i], a[j]);\r\n  }\r\n  for (int block = 1, den = 0; block <\
+    \ n; block <<= 1, ++den) {\r\n    for (int i = 0; i < n; i += (block << 1)) for\
+    \ (int j = 0; j < block; ++j) {\r\n      Complex tmp = a[i + j + block] * zeta[den][j];\r\
+    \n      a[i + j + block] = a[i + j] - tmp;\r\n      a[i + j] = a[i + j] + tmp;\r\
+    \n    }\r\n  }\r\n}\r\n\r\ntemplate <typename T>\r\nstd::vector<Complex> real_dft(const\
+    \ std::vector<T> &a) {\r\n  const int n = a.size();\r\n  int lg = 1;\r\n  while\
+    \ ((1 << lg) < n) ++lg;\r\n  std::vector<Complex> c(1 << lg);\r\n  for (int i\
+    \ = 0; i < n; ++i) c[i].re = a[i];\r\n  dft(c);\r\n  return c;\r\n}\r\n\r\nvoid\
+    \ idft(std::vector<Complex> &a) {\r\n  const int n = a.size();\r\n  dft(a);\r\n\
+    \  std::reverse(a.begin() + 1, a.end());\r\n  Real r = 1.0 / n;\r\n  for (int\
+    \ i = 0; i < n; ++i) a[i] = a[i].mul_real(r);\r\n}\r\n\r\ntemplate <typename T>\r\
+    \nstd::vector<Real> convolution(const std::vector<T> &a, const std::vector<T>\
+    \ &b) {\r\n  const int a_size = a.size(), b_size = b.size(), c_size = a_size +\
+    \ b_size - 1;\r\n  int lg = 1;\r\n  while ((1 << lg) < c_size) ++lg;\r\n  const\
+    \ int n = 1 << lg, half = n >> 1, quarter = half >> 1;\r\n  std::vector<Complex>\
+    \ c(n);\r\n  for (int i = 0; i < a_size; ++i) c[i].re = a[i];\r\n  for (int i\
+    \ = 0; i < b_size; ++i) c[i].im = b[i];\r\n  dft(c);\r\n  c[0] = Complex(c[0].re\
+    \ * c[0].im, 0);\r\n  for (int i = 1; i < half; ++i) {\r\n    Complex i_square\
+    \ = c[i] * c[i], j_square = c[n - i] * c[n - i];\r\n    c[i] = (j_square.conj()\
+    \ - i_square).mul_pin(0.25);\r\n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\
+    \n  }\r\n  c[half] = Complex(c[half].re * c[half].im, 0);\r\n  c[0] = (c[0] +\
+    \ c[half] + (c[0] - c[half]).mul_pin(1)).mul_real(0.5);\r\n  const int den = __builtin_ctz(half);\r\
+    \n  for (int i = 1; i < quarter; ++i) {\r\n    const int j = half - i;\r\n   \
+    \ Complex tmp1 = c[i] + c[j].conj(), tmp2 = ((c[i] - c[j].conj()) * zeta[den][j]).mul_pin(1);\r\
+    \n    c[i] = (tmp1 - tmp2).mul_real(0.5);\r\n    c[j] = (tmp1 + tmp2).mul_real(0.5).conj();\r\
+    \n  }\r\n  if (quarter > 0) c[quarter] = c[quarter].conj();\r\n  c.resize(half);\r\
+    \n  idft(c);\r\n  std::vector<Real> res(c_size);\r\n  for (int i = 0; i < c_size;\
+    \ ++i) res[i] = (i & 1 ? c[i >> 1].im : c[i >> 1].re);\r\n  return res;\r\n}\r\
+    \n}  // fast_fourier_transform\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <cmath>\r\
     \n#include <utility>\r\n#include <vector>\r\n\r\nnamespace fast_fourier_transform\
     \ {\r\nusing Real = double;\r\nstruct Complex {\r\n  Real re, im;\r\n  Complex(Real\
@@ -99,63 +97,60 @@ data:
     \ const { return Complex(-im * r, re * r); }\r\n  inline Complex conj() const\
     \ { return Complex(re, -im); }\r\n};\r\n\r\nstd::vector<int> butterfly{0};\r\n\
     std::vector<std::vector<Complex>> zeta{{{1, 0}}};\r\n\r\nvoid init(int n) {\r\n\
-    \  int prev_n = butterfly.size();\r\n  if (n <= prev_n) return;\r\n  butterfly.resize(n);\r\
-    \n  int prev_lg = zeta.size(), lg = __builtin_ctz(n);\r\n  for (int i = 1; i <\
-    \ prev_n; ++i) butterfly[i] <<= lg - prev_lg;\r\n  for (int i = prev_n; i < n;\
+    \  const int prev_n = butterfly.size();\r\n  if (n <= prev_n) return;\r\n  butterfly.resize(n);\r\
+    \n  const int prev = zeta.size(), lg = __builtin_ctz(n);\r\n  for (int i = 1;\
+    \ i < prev_n; ++i) butterfly[i] <<= lg - prev;\r\n  for (int i = prev_n; i < n;\
     \ ++i) butterfly[i] = (butterfly[i >> 1] >> 1) | ((i & 1) << (lg - 1));\r\n  zeta.resize(lg);\r\
-    \n  for (int i = prev_lg; i < lg; ++i) {\r\n    zeta[i].resize(1 << i);\r\n  \
-    \  Real angle = -3.14159265358979323846 * 2 / (1 << (i + 1));\r\n    for (int\
-    \ j = 0; j < (1 << (i - 1)); ++j) {\r\n      zeta[i][j << 1] = zeta[i - 1][j];\r\
-    \n      Real theta = angle * ((j << 1) + 1);\r\n      zeta[i][(j << 1) + 1] =\
-    \ {std::cos(theta), std::sin(theta)};\r\n    }\r\n  }\r\n}\r\n\r\nvoid dft(std::vector<Complex>\
-    \ &a) {\r\n  int n = a.size();\r\n  assert(__builtin_popcount(n) == 1);\r\n  init(n);\r\
-    \n  int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);\r\n  for (int\
-    \ i = 0; i < n; ++i) {\r\n    int j = butterfly[i] >> shift;\r\n    if (i < j)\
-    \ std::swap(a[i], a[j]);\r\n  }\r\n  for (int block = 1; block < n; block <<=\
-    \ 1) {\r\n    int den = __builtin_ctz(block);\r\n    for (int i = 0; i < n; i\
-    \ += (block << 1)) for (int j = 0; j < block; ++j) {\r\n      Complex tmp = a[i\
-    \ + j + block] * zeta[den][j];\r\n      a[i + j + block] = a[i + j] - tmp;\r\n\
-    \      a[i + j] = a[i + j] + tmp;\r\n    }\r\n  }\r\n}\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<Complex> real_dft(const std::vector<T> &a) {\r\n  int sz =\
-    \ a.size(), lg = 1;\r\n  while ((1 << lg) < sz) ++lg;\r\n  std::vector<Complex>\
-    \ c(1 << lg);\r\n  for (int i = 0; i < sz; ++i) c[i].re = a[i];\r\n  dft(c);\r\
-    \n  return c;\r\n}\r\n\r\nstd::vector<Real> idft_to_real(std::vector<Complex>\
-    \ &a) {\r\n  int n = a.size(), half = n >> 1, quarter = half >> 1;\r\n  assert(__builtin_popcount(n)\
-    \ == 1);\r\n  init(n);\r\n  a[0] = (a[0] + a[half] + (a[0] - a[half]).mul_pin(1)).mul_real(0.5);\r\
-    \n  int den = __builtin_ctz(half);\r\n  for (int i = 1; i < quarter; ++i) {\r\n\
-    \    int j = half - i;\r\n    Complex tmp1 = a[i] + a[j].conj(), tmp2 = ((a[i]\
-    \ - a[j].conj()) * zeta[den][j]).mul_pin(1);\r\n    a[i] = (tmp1 - tmp2).mul_real(0.5);\r\
-    \n    a[j] = (tmp1 + tmp2).mul_real(0.5).conj();\r\n  }\r\n  if (quarter > 0)\
-    \ a[quarter] = a[quarter].conj();\r\n  a.resize(half);\r\n  dft(a);\r\n  std::reverse(a.begin()\
-    \ + 1, a.end());\r\n  Real r = 1.0 / half;\r\n  std::vector<Real> res(n);\r\n\
-    \  for (int i = 0; i < n; ++i) res[i] = (i & 1 ? a[i >> 1].im : a[i >> 1].re)\
-    \ * r;\r\n  return res;\r\n}\r\n\r\nvoid idft(std::vector<Complex> &a) {\r\n \
-    \ int n = a.size();\r\n  dft(a);\r\n  std::reverse(a.begin() + 1, a.end());\r\n\
-    \  Real r = 1.0 / n;\r\n  for (int i = 0; i < n; ++i) a[i] = a[i].mul_real(r);\r\
-    \n}\r\n\r\ntemplate <typename T>\r\nstd::vector<Real> convolution(const std::vector<T>\
-    \ &a, const std::vector<T> &b) {\r\n  int a_sz = a.size(), b_sz = b.size(), sz\
-    \ = a_sz + b_sz - 1, lg = 1;\r\n  while ((1 << lg) < sz) ++lg;\r\n  int n = 1\
-    \ << lg;\r\n  std::vector<Complex> c(n);\r\n  for (int i = 0; i < a_sz; ++i) c[i].re\
-    \ = a[i];\r\n  for (int i = 0; i < b_sz; ++i) c[i].im = b[i];\r\n  dft(c);\r\n\
-    \  c[0] = Complex(c[0].re * c[0].im, 0);\r\n  int half = n >> 1;\r\n  for (int\
-    \ i = 1; i < half; ++i) {\r\n    Complex i_square = c[i] * c[i], j_square = c[n\
-    \ - i] * c[n - i];\r\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\r\
-    \n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\n  }\r\n  c[half]\
-    \ = Complex(c[half].re * c[half].im, 0);\r\n  std::vector<Real> res = idft_to_real(c);\r\
-    \n  res.resize(sz);\r\n  return res;\r\n}\r\n}  // fast_fourier_transform\r\n"
+    \n  for (int i = prev; i < lg; ++i) {\r\n    zeta[i].resize(1 << i);\r\n    Real\
+    \ angle = -3.14159265358979323846 * 2 / (1 << (i + 1));\r\n    for (int j = 0;\
+    \ j < (1 << (i - 1)); ++j) {\r\n      zeta[i][j << 1] = zeta[i - 1][j];\r\n  \
+    \    Real theta = angle * ((j << 1) + 1);\r\n      zeta[i][(j << 1) + 1] = {std::cos(theta),\
+    \ std::sin(theta)};\r\n    }\r\n  }\r\n}\r\n\r\nvoid dft(std::vector<Complex>\
+    \ &a) {\r\n  const int n = a.size();\r\n  assert(__builtin_popcount(n) == 1);\r\
+    \n  init(n);\r\n  const int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    const int j = butterfly[i] >> shift;\r\
+    \n    if (i < j) std::swap(a[i], a[j]);\r\n  }\r\n  for (int block = 1, den =\
+    \ 0; block < n; block <<= 1, ++den) {\r\n    for (int i = 0; i < n; i += (block\
+    \ << 1)) for (int j = 0; j < block; ++j) {\r\n      Complex tmp = a[i + j + block]\
+    \ * zeta[den][j];\r\n      a[i + j + block] = a[i + j] - tmp;\r\n      a[i + j]\
+    \ = a[i + j] + tmp;\r\n    }\r\n  }\r\n}\r\n\r\ntemplate <typename T>\r\nstd::vector<Complex>\
+    \ real_dft(const std::vector<T> &a) {\r\n  const int n = a.size();\r\n  int lg\
+    \ = 1;\r\n  while ((1 << lg) < n) ++lg;\r\n  std::vector<Complex> c(1 << lg);\r\
+    \n  for (int i = 0; i < n; ++i) c[i].re = a[i];\r\n  dft(c);\r\n  return c;\r\n\
+    }\r\n\r\nvoid idft(std::vector<Complex> &a) {\r\n  const int n = a.size();\r\n\
+    \  dft(a);\r\n  std::reverse(a.begin() + 1, a.end());\r\n  Real r = 1.0 / n;\r\
+    \n  for (int i = 0; i < n; ++i) a[i] = a[i].mul_real(r);\r\n}\r\n\r\ntemplate\
+    \ <typename T>\r\nstd::vector<Real> convolution(const std::vector<T> &a, const\
+    \ std::vector<T> &b) {\r\n  const int a_size = a.size(), b_size = b.size(), c_size\
+    \ = a_size + b_size - 1;\r\n  int lg = 1;\r\n  while ((1 << lg) < c_size) ++lg;\r\
+    \n  const int n = 1 << lg, half = n >> 1, quarter = half >> 1;\r\n  std::vector<Complex>\
+    \ c(n);\r\n  for (int i = 0; i < a_size; ++i) c[i].re = a[i];\r\n  for (int i\
+    \ = 0; i < b_size; ++i) c[i].im = b[i];\r\n  dft(c);\r\n  c[0] = Complex(c[0].re\
+    \ * c[0].im, 0);\r\n  for (int i = 1; i < half; ++i) {\r\n    Complex i_square\
+    \ = c[i] * c[i], j_square = c[n - i] * c[n - i];\r\n    c[i] = (j_square.conj()\
+    \ - i_square).mul_pin(0.25);\r\n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\r\
+    \n  }\r\n  c[half] = Complex(c[half].re * c[half].im, 0);\r\n  c[0] = (c[0] +\
+    \ c[half] + (c[0] - c[half]).mul_pin(1)).mul_real(0.5);\r\n  const int den = __builtin_ctz(half);\r\
+    \n  for (int i = 1; i < quarter; ++i) {\r\n    const int j = half - i;\r\n   \
+    \ Complex tmp1 = c[i] + c[j].conj(), tmp2 = ((c[i] - c[j].conj()) * zeta[den][j]).mul_pin(1);\r\
+    \n    c[i] = (tmp1 - tmp2).mul_real(0.5);\r\n    c[j] = (tmp1 + tmp2).mul_real(0.5).conj();\r\
+    \n  }\r\n  if (quarter > 0) c[quarter] = c[quarter].conj();\r\n  c.resize(half);\r\
+    \n  idft(c);\r\n  std::vector<Real> res(c_size);\r\n  for (int i = 0; i < c_size;\
+    \ ++i) res[i] = (i & 1 ? c[i >> 1].im : c[i >> 1].re);\r\n  return res;\r\n}\r\
+    \n}  // fast_fourier_transform\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/fast_fourier_transform.hpp
   requiredBy:
   - math/convolution/mod_convolution.hpp
-  timestamp: '2021-04-30 03:28:40+09:00'
+  timestamp: '2021-08-15 23:02:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/tree/centroid_decomposition.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
-  - test/math/convolution/fast_fourier_transform.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/convolution/fast_fourier_transform.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
+  - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: math/convolution/fast_fourier_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
@@ -163,15 +158,11 @@ title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform
 
 離散フーリエ変換 (discrete Fourier transform)
 
-$$F(k) = \sum_{j = 0}^{N - 1} f(j) ξ_N^{-jk}$$
+$$F(t) = \sum_{x = 0}^{N - 1} f(x) \zeta_N^{-tx} = \sum_{x = 0}^{N - 1} f(x) \exp\left(-i \frac{2 \pi tx}{N} \right)$$
 
 を高速に行うアルゴリズムである．
 
-畳み込み
-
-$$C_k = \sum_{i = 0}^k A_i B_{k - i}$$
-
-の計算にしばしば用いられる．
+畳み込み (convolution) $C_k = \sum_{i = 0}^k A_i B_{k - i}$ の計算にしばしば用いられる．
 
 
 
@@ -182,72 +173,64 @@ $O(N\log{N})$
 
 ## 使用法
 
-- クーリー-テューキー型アルゴリズム (Cooley-Tukey algorithm)
+- Cooley-Tukey algorithm
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`butterfly`|バタフライ演算用の配列||
-|`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$||
-|`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う．||
-|`sub_dft(a)`|複素数列 $A$ に対して離散フーリエ変換を行う．||
-|`real_dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの||
-|`idft_to_real(a)`|複素数列 $A$ に対して逆離散フーリエ変換を行ったもの|$A$ は実数列に対して離散フーリエ変換を行ったものでなければならない．|
-|`idft(a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．||
-|`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み||
+||説明|
+|:--:|:--:|
+|`butterfly`|バタフライ演算用の配列|
+|`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$|
+|`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う．|
+|`dft(a)`|複素数列 $A$ に対して離散フーリエ変換を行う．|
+|`real_dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
+|`idft(a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．|
+|`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み|
 
 
 ## 実装
 
-実数列 $A$ と $B$ の畳み込み $C$ を考える．
+実数列 $a$ と $b$ の畳み込み $c$ を考える．
 
-複素数列 $P_i = A_i + B_i \sqrt{-1} \ (0 \leq i < N = 2^e,\ e \in \mathbb{N})$ に DFT を行うと,
-対応する多項式 $P(x)$ に関して $P(\xi_N^{-i})$ が分かる．
+複素数列 $p_i = a_i + b_i \sqrt{-1} \ (0 \leq i < N = 2^e,\ e \in \mathbb{N})$ に離散フーリエ変換を行うと，対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に関して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる．
 
-$$\overline{P(\overline{x})} = A(x) - B(x) \sqrt{-1}$$
-
-より
-
-$$\overline{P(\overline{\xi_N^{-i}})} = \overline{P(ξ_N^i)} = A(ξ_N^{-i}) - B(ξ_N^{-i}) \sqrt{-1}$$
-
-が成り立つ．すなわち
+$\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ．すなわち
 
 $$\overline{P_i} = \begin{cases} A_0 - B_0 \sqrt{-1} & (N = 0) \\ A_{N - i} - B_{N - i} \sqrt{-1} & (1 \leq i < N) \end{cases}$$
 
-が成り立つ．よって
+が成り立つ．$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}} \ (1 \leq i < N)$ より
 
 $$A_i = \begin{cases} \dfrac{P_0 + \overline{P_0}}{2} & (i = 0) \\ \dfrac{P_i + \overline{P_{N - i}}}{2} & (1 \leq i < N) \end{cases}$$
 
 $$B_i = \begin{cases} \dfrac{P_0 - \overline{P_0}}{2 \sqrt{-1}} & (i = 0) \\ \dfrac{P_i - \overline{P_{N - i}}}{2 \sqrt{-1}} & (1 \leq i < N) \end{cases}$$
 
-となる．$R_i = A_i B_i$ とおくと
+となる．$C_i = A_i B_i$ より
 
-$$R_i = \begin{cases} \dfrac{P_0^2 - \overline{P_0}^2}{4 \sqrt{-1}} = -\Re(R_0) \Im(R_0) & (i = 0) \\ \dfrac{P_i^2 - \overline{P_{N - i}}^2}{4 \sqrt{-1}} = \dfrac{\overline{P_{N - i}^2} - P_i^2}{4} & (1 \leq i < N) \end{cases}$$
+$$C_i = \begin{cases} \dfrac{P_0^2 - \overline{P_0}^2}{4 \sqrt{-1}} = \Re(P_0) \Im(P_0) & (i = 0) \\ \dfrac{P_i^2 - \overline{P_{N - i}}^2}{4 \sqrt{-1}} = (\overline{P_{N - i}^2} - P_i^2)\dfrac{\sqrt{-1}}{4} & (1 \leq i < N) \end{cases}$$
 
-と変形できる．ここで $D_i = C_{2i} + C_{2i+1} \sqrt{-1}$ に DFT を行うとすると
+と変形できる．ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うとすると
 
-$$R_i = \begin{cases} \Re(D_0) + \Im(D_0) & (i = 0) \\ D_i - (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
+$$C_i = \begin{cases} \Re(D_0) + \Im(D_0) & (i = 0) \\ D_i - (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
 
-$$\overline{R_{\frac{N}{2} - i}} = \begin{cases} \Re(D_0) - \Im(D_0) & (i = 0) \\ \overline{D_{\frac{N}{2} - i}} + (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-1} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
+$$\overline{C_{\frac{N}{2} - i}} = \begin{cases} \Re(D_0) - \Im(D_0) & (i = 0) \\ \overline{D_{\frac{N}{2} - i}} + (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
 
 となる．変形すると
 
 - $i = 0$ において
 
-$$D_0 = \frac{(R_0 + R_{\frac{N}{2}}) + (R_0 + R_{\frac{N}{2}}) \sqrt{-1}}{2} \text{，}$$
+$$D_0 = \frac{(C_0 + \overline{C_{\frac{N}{2}}}) + (C_0 - \overline{C_{\frac{N}{2}}}) \sqrt{-1}}{2} = \frac{(C_0 + C_{\frac{N}{2}}) + (C_0 - C_{\frac{N}{2}}) \sqrt{-1}}{2} \text{，}$$
 
 - $1 \leq i \leq \frac{N}{4}$ において
 
-$$\begin{aligned} D_i = \overline{D_{\frac{N}{2} - i}} &= \frac{(R_i + R_{\frac{N}{2} - i}) - (R_i - R_{\frac{N}{2} - i}) (-\xi_N^i) \sqrt{-1}}{2} \\ &= \frac{(R_i + R_{\frac{N}{2} - i}) - (R_i - R_{\frac{N}{2} - i}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \end{aligned}$$
+$$\begin{split} D_i &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \text{，} \\ \overline{D_{\frac{N}{2} - i}} &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \end{split}$$
 
-となる．$R_i$ は既に求めたので $D$ に対して IDFT を行えばよい．
+となる．$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい．
 
 
 ## 参考
 
 - https://www.slideshare.net/chokudai/fft-49066791
-- https://lumakernel.github.io/ecasdqina/math/FFT/introduction
+- ~~https://lumakernel.github.io/ecasdqina/math/FFT/introduction~~
 - https://www.creativ.xyz/fast-fourier-transform
-- https://lumakernel.github.io/ecasdqina/math/FFT/standard
+- ~~https://lumakernel.github.io/ecasdqina/math/FFT/standard~~
 - http://xn--w6q13e505b.jp/method/fft/rft.html
 - https://ei1333.github.io/luzhiled/snippets/math/fast-fourier-transform.html
 
@@ -257,26 +240,29 @@ $$\begin{aligned} D_i = \overline{D_{\frac{N}{2} - i}} &= \frac{(R_i + R_{\frac{
 - https://www.slideshare.net/chokudai/fft-49066791
 - four-step fast Fourier transform / six-step fast Fourier transform
   - http://xn--w6q13e505b.jp/method/fft/2dfft.html
-  - https://lumakernel.github.io/ecasdqina/math/FFT/FFT2
+  - ~~https://lumakernel.github.io/ecasdqina/math/FFT/FFT2~~
   - https://todo314.hatenadiary.org/entry/20130811/1376221445
   - https://github.com/beet-aizu/library/blob/master/convolution/convolution2D.cpp
-  - https://github.com/eandbsoftware/libraryCPP/blob/master/!FMT.cpp
+  - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!FMT.cpp~~
 - nine-step fast Fourier transform
   - http://xn--w6q13e505b.jp/method/fft/2dfft.html
 - twiddle factor
   - https://en.wikipedia.org/wiki/Twiddle_factor
-- Stockham 型
+- Stockham fast Fourier transform
   - http://wwwa.pikara.ne.jp/okojisan/stockham/index.html
   - http://with137d.hatenablog.com/entry/20111224/1324757391
   - http://xn--w6q13e505b.jp/method/fft/implement.html
-- k-基底 fast Fourier transform
+- split-radix fast Fourier transform
+  - https://en.wikipedia.org/wiki/Split-radix_FFT_algorithm
   - http://xn--w6q13e505b.jp/method/fft/radix.html
   - http://wwwa.pikara.ne.jp/okojisan/stockham/stockham3.html
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
   - https://judge.yosupo.jp/problem/multivariate_convolution
+- 表現論上の高速フーリエ変換
+  - https://hackmd.io/@koboshi/rJpHiXa-O
 
 
 ## Verified
 
-https://atcoder.jp/contests/atc001/submissions/9309929
+https://atcoder.jp/contests/atc001/submissions/25081106

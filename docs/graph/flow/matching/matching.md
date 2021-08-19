@@ -102,7 +102,7 @@
 
 ## 参考
 
-- プログラミングコンテストチャレンジブック \[第2版\] pp.195-199
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）．
 
 性質3
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605
@@ -143,6 +143,7 @@ Hopcroft-Karp algorithm
 - 一般グラフの重み付き最大マッチング
   - https://min-25.hatenablog.com/entry/2016/11/21/222625
   - http://www.prefield.com/algorithm/graph/minimum_weight_matching.html
+  - https://judge.yosupo.jp/problem/general_weighted_matching
 - 木の最小辺被覆
   - https://twitter.com/Ymgch_K/status/964058288747831296
 - 最大独立集合
@@ -152,6 +153,12 @@ Hopcroft-Karp algorithm
   - https://github.com/ei1333/library/blob/master/graph/others/maximum-independent-set.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Graph/MaximumIndependentSet.cpp
   - https://judge.yosupo.jp/problem/maximum_independent_set
+- 木上の独立集合
+  - https://github.com/noshi91/blog/tree/master/codes/typical90/input
+  - https://atcoder.jp/contests/typical90/tasks/typical90_z
+  - https://twitter.com/noshi91/status/1387447778167513088
+  - https://twitter.com/noshi91/status/1387448827838353411
+  - https://twitter.com/noshi91/status/1387456359587729411
 - 二部グラフの最小頂点被覆
   - https://www.slideshare.net/drken1215/2-86838670
 - 最大クリーク

@@ -360,32 +360,32 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - dynamic_programming/subset_sum_problem.hpp
-  - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  - math/twelvefold_way/partition_function_init_by_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
+  - math/formal_power_series/bernoulli_number.hpp
   - math/formal_power_series/faulhaber_by_fps.hpp
   - math/formal_power_series/eulerian_number_init_by_fps.hpp
-  - math/formal_power_series/bernoulli_number.hpp
+  - math/twelvefold_way/partition_function_init_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
+  - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+  - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
+  - dynamic_programming/subset_sum_problem.hpp
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/dynamic_programming/subset_sum_problem.test.cpp
-  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.3.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/twelvefold_way/partition_function_init_by_fps.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
@@ -522,6 +522,14 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 - 多項式ハッシュ
   - https://yukicoder.me/wiki/polynomial_techniques
   - https://github.com/beet-aizu/library/blob/master/polynomial/hash.cpp
+- ディリクレ級数 (Dirichlet series)
+  - https://ja.wikipedia.org/wiki/%E3%83%87%E3%82%A3%E3%83%AA%E3%82%AF%E3%83%AC%E7%B4%9A%E6%95%B0
+  - https://maspypy.com/%e6%95%b0%e5%ad%a6-%e7%95%b3%e3%81%bf%e8%be%bc%e3%81%bf%e5%85%a5%e9%96%80%ef%bc%9adirichlet%e7%a9%8d%e3%81%a8%e3%82%bc%e3%83%bc%e3%82%bf%e5%a4%89%e6%8f%9b%e3%83%bb%e3%83%a1%e3%83%93%e3%82%a6
+  - https://maspypy.com/dirichlet-%e7%a9%8d%e3%81%a8%e3%80%81%e6%95%b0%e8%ab%96%e9%96%a2%e6%95%b0%e3%81%ae%e7%b4%af%e7%a9%8d%e5%92%8c
+  - https://twitter.com/cureskol/status/1377226831359701006
+  - https://yukicoder.me/problems/no/1532
+  - https://atcoder.jp/contests/arc116/submissions/21399687
+  - https://atcoder.jp/contests/abc020/submissions/21426601
 
 
 ## Verified
