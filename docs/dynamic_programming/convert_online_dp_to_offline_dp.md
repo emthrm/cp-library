@@ -5,7 +5,21 @@ documentation_of: dynamic_programming/convert_online_dp_to_offline_dp.hpp
 
 $i = 1, 2, \ldots, N$ に対して $\mathrm{dp}(i) = f_i(I) \ (I \subseteq \lbrace 1, 2, \ldots, i - 1 \rbrace)$ で表せるオンライン動的計画法を考える．
 
-ある[モノイド](../../.verify-helper/docs/static/algebraic_structure.md) $M$ が存在して，$1 \leq \forall i \leq N$ に対して $f_i(I) = a(\prod_{j \in I} F_{ij})b \ (a, b, F_{ij} \in M,\ F_{ij} \text{ は } \mathrm{dp}(j) \text{ に依存しても良い})$ と表せるとき，複数のオフライン動的計画法に分割できる．
+ある[モノイド](../../.verify-helper/docs/static/algebraic_structure.md) $(S, \cdot, e)$ が存在して，$1 \leq \forall i \leq N$ に対して $f_i(I) = a_i \cdot (\prod_{j \in I} F_{ij}) \cdot b_i \ (a_i, b_i, F_{ij} \in S,\ F_{ij} \text{ は } \mathrm{dp}(j) \text{ に依存しても良い})$ と表せるならば，複数のオフライン動的計画法に分割できる．
+
+e.g. [Stroll](https://atcoder.jp/contests/abc213/submissions/25161037)
+
+モノイドを $(\mathbb{N}^N, +, \boldsymbol{0})$ とする．
+
+$i = 0$ のとき
+
+$$\mathrm{dp}(i) \mathrel{:=} \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} + \boldsymbol{0} \text{，}$$
+
+$i = 1, 2, \ldots, T$ のとき
+
+$$\mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} p_{m, i - j} \right) + 0$$
+
+と表せる．
 
 
 ### オンライン動的計画法 / オフライン動的計画法
