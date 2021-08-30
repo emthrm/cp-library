@@ -31,6 +31,7 @@ $$\max \boldsymbol{c}^{\mathrm{T}} \boldsymbol{x} \text{ s.t. } \begin{cases} A 
 
 $$\min \boldsymbol{b}^{\mathrm{T}} \boldsymbol{y} \text{ s.t. } \begin{cases} A^{\mathrm{T}} \boldsymbol{y} \geq \boldsymbol{c} \\ \boldsymbol{y} \geq \boldsymbol{0} \text{．} \end{cases}$$
 
+
 ### 牛ゲー
 
 自己ループのない有向グラフ $(V, E)$, 始点 $s$, 終点 $t$, 辺 $e \in E$ のコスト $c_e$ とおく．
@@ -42,6 +43,15 @@ $$\min \sum_{e \in E} c_e x_e \text{ s.t. } \begin{cases} \sum_{e \in \delta^-(v
 双対問題
 
 $$\max{(p_t - p_s)} \text{ s.t. } p_v - p_u \leq c_e \ (e = (u, v) \in E) \text{．}$$
+
+e.g. [01Sequence](https://atcoder.jp/contests/abc216/submissions/25464575)
+
+$p_i \mathrel{:=} \sum_{j = 1}^{i - 1} (1 - A_j) \ (i = 0, 1, \ldots, N)$ とおく．問題は
+
+$$\max(p_N - p_0) \text{ s.t. } \begin{cases} p_{R_i} - p_{L_i - 1} \leq R_i - L_i + 1 - X_i & (i = 1, 2, \ldots, M) \\ 0 \leq p_i - p_{i - 1} \leq 1 & (i = 1, 2, \ldots, N) \end{cases}$$
+
+と言い換えられる．
+
 
 ### [最大フロー最小カット定理](../graph/flow/maximum_flow/maximum_flow.md)
 
@@ -66,6 +76,7 @@ $$\max \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{pmatrix}^{\mathrm{T}} \be
 双対問題
 
 $$\min \begin{pmatrix} c_1 \\ c_2 \\ c_3 \\ c_4 \\ c_5 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}^{\mathrm{T}} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ z_1 \\ z_2 \\ z_3 \\ z_4 \end{pmatrix} \text{ s.t. } \begin{pmatrix} 1 & & & & & 1 & -1 & 0 & 0 \\ & 1 & & & & 1 & 0 & -1 & 0 \\ & & 1 & & & 0 & 1 & 0 & -1 \\ & & & 1 & & 0 & 0 & 1 & -1 \\ & & & & 1 & 0 & 1 & -1 & 0 \\ & & & & & -1 & 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ z_1 \\ z_2 \\ z_3 \\ z_4 \end{pmatrix} \geq \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{pmatrix} \text{．}$$
+
 
 ### 最小費用流問題
 
@@ -132,6 +143,7 @@ $$\min{(Py + \sum_{e \in E} d_e f_e)} \text{ s.t. } \begin{cases} \sum_{e \in \d
 Sample Input 1 の場合，
 
 $$\min \begin{pmatrix} d_{(1, 2)} = 2 \\ d_{(2, 3)} = 1 \\ P = 3 \end{pmatrix}^{\mathrm{T}} \begin{pmatrix} f_{(1, 2)} \\ f_{(2, 3)} \\ y \end{pmatrix} \text{ s.t. } \begin{cases} \begin{pmatrix} -1 & 0 & 0 \\ 1 & -1 & 0 \\ 0 & 1 & 0 \\ -1 & 0 & c_{(1, 2)} = 1 \\ 0 & -1 & c_{(2, 3)} = 2 \end{pmatrix} \begin{pmatrix} f_{(1, 2)} \\ f_{(2, 3)} \\ y \end{pmatrix} \geq \begin{pmatrix} -1 \\ 0 \\ 1 \\ 0 \\ 0 \end{pmatrix} \\ \boldsymbol{f} \geq \boldsymbol{0} \\ y \geq 0 \text{．} \end{cases}$$
+
 
 ### 最大マッチング問題と最小点カバー問題
 
