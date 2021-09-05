@@ -1,53 +1,49 @@
-### 最大マッチング
+### マッチング (matching)
 
-互いに端点を共有しない辺集合の内，最大サイズのものである．
-
-
-### 最小辺被覆
-
-任意の頂点がいずれかの端点となっている辺集合の内，最小サイズのものである．
+互いに端点を共有しない辺集合である．
 
 
-### 最大独立集合 (最大安定集合)
+### 辺被覆 (edge cover)
 
-互いに隣接していない点集合の内，最大サイズのものである．
-
-
-### 最小頂点被覆
-
-任意の辺に対して少なくとも一方の端点を含む頂点集合の内，最小サイズのものである．
+任意の頂点がいずれかの端点となっている辺集合である．
 
 
-### 最大クリーク
+### 独立集合 (independent set) / 安定集合 (stable set)
 
-無向グラフにおいて完全グラフである部分グラフの内，最大のものである．
+互いに隣接していない頂点集合である．
+
+
+### 頂点被覆 (vertex cover)
+
+任意の辺に対して少なくとも一方の端点を含む頂点集合である．
+
+
+### クリーク (clique)
+
+無向グラフにおいて完全グラフな部分グラフである．
 
 
 ## 性質
 
-1. 孤立点のないグラフにおいて $\lvert \text{最大マッチング} \rvert + \lvert \text{最小辺被覆} \rvert = \lvert \text{頂点数} \rvert$．
+1. 孤立点のないグラフにおいて $(\text{最大マッチングのサイズ}) + (\text{最小辺被覆のサイズ}) = (\text{頂点数})$ が成り立つ．
 
-2. $\lvert \text{最大独立集合} \rvert + \lvert \text{最小頂点被覆} \rvert = \lvert \text{頂点数} \rvert$．
+2. $(\text{最大独立集合のサイズ}) + (\text{最小頂点被覆のサイズ}) = (\text{頂点数})$．
 
-3. $\text{完全二部マッチングの組合せの個数} \equiv \lvert A \rvert \pmod{2}$．
+以下は二部グラフ $(U, V, E)$ において成り立つ．
 
-   ただし二部グラフを $(U, V, E)$ とおくと $A$ は $A_{ij} = \begin{cases} 1 & (\text{辺 } (U_i, V_j) \text{ が存在}) \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす行列である．
+3. $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$．ただし $A$ は $A_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である．
 
-以下は二部グラフにおいて成り立つ．
+4. 最大マッチングのサイズは最小頂点被覆のサイズに等しい．
 
-4. $\lvert \text{最大マッチング} \rvert = \lvert \text{最小頂点被覆} \rvert$．
+5. Hall's theorem
 
-5. ホールの定理
+   $U$ の元をすべて被覆するマッチングが存在する．$\Leftrightarrow \forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$．
 
-   頂点が $U$ と $V$ に分割されるとする．
+6. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる．
 
-   $U$ の要素をすべて被覆するマッチングが存在する．$\Leftrightarrow$ $U$ の任意の部分集合 $S$ について $\lvert S \rvert \leq \lvert S \text{ と隣接する頂点} \rvert$ が成り立つ．
+7. Dilworth's theorem
 
-6. $\text{増加道が存在しない} \Leftrightarrow \text{最大マッチング}$．
-
-7. $\text{DAG の最小パス被覆} = \text{頂点数} - \text{最大マッチング}$．
-
-   特に DAG の推移閉包において $\text{反鎖の最大サイズ} = \text{最小パス被覆}$． (Dilworth の定理)
+   有向非巡回グラフの推移閉包において，反鎖の最大サイズと最小パス被覆のサイズは等しい．
 
 
 ## 時間計算量
@@ -57,7 +53,7 @@
 |二部グラフの最大マッチング|$O(\lvert V \rvert \lvert E \rvert)$|
 |Hopcroft-Karp algorithm|$O(\lvert E \rvert \sqrt{\lvert V \rvert})$|
 |二部グラフの重み付き最大マッチング|$O(\lvert E \rvert \lvert V \rvert \log{\lvert V \rvert})$|
-|タットの定理|$O({\lvert V \rvert}^3)$|
+|一般グラフの最大マッチング|$O({\lvert V \rvert}^3 + \lvert E \rvert)$|
 
 
 ## 使用法
@@ -93,11 +89,11 @@
 |`solve()`|重み付き最大マッチング||
 |`matching()`|マッチング相手|存在しない場合は $-1$ となる．|
 
-- タットの定理
+- 一般グラフの最大マッチング
 
 ||説明|
 |:--:|:--:|
-|`tutte_theorem(graph)`|無向グラフ $\mathrm{graph}$ の最大マッチングのサイズ|
+|`maximum_matching(graph)`|無向グラフ $\mathrm{graph}$ の最大マッチングのサイズ|
 
 
 ## 参考
@@ -110,11 +106,8 @@
 性質5
 - https://mathtrain.jp/hall
 
-性質6
-- https://mathtrain.jp/bipartitematching
-
-性質7
-- https://lumakernel.github.io/ecasdqina/math/dilworth-theorem
+性質6・7
+- ~~https://lumakernel.github.io/ecasdqina/math/dilworth-theorem~~
 - https://anta1.hatenadiary.org/entry/20120816/1345046832
 
 二部グラフの最大マッチング
@@ -126,22 +119,25 @@ Hopcroft-Karp algorithm
 二部グラフの重み付き最大マッチング
 - https://qiita.com/drken/items/e805e3f514acceb87602
 
+一般グラフの最大マッチング
+- https://kopricky.github.io/code/Academic/maximum_matching_memo.html
+
 
 ## ToDo
 
 - https://www.slideshare.net/wata_orz/ss-12131479
 - https://drive.google.com/file/d/1RD66csuDTAYXPmuCsiPi3HWBwtLg95T5/view
 - 一般グラフの最大マッチング
-  - https://min-25.hatenablog.com/entry/2016/11/21/222625
+  - ~~https://min-25.hatenablog.com/entry/2016/11/21/222625~~
   - https://judge.yosupo.jp/problem/general_matching
-  - エドモンズ・カープのアルゴリズム
+  - Edmonds' Algorithm
     - http://www.prefield.com/algorithm/graph/maximum_matching.html
     - https://github.com/spaghetti-source/algorithm/blob/master/graph/gabow_edmonds.cc
     - https://www.dropbox.com/sh/7uhazzp6wvx9mi7/AACpEgmn--Grp9nVD3NOD9Hia
     - https://www.slideshare.net/hcpc_hokudai/ss-120540096
     - https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf
 - 一般グラフの重み付き最大マッチング
-  - https://min-25.hatenablog.com/entry/2016/11/21/222625
+  - ~~https://min-25.hatenablog.com/entry/2016/11/21/222625~~
   - http://www.prefield.com/algorithm/graph/minimum_weight_matching.html
   - https://judge.yosupo.jp/problem/general_weighted_matching
 - 木の最小辺被覆
@@ -150,11 +146,11 @@ Hopcroft-Karp algorithm
   - https://37zigen.com/maximum-independent-set-algorithm/
   - https://drive.google.com/drive/folders/1MlboOgOEnu_zx55pGhZK80IT3hN6H-Ji
   - https://ei1333.github.io/luzhiled/snippets/graph/maximum-independent-set.html
-  - https://github.com/ei1333/library/blob/master/graph/others/maximum-independent-set.cpp
+  - https://github.com/ei1333/library/blob/master/graph/others/maximum-independent-set.hpp
   - https://github.com/primenumber/ProconLib/blob/master/Graph/MaximumIndependentSet.cpp
   - https://judge.yosupo.jp/problem/maximum_independent_set
 - 木上の独立集合
-  - https://github.com/noshi91/blog/tree/master/codes/typical90/input
+  - https://github.com/noshi91/blog/tree/master/codes/typical90/
   - https://atcoder.jp/contests/typical90/tasks/typical90_z
   - https://twitter.com/noshi91/status/1387447778167513088
   - https://twitter.com/noshi91/status/1387448827838353411
@@ -164,7 +160,7 @@ Hopcroft-Karp algorithm
 - 最大クリーク
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/maximal_cliques.cc
   - https://ei1333.github.io/luzhiled/snippets/graph/maximum-clique.html
-  - https://github.com/ei1333/library/blob/master/graph/others/maximum-clique.cpp
+  - https://github.com/ei1333/library/blob/master/graph/others/maximum-clique.hpp
   - https://www.t3nro.net/2017/04/maximum-clique-problem/
 - ハンガリアン法 (Hungarian method)
   - https://ei1333.github.io/algorithm/hungarian.html
@@ -175,7 +171,10 @@ Hopcroft-Karp algorithm
 - 安定マッチング (stable matching)
   - https://ja.wikipedia.org/wiki/%E5%AE%89%E5%AE%9A%E7%B5%90%E5%A9%9A%E5%95%8F%E9%A1%8C
   - https://mathtrain.jp/galeshapley
-  - https://github.com/eandbsoftware/libraryCPP/blob/master/!StableMatching.cpp
+  - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!StableMatching.cpp~~
+- FKT algorithm
+  - https://en.wikipedia.org/wiki/FKT_algorithm
+  - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf
 
 
 ## Verified
@@ -183,4 +182,4 @@ Hopcroft-Karp algorithm
 - [二部グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0334/review/4092638/emthrm/C++14)
 - [Hopcroft-Karp algorithm](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_7_A/review/4092671/emthrm/C++14)
 - [二部グラフの重み付き最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2429/review/4092692/emthrm/C++14)
-- [タットの定理](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3032/review/4092716/emthrm/C++14)
+- [一般グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3032/review/5853683/emthrm/C++17)
