@@ -1,7 +1,6 @@
 /*
  * @brief 文字列/ランレングス圧縮
  */
-#define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/abc143/tasks/abc143_c"
 
 #include <iostream>

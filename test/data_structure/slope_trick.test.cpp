@@ -1,7 +1,6 @@
 /*
  * @brief データ構造/slope trick
  */
-#define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/arc123/tasks/arc123_d"
 
 #include <algorithm>
@@ -13,7 +12,9 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<int> a(n);
-  for (int i = 0; i < n; ++i) std::cin >> a[i];
+  for (int i = 0; i < n; ++i) {
+    std::cin >> a[i];
+  }
   SlopeTrick<long long> slope_trick(0);
   slope_trick.abs_x_minus_a(0);
   slope_trick.abs_x_minus_a(a.front());

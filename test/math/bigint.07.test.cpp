@@ -1,8 +1,8 @@
 /*
  * @brief 数学/多倍長整数 (大小比較)
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/abc059/tasks/abc059_b"
+#define PROBLEM "https://atcoder.jp/contests/arc072/tasks/abc059_b"
+// #define PROBLEM "https://atcoder.jp/contests/abc059/tasks/abc059_b"
 
 #include <iostream>
 #include "../../math/bigint.hpp"
