@@ -25,7 +25,8 @@ $O(N)$
 ## ToDo
 
 - $n$ 以下の素数の個数
-  - http://sugarknri.hatenablog.com/entry/2019/07/31/102422
+  - ~~http://sugarknri.hatenablog.com/entry/2019/07/31/102422~~
+  - https://rsk0315.hatenablog.com/entry/2021/05/18/015511
   - https://judge.yosupo.jp/problem/counting_primes
 
 

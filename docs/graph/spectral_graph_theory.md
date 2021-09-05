@@ -48,8 +48,15 @@ $$A_{ij} = \begin{cases} \text{頂点 } i \text{ の次数} & (i = j) \\ -(\text
 
 ## ToDo
 
-- LGV 公式
+- LGV 公式 (Lindström–Gessel–Viennot lemma)
+  - https://en.wikipedia.org/wiki/Lindstr%C3%B6m%E2%80%93Gessel%E2%80%93Viennot_lemma
   - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf
+  - https://twitter.com/kotatsugame_t/status/1411648290546851840
+  - https://atcoder.jp/contests/abc216/tasks/abc216_h
+  - https://twitter.com/noshi91/status/1432074841675362304
+  - https://twitter.com/noshi91/status/1432073377221472256
+  - https://kmjp.hatenablog.jp/entry/2021/09/02/0900
+  - https://twitter.com/snuke_/status/1431979034179633158
 
 
 ## Verified
