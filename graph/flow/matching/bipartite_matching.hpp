@@ -9,9 +9,10 @@
 struct BipartiteMatching {
   std::vector<int> match;
 
-  BipartiteMatching(int n) : n(n), graph(n), match(n, -1), used(n, -1), alive(n, true) {}
+  BipartiteMatching(const int n)
+  : n(n), match(n, -1), graph(n), is_used(n, 0), is_alive(n, true) {}
 
-  void add_edge(int u, int v) {
+  void add_edge(const int u, const int v) {
     graph[u].emplace_back(v);
     graph[v].emplace_back(u);
   }
@@ -19,57 +20,51 @@ struct BipartiteMatching {
   int solve() {
     int res = 0;
     for (int i = 0; i < n; ++i) {
-      if (alive[i] && match[i] == -1) {
-        ++timestamp;
-        if (dfs(i)) ++res;
+      if (is_alive[i] && match[i] == -1) {
+        ++t;
+        res += dfs(i);
       }
     }
     return res;
   }
 
-  int push_back(int ver) {
-    if (match[ver] != -1) match[match[ver]] = -1;
-    match[ver] = -1;
-    ++timestamp;
-    dfs(ver);
-    return match[ver];
+  void fix(const int ver) {
+    is_alive[ver] = false;
+    if (match[ver] != -1) {
+      is_alive[match[ver]] = false;
+    }
   }
 
-  void fix(int ver) {
-    alive[ver] = false;
-    if (match[ver] != -1) alive[match[ver]] = false;
-  }
-
-  int enable(int ver) {
-    if (alive[ver]) return 0;
-    alive[ver] = true;
-    ++timestamp;
+  int enable(const int ver) {
+    if (is_alive[ver]) return 0;
+    is_alive[ver] = true;
+    ++t;
     return dfs(ver) ? 1 : 0;
   }
 
-  int disable(int ver) {
-    if (!alive[ver]) return 0;
-    alive[ver] = false;
+  int disable(const int ver) {
+    if (!is_alive[ver]) return 0;
+    is_alive[ver] = false;
     if (match[ver] == -1) return 0;
     match[match[ver]] = -1;
-    ++timestamp;
-    int tmp = match[ver];
+    const int m = match[ver];
     match[ver] = -1;
-    return dfs(tmp) ? 0 : -1;
+    ++t;
+    return dfs(m) ? 0 : -1;
   }
 
 private:
-  int n, timestamp = -1;
+  const int n;
+  int t = 0;
   std::vector<std::vector<int>> graph;
-  std::vector<int> used;
-  std::vector<bool> alive;
+  std::vector<int> is_used, is_alive;
 
-  bool dfs(int ver) {
-    used[ver] = timestamp;
-    for (int e : graph[ver]) {
-      if (!alive[e]) continue;
-      int tmp = match[e];
-      if (tmp == -1 || (used[tmp] < timestamp && dfs(tmp))) {
+  bool dfs(const int ver) {
+    is_used[ver] = t;
+    for (const int e : graph[ver]) {
+      if (!is_alive[e]) continue;
+      const int m = match[e];
+      if (m == -1 || (is_used[m] < t && dfs(m))) {
         match[ver] = e;
         match[e] = ver;
         return true;

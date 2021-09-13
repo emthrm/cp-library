@@ -1,30 +1,20 @@
 /*
  * @brief グラフ/フロー/マッチング/二部グラフの最大マッチング
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0334"
+#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A"
 
 #include <iostream>
 #include "../../../../graph/flow/matching/bipartite_matching.hpp"
 
 int main() {
-  int n;
-  std::cin >> n;
-  --n;
-  BipartiteMatching bm(n << 1);
-  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) {
-    int b;
-    std::cin >> b;
-    if (b == 1) bm.add_edge(j, n + i);
+  int x, y, e;
+  std::cin >> x >> y >> e;
+  BipartiteMatching bipartite_matching(x + y);
+  while (e--) {
+    int x_i, y_i;
+    std::cin >> x_i >> y_i;
+    bipartite_matching.add_edge(x_i, y_i + x);
   }
-  if (bm.solve() == n) {
-    std::cout << "yes\n";
-  } else {
-    std::cout << "no\n";
-    return 0;
-  }
-  for (int i = 0; i < n; ++i) {
-    std::cout << bm.push_back(i) - n + 1 << '\n';
-    bm.fix(i);
-  }
+  std::cout << bipartite_matching.solve() << '\n';
   return 0;
 }

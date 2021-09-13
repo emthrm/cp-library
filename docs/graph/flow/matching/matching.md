@@ -29,21 +29,30 @@
 
 2. $(\text{最大独立集合のサイズ}) + (\text{最小頂点被覆のサイズ}) = (\text{頂点数})$．
 
-以下は二部グラフ $(U, V, E)$ において成り立つ．
+3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ．ただし $A$ は $a_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である．
 
-3. $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$．ただし $A$ は $A_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である．
+4. 二部グラフにおいて最大マッチングのサイズは最小頂点被覆のサイズに等しい．
 
-4. 最大マッチングのサイズは最小頂点被覆のサイズに等しい．
+5. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる．
 
-5. Hall's theorem
 
-   $U$ の元をすべて被覆するマッチングが存在する．$\Leftrightarrow \forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$．
+### Hall's theorem
 
-6. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる．
+二部グラフ $(U, V, E)$ において以下は同値である．
 
-7. Dilworth's theorem
+- $U$ の元をすべて被覆するマッチングが存在する．
+- $\forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$．
 
-   有向非巡回グラフの推移閉包において，反鎖の最大サイズと最小パス被覆のサイズは等しい．
+
+### Dilworth's theorem
+
+任意の有限な半順序集合に対して，反鎖 (antichain) の最大サイズは共通部分のない鎖 (chain) に分解したときの最小サイズに等しい．
+
+特に有向非巡回グラフ $G$ においては，$\forall u, v \in V(G)$ に対して
+
+$$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
+
+と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖 (chain) に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 
 
 ## 時間計算量
@@ -63,20 +72,19 @@
 ||説明|備考|
 |:--:|:--:|:--:|
 |`BipartiteMatching(n)`|頂点数 $N$ の二部グラフの最大マッチングを考える．||
-|`match`|マッチング相手|存在しない場合は $-1$ となる．|
+|`match`|マッチした相手|存在しない場合は $-1$ となる．|
 |`add_edge(u, v)`|辺 $(u, v)$ を張る．||
 |`solve()`|最大マッチングのサイズ||
-|`push_back(ver)`|頂点 $\mathrm{ver}$ に関するフローを押し戻す．|返り値は頂点 $\mathrm{ver}$ とのマッチング相手|
 |`fix(ver)`|頂点 $\mathrm{ver}$ に関するマッチングを固定する．||
-|`enable(ver)`|頂点 $\mathrm{ver}$ を加える．||
-|`disable(ver)`|頂点 $\mathrm{ver}$ を消す．||
+|`enable(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
+|`disable(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
 
 - Hopcroft-Karp algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の Hopcroft-Karp algorithm を考える．|
-|`match`|マッチング相手|存在しない場合は $-1$ となる．|
+|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft-Karp algorithm を考える．|
+|`match`|マッチした相手|存在しない場合は $-1$ となる．|
 |`add_edge(u, v)`|辺 $(u, v)$ を張る．||
 |`solve()`|最大マッチングのサイズ||
 
@@ -84,10 +92,10 @@
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチング を考える．||
-|`add_edge(src, dst, cost)`|コスト $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
-|`solve()`|重み付き最大マッチング||
-|`matching()`|マッチング相手|存在しない場合は $-1$ となる．|
+|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチングを考える．||
+|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
+|`solve()`|重み付き最大マッチングの重み||
+|`matching()`|マッチした相手|存在しない場合は $-1$ となる．|
 
 - 一般グラフの最大マッチング
 
@@ -103,17 +111,19 @@
 性質3
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605
 
-性質5
-- https://mathtrain.jp/hall
-
-性質6・7
+性質5・Dilworth's theorem
+- https://en.wikipedia.org/wiki/Dilworth%27s_theorem
 - ~~https://lumakernel.github.io/ecasdqina/math/dilworth-theorem~~
 - https://anta1.hatenadiary.org/entry/20120816/1345046832
+
+Hall's theorem
+- https://mathtrain.jp/hall
 
 二部グラフの最大マッチング
 - https://ei1333.github.io/algorithm/bipartite-matching.html
 
 Hopcroft-Karp algorithm
+- https://misteer.hatenablog.com/entry/hopcroft-karp
 - https://ei1333.github.io/luzhiled/snippets/graph/hopcroft-karp.html
 
 二部グラフの重み付き最大マッチング
@@ -179,7 +189,7 @@ Hopcroft-Karp algorithm
 
 ## Verified
 
-- [二部グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0334/review/4092638/emthrm/C++14)
-- [Hopcroft-Karp algorithm](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_7_A/review/4092671/emthrm/C++14)
+- [二部グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_7_A/review/5876417/emthrm/C++17)
+- [Hopcroft-Karp algorithm](https://judge.yosupo.jp/submission/2723)
 - [二部グラフの重み付き最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2429/review/4092692/emthrm/C++14)
 - [一般グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3032/review/5853683/emthrm/C++17)
