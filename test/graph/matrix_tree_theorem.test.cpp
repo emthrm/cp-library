@@ -19,30 +19,40 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<std::vector<int>> a(n, std::vector<int>(n));
-  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) std::cin >> a[i][j];
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+      std::cin >> a[i][j];
+    }
+  }
   UnionFind uf(n);
-  for (int i = 0; i < n; ++i) for (int j = i + 1; j < n; ++j) {
-    if (a[i][j] == 1 && !uf.unite(i, j)) {
-      std::cout << 0 << '\n';
-      return 0;
+  for (int i = 0; i < n; ++i) {
+    for (int j = i + 1; j < n; ++j) {
+      if (a[i][j] == 1 && !uf.unite(i, j)) {
+        std::cout << 0 << '\n';
+        return 0;
+      }
     }
   }
   std::vector<int> root;
   for (int i = 0; i < n; ++i) {
-    if (uf.root(i) == i) root.emplace_back(i);
+    if (uf.root(i) == i) {
+      root.emplace_back(i);
+    }
   }
   std::vector<int> id(n);
   for (int i = 0; i < n; ++i) {
     id[i] = std::distance(root.begin(), std::lower_bound(root.begin(), root.end(), uf.root(i)));
   }
-  int m = root.size();
+  const int m = root.size();
   std::vector<std::vector<Edge<bool>>> graph(m);
-  for (int i = 0; i < n; ++i) for (int j = i + 1; j < n; ++j) {
-    if (a[i][j] == -1) {
-      graph[id[i]].emplace_back(id[i], id[j]);
-      graph[id[j]].emplace_back(id[j], id[i]);
+  for (int i = 0; i < n; ++i) {
+    for (int j = i + 1; j < n; ++j) {
+      if (a[i][j] == -1) {
+        graph[id[i]].emplace_back(id[i], id[j]);
+        graph[id[j]].emplace_back(id[j], id[i]);
+      }
     }
   }
-  std::cout << matrix_tree_theorem<ModInt>(graph, ModInt(0)) << '\n';
+  std::cout << matrix_tree_theorem(graph, ModInt(0)) << '\n';
   return 0;
 }
