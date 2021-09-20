@@ -4,12 +4,12 @@
 #define PROBLEM "https://atcoder.jp/contests/arc089/tasks/arc089_b"
 
 #include <iostream>
-#include "../../dynamic_programming/cumulative_sum.hpp"
+#include "../../dynamic_programming/2d_cumulative_sum.hpp"
 
 int main() {
   int n, k;
   std::cin >> n >> k;
-  CumulativeSum<int> black(k * 2, k * 2), white(k * 2, k * 2);
+  CumulativeSum2D<int> black(k * 2, k * 2), white(k * 2, k * 2);
   while (n--) {
     int x, y;
     char c;
