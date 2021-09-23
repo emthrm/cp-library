@@ -1,8 +1,8 @@
 # 分割数 (partition function)
 
-$n$ を $m$ 個以下に分割する方法の総数の内, $n = m$ を満たすもの．
+自然数 $n$ を $m$ 個以下の正の整数の和で表す方法の総数の内, $n = m$ を満たすもの．
 
-$m$ 個の区別はないため $(4, 1, 1)$ と $(1, 4, 1)$ は同じ分け方となる．
+和の順序は問わず，$2 + 1 + 1$ と $1 + 2 + 1$ を区別しない．
 
 母関数は
 
@@ -15,15 +15,15 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ||時間計算量|
 |:--:|:--:|
-||$O(NM)$|
-|$n = m$ 版|$O(N\log{N})$|
+|数表|$O(NM)$|
+|数表 $n = m$ 版|$O(N\log{N})$|
 
 
 ## 使用法
 
 ||説明|
 |:--:|:--:|
-|`partition_function_init<T>(group, sum)`|分割数の数表|
+|`partition_function_init<T>(n, m)`|分割数の数表|
 
 - $n = m$ 版
 
@@ -41,7 +41,7 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ## ToDo
 
-- $n = m$ の場合のみを $O(N\sqrt{N})$ で求める．
+- $O(N\sqrt{N})$ で求める．
   - http://degwer.hatenablog.com/entries/2017/08/29
   - https://qiita.com/drken/items/f2ea4b58b0d21621bd51
   - https://judge.yosupo.jp/problem/partition_function
@@ -49,5 +49,5 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ## Verified
 
-- https://atcoder.jp/contests/dwacon2018-prelims/submissions/9309239
-- [$n = m$ 版](https://judge.yosupo.jp/submission/3791)
+- [数表](https://yukicoder.me/submissions/701499)
+- [数表 $n = m$ 版](https://judge.yosupo.jp/submission/3791)

@@ -6,10 +6,12 @@
 #pragma once
 #include <vector>
 
-std::vector<int> mobius_mu_init(int n) {
-  std::vector<bool> is_prime(n + 1, true);
+std::vector<int> mobius_mu_init(const int n) {
+  std::vector<int> is_prime(n + 1, true);
   is_prime[0] = false;
-  if (n >= 1) is_prime[1] = false;
+  if (n >= 1) {
+    is_prime[1] = false;
+  }
   std::vector<int> mu(n + 1, 1);
   mu[0] = 0;
   for (int i = 2; i <= n; ++i) {
@@ -17,7 +19,7 @@ std::vector<int> mobius_mu_init(int n) {
       mu[i] = -mu[i];
       for (int j = i * 2; j <= n; j += i) {
         is_prime[j] = false;
-        mu[j] = (j / i) % i == 0 ? 0 : -mu[j];
+        mu[j] = ((j / i) % i == 0 ? 0 : -mu[j]);
       }
     }
   }

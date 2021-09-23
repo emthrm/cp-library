@@ -1,8 +1,7 @@
 /*
  * @brief データ構造/union-find/部分永続 union-find
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/code-thanks-festival-2017-open/tasks/code_thanks_festival_2017_h"
+#define PROBLEM "https://atcoder.jp/contests/agc002/tasks/agc002_d"
 
 #include <iostream>
 #include "../../../data_structure/union-find/partially_persistent_union-find.hpp"
@@ -11,7 +10,7 @@ int main() {
   int n, m;
   std::cin >> n >> m;
   PartiallyPersistentUnionFind uf(n);
-  for (int i = 0; i < m; ++i) {
+  for (int i = 1; i <= m; ++i) {
     int a, b;
     std::cin >> a >> b;
     --a; --b;
@@ -20,19 +19,15 @@ int main() {
   int q;
   std::cin >> q;
   while (q--) {
-    int x, y;
-    std::cin >> x >> y;
+    int x, y, z;
+    std::cin >> x >> y >> z;
     --x; --y;
-    if (!uf.same(m - 1, x, y)) {
-      std::cout << "-1\n";
-      continue;
-    }
-    int lb = -1, ub = m - 1;
+    int lb = 0, ub = m;
     while (ub - lb > 1) {
-      int mid = (lb + ub) / 2;
-      (uf.same(mid, x, y) ? ub : lb) = mid;
+      const int mid = (lb + ub) >> 1;
+      (uf.size(mid, x) + (uf.same(mid, x, y) ? 0 : uf.size(mid, y)) >= z ? ub : lb) = mid;
     }
-    std::cout << ub + 1 << '\n';
+    std::cout << lb + 1 << '\n';
   }
   return 0;
 }

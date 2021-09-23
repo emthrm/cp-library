@@ -3,7 +3,7 @@ title: ニム (nim)
 documentation_of: game/nim.hpp
 ---
 
-$N$ 個の山の内，ある山から一つ以上を二人が交互に取っていき，操作できなくなった方を負けとするゲームである．
+$N$ 個の山のいずれかから一つ以上を二人が交互に取り，操作できなくなった方を負けとするゲームである．
 
 
 ## 時間計算量
@@ -33,4 +33,4 @@ $O(N)$
 
 ## Verified
 
-https://atcoder.jp/contests/arc013/submissions/9236426
+https://yukicoder.me/submissions/701261

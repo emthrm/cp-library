@@ -1,21 +1,29 @@
 /*
- * @brief 動的計画法/convex full trick (monotone_inc_query(x))
+ * @brief 動的計画法/convex full trick (monotonically_increasing_query(x))
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/colopl2018-final-open/tasks/colopl2018_final_c"
+#define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_z"
 
 #include <iostream>
 #include "../../dynamic_programming/convex_hull_trick.hpp"
 
 int main() {
   int n;
-  std::cin >> n;
+  long long c;
+  std::cin >> n >> c;
   ConvexHullTrick<long long> cht;
-  for (int j = 1; j <= n; ++j) {
-    long long a;
-    std::cin >> a;
-    cht.add(-2 * j, a + static_cast<long long>(j) * j);
+  for (int i = 0; i < n; ++i) {
+    int h;
+    std::cin >> h;
+    if (i == 0) {
+      cht.add(-2 * h, static_cast<long long>(h) * h);
+    } else {
+      const long long dp = cht.monotonically_increasing_query(h) + static_cast<long long>(h) * h + c;
+      if (i + 1 == n) {
+        std::cout << dp << '\n';
+      } else {
+        cht.add(-2 * h, dp + static_cast<long long>(h) * h);
+      }
+    }
   }
-  for (int i = 1; i <= n; ++i) std::cout << cht.monotone_inc_query(i) + static_cast<long long>(i) * i << '\n';
   return 0;
 }

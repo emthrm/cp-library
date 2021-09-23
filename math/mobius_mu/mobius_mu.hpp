@@ -6,14 +6,16 @@
 #pragma once
 
 int mobius_mu(long long n) {
-  int cnt = 0;
+  int num = 0;
   for (long long i = 2; i * i <= n; ++i) {
     if (n % i == 0) {
       n /= i;
       if (n % i == 0) return 0;
-      ++cnt;
+      num ^= 1;
     }
   }
-  if (n > 1) ++cnt;
-  return cnt & 1 ? -1 : 1;
+  if (n > 1) {
+    num ^= 1;
+  }
+  return num & 1 ? -1 : 1;
 }

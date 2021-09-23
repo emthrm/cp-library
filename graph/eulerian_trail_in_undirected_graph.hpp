@@ -11,22 +11,24 @@
 struct EulerianTrailInUndirectedGraph {
   std::vector<int> trail;
 
-  EulerianTrailInUndirectedGraph(int n) : n(n), graph(n), visited(n) {}
+  EulerianTrailInUndirectedGraph(const int n) : n(n), graph(n), is_visited(n) {}
 
-  void add_edge(int u, int v) {
+  void add_edge(const int u, const int v) {
     graph[u].emplace_back(v, graph[v].size());
     graph[v].emplace_back(u, graph[u].size() - 1);
   }
 
   bool build(int s = -1) {
     trail.clear();
-    int odd = 0, edges = 0;
+    int odd_deg = 0, edge_num = 0;
     for (int i = 0; i < n; ++i) {
       if (graph[i].size() & 1) {
-        ++odd;
-        if (s == -1) s = i;
+        ++odd_deg;
+        if (s == -1) {
+          s = i;
+        }
       }
-      edges += graph[i].size();
+      edge_num += graph[i].size();
     }
     if (s == -1) {
       for (int i = 0; i < n; ++i) {
@@ -36,15 +38,17 @@ struct EulerianTrailInUndirectedGraph {
         }
       }
       if (s == -1) {
-        assert(edges == 0);
+        assert(edge_num == 0);
         trail.emplace_back(0);
         return true;
       }
     }
-    for (int i = 0; i < n; ++i) visited[i].assign(graph[i].size(), false);
-    if (odd == 0 || (odd == 2 && (graph[s].size() & 1))) {
+    for (int i = 0; i < n; ++i) {
+      is_visited[i].assign(graph[i].size(), false);
+    }
+    if (odd_deg == 0 || (odd_deg == 2 && (graph[s].size() & 1))) {
       dfs(s);
-      if (trail.size() == (edges >> 1) + 1) {
+      if (trail.size() == (edge_num >> 1) + 1) {
         std::reverse(trail.begin(), trail.end());
         return true;
       }
@@ -56,20 +60,20 @@ struct EulerianTrailInUndirectedGraph {
 private:
   struct Edge {
     int dst, rev;
-    Edge(int dst, int rev) : dst(dst), rev(rev) {}
+    Edge(const int dst, const int rev) : dst(dst), rev(rev) {}
   };
 
-  int n;
+  const int n;
   std::vector<std::vector<Edge>> graph;
-  std::vector<std::vector<bool>> visited;
+  std::vector<std::vector<int>> is_visited;
 
-  void dfs(int ver) {
-    int sz = graph[ver].size();
-    for (int i = 0; i < sz; ++i) {
-      if (!visited[ver][i]) {
-        int nx = graph[ver][i].dst;
-        visited[ver][i] = visited[nx][graph[ver][i].rev] = true;
-        dfs(nx);
+  void dfs(const int ver) {
+    const int deg = graph[ver].size();
+    for (int i = 0; i < deg; ++i) {
+      if (!is_visited[ver][i]) {
+        const int dst = graph[ver][i].dst;
+        is_visited[ver][i] = is_visited[dst][graph[ver][i].rev] = true;
+        dfs(dst);
       }
     }
     trail.emplace_back(ver);

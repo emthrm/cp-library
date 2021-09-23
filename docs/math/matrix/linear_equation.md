@@ -29,4 +29,4 @@ $O(M^2 N)$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/0004/review/5272538/emthrm/C++17
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/2171/review/5899058/emthrm/C++17

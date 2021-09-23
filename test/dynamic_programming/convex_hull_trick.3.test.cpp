@@ -1,26 +1,31 @@
 /*
- * @brief 動的計画法/convex full trick (monotone_dec_query(x))
+ * @brief 動的計画法/convex full trick (monotonically_decreasing_query(x))
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/colopl2018-final-open/tasks/colopl2018_final_c"
+#define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_z"
 
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include "../../dynamic_programming/convex_hull_trick.hpp"
 
 int main() {
   int n;
-  std::cin >> n;
+  long long c;
+  std::cin >> n >> c;
+  std::vector<int> h(n);
+  for (int i = 0; i < n; ++i) {
+    std::cin >> h[i];
+  }
+  std::reverse(h.begin(), h.end());
   ConvexHullTrick<long long> cht;
-  for (int j = 1; j <= n; ++j) {
-    long long a;
-    std::cin >> a;
-    cht.add(-2 * j, a + static_cast<long long>(j) * j);
+  cht.add(-2 * h.front(), static_cast<long long>(h.front()) * h.front());
+  for (int i = 1; i < n; ++i) {
+    const long long dp = cht.monotonically_decreasing_query(h[i]) + static_cast<long long>(h[i]) * h[i] + c;
+    if (i + 1 == n) {
+      std::cout << dp << '\n';
+    } else {
+      cht.add(-2 * h[i], dp + static_cast<long long>(h[i]) * h[i]);
+    }
   }
-  std::vector<long long> ans(n);
-  for (int i = n; i >= 1; --i) {
-    ans[i - 1] = cht.monotone_dec_query(i) + static_cast<long long>(i) * i;
-  }
-  for (int i = 0; i < n; ++i) std::cout << ans[i] << '\n';
   return 0;
 }

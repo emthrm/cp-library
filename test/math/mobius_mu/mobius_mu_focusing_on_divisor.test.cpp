@@ -1,8 +1,7 @@
 /*
  * @brief 数学/メビウス関数/メビウス関数 約数版
  */
-#define IGNORE
-#define PROBLEM "https://codeforces.com/problemset/problem/1139/D"
+#define PROBLEM "https://atcoder.jp/contests/abc162/tasks/abc162_e"
 
 #include <iostream>
 #include <map>
@@ -13,15 +12,21 @@
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
-  int m;
-  std::cin >> m;
-  std::map<int, int> mp;
-  ModInt ans = 1;
-  for (int i = m; i >= 2; --i) {
-    if (mp.count(i) == 0) {
-      for (const std::pair<int, int> &pr : mobius_mu_focusing_on_divisor(i)) mp[pr.first] = pr.second;
+  int n, k;
+  std::cin >> n >> k;
+  std::map<int, int> mu;
+  ModInt ans = 0;
+  for (int g = 1; g <= k; ++g) {
+    ModInt pat = 0;
+    for (int mul = k / g; mul >= 1; --mul) {
+      if (mu.count(mul) == 0) {
+        for (const std::pair<int, int> &p : mobius_mu_focusing_on_divisor(mul)) {
+          mu[p.first] = p.second;
+        }
+      }
+      pat += ModInt(k / (g * mul)).pow(n) * mu[mul];
     }
-    ans -= (ModInt(m) / (m - m / i) - 1) * mp[i];
+    ans += pat * g;
   }
   std::cout << ans << '\n';
   return 0;

@@ -6,7 +6,7 @@ documentation_of: string/subsequence_dp.hpp
 
 ## 時間計算量
 
-$O(\sigma \lvert S \rvert)$．
+$O(\sigma \lvert S \rvert)$
 
 
 ## 使用法
@@ -23,4 +23,4 @@ $O(\sigma \lvert S \rvert)$．
 
 ## Verified
 
-https://codeforces.com/contest/1149/submission/68086082
+https://atcoder.jp/contests/arc081/submissions/26043202

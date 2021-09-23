@@ -1,17 +1,21 @@
 /**
- * @brief 分割数
+ * @brief 分割数の数表
  * @docs docs/math/twelvefold_way/partition_function.md
  */
 
 #pragma once
+#include <algorithm>
 #include <vector>
 
 template <typename T>
-std::vector<std::vector<T>> partition_function_init(int group, int sum) {
-  std::vector<std::vector<T>> pf(group + 1, std::vector<T>(sum + 1, 0));
-  pf[0][0] = 1;
-  for (int i = 1; i <= group; ++i) for (int j = 0; j <= sum; ++j) {
-    pf[i][j] = j - i >= 0 ? pf[i][j - i] + pf[i - 1][j] : pf[i - 1][j];
+std::vector<std::vector<T>> partition_function_init(const int n, const int m) {
+  std::vector<std::vector<T>> p(n + 1, std::vector<T>(m + 1, 0));
+  p[0][0] = 1;
+  for (int i = 1; i <= n; ++i) {
+    std::copy(p[i - 1].begin(), p[i - 1].end(), p[i].begin());
+    for (int j = i; j <= m; ++j) {
+      p[i][j] += p[i][j - i];
+    }
   }
-  return pf;
+  return p;
 }

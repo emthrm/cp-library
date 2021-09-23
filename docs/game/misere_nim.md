@@ -3,7 +3,7 @@ title: misère Nim
 documentation_of: game/misere_nim.hpp
 ---
 
-[ニム](nim.md)のルールの内, 操作できなくなった方を勝ちとするものである．
+[ニム](nim.md)のルールの内，操作できなくなった方を勝ちとするものである．
 
 
 ## 時間計算量
