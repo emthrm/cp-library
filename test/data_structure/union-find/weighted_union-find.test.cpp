@@ -20,7 +20,7 @@ int main() {
     } else if (query == 1) {
       int x, y;
       std::cin >> x >> y;
-      if (uf.same(x, y)) {
+      if (uf.is_same(x, y)) {
         std::cout << uf.diff(x, y) << '\n';
       } else {
         std::cout << "?\n";

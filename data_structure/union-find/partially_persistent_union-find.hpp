@@ -30,7 +30,7 @@ struct PartiallyPersistentUnionFind {
     return true;
   }
 
-  bool same(const int t, const int u, const int v) const {
+  bool is_same(const int t, const int u, const int v) const {
     return root(t, u) == root(t, v);
   }
 

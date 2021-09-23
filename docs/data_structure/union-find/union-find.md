@@ -27,7 +27,7 @@
 |`UnionFind(n)`|頂点数 $N$ の union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 
 - 重みつき union-find
@@ -37,7 +37,7 @@
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
 |`root(ver)`|$ver$ の根||
 |`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 |`diff(u, v)`|$w(v) - w(u)$||
 
@@ -48,7 +48,7 @@
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
 |`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
 |`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find
@@ -58,7 +58,7 @@
 |`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 |`undo()`|`unite()` を一度だけ巻き戻す．||
 |`snap()`|スナップショット||
@@ -111,4 +111,4 @@ undo 可能 union-find
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
 - [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)
 - [部分永続 union-find](https://atcoder.jp/contests/agc002/submissions/26061193)
-- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/97689819)
+- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/129693159)

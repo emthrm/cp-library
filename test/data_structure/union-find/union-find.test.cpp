@@ -16,7 +16,7 @@ int main() {
     if (com == 0) {
       uf.unite(x, y);
     } else if (com == 1) {
-      std::cout << uf.same(x, y) << '\n';
+      std::cout << uf.is_same(x, y) << '\n';
     }
   }
   return 0;

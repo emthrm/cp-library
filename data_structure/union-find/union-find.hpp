@@ -8,23 +8,31 @@
 #include <vector>
 
 struct UnionFind {
-  UnionFind(int n) : data(n, -1) {}
+  UnionFind(const int n) : data(n, -1) {}
 
-  int root(int ver) { return data[ver] < 0 ? ver : data[ver] = root(data[ver]); }
+  int root(const int ver) {
+    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);
+  }
 
   bool unite(int u, int v) {
     u = root(u);
     v = root(v);
     if (u == v) return false;
-    if (data[u] > data[v]) std::swap(u, v);
+    if (data[u] > data[v]) {
+      std::swap(u, v);
+    }
     data[u] += data[v];
     data[v] = u;
     return true;
   }
 
-  bool same(int u, int v) { return root(u) == root(v); }
+  bool is_same(const int u, const int v) {
+    return root(u) == root(v);
+  }
 
-  int size(int ver) { return -data[root(ver)]; }
+  int size(const int ver) {
+    return -data[root(ver)];
+  }
 
 private:
   std::vector<int> data;

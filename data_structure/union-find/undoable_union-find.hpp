@@ -8,9 +8,11 @@
 #include <vector>
 
 struct UndoableUnionFind {
-  UndoableUnionFind(int n) : data(n, -1) {}
+  UndoableUnionFind(const int n) : data(n, -1) {}
 
-  int root(int ver) const { return data[ver] < 0 ? ver : root(data[ver]); }
+  int root(const int ver) const {
+    return data[ver] < 0 ? ver : root(data[ver]);
+  }
 
   bool unite(int u, int v) {
     u = root(u);
@@ -18,15 +20,21 @@ struct UndoableUnionFind {
     v = root(v);
     history.emplace_back(v, data[v]);
     if (u == v) return false;
-    if (data[u] > data[v]) std::swap(u, v);
+    if (data[u] > data[v]) {
+      std::swap(u, v);
+    }
     data[u] += data[v];
     data[v] = u;
     return true;
   }
 
-  bool same(int u, int v) const { return root(u) == root(v); }
+  bool is_same(const int u, const int v) const {
+    return root(u) == root(v);
+  }
 
-  int size(int ver) const { return -data[root(ver)]; }
+  int size(const int ver) const {
+    return -data[root(ver)];
+  }
 
   void undo() {
     for (int i = 0; i < 2; ++i) {
@@ -35,9 +43,15 @@ struct UndoableUnionFind {
     }
   }
 
-  void snap() { history.clear(); }
+  void snapshot() {
+    history.clear();
+  }
 
-  void rollback() { while (!history.empty()) undo(); }
+  void rollback() {
+    while (!history.empty()) {
+      undo();
+    }
+  }
 
 private:
   std::vector<int> data;

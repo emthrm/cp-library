@@ -25,7 +25,7 @@ int main() {
     int lb = 0, ub = m;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
-      (uf.size(mid, x) + (uf.same(mid, x, y) ? 0 : uf.size(mid, y)) >= z ? ub : lb) = mid;
+      (uf.size(mid, x) + (uf.is_same(mid, x, y) ? 0 : uf.size(mid, y)) >= z ? ub : lb) = mid;
     }
     std::cout << lb + 1 << '\n';
   }
