@@ -14,7 +14,7 @@ $$B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k$$
 
 であり，指数型母関数は
 
-$$\sum_{n = 0}^\infty \frac{B_n}{n!} x^n = e^{e^x - 1}$$
+$$\sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}$$
 
 である．
 
