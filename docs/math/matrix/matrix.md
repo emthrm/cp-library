@@ -67,6 +67,7 @@ documentation_of: math/matrix/matrix.hpp
   - https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletMatrix.cpp
   - https://ferin-tech.hatenablog.com/entry/2019/11/09/yukicoder_No.924_%E7%B4%B2%E6%98%9F
   - https://wiki.kimiyuki.net/wavelet%20matrix
+  - https://noshi91.hatenablog.com/entry/2021/06/02/165408
   - https://judge.yosupo.jp/problem/rectangle_sum
 - ウェーブレット木
   - https://www.slideshare.net/pfi/ss-15916040

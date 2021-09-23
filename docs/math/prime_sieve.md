@@ -27,6 +27,7 @@ $O(N)$
 - $n$ 以下の素数の個数
   - ~~http://sugarknri.hatenablog.com/entry/2019/07/31/102422~~
   - https://rsk0315.hatenablog.com/entry/2021/05/18/015511
+  - https://suu-0313.hatenablog.com/entry/2021/09/14/225759
   - https://judge.yosupo.jp/problem/counting_primes
 
 

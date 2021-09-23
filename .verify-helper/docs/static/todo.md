@@ -7,6 +7,7 @@
 - https://natsugiri.hatenablog.com/entry/2016/10/12/021502
 - https://kopricky.github.io/code/Academic/van_emde_boas_tree.html
 - https://shibh308.hatenablog.com/entry/2020/04/14/232852
+- https://twitter.com/noshi91/status/1437808190066810886
 - https://atcoder.jp/contests/abc217/tasks/abc217_d
 
 
@@ -434,4 +435,5 @@ $$\sigma_x(n) = \sum_{d \mid n} d^x \text{．}$$
 - https://en.wikipedia.org/wiki/Y-fast_trie
 - https://qiita.com/goonew/items/6ffac4b5e48dc05ca884
 - https://shibh308.hatenablog.com/entry/2020/04/14/232852
+- https://twitter.com/noshi91/status/1437808190066810886
 - https://atcoder.jp/contests/abc217/tasks/abc217_d
