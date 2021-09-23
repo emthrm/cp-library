@@ -8,7 +8,7 @@
 #include "../../formal_power_series/formal_power_series.hpp"
 
 template <typename T>
-std::vector<T> bell_number_init_by_fps(int n) {
+std::vector<T> bell_number_init_by_fps(const int n) {
   FormalPowerSeries<T> bell(n);
   bell[1] = 1;
   bell = bell.exp(n);

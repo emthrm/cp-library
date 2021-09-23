@@ -14,6 +14,8 @@ int main() {
   std::cin >> n >> m;
   ModInt::set_mod(m);
   std::vector<ModInt> b = montmort_number<ModInt>(n);
-  for (int i = 1; i <= n; ++i) std::cout << b[i] << " \n"[i == n];
+  for (int i = 1; i <= n; ++i) {
+    std::cout << b[i] << " \n"[i == n];
+  }
   return 0;
 }

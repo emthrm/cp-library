@@ -4,9 +4,9 @@
 
 和の順序は問わず，$2 + 1 + 1$ と $1 + 2 + 1$ を区別しない．
 
-母関数は
+分割数 $p(n)$ の母関数は
 
-$$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
+$$\sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 である．
 
@@ -15,21 +15,21 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ||時間計算量|
 |:--:|:--:|
-|数表|$O(NM)$|
-|数表 $n = m$ 版|$O(N\log{N})$|
+||$O(NM)$|
+|$n = m$ 版|$O(N\log{N})$|
 
 
 ## 使用法
 
 ||説明|
 |:--:|:--:|
-|`partition_function_init<T>(n, m)`|分割数の数表|
+|`partition_function<T>(n, m)`|分割数の数表|
 
 - $n = m$ 版
 
 ||説明|
 |:--:|:--:|
-|`partition_function_init_by_fps<T>(n)`|$n = m$ のときの分割数の数表|
+|`partition_function_by_fps<T>(n)`|$n = m$ のときの分割数の数表|
 
 
 ## 参考
@@ -49,5 +49,5 @@ $$P(x) = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
 
 ## Verified
 
-- [数表](https://yukicoder.me/submissions/701499)
-- [数表 $n = m$ 版](https://judge.yosupo.jp/submission/3791)
+- https://yukicoder.me/submissions/701499
+- [$n = m$ 版](https://judge.yosupo.jp/submission/3791)

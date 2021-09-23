@@ -1,11 +1,11 @@
 /*
- * @brief 数学/写像12相/分割数の数表
+ * @brief 数学/写像12相/分割数
  */
 #define PROBLEM "https://yukicoder.me/problems/no/269"
 
 #include <iostream>
 #include "../../../math/modint.hpp"
-#include "../../../math/twelvefold_way/partition_function_init.hpp"
+#include "../../../math/twelvefold_way/partition_function.hpp"
 
 int main() {
   using ModInt = MInt<0>;
@@ -15,6 +15,6 @@ int main() {
   for (int i = 1; i < n; ++i) {
     s -= k * i;
   }
-  std::cout << (s >= 0 ? partition_function_init<ModInt>(n, s)[n][s] : 0) << '\n';
+  std::cout << (s >= 0 ? partition_function<ModInt>(n, s)[n][s] : 0) << '\n';
   return 0;
 }

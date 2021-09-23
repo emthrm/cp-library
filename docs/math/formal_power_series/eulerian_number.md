@@ -23,23 +23,21 @@ $$A(n, m) = \sum_{k = 0}^m (-1)^k \binom{n + 1}{k} (m + 1 - k)^n$$
 
 ||時間計算量|
 |:--:|:--:|
-|数表|$O(NM)$|
-|数表 形式的冪級数版|$O(N\log{N})$|
+||$O(NM)$|
+|形式的冪級数版|$O(N\log{N})$|
 
 
 ## 使用法
 
-- 数表
+||説明|
+|:--:|:--:|
+|`eulerian_number(n, m)`|Eulerian number $A(i, j) \ (0 \leq i \leq n,\ 0 \leq j \leq m)$ の数表|
+
+- 形式的冪級数版
 
 ||説明|
 |:--:|:--:|
-|`eulerian_number_init(n, m)`|Eulerian number $A(i, j) \ (0 \leq i \leq n,\ 0 \leq j \leq m)$|
-
-- 数表 形式的冪級数版
-
-||説明|
-|:--:|:--:|
-|`eulerian_number_init_by_fps<T>(n)`|Eulerian number $A(n, j) \ (0 \leq j \leq n)$|
+|`eulerian_number_by_fps<T>(n)`|Eulerian number $A(n, j) \ (0 \leq j \leq n)$ の数表|
 
 
 ## 参考
@@ -47,9 +45,3 @@ $$A(n, m) = \sum_{k = 0}^m (-1)^k \binom{n + 1}{k} (m + 1 - k)^n$$
 - https://en.wikipedia.org/wiki/Eulerian_number
 - http://oeis.org/wiki/Eulerian_numbers,_triangle_of
 - https://min-25.hatenablog.com/entry/2015/04/07/160154
-
-
-## Verified
-
-- 数表
-- 数表 形式的冪級数版

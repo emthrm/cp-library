@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/分割数の数表 $n = m$ 版
+ * @brief 数学/写像12相/分割数 $n = m$ 版
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/partition_function"
 
@@ -8,7 +8,7 @@
 #include "../../../math/modint.hpp"
 #include "../../../math/convolution/number_theoretic_transform.hpp"
 #include "../../../math/formal_power_series/formal_power_series.hpp"
-#include "../../../math/twelvefold_way/partition_function_init_by_fps.hpp"
+#include "../../../math/twelvefold_way/partition_function_by_fps.hpp"
 
 int main() {
   using ModInt = MInt<0>;
@@ -19,7 +19,7 @@ int main() {
   });
   int n;
   std::cin >> n;
-  std::vector<ModInt> p = partition_function_init_by_fps<ModInt>(n);
+  std::vector<ModInt> p = partition_function_by_fps<ModInt>(n);
   for (int i = 0; i <= n; ++i) {
     std::cout << p[i] << " \n"[i == n];
   }
