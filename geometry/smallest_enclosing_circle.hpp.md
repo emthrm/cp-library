@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/smallest_enclosing_circle.hpp\"\n#include <utility>\r\
@@ -276,7 +276,7 @@ data:
   path: geometry/smallest_enclosing_circle.hpp
   requiredBy: []
   timestamp: '2021-02-15 03:05:11+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/smallest_enclosing_circle.test.cpp
 documentation_of: geometry/smallest_enclosing_circle.hpp

@@ -70,7 +70,7 @@ data:
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
   - icon: ':heavy_check_mark:'

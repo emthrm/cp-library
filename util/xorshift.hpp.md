@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   - icon: ':heavy_check_mark:'
@@ -13,7 +13,7 @@ data:
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - icon: ':heavy_check_mark:'
@@ -30,9 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"util/xorshift.hpp\"\n#include <ctime>\r\n\r\nstruct Xor128\
@@ -67,7 +67,7 @@ data:
   - geometry/smallest_enclosing_circle.hpp
   - math/mod_sqrt.hpp
   timestamp: '2021-02-15 03:05:11+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/maximum_matching.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp

@@ -55,7 +55,7 @@ data:
       title: "\u91CD\u307F\u3064\u304D union-find"
   - name: dynamic_programming
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dynamic_programming/2d_cumulative_sum.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':x:'
@@ -104,10 +104,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/argument_sort.hpp
       title: "\u504F\u89D2\u30BD\u30FC\u30C8"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: geometry/geometry.hpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: geometry/smallest_enclosing_circle.hpp
       title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   - name: graph
@@ -150,7 +150,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/girth_in_undirected_graph.hpp
       title: "\u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/is_bipartite.hpp
       title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -245,7 +245,7 @@ data:
       title: "Warshall-Floyd \u6CD5"
   - name: graph/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: graph/tree/centroid.hpp
       title: "\u91CD\u5FC3 (centroid)"
     - icon: ':heavy_check_mark:'
@@ -374,7 +374,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/convolution/fast_mobius_transform.hpp
       title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/fast_zeta_transform.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
     - icon: ':heavy_check_mark:'
@@ -574,7 +574,7 @@ data:
     - icon: ':x:'
       path: string/split.hpp
       title: "\u6587\u5B57\u5217\u306E\u5206\u5272"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/subsequence_dp.hpp
       title: "\u90E8\u5206\u5217 DP"
     - icon: ':heavy_check_mark:'
@@ -594,7 +594,7 @@ data:
     - icon: ':warning:'
       path: util/timer.hpp
       title: "\u30BF\u30A4\u30DE\u30FC (timer)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: util/xorshift.hpp
       title: xorshift
   verificationCategories:
@@ -683,7 +683,7 @@ data:
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u91CD\u307F\u3064\u304D union-find"
   - name: test/dynamic_programming
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/dynamic_programming/2d_cumulative_sum.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
     - icon: ':x:'
@@ -826,7 +826,7 @@ data:
       path: test/geometry/geometry.22.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\
         \u591A\u89D2\u5F62\u306E\u76F4\u5F84)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/smallest_enclosing_circle.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - name: test/graph
@@ -868,7 +868,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/girth.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5185\u5468"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/is_bipartite.test.cpp
       title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -973,7 +973,7 @@ data:
       title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd \u6CD5"
   - name: test/graph/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/centroid.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
     - icon: ':heavy_check_mark:'
@@ -1125,7 +1125,7 @@ data:
       path: test/math/convolution/fast_mobius_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30E1\u30D3\u30A6\
         \u30B9\u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/fast_zeta_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30BC\u30FC\u30BF\
         \u5909\u63DB"
@@ -1359,7 +1359,7 @@ data:
     - icon: ':x:'
       path: test/string/split.test.cpp
       title: "\u6587\u5B57\u5217/\u6587\u5B57\u5217\u306E\u5206\u5272"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/string/subsequence_dp.test.cpp
       title: "\u6587\u5B57\u5217/\u90E8\u5206\u5217 DP"
     - icon: ':heavy_check_mark:'

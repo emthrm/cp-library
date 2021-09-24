@@ -8,7 +8,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []

@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -12,15 +12,16 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/arc087/tasks/arc087_d
+    PROBLEM: https://atcoder.jp/contests/arc087/tasks/arc087_f
     document_title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
     links:
     - https://atcoder.jp/contests/arc087/tasks/arc087_d
+    - https://atcoder.jp/contests/arc087/tasks/arc087_f
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -31,6 +32,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\r\n */\r\n#define\
+    \ PROBLEM \"https://atcoder.jp/contests/arc087/tasks/arc087_f\"\r\n// #define\
     \ PROBLEM \"https://atcoder.jp/contests/arc087/tasks/arc087_d\"\r\n\r\n#include\
     \ <functional>\r\n#include <iostream>\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\
     \r\n#include \"../../../graph/edge.hpp\"\r\n#include \"../../../graph/tree/centroid.hpp\"\
@@ -62,8 +64,8 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid.test.cpp
   requiredBy: []
-  timestamp: '2021-09-05 22:32:54+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-24 17:47:42+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid.test.cpp
 layout: document

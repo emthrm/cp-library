@@ -1,24 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: dynamic_programming/2d_cumulative_sum.hpp
     title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/arc089/tasks/arc089_b
+    PROBLEM: https://atcoder.jp/contests/arc089/tasks/arc089_d
     document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
     links:
     - https://atcoder.jp/contests/arc089/tasks/arc089_b
+    - https://atcoder.jp/contests/arc089/tasks/arc089_d
   bundledCode: "#line 1 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\n\
     /*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\
-    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\
-    \r\n\r\n#include <iostream>\r\n#line 2 \"dynamic_programming/2d_cumulative_sum.hpp\"\
+    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_d\"\
+    \r\n// #define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\r\
+    \n\r\n#include <iostream>\r\n#line 2 \"dynamic_programming/2d_cumulative_sum.hpp\"\
     \n#include <cassert>\n#include <vector>\n\ntemplate <typename T>\nstruct CumulativeSum2D\
     \ {\n  CumulativeSum2D(const int h, const int w)\n  : CumulativeSum2D(std::vector<std::vector<T>>(h,\
     \ std::vector<T>(w, 0))) {}\n\n  template <typename U>\n  CumulativeSum2D(const\
@@ -34,7 +36,7 @@ data:
     \ y1, const int x1, const int y2, const int x2) const {\n    assert(is_built);\n\
     \    return y1 <= y2 && x1 <= x2 ? dat[y2 + 1][x2 + 1] - dat[y2 + 1][x1] - dat[y1][x2\
     \ + 1] + dat[y1][x1] : 0;\n  }\n\nprivate:\n  bool is_built = false;\n  const\
-    \ int h, w;\n  std::vector<std::vector<T>> dat;\n};\n#line 8 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\
+    \ int h, w;\n  std::vector<std::vector<T>> dat;\n};\n#line 9 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\
     \n\r\nint main() {\r\n  int n, k;\r\n  std::cin >> n >> k;\r\n  CumulativeSum2D<int>\
     \ black(k * 2, k * 2), white(k * 2, k * 2);\r\n  while (n--) {\r\n    int x, y;\r\
     \n    char c;\r\n    std::cin >> x >> y >> c;\r\n    x %= k * 2;\r\n    y %= k\
@@ -61,8 +63,9 @@ data:
     \ w > ans) {\r\n        ans = b + w;\r\n      }\r\n    }\r\n  }\r\n  std::cout\
     \ << ans << '\\n';\r\n  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\
-    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\
-    \r\n\r\n#include <iostream>\r\n#include \"../../dynamic_programming/2d_cumulative_sum.hpp\"\
+    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_d\"\
+    \r\n// #define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\r\
+    \n\r\n#include <iostream>\r\n#include \"../../dynamic_programming/2d_cumulative_sum.hpp\"\
     \r\n\r\nint main() {\r\n  int n, k;\r\n  std::cin >> n >> k;\r\n  CumulativeSum2D<int>\
     \ black(k * 2, k * 2), white(k * 2, k * 2);\r\n  while (n--) {\r\n    int x, y;\r\
     \n    char c;\r\n    std::cin >> x >> y >> c;\r\n    x %= k * 2;\r\n    y %= k\
@@ -93,8 +96,8 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/2d_cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2021-09-20 16:05:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-24 17:47:42+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/2d_cumulative_sum.test.cpp
 layout: document

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   _extendedVerifiedWith:
@@ -94,15 +94,15 @@ data:
     path: test/geometry/geometry.22.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u591A\
       \u89D2\u5F62\u306E\u76F4\u5F84)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - icon: ':heavy_check_mark:'
     path: test/math/quadratic_equation.test.cpp
     title: "\u6570\u5B66/\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"geometry/geometry.hpp\"\n#include <algorithm>\r\n#include\
@@ -521,7 +521,7 @@ data:
   requiredBy:
   - geometry/smallest_enclosing_circle.hpp
   timestamp: '2021-02-13 06:42:09+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/geometry.06.test.cpp
   - test/geometry/geometry.18.test.cpp

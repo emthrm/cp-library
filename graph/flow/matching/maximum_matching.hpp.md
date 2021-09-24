@@ -11,7 +11,7 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []

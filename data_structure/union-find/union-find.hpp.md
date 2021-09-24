@@ -20,7 +20,7 @@ data:
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/is_bipartite.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
   - icon: ':heavy_check_mark:'

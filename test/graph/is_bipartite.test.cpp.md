@@ -7,20 +7,21 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/is_bipartite.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/arc099/tasks/arc099_c
+    PROBLEM: https://atcoder.jp/contests/arc099/tasks/arc099_e
     document_title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     links:
     - https://atcoder.jp/contests/arc099/tasks/arc099_c
+    - https://atcoder.jp/contests/arc099/tasks/arc099_e
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -31,16 +32,17 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A\
-    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc099/tasks/arc099_c\"\
-    \r\n\r\n#include <iostream>\r\n#include <map>\r\n#include <tuple>\r\n#include\
-    \ <utility>\r\n#include <vector>\r\n#include \"../../graph/edge.hpp\"\r\n#include\
-    \ \"../../data_structure/union-find/union-find.hpp\"\r\n#include \"../../graph/is_bipartite.hpp\"\
-    \r\n\r\nint main() {\r\n  int n, m;\r\n  std::cin >> n >> m;\r\n  int ans = m;\r\
-    \n  std::vector<std::vector<int>> adj(n, std::vector<int>(n, false));\r\n  while\
-    \ (m--) {\r\n    int a, b;\r\n    std::cin >> a >> b;\r\n    --a; --b;\r\n   \
-    \ adj[a][b] = adj[b][a] = true;\r\n  }\r\n  UnionFind uf(n);\r\n  std::vector<std::vector<Edge<bool>>>\
-    \ graph(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    for (int j = i + 1; j <\
-    \ n; ++j) {\r\n      if (!adj[i][j]) {\r\n        uf.unite(i, j);\r\n        graph[i].emplace_back(i,\
+    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc099/tasks/arc099_e\"\
+    \r\n// #define PROBLEM \"https://atcoder.jp/contests/arc099/tasks/arc099_c\"\r\
+    \n\r\n#include <iostream>\r\n#include <map>\r\n#include <tuple>\r\n#include <utility>\r\
+    \n#include <vector>\r\n#include \"../../graph/edge.hpp\"\r\n#include \"../../data_structure/union-find/union-find.hpp\"\
+    \r\n#include \"../../graph/is_bipartite.hpp\"\r\n\r\nint main() {\r\n  int n,\
+    \ m;\r\n  std::cin >> n >> m;\r\n  int ans = m;\r\n  std::vector<std::vector<int>>\
+    \ adj(n, std::vector<int>(n, false));\r\n  while (m--) {\r\n    int a, b;\r\n\
+    \    std::cin >> a >> b;\r\n    --a; --b;\r\n    adj[a][b] = adj[b][a] = true;\r\
+    \n  }\r\n  UnionFind uf(n);\r\n  std::vector<std::vector<Edge<bool>>> graph(n);\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    for (int j = i + 1; j < n; ++j) {\r\n\
+    \      if (!adj[i][j]) {\r\n        uf.unite(i, j);\r\n        graph[i].emplace_back(i,\
     \ j);\r\n        graph[j].emplace_back(j, i);\r\n      }\r\n    }\r\n  }\r\n \
     \ std::vector<int> color;\r\n  if (!is_bipartite(graph, color)) {\r\n    std::cout\
     \ << \"-1\\n\";\r\n    return 0;\r\n  }\r\n  std::vector<int> dp(n + 1, false);\r\
@@ -61,8 +63,8 @@ data:
   isVerificationFile: true
   path: test/graph/is_bipartite.test.cpp
   requiredBy: []
-  timestamp: '2021-09-24 01:25:42+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-24 17:47:42+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/is_bipartite.test.cpp
 layout: document
