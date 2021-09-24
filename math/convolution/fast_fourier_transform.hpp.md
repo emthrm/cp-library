@@ -22,7 +22,7 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow(exponend, md))"
@@ -146,11 +146,11 @@ data:
   timestamp: '2021-08-15 23:02:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/graph/tree/centroid_decomposition.test.cpp
   - test/math/convolution/fast_fourier_transform.test.cpp
   - test/math/convolution/mod_convolution.test.cpp
-  - test/graph/tree/centroid_decomposition.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
 documentation_of: math/convolution/fast_fourier_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"

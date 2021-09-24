@@ -14,10 +14,10 @@ data:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/xor_convolution.hpp: line 6: #pragma once found in a non-first\
@@ -26,18 +26,20 @@ data:
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
     \ xor_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {\r\n  int\
-    \ n = std::max(a.size(), b.size()), p = 1;\r\n  while ((1 << p) < n) ++p;\r\n\
-    \  n = 1 << p;\r\n  a.resize(n, ID);\r\n  b.resize(n, ID);\r\n  auto fwht = [n](std::vector<T>\
-    \ &v) -> void {\r\n    for (int i = 1; i < n; i <<= 1) for (int s = 0; s < n;\
-    \ ++s) {\r\n      if (s & i) continue;\r\n      T tmp1 = v[s], tmp2 = v[s | i];\r\
-    \n      v[s] = tmp1 + tmp2;\r\n      v[s | i] = tmp1 - tmp2;\r\n    }\r\n  };\r\
-    \n  fwht(a);\r\n  fwht(b);\r\n  for (int i = 0; i < n; ++i) a[i] *= b[i];\r\n\
-    \  fwht(a);\r\n  for (int i = 0; i < n; ++i) a[i] /= n;\r\n  return a;\r\n}\r\n"
+    \ n = std::max(a.size(), b.size()), p = 1;\r\n  while ((1 << p) < n) {\r\n   \
+    \ ++p;\r\n  }\r\n  n = 1 << p;\r\n  a.resize(n, ID);\r\n  b.resize(n, ID);\r\n\
+    \  auto fwht = [n](std::vector<T> &v) -> void {\r\n    for (int i = 1; i < n;\
+    \ i <<= 1) {\r\n      for (int s = 0; s < n; ++s) {\r\n        if (s & i) continue;\r\
+    \n        T tmp1 = v[s], tmp2 = v[s | i];\r\n        v[s] = tmp1 + tmp2;\r\n \
+    \       v[s | i] = tmp1 - tmp2;\r\n      }\r\n    }\r\n  };\r\n  fwht(a);\r\n\
+    \  fwht(b);\r\n  for (int i = 0; i < n; ++i) {\r\n    a[i] *= b[i];\r\n  }\r\n\
+    \  fwht(a);\r\n  for (int i = 0; i < n; ++i) {\r\n    a[i] /= n;\r\n  }\r\n  return\
+    \ a;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/xor_convolution.hpp
   requiredBy: []
-  timestamp: '2021-08-18 00:31:23+09:00'
+  timestamp: '2021-09-20 02:24:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/xor_convolution.test.cpp
@@ -107,6 +109,7 @@ $O(N\log{N})$
 - https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
 
 高速ウォルシュ・アダマール変換
+- https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 - https://cympfh.cc/aiura/hadamard-xor-convolution
 - https://twitter.com/maspy_stars/status/1350467886775603200
 

@@ -1,3 +1,16 @@
+# van Emde Boas tree
+
+## ToDo
+- https://en.wikipedia.org/wiki/Van_Emde_Boas_tree
+- https://twitter.com/hcpc_hokudai/status/1377524137321582594
+- https://kopricky.github.io/code/Academic/van_emde_boas_tree.html
+- https://natsugiri.hatenablog.com/entry/2016/10/12/021502
+- https://kopricky.github.io/code/Academic/van_emde_boas_tree.html
+- https://shibh308.hatenablog.com/entry/2020/04/14/232852
+- https://twitter.com/noshi91/status/1437808190066810886
+- https://atcoder.jp/contests/abc217/tasks/abc217_d
+
+
 # 永続配列 (persistent array)
 
 ## ToDo
@@ -414,3 +427,13 @@ $$\sigma_x(n) = \sum_{d \mid n} d^x \text{．}$$
 - https://en.wikipedia.org/wiki/Rope_(data_structure)
 - 永続ロープ
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_rope.cc
+
+
+# y-fast trie
+
+## ToDo
+- https://en.wikipedia.org/wiki/Y-fast_trie
+- https://qiita.com/goonew/items/6ffac4b5e48dc05ca884
+- https://shibh308.hatenablog.com/entry/2020/04/14/232852
+- https://twitter.com/noshi91/status/1437808190066810886
+- https://atcoder.jp/contests/abc217/tasks/abc217_d

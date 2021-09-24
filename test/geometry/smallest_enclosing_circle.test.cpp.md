@@ -17,18 +17,17 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
+    ERROR: 1e-6
+    PROBLEM: https://atcoder.jp/contests/abc151/tasks/abc151_f
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
     links:
     - https://atcoder.jp/contests/abc151/tasks/abc151_f
   bundledCode: "#line 1 \"test/geometry/smallest_enclosing_circle.test.cpp\"\n/*\r\
     \n * @brief \u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186\r\n\
-    \ */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/abc151/tasks/abc151_f\"\
-    \r\n#define ERROR \"1e-6\"\r\n\r\n#include <iostream>\r\n#include <vector>\r\n\
-    #line 2 \"geometry/geometry.hpp\"\n#include <algorithm>\r\n#include <cassert>\r\
-    \n#include <cmath>\r\n#include <functional>\r\n#line 7 \"geometry/geometry.hpp\"\
+    \ */\r\n#define PROBLEM \"https://atcoder.jp/contests/abc151/tasks/abc151_f\"\r\
+    \n#define ERROR \"1e-6\"\r\n\r\n#include <iostream>\r\n#include <vector>\r\n#line\
+    \ 2 \"geometry/geometry.hpp\"\n#include <algorithm>\r\n#include <cassert>\r\n\
+    #include <cmath>\r\n#include <functional>\r\n#line 7 \"geometry/geometry.hpp\"\
     \n#include <limits>\r\n#include <utility>\r\n#line 10 \"geometry/geometry.hpp\"\
     \n\r\nnamespace geometry {\r\nusing Real = double;\r\nconstexpr long double PI\
     \ = 3.14159265358979323846;\r\n\r\nint sgn(Real x) {\r\n  static constexpr Real\
@@ -259,17 +258,19 @@ data:
     \ - ps[k], ps[j] - ps[k]);\r\n          geometry::Point p = (ps[k] * a * (b +\
     \ c - a) + ps[j] * b * (c + a - b) + ps[i] * c * (a + b - c)) / (4 * s * s);\r\
     \n          res = geometry::Circle(p, geometry::distance(ps[k], p));\r\n     \
-    \   }\r\n      }\r\n    }\r\n  }\r\n  return res;\r\n}\r\n#line 12 \"test/geometry/smallest_enclosing_circle.test.cpp\"\
+    \   }\r\n      }\r\n    }\r\n  }\r\n  return res;\r\n}\r\n#line 11 \"test/geometry/smallest_enclosing_circle.test.cpp\"\
     \n\r\nint main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<geometry::Point>\
-    \ p(n);\r\n  for (int i = 0; i < n; ++i) std::cin >> p[i];\r\n  std::cout << smallest_enclosing_circle(p).r\
-    \ << '\\n';\r\n  return 0;\r\n}\r\n"
+    \ p(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> p[i];\r\n  }\r\n\
+    \  std::cout << smallest_enclosing_circle(p).r << '\\n';\r\n  return 0;\r\n}\r\
+    \n"
   code: "/*\r\n * @brief \u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186\
-    \r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/abc151/tasks/abc151_f\"\
+    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/abc151/tasks/abc151_f\"\
     \r\n#define ERROR \"1e-6\"\r\n\r\n#include <iostream>\r\n#include <vector>\r\n\
     #include \"../../geometry/geometry.hpp\"\r\n#include \"../../geometry/smallest_enclosing_circle.hpp\"\
     \r\n\r\nint main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<geometry::Point>\
-    \ p(n);\r\n  for (int i = 0; i < n; ++i) std::cin >> p[i];\r\n  std::cout << smallest_enclosing_circle(p).r\
-    \ << '\\n';\r\n  return 0;\r\n}\r\n"
+    \ p(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> p[i];\r\n  }\r\n\
+    \  std::cout << smallest_enclosing_circle(p).r << '\\n';\r\n  return 0;\r\n}\r\
+    \n"
   dependsOn:
   - geometry/geometry.hpp
   - geometry/smallest_enclosing_circle.hpp
@@ -277,7 +278,7 @@ data:
   isVerificationFile: true
   path: test/geometry/smallest_enclosing_circle.test.cpp
   requiredBy: []
-  timestamp: '2021-02-15 03:05:11+09:00'
+  timestamp: '2021-09-05 22:32:54+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/geometry/smallest_enclosing_circle.test.cpp

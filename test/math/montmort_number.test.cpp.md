@@ -133,27 +133,29 @@ data:
     \ int &mod() { static int divisor = 0; return divisor; }\r\n};\r\nnamespace std\
     \ { template <int ID> MInt<ID> abs(const MInt<ID> &x) { return x; } }\r\n#line\
     \ 3 \"math/montmort_number.hpp\"\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ montmort_number(int n) {\r\n  std::vector<T> montmort(n + 1, 0);\r\n  if (n\
-    \ >= 0) montmort[0] = 1;\r\n  for (int i = 2; i <= n; ++i) montmort[i] = (montmort[i\
-    \ - 1] + montmort[i - 2]) * (i - 1);\r\n  return montmort;\r\n}\r\n#line 10 \"\
-    test/math/montmort_number.test.cpp\"\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\
-    \n  int n, m;\r\n  std::cin >> n >> m;\r\n  ModInt::set_mod(m);\r\n  std::vector<ModInt>\
-    \ b = montmort_number<ModInt>(n);\r\n  for (int i = 1; i <= n; ++i) std::cout\
-    \ << b[i] << \" \\n\"[i == n];\r\n  return 0;\r\n}\r\n"
+    \ montmort_number(const int n) {\r\n  std::vector<T> montmort(n + 1, 0);\r\n \
+    \ if (n >= 0) {\r\n    montmort[0] = 1;\r\n  }\r\n  for (int i = 2; i <= n; ++i)\
+    \ {\r\n    montmort[i] = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\r\n  }\r\
+    \n  return montmort;\r\n}\r\n#line 10 \"test/math/montmort_number.test.cpp\"\n\
+    \r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  int n, m;\r\n  std::cin >>\
+    \ n >> m;\r\n  ModInt::set_mod(m);\r\n  std::vector<ModInt> b = montmort_number<ModInt>(n);\r\
+    \n  for (int i = 1; i <= n; ++i) {\r\n    std::cout << b[i] << \" \\n\"[i == n];\r\
+    \n  }\r\n  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570\r\n */\r\
     \n#define PROBLEM \"https://judge.yosupo.jp/problem/montmort_number_mod\"\r\n\r\
     \n#include <iostream>\r\n#include <vector>\r\n#include \"../../math/modint.hpp\"\
     \r\n#include \"../../math/montmort_number.hpp\"\r\n\r\nint main() {\r\n  using\
     \ ModInt = MInt<0>;\r\n  int n, m;\r\n  std::cin >> n >> m;\r\n  ModInt::set_mod(m);\r\
     \n  std::vector<ModInt> b = montmort_number<ModInt>(n);\r\n  for (int i = 1; i\
-    \ <= n; ++i) std::cout << b[i] << \" \\n\"[i == n];\r\n  return 0;\r\n}\r\n"
+    \ <= n; ++i) {\r\n    std::cout << b[i] << \" \\n\"[i == n];\r\n  }\r\n  return\
+    \ 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/montmort_number.hpp
   isVerificationFile: true
   path: test/math/montmort_number.test.cpp
   requiredBy: []
-  timestamp: '2021-03-07 02:53:11+09:00'
+  timestamp: '2021-09-24 03:41:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/montmort_number.test.cpp

@@ -57,6 +57,7 @@ Kruskal 法
   - http://www.prefield.com/algorithm/dp/steiner_tree.html
   - http://monyone.github.io/teihen_library/#MinimumSteinerTree
 - 最小全域有向木
+  - https://37zigen.com/gabow-galil-spencer-tarjan/
   - https://dic.kimiyuki.net/chu-liu-edmonds
   - http://joisino.hatenablog.com/entry/2017/01/11/230141
   - https://ark4rk.hatenablog.com/entry/2017/09/15/011937

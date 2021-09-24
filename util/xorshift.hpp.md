@@ -6,8 +6,9 @@ data:
     path: geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   - icon: ':heavy_check_mark:'
-    path: graph/flow/matching/tutte_theorem.hpp
-    title: "\u30BF\u30C3\u30C8\u306E\u5B9A\u7406"
+    path: graph/flow/matching/maximum_matching.hpp
+    title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
+      \u30B0"
   - icon: ':heavy_check_mark:'
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
@@ -16,9 +17,9 @@ data:
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/matching/tutte_theorem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u30BF\
-      \u30C3\u30C8\u306E\u5B9A\u7406"
+    path: test/graph/flow/matching/maximum_matching.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
+      \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
@@ -62,17 +63,17 @@ data:
   isVerificationFile: false
   path: util/xorshift.hpp
   requiredBy:
-  - math/mod_sqrt.hpp
-  - graph/flow/matching/tutte_theorem.hpp
+  - graph/flow/matching/maximum_matching.hpp
   - geometry/smallest_enclosing_circle.hpp
+  - math/mod_sqrt.hpp
   timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/mod_sqrt.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/is_primitive_root.test.cpp
-  - test/graph/flow/matching/tutte_theorem.test.cpp
+  - test/graph/flow/matching/maximum_matching.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp
+  - test/math/mod_sqrt.test.cpp
+  - test/math/is_primitive_root.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
 documentation_of: util/xorshift.hpp
 layout: document
 title: xorshift

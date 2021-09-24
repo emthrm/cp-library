@@ -6,22 +6,23 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: graph/flow/matching/tutte_theorem.hpp
-    title: "\u30BF\u30C3\u30C8\u306E\u5B9A\u7406"
-  - icon: ':x:'
+    path: graph/flow/matching/maximum_matching.hpp
+    title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
+      \u30B0"
+  - icon: ':heavy_check_mark:'
     path: math/matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/matching/tutte_theorem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u30BF\
-      \u30C3\u30C8\u306E\u5B9A\u7406"
-  - icon: ':x:'
+    path: test/graph/flow/matching/maximum_matching.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
+      \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/matrix/gauss_jordan.hpp\"\n#include <cmath>\r\n#include\
@@ -82,13 +83,13 @@ data:
   isVerificationFile: false
   path: math/matrix/gauss_jordan.hpp
   requiredBy:
+  - graph/flow/matching/maximum_matching.hpp
   - math/matrix/linear_equation.hpp
-  - graph/flow/matching/tutte_theorem.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/graph/flow/matching/maximum_matching.test.cpp
   - test/math/matrix/linear_equation.test.cpp
-  - test/graph/flow/matching/tutte_theorem.test.cpp
 documentation_of: math/matrix/gauss_jordan.hpp
 layout: document
 title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5\

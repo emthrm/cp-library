@@ -20,6 +20,9 @@ data:
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
+  - icon: ':x:'
+    path: test/graph/is_bipartite.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: test/graph/kruskal.test.cpp
     title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
@@ -33,37 +36,39 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: union-find
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/union-find.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\nstruct\
-    \ UnionFind {\r\n  UnionFind(int n) : data(n, -1) {}\r\n\r\n  int root(int ver)\
-    \ { return data[ver] < 0 ? ver : data[ver] = root(data[ver]); }\r\n\r\n  bool\
-    \ unite(int u, int v) {\r\n    u = root(u);\r\n    v = root(v);\r\n    if (u ==\
-    \ v) return false;\r\n    if (data[u] > data[v]) std::swap(u, v);\r\n    data[u]\
-    \ += data[v];\r\n    data[v] = u;\r\n    return true;\r\n  }\r\n\r\n  bool same(int\
-    \ u, int v) { return root(u) == root(v); }\r\n\r\n  int size(int ver) { return\
-    \ -data[root(ver)]; }\r\n\r\nprivate:\r\n  std::vector<int> data;\r\n};\r\n"
+    \ UnionFind {\r\n  UnionFind(const int n) : data(n, -1) {}\r\n\r\n  int root(const\
+    \ int ver) {\r\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\r\
+    \n  }\r\n\r\n  bool unite(int u, int v) {\r\n    u = root(u);\r\n    v = root(v);\r\
+    \n    if (u == v) return false;\r\n    if (data[u] > data[v]) {\r\n      std::swap(u,\
+    \ v);\r\n    }\r\n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\
+    \n  }\r\n\r\n  bool is_same(const int u, const int v) {\r\n    return root(u)\
+    \ == root(v);\r\n  }\r\n\r\n  int size(const int ver) {\r\n    return -data[root(ver)];\r\
+    \n  }\r\n\r\nprivate:\r\n  std::vector<int> data;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/union-find.hpp
   requiredBy:
   - graph/connencted_component_of_complement_graph.hpp
   - graph/kruskal.hpp
-  timestamp: '2021-04-27 21:35:04+09:00'
+  timestamp: '2021-09-24 01:25:42+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/kruskal.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
+  - test/data_structure/union-find/union-find.test.cpp
   - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/biconnected_component.test.cpp
-  - test/data_structure/union-find/union-find.test.cpp
+  - test/graph/kruskal.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/is_bipartite.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:
@@ -71,13 +76,13 @@ redirect_from:
 - /library/data_structure/union-find/union-find.hpp.html
 title: union-find
 ---
-# union-find
+# 素集合データ構造 (disjoint-set data structure)
 
 |データ構造|説明|
 |:--:|:--:|
-|union-find|グループ分けを管理するデータ構造|
-|重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である重み情報が付加された union-find|
-|部分永続 union-find|時刻 $t$ における状態を保存する union-find である．最新版のみ変更できる．|
+|union-find|互いに素な集合族を管理するデータ構造|
+|重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)上の重みを考慮した union-find|
+|部分永続 union-find|ある時刻における状態を保存する union-find である．最新版のみ変更できる．|
 |undo 可能 union-find|巻き戻し可能な union-find|
 
 
@@ -100,8 +105,8 @@ title: union-find
 |`UnionFind(n)`|頂点数 $N$ の union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 
 - 重みつき union-find
 
@@ -109,9 +114,9 @@ title: union-find
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
 |`root(ver)`|$ver$ の根||
-|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を付加する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
+|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 |`diff(u, v)`|$w(v) - w(u)$||
 
 - 部分永続 union-find
@@ -121,8 +126,8 @@ title: union-find
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
 |`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(t, u, v)`|時刻 $t$ において $u$ と $v$ は連結か．||
-|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む連結成分の個数||
+|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find
 
@@ -131,9 +136,9 @@ title: union-find
 |`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
-|`undo()`|`unite()` を一度，巻き戻す．||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
+|`undo()`|`unite()` を一度だけ巻き戻す．||
 |`snap()`|スナップショット||
 |`rollback()`|`snap()` 時点まで巻き戻す．||
 
@@ -167,7 +172,6 @@ undo 可能 union-find
   - https://ei1333.github.io/luzhiled/snippets/structure/union-find.html
   - https://github.com/primenumber/ProconLib/blob/master/Structure/UnionFindPersistent.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_union_find.cc
-  - https://atcoder.jp/contests/agc002/tasks/agc002_d
   - https://judge.yosupo.jp/problem/persistent_unionfind
 - dynamic connectivity
   - https://en.wikipedia.org/wiki/Dynamic_connectivity
@@ -175,7 +179,7 @@ undo 可能 union-find
   - https://twitter.com/noshi91/status/1420179696965197824
   - https://ei1333.hateblo.jp/entry/2017/12/14/000000
   - https://ei1333.github.io/luzhiled/snippets/other/offline-dynamic-connectivity.html
-  - https://github.com/beet-aizu/library/blob/master/datastructure/dynamicconnectivity.cpp
+  - https://github.com/beet-aizu/library/blob/master/graph/dynamicconnectivity.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/union_find_undo.cc
   - https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum
 
@@ -184,5 +188,5 @@ undo 可能 union-find
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
 - [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)
-- [部分永続 union-find](https://atcoder.jp/contests/code-thanks-festival-2017-open/submissions/9253578)
-- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/97689819)
+- [部分永続 union-find](https://atcoder.jp/contests/agc002/submissions/26061193)
+- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/129693159)

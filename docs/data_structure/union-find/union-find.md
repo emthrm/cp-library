@@ -1,10 +1,10 @@
-# union-find
+# 素集合データ構造 (disjoint-set data structure)
 
 |データ構造|説明|
 |:--:|:--:|
-|union-find|グループ分けを管理するデータ構造|
-|重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である重み情報が付加された union-find|
-|部分永続 union-find|時刻 $t$ における状態を保存する union-find である．最新版のみ変更できる．|
+|union-find|互いに素な集合族を管理するデータ構造|
+|重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)上の重みを考慮した union-find|
+|部分永続 union-find|ある時刻における状態を保存する union-find である．最新版のみ変更できる．|
 |undo 可能 union-find|巻き戻し可能な union-find|
 
 
@@ -27,8 +27,8 @@
 |`UnionFind(n)`|頂点数 $N$ の union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 
 - 重みつき union-find
 
@@ -36,9 +36,9 @@
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
 |`root(ver)`|$ver$ の根||
-|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を付加する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
+|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 |`diff(u, v)`|$w(v) - w(u)$||
 
 - 部分永続 union-find
@@ -48,8 +48,8 @@
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
 |`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(t, u, v)`|時刻 $t$ において $u$ と $v$ は連結か．||
-|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む連結成分の個数||
+|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find
 
@@ -58,9 +58,9 @@
 |`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
-|`undo()`|`unite()` を一度，巻き戻す．||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
+|`undo()`|`unite()` を一度だけ巻き戻す．||
 |`snap()`|スナップショット||
 |`rollback()`|`snap()` 時点まで巻き戻す．||
 
@@ -94,7 +94,6 @@ undo 可能 union-find
   - https://ei1333.github.io/luzhiled/snippets/structure/union-find.html
   - https://github.com/primenumber/ProconLib/blob/master/Structure/UnionFindPersistent.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_union_find.cc
-  - https://atcoder.jp/contests/agc002/tasks/agc002_d
   - https://judge.yosupo.jp/problem/persistent_unionfind
 - dynamic connectivity
   - https://en.wikipedia.org/wiki/Dynamic_connectivity
@@ -102,7 +101,7 @@ undo 可能 union-find
   - https://twitter.com/noshi91/status/1420179696965197824
   - https://ei1333.hateblo.jp/entry/2017/12/14/000000
   - https://ei1333.github.io/luzhiled/snippets/other/offline-dynamic-connectivity.html
-  - https://github.com/beet-aizu/library/blob/master/datastructure/dynamicconnectivity.cpp
+  - https://github.com/beet-aizu/library/blob/master/graph/dynamicconnectivity.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/union_find_undo.cc
   - https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum
 
@@ -111,5 +110,5 @@ undo 可能 union-find
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
 - [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)
-- [部分永続 union-find](https://atcoder.jp/contests/code-thanks-festival-2017-open/submissions/9253578)
-- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/97689819)
+- [部分永続 union-find](https://atcoder.jp/contests/agc002/submissions/26061193)
+- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/129693159)

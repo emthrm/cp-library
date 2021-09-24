@@ -3,22 +3,22 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/eulerian_trail_in_undirected_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\
       \u30D5\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/eulerian_trail.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
       \u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/eulerian_trail_in_undirected_graph.hpp: line 6: #pragma once found in\
@@ -26,34 +26,36 @@ data:
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
     \u7248\r\n * @docs docs/graph/eulerian_trail.md\r\n */\r\n\r\n#pragma once\r\n\
     #include <algorithm>\r\n#include <cassert>\r\n#include <vector>\r\n\r\nstruct\
-    \ EulerianTrailInUndirectedGraph {\r\n  std::vector<int> trail;\r\n\r\n  EulerianTrailInUndirectedGraph(int\
-    \ n) : n(n), graph(n), visited(n) {}\r\n\r\n  void add_edge(int u, int v) {\r\n\
-    \    graph[u].emplace_back(v, graph[v].size());\r\n    graph[v].emplace_back(u,\
+    \ EulerianTrailInUndirectedGraph {\r\n  std::vector<int> trail;\r\n\r\n  EulerianTrailInUndirectedGraph(const\
+    \ int n) : n(n), graph(n), is_visited(n) {}\r\n\r\n  void add_edge(const int u,\
+    \ const int v) {\r\n    graph[u].emplace_back(v, graph[v].size());\r\n    graph[v].emplace_back(u,\
     \ graph[u].size() - 1);\r\n  }\r\n\r\n  bool build(int s = -1) {\r\n    trail.clear();\r\
-    \n    int odd = 0, edges = 0;\r\n    for (int i = 0; i < n; ++i) {\r\n      if\
-    \ (graph[i].size() & 1) {\r\n        ++odd;\r\n        if (s == -1) s = i;\r\n\
-    \      }\r\n      edges += graph[i].size();\r\n    }\r\n    if (s == -1) {\r\n\
-    \      for (int i = 0; i < n; ++i) {\r\n        if (!graph[i].empty()) {\r\n \
-    \         s = i;\r\n          break;\r\n        }\r\n      }\r\n      if (s ==\
-    \ -1) {\r\n        assert(edges == 0);\r\n        trail.emplace_back(0);\r\n \
-    \       return true;\r\n      }\r\n    }\r\n    for (int i = 0; i < n; ++i) visited[i].assign(graph[i].size(),\
-    \ false);\r\n    if (odd == 0 || (odd == 2 && (graph[s].size() & 1))) {\r\n  \
-    \    dfs(s);\r\n      if (trail.size() == (edges >> 1) + 1) {\r\n        std::reverse(trail.begin(),\
-    \ trail.end());\r\n        return true;\r\n      }\r\n      trail.clear();\r\n\
-    \    }\r\n    return false;\r\n  }\r\n\r\nprivate:\r\n  struct Edge {\r\n    int\
-    \ dst, rev;\r\n    Edge(int dst, int rev) : dst(dst), rev(rev) {}\r\n  };\r\n\r\
-    \n  int n;\r\n  std::vector<std::vector<Edge>> graph;\r\n  std::vector<std::vector<bool>>\
-    \ visited;\r\n\r\n  void dfs(int ver) {\r\n    int sz = graph[ver].size();\r\n\
-    \    for (int i = 0; i < sz; ++i) {\r\n      if (!visited[ver][i]) {\r\n     \
-    \   int nx = graph[ver][i].dst;\r\n        visited[ver][i] = visited[nx][graph[ver][i].rev]\
-    \ = true;\r\n        dfs(nx);\r\n      }\r\n    }\r\n    trail.emplace_back(ver);\r\
+    \n    int odd_deg = 0, edge_num = 0;\r\n    for (int i = 0; i < n; ++i) {\r\n\
+    \      if (graph[i].size() & 1) {\r\n        ++odd_deg;\r\n        if (s == -1)\
+    \ {\r\n          s = i;\r\n        }\r\n      }\r\n      edge_num += graph[i].size();\r\
+    \n    }\r\n    if (s == -1) {\r\n      for (int i = 0; i < n; ++i) {\r\n     \
+    \   if (!graph[i].empty()) {\r\n          s = i;\r\n          break;\r\n     \
+    \   }\r\n      }\r\n      if (s == -1) {\r\n        assert(edge_num == 0);\r\n\
+    \        trail.emplace_back(0);\r\n        return true;\r\n      }\r\n    }\r\n\
+    \    for (int i = 0; i < n; ++i) {\r\n      is_visited[i].assign(graph[i].size(),\
+    \ false);\r\n    }\r\n    if (odd_deg == 0 || (odd_deg == 2 && (graph[s].size()\
+    \ & 1))) {\r\n      dfs(s);\r\n      if (trail.size() == (edge_num >> 1) + 1)\
+    \ {\r\n        std::reverse(trail.begin(), trail.end());\r\n        return true;\r\
+    \n      }\r\n      trail.clear();\r\n    }\r\n    return false;\r\n  }\r\n\r\n\
+    private:\r\n  struct Edge {\r\n    int dst, rev;\r\n    Edge(const int dst, const\
+    \ int rev) : dst(dst), rev(rev) {}\r\n  };\r\n\r\n  const int n;\r\n  std::vector<std::vector<Edge>>\
+    \ graph;\r\n  std::vector<std::vector<int>> is_visited;\r\n\r\n  void dfs(const\
+    \ int ver) {\r\n    const int deg = graph[ver].size();\r\n    for (int i = 0;\
+    \ i < deg; ++i) {\r\n      if (!is_visited[ver][i]) {\r\n        const int dst\
+    \ = graph[ver][i].dst;\r\n        is_visited[ver][i] = is_visited[dst][graph[ver][i].rev]\
+    \ = true;\r\n        dfs(dst);\r\n      }\r\n    }\r\n    trail.emplace_back(ver);\r\
     \n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/eulerian_trail_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-23 22:47:42+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/eulerian_trail_in_undirected_graph.test.cpp
 documentation_of: graph/eulerian_trail_in_undirected_graph.hpp
@@ -72,14 +74,18 @@ title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\u7248"
 
 閉路でないオイラー路が存在するグラフである．
 
-$$\text{準オイラーグラフ} \Leftrightarrow \begin{cases} \text{次数奇数の頂点がちょうど 2 個存在} & (\text{無向グラフ}) \\ \text{始点の相対出次数が 1, 終点の相対入次数が 1, 他の頂点の相対次数が 0} & (\text{有向グラフ}) \text{．} \end{cases}$$
+連結グラフ $G$ が準オイラーグラフである必要十分条件は
+- $G$ が無向グラフのとき，奇数次数の頂点がちょうど $2$ 個存在することであり，
+- $G$ が有向グラフのとき，始点の相対出次数が $1$，終点の相対入次数が $1$，他の頂点の相対次数が $0$ であることである．
 
 
 ## オイラーグラフ (Eulerian graph)
 
 オイラー閉路 (Euler circuit) が存在するグラフである．
 
-$$\text{オイラーグラフ} \Leftrightarrow \begin{cases} \text{任意の頂点の次数が偶数} & (\text{無向グラフ}) \\ \text{任意の頂点の相対次数が 0} & (\text{有向グラフ}) \text{．} \end{cases}$$
+連結グラフ $G$ がオイラーグラフである必要十分条件は
+- $G$ が無向グラフのとき，任意の頂点の次数が偶数であることであり，
+- $G$ が有向グラフのとき，任意の頂点の相対次数が $0$ であることである．
 
 
 ## 時間計算量
@@ -99,15 +105,15 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`EulerianTrailInUndirectedGraph(n)`|頂点数 $N$ の無向グラフにおけるオイラー路||
+|`EulerianTrailInUndirectedGraph(n)`|頂点数 $N$ の無向グラフにおけるオイラー路を考える．||
 |`trail`|オイラー路|存在しない場合は空配列となる．|
 |`add_edge(u, v)`|辺 $(u, v)$ を追加する．||
-|`build(s = -1)`|始点 $s$ のオイラー路を構築できたか．|一度のみ．|
+|`build(s = -1)`|始点 $s$ のオイラー路を構築できたか．||
 
 
 ## 参考
 
-- https://www.learning-algorithms.com/entry/2017/12/07/193238
+- https://kokiymgch.hatenablog.com/entry/2017/12/07/193238
 
 オイラー路 有向グラフ版
 - http://www.prefield.com/algorithm/graph/directed_euler_path.html
@@ -119,4 +125,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 ## Verified
 
 - [オイラー路 有向グラフ版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0225/review/4082901/emthrm/C++14)
-- [オイラー路 無向グラフ版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/0086/review/4579202/emthrm/C++14)
+- [オイラー路 無向グラフ版](https://yukicoder.me/submissions/701541)

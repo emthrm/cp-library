@@ -5,19 +5,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/chinese_remainder_theorem.hpp
     title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
-  - icon: ':x:'
-    path: math/linear_congruence.hpp
-    title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (linear congruence)"
+  - icon: ':heavy_check_mark:'
+    path: math/simultaneous_linear_congruence.hpp
+    title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/chinese_remainder_theorem.test.cpp
     title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  - icon: ':x:'
-    path: test/math/linear_congruence.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/math/simultaneous_linear_congruence.test.cpp
     title: "\u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/mod_inv.hpp\"\n#include <algorithm>\r\n#include <utility>\r\
@@ -36,13 +36,13 @@ data:
   isVerificationFile: false
   path: math/mod_inv.hpp
   requiredBy:
-  - math/linear_congruence.hpp
   - math/chinese_remainder_theorem.hpp
+  - math/simultaneous_linear_congruence.hpp
   timestamp: '2021-03-07 02:53:11+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp
-  - test/math/linear_congruence.test.cpp
+  - test/math/simultaneous_linear_congruence.test.cpp
 documentation_of: math/mod_inv.hpp
 layout: document
 title: "\u9006\u5143 (inverse element)"

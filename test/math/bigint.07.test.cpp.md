@@ -6,26 +6,26 @@ data:
     title: "\u591A\u500D\u9577\u6574\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://atcoder.jp/contests/arc072/tasks/abc059_b
     document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\
       \u8F03)"
     links:
     - https://atcoder.jp/contests/abc059/tasks/abc059_b
+    - https://atcoder.jp/contests/arc072/tasks/abc059_b
   bundledCode: "#line 1 \"test/math/bigint.07.test.cpp\"\n/*\r\n * @brief \u6570\u5B66\
-    /\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)\r\n */\r\n#define IGNORE\r\
-    \n#define PROBLEM \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\r\n\r\n\
-    #include <iostream>\r\n#line 2 \"math/bigint.hpp\"\n#include <algorithm>\r\n#include\
-    \ <cassert>\r\n#include <cmath>\r\n#include <iomanip>\r\n#line 7 \"math/bigint.hpp\"\
-    \n#include <limits>\r\n#include <sstream>\r\n#include <string>\r\n#include <utility>\r\
-    \n#include <vector>\r\n\r\ntemplate <int Log10Base = 9, int Base = 1000000000>\
-    \  // Base = 10^{Log10Base}\r\nstruct BigInt {\r\n  int sign; std::vector<int>\
+    /\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)\r\n */\r\n#define PROBLEM\
+    \ \"https://atcoder.jp/contests/arc072/tasks/abc059_b\"\r\n// #define PROBLEM\
+    \ \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\r\n\r\n#include <iostream>\r\
+    \n#line 2 \"math/bigint.hpp\"\n#include <algorithm>\r\n#include <cassert>\r\n\
+    #include <cmath>\r\n#include <iomanip>\r\n#line 7 \"math/bigint.hpp\"\n#include\
+    \ <limits>\r\n#include <sstream>\r\n#include <string>\r\n#include <utility>\r\n\
+    #include <vector>\r\n\r\ntemplate <int Log10Base = 9, int Base = 1000000000> \
+    \ // Base = 10^{Log10Base}\r\nstruct BigInt {\r\n  int sign; std::vector<int>\
     \ dat;\r\n  BigInt(long long val = 0) { *this = val; }\r\n  BigInt(const std::string\
     \ &s) { *this = s; }\r\n  std::vector<long long> convert_base(int new_lg10_base,\
     \ int new_base) const {\r\n    assert(new_base == static_cast<int>(std::round(std::pow(10,\
@@ -171,8 +171,9 @@ data:
     \ << \"LESS\\n\";\r\n  } else if (a == b) {\r\n    std::cout << \"EQUAL\\n\";\r\
     \n  }\r\n  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\
-    \u6BD4\u8F03)\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\
-    \r\n\r\n#include <iostream>\r\n#include \"../../math/bigint.hpp\"\r\n\r\nint main()\
+    \u6BD4\u8F03)\r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc072/tasks/abc059_b\"\
+    \r\n// #define PROBLEM \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\r\
+    \n\r\n#include <iostream>\r\n#include \"../../math/bigint.hpp\"\r\n\r\nint main()\
     \ {\r\n  BigInt<> a, b;\r\n  std::cin >> a >> b;\r\n  if (a > b) {\r\n    std::cout\
     \ << \"GREATER\\n\";\r\n  } else if (a < b) {\r\n    std::cout << \"LESS\\n\"\
     ;\r\n  } else if (a == b) {\r\n    std::cout << \"EQUAL\\n\";\r\n  }\r\n  return\
@@ -182,8 +183,8 @@ data:
   isVerificationFile: true
   path: test/math/bigint.07.test.cpp
   requiredBy: []
-  timestamp: '2021-03-04 17:06:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2021-09-05 22:32:54+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.07.test.cpp
 layout: document

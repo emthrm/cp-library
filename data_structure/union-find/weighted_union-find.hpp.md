@@ -13,35 +13,36 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "\u91CD\u307F\u3064\u304D union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/weighted_union-find.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
   code: "/**\r\n * @brief \u91CD\u307F\u3064\u304D union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename Abelian>\r\nstruct WeightedUnionFind {\r\n  WeightedUnionFind(int\
-    \ n, const Abelian ID = 0) : ID(ID), par(n, -1), data(n, ID) {}\r\n\r\n  int root(int\
-    \ ver) {\r\n    if (par[ver] < 0) return ver;\r\n    int res = root(par[ver]);\r\
-    \n    data[ver] += data[par[ver]];\r\n    return par[ver] = res;\r\n  }\r\n\r\n\
-    \  bool unite(int u, int v, Abelian wt) {\r\n    wt += weight(u);\r\n    wt -=\
-    \ weight(v);\r\n    u = root(u);\r\n    v = root(v);\r\n    if (u == v) return\
-    \ false;\r\n    if (par[u] > par[v]) {\r\n      std::swap(u, v);\r\n      wt =\
-    \ -wt;\r\n    }\r\n    par[u] += par[v];\r\n    par[v] = u;\r\n    data[v] = wt;\r\
-    \n    return true;\r\n  }\r\n\r\n  bool same(int u, int v) { return root(u) ==\
-    \ root(v); }\r\n\r\n  int size(int ver) { return -par[root(ver)]; }\r\n\r\n  Abelian\
-    \ diff(int u, int v) { return weight(v) - weight(u); }\r\n\r\nprivate:\r\n  const\
+    \ <typename Abelian>\r\nstruct WeightedUnionFind {\r\n  WeightedUnionFind(const\
+    \ int n, const Abelian ID = 0) : ID(ID), par(n, -1), data(n, ID) {}\r\n\r\n  int\
+    \ root(const int ver) {\r\n    if (par[ver] < 0) return ver;\r\n    const int\
+    \ r = root(par[ver]);\r\n    data[ver] += data[par[ver]];\r\n    return par[ver]\
+    \ = r;\r\n  }\r\n\r\n  bool unite(int u, int v, Abelian wt) {\r\n    wt += weight(u);\r\
+    \n    wt -= weight(v);\r\n    u = root(u);\r\n    v = root(v);\r\n    if (u ==\
+    \ v) return false;\r\n    if (par[u] > par[v]) {\r\n      std::swap(u, v);\r\n\
+    \      wt = -wt;\r\n    }\r\n    par[u] += par[v];\r\n    par[v] = u;\r\n    data[v]\
+    \ = wt;\r\n    return true;\r\n  }\r\n\r\n  bool is_same(const int u, const int\
+    \ v) {\r\n    return root(u) == root(v);\r\n  }\r\n\r\n  int size(const int ver)\
+    \ {\r\n    return -par[root(ver)];\r\n  }\r\n\r\n  Abelian diff(const int u, const\
+    \ int v) {\r\n    return weight(v) - weight(u);\r\n  }\r\n\r\nprivate:\r\n  const\
     \ Abelian ID;\r\n  std::vector<int> par;\r\n  std::vector<Abelian> data;\r\n\r\
-    \n  Abelian weight(int ver) {\r\n    root(ver);\r\n    return data[ver];\r\n \
-    \ }\r\n};\r\n"
+    \n  Abelian weight(const int ver) {\r\n    root(ver);\r\n    return data[ver];\r\
+    \n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/weighted_union-find.hpp
   requiredBy: []
-  timestamp: '2021-04-27 21:35:04+09:00'
+  timestamp: '2021-09-24 01:25:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/union-find/weighted_union-find.test.cpp
@@ -52,13 +53,13 @@ redirect_from:
 - /library/data_structure/union-find/weighted_union-find.hpp.html
 title: "\u91CD\u307F\u3064\u304D union-find"
 ---
-# union-find
+# 素集合データ構造 (disjoint-set data structure)
 
 |データ構造|説明|
 |:--:|:--:|
-|union-find|グループ分けを管理するデータ構造|
-|重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である重み情報が付加された union-find|
-|部分永続 union-find|時刻 $t$ における状態を保存する union-find である．最新版のみ変更できる．|
+|union-find|互いに素な集合族を管理するデータ構造|
+|重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)上の重みを考慮した union-find|
+|部分永続 union-find|ある時刻における状態を保存する union-find である．最新版のみ変更できる．|
 |undo 可能 union-find|巻き戻し可能な union-find|
 
 
@@ -81,8 +82,8 @@ title: "\u91CD\u307F\u3064\u304D union-find"
 |`UnionFind(n)`|頂点数 $N$ の union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 
 - 重みつき union-find
 
@@ -90,9 +91,9 @@ title: "\u91CD\u307F\u3064\u304D union-find"
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
 |`root(ver)`|$ver$ の根||
-|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を付加する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
+|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
 |`diff(u, v)`|$w(v) - w(u)$||
 
 - 部分永続 union-find
@@ -102,8 +103,8 @@ title: "\u91CD\u307F\u3064\u304D union-find"
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
 |`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(t, u, v)`|時刻 $t$ において $u$ と $v$ は連結か．||
-|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む連結成分の個数||
+|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find
 
@@ -112,9 +113,9 @@ title: "\u91CD\u307F\u3064\u304D union-find"
 |`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find||
 |`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`same(u, v)`|$u$ と $v$ は連結か．||
-|`size(ver)`|$\mathrm{ver}$ を含む連結成分の個数||
-|`undo()`|`unite()` を一度，巻き戻す．||
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
+|`undo()`|`unite()` を一度だけ巻き戻す．||
 |`snap()`|スナップショット||
 |`rollback()`|`snap()` 時点まで巻き戻す．||
 
@@ -148,7 +149,6 @@ undo 可能 union-find
   - https://ei1333.github.io/luzhiled/snippets/structure/union-find.html
   - https://github.com/primenumber/ProconLib/blob/master/Structure/UnionFindPersistent.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_union_find.cc
-  - https://atcoder.jp/contests/agc002/tasks/agc002_d
   - https://judge.yosupo.jp/problem/persistent_unionfind
 - dynamic connectivity
   - https://en.wikipedia.org/wiki/Dynamic_connectivity
@@ -156,7 +156,7 @@ undo 可能 union-find
   - https://twitter.com/noshi91/status/1420179696965197824
   - https://ei1333.hateblo.jp/entry/2017/12/14/000000
   - https://ei1333.github.io/luzhiled/snippets/other/offline-dynamic-connectivity.html
-  - https://github.com/beet-aizu/library/blob/master/datastructure/dynamicconnectivity.cpp
+  - https://github.com/beet-aizu/library/blob/master/graph/dynamicconnectivity.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/union_find_undo.cc
   - https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum
 
@@ -165,5 +165,5 @@ undo 可能 union-find
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
 - [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)
-- [部分永続 union-find](https://atcoder.jp/contests/code-thanks-festival-2017-open/submissions/9253578)
-- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/97689819)
+- [部分永続 union-find](https://atcoder.jp/contests/agc002/submissions/26061193)
+- [undo 可能 union-find](https://codeforces.com/contest/1444/submission/129693159)

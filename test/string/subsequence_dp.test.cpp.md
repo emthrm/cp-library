@@ -11,114 +11,49 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    IGNORE: ''
-    IGNORE_IF_CLANG: ''
-    IGNORE_IF_GCC: ''
+    PROBLEM: https://atcoder.jp/contests/arc081/tasks/arc081_c
     document_title: "\u6587\u5B57\u5217/\u90E8\u5206\u5217 DP"
     links:
-    - https://codeforces.com/problemset/problem/1149/B
+    - https://atcoder.jp/contests/arc081/tasks/arc081_c
   bundledCode: "#line 1 \"test/string/subsequence_dp.test.cpp\"\n/*\r\n * @brief \u6587\
-    \u5B57\u5217/\u90E8\u5206\u5217 DP\r\n */\r\n#define IGNORE\r\n#define PROBLEM\
-    \ \"https://codeforces.com/problemset/problem/1149/B\"\r\n\r\n#include <iostream>\r\
-    \n#include <string>\r\n#include <vector>\r\n#line 4 \"string/subsequence_dp.hpp\"\
+    \u5B57\u5217/\u90E8\u5206\u5217 DP\r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc081/tasks/arc081_c\"\
+    \r\n\r\n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\n#line\
+    \ 2 \"string/subsequence_dp.hpp\"\n#include <algorithm>\r\n#line 5 \"string/subsequence_dp.hpp\"\
     \n\r\nstd::vector<std::vector<int>> subsequence_dp(const std::string &s, const\
-    \ char basis = 'a', const int sigma = 26) {\r\n  int n = s.size();\r\n  std::vector<std::vector<int>>\
-    \ nx(n, std::vector<int>(sigma, n));\r\n  nx[n - 1][s[n - 1] - basis] = n - 1;\r\
-    \n  for (int i = n - 2; i >= 0; --i) {\r\n    for (int j = 0; j < sigma; ++j)\
-    \ nx[i][j] = nx[i + 1][j];\r\n    nx[i][s[i] - basis] = i;\r\n  }\r\n  return\
-    \ nx;\r\n}\r\n#line 11 \"test/string/subsequence_dp.test.cpp\"\n\r\nint main()\
-    \ {\r\n  constexpr int D = 250;\r\n  int n, q;\r\n  std::string s;\r\n  std::cin\
-    \ >> n >> q >> s;\r\n  std::vector<std::vector<int>> nx = subsequence_dp(s);\r\
-    \n  std::vector<std::vector<std::vector<int>>> dp(D + 1, std::vector<std::vector<int>>(D\
-    \ + 1, std::vector<int>(D + 1, n)));\r\n  dp[0][0][0] = -1;\r\n  std::vector<int>\
-    \ len(3, 0);\r\n  std::vector<std::vector<char>> str(3);\r\n  while (q--) {\r\n\
-    \    char ope;\r\n    int i;\r\n    std::cin >> ope >> i;\r\n    --i;\r\n    if\
-    \ (ope == '+') {\r\n      char c;\r\n      std::cin >> c;\r\n      ++len[i];\r\
-    \n      str[i].emplace_back(c);\r\n      if (i == 0) {\r\n        for (int y =\
-    \ 0; y <= len[1]; ++y) for (int z = 0; z <= len[2]; ++z) {\r\n          int &now\
-    \ = dp[len[0]][y][z];\r\n          now = n;\r\n          if (len[0] > 0 && dp[len[0]\
-    \ - 1][y][z] + 1 < n && nx[dp[len[0] - 1][y][z] + 1][str[0][len[0] - 1] - 'a']\
-    \ < now) {\r\n            now = nx[dp[len[0] - 1][y][z] + 1][str[0][len[0] - 1]\
-    \ - 'a'];\r\n          }\r\n          if (y > 0 && dp[len[0]][y - 1][z] + 1 <\
-    \ n && nx[dp[len[0]][y - 1][z] + 1][str[1][y - 1] - 'a'] < now) {\r\n        \
-    \    now = nx[dp[len[0]][y - 1][z] + 1][str[1][y - 1] - 'a'];\r\n          }\r\
-    \n          if (z > 0 && dp[len[0]][y][z - 1] + 1 < n && nx[dp[len[0]][y][z -\
-    \ 1] + 1][str[2][z - 1] - 'a'] < now) {\r\n            now = nx[dp[len[0]][y][z\
-    \ - 1] + 1][str[2][z - 1] - 'a'];\r\n          }\r\n        }\r\n      } else\
-    \ if (i == 1) {\r\n        for (int x = 0; x <= len[0]; ++x) for (int z = 0; z\
-    \ <= len[2]; ++z) {\r\n          int &now = dp[x][len[1]][z];\r\n          now\
-    \ = n;\r\n          if (x > 0 && dp[x - 1][len[1]][z] + 1 < n && nx[dp[x - 1][len[1]][z]\
-    \ + 1][str[0][x - 1] - 'a'] < now) {\r\n            now = nx[dp[x - 1][len[1]][z]\
-    \ + 1][str[0][x - 1] - 'a'];\r\n          }\r\n          if (len[1] > 0 && dp[x][len[1]\
-    \ - 1][z] + 1 < n && nx[dp[x][len[1] - 1][z] + 1][str[1][len[1] - 1] - 'a'] <\
-    \ now) {\r\n            now = nx[dp[x][len[1] - 1][z] + 1][str[1][len[1] - 1]\
-    \ - 'a'];\r\n          }\r\n          if (z > 0 && dp[x][len[1]][z - 1] + 1 <\
-    \ n && nx[dp[x][len[1]][z - 1] + 1][str[2][z - 1] - 'a'] < now) {\r\n        \
-    \    now = nx[dp[x][len[1]][z - 1] + 1][str[2][z - 1] - 'a'];\r\n          }\r\
-    \n        }\r\n      } else if (i == 2) {\r\n        for (int x = 0; x <= len[0];\
-    \ ++x) for (int y = 0; y <= len[1]; ++y) {\r\n          int &now = dp[x][y][len[2]];\r\
-    \n          now = n;\r\n          if (x > 0 && dp[x - 1][y][len[2]] + 1 < n &&\
-    \ nx[dp[x - 1][y][len[2]] + 1][str[0][x - 1] - 'a'] < now) {\r\n            now\
-    \ = nx[dp[x - 1][y][len[2]] + 1][str[0][x - 1] - 'a'];\r\n          }\r\n    \
-    \      if (y > 0 && dp[x][y - 1][len[2]] + 1 < n && nx[dp[x][y - 1][len[2]] +\
-    \ 1][str[1][y - 1] - 'a'] < now) {\r\n            now = nx[dp[x][y - 1][len[2]]\
-    \ + 1][str[1][y - 1] - 'a'];\r\n          }\r\n          if (len[2] > 0 && dp[x][y][len[2]\
-    \ - 1] + 1 < n && nx[dp[x][y][len[2] - 1] + 1][str[2][len[2] - 1] - 'a'] < now)\
-    \ {\r\n            now = nx[dp[x][y][len[2] - 1] + 1][str[2][len[2] - 1] - 'a'];\r\
-    \n          }\r\n        }\r\n      }\r\n    } else if (ope == '-') {\r\n    \
-    \  --len[i];\r\n      str[i].pop_back();\r\n    }\r\n    std::cout << (dp[len[0]][len[1]][len[2]]\
-    \ < n ? \"YES\\n\" : \"NO\\n\");\r\n  }\r\n  return 0;\r\n}\r\n"
+    \ char basis = 'a', const int sigma = 26) {\r\n  const int n = s.size();\r\n \
+    \ std::vector<std::vector<int>> nx(n, std::vector<int>(sigma, n));\r\n  nx[n -\
+    \ 1][s[n - 1] - basis] = n - 1;\r\n  for (int i = n - 2; i >= 0; --i) {\r\n  \
+    \  std::copy(nx[i + 1].begin(), nx[i + 1].end(), nx[i].begin());\r\n    nx[i][s[i]\
+    \ - basis] = i;\r\n  }\r\n  return nx;\r\n}\r\n#line 10 \"test/string/subsequence_dp.test.cpp\"\
+    \n\r\nint main() {\r\n  constexpr int C = 26;\r\n  std::string a;\r\n  std::cin\
+    \ >> a;\r\n  const int n = a.length();\r\n  std::vector<std::vector<int>> nx =\
+    \ subsequence_dp(a, 'a', C);\r\n  std::vector<int> dp(n + 1, n + 1);\r\n  dp[n]\
+    \ = 1;\r\n  std::vector<int> next_char(n, -1);\r\n  for (int i = n - 1; i >= 0;\
+    \ --i) {\r\n    for (int c = 0; c < C; ++c) {\r\n      const int len = (nx[i][c]\
+    \ == n ? 0 : dp[nx[i][c] + 1]) + 1;\r\n      if (len < dp[i]) {\r\n        dp[i]\
+    \ = len;\r\n        next_char[i] = c;\r\n      }\r\n    }\r\n  }\r\n  std::string\
+    \ ans = \"\";\r\n  for (int i = 0; i < n;) {\r\n    ans += 'a' + next_char[i];\r\
+    \n    i = nx[i][next_char[i]] + 1;\r\n  }\r\n  std::cout << ans << '\\n';\r\n\
+    \  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6587\u5B57\u5217/\u90E8\u5206\u5217 DP\r\n */\r\n#define\
-    \ IGNORE\r\n#define PROBLEM \"https://codeforces.com/problemset/problem/1149/B\"\
-    \r\n\r\n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\n#include\
-    \ \"../../string/subsequence_dp.hpp\"\r\n\r\nint main() {\r\n  constexpr int D\
-    \ = 250;\r\n  int n, q;\r\n  std::string s;\r\n  std::cin >> n >> q >> s;\r\n\
-    \  std::vector<std::vector<int>> nx = subsequence_dp(s);\r\n  std::vector<std::vector<std::vector<int>>>\
-    \ dp(D + 1, std::vector<std::vector<int>>(D + 1, std::vector<int>(D + 1, n)));\r\
-    \n  dp[0][0][0] = -1;\r\n  std::vector<int> len(3, 0);\r\n  std::vector<std::vector<char>>\
-    \ str(3);\r\n  while (q--) {\r\n    char ope;\r\n    int i;\r\n    std::cin >>\
-    \ ope >> i;\r\n    --i;\r\n    if (ope == '+') {\r\n      char c;\r\n      std::cin\
-    \ >> c;\r\n      ++len[i];\r\n      str[i].emplace_back(c);\r\n      if (i ==\
-    \ 0) {\r\n        for (int y = 0; y <= len[1]; ++y) for (int z = 0; z <= len[2];\
-    \ ++z) {\r\n          int &now = dp[len[0]][y][z];\r\n          now = n;\r\n \
-    \         if (len[0] > 0 && dp[len[0] - 1][y][z] + 1 < n && nx[dp[len[0] - 1][y][z]\
-    \ + 1][str[0][len[0] - 1] - 'a'] < now) {\r\n            now = nx[dp[len[0] -\
-    \ 1][y][z] + 1][str[0][len[0] - 1] - 'a'];\r\n          }\r\n          if (y >\
-    \ 0 && dp[len[0]][y - 1][z] + 1 < n && nx[dp[len[0]][y - 1][z] + 1][str[1][y -\
-    \ 1] - 'a'] < now) {\r\n            now = nx[dp[len[0]][y - 1][z] + 1][str[1][y\
-    \ - 1] - 'a'];\r\n          }\r\n          if (z > 0 && dp[len[0]][y][z - 1] +\
-    \ 1 < n && nx[dp[len[0]][y][z - 1] + 1][str[2][z - 1] - 'a'] < now) {\r\n    \
-    \        now = nx[dp[len[0]][y][z - 1] + 1][str[2][z - 1] - 'a'];\r\n        \
-    \  }\r\n        }\r\n      } else if (i == 1) {\r\n        for (int x = 0; x <=\
-    \ len[0]; ++x) for (int z = 0; z <= len[2]; ++z) {\r\n          int &now = dp[x][len[1]][z];\r\
-    \n          now = n;\r\n          if (x > 0 && dp[x - 1][len[1]][z] + 1 < n &&\
-    \ nx[dp[x - 1][len[1]][z] + 1][str[0][x - 1] - 'a'] < now) {\r\n            now\
-    \ = nx[dp[x - 1][len[1]][z] + 1][str[0][x - 1] - 'a'];\r\n          }\r\n    \
-    \      if (len[1] > 0 && dp[x][len[1] - 1][z] + 1 < n && nx[dp[x][len[1] - 1][z]\
-    \ + 1][str[1][len[1] - 1] - 'a'] < now) {\r\n            now = nx[dp[x][len[1]\
-    \ - 1][z] + 1][str[1][len[1] - 1] - 'a'];\r\n          }\r\n          if (z >\
-    \ 0 && dp[x][len[1]][z - 1] + 1 < n && nx[dp[x][len[1]][z - 1] + 1][str[2][z -\
-    \ 1] - 'a'] < now) {\r\n            now = nx[dp[x][len[1]][z - 1] + 1][str[2][z\
-    \ - 1] - 'a'];\r\n          }\r\n        }\r\n      } else if (i == 2) {\r\n \
-    \       for (int x = 0; x <= len[0]; ++x) for (int y = 0; y <= len[1]; ++y) {\r\
-    \n          int &now = dp[x][y][len[2]];\r\n          now = n;\r\n          if\
-    \ (x > 0 && dp[x - 1][y][len[2]] + 1 < n && nx[dp[x - 1][y][len[2]] + 1][str[0][x\
-    \ - 1] - 'a'] < now) {\r\n            now = nx[dp[x - 1][y][len[2]] + 1][str[0][x\
-    \ - 1] - 'a'];\r\n          }\r\n          if (y > 0 && dp[x][y - 1][len[2]] +\
-    \ 1 < n && nx[dp[x][y - 1][len[2]] + 1][str[1][y - 1] - 'a'] < now) {\r\n    \
-    \        now = nx[dp[x][y - 1][len[2]] + 1][str[1][y - 1] - 'a'];\r\n        \
-    \  }\r\n          if (len[2] > 0 && dp[x][y][len[2] - 1] + 1 < n && nx[dp[x][y][len[2]\
-    \ - 1] + 1][str[2][len[2] - 1] - 'a'] < now) {\r\n            now = nx[dp[x][y][len[2]\
-    \ - 1] + 1][str[2][len[2] - 1] - 'a'];\r\n          }\r\n        }\r\n      }\r\
-    \n    } else if (ope == '-') {\r\n      --len[i];\r\n      str[i].pop_back();\r\
-    \n    }\r\n    std::cout << (dp[len[0]][len[1]][len[2]] < n ? \"YES\\n\" : \"\
-    NO\\n\");\r\n  }\r\n  return 0;\r\n}\r\n"
+    \ PROBLEM \"https://atcoder.jp/contests/arc081/tasks/arc081_c\"\r\n\r\n#include\
+    \ <iostream>\r\n#include <string>\r\n#include <vector>\r\n#include \"../../string/subsequence_dp.hpp\"\
+    \r\n\r\nint main() {\r\n  constexpr int C = 26;\r\n  std::string a;\r\n  std::cin\
+    \ >> a;\r\n  const int n = a.length();\r\n  std::vector<std::vector<int>> nx =\
+    \ subsequence_dp(a, 'a', C);\r\n  std::vector<int> dp(n + 1, n + 1);\r\n  dp[n]\
+    \ = 1;\r\n  std::vector<int> next_char(n, -1);\r\n  for (int i = n - 1; i >= 0;\
+    \ --i) {\r\n    for (int c = 0; c < C; ++c) {\r\n      const int len = (nx[i][c]\
+    \ == n ? 0 : dp[nx[i][c] + 1]) + 1;\r\n      if (len < dp[i]) {\r\n        dp[i]\
+    \ = len;\r\n        next_char[i] = c;\r\n      }\r\n    }\r\n  }\r\n  std::string\
+    \ ans = \"\";\r\n  for (int i = 0; i < n;) {\r\n    ans += 'a' + next_char[i];\r\
+    \n    i = nx[i][next_char[i]] + 1;\r\n  }\r\n  std::cout << ans << '\\n';\r\n\
+    \  return 0;\r\n}\r\n"
   dependsOn:
   - string/subsequence_dp.hpp
   isVerificationFile: true
   path: test/string/subsequence_dp.test.cpp
   requiredBy: []
-  timestamp: '2021-04-27 20:28:34+09:00'
+  timestamp: '2021-09-23 22:47:42+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/subsequence_dp.test.cpp

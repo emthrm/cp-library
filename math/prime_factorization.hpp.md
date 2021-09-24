@@ -7,6 +7,9 @@ data:
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/game/nim.test.cpp
+    title: "\u30B2\u30FC\u30E0/\u30CB\u30E0"
+  - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
@@ -38,8 +41,9 @@ data:
   timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/is_primitive_root.test.cpp
   - test/math/prime_factorization.test.cpp
+  - test/math/is_primitive_root.test.cpp
+  - test/game/nim.test.cpp
 documentation_of: math/prime_factorization.hpp
 layout: document
 title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"

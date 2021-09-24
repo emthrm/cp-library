@@ -6,27 +6,27 @@ data:
     path: game/misere_nim.hpp
     title: "mis\xE8re Nim"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/game/nim.test.cpp
     title: "\u30B2\u30FC\u30E0/\u30CB\u30E0"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"game/nim.hpp\"\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nbool nim(const std::vector<T> &a) {\r\n  long long x = 0;\r\n  for (T\
-    \ e : a) x ^= e;\r\n  return x != 0;\r\n}\r\n"
+    \ T>\r\nbool nim(const std::vector<T> &a) {\r\n  long long x = 0;\r\n  for (const\
+    \ T e : a) {\r\n    x ^= e;\r\n  }\r\n  return x != 0;\r\n}\r\n"
   code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nbool nim(const\
-    \ std::vector<T> &a) {\r\n  long long x = 0;\r\n  for (T e : a) x ^= e;\r\n  return\
-    \ x != 0;\r\n}\r\n"
+    \ std::vector<T> &a) {\r\n  long long x = 0;\r\n  for (const T e : a) {\r\n  \
+    \  x ^= e;\r\n  }\r\n  return x != 0;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: game/nim.hpp
   requiredBy:
   - game/misere_nim.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-09-23 22:47:42+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/game/nim.test.cpp
 documentation_of: game/nim.hpp
@@ -34,7 +34,7 @@ layout: document
 title: "\u30CB\u30E0 (nim)"
 ---
 
-$N$ 個の山の内，ある山から一つ以上を二人が交互に取っていき，操作できなくなった方を負けとするゲームである．
+$N$ 個の山のいずれかから一つ以上を二人が交互に取り，操作できなくなった方を負けとするゲームである．
 
 
 ## 時間計算量
@@ -64,4 +64,4 @@ $O(N)$
 
 ## Verified
 
-https://atcoder.jp/contests/arc013/submissions/9236426
+https://yukicoder.me/submissions/701261

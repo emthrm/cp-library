@@ -1,6 +1,6 @@
 # メビウス関数 (Möbius function)
 
-自然数 $n \geq 1$ に対して
+$n \in \mathbb{N}^+$ に対して
 
 $$\mu(n) = \begin{cases} 0 & (\exists p \in \mathbb{P} \text{ s.t. } n \equiv 0 \pmod{p^2}) \\ (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise}) \end{cases}$$
 
@@ -10,21 +10,21 @@ $$\mu(n) = \begin{cases} 0 & (\exists p \in \mathbb{P} \text{ s.t. } n \equiv 0 
 
   $$\sum_{d \mid n} \mu(d) = 0 \text{，}$$，
 
-- $$\mu(mn) = \begin{cases} \mu(m) \mu(n) & (m \perp n) \\ 0 & (\text{otherwise}) \end{cases}$$
+- $$\mu(mn) = \begin{cases} \mu(m) \mu(n) & (m \perp n), \\ 0 & (\text{otherwise}) \end{cases}$$
 
 という性質をもつ．
 
 
 ### メビウスの反転公式 (Möbius inversion formula)
 
-$$f(n) = \sum_{d \mid n} g(d) \Leftrightarrow g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right) \text{．}$$
+$$f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right) \text{．}$$
 
 
 ## 時間計算量
 
 ||時間計算量|
 |:--:|:--:|
-||$O(\sqrt N)$|
+||$O(\sqrt{N})$|
 |約数版||
 |数表|$O(N\log{\log{N}})$|
 |数表2|$O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?|
@@ -70,7 +70,7 @@ $$f(n) = \sum_{d \mid n} g(d) \Leftrightarrow g(n) = \sum_{d \mid n} \mu \left(\
 
 ## Verified
 
-- https://codeforces.com/contest/1139/submission/68227663
-- [約数版](https://codeforces.com/contest/1139/submission/68228222)
-- [数表](https://codeforces.com/contest/1139/submission/68229217)
-- [数表2](https://codeforces.com/contest/1139/submission/68229567)
+- https://atcoder.jp/contests/abc162/submissions/26045975
+- [約数版](https://atcoder.jp/contests/abc162/submissions/26046320)
+- [数表](https://atcoder.jp/contests/abc162/submissions/26046042)
+- [数表2](https://atcoder.jp/contests/abc162/submissions/26046148)

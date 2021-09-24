@@ -12,10 +12,10 @@ data:
     path: math/euler_phi/euler_phi_init2.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
       2"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mobius_mu/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/osa_k.hpp
     title: "osa_k \u6CD5"
   _extendedVerifiedWith:
@@ -26,22 +26,22 @@ data:
     path: test/math/euler_phi/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/fast_divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/mobius_mu/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/osa_k.test.cpp
     title: "\u6570\u5B66/osa_k \u6CD5"
   - icon: ':heavy_check_mark:'
     path: test/math/prime_sieve.test.cpp
     title: "\u6570\u5B66/prime sieve"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/prime_sieve.hpp\"\n#include <numeric>\r\n#include <vector>\r\
@@ -66,18 +66,18 @@ data:
   requiredBy:
   - math/enumerate_k-th_power.hpp
   - math/osa_k.hpp
-  - math/carmichal_function_init.hpp
-  - math/euler_phi/euler_phi_init2.hpp
   - math/mobius_mu/mobius_mu_init2.hpp
+  - math/euler_phi/euler_phi_init2.hpp
+  - math/carmichal_function_init.hpp
   timestamp: '2021-02-27 06:50:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fast_divisor.test.cpp
-  - test/math/prime_sieve.test.cpp
-  - test/math/enumerate_k-th_power.test.cpp
   - test/math/osa_k.test.cpp
-  - test/math/euler_phi/euler_phi_init2.test.cpp
+  - test/math/prime_sieve.test.cpp
+  - test/math/fast_divisor.test.cpp
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
+  - test/math/enumerate_k-th_power.test.cpp
+  - test/math/euler_phi/euler_phi_init2.test.cpp
 documentation_of: math/prime_sieve.hpp
 layout: document
 title: prime sieve
@@ -105,7 +105,9 @@ $O(N)$
 ## ToDo
 
 - $n$ 以下の素数の個数
-  - http://sugarknri.hatenablog.com/entry/2019/07/31/102422
+  - ~~http://sugarknri.hatenablog.com/entry/2019/07/31/102422~~
+  - https://rsk0315.hatenablog.com/entry/2021/05/18/015511
+  - https://suu-0313.hatenablog.com/entry/2021/09/14/225759
   - https://judge.yosupo.jp/problem/counting_primes
 
 

@@ -57,6 +57,7 @@ $O(N\log{N})$
 - https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
 
 高速ウォルシュ・アダマール変換
+- https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 - https://cympfh.cc/aiura/hadamard-xor-convolution
 - https://twitter.com/maspy_stars/status/1350467886775603200
 
