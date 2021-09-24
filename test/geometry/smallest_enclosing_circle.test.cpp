@@ -4,6 +4,7 @@
 #define PROBLEM "https://atcoder.jp/contests/abc151/tasks/abc151_f"
 #define ERROR "1e-6"
 
+#include <iomanip>
 #include <iostream>
 #include <vector>
 #include "../../geometry/geometry.hpp"
@@ -16,6 +17,6 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> p[i];
   }
-  std::cout << smallest_enclosing_circle(p).r << '\n';
+  std::cout << std::fixed << std::setprecision(6) << smallest_enclosing_circle(p).r << '\n';
   return 0;
 }
