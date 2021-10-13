@@ -1,7 +1,6 @@
 /*
  * @brief 動的計画法/オフライン・オンライン変換
  */
-#define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/abc213/tasks/abc213_h"
 
 #include <algorithm>
@@ -26,10 +25,10 @@ int main() {
       std::cin >> p[i][j];
     }
   }
-  std::vector<std::vector<ModInt>> dp(n, std::vector(t + 1, ModInt(0)));
+  std::vector<std::vector<ModInt>> dp(n, std::vector<ModInt>(t + 1, 0));
   dp[0][0] = 1;
-  NumberTheoreticTransform<0> ntt;
-  std::function<void(int, int, int)> induce = [m, &dp, &a, &b, &p, &ntt](int l, int mid, int r) -> void {
+  std::function<void(int, int, int)> induce = [m, &dp, &a, &b, &p](int l, int mid, int r) -> void {
+    static NumberTheoreticTransform<0> ntt;
     for (int id = 0; id < m; ++id) {
       std::vector<ModInt> dp_id(mid - l), p_id(r - l);
       std::copy(dp[a[id]].begin() + l, dp[a[id]].begin() + mid, dp_id.begin());

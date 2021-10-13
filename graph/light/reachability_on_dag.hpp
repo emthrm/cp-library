@@ -5,22 +5,21 @@
 #include <vector>
 #include "topological_sort.hpp"
 
-std::vector<bool> reachability_on_dag(
-  const std::vector<std::vector<int>> &graph,
-  const std::vector<int> &src,
-  const std::vector<int> &dst
-) {
-  constexpr int digits = std::numeric_limits<unsigned long long>::digits;
+std::vector<int> reachability_on_dag(
+    const std::vector<std::vector<int>>& graph,
+    const std::vector<int>& src,
+    const std::vector<int>& dst) {
+  constexpr int DIGITS = 64;
   const int n = graph.size(), q = src.size();
   assert(dst.size() == q);
-  std::vector<int> order = topological_sort(graph);
-  std::vector<bool> can_reach(q, false);
-  std::vector<unsigned long long> dp(n, 0);
+  const std::vector<int> order = topological_sort(graph);
+  std::vector<int> can_reach(q, false);
+  std::vector<std::uint64_t> dp(n, 0);
   for (int i = 0; i < q;) {
-    const int j = std::min(i + digits, q);
+    const int j = std::min(i + DIGITS, q);
     std::fill(dp.begin(), dp.end(), 0);
     for (int k = i; k < j; ++k) {
-      dp[src[k]] |= 1ull << (k - i);
+      dp[src[k]] |= UINT64_C(1) << (k - i);
     }
     for (const int node : order) {
       for (const int e : graph[node]) {

@@ -1,5 +1,5 @@
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
+#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_059"
+// #define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
 
 #include <iostream>
 #include <vector>
@@ -20,7 +20,7 @@ int main() {
     std::cin >> a[i] >> b[i];
     --a[i]; --b[i];
   }
-  for (const bool ans : reachability_on_dag(graph, a, b)) {
+  for (const int ans : reachability_on_dag(graph, a, b)) {
     std::cout << (ans ? "Yes\n" : "No\n");
   }
   return 0;

@@ -3,7 +3,6 @@ title: 有向非巡回グラフ上の到達可能性判定
 documentation_of: graph/reachability_on_dag.hpp
 ---
 
-
 ## 時間計算量
 
 ワードサイズを $W$ とおくと $O\left(\frac{Q(\lvert V \rvert + \lvert E \rvert)}{W} \right)$．
