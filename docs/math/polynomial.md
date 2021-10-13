@@ -14,23 +14,23 @@ documentation_of: math/polynomial.hpp
 |除算|$O(N^2)$|
 |剰余演算|$O(N^2)$|
 |ホーナー法 (Horner's rule)|$O(N)$|
-|形式微積分|$O(N)$|
-|冪乗||
+|形式微分|$O(N)$|
+|累乗||
 |`translate(c)`|$O(N\log{N})$|
 
 
 ## 使用法
 
-||説明|備考|
+||説明|条件|
 |:--:|:--:|:--:|
 |`Polynomial<T>(deg = 0)`|次数 $\mathrm{deg}$ の多項式||
-|`Polynomial<T>(co)`|係数を $\mathrm{co}$ とする多項式||
-|`co`|係数||
+|`Polynomial<T>(coef)`|係数の列を $\mathrm{coef}$ とする多項式||
+|`coef`|係数の列||
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
 |`shrink()`|正規化を行う．||
 |`degree()`|次数||
-|`operator=(new_co)`|数列 $\mathrm{new\_co}$ を代入する．||
+|`operator=(coef_)`|係数の列 $\mathrm{coef\_}$ を代入する．||
 |`operator=(x)`|多項式 $x$ を代入する．||
 |`operator+=(x)`<br>`operator+(x)`|加算||
 |`operator-=(x)`<br>`operator-(x)`|減算||
@@ -45,7 +45,6 @@ documentation_of: math/polynomial.hpp
 |`operator-()`|$-{f}$||
 |`horner(x)`|$f(x)$||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
-|`integral()`|$\int{f}$||
 |`pow(exponent)`|$f^{\mathrm{exponent}}$||
 |`translate(c)`|$f(x + c)$||
 
@@ -63,5 +62,5 @@ documentation_of: math/polynomial.hpp
   - https://github.com/spaghetti-source/algorithm/blob/master/math/polynomial_int.cc
   - http://people.csail.mit.edu/madhu/ST12/scribe/lect06.pdf
   - https://judge.yosupo.jp/problem/division_of_polynomials
-- DKA 法
+- DKA 法 (Durand-Kerner-Aberth method)
   - https://drive.google.com/file/d/1Fb5TPXzEQVKzYDwhNN2XZpWZWa49aCIY

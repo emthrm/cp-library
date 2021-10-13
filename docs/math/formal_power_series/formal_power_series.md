@@ -3,39 +3,33 @@ title: 形式的冪級数 (formal power series)
 documentation_of: math/formal_power_series/formal_power_series.hpp
 ---
 
+### 式変形
 
-### 操作
+- [重複組み合わせ](../modint.md)
 
-- 累積和
+  $K$ 種類存在するとき
 
-  $$(1 + x^r + x^{2r} + \cdots)f = f \sum_{n = 0}^{\infty} x^{rn} = \dfrac{f}{1 - x^r} \text{．}$$
+  $$\sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}$$
 
-  特に $r = 1$ のとき
-
-  $$(1 + x + x^2 + \cdots)f = f \sum_{n = 0}^{\infty} x^n = \dfrac{f}{1 - x} \text{．}$$
-
-- 階差数列
-
-  $$\sum_{n = 0}^{\infty} (A_n - A_{n - 1}) x^n = (1 - x)f \text{．}$$
-
-- [部分和問題](../../dynamic_programming/subset_sum_problem.md)
-
-  $$\prod_{i = 1}^N (1 + x^{C_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid C_k = i \rbrace \dfrac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1} \text{．}$$
-
-
-### 公式
-
-- [重複組み合わせ](modint.md)
-
-  $N$ 種類存在するとき
-
-  $$\sum_{n = 0}^{\infty} \binom{N + n - 1}{n} x^n = \dfrac{1}{(1 - x)^N} \text{．}$$
+  となる．
 
 - [二項係数](twelvefold_way/binomial_coefficient/binomial_coefficient.md)
 
   $$(x + y)^n = \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \text{，}$$
 
   $$(1 - rx)^{-d} = \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n \text{．}$$
+
+- 累積和
+
+  $$(1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r} \text{．}$$
+
+- 階差数列
+
+  $$\sum_{n = 0}^{\infty} (A_n - A_{n - 1}) x^n = (1 - x) f \text{．}$$
+
+- [部分和問題](../../dynamic_programming/subset_sum_problem.md)
+
+  $$\prod_{i = 1}^N (1 + x^{A_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid A_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1} \text{．}$$
 
 
 ## 時間計算量
@@ -48,11 +42,11 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 |除算|$O(N\log{N})$|
 |剰余演算|$O(N\log{N})$|
 |ホーナー法 (Horner's rule)|$O(N)$|
-|形式微積分|$O(N)$|
+|形式微分|$O(N)$|
 |指数|$O(N\log{N})$|
 |逆元|$O(N\log{N})$|
 |対数|$O(N\log{N})$|
-|冪乗|$O(N\log{N} + \log{M})$|
+|累乗|$O(N\log{N} + \log{M})$|
 |`mod_pow(exponent, md)`|$O((N + M)\log(N + M)\log{E})$ ?|
 |平方根|数 $M$ の平方根を求めるときの計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$．|
 |`translate(c)`|$O(N\log{N})$|
@@ -60,40 +54,39 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`FormalPowerSeries<T>(deg = 0)`|次数 $\mathrm{deg}$ の形式的冪級数||
-|`FormalPowerSeries<T>(co)`|数列 $\mathrm{co}$ の母関数||
-|`co`|係数||
-|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
-|`set_mul(mul)`|乗算を定義する．||
-|`set_sqr(sqr)`|平方根の計算を定義する．||
-|`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．||
-|`shrink()`|正規化を行う．||
-|`degree()`|次数||
-|`operator=(new_co)`|数列 $\mathrm{new\_co}$ を代入する．||
-|`operator=(x)`|形式的冪級数 $x$ を代入する．||
-|`operator+=(x)`<br>`operator+(x)`|加算||
-|`operator-=(x)`<br>`operator-(x)`|減算||
-|`operator*=(x)`<br>`operator*(x)`|乗算||
-|`operator/=(x)`<br>`operator/(x)`|除算||
-|`operator%=(x)`<br>`operator%(x)`|剰余演算||
-|`operator<<=(n)`<br>`operator<<(n)`|$x^n f$||
-|`operator>>=(n)`<br>`operator>>(n)`|$x^{-n} f$|$\mathrm{deg}(f) < n$ のとき $0$ となる．|
-|`operator==(x)`|$f = x$ であるか．||
-|`operator!=(x)`|$f \neq x$ であるか．||
-|`operator+()`|$+{f}$||
-|`operator-()`|$-{f}$||
-|`horner(x)`|$f(x)$||
-|`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
-|`integral()`|$\int{f}$||
-|`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$|
-|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|${\lbrack x^0 \rbrack}f \neq 0$|
-|`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
-|`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$||
-|`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
-|`sqrt(deg = n)`|$\sqrt{f}$|存在しない場合は空列となる．|
-|`translate(c)`|$f(x + c)$||
+||説明|条件|備考|
+|:--:|:--:|:--:|:--:|
+|`FormalPowerSeries<T>(deg = 0)`|$\mathrm{deg}$ 次まで考える形式的冪級数|||
+|`FormalPowerSeries<T>(coef)`|係数の列を $\mathrm{coef}$ とする形式的冪級数|||
+|`coef`|係数の列|||
+|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
+|`set_mul(mul)`|乗算を定義する．|||
+|`set_sqr(sqr)`|平方根の計算を定義する．|||
+|`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．|||
+|`shrink()`|正規化を行う．|||
+|`degree()`|現在考えている次数|||
+|`operator=(coef_)`|係数の列 $\mathrm{coef\_}$ を代入する．|||
+|`operator=(x)`|形式的冪級数 $x$ を代入する．|||
+|`operator+=(x)`<br>`operator+(x)`|加算|||
+|`operator-=(x)`<br>`operator-(x)`|減算|||
+|`operator*=(x)`<br>`operator*(x)`|乗算|||
+|`operator/=(x)`<br>`operator/(x)`|除算|||
+|`operator%=(x)`<br>`operator%(x)`|剰余演算|||
+|`operator<<=(n)`<br>`operator<<(n)`|$x^n f$|||
+|`operator>>=(n)`<br>`operator>>(n)`|$x^{-n} f$||$\mathrm{deg}(f) < n$ のとき $0$ となる．|
+|`operator==(x)`|$f = x$ であるか．|||
+|`operator!=(x)`|$f \neq x$ であるか．|||
+|`operator+()`|$+{f}$|||
+|`operator-()`|$-{f}$|||
+|`horner(x)`|$f(x)$|||
+|`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$||
+|`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$||
+|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|${\lbrack x^0 \rbrack}f \neq 0$||
+|`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$||
+|`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$|||
+|`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|||
+|`sqrt(deg = n)`|$\sqrt{f}$||存在しない場合は空列となる．|
+|`translate(c)`|$f(x + c)$|||
 
 
 ## 参考
@@ -110,9 +103,11 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 ## ToDo
 
 - https://yukicoder.me/wiki/polynomial_techniques
+- https://37zigen.com/exponential-generating-function/
 - https://drive.google.com/drive/folders/1CI4P9TUWcK_sGLkUBsA4ORNilIcNjB-N
 - $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める．
   - http://www.eecs.harvard.edu/~htk/publication/1978-jacm-brent-kung.pdf
+  - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#7-fgx
   - https://judge.yosupo.jp/problem/composition_of_formal_power_series
 - $\arcsin{f}$
   - https://codeforces.com/blog/entry/56422?#comment-401173
@@ -121,16 +116,29 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 - Berlekamp–Massey algorithm
   - https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm
   - https://de.wikipedia.org/wiki/Berlekamp-Massey-Algorithmus
-  - https://yukicoder.me/wiki/polynomial_techniques
-  - http://sugarknri.hatenablog.com/entry/2017/11/18/234217
+  - ~~https://bitbucket.org/yuki2006/yukicoder_wiki/diff/polynomial_techniques.html?at=master&diff2=fdae5fc5c01dba5670dec4e18ba3be4c90edcc51~~
+  - ~~http://sugarknri.hatenablog.com/entry/2017/11/18/234217~~
   - https://qiita.com/kenmaro/items/4042b646d39255b623b8
   - https://haruya12.hatenadiary.org/entry/20160131/1454252059
   - https://github.com/beet-aizu/library/blob/master/polynomial/berlekampmassey.cpp
   - https://github.com/ei1333/library/blob/master/math/fps/berlekamp-massey.cpp
   - https://yukicoder.me/submissions/427818
   - https://judge.yosupo.jp/problem/find_linear_recurrence
-- $x^n \bmod f(x)$
+- Lagrange inversion theorem
+  - https://en.wikipedia.org/wiki/Lagrange_inversion_theorem
+  - https://www.mathwills.com/posts/46
+  - https://mathlog.info/articles/607
+  - https://mathworld.wolfram.com/LagrangeInversionTheorem.html
+  - https://atcoder.jp/contests/abc222/tasks/abc222_h
+  - https://twitter.com/kobae964/status/1446833320919064577
+- 記号的 Newton 法
+  - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#1%E8%A8%98%E5%8F%B7%E7%9A%84%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95
+  - https://atcoder.jp/contests/abc222/tasks/abc222_h
+  - https://twitter.com/tatyam_prime/status/1446841586252324866
+- $x^n \bmod f$
   - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
+- $\sum_{n = 0}^\infty \frac{n^a}{n!} x^n$
+  - https://qiita.com/hotman78/items/90dba287b98629767d6c
 - 多項式ハッシュ
   - https://yukicoder.me/wiki/polynomial_techniques
   - https://github.com/beet-aizu/library/blob/master/polynomial/hash.cpp

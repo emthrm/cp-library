@@ -11,9 +11,7 @@
 template <int T>
 MInt<T> bell_number(const int n, int k) {
   using ModInt = MInt<T>;
-  if (k > n) {
-    k = n;
-  }
+  if (k > n) k = n;
   ModInt::init(k);
   std::vector<ModInt> tmp(k + 1);
   for (int i = 0; i <= k; ++i) {

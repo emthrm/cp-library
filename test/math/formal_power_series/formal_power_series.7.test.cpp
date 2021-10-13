@@ -12,15 +12,20 @@
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
-  NumberTheoreticTransform<0> ntt;
-  FormalPowerSeries<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
-    return ntt.convolution(a, b);
-  });
+  FormalPowerSeries<ModInt>::set_mul(
+      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b) -> std::vector<ModInt> {
+        static NumberTheoreticTransform<0> ntt;
+        return ntt.convolution(a, b);
+      });
   int n, c;
   std::cin >> n >> c;
-  FormalPowerSeries<ModInt> fps(n - 1);
-  for (int i = 0; i < n; ++i) std::cin >> fps[i];
-  fps = fps.translate(c);
-  for (int i = 0; i < n; ++i) std::cout << fps[i] << " \n"[i + 1 == n];
+  FormalPowerSeries<ModInt> b(n - 1);
+  for (int i = 0; i < n; ++i) {
+    std::cin >> b[i];
+  }
+  b = b.translate(c);
+  for (int i = 0; i < n; ++i) {
+    std::cout << b[i] << " \n"[i + 1 == n];
+  }
   return 0;
 }

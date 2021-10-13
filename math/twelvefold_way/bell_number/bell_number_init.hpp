@@ -9,12 +9,13 @@
 
 template <typename T>
 std::vector<std::vector<T>> bell_number_init(const int n, const int k) {
-  std::vector<std::vector<T>> bell(n + 1, std::vector<T>(k + 1)), stirling = stirling_number_of_the_second_kind_init<T>(n, k);
+  std::vector<std::vector<T>> b(n + 1, std::vector<T>(k + 1));
+  const std::vector<std::vector<T>> s = stirling_number_of_the_second_kind_init<T>(n, k);
   for (int i = 0; i <= n; ++i) {
-    bell[i][0] = stirling[i][0];
+    b[i][0] = s[i][0];
     for (int j = 1; j <= k; ++j) {
-      bell[i][j] = bell[i][j - 1] + stirling[i][j];
+      b[i][j] = b[i][j - 1] + s[i][j];
     }
   }
-  return bell;
+  return b;
 }

@@ -7,7 +7,7 @@ $n$ 個の数の選び方の内，要素の和が特定の数となるものの�
 
 ナップサック問題の部分問題である．
 
-[形式的冪級数](../math/formal_power_series/formal_power_series.md)を用いて場合の数を求めることができる．
+[形式的冪級数](../math/formal_power_series/formal_power_series.md)を用いて場合の数を求められる．
 
 
 ## 時間計算量
@@ -17,9 +17,9 @@ $O(N + D\log{D})$
 
 ## 使用法
 
-||説明|備考|
+||説明|条件|
 |:--:|:--:|:--:|
-|`subset_sum_problem(a, d)`|集合内の要素の和が $0 \leq i \leq D$ となる $A$ の部分集合の個数|$A_i \geq 0$ でなければならない．|
+|`subset_sum_problem(a, d)`|集合内の要素の和が $d \ (0 \leq d \leq D)$ となる $A$ の部分集合の個数|$A_i \geq 0$|
 
 
 ## 参考

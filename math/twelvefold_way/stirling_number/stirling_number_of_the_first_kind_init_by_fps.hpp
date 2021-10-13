@@ -8,19 +8,18 @@
 #include "../../formal_power_series/formal_power_series.hpp"
 
 template <typename T>
-std::vector<T> stirling_number_of_the_first_kind_init_by_fps(int n) {
+std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n) {
   if (n == 0) return {1};
-  FormalPowerSeries<T> stirling{0, 1};
+  FormalPowerSeries<T> s{0, 1};
   for (int i = 30 - __builtin_clz(n); i >= 0; --i) {
-    stirling *= stirling.translate(-(static_cast<int>(stirling.co.size()) - 1));
-    // stirling *= stirling.translate(stirling.co.size() - 1);
+    s *= s.translate(-s.degree());
     if (n >> i & 1) {
-      int deg = stirling.co.size() - 1;
-      stirling.co.emplace_back(0);
-      for (int i = deg; i >= 0; --i) stirling.co[i + 1] = stirling.co[i];
-      stirling.co[0] = 0;
-      for (int i = 0; i <= deg; ++i) stirling.co[i] += stirling.co[i + 1] * (-deg);
+      const int deg = s.degree();
+      s <<= 1;
+      for (int i = 0; i <= deg; ++i) {
+        s[i] += s[i + 1] * (-deg);
+      }
     }
   }
-  return stirling.co;
+  return s.coef;
 }

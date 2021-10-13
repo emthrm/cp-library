@@ -13,13 +13,9 @@ std::vector<T> partition_function_by_fps(const int n) {
   fps[0] = 1;
   for (int i = 1; i <= n; ++i) {
     long long idx = static_cast<long long>(3 * i + 1) * i / 2;
-    if (idx <= n) {
-      fps[idx] += (i & 1 ? -1 : 1);
-    }
+    if (idx <= n) fps[idx] += (i & 1 ? -1 : 1);
     idx = static_cast<long long>(3 * i - 1) * i / 2;
-    if (idx <= n) {
-      fps[idx] += (i & 1 ? -1 : 1);
-    }
+    if (idx <= n) fps[idx] += (i & 1 ? -1 : 1);
   }
-  return fps.inv(n).co;
+  return fps.inv(n).coef;
 }

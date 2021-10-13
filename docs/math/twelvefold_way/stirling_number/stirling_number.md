@@ -9,7 +9,7 @@ $$x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k$$
 
 $$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k) \\ 0 & (n \geq 1,\ k = 0) \\ s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
 
-なる漸化式より計算ができる．
+という漸化式をもつ．
 
 組合せ数学においては区別された $n$ 個を $k$ 個の巡回列に分割する個数を意味する．
 
@@ -22,7 +22,7 @@ $$x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}$$
 
 $$\begin{aligned} S(n, k) = \begin{cases} 1 & (n = k) \\ 0 & (n \geq 1,\ k = 0) \\ S(n-1, k-1) + k S(n-1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
 
-なる漸化式より計算ができる．
+という漸化式をもつ．
 
 一般項は
 
@@ -56,7 +56,7 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`stirling_number_of_the_first_kind_init_by_fps<T>(n)`|第1種スターリング数 $s(n, k) \ (0 \leq k \leq n)$ の数表|$x^{\underline{n}} = \sum_{k = 0}^n s(n, k) x^k$|
+|`stirling_number_of_the_first_kind_init_by_fps<T>(n)`|第1種スターリング数 $s(n, k) \ (0 \leq k \leq n)$ の数表|$x^{\underline{n}} = \sum_{k = 0}^n (-1)^{n + k} s(n, k) x^k$|
 
 - 第2種スターリング数
 

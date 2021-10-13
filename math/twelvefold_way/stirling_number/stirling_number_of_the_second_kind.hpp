@@ -8,18 +8,13 @@
 #include "../../modint.hpp"
 
 template <int T>
-MInt<T> stirling_number_of_the_second_kind(int n, int k) {
+MInt<T> stirling_number_of_the_second_kind(const int n, const int k) {
   using ModInt = MInt<T>;
   if (n < k) return 0;
   ModInt::init(k);
-  ModInt stirling = 0;
+  ModInt s = 0;
   for (int i = 1; i <= k; ++i) {
-    ModInt tmp = ModInt::nCk(k, i) * ModInt(i).pow(n);
-    if ((k - i) & 1) {
-      stirling -= tmp;
-    } else {
-      stirling += tmp;
-    }
+    s += ModInt::nCk(k, i) * ModInt(i).pow(n) * ((k - i) & 1 ? -1 : 1);
   }
-  return stirling * ModInt::fact_inv(k);
+  return s * ModInt::fact_inv(k);
 }

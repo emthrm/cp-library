@@ -27,5 +27,5 @@ std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {
     a[i] *= ModInt::fact(n + 1);
     a[n - 1 - i] = a[i];
   }
-  return a.co;
+  return a.coef;
 }

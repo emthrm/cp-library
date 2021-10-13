@@ -9,15 +9,15 @@
 
 template <typename T>
 std::vector<T> bell_number_init_by_fps(const int n) {
-  FormalPowerSeries<T> bell(n);
-  bell[1] = 1;
-  bell = bell.exp(n);
-  bell[0] -= 1;
-  bell = bell.exp(n);
+  FormalPowerSeries<T> b(n);
+  b[1] = 1;
+  b = b.exp(n);
+  b[0] -= 1;
+  b = b.exp(n);
   T fact = 1;
   for (int i = 0; i <= n; ++i) {
-    bell[i] *= fact;
+    b[i] *= fact;
     fact *= i + 1;
   }
-  return bell.co;
+  return b.coef;
 }

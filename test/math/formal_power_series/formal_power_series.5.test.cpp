@@ -14,18 +14,17 @@
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
-  FormalPowerSeries<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
-    return mod_convolution(a, b);
-  });
+  FormalPowerSeries<ModInt>::set_mul(
+      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b) -> std::vector<ModInt> {
+        return mod_convolution(a, b);
+      });
   constexpr int D = 6, M = 13;
   std::string s;
   std::cin >> s;
   std::reverse(s.begin(), s.end());
-  std::vector<int> cnt(D, 0);
+  int q[D]{};
   for (int i = 0; i < s.length(); ++i) {
-    if (s[i] == '?') {
-      ++cnt[i % D];
-    }
+    if (s[i] == '?') ++q[i % D];
   }
   std::vector<FormalPowerSeries<ModInt>> f(D, FormalPowerSeries<ModInt>(M));
   FormalPowerSeries<ModInt> md(M);
@@ -39,7 +38,7 @@ int main() {
     for (int j = 0; j < 10; ++j) {
       ++f[i][base * j % M];
     }
-    f[i] = f[i].mod_pow(cnt[i], md);
+    f[i] = f[i].mod_pow(q[i], md);
   }
   for (int i = 1; i < D; ++i) {
     f[0] *= f[i];
@@ -48,9 +47,10 @@ int main() {
   int idx = D - 1, w = 1;
   for (int i = 0; i < s.length(); ++i) {
     if (s[i] != '?') {
-      (idx += M - w * (s[i] - '0') % M) %= M;
+      idx = (idx - w * (s[i] - '0')) % M;
+      if (idx < 0) idx += M;
     }
-    (w *= 10) %= M;
+    w = w * 10 % M;
   }
   std::cout << f[0][idx] << '\n';
   return 0;
