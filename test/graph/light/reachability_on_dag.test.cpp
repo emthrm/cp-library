@@ -1,5 +1,5 @@
-#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_059"
-// #define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
+#define IGNORE
+#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
 
 #include <iostream>
 #include <vector>

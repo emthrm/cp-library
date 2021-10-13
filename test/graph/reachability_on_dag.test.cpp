@@ -1,8 +1,8 @@
 /*
  * @brief グラフ/有向非巡回グラフ上の到達可能性判定
  */
-#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_059"
-// #define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
+#define IGNORE
+#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
 
 #include <iostream>
 #include <vector>
