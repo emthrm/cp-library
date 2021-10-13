@@ -20,12 +20,6 @@ $A + B = (A \oplus B) + 2(A \wedge B)$ が成り立つ．
 
 ---
 
-$n \leq 10^9$ を満たす自然数 $n$ の約数の個数の最大値は $800$ 程度である．
-
-> 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.267，マイナビ出版（2012）．
-
----
-
 $a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して
 
 - $ab < c \iff a < \left\lfloor \frac{c}{b} \right\rfloor$
@@ -50,3 +44,14 @@ $$\begin{aligned} f_2 \circ f_1(x) &= \min(\max(\min(\max(x + a_1, b_1), c_1) + 
 $x > 0$ ならば `std::sqrt(x * x) == x` が成り立つ．
 
 > https://fixedpoint.jp/2016/03/18/sqrt-of-square-of-fp-number.html
+
+---
+
+$m \in \mathbb{N}^+,\ a \in \mathbb{Z} \ (0 < a < m)$ に対して
+
+- $ax \equiv 0 \pmod{m} \iff x \equiv 0 \pmod{\frac{m}{\gcd(m, a)}}$
+- $\frac{x}{a} \in \mathbb{Z} \text{ かつ } \frac{x}{a} \equiv 0 \pmod{m} \iff x \equiv 0 \pmod{am}$
+
+が成り立つ．
+
+> https://atcoder.jp/contests/abc222/editorial/2750
