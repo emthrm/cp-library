@@ -83,13 +83,13 @@ data:
   isVerificationFile: false
   path: math/matrix/gauss_jordan.hpp
   requiredBy:
-  - graph/flow/matching/maximum_matching.hpp
   - math/matrix/linear_equation.hpp
+  - graph/flow/matching/maximum_matching.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/matching/maximum_matching.test.cpp
   - test/math/matrix/linear_equation.test.cpp
+  - test/graph/flow/matching/maximum_matching.test.cpp
 documentation_of: math/matrix/gauss_jordan.hpp
 layout: document
 title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5\

@@ -81,8 +81,8 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/convolution/mod_convolution.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
 documentation_of: math/convolution/mod_convolution.hpp
 layout: document
 redirect_from:

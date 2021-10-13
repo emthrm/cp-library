@@ -29,16 +29,15 @@ data:
     \r\n\r\ntemplate <typename T>\r\nstd::vector<T> partition_function_by_fps(const\
     \ int n) {\r\n  FormalPowerSeries<T> fps(n);\r\n  fps[0] = 1;\r\n  for (int i\
     \ = 1; i <= n; ++i) {\r\n    long long idx = static_cast<long long>(3 * i + 1)\
-    \ * i / 2;\r\n    if (idx <= n) {\r\n      fps[idx] += (i & 1 ? -1 : 1);\r\n \
-    \   }\r\n    idx = static_cast<long long>(3 * i - 1) * i / 2;\r\n    if (idx <=\
-    \ n) {\r\n      fps[idx] += (i & 1 ? -1 : 1);\r\n    }\r\n  }\r\n  return fps.inv(n).co;\r\
-    \n}\r\n"
+    \ * i / 2;\r\n    if (idx <= n) fps[idx] += (i & 1 ? -1 : 1);\r\n    idx = static_cast<long\
+    \ long>(3 * i - 1) * i / 2;\r\n    if (idx <= n) fps[idx] += (i & 1 ? -1 : 1);\r\
+    \n  }\r\n  return fps.inv(n).coef;\r\n}\r\n"
   dependsOn:
   - math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: math/twelvefold_way/partition_function_by_fps.hpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp

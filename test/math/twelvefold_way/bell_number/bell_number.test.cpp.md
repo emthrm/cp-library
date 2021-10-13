@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/bell_number/bell_number.test.cpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/bell_number/bell_number.test.cpp

@@ -31,18 +31,18 @@ data:
   code: "/**\r\n * @brief \u30D9\u30EB\u6570\u306E\u6570\u8868\r\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../stirling_number/stirling_number_of_the_second_kind_init.hpp\"\
     \r\n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> bell_number_init(const\
-    \ int n, const int k) {\r\n  std::vector<std::vector<T>> bell(n + 1, std::vector<T>(k\
-    \ + 1)), stirling = stirling_number_of_the_second_kind_init<T>(n, k);\r\n  for\
-    \ (int i = 0; i <= n; ++i) {\r\n    bell[i][0] = stirling[i][0];\r\n    for (int\
-    \ j = 1; j <= k; ++j) {\r\n      bell[i][j] = bell[i][j - 1] + stirling[i][j];\r\
-    \n    }\r\n  }\r\n  return bell;\r\n}\r\n"
+    \ int n, const int k) {\r\n  std::vector<std::vector<T>> b(n + 1, std::vector<T>(k\
+    \ + 1));\r\n  const std::vector<std::vector<T>> s = stirling_number_of_the_second_kind_init<T>(n,\
+    \ k);\r\n  for (int i = 0; i <= n; ++i) {\r\n    b[i][0] = s[i][0];\r\n    for\
+    \ (int j = 1; j <= k; ++j) {\r\n      b[i][j] = b[i][j - 1] + s[i][j];\r\n   \
+    \ }\r\n  }\r\n  return b;\r\n}\r\n"
   dependsOn:
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number_init.hpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp

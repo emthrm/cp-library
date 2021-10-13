@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2021-03-07 02:53:11+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp

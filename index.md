@@ -58,7 +58,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: dynamic_programming/2d_cumulative_sum.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
       title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
         \u63DB"
@@ -383,7 +383,7 @@ data:
     - icon: ':question:'
       path: math/convolution/mod_convolution.hpp
       title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/number_theoretic_transform.hpp
       title: "\u6570\u8AD6\u5909\u63DB"
     - icon: ':warning:'
@@ -686,7 +686,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/dynamic_programming/2d_cumulative_sum.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
         \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
@@ -1189,7 +1189,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.4.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
-        \u51AA\u7D1A\u6570 (\u51AA\u4E57)"
+        \u51AA\u7D1A\u6570 (\u7D2F\u4E57)"
     - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.5.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\

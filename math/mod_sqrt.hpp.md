@@ -54,8 +54,8 @@ data:
   timestamp: '2021-02-15 03:05:11+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/mod_sqrt.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/mod_sqrt.test.cpp
 documentation_of: math/mod_sqrt.hpp
 layout: document
 redirect_from:

@@ -27,18 +27,18 @@ data:
   code: "/**\r\n * @brief \u30D9\u30EB\u6570\r\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n#include\
     \ \"../../modint.hpp\"\r\n\r\ntemplate <int T>\r\nMInt<T> bell_number(const int\
-    \ n, int k) {\r\n  using ModInt = MInt<T>;\r\n  if (k > n) {\r\n    k = n;\r\n\
-    \  }\r\n  ModInt::init(k);\r\n  std::vector<ModInt> tmp(k + 1);\r\n  for (int\
-    \ i = 0; i <= k; ++i) {\r\n    tmp[i] = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);\r\
-    \n  }\r\n  for (int i = 0; i < k; ++i) {\r\n    tmp[i + 1] += tmp[i];\r\n  }\r\
-    \n  ModInt bell = 0;\r\n  for (int i = 0; i <= k; ++i) {\r\n    bell += ModInt(i).pow(n)\
-    \ * ModInt::fact_inv(i) * tmp[k - i];\r\n  }\r\n  return bell;\r\n}\r\n"
+    \ n, int k) {\r\n  using ModInt = MInt<T>;\r\n  if (k > n) k = n;\r\n  ModInt::init(k);\r\
+    \n  std::vector<ModInt> tmp(k + 1);\r\n  for (int i = 0; i <= k; ++i) {\r\n  \
+    \  tmp[i] = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);\r\n  }\r\n  for (int i = 0;\
+    \ i < k; ++i) {\r\n    tmp[i + 1] += tmp[i];\r\n  }\r\n  ModInt bell = 0;\r\n\
+    \  for (int i = 0; i <= k; ++i) {\r\n    bell += ModInt(i).pow(n) * ModInt::fact_inv(i)\
+    \ * tmp[k - i];\r\n  }\r\n  return bell;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number.hpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp

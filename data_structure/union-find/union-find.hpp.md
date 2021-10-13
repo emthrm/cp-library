@@ -58,17 +58,17 @@ data:
   isVerificationFile: false
   path: data_structure/union-find/union-find.hpp
   requiredBy:
-  - graph/connencted_component_of_complement_graph.hpp
   - graph/kruskal.hpp
+  - graph/connencted_component_of_complement_graph.hpp
   timestamp: '2021-09-24 01:25:42+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/data_structure/union-find/union-find.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
-  - test/graph/biconnected_component.test.cpp
-  - test/graph/kruskal.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/kruskal.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/is_bipartite.test.cpp
+  - test/graph/biconnected_component.test.cpp
+  - test/data_structure/union-find/union-find.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:

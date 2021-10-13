@@ -27,18 +27,18 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <numeric>\r\
+  code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <cstdint>\r\
     \n#include <vector>\r\n#include \"edge.hpp\"\r\n#include \"topological_sort.hpp\"\
-    \r\n\r\ntemplate <typename CostType>\r\nstd::vector<bool> reachability_on_dag(\r\
-    \n  const std::vector<std::vector<Edge<CostType>>> &graph,\r\n  const std::vector<int>\
-    \ &src,\r\n  const std::vector<int> &dst\r\n) {\r\n  constexpr int digits = std::numeric_limits<unsigned\
-    \ long long>::digits;\r\n  const int n = graph.size(), q = src.size();\r\n  assert(dst.size()\
-    \ == q);\r\n  std::vector<int> order = topological_sort(graph);\r\n  std::vector<bool>\
-    \ can_reach(q, false);\r\n  std::vector<unsigned long long> dp(n, 0);\r\n  for\
-    \ (int i = 0; i < q;) {\r\n    const int j = std::min(i + digits, q);\r\n    std::fill(dp.begin(),\
-    \ dp.end(), 0);\r\n    for (int k = i; k < j; ++k) {\r\n      dp[src[k]] |= 1ull\
+    \r\n\r\ntemplate <typename CostType>\r\nstd::vector<int> reachability_on_dag(\r\
+    \n    const std::vector<std::vector<Edge<CostType>>>& graph,\r\n    const std::vector<int>&\
+    \ src,\r\n    const std::vector<int>& dst) {\r\n  constexpr int DIGITS = 64;\r\
+    \n  const int n = graph.size(), q = src.size();\r\n  assert(dst.size() == q);\r\
+    \n  const std::vector<int> order = topological_sort(graph);\r\n  std::vector<int>\
+    \ can_reach(q, false);\r\n  std::vector<std::uint64_t> dp(n, 0);\r\n  for (int\
+    \ i = 0; i < q;) {\r\n    const int j = std::min(i + DIGITS, q);\r\n    std::fill(dp.begin(),\
+    \ dp.end(), 0);\r\n    for (int k = i; k < j; ++k) {\r\n      dp[src[k]] |= UINT64_C(1)\
     \ << (k - i);\r\n    }\r\n    for (const int node : order) {\r\n      for (const\
-    \ Edge<CostType> &e : graph[node]) {\r\n        dp[e.dst] |= dp[node];\r\n   \
+    \ Edge<CostType>& e : graph[node]) {\r\n        dp[e.dst] |= dp[node];\r\n   \
     \   }\r\n    }\r\n    for (int k = i; k < j; ++k) {\r\n      can_reach[k] = dp[dst[k]]\
     \ >> (k - i) & 1;\r\n    }\r\n    i = j;\r\n  }\r\n  return can_reach;\r\n}\r\n"
   dependsOn:
@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: graph/reachability_on_dag.hpp
   requiredBy: []
-  timestamp: '2021-08-19 19:52:18+09:00'
+  timestamp: '2021-10-13 18:29:58+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/reachability_on_dag.test.cpp
@@ -56,7 +56,6 @@ layout: document
 title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054\u53EF\
   \u80FD\u6027\u5224\u5B9A"
 ---
-
 
 ## 時間計算量
 

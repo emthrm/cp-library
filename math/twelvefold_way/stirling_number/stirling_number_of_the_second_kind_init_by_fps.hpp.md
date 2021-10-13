@@ -34,18 +34,19 @@ data:
     \u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\r\n * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../../modint.hpp\"\
     \r\n#include \"../../formal_power_series/formal_power_series.hpp\"\r\n\r\ntemplate\
-    \ <int T>\r\nstd::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(int\
-    \ n) {\r\n  using ModInt = MInt<T>;\r\n  ModInt::init(n);\r\n  FormalPowerSeries<ModInt>\
-    \ a(n), b(n);\r\n  for (int i = 0; i <= n; ++i) a[i] = ModInt(i).pow(n) * ModInt::fact_inv(i);\r\
-    \n  for (int i = 0; i <= n; ++i) b[i] = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);\r\
-    \n  a *= b;\r\n  a.co.resize(n + 1);\r\n  return a.co;\r\n}\r\n"
+    \ <int T>\r\nstd::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const\
+    \ int n) {\r\n  using ModInt = MInt<T>;\r\n  ModInt::init(n);\r\n  FormalPowerSeries<ModInt>\
+    \ a(n), b(n);\r\n  for (int i = 0; i <= n; ++i) {\r\n    a[i] = ModInt(i).pow(n)\
+    \ * ModInt::fact_inv(i);\r\n  }\r\n  for (int i = 0; i <= n; ++i) {\r\n    b[i]\
+    \ = ModInt::fact_inv(i) * (i & 1 ? -1 : 1);\r\n  }\r\n  a *= b;\r\n  a.resize(n);\r\
+    \n  return a.coef;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
@@ -68,7 +69,7 @@ $$x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k$$
 
 $$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k) \\ 0 & (n \geq 1,\ k = 0) \\ s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
 
-なる漸化式より計算ができる．
+という漸化式をもつ．
 
 組合せ数学においては区別された $n$ 個を $k$ 個の巡回列に分割する個数を意味する．
 
@@ -81,7 +82,7 @@ $$x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}$$
 
 $$\begin{aligned} S(n, k) = \begin{cases} 1 & (n = k) \\ 0 & (n \geq 1,\ k = 0) \\ S(n-1, k-1) + k S(n-1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
 
-なる漸化式より計算ができる．
+という漸化式をもつ．
 
 一般項は
 
@@ -115,7 +116,7 @@ $$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`stirling_number_of_the_first_kind_init_by_fps<T>(n)`|第1種スターリング数 $s(n, k) \ (0 \leq k \leq n)$ の数表|$x^{\underline{n}} = \sum_{k = 0}^n s(n, k) x^k$|
+|`stirling_number_of_the_first_kind_init_by_fps<T>(n)`|第1種スターリング数 $s(n, k) \ (0 \leq k \leq n)$ の数表|$x^{\underline{n}} = \sum_{k = 0}^n (-1)^{n + k} s(n, k) x^k$|
 
 - 第2種スターリング数
 

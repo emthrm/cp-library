@@ -57,8 +57,8 @@ data:
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/2-edge-connected_components_imos.test.cpp
   - test/graph/detect_bridge.test.cpp
+  - test/graph/2-edge-connected_components_imos.test.cpp
 documentation_of: graph/detect_bridge.hpp
 layout: document
 title: "\u6A4B\u306E\u691C\u51FA"

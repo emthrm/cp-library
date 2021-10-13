@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: dynamic_programming/subset_sum_problem.hpp
     title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':heavy_check_mark:'
@@ -40,13 +40,13 @@ data:
     \r\n#include \"../../math/convolution/number_theoretic_transform.hpp\"\r\n#include\
     \ \"../../math/formal_power_series/formal_power_series.hpp\"\r\n#include \"../../dynamic_programming/subset_sum_problem.hpp\"\
     \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
-    \n  NumberTheoreticTransform<0> ntt;\r\n  FormalPowerSeries<ModInt>::set_mul([&](const\
-    \ std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt>\
-    \ {\r\n    return ntt.convolution(a, b);\r\n  });\r\n  int n, t;\r\n  std::cin\
-    \ >> n >> t;\r\n  std::vector<int> s(n);\r\n  for (int i = 0; i < n; ++i) std::cin\
-    \ >> s[i];\r\n  std::vector<ModInt> p = subset_sum_problem<ModInt>(s, t);\r\n\
-    \  for (int i = 1; i <= t; ++i) std::cout << p[i] << \" \\n\"[i == t];\r\n  return\
-    \ 0;\r\n}\r\n"
+    \n  FormalPowerSeries<ModInt>::set_mul(\r\n      [](const std::vector<ModInt>&\
+    \ a, const std::vector<ModInt>& b) -> std::vector<ModInt> {\r\n        static\
+    \ NumberTheoreticTransform<0> ntt;\r\n        return ntt.convolution(a, b);\r\n\
+    \      });\r\n  int n, t;\r\n  std::cin >> n >> t;\r\n  std::vector<int> s(n);\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> s[i];\r\n  }\r\n  const std::vector<ModInt>\
+    \ p = subset_sum_problem<ModInt>(s, t);\r\n  for (int i = 1; i <= t; ++i) {\r\n\
+    \    std::cout << p[i] << \" \\n\"[i == t];\r\n  }\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/convolution/number_theoretic_transform.hpp
@@ -55,7 +55,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/subset_sum_problem.test.cpp
   requiredBy: []
-  timestamp: '2021-08-15 23:02:03+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/subset_sum_problem.test.cpp

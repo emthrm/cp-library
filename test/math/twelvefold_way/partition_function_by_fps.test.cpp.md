@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':heavy_check_mark:'
@@ -41,12 +41,13 @@ data:
     \r\n#include \"../../../math/convolution/number_theoretic_transform.hpp\"\r\n\
     #include \"../../../math/formal_power_series/formal_power_series.hpp\"\r\n#include\
     \ \"../../../math/twelvefold_way/partition_function_by_fps.hpp\"\r\n\r\nint main()\
-    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  NumberTheoreticTransform<0>\
-    \ ntt;\r\n  FormalPowerSeries<ModInt>::set_mul([&ntt](const std::vector<ModInt>\
-    \ &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {\r\n    return ntt.convolution(a,\
-    \ b);\r\n  });\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<ModInt> p = partition_function_by_fps<ModInt>(n);\r\
-    \n  for (int i = 0; i <= n; ++i) {\r\n    std::cout << p[i] << \" \\n\"[i == n];\r\
-    \n  }\r\n  return 0;\r\n}\r\n"
+    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  FormalPowerSeries<ModInt>::set_mul(\r\
+    \n      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b) -> std::vector<ModInt>\
+    \ {\r\n        static NumberTheoreticTransform<0> ntt;\r\n        return ntt.convolution(a,\
+    \ b);\r\n      });\r\n  int n;\r\n  std::cin >> n;\r\n  const std::vector<ModInt>\
+    \ p = partition_function_by_fps<ModInt>(n);\r\n  for (int i = 0; i <= n; ++i)\
+    \ {\r\n    std::cout << p[i] << \" \\n\"[i == n];\r\n  }\r\n  return 0;\r\n}\r\
+    \n"
   dependsOn:
   - math/modint.hpp
   - math/convolution/number_theoretic_transform.hpp
@@ -55,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/partition_function_by_fps.test.cpp

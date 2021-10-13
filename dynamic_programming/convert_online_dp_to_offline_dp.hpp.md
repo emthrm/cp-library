@@ -3,34 +3,36 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
     \n#include <functional>\r\n\r\nvoid convert_online_dp_to_offline_dp(const int\
     \ n, const std::function<void(int, int, int)> induce) {\r\n  std::function<void(const\
-    \ int, const int)> solve = [&solve, &induce](const int l, const int r) -> void\
-    \ {\r\n    if (l + 1 == r) {\r\n      // dp(l) <- dp(l) \uFF65 b_l.\r\n      return;\r\
-    \n    }\r\n    const int m = (l + r) >> 1;\r\n    solve(l, m);\r\n    induce(l,\
-    \ m, r);\r\n    solve(m, r);\r\n  };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
+    \ int, const int)> solve =\r\n      [&solve, induce](const int l, const int r)\
+    \ -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l) <- dp(l) \uFF65\
+    \ b_l.\r\n          return;\r\n        }\r\n        const int m = (l + r) >> 1;\r\
+    \n        solve(l, m);\r\n        induce(l, m, r);\r\n        solve(m, r);\r\n\
+    \      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
   code: "#pragma once\r\n#include <functional>\r\n\r\nvoid convert_online_dp_to_offline_dp(const\
     \ int n, const std::function<void(int, int, int)> induce) {\r\n  std::function<void(const\
-    \ int, const int)> solve = [&solve, &induce](const int l, const int r) -> void\
-    \ {\r\n    if (l + 1 == r) {\r\n      // dp(l) <- dp(l) \uFF65 b_l.\r\n      return;\r\
-    \n    }\r\n    const int m = (l + r) >> 1;\r\n    solve(l, m);\r\n    induce(l,\
-    \ m, r);\r\n    solve(m, r);\r\n  };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
+    \ int, const int)> solve =\r\n      [&solve, induce](const int l, const int r)\
+    \ -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l) <- dp(l) \uFF65\
+    \ b_l.\r\n          return;\r\n        }\r\n        const int m = (l + r) >> 1;\r\
+    \n        solve(l, m);\r\n        induce(l, m, r);\r\n        solve(m, r);\r\n\
+    \      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
   requiredBy: []
-  timestamp: '2021-08-28 02:59:19+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2021-10-13 18:29:58+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
 documentation_of: dynamic_programming/convert_online_dp_to_offline_dp.hpp
@@ -40,7 +42,7 @@ title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909
 
 $i = 1, 2, \ldots, N$ に対して $\mathrm{dp}(i) = f_i(I) \ (I \subseteq \lbrace 1, 2, \ldots, i - 1 \rbrace)$ で表せるオンライン動的計画法を考える．
 
-ある[モノイド](../../.verify-helper/docs/static/algebraic_structure.md) $(S, \cdot, e)$ が存在して，$1 \leq \forall i \leq N$ に対して $f_i(I) = a_i \cdot (\prod_{j \in I} F_{ij}) \cdot b_i \ (a_i, b_i, F_{ij} \in S,\ F_{ij} \text{ は } \mathrm{dp}(j) \text{ に依存しても良い})$ と表せるならば，複数のオフライン動的計画法に分割できる．
+ある[モノイド](../../.verify-helper/docs/static/algebraic_structure.md) $(S, \cdot, e)$ が存在し，$\forall i \ (\in \lbrace 1, 2, \ldots, N \rbrace)$ に対して $f_i(I) = a_i \cdot (\prod_{j \in I} F_{ij}) \cdot b_i \ (a_i, b_i, F_{ij} \in S,\ F_{ij} \text{ は } \mathrm{dp}(j) \text{ に依存してもよい})$ と表せるならば，複数のオフライン動的計画法に分割できる．
 
 e.g. [Stroll](https://atcoder.jp/contests/abc213/submissions/25161037)
 
@@ -52,7 +54,7 @@ $$\mathrm{dp}(i) \mathrel{:=} \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix
 
 $i = 1, 2, \ldots, T$ のとき
 
-$$\mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} p_{m, i - j} \right) + 0$$
+$$\mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} \cdot p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} \cdot p_{m, i - j} \right) + 0$$
 
 と表せる．
 
@@ -61,7 +63,7 @@ $$\mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp
 
 $i = 1, 2, \ldots, N$ に対して $\mathrm{dp}(i) = f_i(I) \ (I \subseteq \lbrace 1, 2, \ldots, i - 1 \rbrace)$ で表せる動的計画法を考える．
 
-$f_i(I)$ についてある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存するとき，これをオンライン動的計画法と呼ぶ．依存しないときはオフライン動的計画法と呼ぶ．
+$f_i(I)$ についてある $j (\in I)$ が存在して $\mathrm{dp}(j)$ に依存するとき，これをオンライン動的計画法と呼ぶ．依存しないときはオフライン動的計画法と呼ぶ．
 
 
 ## 時間計算量

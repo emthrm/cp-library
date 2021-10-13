@@ -159,12 +159,12 @@ data:
   timestamp: '2021-04-27 20:26:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
-  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   - test/data_structure/lazy_segment_tree.test.cpp
+  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/range_sum_query_and_range_update_query.test.cpp
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:
@@ -268,6 +268,9 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp
   - https://algoogle.hadrori.jp/algorithm/2d-segment-tree.html
   - https://judge.yosupo.jp/problem/point_add_rectangle_sum
+  - https://onlinejudge.u-aizu.ac.jp/beta/room.html#ACPC2021Day2/problems/H
+  - https://codeforces.com/contest/1575/problem/L
+  - https://twitter.com/PCTprobability/status/1444372565435170816
   - フラクショナルカスケーディング (fractional cascading)
     - https://en.wikipedia.org/wiki/Fractional_cascading
     - http://sntea.hatenablog.com/entry/2017/09/28/003418
@@ -306,7 +309,8 @@ $\langle O(N), O(\log{N}) \rangle$
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
-- 区間等差数列加算区間最小値クエリ
+- 区間等差数列加算クエリ / 区間等差数列更新クエリ
+  - https://null-mn.hatenablog.com/entry/2021/08/22/064325
   - https://twitter.com/yosupot/status/1104175527923986432
   - https://twitter.com/kuma_program/status/1358762477589155840
 - 定数時間アルゴリズム

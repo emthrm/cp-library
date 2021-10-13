@@ -48,8 +48,8 @@ data:
   timestamp: '2021-08-18 00:31:23+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/convolution/fast_mobius_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fast_mobius_transform.test.cpp
 documentation_of: math/convolution/fast_mobius_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"

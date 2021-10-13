@@ -34,14 +34,14 @@ data:
     \n  }\r\n  for (int i = 0; i < m; ++i) {\r\n    b[i] = ModInt::fact_inv(i) * ModInt::fact_inv(n\
     \ + 1 - i) * (i & 1 ? -1 : 1);\r\n  }\r\n  a *= b;\r\n  a.resize(n);\r\n  for\
     \ (int i = 0; i < m; ++i) {\r\n    a[i] *= ModInt::fact(n + 1);\r\n    a[n - 1\
-    \ - i] = a[i];\r\n  }\r\n  return a.co;\r\n}\r\n"
+    \ - i] = a[i];\r\n  }\r\n  return a.coef;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: math/formal_power_series/eulerian_number_by_fps.hpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/formal_power_series/eulerian_number_by_fps.hpp
@@ -63,7 +63,7 @@ $$\sum_{n = 0}^{\infty} A_n(x) \dfrac{t^n}{t!} = \dfrac{x - 1}{x - e^{(x - 1)t}}
 
 $$A(n, m) = \begin{cases} 1 & (m = 0) \\ 0 & (n = m > 0) \\ (n - m) A(n - 1, m - 1) + (m + 1) A(n - 1, m) & (0 < m < n) \end{cases}$$
 
-なる漸化式より計算ができる．
+という漸化式をもつ．
 
 一般項
 

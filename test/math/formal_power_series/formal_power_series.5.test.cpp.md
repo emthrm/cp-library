@@ -41,21 +41,22 @@ data:
     \n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\n#include \"\
     ../../../math/modint.hpp\"\r\n#include \"../../../math/formal_power_series/formal_power_series.hpp\"\
     \r\n#include \"../../../math/convolution/mod_convolution.hpp\"\r\n\r\nint main()\
-    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  FormalPowerSeries<ModInt>::set_mul([&](const\
-    \ std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt>\
-    \ {\r\n    return mod_convolution(a, b);\r\n  });\r\n  constexpr int D = 6, M\
-    \ = 13;\r\n  std::string s;\r\n  std::cin >> s;\r\n  std::reverse(s.begin(), s.end());\r\
-    \n  std::vector<int> cnt(D, 0);\r\n  for (int i = 0; i < s.length(); ++i) {\r\n\
-    \    if (s[i] == '?') {\r\n      ++cnt[i % D];\r\n    }\r\n  }\r\n  std::vector<FormalPowerSeries<ModInt>>\
+    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  FormalPowerSeries<ModInt>::set_mul(\r\
+    \n      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b) -> std::vector<ModInt>\
+    \ {\r\n        return mod_convolution(a, b);\r\n      });\r\n  constexpr int D\
+    \ = 6, M = 13;\r\n  std::string s;\r\n  std::cin >> s;\r\n  std::reverse(s.begin(),\
+    \ s.end());\r\n  int q[D]{};\r\n  for (int i = 0; i < s.length(); ++i) {\r\n \
+    \   if (s[i] == '?') ++q[i % D];\r\n  }\r\n  std::vector<FormalPowerSeries<ModInt>>\
     \ f(D, FormalPowerSeries<ModInt>(M));\r\n  FormalPowerSeries<ModInt> md(M);\r\n\
     \  md[0] = -1;\r\n  md[M] = 1;\r\n  for (int i = 0; i < D; ++i) {\r\n    int base\
     \ = 1;\r\n    for (int j = 0; j < i; ++j) {\r\n      base *= 10;\r\n    }\r\n\
     \    for (int j = 0; j < 10; ++j) {\r\n      ++f[i][base * j % M];\r\n    }\r\n\
-    \    f[i] = f[i].mod_pow(cnt[i], md);\r\n  }\r\n  for (int i = 1; i < D; ++i)\
-    \ {\r\n    f[0] *= f[i];\r\n  }\r\n  f[0] %= md;\r\n  int idx = D - 1, w = 1;\r\
-    \n  for (int i = 0; i < s.length(); ++i) {\r\n    if (s[i] != '?') {\r\n     \
-    \ (idx += M - w * (s[i] - '0') % M) %= M;\r\n    }\r\n    (w *= 10) %= M;\r\n\
-    \  }\r\n  std::cout << f[0][idx] << '\\n';\r\n  return 0;\r\n}\r\n"
+    \    f[i] = f[i].mod_pow(q[i], md);\r\n  }\r\n  for (int i = 1; i < D; ++i) {\r\
+    \n    f[0] *= f[i];\r\n  }\r\n  f[0] %= md;\r\n  int idx = D - 1, w = 1;\r\n \
+    \ for (int i = 0; i < s.length(); ++i) {\r\n    if (s[i] != '?') {\r\n      idx\
+    \ = (idx - w * (s[i] - '0')) % M;\r\n      if (idx < 0) idx += M;\r\n    }\r\n\
+    \    w = w * 10 % M;\r\n  }\r\n  std::cout << f[0][idx] << '\\n';\r\n  return\
+    \ 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/formal_power_series/formal_power_series.hpp
@@ -64,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2021-09-05 22:32:54+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp

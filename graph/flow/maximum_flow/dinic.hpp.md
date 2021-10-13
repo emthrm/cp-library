@@ -57,8 +57,8 @@ data:
   timestamp: '2021-03-15 22:46:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/maximum_flow/minimum_flow_constraint.test.cpp
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  - test/graph/flow/maximum_flow/minimum_flow_constraint.test.cpp
 documentation_of: graph/flow/maximum_flow/dinic.hpp
 layout: document
 redirect_from:

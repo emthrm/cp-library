@@ -58,9 +58,9 @@ data:
   timestamp: '2021-02-13 06:42:09+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/matrix/linear_equation.test.cpp
   - test/graph/shortest_path/dijkstra.test.cpp
   - test/graph/noshi_graph.test.cpp
-  - test/math/matrix/linear_equation.test.cpp
 documentation_of: graph/shortest_path/dijkstra.hpp
 layout: document
 redirect_from:

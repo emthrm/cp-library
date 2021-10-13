@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':heavy_check_mark:'
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/polynomial_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2021-08-15 23:02:03+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/polynomial_interpolation.test.cpp

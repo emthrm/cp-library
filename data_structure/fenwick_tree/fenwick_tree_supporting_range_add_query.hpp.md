@@ -51,8 +51,8 @@ data:
   timestamp: '2021-04-24 04:29:28+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/fenwick_tree/bit_range_add.test.cpp
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
+  - test/data_structure/fenwick_tree/bit_range_add.test.cpp
 documentation_of: data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
 layout: document
 redirect_from:

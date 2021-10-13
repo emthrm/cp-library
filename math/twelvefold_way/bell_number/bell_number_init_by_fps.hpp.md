@@ -25,16 +25,16 @@ data:
     \ * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\n */\r\n\r\n#pragma\
     \ once\r\n#include <vector>\r\n#include \"../../formal_power_series/formal_power_series.hpp\"\
     \r\n\r\ntemplate <typename T>\r\nstd::vector<T> bell_number_init_by_fps(const\
-    \ int n) {\r\n  FormalPowerSeries<T> bell(n);\r\n  bell[1] = 1;\r\n  bell = bell.exp(n);\r\
-    \n  bell[0] -= 1;\r\n  bell = bell.exp(n);\r\n  T fact = 1;\r\n  for (int i =\
-    \ 0; i <= n; ++i) {\r\n    bell[i] *= fact;\r\n    fact *= i + 1;\r\n  }\r\n \
-    \ return bell.co;\r\n}\r\n"
+    \ int n) {\r\n  FormalPowerSeries<T> b(n);\r\n  b[1] = 1;\r\n  b = b.exp(n);\r\
+    \n  b[0] -= 1;\r\n  b = b.exp(n);\r\n  T fact = 1;\r\n  for (int i = 0; i <= n;\
+    \ ++i) {\r\n    b[i] *= fact;\r\n    fact *= i + 1;\r\n  }\r\n  return b.coef;\r\
+    \n}\r\n"
   dependsOn:
   - math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
+  timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
