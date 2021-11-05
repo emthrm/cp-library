@@ -52,18 +52,18 @@ data:
   isVerificationFile: false
   path: math/mod_pow.hpp
   requiredBy:
+  - math/enumerate_k-th_power.hpp
   - math/mod_log.hpp
   - math/mod_sqrt.hpp
   - math/is_primitive_root.hpp
-  - math/enumerate_k-th_power.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/mod_log.test.cpp
-  - test/math/is_primitive_root.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
   - test/math/mod_pow.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/is_primitive_root.test.cpp
+  - test/math/mod_log.test.cpp
   - test/math/mod_sqrt.test.cpp
 documentation_of: math/mod_pow.hpp
 layout: document

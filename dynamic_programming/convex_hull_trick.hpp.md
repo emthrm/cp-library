@@ -88,9 +88,9 @@ data:
   timestamp: '2021-09-23 22:47:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dynamic_programming/convex_hull_trick.2.test.cpp
-  - test/dynamic_programming/convex_hull_trick.3.test.cpp
   - test/dynamic_programming/convex_hull_trick.1.test.cpp
+  - test/dynamic_programming/convex_hull_trick.3.test.cpp
+  - test/dynamic_programming/convex_hull_trick.2.test.cpp
 documentation_of: dynamic_programming/convex_hull_trick.hpp
 layout: document
 title: convex hull trick

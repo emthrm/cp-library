@@ -186,8 +186,8 @@ data:
   timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/bernoulli_number.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
 documentation_of: math/formal_power_series/bernoulli_number.hpp
 layout: document
 title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"

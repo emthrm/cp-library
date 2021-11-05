@@ -81,6 +81,7 @@ $\langle O(N), O(\log{N}) \rangle$
 - 動的構築セグメント木
   - https://scrapbox.io/data-structures/Dynamic_Segment_Tree
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
+  - https://lorent-kyopro.hatenablog.com/entry/2021/03/12/025644
   - http://degwer.hatenablog.com/entry/20131211/1386757368
   - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140

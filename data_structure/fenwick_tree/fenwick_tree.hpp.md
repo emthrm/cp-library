@@ -25,10 +25,10 @@ data:
     _deprecated_at_docs: docs/data_structure/fenwick_tree/fenwick_tree.md
     document_title: Fenwick tree
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/fenwick_tree/fenwick_tree.hpp: line 6: #pragma once found in\
@@ -58,8 +58,8 @@ data:
   timestamp: '2021-04-24 04:29:28+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/misc/mo.test.cpp
   - test/misc/inversion_number.test.cpp
+  - test/misc/mo.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
 documentation_of: data_structure/fenwick_tree/fenwick_tree.hpp

@@ -41,9 +41,9 @@ data:
   timestamp: '2021-02-12 01:21:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/game/nim.test.cpp
-  - test/math/prime_factorization.test.cpp
   - test/math/is_primitive_root.test.cpp
+  - test/math/prime_factorization.test.cpp
+  - test/game/nim.test.cpp
 documentation_of: math/prime_factorization.hpp
 layout: document
 title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"

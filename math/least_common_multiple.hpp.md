@@ -26,8 +26,8 @@ data:
   isVerificationFile: false
   path: math/least_common_multiple.hpp
   requiredBy:
-  - math/carmichal_function.hpp
   - math/carmichal_function_init.hpp
+  - math/carmichal_function.hpp
   timestamp: '2021-04-27 20:17:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

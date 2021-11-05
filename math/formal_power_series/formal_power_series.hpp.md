@@ -376,6 +376,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/formal_power_series.hpp
   requiredBy:
+  - dynamic_programming/subset_sum_problem.hpp
   - math/formal_power_series/faulhaber_by_fps.hpp
   - math/formal_power_series/eulerian_number_by_fps.hpp
   - math/formal_power_series/bernoulli_number.hpp
@@ -383,25 +384,24 @@ data:
   - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - math/twelvefold_way/partition_function_by_fps.hpp
-  - dynamic_programming/subset_sum_problem.hpp
   timestamp: '2021-10-13 18:06:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
   - test/math/formal_power_series/formal_power_series.2.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/formal_power_series.3.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
-  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
 documentation_of: math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
@@ -535,6 +535,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://mathworld.wolfram.com/LagrangeInversionTheorem.html
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/kobae964/status/1446833320919064577
+  - https://kmjp.hatenablog.jp/entry/2021/10/11/1030
 - 記号的 Newton 法
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#1%E8%A8%98%E5%8F%B7%E7%9A%84%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95
   - https://atcoder.jp/contests/abc222/tasks/abc222_h

@@ -21,10 +21,10 @@ data:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/segment_tree.hpp: line 6: #pragma once found in a non-first line\n"
@@ -74,9 +74,9 @@ data:
   timestamp: '2021-04-27 20:26:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_minimum_query.test.cpp
-  - test/data_structure/range_sum_query.test.cpp
   - test/data_structure/segment_tree.test.cpp
+  - test/data_structure/range_sum_query.test.cpp
+  - test/data_structure/range_minimum_query.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document
 redirect_from:
@@ -167,6 +167,7 @@ $\langle O(N), O(\log{N}) \rangle$
 - 動的構築セグメント木
   - https://scrapbox.io/data-structures/Dynamic_Segment_Tree
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
+  - https://lorent-kyopro.hatenablog.com/entry/2021/03/12/025644
   - http://degwer.hatenablog.com/entry/20131211/1386757368
   - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140

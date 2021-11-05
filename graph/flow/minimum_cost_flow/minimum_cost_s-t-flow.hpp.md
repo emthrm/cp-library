@@ -38,10 +38,10 @@ data:
     document_title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\
       \u8DEF\u53CD\u5FA9\u6CD5\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.7/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp: line 6: #pragma once\
@@ -111,9 +111,9 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/bigint.01.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
   - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
 documentation_of: graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
 layout: document

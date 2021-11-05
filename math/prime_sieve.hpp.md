@@ -72,12 +72,12 @@ data:
   timestamp: '2021-02-27 06:50:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/euler_phi/euler_phi_init2.test.cpp
-  - test/math/osa_k.test.cpp
-  - test/math/fast_divisor.test.cpp
-  - test/math/mobius_mu/mobius_mu_init2.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
+  - test/math/euler_phi/euler_phi_init2.test.cpp
+  - test/math/mobius_mu/mobius_mu_init2.test.cpp
   - test/math/prime_sieve.test.cpp
+  - test/math/fast_divisor.test.cpp
+  - test/math/osa_k.test.cpp
 documentation_of: math/prime_sieve.hpp
 layout: document
 title: prime sieve

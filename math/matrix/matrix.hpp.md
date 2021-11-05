@@ -104,19 +104,19 @@ data:
   isVerificationFile: false
   path: math/matrix/matrix.hpp
   requiredBy:
-  - math/matrix/linear_equation.hpp
-  - math/matrix/determinant.hpp
   - math/matrix/inverse_matrix.hpp
+  - math/matrix/determinant.hpp
   - math/matrix/gauss_jordan.hpp
+  - math/matrix/linear_equation.hpp
   - graph/matrix_tree_theorem.hpp
   - graph/flow/matching/maximum_matching.hpp
   timestamp: '2021-02-09 04:38:15+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/matrix.test.cpp
   - test/math/matrix/linear_equation.test.cpp
-  - test/math/matrix/determinant.test.cpp
   - test/math/matrix/inverse_matrix.test.cpp
+  - test/math/matrix/matrix.test.cpp
+  - test/math/matrix/determinant.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
 documentation_of: math/matrix/matrix.hpp
