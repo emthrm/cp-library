@@ -2,12 +2,11 @@
  * @brief データ構造/union-find/undo 可能 union-find
  */
 #define IGNORE
-#define PROBLEM "https://codeforces.com/contest/1444/problem/C"
+#define PROBLEM "https://atcoder.jp/contests/joi2022yo2/tasks/joi2022_yo2_e"
 
 #include <algorithm>
 #include <iostream>
 #include <map>
-#include <tuple>
 #include <utility>
 #include <vector>
 #include "../../../data_structure/union-find/undoable_union-find.hpp"
@@ -15,49 +14,46 @@
 int main() {
   int n, m, k;
   std::cin >> n >> m >> k;
-  std::vector<int> c(n);
-  for (int i = 0; i < n; ++i) {
-    std::cin >> c[i];
-    --c[i];
+  std::vector<int> u(m), v(m), s(n);
+  for (int i = 0; i < m; ++i) {
+    std::cin >> u[i] >> v[i];
+    --u[i]; --v[i];
   }
-  UndoableUnionFind union_find(n * 2);
-  std::map<std::pair<int, int>, std::vector<std::pair<int, int>>> edge;
-  while (m--) {
-    int a, b;
-    std::cin >> a >> b;
-    --a; --b;
-    if (c[a] == c[b]) {
-      union_find.unite(a, b + n);
-      union_find.unite(b, a + n);
+  for (int i = 0; i < n; ++i) {
+    std::cin >> s[i];
+    --s[i];
+  }
+  UndoableUnionFind union_find(n);
+  std::map<std::pair<int, int>, std::vector<int>> edges;
+  for (int i = 0; i < m; ++i) {
+    if (s[u[i]] == s[v[i]]) {
+      union_find.unite(u[i], v[i]);
     } else {
-      if (c[a] > c[b]) {
-        std::swap(a, b);
-      }
-      edge[{c[a], c[b]}].emplace_back(a, b);
+      edges[std::minmax(s[u[i]], s[v[i]])].emplace_back(i);
     }
   }
-  std::vector<int> is_bad(k, false);
-  for (int i = 0; i < n; ++i) {
-    if (union_find.is_same(i, i + n)) {
-      is_bad[c[i]] = true;
-    }
-  }
-  const int good_group_num = std::count(is_bad.begin(), is_bad.end(), false);
-  long long ans = static_cast<long long>(good_group_num) * (good_group_num - 1) / 2;
   union_find.snapshot();
-  for (const std::pair<std::pair<int, int>, std::vector<std::pair<int, int>>> &p : edge) {
-    if (is_bad[p.first.first] || is_bad[p.first.second]) continue;
-    bool is_bad = false;
-    for (const std::pair<int, int> &e : p.second) {
-      int a, b;
-      std::tie(a, b) = e;
-      union_find.unite(a, b + n);
-      union_find.unite(b, a + n);
-      is_bad |= union_find.is_same(a, a + n) || union_find.is_same(b, b + n);
+  int q;
+  std::cin >> q;
+  std::map<std::pair<int, int>, std::vector<int>> queries;
+  std::vector<int> a(q), b(q);
+  for (int i = 0; i < q; ++i) {
+    std::cin >> a[i] >> b[i];
+    --a[i]; --b[i];
+    queries[std::minmax(s[a[i]], s[b[i]])].emplace_back(i);
+  }
+  std::vector<int> ans(q);
+  for (const auto [sa_sb, queries] : queries) {
+    if (const auto it = edges.find(sa_sb); it != edges.end()) {
+      for (const int id : it->second) union_find.unite(u[id], v[id]);
+    }
+    for (const int id : queries) {
+      ans[id] = union_find.is_same(a[id], b[id]);
     }
     union_find.rollback();
-    ans -= is_bad;
   }
-  std::cout << ans << '\n';
+  for (int i = 0; i < q; ++i) {
+    std::cout << ans[i] << '\n';
+  }
   return 0;
 }
