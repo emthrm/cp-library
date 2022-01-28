@@ -1,22 +1,22 @@
 ---
-title: std::set を区間で管理するやつ
+title: 区間を std::set で管理するやつ
 documentation_of: data_structure/set_managed_by_interval.hpp
 ---
 
-`std::set` を閉区間の集合によって管理するデータ構造である．
+閉区間を `std::set` によって管理するデータ構造である．
 
 
 ## 時間計算量
 
-$\text{amortized } O(\log{n})$ ?
+amortized $O(\log{n})$ ?
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`SetManagedByInterval`|`std::set` を区間で管理するやつ||
-|`interval`|閉区間の集合||
+|`SetManagedByInterval`|区間を std::set で管理するやつ||
+|`intervals`|閉区間の集合||
 |`contains(x)`|$x$ は集合に含まれるか．||
 |`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか．||
 |`erase(x)`|集合から $x$ を削除する．|返り値は削除された要素の次を指すイテレータと実際に削除したかである．|
