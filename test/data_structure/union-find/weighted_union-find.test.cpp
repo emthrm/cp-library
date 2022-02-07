@@ -9,19 +9,19 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  WeightedUnionFind<int> uf(n);
+  WeightedUnionFind<int> union_find(n);
   while (q--) {
     int query;
     std::cin >> query;
     if (query == 0) {
       int x, y, z;
       std::cin >> x >> y >> z;
-      uf.unite(x, y, z);
+      union_find.unite(x, y, z);
     } else if (query == 1) {
       int x, y;
       std::cin >> x >> y;
-      if (uf.is_same(x, y)) {
-        std::cout << uf.diff(x, y) << '\n';
+      if (union_find.is_same(x, y)) {
+        std::cout << union_find.diff(x, y) << '\n';
       } else {
         std::cout << "?\n";
       }

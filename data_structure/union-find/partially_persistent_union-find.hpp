@@ -10,7 +10,8 @@
 #include <vector>
 
 struct PartiallyPersistentUnionFind {
-  PartiallyPersistentUnionFind(const int n) : data(n, -1), last(n, -1), history(n, {{-1, -1}}) {}
+  explicit PartiallyPersistentUnionFind(const int n)
+      : data(n, -1), last(n, -1), history(n, {{-1, -1}}) {}
 
   int root(const int t, const int ver) const {
     return last[ver] == -1 || t < last[ver] ? ver : root(t, data[ver]);
@@ -20,9 +21,7 @@ struct PartiallyPersistentUnionFind {
     u = root(t, u);
     v = root(t, v);
     if (u == v) return false;
-    if (data[u] > data[v]) {
-      std::swap(u, v);
-    }
+    if (data[u] > data[v]) std::swap(u, v);
     data[u] += data[v];
     data[v] = u;
     last[v] = t;

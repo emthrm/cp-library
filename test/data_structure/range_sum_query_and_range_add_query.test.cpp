@@ -9,7 +9,8 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  LazySegmentTree<monoid::RangeSumAndAddQuery<long long>> rsq(monoid::RangeSumAndAddQuery<long long>::init(n));
+  LazySegmentTree<monoid::RangeSumAndAddQuery<long long>>
+      rsq(monoid::RangeSumAndAddQuery<long long>::init(n));
   while (q--) {
     int query, s, t;
     std::cin >> query >> s >> t; --s; --t;

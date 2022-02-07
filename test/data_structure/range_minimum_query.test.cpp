@@ -9,14 +9,14 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  SegmentTree<monoid::RangeMinimumQuery<int>> seg(n);
+  SegmentTree<monoid::RangeMinimumQuery<int>> rmq(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y;
     if (com == 0) {
-      seg.set(x, y);
+      rmq.set(x, y);
     } else if (com == 1) {
-      std::cout << seg.get(x, y + 1) << '\n';
+      std::cout << rmq.get(x, y + 1) << '\n';
     }
   }
   return 0;

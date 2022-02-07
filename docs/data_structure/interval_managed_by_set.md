@@ -8,14 +8,14 @@ documentation_of: data_structure/set_managed_by_interval.hpp
 
 ## 時間計算量
 
-amortized $O(\log{n})$ ?
+amortized $O(\log{N})$ ?
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`SetManagedByInterval`|区間を std::set で管理するやつ||
+|`IntervalManagedBySet<T>`|区間を std::set で管理するやつ||
 |`intervals`|閉区間の集合||
 |`contains(x)`|$x$ は集合に含まれるか．||
 |`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか．||

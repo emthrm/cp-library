@@ -5,15 +5,17 @@
 template <int B = 32, typename T = int>
 struct BinaryTrie {
   struct Node {
-    Node *nxt[2];
+    Node* nxt[2];
     int child;
     Node() : nxt{nullptr, nullptr}, child(0) {}
   };
 
-  Node *root;
+  Node* root;
 
   BinaryTrie() : root(nullptr) {}
-  ~BinaryTrie() { if (root) free(&root); }
+  ~BinaryTrie() {
+    if (root) free(&root);
+  }
 
   void clear() {
     if (root) {
@@ -26,15 +28,15 @@ struct BinaryTrie {
 
   int size() const { return root ? root->child : 0; }
 
-  void erase(const T &x) {
+  void erase(const T& x) {
     if (root) erase(&root, x, B - 1);
   }
 
-  Node* find(const T &x) const {
+  Node* find(const T& x) const {
     if (!root) return nullptr;
-    Node *node = root;
+    Node* node = root;
     for (int b = B - 1; b >= 0; --b) {
-      bool digit = x >> b & 1;
+      const bool digit = x >> b & 1;
       if (!node->nxt[digit]) return nullptr;
       node = node->nxt[digit];
     }
@@ -43,13 +45,13 @@ struct BinaryTrie {
 
   std::pair<Node*, T> operator[](const int n) const { return find_nth(n, 0); }
 
-  std::pair<Node*, T> find_nth(int n, const T &x) const {
+  std::pair<Node*, T> find_nth(int n, const T& x) const {
     assert(0 <= n && n < size());
-    Node *node = root;
+    Node* node = root;
     T res = 0;
     for (int b = B - 1; b >= 0; --b) {
       bool digit = x >> b & 1;
-      int l_child = node->nxt[digit] ? node->nxt[digit]->child : 0;
+      const int l_child = (node->nxt[digit] ? node->nxt[digit]->child : 0);
       if (n >= l_child) {
         n -= l_child;
         digit = !digit;
@@ -60,12 +62,12 @@ struct BinaryTrie {
     return {node, res};
   }
 
-  Node* insert(const T &x) {
+  Node* insert(const T& x) {
     if (!root) root = new Node();
-    Node *node = root;
+    Node* node = root;
     ++node->child;
     for (int b = B - 1; b >= 0; --b) {
-      bool digit = x >> b & 1;
+      const bool digit = x >> b & 1;
       if (!node->nxt[digit]) node->nxt[digit] = new Node();
       node = node->nxt[digit];
       ++node->child;
@@ -73,12 +75,12 @@ struct BinaryTrie {
     return node;
   }
 
-  int less_than(const T &x) const {
+  int less_than(const T& x) const {
     if (!root) return 0;
-    Node *node = root;
+    Node* node = root;
     int res = 0;
     for (int b = B - 1; b >= 0; --b) {
-      bool digit = x >> b & 1;
+      const bool digit = x >> b & 1;
       if (digit && node->nxt[0]) res += node->nxt[0]->child;
       node = node->nxt[digit];
       if (!node) return res;
@@ -86,27 +88,32 @@ struct BinaryTrie {
     return res;
   }
 
-  int count(const T &l, const T &r) const { return less_than(r) - less_than(l); }
+  int count(const T& l, const T& r) const {
+    return less_than(r) - less_than(l);
+  }
 
-  int count(const T &x) const {
-    auto ptr = find(x);
+  int count(const T& x) const {
+    const auto ptr = find(x);
     return ptr ? ptr->child : 0;
   }
 
-  std::pair<Node*, T> lower_bound(const T &x) const {
-    int lt = less_than(x);
-    return lt == size() ? std::make_pair(static_cast<Node*>(nullptr), -1) : (*this)[lt];
+  std::pair<Node*, T> lower_bound(const T& x) const {
+    const int lt = less_than(x);
+    return lt == size() ? std::make_pair(static_cast<Node*>(nullptr), -1) :
+                          (*this)[lt];
   }
 
-  std::pair<Node*, T> upper_bound(const T &x) const { return lower_bound(x + 1); }
+  std::pair<Node*, T> upper_bound(const T& x) const {
+    return lower_bound(x + 1);
+  }
 
-  std::pair<Node*, T> max_element(const T &x = 0) const {
+  std::pair<Node*, T> max_element(const T& x = 0) const {
     return min_element(~x);
   }
 
-  std::pair<Node*, T> min_element(const T &x = 0) const {
+  std::pair<Node*, T> min_element(const T& x = 0) const {
     assert(root);
-    Node *node = root;
+    Node* node = root;
     T res = 0;
     for (int b = B - 1; b >= 0; --b) {
       bool digit = x >> b & 1;
@@ -118,14 +125,14 @@ struct BinaryTrie {
   }
 
 private:
-  void free(Node **node) {
+  void free(Node** node) {
     for (int i = 0; i < 2; ++i) {
       if ((*node)->nxt[i]) free(&(*node)->nxt[i]);
     }
     delete *node;
   }
 
-  void erase(Node **node, const T &x, int b) {
+  void erase(Node** node, const T& x, int b) {
     if (b == -1) {
       if (--(*node)->child == 0) {
         delete *node;
@@ -133,7 +140,7 @@ private:
       }
       return;
     }
-    bool digit = x >> b & 1;
+    const bool digit = x >> b & 1;
     if (!(*node)->nxt[digit]) return;
     (*node)->child -= (*node)->nxt[digit]->child;
     erase(&(*node)->nxt[digit], x, b - 1);

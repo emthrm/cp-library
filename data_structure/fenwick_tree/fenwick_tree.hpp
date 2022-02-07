@@ -8,26 +8,24 @@
 
 template <typename Abelian>
 struct FenwickTree {
-  FenwickTree(int n, const Abelian ID = 0) : n(n), ID(ID), dat(n, ID) {}
+  explicit FenwickTree(const int n, const Abelian ID = 0)
+      : n(n), ID(ID), data(n, ID) {}
 
-  void add(int idx, Abelian val) {
-    while (idx < n) {
-      dat[idx] += val;
-      idx |= idx + 1;
+  void add(int idx, const Abelian val) {
+    for (; idx < n; idx |= idx + 1) {
+      data[idx] += val;
     }
   }
 
   Abelian sum(int idx) const {
     Abelian res = ID;
-    --idx;
-    while (idx >= 0) {
-      res += dat[idx];
-      idx = (idx & (idx + 1)) - 1;
+    for (--idx; idx >= 0; idx = (idx & (idx + 1)) - 1) {
+      res += data[idx];
     }
     return res;
   }
 
-  Abelian sum(int left, int right) const {
+  Abelian sum(const int left, const int right) const {
     return left < right ? sum(right) - sum(left) : ID;
   }
 
@@ -38,8 +36,9 @@ struct FenwickTree {
     int res = 0, exponent = 1;
     while (exponent <= n) exponent <<= 1;
     for (int mask = exponent >> 1; mask > 0; mask >>= 1) {
-      if (res + mask - 1 < n && dat[res + mask - 1] < val) {
-        val -= dat[res + mask - 1];
+      const int idx = res + mask - 1;
+      if (idx < n && data[idx] < val) {
+        val -= data[idx];
         res += mask;
       }
     }
@@ -47,7 +46,7 @@ struct FenwickTree {
   }
 
 private:
-  int n;
+  const int n;
   const Abelian ID;
-  std::vector<Abelian> dat;
+  std::vector<Abelian> data;
 };

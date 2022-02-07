@@ -22,7 +22,8 @@ int main() {
     int x, y, b, c;
     std::cin >> x >> y >> b >> c;
     --x; --y;
-    bit.add(std::max(x - b, 0), std::max(y - b, 0), std::min(x + b, h - 1), std::min(y + b, w - 1), c);
+    bit.add(std::max(x - b, 0), std::max(y - b, 0),
+            std::min(x + b, h - 1), std::min(y + b, w - 1), c);
   }
   int ans = 0;
   for (int i = 0; i < n; ++i) {

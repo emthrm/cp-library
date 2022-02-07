@@ -11,14 +11,16 @@ template <typename T>
 struct IntervalManagedBySet {
   using IntervalType = std::set<std::pair<T, T>>;
   IntervalType intervals{
-    {std::numeric_limits<T>::lowest(), std::numeric_limits<T>::lowest()},
-    {std::numeric_limits<T>::max(), std::numeric_limits<T>::max()}
-  };
+      {std::numeric_limits<T>::lowest(), std::numeric_limits<T>::lowest()},
+      {std::numeric_limits<T>::max(), std::numeric_limits<T>::max()}};
+
+  IntervalManagedBySet() = default;
 
   bool contains(const T x) const { return contains(x, x); }
 
   bool contains(const T left, const T right) const {
-    typename IntervalType::const_iterator it = intervals.lower_bound({left, left});
+    typename IntervalType::const_iterator it =
+        intervals.lower_bound({left, left});
     if (left < it->first) it = std::prev(it);
     return it->first <= left && right <= it->second;
   }
@@ -41,9 +43,11 @@ struct IntervalManagedBySet {
     return {it, true};
   }
 
-  std::pair<typename IntervalType::const_iterator, T> erase(const T left, const T right) {
+  std::pair<typename IntervalType::const_iterator, T> erase(
+      const T left, const T right) {
     assert(left <= right);
-    typename IntervalType::const_iterator it = intervals.lower_bound({left, left});
+    typename IntervalType::const_iterator it =
+        intervals.lower_bound({left, left});
     T res = 0;
     for (; it->second <= right; it = intervals.erase(it)) {
       res += it->second - it->first + 1;
@@ -83,7 +87,8 @@ struct IntervalManagedBySet {
 
   std::pair<typename IntervalType::const_iterator, T> insert(T left, T right) {
     assert(left <= right);
-    typename IntervalType::const_iterator it = intervals.lower_bound({left, left});
+    typename IntervalType::const_iterator it =
+        intervals.lower_bound({left, left});
     if (left <= std::prev(it)->second) {
       it = std::prev(it);
       left = it->first;
@@ -117,17 +122,15 @@ struct IntervalManagedBySet {
     return x < it->first ? x : it->second + 1;
   }
 
-  friend std::ostream &operator<<(std::ostream &os, const IntervalManagedBySet& x) {
+  friend std::ostream &operator<<(std::ostream &os,
+                                  const IntervalManagedBySet& x) {
     if (x.intervals.size() == 2) return os;
     auto it = next(x.intervals.begin());
     while (true) {
       os << '[' << it->first << ", " << it->second << ']';
       it = next(it);
-      if (next(it) == x.intervals.end()) {
-        break;
-      } else {
-        os << ' ';
-      }
+      if (next(it) == x.intervals.end()) break;
+      os << ' ';
     }
     return os;
   }

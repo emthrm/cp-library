@@ -35,7 +35,7 @@
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
-|`root(ver)`|$ver$ の根||
+|`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
 |`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||

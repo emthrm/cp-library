@@ -9,14 +9,14 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  UnionFind uf(n);
+  UnionFind union_find(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y;
     if (com == 0) {
-      uf.unite(x, y);
+      union_find.unite(x, y);
     } else if (com == 1) {
-      std::cout << uf.is_same(x, y) << '\n';
+      std::cout << union_find.is_same(x, y) << '\n';
     }
   }
   return 0;

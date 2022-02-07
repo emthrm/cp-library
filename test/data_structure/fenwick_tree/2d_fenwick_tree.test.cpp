@@ -27,14 +27,13 @@ int main() {
       unbaked.add(h_1, w_1, 1);
       que.emplace(t_i + t, h_1, w_1);
     } else if (c == 1) {
-      if (baked.get(h_1, w_1) == 1) {
-        baked.add(h_1, w_1, -1);
-      }
+      if (baked.get(h_1, w_1) == 1) baked.add(h_1, w_1, -1);
     } else if (c == 2) {
       int h_2, w_2;
       std::cin >> h_2 >> w_2;
       --h_2; --w_2;
-      std::cout << baked.sum(h_1, w_1, h_2, w_2) << ' ' << unbaked.sum(h_1, w_1, h_2, w_2) << '\n';
+      std::cout << baked.sum(h_1, w_1, h_2, w_2) << ' '
+                << unbaked.sum(h_1, w_1, h_2, w_2) << '\n';
     }
   }
   return 0;

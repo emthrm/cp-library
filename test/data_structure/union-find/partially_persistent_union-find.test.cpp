@@ -9,12 +9,12 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  PartiallyPersistentUnionFind uf(n);
+  PartiallyPersistentUnionFind union_find(n);
   for (int i = 1; i <= m; ++i) {
     int a, b;
     std::cin >> a >> b;
     --a; --b;
-    uf.unite(i, a, b);
+    union_find.unite(i, a, b);
   }
   int q;
   std::cin >> q;
@@ -25,7 +25,7 @@ int main() {
     int lb = 0, ub = m;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
-      (uf.size(mid, x) + (uf.is_same(mid, x, y) ? 0 : uf.size(mid, y)) >= z ? ub : lb) = mid;
+      (union_find.size(mid, x) + (union_find.is_same(mid, x, y) ? 0 : union_find.size(mid, y)) >= z ? ub : lb) = mid;
     }
     std::cout << lb + 1 << '\n';
   }

@@ -18,7 +18,7 @@ int main() {
     if (t == 1) {
       bit.add(x, 1);
     } else if (t == 2) {
-      int ans = bit.lower_bound(x);
+      const int ans = bit.lower_bound(x);
       std::cout << ans << '\n';
       bit.add(ans, -1);
     }

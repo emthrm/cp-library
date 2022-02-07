@@ -7,18 +7,19 @@
 #include "../../data_structure/binary_trie.hpp"
 
 int main() {
-  BinaryTrie<30> bt;
+  constexpr int B = 30;
+  BinaryTrie<B> binary_trie;
   int q;
   std::cin >> q;
   while (q--) {
     int type, x;
     std::cin >> type >> x;
     if (type == 0) {
-      if (!bt.find(x)) bt.insert(x);
+      if (!binary_trie.find(x)) binary_trie.insert(x);
     } else if (type == 1) {
-      bt.erase(x);
+      binary_trie.erase(x);
     } else if (type == 2) {
-      std::cout << (bt.min_element(x).second ^ x) << '\n';
+      std::cout << (binary_trie.min_element(x).second ^ x) << '\n';
     }
   }
   return 0;

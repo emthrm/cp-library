@@ -43,11 +43,13 @@ int main() {
     queries[std::minmax(s[a[i]], s[b[i]])].emplace_back(i);
   }
   std::vector<int> ans(q);
-  for (const auto [sa_sb, queries] : queries) {
-    if (const auto it = edges.find(sa_sb); it != edges.end()) {
-      for (const int id : it->second) union_find.unite(u[id], v[id]);
+  for (const auto& sasb_query : queries) {
+    if (edges.count(sasb_query.first)) {
+      for (const int id : edges[sasb_query.first]) {
+        union_find.unite(u[id], v[id]);
+      }
     }
-    for (const int id : queries) {
+    for (const int id : sasb_query.second) {
       ans[id] = union_find.is_same(a[id], b[id]);
     }
     union_find.rollback();

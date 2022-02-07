@@ -14,22 +14,27 @@ int main() {
   ModInt::set_mod(998244353);
   int n, q;
   std::cin >> n >> q;
-  struct Node {
+  struct M {
     using Monoid = std::pair<ModInt, int>;
     using OperatorMonoid = std::pair<ModInt, ModInt>;
     static Monoid m_id() { return {0, 0}; }
     static OperatorMonoid o_id() { return {1, 0}; }
-    static Monoid m_merge(const Monoid &a, const Monoid &b) { return {a.first + b.first, a.second + b.second}; }
-    static OperatorMonoid o_merge(const OperatorMonoid &a, const OperatorMonoid &b) {
+    static Monoid m_merge(const Monoid& a, const Monoid& b) {
+      return {a.first + b.first, a.second + b.second};
+    }
+    static OperatorMonoid o_merge(const OperatorMonoid& a,
+                                  const OperatorMonoid& b) {
       return {b.first * a.first, b.first * a.second + b.second};
     }
-    static Monoid apply(const Monoid &a, const OperatorMonoid &b) {
+    static Monoid apply(const Monoid& a, const OperatorMonoid& b) {
       return {a.first * b.first + b.second * a.second, a.second};
     }
   };
-  std::vector<Node::Monoid> a(n, {0, 1});
-  for (int i = 0; i < n; ++i) std::cin >> a[i].first;
-  LazySegmentTree<Node> seg(a);
+  std::vector<M::Monoid> a(n, {0, 1});
+  for (int i = 0; i < n; ++i) {
+    std::cin >> a[i].first;
+  }
+  LazySegmentTree<M> seg(a);
   while (q--) {
     int query, l, r;
     std::cin >> query >> l >> r;

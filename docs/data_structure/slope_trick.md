@@ -19,8 +19,8 @@ documentation_of: data_structure/slope_trick.hpp
 |$(x - a)^+$ の加算|$O(\log{N})$|
 |$(a - x)^+$ の加算|$O(\log{N})$|
 |$\lvert x - a \rvert$ の加算|$O(\log{N})$|
-|累積 $\min$|$\text{amortized } O(1)$|
-|逆側累積 $\min$|$\text{amortized } O(1)$|
+|累積 $\min$|amortized $O(1)$|
+|逆側累積 $\min$|amortized $O(1)$|
 |平行移動|$O(1)$|
 |スライド最小値|$O(1)$|
 
