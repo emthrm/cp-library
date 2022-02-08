@@ -3,12 +3,13 @@
 
 struct Timer {
   Timer() { reset(); }
-  void reset() { beg = std::chrono::high_resolution_clock::now(); }
+  void reset() { bgn = std::chrono::high_resolution_clock::now(); }
   template <typename PeriodType = std::chrono::milliseconds>
   long long elapsed() const {
-    std::chrono::high_resolution_clock::time_point en = std::chrono::high_resolution_clock::now();
-    return std::chrono::duration_cast<PeriodType>(en - beg).count();
+    std::chrono::high_resolution_clock::time_point end =
+        std::chrono::high_resolution_clock::now();
+    return std::chrono::duration_cast<PeriodType>(end - bgn).count();
   }
 private:
-  std::chrono::high_resolution_clock::time_point beg;
+  std::chrono::high_resolution_clock::time_point bgn;
 } timer;

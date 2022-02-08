@@ -9,7 +9,7 @@ documentation_of: util/timer.hpp
 ||説明|
 |:--:|:--:|
 |`timer.reset()`|リセット|
-|`timer.elapsed<std::chrono::時間間隔を表す型 = milliseconds>()`|計測時間|
+|`timer.elapsed<PeriodType = std::chrono::milliseconds>()`|計測時間|
 
 
 ## 参考

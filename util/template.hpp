@@ -14,10 +14,13 @@ constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;
 constexpr double EPS = 1e-8;
 constexpr int MOD = 1000000007;
 // constexpr int MOD = 998244353;
-constexpr int DY[]{1, 0, -1, 0}, DX[]{0, -1, 0, 1};
-constexpr int DY8[]{1, 1, 0, -1, -1, -1, 0, 1}, DX8[]{0, -1, -1, -1, 0, 1, 1, 1};
-template <typename T, typename U> inline bool chmax(T& a, U b) { return a < b ? (a = b, true) : false; }
-template <typename T, typename U> inline bool chmin(T& a, U b) { return a > b ? (a = b, true) : false; }
+constexpr int DY4[]{1, 0, -1, 0}, DX4[]{0, -1, 0, 1};
+constexpr int DY8[]{1, 1, 0, -1, -1, -1, 0, 1};
+constexpr int DX8[]{0, -1, -1, -1, 0, 1, 1, 1};
+template <typename T, typename U>
+inline bool chmax(T& a, U b) { return a < b ? (a = b, true) : false; }
+template <typename T, typename U>
+inline bool chmin(T& a, U b) { return a > b ? (a = b, true) : false; }
 struct IOSetup {
   IOSetup() {
     std::cin.tie(nullptr);
