@@ -3,68 +3,85 @@
 #include <vector>
 
 struct SqrtDecomposition {
-  int b, n;
-  std::vector<int> left, right;
-  std::vector<bool> need_to_be_eval;
+  const int block_size, n;
+  std::vector<int> ls, rs;
+  std::vector<bool> to_be_eval;
 
-  SqrtDecomposition(int n_) : b(std::sqrt(n_)) {
-    n = (n_ + b - 1) / b;
-    left.resize(n);
-    right.resize(n);
-    need_to_be_eval.assign(n, false);
+  explicit SqrtDecomposition(const int n_)
+      : block_size(std::round(std::sqrt(n_))),
+        n((n_ + block_size - 1) / block_size) {
+    ls.resize(n);
+    rs.resize(n);
+    to_be_eval.assign(n, false);
     for (int i = 0; i < n; ++i) {
-      left[i] = b * i;
-      right[i] = i + 1 == n ? n_ : b * (i + 1);
+      ls[i] = block_size * i;
+      rs[i] = (i + 1 == n ? n_ : block_size * (i + 1));
     }
   }
 
-  template <typename T> void partial_update(int idx, T val);
+  template <typename T> void partial_update(const int idx, const T val);
 
-  template <typename T> void total_update(int idx, T val);
+  template <typename T> void total_update(const int idx, const T val);
 
   template <typename T>
-  void update(int l, int r, T val) {
+  void update(const int l, const int r, const T val) {
     if (r <= l) return;
-    int l_b = l / b, r_b = (r - 1) / b;
-    if (l_b < r_b) {
-      if (l == left[l_b]) {
-        total_update(l_b, val);
+    const int b_l = l / block_size, b_r = (r - 1) / block_size;
+    if (b_l < b_r) {
+      if (l == ls[b_l]) {
+        total_update(b_l, val);
       } else {
-        for (int i = l; i < right[l_b]; ++i) partial_update(i, val);
+        for (int i = l; i < rs[b_l]; ++i) {
+          partial_update(i, val);
+        }
       }
-      for (int i = l_b + 1; i < r_b; ++i) total_update(i, val);
-      if (r == right[r_b]) {
-        total_update(r_b, val);
+      for (int i = b_l + 1; i < b_r; ++i) {
+        total_update(i, val);
+      }
+      if (r == rs[b_r]) {
+        total_update(b_r, val);
       } else {
-        for (int i = left[r_b]; i < r; ++i) partial_update(i, val);
+        for (int i = ls[b_r]; i < r; ++i) {
+          partial_update(i, val);
+        }
       }
     } else {
-      for (int i = l; i < r; ++i) partial_update(i, val);
+      for (int i = l; i < r; ++i) {
+        partial_update(i, val);
+      }
     }
   }
 
-  template <typename T> void partial_query(int idx, T &val);
+  template <typename T> void partial_query(const int idx, T& val);
 
-  template <typename T> void total_query(int idx, T &val);
+  template <typename T> void total_query(const int idx, T& val);
 
   template <typename T>
-  T query(int l, int r, const T ID) {
-    int l_b = l / b, r_b = (r - 1) / b;
-    T res = ID;
-    if (l_b < r_b) {
-      if (l == left[l_b]) {
-        total_query(l_b, res);
+  T query(const int l, const int r, const T id) {
+    const int b_l = l / block_size, b_r = (r - 1) / block_size;
+    T res = id;
+    if (b_l < b_r) {
+      if (l == ls[b_l]) {
+        total_query(b_l, res);
       } else {
-        for (int i = l; i < right[l_b]; ++i) partial_query(i, res);
+        for (int i = l; i < rs[b_l]; ++i) {
+          partial_query(i, res);
+        }
       }
-      for (int i = l_b + 1; i < r_b; ++i) total_query(i, res);
-      if (r == right[r_b]) {
-        total_query(r_b, res);
+      for (int i = b_l + 1; i < b_r; ++i) {
+        total_query(i, res);
+      }
+      if (r == rs[b_r]) {
+        total_query(b_r, res);
       } else {
-        for (int i = left[r_b]; i < r; ++i) partial_query(i, res);
+        for (int i = ls[b_r]; i < r; ++i) {
+          partial_query(i, res);
+        }
       }
     } else {
-      for (int i = l; i < r; ++i) partial_query(i, res);
+      for (int i = l; i < r; ++i) {
+        partial_query(i, res);
+      }
     }
     return res;
   }

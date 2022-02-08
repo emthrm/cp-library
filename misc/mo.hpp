@@ -5,31 +5,34 @@
 #include <vector>
 
 struct Mo {
-  Mo(const std::vector<int> &left, const std::vector<int> &right) : left(left), right(right) {
-    n = left.size();
-    int width = std::sqrt(n);
+  explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs)
+      : ls(ls), rs(rs), n(ls.size()), ptr(0), nl(0), nr(0) {
+    const int width = std::round(std::sqrt(n));
     order.resize(n);
     std::iota(order.begin(), order.end(), 0);
-    std::sort(order.begin(), order.end(), [&](int a, int b) -> bool {
-      return left[a] / width != left[b] / width ? left[a] < left[b] : ((left[a] / width) & 1 ? right[a] < right[b] : right[a] > right[b]);
-    });
+    std::sort(order.begin(), order.end(),
+              [&ls, &rs, width](const int a, const int b) -> bool {
+                  if (ls[a] / width != ls[b] / width) return ls[a] < ls[b];
+                  return (ls[a] / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];
+              });
   }
 
   int process() {
     if (ptr == n) return -1;
-    int idx = order[ptr++];
-    while (left[idx] < nl) add(--nl);
-    while (nr < right[idx]) add(nr++);
-    while (nl < left[idx]) del(nl++);
-    while (right[idx] < nr) del(--nr);
-    return idx;
+    const int id = order[ptr++];
+    while (ls[id] < nl) add(--nl);
+    while (nr < rs[id]) add(nr++);
+    while (nl < ls[id]) del(nl++);
+    while (rs[id] < nr) del(--nr);
+    return id;
   }
 
-  void add(int idx) const;
+  void add(const int idx) const;
 
-  void del(int idx) const;
+  void del(const int idx) const;
 
 private:
-  std::vector<int> left, right, order;
-  int n, ptr = 0, nl = 0, nr = 0;
+  const int n;
+  int ptr, nl, nr;
+  std::vector<int> ls, rs, order;
 };

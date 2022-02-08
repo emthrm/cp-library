@@ -7,19 +7,19 @@ documentation_of: misc/mo.hpp
 - 要素の更新がない．
 - $\lbrack L, R \rbrack$ の結果から $\lbrack L - 1, R \rbrack,\ \lbrack L + 1, R \rbrack,\ \lbrack L, R - 1 \rbrack,\ \lbrack L, R + 1 \rbrack$ の結果が容易に得られる．
 
-上記の条件を満たすことによって区間に関するクエリを高速に処理することができるアルゴリズムである．
+上記の条件を満たすことによって区間に関するクエリを高速に処理できるアルゴリズムである．
 
 
 ## 時間計算量
 
-一回あたりの伸縮に $O(\alpha)$ かかるとおくと $O(Q\log{Q} + \alpha N\sqrt{Q})$．
+一回の伸縮あたり $O(\alpha)$ 時間かかるとおくと $O(Q\log{Q} + \alpha N\sqrt{Q})$．
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`Mo(left, right)`|クエリ $\lbrace \lbrack \mathrm{left}, \mathrm{right}) \rbrace$ の Mo's algorithm を考える．||
+|`Mo(ls, rs)`|クエリ $\lbrace \lbrack \mathrm{ls}, \mathrm{rs}) \rbrace$ の Mo's algorithm を考える．||
 |`process()`|現在のクエリのインデックス|存在しない場合は $-1$ となる．|
 |`add(idx)`|$A_{\mathrm{idx}}$ をクエリの範囲に追加する．|関数プロトタイプ|
 |`del(idx)`|$A_{\mathrm{idx}}$ をクエリの範囲から削除する．|関数プロトタイプ|

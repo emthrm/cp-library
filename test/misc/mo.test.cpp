@@ -16,7 +16,7 @@ int l = 0, r = 0, m;
 constexpr int M = 100000;
 FenwickTree<int> bit(M);
 
-void Mo::add(int idx) const {
+void Mo::add(const int idx) const {
   if (idx + 1 == l) {
     inv += bit.sum(0, a[idx]);
     --l;
@@ -27,7 +27,7 @@ void Mo::add(int idx) const {
   bit.add(a[idx], 1);
 }
 
-void Mo::del(int idx) const {
+void Mo::del(const int idx) const {
   if (idx == l) {
     inv -= bit.sum(0, a[idx]);
     ++l;
@@ -42,22 +42,29 @@ int main() {
   int n, q;
   std::cin >> n >> q;
   a.resize(n);
-  for (int i = 0; i < n; ++i) std::cin >> a[i];
-  std::vector<int> tmp(a);
+  for (int i = 0; i < n; ++i) {
+    std::cin >> a[i];
+  }
+  std::vector<int> tmp = a;
   std::sort(tmp.begin(), tmp.end());
   tmp.erase(std::unique(tmp.begin(), tmp.end()), tmp.end());
   m = tmp.size();
   for (int i = 0; i < n; ++i) {
-    a[i] = std::distance(tmp.begin(), std::lower_bound(tmp.begin(), tmp.end(), a[i]));
+    a[i] = std::distance(tmp.begin(),
+                         std::lower_bound(tmp.begin(), tmp.end(), a[i]));
   }
-  std::vector<int> left(q), right(q);
-  for (int i = 0; i < q; ++i) std::cin >> left[i] >> right[i];
-  Mo mo(left, right);
+  std::vector<int> ls(q), rs(q);
+  for (int i = 0; i < q; ++i) {
+    std::cin >> ls[i] >> rs[i];
+  }
+  Mo mo(ls, rs);
   std::vector<long long> ans(q);
   for (int i = 0; i < q; ++i) {
-    int idx = mo.process();
+    const int idx = mo.process();
     ans[idx] = inv;
   }
-  for (int i = 0; i < q; ++i) std::cout << ans[i] << '\n';
+  for (int i = 0; i < q; ++i) {
+    std::cout << ans[i] << '\n';
+  }
   return 0;
 }

@@ -7,55 +7,56 @@
 #include <vector>
 #include "../../misc/sqrt_decomposition.hpp"
 
-std::vector<long long> A, B, lazy;
+std::vector<long long> a, b, lazy;
 
 template <typename T>
-void SqrtDecomposition::partial_update(int idx, T val) {
-  A[idx] += val;
-  B[idx / b] += val;
+void SqrtDecomposition::partial_update(const int idx, const T val) {
+  a[idx] += val;
+  b[idx / block_size] += val;
 }
 
 template <typename T>
-void SqrtDecomposition::total_update(int idx, T val) {
+void SqrtDecomposition::total_update(const int idx, const T val) {
   lazy[idx] += val;
-  need_to_be_eval[idx] = true;
+  to_be_eval[idx] = true;
 }
 
 template <typename T>
-void SqrtDecomposition::partial_query(int idx, T &val) {
-  int block = idx / b;
-  if (need_to_be_eval[block]) {
-    for (int i = left[block]; i < right[block]; ++i) partial_update(i, lazy[block]);
+void SqrtDecomposition::partial_query(const int idx, T& val) {
+  const int block = idx / block_size;
+  if (to_be_eval[block]) {
+    for (int i = ls[block]; i < rs[block]; ++i) {
+      partial_update(i, lazy[block]);
+    }
     lazy[block] = 0;
-    need_to_be_eval[block] = false;
+    to_be_eval[block] = false;
   }
-  val += A[idx];
+  val += a[idx];
 }
 
 template <typename T>
-void SqrtDecomposition::total_query(int idx, T &val) {
-  val += B[idx] + lazy[idx] * (right[idx] - left[idx]);
+void SqrtDecomposition::total_query(const int idx, T& val) {
+  val += b[idx] + lazy[idx] * (rs[idx] - ls[idx]);
 }
 
 int main() {
   int n, q;
   std::cin >> n >> q;
-  SqrtDecomposition sd(n);
-  A.assign(n, 0);
-  B.assign(sd.n, 0);
-  lazy.assign(sd.n, 0);
+  SqrtDecomposition sqrt_decomposition(n);
+  a.assign(n, 0);
+  b.assign(sqrt_decomposition.n, 0);
+  lazy.assign(sqrt_decomposition.n, 0);
   while (q--) {
-    int query, s, t;
-    std::cin >> query >> s >> t;
+    int type, s, t;
+    std::cin >> type >> s >> t;
     --s; --t;
-    if (query == 0) {
+    if (type == 0) {
       int x;
       std::cin >> x;
-      sd.update(s, t + 1, x);
-    } else if (query == 1) {
-      std::cout << sd.query(s, t + 1, 0LL) << '\n';
+      sqrt_decomposition.update(s, t + 1, x);
+    } else if (type == 1) {
+      std::cout << sqrt_decomposition.query(s, t + 1, 0LL) << '\n';
     }
   }
   return 0;
 }
-

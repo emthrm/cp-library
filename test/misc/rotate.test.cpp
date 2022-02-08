@@ -3,6 +3,7 @@
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2953"
 
+#include <algorithm>
 #include <iostream>
 #include <set>
 #include <vector>
@@ -12,20 +13,25 @@ int main() {
   int h, w;
   std::cin >> h >> w;
   std::vector<std::vector<char>> c(h, std::vector<char>(w));
-  for (int i = 0; i < h; ++i) for (int j = 0; j < w; ++j) std::cin >> c[i][j];
+  for (int i = 0; i < h; ++i) {
+    for (int j = 0; j < w; ++j) {
+      std::cin >> c[i][j];
+    }
+  }
   c = rotate(c, 45);
   h = c.size();
   w = c.front().size();
-  std::set<int> hor, ver;
-  for (int i = 0; i < h; ++i) for (int j = 0; j < w; ++j) {
-    if (c[i][j] == 'B') {
-      hor.emplace(i);
-      ver.emplace(j);
+  int y_min = h, y_max = -1, x_min = w, x_max = -1;
+  for (int i = 0; i < h; ++i) {
+    for (int j = 0; j < w; ++j) {
+      if (c[i][j] == 'B') {
+        y_min = std::min(y_min, i);
+        y_max = std::max(y_max, i);
+        x_min = std::min(x_min, j);
+        x_max = std::max(x_max, j);
+      }
     }
   }
-  int ans = 0;
-  if (hor.size() >= 2 && *hor.rbegin() - *hor.begin() > ans) ans = *hor.rbegin() - *hor.begin();
-  if (ver.size() >= 2 && *ver.rbegin() - *ver.begin() > ans) ans = *ver.rbegin() - *ver.begin();
-  std::cout << ans << '\n';
+  std::cout << std::max(y_max - y_min, x_max - x_min) << '\n';
   return 0;
 }

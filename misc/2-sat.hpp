@@ -1,63 +1,66 @@
 #pragma once
+#include <algorithm>
 #include <vector>
 
 struct TwoSat {
-  TwoSat(int n) : n(n), graph(n << 1), rev_graph(n << 1) {}
-
-  int negate(int x) const { return (n + x) % (n << 1); }
-
-  void add_or(int x, int y) {
-    graph[negate(x)].emplace_back(y);
-    graph[negate(y)].emplace_back(x);
-    rev_graph[y].emplace_back(negate(x));
-    rev_graph[x].emplace_back(negate(y));
+  explicit TwoSat(const int n)
+      : n(n), graph(n << 1), rgraph(n << 1), is_visited(n << 1), ids(n << 1) {
+    order.reserve(n << 1);
   }
 
-  void add_if(int x, int y) { add_or(negate(x), y); }
+  int negate(const int x) const { return (n + x) % (n << 1); }
 
-  void add_nand(int x, int y) { add_or(negate(x), negate(y)); }
+  void add_or(const int x, const int y) {
+    graph[negate(x)].emplace_back(y);
+    graph[negate(y)].emplace_back(x);
+    rgraph[y].emplace_back(negate(x));
+    rgraph[x].emplace_back(negate(y));
+  }
 
-  void set_true(int x) { add_or(x, x); }
+  void add_if(const int x, const int y) { add_or(negate(x), y); }
 
-  void set_false(int x) { set_true(negate(x)); }
+  void add_nand(const int x, const int y) { add_or(negate(x), negate(y)); }
+
+  void set_true(const int x) { add_or(x, x); }
+
+  void set_false(const int x) { set_true(negate(x)); }
 
   std::vector<bool> build() {
-    used.assign(n << 1, false);
-    id.assign(n << 1, -1);
+    std::fill(is_visited.begin(), is_visited.end(), false);
+    std::fill(ids.begin(), ids.end(), -1);
     order.clear();
     for (int i = 0; i < (n << 1); ++i) {
-      if (!used[i]) dfs(i);
+      if (!is_visited[i]) dfs(i);
     }
-    int now = 0;
-    for (int i = (n << 1) - 1; i >= 0; --i) {
-      if (id[order[i]] == -1) rev_dfs(order[i], now++);
+    for (int i = (n << 1) - 1, id = 0; i >= 0; --i) {
+      if (ids[order[i]] == -1) rdfs(order[i], id++);
     }
     std::vector<bool> res(n);
     for (int i = 0; i < n; ++i) {
-      if (id[i] == id[negate(i)]) return {};
-      res[i] = id[negate(i)] < id[i];
+      if (ids[i] == ids[negate(i)]) return {};
+      res[i] = ids[negate(i)] < ids[i];
     }
     return res;
   }
 
 private:
-  int n;
-  std::vector<std::vector<int>> graph, rev_graph;
-  std::vector<bool> used;
-  std::vector<int> id, order;
+  const int n;
+  std::vector<std::vector<int>> graph, rgraph;
+  std::vector<bool> is_visited;
+  std::vector<int> ids, order;
 
-  void dfs(int ver) {
-    used[ver] = true;
-    for (int e : graph[ver]) {
-      if (!used[e]) dfs(e);
+  void dfs(const int ver) {
+    is_visited[ver] = true;
+    for (const int dst : graph[ver]) {
+      if (!is_visited[dst]) dfs(dst);
     }
     order.emplace_back(ver);
   }
 
-  void rev_dfs(int ver, int now) {
-    id[ver] = now;
-    for (int e : rev_graph[ver]) {
-      if (id[e] == -1) rev_dfs(e, now);
+  void rdfs(const int ver, const int cur_id) {
+    ids[ver] = cur_id;
+    for (const int dst : rgraph[ver]) {
+      if (ids[dst] == -1) rdfs(dst, cur_id);
     }
   }
 };
