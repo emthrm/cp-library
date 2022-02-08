@@ -13,7 +13,7 @@ $O(\lvert S \rvert)$
 
 ||説明|
 |:--:|:--:|
-|`run_length_encoding<T = char, U = string>(s)`|ランレングス圧縮した $S$|
+|`run_length_encoding<T = char>(s)`|$S$ のランレングス圧縮|
 
 
 ## Verified

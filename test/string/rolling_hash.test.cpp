@@ -10,9 +10,11 @@
 int main() {
   std::string t, p;
   std::cin >> t >> p;
-  RollingHash<> rh_t(t), rh_p(p);
-  for (int i = 0; i < t.length(); ++i) {
-    if (i + p.length() <= t.length() && rh_t.get(i, i + p.length()) == rh_p.get(0, p.length())) {
+  const int t_size = t.length(), p_size = p.length();
+  RollingHash<> rolling_hash_t(t), rolling_hash_p(p);
+  for (int i = 0; i < t_size; ++i) {
+    if (i + p_size <= t_size &&
+        rolling_hash_t.get(i, i + p_size) == rolling_hash_p.get(0, p_size)) {
       std::cout << i << '\n';
     }
   }

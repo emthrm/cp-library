@@ -3,7 +3,7 @@ title: Z algorithm
 documentation_of: string/z_algorithm.hpp
 ---
 
-ある文字列 $S$ において $S$ と `S[i:|S|]` の最長共通接頭辞の長さを求めるアルゴリズムである．
+文字列 $S$ に対して $S$ と `S[i:]` の最長共通接頭辞の長さを求めるアルゴリズムである．
 
 
 ## 時間計算量

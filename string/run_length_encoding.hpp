@@ -1,22 +1,22 @@
 #pragma once
-#include <string>
 #include <utility>
 #include <vector>
 
-template <typename T = char, typename U = std::string>
-std::vector<std::pair<T, int>> run_length_encoding(const U &s) {
-  int n = s.size();
+template <typename T = char, typename U>
+std::vector<std::pair<T, int>> run_length_encoding(const U& s) {
+  const int n = s.size();
   std::vector<std::pair<T, int>> res;
-  T now = s[0];
-  int cnt = 1;
+  if (n == 0) return res;
+  T ch = s.front();
+  int num = 1;
   for (int i = 1; i < n; ++i) {
-    if (s[i] != now) {
-      res.emplace_back(now, cnt);
-      cnt = 0;
+    if (s[i] != ch) {
+      res.emplace_back(ch, num);
+      num = 0;
     }
-    now = s[i];
-    ++cnt;
+    ch = s[i];
+    ++num;
   }
-  res.emplace_back(now, cnt);
+  res.emplace_back(ch, num);
   return res;
 }

@@ -4,7 +4,7 @@
 
 template <typename T>
 std::vector<int> z_algorithm(const T &s) {
-  int n = s.size();
+  const int n = s.size();
   std::vector<int> res(n, 0);
   for (int i = 1, j = 0; i < n; ++i) {
     if (i + res[i - j] < j + res[j]) {

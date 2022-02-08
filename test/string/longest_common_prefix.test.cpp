@@ -10,9 +10,9 @@
 int main() {
   std::string s;
   std::cin >> s;
-  int n = s.length();
+  const int n = s.length();
   long long ans = static_cast<long long>(n) * (n + 1) / 2;
-  for (int e : LongestCommonPrefix<>(s).lcp_array) ans -= e;
+  for (const int e : LongestCommonPrefix<>(s).lcp_array) ans -= e;
   std::cout << ans << '\n';
   return 0;
 }

@@ -10,6 +10,6 @@
 int main() {
   std::string t, p;
   std::cin >> t >> p;
-  for (int e : KnuthMorrisPratt<>(p).match(t)) std::cout << e << '\n';
+  for (const int ans : KnuthMorrisPratt<>(p).match(t)) std::cout << ans << '\n';
   return 0;
 }

@@ -3,8 +3,6 @@ title: ローリングハッシュ (rolling hash)
 documentation_of: string/rolling_hash.hpp
 ---
 
-効率的に構築することができる部分列のハッシュ値である．
-
 
 ## 時間計算量
 
@@ -15,12 +13,12 @@ $\langle O(\lvert S \rvert), O(1) \rangle$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`RollingHash<T>(s, 基数 = 10007, 除数 = 1000000007)`|$S$ のローリングハッシュを考える．|各要素は $0$ 以外でなければならない．|
-|`str`|$S$||
+|`RollingHash<T = std::string>(s, 基数 = 10007, 除数 = 1000000007)`|$S$ のローリングハッシュを考える．|要素は $0$ 以外でなければならない．|
+|`s`|$S$||
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ におけるハッシュ値||
 |`add(t)`|$S$ に $T$ を追加する．||
-|`lcp(i, j)`|`S[i:]` と `S[j:]` の先頭における最大共通文字数||
-|`lcp(t, i, j)`|`S[i:]` と `T[j:]` の先頭における最大共通文字数|$T$ はローリングハッシュである．|
+|`longest_common_prefix(i, j)`|`S[i:]` と `S[j:]` の最長共通接頭辞長||
+|`longest_common_prefix(t, i, j)`|`S[i:]` と `T[j:]` の最長共通接頭辞長|$T$ はローリングハッシュである．|
 
 
 ## 参考

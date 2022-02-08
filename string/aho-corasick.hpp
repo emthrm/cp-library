@@ -12,74 +12,79 @@ template <size_t Sigma = 26>
 struct AhoCorasick : Trie<Sigma + 1> {
   using Trie<Sigma + 1>::Trie;
 
-  std::vector<int> cnt;
+  std::vector<int> nums;
 
-  void build(bool heavy = false) {
-    is_built = true;
-    is_heavy = heavy;
-    auto &vertices = this->nodes;
-    int n = vertices.size();
-    cnt.resize(n);
+  void build(const bool is_heavy_ = false) {
+    is_heavy = is_heavy_;
+    auto& vertices = this->nodes;
+    const int n = vertices.size();
+    nums.resize(n);
     for (int i = 0; i < n; ++i) {
-      if (heavy) std::sort(vertices[i].tails.begin(), vertices[i].tails.end());
-      cnt[i] = vertices[i].tails.size();
+      if (is_heavy) {
+        std::sort(vertices[i].tails.begin(), vertices[i].tails.end());
+      }
+      nums[i] = vertices[i].tails.size();
     }
     std::queue<int> que;
     for (int i = 0; i < Sigma; ++i) {
-      if (vertices[0].nx[i] == -1) {
-        vertices[0].nx[i] = 0;
+      if (vertices.front().nxt[i] == -1) {
+        vertices.front().nxt[i] = 0;
       } else {
-        vertices[vertices[0].nx[i]].nx[Sigma] = 0;
-        que.emplace(vertices[0].nx[i]);
+        vertices[vertices.front().nxt[i]].nxt[Sigma] = 0;
+        que.emplace(vertices.front().nxt[i]);
       }
     }
     while (!que.empty()) {
-      const auto &node = vertices[que.front()];
-      cnt[que.front()] += cnt[node.nx[Sigma]];
+      const auto& node = vertices[que.front()];
+      nums[que.front()] += nums[node.nxt[Sigma]];
       que.pop();
       for (int i = 0; i < Sigma; ++i) {
-        if (node.nx[i] == -1) continue;
-        int on_failure = node.nx[Sigma];
-        while (vertices[on_failure].nx[i] == -1) on_failure = vertices[on_failure].nx[Sigma];
-        vertices[node.nx[i]].nx[Sigma] = vertices[on_failure].nx[i];
-        if (heavy) {
-          std::vector<int> &ver = vertices[node.nx[i]].tails, tmp;
-          std::set_union(ver.begin(), ver.end(), vertices[vertices[on_failure].nx[i]].tails.begin(), vertices[vertices[on_failure].nx[i]].tails.end(), std::back_inserter(tmp));
-          ver.resize(tmp.size());
-          std::copy(tmp.begin(), tmp.end(), ver.begin());
+        if (node.nxt[i] == -1) continue;
+        int on_failure = node.nxt[Sigma];
+        while (vertices[on_failure].nxt[i] == -1) {
+          on_failure = vertices[on_failure].nxt[Sigma];
         }
-        que.emplace(node.nx[i]);
+        vertices[node.nxt[i]].nxt[Sigma] = vertices[on_failure].nxt[i];
+        if (is_heavy) {
+          std::vector<int>& ids = vertices[node.nxt[i]].tails;
+          std::vector<int> tmp;
+          std::set_union(ids.begin(), ids.end(),
+                         vertices[vertices[on_failure].nxt[i]].tails.begin(),
+                         vertices[vertices[on_failure].nxt[i]].tails.end(),
+                         std::back_inserter(tmp));
+          ids.resize(tmp.size());
+          std::copy(tmp.begin(), tmp.end(), ids.begin());
+        }
+        que.emplace(node.nxt[i]);
       }
     }
   }
 
   int move(char c, int pos) const {
-    // assert(is_built);
-    int now = this->convert(c);
-    while (this->nodes[pos].nx[now] == -1) pos = this->nodes[pos].nx[Sigma];
-    return pos = this->nodes[pos].nx[now];
+    const int c_int = this->convert(c);
+    while (this->nodes[pos].nxt[c_int] == -1) pos = this->nodes[pos].nxt[Sigma];
+    return pos = this->nodes[pos].nxt[c_int];
   }
 
-  int match(const std::string &t, int pos = 0) const {
-    assert(is_built);
+  int match(const std::string& t, int pos = 0) const {
     int total = 0;
-    for (char c : t) {
+    for (const char c : t) {
       pos = move(c, pos);
-      total += cnt[pos];
+      total += nums[pos];
     }
     return total;
   }
 
-  std::map<int, int> match_heavy(const std::string &t, int pos = 0) const {
-    assert(is_built && is_heavy);
+  std::map<int, int> match_heavily(const std::string& t, int pos = 0) const {
+    assert(is_heavy);
     std::map<int, int> mp;
-    for (char c : t) {
+    for (const char c : t) {
       pos = move(c, pos);
-      for (int e : this->nodes[pos].tails) ++mp[e];
+      for (const int id : this->nodes[pos].tails) ++mp[id];
     }
     return mp;
   }
 
 private:
-  bool is_built = false, is_heavy = false;
+  bool is_heavy = false;
 };

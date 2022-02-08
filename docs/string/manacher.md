@@ -3,7 +3,7 @@ title: Manacher
 documentation_of: string/manacher.hpp
 ---
 
-ある文字列において各インデックスを中心とした回文の最大半径を求めるアルゴリズムである．
+文字列に対してそれぞれのインデックスを中心とした回文の最大半径を求めるアルゴリズムである．
 
 
 ## 時間計算量
@@ -36,7 +36,7 @@ $O(\lvert S \rvert)$
   - https://codeforces.com/blog/entry/13958
   - https://github.com/spaghetti-source/algorithm/blob/master/string/palindromic_tree.cc
   - https://github.com/beet-aizu/library/blob/master/datastructure/palindromictree.cpp
-- distinct な部分回文文字列をすべて求める．
+- distinct な部分回文をすべて求める．
   - https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp
 
 

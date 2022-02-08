@@ -10,7 +10,7 @@
 int main() {
   std::string s;
   std::cin >> s;
-  AhoCorasick<> aho('A');
+  AhoCorasick<> aho([](const char c) -> int { return c - 'A'; });
   int m;
   std::cin >> m;
   for (int i = 0; i < m; ++i) {

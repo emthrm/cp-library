@@ -1,6 +1,6 @@
 # Knuth-Morris-Pratt algorithm
 
-ある文字列 $S$ について `S[0:i]` の接頭辞と接尾辞の最大共通文字数 $(< i)$ を求めるアルゴリズムである．
+文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである．
 
 
 ## 時間計算量
@@ -12,7 +12,7 @@
 |処理|時間計算量|
 |:--:|:--:|
 |前処理|$O(N)$|
-|更新|$\text{amortized } O(N)$ ?|
+|更新|amortized $O(N)$ ?|
 |パターンマッチング|$O(M)$|
 
 - Knuth-Morris-Pratt algorithm
@@ -27,6 +27,7 @@ $$\langle O(N), O(M) \rangle$$
 ||説明|
 |:--:|:--:|
 |`MorrisPratt(s)`|文字列 $S$ の Morris-Pratt algorithm を考える．|
+|`str`|文字列 $S$|
 |`border[i]`|`S[0:i]` の最長 border 長|
 |`add(c)`|$S$ に文字 $c$ を追加する．|
 |`match(t)`|$S$ が出現する文字列 $T$ 中の位置|

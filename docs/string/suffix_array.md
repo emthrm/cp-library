@@ -3,7 +3,7 @@ title: 接尾辞配列 (suffix array)
 documentation_of: string/suffix_array.hpp
 ---
 
-ある文字列の全接尾辞を辞書順に並べた配列である．
+文字列の全接尾辞を辞書順に並べた配列である．
 
 
 ## 時間計算量
@@ -15,7 +15,7 @@ documentation_of: string/suffix_array.hpp
 
 ||説明|
 |:--:|:--:|
-|`SuffixArray<T = string>(s)`|$S$ の接尾辞配列を考える．|
+|`SuffixArray<T = std::string, U = char>(s, sentinel = 0)`|$S$ の接尾辞配列を考える．|
 |`sa`|接尾辞配列|
 |`rank[i]`|`S[i:]` の接尾辞配列中での位置|
 |`match(t)`|$T$ が出現する文字列 $S$ 中の位置|
@@ -24,7 +24,7 @@ documentation_of: string/suffix_array.hpp
 ## 参考
 
 - https://github.com/beet-aizu/library/blob/2ecdc969043f5276c3782a7752592bd3fe856524/string/suffixarray.cpp
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.335-339，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.335-339，マイナビ出版（2012）
 - http://wk1080id.hatenablog.com/entry/2018/12/25/005926
 
 
