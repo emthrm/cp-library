@@ -20,7 +20,7 @@ $O(N)$
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.277-278，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.277-278，マイナビ出版（2012）
 
 
 ## ToDo
@@ -29,6 +29,7 @@ $O(N)$
   - https://drive.google.com/file/d/16g1tfSHUU4NXNTDgaD8FSA1WB4FtJCyV
   - https://github.com/yosupo06/library-checker-problems/issues/317
   - https://judge.yosupo.jp/problem/nim_product_64
+  - https://yukicoder.me/problems/no/1775
 
 
 ## Verified
