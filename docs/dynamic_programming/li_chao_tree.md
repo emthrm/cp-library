@@ -20,9 +20,9 @@ documentation_of: dynamic_programming/li_chao_tree.hpp
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`LiChaoTree<T>(xs, ∞, is_minimized = true)`|解答クエリの $x$ 座標の集合が $\mathrm{xs}$ である Li Chao tree||
+|`LiChaoTree<T, IS_MINIMIZED = true>(xs, ∞)`|解答クエリの $x$ 座標の集合が $\mathrm{xs}$ である Li Chao tree||
 |`add(a, b)`|直線 $f(x) = ax + b$ を追加する．||
-|`add(a, b, left, right)`|線分 $f(x) = ax + b \ (\mathrm{left} \leq x < \mathrm{right})$ を追加する．||
+|`add(a, b, left, right)`|線分 $f(x) = ax + b$ ($\mathrm{left} \leq x < \mathrm{right}$) を追加する．||
 |`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$|オフライン|
 
 

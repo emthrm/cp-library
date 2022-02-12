@@ -3,7 +3,7 @@ title: 最長共通部分列 (longest common subsequence)
 documentation_of: dynamic_programming/longest_common_subsequence.hpp
 ---
 
-ある2列において双方に現れる部分列の内, 最長のものである．
+2列に対して双方に現れる部分列の内，最長のものである．
 
 
 ## 時間計算量
@@ -25,6 +25,8 @@ $O(NM)$
 
 ## ToDo
 
+- https://judge.yosupo.jp/problem/prefix_substring_lcs
+- https://github.com/yosupo06/library-checker-problems/issues/732
 - 高速化
   - http://www.prefield.com/algorithm/dp/lcs_hs.html
 

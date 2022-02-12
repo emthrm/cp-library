@@ -17,14 +17,18 @@ int main() {
     std::cin >> h[i];
   }
   std::reverse(h.begin(), h.end());
-  ConvexHullTrick<long long> cht;
-  cht.add(-2 * h.front(), static_cast<long long>(h.front()) * h.front());
+  ConvexHullTrick<long long> convex_hull_trick;
+  convex_hull_trick.add(-2 * h.front(),
+                        static_cast<long long>(h.front()) * h.front());
   for (int i = 1; i < n; ++i) {
-    const long long dp = cht.monotonically_decreasing_query(h[i]) + static_cast<long long>(h[i]) * h[i] + c;
+    const long long dp =
+        convex_hull_trick.monotonically_decreasing_query(h[i]) +
+        static_cast<long long>(h[i]) * h[i] + c;
     if (i + 1 == n) {
       std::cout << dp << '\n';
     } else {
-      cht.add(-2 * h[i], dp + static_cast<long long>(h[i]) * h[i]);
+      convex_hull_trick.add(-2 * h[i],
+                            dp + static_cast<long long>(h[i]) * h[i]);
     }
   }
   return 0;

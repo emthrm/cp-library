@@ -11,9 +11,11 @@ int main() {
   constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;
   int n, q;
   std::cin >> n >> q;
-  std::vector<int> query(q, 0), l(n + q), r(n + q), a(n + q), p(q);
+  std::vector<int> query(q), l(n + q), r(n + q), a(n + q), p(q);
   std::vector<long long> b(n + q), xs;
-  for (int i = 0; i < n; ++i) std::cin >> l[i] >> r[i] >> a[i] >> b[i];
+  for (int i = 0; i < n; ++i) {
+    std::cin >> l[i] >> r[i] >> a[i] >> b[i];
+  }
   for (int i = 0; i < q; ++i) {
     std::cin >> query[i];
     if (query[i] == 0) {
@@ -24,13 +26,15 @@ int main() {
     }
   }
   if (xs.empty()) return 0;
-  LiChaoTree<long long> lct(xs, LINF, false);
-  for (int i = 0; i < n; ++i) lct.add(-a[i], -b[i], l[i], r[i]);
+  LiChaoTree<long long, false> li_chao_tree(xs, LINF);
+  for (int i = 0; i < n; ++i) {
+    li_chao_tree.add(-a[i], -b[i], l[i], r[i]);
+  }
   for (int i = 0; i < q; ++i) {
     if (query[i] == 0) {
-      lct.add(-a[n + i], -b[n + i], l[n + i], r[n + i]);
+      li_chao_tree.add(-a[n + i], -b[n + i], l[n + i], r[n + i]);
     } else if (query[i] == 1) {
-      long long ans = -lct.query(p[i]);
+      const long long ans = -li_chao_tree.query(p[i]);
       if (ans == LINF) {
         std::cout << "INFINITY\n";
       } else {

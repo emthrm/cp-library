@@ -3,7 +3,7 @@ title: 最長増加部分列 (longest increasing subsequence)
 documentation_of: dynamic_programming/longest_increasing_subsequence.hpp
 ---
 
-任意の $i < j$ について $A_i < A_j$ を満たす部分列 $A$ の内，最長のものである．
+$i < j$ を満たす任意の $i, j$ に対して $A_i < A_j$ を満たす部分列 $A$ の内，最長のものである．
 
 
 ## 時間計算量
@@ -30,6 +30,7 @@ $O(N\log{N})$
   - https://github.com/spaghetti-source/algorithm/blob/master/dynamic_programming/longest_zigzag_subsequence.cc
 - range longest increasing subsequence query
   - https://twitter.com/noshi91/status/1388201116148539393
+  - https://judge.yosupo.jp/problem/static_range_lis_query
 
 
 ## Verified

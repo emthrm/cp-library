@@ -6,29 +6,29 @@ documentation_of: dynamic_programming/convex_hull_trick.hpp
 $xy$ 平面上の直線集合 $L$ を考える．
 
 - $L$ に直線 $f(x) = ax + b$ を追加する．
-- ある $x$ について $\min \lbrace f(x) \mid f \in L \rbrace$ を答える．
+- ある $x$ に対して $\min \lbrace f(x) \mid f \in L \rbrace$ を答える．
 
-上記のクエリを高速に処理できるテクニックである．
+上のクエリを高速に処理できるテクニックである．
 
 
 ## 時間計算量
 
 |処理|時間計算量|
 |:--:|:--:|
-|追加クエリ|$\text{amortized } O(1)$|
+|追加クエリ|amortized $O(1)$|
 |解答クエリ|$O(\log{N})$|
-|$x$ に単調性のある解答クエリ|$\text{amortized } O(1)$|
+|$x$ に単調性のある解答クエリ|amortized $O(1)$|
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`ConvexHullTrick<T>(is_minimized = true)`|convex hull trick||
+|`ConvexHullTrick<T, IS_MINIMIZED>()`|convex hull trick||
 |`add(a, b)`|直線 $f(x) = ax + b$ を追加する．|傾きには単調性が必要である．|
 |`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$||
-|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加している必要がある．|
-|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少している必要がある．|
+|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加しなければならない．|
+|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少しなければならない．|
 
 
 ## 参考
@@ -42,7 +42,7 @@ $xy$ 平面上の直線集合 $L$ を考える．
 - 直線を削除できる．
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/RemovableCHT~~
   - https://codeforces.com/blog/entry/60514
-- 追加する直線の傾きに単調性が不必要である．
+- 追加する直線の傾きに単調性が必要ない．
   - https://sune2.hatenadiary.org/entry/20140310/1394440369
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/CHT-Ex~~
 - $x \in \mathbb{Z}$

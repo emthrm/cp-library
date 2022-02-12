@@ -10,18 +10,19 @@ int main() {
   int n;
   long long c;
   std::cin >> n >> c;
-  ConvexHullTrick<long long> cht;
+  ConvexHullTrick<long long> convex_hull_trick;
   for (int i = 0; i < n; ++i) {
     int h;
     std::cin >> h;
     if (i == 0) {
-      cht.add(-2 * h, static_cast<long long>(h) * h);
+      convex_hull_trick.add(-2 * h, static_cast<long long>(h) * h);
     } else {
-      const long long dp = cht.monotonically_increasing_query(h) + static_cast<long long>(h) * h + c;
+      const long long dp = convex_hull_trick.monotonically_increasing_query(h) +
+                           static_cast<long long>(h) * h + c;
       if (i + 1 == n) {
         std::cout << dp << '\n';
       } else {
-        cht.add(-2 * h, dp + static_cast<long long>(h) * h);
+        convex_hull_trick.add(-2 * h, dp + static_cast<long long>(h) * h);
       }
     }
   }

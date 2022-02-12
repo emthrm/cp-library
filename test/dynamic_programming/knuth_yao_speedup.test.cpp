@@ -13,11 +13,15 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<long long> w(n);
-  for (int i = 0; i < n; ++i) std::cin >> w[i];
+  for (int i = 0; i < n; ++i) {
+    std::cin >> w[i];
+  }
   std::vector<std::vector<long long>> f(n, std::vector<long long>(n, LINF));
   for (int i = 0; i < n; ++i) {
     f[i][i] = w[i];
-    for (int j = i + 1; j < n; ++j) f[i][j] = f[i][j - 1] + w[j];
+    for (int j = i + 1; j < n; ++j) {
+      f[i][j] = f[i][j - 1] + w[j];
+    }
   }
   std::cout << knuth_yao_speedup(f, LINF)[0][n - 1] << '\n';
   return 0;

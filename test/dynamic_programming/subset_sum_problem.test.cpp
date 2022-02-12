@@ -14,7 +14,8 @@ int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
   FormalPowerSeries<ModInt>::set_mul(
-      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b) -> std::vector<ModInt> {
+      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
+          -> std::vector<ModInt> {
         static NumberTheoreticTransform<0> ntt;
         return ntt.convolution(a, b);
       });

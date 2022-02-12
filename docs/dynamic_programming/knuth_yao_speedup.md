@@ -3,16 +3,16 @@ title: Knuth-Yao speedup
 documentation_of: dynamic_programming/knuth_yao_speedup.hpp
 ---
 
-$N \times N$ 型重み行列 $W$ を考える．ただし $i > j$ を満たす $1 \leq \forall i, j \leq n$ に対して $w_{ij} = \infty$ が成り立つ．
+$N \times N$ 型重み行列 $W$ を考える．ただし $i > j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ に対して $w_{ij} = \infty$ が成り立つ．
 
 - $W$ は Monge property を満たし，
 - $W$ は単調，すなわち任意の $1 \leq i \leq k \leq l \leq j \leq N$ に対して $w_{kl} \leq w_{ij}$ を満たす
 
 とき，
 
-$$f(i, j) \mathrel{:=} \begin{cases} 0 & (i = j) \\ \min_{i \leq k < j} \lbrace f(i, k) + f(k + 1, j) \rbrace + w_{ij} & (i < j) \end{cases}$$
+$$f(i, j) \mathrel{:=} \begin{cases} 0 & (i = j), \\ \min_{i \leq k < j} \lbrace f(i, k) + f(k + 1, j) \rbrace + w_{ij} & (i < j) \end{cases}$$
 
-で定義される $f$ について $f(i, j) \ (1 \leq i \leq j \leq N)$ を $O(N^2)$ で計算できる．
+で定義される $f$ に対して $f(i, j)$ ($1 \leq i \leq j \leq N$) を $O(N^2)$ で計算できる．
 
 
 ### Monge property
@@ -29,7 +29,7 @@ $O(N^2)$
 
 ||説明|
 |:--:|:--:|
-|`knuth_yao_speedup(w, ∞)`|重み行列 $W$ について上で定義した $f$|
+|`knuth_yao_speedup(w, ∞)`|重み行列 $W$ に対して上で定義した $f$|
 
 
 ## 参考
@@ -50,6 +50,7 @@ $O(N^2)$
   - https://dic.kimiyuki.net/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
+  - https://lorent-kyopro.hatenablog.com/entry/2021/04/04/133958
   - https://ei1333.github.io/luzhiled/snippets/dp/monotone-minima.html
   - https://github.com/beet-aizu/library/blob/master/algorithm/monotoneminima.cpp
   - https://lumakernel.github.io/ecasdqina/math/Monge

@@ -11,7 +11,9 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<int> h(n);
-  for (int i = 0; i < n; ++i) std::cin >> h[i];
+  for (int i = 0; i < n; ++i) {
+    std::cin >> h[i];
+  }
   std::cout << largest_rectangle(h) << '\n';
   return 0;
 }

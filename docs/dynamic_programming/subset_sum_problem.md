@@ -19,7 +19,7 @@ $O(N + D\log{D})$
 
 ||説明|条件|
 |:--:|:--:|:--:|
-|`subset_sum_problem(a, d)`|集合内の要素の和が $d \ (0 \leq d \leq D)$ となる $A$ の部分集合の個数|$A_i \geq 0$|
+|`subset_sum_problem(a, d)`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
 
 
 ## 参考

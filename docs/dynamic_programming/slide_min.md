@@ -13,7 +13,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`slide_min(a, len, is_minimized = true)`|$A$ における長さ $\mathrm{len}$ のスライド最小値|
+|`slide_min<IS_MINIMIZED = true>(a, len)`|$A$ に対する長さ $\mathrm{len}$ のスライド最小値|
 
 
 ## 参考
