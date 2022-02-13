@@ -17,6 +17,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> p[i];
   }
-  std::cout << std::fixed << std::setprecision(6) << smallest_enclosing_circle(p).r << '\n';
+  std::cout << std::fixed << std::setprecision(6)
+            << geometry::smallest_enclosing_circle(p).r << '\n';
   return 0;
 }

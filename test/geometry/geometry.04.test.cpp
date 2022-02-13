@@ -12,12 +12,13 @@ int main() {
   geometry::Point p1, p2;
   int q;
   std::cin >> p1 >> p2 >> q;
-  geometry::Segment p1p2(p1, p2);
+  const geometry::Segment p1p2(p1, p2);
   while (q--) {
     geometry::Point p0;
     std::cin >> p0;
-    geometry::Point ans = reflection(p1p2, p0);
-    std::cout << std::fixed << std::setprecision(9) << ans.x << ' ' << ans.y << '\n';
+    const geometry::Point ans = reflection(p1p2, p0);
+    std::cout << std::fixed << std::setprecision(9)
+              << ans.x << ' ' << ans.y << '\n';
   }
   return 0;
 }

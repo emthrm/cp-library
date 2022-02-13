@@ -13,8 +13,11 @@ int main() {
   int n;
   std::cin >> n;
   geometry::Polygon g(n);
-  for (int i = 0; i < n; ++i) std::cin >> g[i];
-  std::pair<geometry::Point, geometry::Point> ans = rotating_calipers(g);
-  std::cout << std::fixed << std::setprecision(7) << geometry::distance(ans.first, ans.second) << '\n';
+  for (int i = 0; i < n; ++i) {
+    std::cin >> g[i];
+  }
+  const std::pair<geometry::Point, geometry::Point> ans = rotating_calipers(g);
+  std::cout << std::fixed << std::setprecision(7)
+            << geometry::distance(ans.first, ans.second) << '\n';
   return 0;
 }

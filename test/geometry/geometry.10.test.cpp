@@ -15,69 +15,83 @@ int main() {
   int n, a, b;
   std::cin >> n >> a >> b;
   std::vector<geometry::Point> flo(n);
-  for (int i = 0; i < n; ++i) std::cin >> flo[i];
-  geometry::Point now = geometry::intersection(geometry::Segment(geometry::Point(a, 0), geometry::Point(a, 200)), geometry::Segment(flo[0], flo[1])) + (flo[1] - flo[0]).unit_vector();
+  for (int i = 0; i < n; ++i) {
+    std::cin >> flo[i];
+  }
+  geometry::Point wheel =
+      geometry::intersection(
+          geometry::Segment(geometry::Point(a, 0), geometry::Point(a, 200)), geometry::Segment(flo[0], flo[1]))
+      + (flo[1] - flo[0]).unit_vector();
   int ans = 0;
   for (int i = 0; i + 2 < n; ++i) {
-    double sta = std::atan2((flo[i + 1] - flo[i]).y, (flo[i + 1] - flo[i]).x);
+    const double sta = std::atan2((flo[i + 1] - flo[i]).y,
+                                  (flo[i + 1] - flo[i]).x);
     while (true) {
       int type = 0;
       geometry::Point p;
-      bool skip;
+      bool must_skip = false;
       for (int j = i + 1; j <= i + 2 && j + 1 < n; ++j) {
-        for (const geometry::Point &inter : geometry::intersection(geometry::Circle(now, 1), geometry::Segment(flo[j], flo[j + 1]))) {
-          double ar = std::atan2((inter - now).y, (inter - now).x) - sta;
+        for (const geometry::Point& inter :
+             geometry::intersection(geometry::Circle(wheel, 1),
+                                    geometry::Segment(flo[j], flo[j + 1]))) {
+          const double ar =
+              std::atan2((inter - wheel).y, (inter - wheel).x) - sta;
           if (-EPS < ar && ar < geometry::PI / 2 + EPS) {
             if (type == 0) {
               type = 1;
               p = inter;
-              skip = j > i + 1;
+              must_skip = j > i + 1;
             } else if (type == 1) {
-              if (ar > std::atan2((p - now).y, (p - now).x) - sta) {
+              if (ar > std::atan2((p - wheel).y, (p - wheel).x) - sta) {
                 p = inter;
-                skip = j > i + 1;
+                must_skip = j > i + 1;
               }
             }
           }
         }
       }
       for (int j = i + 1; j <= i + 2 && j + 1 < n; ++j) {
-        for (const geometry::Point &inter : geometry::intersection(geometry::Circle(now, std::sqrt(2)), geometry::Segment(flo[j], flo[j + 1]))) {
-          double ar = std::atan2((inter - now).y, (inter - now).x) - sta;
+        for (const geometry::Point& inter :
+             geometry::intersection(geometry::Circle(wheel, std::sqrt(2)),
+                                    geometry::Segment(flo[j], flo[j + 1]))) {
+          const double ar =
+              std::atan2((inter - wheel).y, (inter - wheel).x) - sta;
           if (geometry::PI / 4 - EPS < ar && ar < geometry::PI / 4 * 3 + EPS) {
             if (type == 0) {
               type = 2;
               p = inter;
-              skip = j > i + 1;
+              must_skip = j > i + 1;
             } else if (type == 1) {
-              if (ar - geometry::PI / 4 > std::atan2((p - now).y, (p - now).x) - sta) {
+              if (ar - geometry::PI / 4
+                  > std::atan2((p - wheel).y, (p - wheel).x) - sta) {
                 type = 2;
                 p = inter;
-                skip = j > i + 1;
+                must_skip = j > i + 1;
               }
             } else if (type == 2) {
-              if (ar > std::atan2((p - now).y, (p - now).x) - sta) {
+              if (ar > std::atan2((p - wheel).y, (p - wheel).x) - sta) {
                 p = inter;
-                skip = j > i + 1;
+                must_skip = j > i + 1;
               }
             }
           }
         }
       }
-      (ans += std::max(type, 1)) %= 4;
+      ans = (ans + std::max(type, 1)) % 4;
       if (type == 0) {
-        now += (flo[i + 1] - flo[i]).unit_vector();
+        wheel += (flo[i + 1] - flo[i]).unit_vector();
       } else {
-        now = p;
-        i += skip;
+        wheel = p;
+        i += must_skip;
         break;
       }
     }
   }
-  while (now.x <= b) {
-    now += (flo[n - 1] - flo[n - 2]).unit_vector();
-    (ans += 1) %= 4;
+  while (wheel.x <= b) {
+    wheel += (flo[n - 1] - flo[n - 2]).unit_vector();
+    ans = (ans + 1) % 4;
   }
-  std::cout << std::vector<std::string>({"Red", "Green", "Blue", "White"})[ans] << '\n';
+  std::cout << std::vector<std::string>{"Red", "Green", "Blue", "White"}[ans]
+            << '\n';
   return 0;
 }

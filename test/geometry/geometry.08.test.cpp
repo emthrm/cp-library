@@ -14,8 +14,11 @@ int main() {
   while (q--) {
     geometry::Point p0, p1, p2, p3;
     std::cin >> p0 >> p1 >> p2 >> p3;
-    geometry::Point ans = geometry::intersection(geometry::Segment(p0, p1), geometry::Segment(p2, p3));
-    std::cout << std::fixed << std::setprecision(9) << ans.x << ' ' << ans.y << '\n';
+    const geometry::Point ans =
+        geometry::intersection(geometry::Segment(p0, p1),
+                               geometry::Segment(p2, p3));
+    std::cout << std::fixed << std::setprecision(9)
+              << ans.x << ' ' << ans.y << '\n';
   }
   return 0;
 }

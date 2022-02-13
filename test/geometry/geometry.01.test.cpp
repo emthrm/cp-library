@@ -13,7 +13,7 @@ int main() {
   while (q--) {
     geometry::Point p2;
     std::cin >> p2;
-    int ans = ccw(p0, p1, p2);
+    const int ans = ccw(p0, p1, p2);
     if (ans == -2) {
       std::cout << "ONLINE_FRONT\n";
     } else if (ans == -1) {

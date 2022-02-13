@@ -12,8 +12,12 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<std::pair<int, int>> ps(n);
-  for (int i = 0; i < n; ++i) std::cin >> ps[i].first >> ps[i].second;
+  for (int i = 0; i < n; ++i) {
+    std::cin >> ps[i].first >> ps[i].second;
+  }
   argument_sort(ps);
-  for (int i = 0; i < n; ++i) std::cout << ps[i].first << ' ' << ps[i].second << '\n';
+  for (int i = 0; i < n; ++i) {
+    std::cout << ps[i].first << ' ' << ps[i].second << '\n';
+  }
   return 0;
 }

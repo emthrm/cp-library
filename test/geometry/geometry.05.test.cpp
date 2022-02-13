@@ -12,7 +12,7 @@ int main() {
   while (q--) {
     geometry::Point p0, p1, p2, p3;
     std::cin >> p0 >> p1 >> p2 >> p3;
-    geometry::Line s1(p0, p1), s2(p2, p3);
+    const geometry::Line s1(p0, p1), s2(p2, p3);
     if (geometry::is_parallel(s1, s2)) {
       std::cout << "2\n";
     } else if (geometry::is_orthogonal(s1, s2)) {

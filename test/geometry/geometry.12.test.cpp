@@ -14,7 +14,10 @@ int main() {
   while (q--) {
     geometry::Point p0, p1, p2, p3;
     std::cin >> p0 >> p1 >> p2 >> p3;
-    std::cout << std::fixed << std::setprecision(9) << geometry::distance(geometry::Segment(p0, p1), geometry::Segment(p2, p3)) << '\n';
+    std::cout << std::fixed << std::setprecision(9)
+              << geometry::distance(geometry::Segment(p0, p1),
+                                    geometry::Segment(p2, p3))
+              << '\n';
   }
   return 0;
 }

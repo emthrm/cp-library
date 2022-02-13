@@ -12,6 +12,9 @@ int main() {
   geometry::Point c1_o, c2_o;
   double c1r, c2r;
   std::cin >> c1_o >> c1r >> c2_o >> c2r;
-  std::cout << std::fixed << std::setprecision(7) << geometry::intersection_area(geometry::Circle(c1_o, c1r), geometry::Circle(c2_o, c2r)) << '\n';
+  std::cout << std::fixed << std::setprecision(7)
+            << geometry::intersection_area(geometry::Circle(c1_o, c1r),
+                                           geometry::Circle(c2_o, c2r))
+            << '\n';
   return 0;
 }

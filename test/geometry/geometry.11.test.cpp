@@ -14,13 +14,18 @@ int main() {
   geometry::Point c1_o, c2_o;
   double c1r, c2r;
   std::cin >> c1_o >> c1r >> c2_o >> c2r;
-  std::vector<geometry::Point> ans = geometry::intersection(geometry::Circle(c1_o, c1r), geometry::Circle(c2_o, c2r));
+  std::vector<geometry::Point> ans =
+      geometry::intersection(geometry::Circle(c1_o, c1r),
+                             geometry::Circle(c2_o, c2r));
   std::sort(ans.begin(), ans.end());
   if (ans.size() == 1) {
-    std::cout << std::fixed << std::setprecision(7) << ans[0].x << ' ' << ans[0].y << ' ' << ans[0].x << ' ' << ans[0].y << '\n';
+    std::cout << std::fixed << std::setprecision(7)
+              << ans[0].x << ' ' << ans[0].y << ' '
+              << ans[0].x << ' ' << ans[0].y << '\n';
   } else if (ans.size() == 2) {
     for (int i = 0; i < 2; ++i) {
-      std::cout << std::fixed << std::setprecision(7) << ans[i].x << ' ' << ans[i].y << " \n"[i + 1 == 2];
+      std::cout << std::fixed << std::setprecision(7)
+                << ans[i].x << ' ' << ans[i].y << " \n"[i + 1 == 2];
     }
   }
   return 0;

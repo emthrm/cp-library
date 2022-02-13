@@ -11,11 +11,11 @@ documentation_of: geometry/geometry.hpp
 |最近点対|$O(N\log{N})$|
 |多角形の面積|$O(N)$|
 |多角形の重心|$O(N)$|
-|多角形の内外判定|$O(N)$|
+|多角形に対する点の内外判定|$O(N)$|
 |凸性判定|$O(N)$|
 |monotone chain|$O(N\log{N})$|
 |凸多角形の切断|$O(N)$|
-|キャリパー法|$O(N)$|
+|キャリパー法 (rotating calipers)|$O(N)$|
 
 
 ## 使用法
@@ -32,10 +32,10 @@ documentation_of: geometry/geometry.hpp
 |:--:|:--:|:--:|
 |`Point(x = 0, y = 0)`|点 $(x, y)$||
 |`x`, `y`|$(x, y)$||
-|`abs()`|$\|\boldsymbol{p}\|$||
+|`abs()`|$\lVert \boldsymbol{p} \rVert$||
 |`arg()`|$\arg(x + iy)$|$[0, 2\pi)$|
-|`norm()`|$\|\boldsymbol{p}\|^2$||
-|`rotate(angle)`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos{\mathrm{angle}} - y\sin{\mathrm{angle}} \\\\ y^{\prime} = x\sin{\mathrm{angle}} + y\cos{\mathrm{angle}} \end{cases}$|
+|`norm()`|${\lVert \boldsymbol{p} \rVert}^2$||
+|`rotate(angle)`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos(\mathrm{angle}) - y\sin(\mathrm{angle}) \\\\ y^{\prime} = x\sin(\mathrm{angle}) + y\cos(\mathrm{angle}) \end{cases}$|
 |`unit_vector()`|単位ベクトル||
 |`normal_unit_vector()`|単位法線ベクトル|
 
@@ -52,7 +52,7 @@ documentation_of: geometry/geometry.hpp
 ||説明|備考|
 |:--:|:--:|:--:|
 |`Line(s = (0, 0), t = (0, 0))`|始点 $s$, 終点 $t$ の線分||
-|`Line(a, b, c)`|$ax + by + c = 0$ で表される直線|`s`, `t` には代表される2点を格納する．|
+|`Line(a, b, c)`|$ax + by + c = 0$ で表される直線|`s`, `t` には代表する2点を格納する．|
 |`s`|始点|
 |`t`|終点|
 
@@ -61,7 +61,7 @@ documentation_of: geometry/geometry.hpp
 ||説明|
 |:--:|:--:|
 |`Circle(p = (0, 0), r = 0)`|中心 $\mathrm{P}$, 半径 $r$ の円|
-|`o`|中心|
+|`p`|中心|
 |`r`|半径|
 
 - 多角形
@@ -74,25 +74,25 @@ documentation_of: geometry/geometry.hpp
 |:--:|:--:|:--:|
 |`cross(a, b)`|$\boldsymbol{a} \times \boldsymbol{b}$||
 |`dot(a, b)`|$\boldsymbol{a} \cdot \boldsymbol{b}$||
-|`ccw(a, b, c)`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C}\text{ の順で一直線上に並ぶ}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ}) \end{cases}$||
+|`ccw(a, b, c)`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C} \text{ の順で一直線上に並ぶ．}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある．}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ．}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある．}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ．}) \end{cases}$||
 |`get_angle(a, b, c)`|$\angle{\mathrm{ABC}}$||
-|`closest_pair(ps)`|点集合 $\mathrm{ps}$ の中から最も近い点対間の距離||
-|`projection(a, b)`|$\mathrm{A}$ に対する点 $\mathrm{B}$ の射影||
-|`reflection(a, b)`|$\mathrm{A}$ に対する点 $\mathrm{B}$ の鏡映||
-|`is_parallel(a, b)`|$\boldsymbol{a} \parallel \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \times \boldsymbol{b}$|
-|`is_orthogonal(a, b)`|$\boldsymbol{a} \perp \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \cdot \boldsymbol{b}$|
-|`has_intersected(a, b)`|$\mathrm{A}$ と $\mathrm{B}$ は交差しているか．||
-|`intersection(a, b)`|$\mathrm{A}$ と $\mathrm{B}$ の交点||
-|`distance(a, b)`|$\mathrm{A}$ と $\mathrm{B}$ の距離||
+|`closest_pair(ps)`|点集合 $\mathrm{ps}$ の最近点対間距離||
+|`projection(a, b)`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の射影||
+|`reflection(a, b)`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の鏡映||
+|`is_parallel(a, b)`|$\boldsymbol{a} \parallel \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \times \boldsymbol{b} = 0$|
+|`is_orthogonal(a, b)`|$\boldsymbol{a} \perp \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \cdot \boldsymbol{b} = 0$|
+|`has_intersected(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ は交差しているか．||
+|`intersection(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ の交点||
+|`distance(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ の距離||
 |`tangency(a, b)`|点 $\mathrm{B}$ から円 $\mathrm{A}$ に引いた接線の接点|円 $(x - a)^2 + (y - b)^2 = r^2$ 上の点 $(x_0, y_0)$ における接線の方程式は $(x_0 - a)(x - a) + (y_0 - b)(y - b) = r^2$ である．|
-|`sizeof_common_tangent(a, b)`|円 $\mathrm{A}$ と $\mathrm{B}$ の共通接線の本数||
-|`common_tangent(a, b)`|円 $\mathrm{A}$ と $\mathrm{B}$ の共通接線|2円が接していない場合，`s` は円 $\mathrm{A}$ における接点，`t` は円 $\mathrm{B}$ における接点が格納される．|
-|`intersection_area(a, b)`|円 $\mathrm{A}$ と $\mathrm{B}$ の共通部分の面積||
+|`common_tangent_num(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線の本数||
+|`common_tangent(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線|2円が接していないとき，`s` は円 $\mathrm{A}$ における接点，`t` は円 $\mathrm{B}$ における接点が格納される．|
+|`intersection_area(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通部分の面積||
 |`area(a)`|多角形 $\mathrm{A}$ の面積||
 |`centroid(a)`|多角形 $\mathrm{A}$ の重心||
-|`is_contained(a, b)`|多角形 $\mathrm{A}$ は点 $\mathrm{B}$ を含むか．||
-|`is_convex(a)`|多角形 $\mathrm{A}$ は凸性をもつか．||
-|`monotone_chain(ps, 凸包の辺上にある点を含まないか = true)`|点集合 $\mathrm{ps}$ の凸包|座標幅 $w$ のとき頂点数は $O(\sqrt{w})$ 個である．|
+|`contains(a, b)`|点 $\mathrm{B}$ は多角形 $\mathrm{A}$ の内部に存在するか．||
+|`is_convex(a)`|多角形 $\mathrm{A}$ は凸性を満たすか．||
+|`monotone_chain(ps, 凸包の辺上にある点を含まないか = true)`|点集合 $\mathrm{ps}$ の凸包|座標幅 $w$ のとき，頂点数は $O(\sqrt{w})$ 個である．|
 |`cut_convex(a, b)`|直線 $\mathrm{B}$ で凸多角形 $\mathrm{A}$ を切断したときの左側の凸多角形||
 |`rotating_calipers(a)`|凸多角形 $\mathrm{A}$ の直径||
 
@@ -105,7 +105,7 @@ documentation_of: geometry/geometry.hpp
 - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
 
 最近点対
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.324-326，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.324-326，マイナビ出版（2012）
 
 接点
 - https://mathtrain.jp/ennosessen
@@ -122,7 +122,7 @@ documentation_of: geometry/geometry.hpp
 2円の共通部分の面積
 - https://drken1215.hatenablog.com/entry/2020/02/02/005800
 
-多角形の内外判定
+点の多角形に対する内外判定
 - https://www.nttpc.co.jp/technology/number_algorithm.html
 
 
@@ -162,12 +162,14 @@ documentation_of: geometry/geometry.hpp
   - http://kyopro.hateblo.jp/entry/2019/08/01/192232
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/not522/20130728/1374979041.html
   - https://twitter.com/not_522/status/1008671743584583682
+- 円の和集合の面積
+  - https://docs.google.com/presentation/d/119Ve9FB0qTzN01P4EKmia-atXMiPSsJGEDWotVZ6GDg
 - 点と半直線の距離
   - https://sen-comp.hatenablog.com/entry/2020/03/14/183251#distanceBetweenPointAndRay%E7%82%B9%E3%81%A8%E5%8D%8A%E7%9B%B4%E7%B7%9A%E3%81%AE%E8%B7%9D%E9%9B%A2
 - 凸多角形の共通部分
   - http://www.prefield.com/algorithm/geometry/convex_intersect.html
   - http://gihyo.jp/dev/serial/01/geometry/0009
-- 凸多角形の内外判定
+- 点の凸多角形に対する内外判定
   - http://www.prefield.com/algorithm/geometry/convex_contains.html
 - 直線から最も遠い凸多角形上の点
   - http://www.prefield.com/algorithm/geometry/convex_extreme.html
@@ -178,6 +180,8 @@ documentation_of: geometry/geometry.hpp
 - 二等分線
   - https://github.com/beet-aizu/library/blob/master/geometry/geometry.cpp
   - https://github.com/drken1215/algorithm/blob/master/Geometry/convex_cut.cpp
+- 点から凸多角形への接線
+  - https://tjkendev.github.io/procon-library/python/geometry/convex_polygon_tangent.html
 - アポロニウスの円 (circle of Apollonius)
   - https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%9D%E3%83%AD%E3%83%8B%E3%82%A6%E3%82%B9%E3%81%AE%E5%86%86
   - https://mathtrain.jp/apollonius
@@ -220,6 +224,8 @@ documentation_of: geometry/geometry.hpp
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/kd_tree.cc
   - http://www.prefield.com/algorithm/geometry/kdtree.html
   - https://tjkendev.github.io/procon-library/cpp/range_query/kd-tree.html
+  - https://atcoder.jp/contests/abc234/tasks/abc234_h
+  - https://atcoder.jp/contests/abc234/submissions/28417490
   - randomized k-d tree
     - https://github.com/spaghetti-source/algorithm/blob/master/geometry/randomized_kd_tree.cc
     - https://www.slideshare.net/keisukeumezawa5/scalable-nearest-neighbor-algorithms-for-high-dimensional-data-71772599
@@ -232,7 +238,7 @@ documentation_of: geometry/geometry.hpp
 - vantage-point tree (VP tree)
   - https://en.wikipedia.org/wiki/Vantage-point_tree
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/vantage_point_tree.cc
-- rectilinear minimum spanning tree (RMST)
+- rectilinear minimum spanning tree
   - https://en.wikipedia.org/wiki/Rectilinear_minimum_spanning_tree
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/rectilinear_mst.cc
 - 双対変換
@@ -244,7 +250,7 @@ documentation_of: geometry/geometry.hpp
   - https://onlinejudge.u-aizu.ac.jp/problems/0273
 - 斜方投射
   - https://github.com/beet-aizu/library/blob/master/geometry/projectilemotion.cpp
-- Random Ball Cover (RBC)
+- random ball cover
   - http://www.lcayton.com/rbc.pdf
   - http://jsatml.blogspot.com/2012/10/random-ball-cover.html
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/random_ball_cover.cc
@@ -252,7 +258,6 @@ documentation_of: geometry/geometry.hpp
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/coordinate_domination.cc
 - タクシー幾何学 (taxicab geometry)
   - https://en.wikipedia.org/wiki/Taxicab_geometry
-  - https://github.com/beet-aizu/library/blob/master/geometry/geometry.cpp
 - 問題集
   - https://gist.github.com/MiSawa/16d5f84cf66fd2913c82
 - 三角形の外心 / 内心 / 垂心
@@ -294,7 +299,7 @@ documentation_of: geometry/geometry.hpp
 - [2円の共通部分の面積](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_I/review/4967134/emthrm/C++17)
 - [多角形の面積](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_A/review/4326007/emthrm/C++14)
 - 多角形の重心
-- [多角形の内外判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_C/review/4326013/emthrm/C++14)
+- [多角形に対する点の内外判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_C/review/4326013/emthrm/C++14)
 - [凸性判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_B/review/4326091/emthrm/C++14)
 - [凸包](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_4_A/review/4326095/emthrm/C++14)
 - [凸多角形の切断](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_4_C/review/4326103/emthrm/C++14)

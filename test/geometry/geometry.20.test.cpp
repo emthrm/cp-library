@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <iterator>
 #include <utility>
 #include <vector>
 #include "../../geometry/geometry.hpp"
@@ -14,20 +15,32 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<geometry::Point> p(n);
-  for (int i = 0; i < n; ++i) std::cin >> p[i];
+  for (int i = 0; i < n; ++i) {
+    std::cin >> p[i];
+  }
   geometry::Polygon convex_hull = monotone_chain(p, false);
-  int sz = convex_hull.size();
+  const int m = convex_hull.size();
   std::vector<std::pair<geometry::Point, int>> ps;
-  for (int i = 0; i < sz; ++i) ps.emplace_back(convex_hull[i], i);
-  std::sort(ps.begin(), ps.end(), [](const std::pair<geometry::Point, int> &a, const std::pair<geometry::Point, int> &b) -> bool {
-    const geometry::Point &a_p = a.first, &b_p = b.first;
-    int sign = geometry::sgn(b_p.y - a_p.y);
-    return sign == 0 ? geometry::sgn(b_p.x - a_p.x) == 1 : sign == 1;
-  });
-  std::rotate(convex_hull.begin(), convex_hull.begin() + ps.front().second, convex_hull.end());
-  std::cout << sz << '\n';
-  for (const geometry::Point &e : convex_hull) {
-    std::cout << static_cast<int>(std::round(e.x)) << ' ' << static_cast<int>(std::round(e.y)) << '\n';
+  ps.reserve(m);
+  for (int i = 0; i < m; ++i) {
+    ps.emplace_back(convex_hull[i], i);
+  }
+  std::sort(
+      ps.begin(), ps.end(),
+      [](const std::pair<geometry::Point, int>& a,
+         const std::pair<geometry::Point, int>& b) -> bool {
+        const geometry::Point& a_p = a.first;
+        const geometry::Point& b_p = b.first;
+        const int sign = geometry::sgn(b_p.y - a_p.y);
+        return sign == 0 ? geometry::sgn(b_p.x - a_p.x) == 1 : sign == 1;
+      });
+  std::rotate(convex_hull.begin(),
+              std::next(convex_hull.begin(), ps.front().second),
+              convex_hull.end());
+  std::cout << m << '\n';
+  for (const geometry::Point& p : convex_hull) {
+    std::cout << static_cast<int>(std::round(p.x)) << ' '
+              << static_cast<int>(std::round(p.y)) << '\n';
   }
   return 0;
 }

@@ -4,16 +4,20 @@
 #include "geometry.hpp"
 #include "../util/xorshift.hpp"
 
-geometry::Circle smallest_enclosing_circle(std::vector<geometry::Point> ps) {
-  int n = ps.size();
-  if (n == 1) return geometry::Circle(ps[0], 0);
-  for (int i = 0; i < n; ++i) std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);
-  auto get_circle = [&](const geometry::Point &p1, const geometry::Point &p2) -> geometry::Circle {
-    return geometry::Circle((p1 + p2) * 0.5, geometry::distance(p1, p2) * 0.5);
+namespace geometry {
+
+Circle smallest_enclosing_circle(std::vector<Point> ps) {
+  const int n = ps.size();
+  if (n == 1) return Circle(ps.front(), 0);
+  for (int i = 0; i < n; ++i) {
+    std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);
+  }
+  const auto get_circle = [](const Point& p1, const Point& p2) -> Circle {
+    return Circle((p1 + p2) * 0.5, distance(p1, p2) * 0.5);
   };
-  geometry::Circle res = get_circle(ps[0], ps[1]);
-  auto is_in = [&](const geometry::Point &point) -> bool {
-    return geometry::sgn(res.r - geometry::distance(res.p, point)) != -1;
+  Circle res = get_circle(ps[0], ps[1]);
+  const auto is_in = [&res](const Point& p) -> bool {
+    return sgn(res.r - distance(res.p, p)) != -1;
   };
   for (int i = 2; i < n; ++i) {
     if (is_in(ps[i])) continue;
@@ -22,13 +26,17 @@ geometry::Circle smallest_enclosing_circle(std::vector<geometry::Point> ps) {
       if (is_in(ps[j])) continue;
       res = get_circle(ps[j], ps[i]);
       for (int k = 0; k < j; ++k) {
-        if (!is_in(ps[k])) {
-          double a = (ps[i] - ps[j]).norm(), b = (ps[k] - ps[i]).norm(), c = (ps[j] - ps[k]).norm(), s = geometry::cross(ps[i] - ps[k], ps[j] - ps[k]);
-          geometry::Point p = (ps[k] * a * (b + c - a) + ps[j] * b * (c + a - b) + ps[i] * c * (a + b - c)) / (4 * s * s);
-          res = geometry::Circle(p, geometry::distance(ps[k], p));
-        }
+        if (is_in(ps[k])) continue;
+        const double a = (ps[i] - ps[j]).norm(), b = (ps[k] - ps[i]).norm();
+        const double c = (ps[j] - ps[k]).norm();
+        const double s = cross(ps[i] - ps[k], ps[j] - ps[k]);
+        const Point p = (ps[k] * a * (b + c - a) + ps[j] * b * (c + a - b) +
+                         ps[i] * c * (a + b - c)) / (4 * s * s);
+        res = Circle(p, distance(ps[k], p));
       }
     }
   }
   return res;
 }
+
+}  // namespace geometry

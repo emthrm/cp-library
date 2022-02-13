@@ -18,13 +18,17 @@ int main() {
   while (q--) {
     geometry::Point p1, p2;
     std::cin >> p1 >> p2;
-    std::vector<geometry::Point> ans = geometry::intersection(circle, geometry::Line(p1, p2));
+    std::vector<geometry::Point> ans =
+        geometry::intersection(circle, geometry::Line(p1, p2));
     std::sort(ans.begin(), ans.end());
     if (ans.size() == 1) {
-      std::cout << std::fixed << std::setprecision(7) << ans[0].x << ' ' << ans[0].y << ' ' << ans[0].x << ' ' << ans[0].y << '\n';
+      std::cout << std::fixed << std::setprecision(7)
+                << ans[0].x << ' ' << ans[0].y << ' '
+                << ans[0].x << ' ' << ans[0].y << '\n';
     } else if (ans.size() == 2) {
       for (int i = 0; i < 2; ++i) {
-        std::cout << std::fixed << std::setprecision(7) << ans[i].x << ' ' << ans[i].y << " \n"[i + 1 == 2];
+        std::cout << std::fixed << std::setprecision(7)
+                  << ans[i].x << ' ' << ans[i].y << " \n"[i + 1 == 2];
       }
     }
   }

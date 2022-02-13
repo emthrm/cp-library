@@ -13,7 +13,7 @@ $O(N\log{N})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`argument_sort(ps)`|点集合 $\mathrm{ps}$ に対して偏角ソートを行う．|$\begin{cases} -\pi < arg(x + iy) \leq \pi \\\\ \arg(0) = 0 \\\\ arg(x) = \pi & (x < 0) \end{cases}$|
+|`argument_sort(ps)`|点集合 $\mathrm{ps}$ に対して偏角ソートを行う．|$\arg(x) = \pi$ ($x < 0$), $\arg(0) = 0$ とする．|
 
 
 ## 参考
