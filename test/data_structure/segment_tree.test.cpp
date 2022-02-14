@@ -6,8 +6,9 @@
 #include <iostream>
 #include <utility>
 #include <vector>
-#include "../../math/modint.hpp"
+
 #include "../../data_structure/segment_tree.hpp"
+#include "../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

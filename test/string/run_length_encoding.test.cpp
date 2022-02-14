@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+
 #include "../../string/run_length_encoding.hpp"
 
 int main() {

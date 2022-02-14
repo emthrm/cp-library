@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+
 #include "../../string/suffix_array.hpp"
 
 int main() {

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../dynamic_programming/knuth_yao_speedup.hpp"
 
 // 二分探索木のコスト \sum_{i = 1}^N w_i * depth(i) の最小値

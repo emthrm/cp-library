@@ -8,6 +8,7 @@
 #include <cassert>
 #include <iostream>
 #include <string>
+
 #include "../../string/morris-pratt.hpp"
 
 int main() {

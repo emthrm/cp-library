@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 #include "../../dynamic_programming/convex_hull_trick.hpp"
 
 int main() {

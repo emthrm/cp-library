@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G"
 
 #include <iostream>
+
 #include "../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {

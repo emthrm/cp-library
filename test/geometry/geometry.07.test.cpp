@@ -11,6 +11,7 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
 #include "../../geometry/geometry.hpp"
 
 int main() {

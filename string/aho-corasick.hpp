@@ -6,6 +6,7 @@
 #include <queue>
 #include <string>
 #include <vector>
+
 #include "trie.hpp"
 
 template <size_t Sigma = 26>

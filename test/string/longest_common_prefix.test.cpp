@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+
 #include "../../string/longest_common_prefix.hpp"
 
 int main() {

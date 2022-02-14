@@ -8,9 +8,10 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
-#include "../../math/modint.hpp"
-#include "../../math/convolution/number_theoretic_transform.hpp"
+
 #include "../../dynamic_programming/convert_online_dp_to_offline_dp.hpp"
+#include "../../math/convolution/number_theoretic_transform.hpp"
+#include "../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

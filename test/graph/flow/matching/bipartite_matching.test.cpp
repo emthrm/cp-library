@@ -4,6 +4,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A"
 
 #include <iostream>
+
 #include "../../../../graph/flow/matching/bipartite_matching.hpp"
 
 int main() {

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../dynamic_programming/longest_increasing_subsequence.hpp"
 
 int main() {

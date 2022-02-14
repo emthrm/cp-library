@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include "../../misc/2-sat.hpp"
 
 int main() {

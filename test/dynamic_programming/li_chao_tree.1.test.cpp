@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../dynamic_programming/li_chao_tree.hpp"
 
 int main() {

@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C"
 
 #include <iostream>
+
 #include "../../geometry/geometry.hpp"
 
 int main() {

@@ -6,6 +6,7 @@
 
 #include <algorithm>
 #include <iostream>
+
 #include "../../dynamic_programming/2d_cumulative_sum.hpp"
 
 int main() {

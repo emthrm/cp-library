@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <vector>
+
 #include "nim.hpp"
 
 template <typename T>

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+
 #include "../../misc/rotate.hpp"
 
 int main() {

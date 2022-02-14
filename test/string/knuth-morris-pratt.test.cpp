@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+
 #include "../../string/knuth-morris-pratt.hpp"
 
 int main() {

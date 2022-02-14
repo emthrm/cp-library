@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I"
 
 #include <iostream>
+
 #include "../../data_structure/lazy_segment_tree.hpp"
 
 int main() {

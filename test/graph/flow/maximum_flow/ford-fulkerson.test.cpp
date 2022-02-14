@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 
 #include <iostream>
+
 #include "../../../../graph/flow/maximum_flow/ford-fulkerson.hpp"
 
 int main() {

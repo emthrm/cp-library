@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 #include "../../data_structure/slope_trick.hpp"
 
 int main() {

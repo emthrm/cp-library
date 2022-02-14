@@ -6,6 +6,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+
 #include "../../data_structure/lazy_segment_tree.hpp"
 
 int main() {

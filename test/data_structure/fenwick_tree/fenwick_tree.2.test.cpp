@@ -5,6 +5,7 @@
 #define PROBLEM "https://atcoder.jp/contests/arc033/tasks/arc033_3"
 
 #include <iostream>
+
 #include "../../../data_structure/fenwick_tree/fenwick_tree.hpp"
 
 int main() {

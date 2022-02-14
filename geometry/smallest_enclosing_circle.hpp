@@ -1,8 +1,9 @@
 #pragma once
 #include <utility>
 #include <vector>
-#include "geometry.hpp"
+
 #include "../util/xorshift.hpp"
+#include "geometry.hpp"
 
 namespace geometry {
 

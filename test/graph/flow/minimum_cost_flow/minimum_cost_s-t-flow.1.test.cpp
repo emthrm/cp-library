@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B"
 
 #include <iostream>
+
 #include "../../../../graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
 
 int main() {

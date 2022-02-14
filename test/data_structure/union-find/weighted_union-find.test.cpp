@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
 #include <iostream>
+
 #include "../../../data_structure/union-find/weighted_union-find.hpp"
 
 int main() {

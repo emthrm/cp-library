@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+
 #include "../../string/aho-corasick.hpp"
 
 int main() {

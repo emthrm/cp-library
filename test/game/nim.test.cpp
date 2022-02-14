@@ -6,8 +6,9 @@
 #include <iostream>
 #include <utility>
 #include <vector>
-#include "../../math/prime_factorization.hpp"
+
 #include "../../game/nim.hpp"
+#include "../../math/prime_factorization.hpp"
 
 int main() {
   int n;

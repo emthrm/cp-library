@@ -9,6 +9,7 @@
 #include <iterator>
 #include <utility>
 #include <vector>
+
 #include "../../geometry/geometry.hpp"
 
 int main() {

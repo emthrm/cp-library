@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <iostream>
 #include <utility>
+
 #include "../../geometry/geometry.hpp"
 
 int main() {

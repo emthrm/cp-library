@@ -6,6 +6,7 @@
 #include <iostream>
 #include <tuple>
 #include <queue>
+
 #include "../../../data_structure/fenwick_tree/2d_fenwick_tree.hpp"
 
 int main() {

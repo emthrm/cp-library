@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
+
 #include "../../data_structure/fenwick_tree/fenwick_tree.hpp"
 #include "../../misc/mo.hpp"
 

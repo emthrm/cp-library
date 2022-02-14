@@ -4,6 +4,7 @@
 #define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_z"
 
 #include <iostream>
+
 #include "../../dynamic_programming/convex_hull_trick.hpp"
 
 int main() {

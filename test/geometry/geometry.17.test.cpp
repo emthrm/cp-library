@@ -5,6 +5,7 @@
 
 #include <iomanip>
 #include <iostream>
+
 #include "../../geometry/geometry.hpp"
 
 int main() {

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 #include "../../data_structure/sparse_table.hpp"
 
 int main() {

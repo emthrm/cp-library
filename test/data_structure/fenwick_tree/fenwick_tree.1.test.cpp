@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
 #include <iostream>
+
 #include "../../../data_structure/fenwick_tree/fenwick_tree.hpp"
 
 int main() {

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../misc/inversion_number.hpp"
 
 int main() {

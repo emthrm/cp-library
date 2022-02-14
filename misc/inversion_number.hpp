@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iterator>
 #include <vector>
+
 #include "../data_structure/fenwick_tree/fenwick_tree.hpp"
 
 template <typename T>

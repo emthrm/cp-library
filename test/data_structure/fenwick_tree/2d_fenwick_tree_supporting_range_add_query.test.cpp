@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 #include "../../../data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {
