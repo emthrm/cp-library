@@ -5,16 +5,17 @@
 
 template <template <typename> class C, typename T>
 struct ProjectSelectionProblem {
-  ProjectSelectionProblem(int n) : n(n) {}
+  explicit ProjectSelectionProblem(const int n)
+      : inf(std::numeric_limits<T>::max()), n(n), res(0) {}
 
-  void add_neq(int u, int v, T cost) {
+  void add_neq(const int u, const int v, const T cost) {
     assert(cost >= 0);
     us.emplace_back(u);
     vs.emplace_back(v);
     costs.emplace_back(cost);
   }
 
-  void add(int v, bool group, T cost) {
+  void add(const int v, bool group, T cost) {
     if (cost < 0) {
       cost = -cost;
       res += cost;
@@ -27,41 +28,46 @@ struct ProjectSelectionProblem {
     }
   }
 
-  void add_or(const std::vector<int> &v, bool group, T cost) {
+  void add_or(const std::vector<int>& v, const bool group, const T cost) {
     assert(cost >= 0);
     add(n, group, cost);
     if (group) {
-      for (int vi : v) add_neq(n, vi, inf);
+      for (const int e : v) add_neq(n, e, inf);
     } else {
-      for (int vi : v) add_neq(vi, n, inf);
+      for (const int e : v) add_neq(e, n, inf);
     }
     ++n;
   }
 
-  void add_or(int u, int v, bool group, T cost) { add_or({u, v}, group, cost); }
+  void add_or(const int u, const int v, const bool group, const T cost) {
+    add_or({u, v}, group, cost);
+  }
 
-  void add_eq(const std::vector<int> &v, bool group, T cost) {
+  void add_eq(const std::vector<int>& v, const bool group, T cost) {
     assert(cost <= 0);
     cost = -cost;
     res += cost;
     add_or(v, !group, cost);
   }
 
-  void add_eq(int u, int v, bool group, T cost) { add_eq({u, v}, group, cost); }
+  void add_eq(const int u, const int v, const bool group, const T cost) {
+    add_eq({u, v}, group, cost);
+  }
 
   T solve() {
-    C<T> flow(n + 2);
-    int neq_sz = costs.size();
-    for (int i = 0; i < neq_sz; ++i) {
-      flow.add_edge(us[i] < 0 ? us[i] + n + 2 : us[i], vs[i] < 0 ? vs[i] + n + 2 : vs[i], costs[i]);
+    C<T> mf(n + 2);
+    const int neq_size = costs.size();
+    for (int i = 0; i < neq_size; ++i) {
+      mf.add_edge(us[i] < 0 ? us[i] + n + 2 : us[i],
+                  vs[i] < 0 ? vs[i] + n + 2 : vs[i], costs[i]);
     }
-    return flow.maximum_flow(n, n + 1, inf) - res;
+    return mf.maximum_flow(n, n + 1, inf) - res;
   }
 
 private:
-  const T inf = std::numeric_limits<T>::max();
+  const T inf;
   int n;
-  T res = 0;
+  T res;
   std::vector<int> us, vs;
   std::vector<T> costs;
 };

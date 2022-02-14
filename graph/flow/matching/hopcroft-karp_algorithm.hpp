@@ -11,8 +11,9 @@
 struct HopcroftKarp {
   std::vector<int> match;
 
-  HopcroftKarp(const int left, const int right)
-  : left(left), graph(left), match(left + right, -1), level(left), is_used(left, -1) {}
+  explicit HopcroftKarp(const int left, const int right)
+      : match(left + right, -1), left(left), t(0), level(left),
+        is_used(left, -1), graph(left) {}
 
   void add_edge(const int u, const int v) {
     graph[u].emplace_back(left + v);
@@ -32,10 +33,10 @@ struct HopcroftKarp {
       while (!que.empty()) {
         const int ver = que.front();
         que.pop();
-        for (const int e : graph[ver]) {
-          if (match[e] != -1 && level[match[e]] == -1) {
-            level[match[e]] = level[ver] + 1;
-            que.emplace(match[e]);
+        for (const int dst : graph[ver]) {
+          if (match[dst] != -1 && level[match[dst]] == -1) {
+            level[match[dst]] = level[ver] + 1;
+            que.emplace(match[dst]);
           }
         }
       }
@@ -46,25 +47,26 @@ struct HopcroftKarp {
           ++t;
         }
       }
-      if (tmp == 0) return res;
+      if (tmp == 0) break;
       res += tmp;
     }
+    return res;
   }
 
 private:
   const int left;
-  int t = 0;
-  std::vector<std::vector<int>> graph;
+  int t;
   std::vector<int> level, is_used;
+  std::vector<std::vector<int>> graph;
 
   bool dfs(const int ver) {
     is_used[ver] = t;
-    for (const int e : graph[ver]) {
-      const int m = match[e];
+    for (const int dst : graph[ver]) {
+      const int m = match[dst];
       if (m == -1 || (is_used[m] < t && level[m] == level[ver] + 1 && dfs(m))) {
         is_used[ver] = t;
-        match[ver] = e;
-        match[e] = ver;
+        match[ver] = dst;
+        match[dst] = ver;
         return true;
       }
     }

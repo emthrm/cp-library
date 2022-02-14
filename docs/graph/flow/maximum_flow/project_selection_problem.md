@@ -14,13 +14,13 @@ documentation_of: graph/flow/maximum_flow/project_selection_problem.hpp
 ||説明|
 |:--:|:--:|
 |`ProjectSelectionProblem<最大流, T>(n)`|頂点数 $N$ の project selection problem を考える．|
-|`add_neq(u, v, cost)`|$u$ が集合 $0$, $v$ が集合 $1$ に属するならばコスト $\mathrm{cost} \ (\geq 0)$ かかると定義する．|
+|`add_neq(u, v, cost)`|$u$ が集合 $0$, $v$ が集合 $1$ に属するならばコスト $\mathrm{cost} \geq 0$ かかると定義する．|
 |`add(v, group, cost)`|$v$ が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost}$ かかると定義する．|
-|`add_or(v, group, cost)`|集合 $\mathrm{group}$ に属する頂点 $v \in V$ が存在するならばコスト $\mathrm{cost} \ (\geq 0)$ かかると定義する．|
-|`add_or(u, v, group, cost)`|$u, v$ のいずれかまたは両方が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost} \ (\geq 0)$ かかると定義する．|
-|`add_eq(v, group, cost)`|$V$ に含まれる頂点すべてが集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost} \ (\leq 0)$ かかると定義する．|
-|`add_eq(u, v, group, cost)`|$u, v$ 両方が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost} \ (\leq 0)$ かかると定義する．|
-|`solve()`|最小費用|
+|`add_or(v, group, cost)`|集合 $\mathrm{group}$ に属する頂点 $v \in V$ が存在するならばコスト $\mathrm{cost} \geq 0$ かかると定義する．|
+|`add_or(u, v, group, cost)`|$u, v$ のいずれかまたは両方が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost} \geq 0$ かかると定義する．|
+|`add_eq(v, group, cost)`|$V$ に属する頂点すべてが集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost} \leq 0$ かかると定義する．|
+|`add_eq(u, v, group, cost)`|$u, v$ 両方が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost} \leq 0$ かかると定義する．|
+|`solve()`|最小コスト|
 
 
 ## 参考

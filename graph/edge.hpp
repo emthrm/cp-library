@@ -6,12 +6,15 @@
 
 template <typename CostType>
 struct Edge {
-  int src, dst; CostType cost;
-  Edge(int src, int dst, CostType cost = 0) : src(src), dst(dst), cost(cost) {}
-  inline bool operator<(const Edge &x) const {
-    return cost != x.cost ? cost < x.cost : dst != x.dst ? dst < x.dst : src < x.src;
+  int src, dst;
+  CostType cost;
+  explicit Edge(const int src, const int dst, const CostType cost = 0)
+      : src(src), dst(dst), cost(cost) {}
+  inline bool operator<(const Edge& x) const {
+    if (cost != x.cost) return cost < x.cost;
+    return src != x.src ? src < x.src : dst < x.dst;
   }
-  inline bool operator<=(const Edge &x) const { return !(x < *this); }
-  inline bool operator>(const Edge &x) const { return x < *this; }
-  inline bool operator>=(const Edge &x) const { return !(*this < x); }
+  inline bool operator<=(const Edge& x) const { return !(x < *this); }
+  inline bool operator>(const Edge& x) const { return x < *this; }
+  inline bool operator>=(const Edge& x) const { return !(*this < x); }
 };

@@ -11,58 +11,69 @@
 #include "../../../../graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
 
 int main() {
-  struct Train {
-    int x, y, c;
-  };
-
+  struct Train { int x, y, c; };
   while (true) {
     int n;
     std::cin >> n;
     if (n == 0) break;
-    int ver = 0;
-    std::vector<std::vector<Train>> m(n - 1);
-    std::vector<std::vector<int>> arrive(n - 1);
+    int num = 0;
+    std::vector<std::vector<Train>> trains(n - 1);
+    std::vector<std::vector<int>> times(n - 1);
     for (int i = 0; i < n - 1; ++i) {
-      int mi;
-      std::cin >> mi;
-      while (mi--) {
+      int m;
+      std::cin >> m;
+      num += m;
+      while (m--) {
         int x, y, c;
         std::cin >> x >> y >> c;
-        m[i].emplace_back(Train{x, y, c});
-        arrive[i].emplace_back(y);
-        ++ver;
+        trains[i].emplace_back(Train{x, y, c});
+        times[i].emplace_back(y);
       }
-      std::sort(arrive[i].begin(), arrive[i].end());
-      arrive[i].erase(std::unique(arrive[i].begin(), arrive[i].end()), arrive[i].end());
-      ver += arrive[i].size() * 2;
+      std::sort(times[i].begin(), times[i].end());
+      times[i].erase(std::unique(times[i].begin(), times[i].end()),
+                     times[i].end());
+      num += times[i].size() * 2;
     }
-    MinimumCostSTFlow<int, long long> mcf(ver + 2);
-    const int s = ver, t = ver + 1;
-    for (int i = 0; i < m.front().size(); ++i) mcf.add_edge(s, i, 1, 0);
-    int cur = 0;
+    MinimumCostSTFlow<int, long long> minimum_cost_flow(num + 2);
+    const int s = num, t = num + 1;
+    for (int i = 0; i < trains.front().size(); ++i) {
+      minimum_cost_flow.add_edge(s, i, 1, 0);
+    }
+    int w = 0;
     for (int i = 0; i < n - 1; ++i) {
-      int sz = m[i].size();
-      for (int j = 0; j < sz; ++j) {
-        int idx = std::distance(arrive[i].begin(), std::lower_bound(arrive[i].begin(), arrive[i].end(), m[i][j].y));
-        mcf.add_edge(cur + j, cur + sz + idx, 1, m[i][j].c);
+      int m = trains[i].size();
+      for (int j = 0; j < m; ++j) {
+        const int idx = std::distance(
+            times[i].begin(),
+            std::lower_bound(times[i].begin(), times[i].end(), trains[i][j].y));
+        minimum_cost_flow.add_edge(j + w, idx + w + m, 1, trains[i][j].c);
       }
-      cur += sz;
-      sz = arrive[i].size();
-      for (int j = 0; j < sz; ++j) mcf.add_edge(cur + j, cur + sz + j, 1, 0);
-      cur += sz;
+      w += m;
+      m = times[i].size();
+      for (int j = 0; j < m; ++j) {
+        minimum_cost_flow.add_edge(j + w, j + w + m, 1, 0);
+      }
+      w += m;
       if (i + 1 < n - 1) {
-        for (int j = 0; j < sz; ++j) for (int k = 0; k < m[i + 1].size(); ++k) {
-          if (arrive[i][j] <= m[i + 1][k].x) mcf.add_edge(cur + j, cur + sz + k, 1, 0);
+        for (int j = 0; j < m; ++j) {
+          for (int k = 0; k < trains[i + 1].size(); ++k) {
+            if (times[i][j] <= trains[i + 1][k].x) {
+              minimum_cost_flow.add_edge(j + w, k + w + m, 1, 0);
+            }
+          }
         }
-        cur += sz;
+        w += m;
       }
     }
-    for (int i = ver - arrive.back().size(); i < ver; ++i) mcf.add_edge(i, ver + 1, 1, 0);
+    for (int i = num - times.back().size(); i < num; ++i) {
+      minimum_cost_flow.add_edge(i, t, 1, 0);
+    }
     int g;
     std::cin >> g;
     int ans_class;
     long long ans_fare;
-    std::tie(ans_class, ans_fare) = mcf.minimum_cost_maximum_flow(ver, ver + 1, g);
+    std::tie(ans_class, ans_fare) =
+        minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);
     std::cout << ans_class << ' ' << ans_fare << '\n';
   }
   return 0;

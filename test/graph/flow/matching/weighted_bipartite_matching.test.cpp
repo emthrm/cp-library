@@ -12,12 +12,13 @@
 int main() {
   int n;
   std::cin >> n;
-  std::vector<std::vector<int>> w(n, std::vector<int>(n)), e(n, std::vector<int>(n));
+  std::vector<std::vector<int>> w(n, std::vector<int>(n));
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       std:: cin >> w[i][j];
     }
   }
+  std::vector<std::vector<int>> e(n, std::vector<int>(n));
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       std:: cin >> e[i][j];
@@ -28,22 +29,21 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> f[i];
     for (int j = 0; j < n; ++j) {
-      if (f[i][j] == 'o') {
-        ans += e[i][j];
-      }
+      if (f[i][j] == 'o') ans += e[i][j];
     }
   }
-  WeightedBipartiteMatching<long long> wbm(n, n);
+  WeightedBipartiteMatching<long long> weighted_bipartite_matching(n, n);
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
-      wbm.add_edge(i, j, f[i][j] == 'o' ? e[i][j] : -w[i][j]);
+      weighted_bipartite_matching.add_edge(i, j,
+                                           f[i][j] == 'o' ? e[i][j] : -w[i][j]);
     }
   }
-  std::cout << ans - wbm.solve() << '\n';
+  std::cout << ans - weighted_bipartite_matching.solve() << '\n';
   std::vector<std::string> taro(n, std::string(n, '.'));
-  std::vector<int> match = wbm.matching();
+  const std::vector<int> matching = weighted_bipartite_matching.matching();
   for (int i = 0; i < n; ++i) {
-    taro[i][match[i]] = 'o';
+    taro[i][matching[i]] = 'o';
   }
   std::vector<int> r, c;
   std::vector<std::string> operate;

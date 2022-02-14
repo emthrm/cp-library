@@ -4,18 +4,17 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 
 #include <iostream>
-#include <limits>
 #include "../../../../graph/flow/maximum_flow/ford-fulkerson.hpp"
 
 int main() {
   int v, e;
   std::cin >> v >> e;
-  FordFulkerson<long long> ff(v);
+  FordFulkerson<long long> ford_fulkerson(v);
   while (e--) {
-    int ui, vi, ci;
-    std::cin >> ui >> vi >> ci;
-    ff.add_edge(ui, vi, ci);
+    int u_i, v_i, c_i;
+    std::cin >> u_i >> v_i >> c_i;
+    ford_fulkerson.add_edge(u_i, v_i, c_i);
   }
-  std::cout << ff.maximum_flow(0, v - 1, std::numeric_limits<long long>::max()) << '\n';
+  std::cout << ford_fulkerson.maximum_flow(0, v - 1) << '\n';
   return 0;
 }

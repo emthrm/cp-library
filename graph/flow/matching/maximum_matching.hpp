@@ -10,7 +10,7 @@
 #include "../../../math/matrix/gauss_jordan.hpp"
 #include "../../../util/xorshift.hpp"
 
-int maximum_matching(const std::vector<std::vector<int>> &graph) {
+int maximum_matching(const std::vector<std::vector<int>>& graph) {
   constexpr int P = 1000000007;
   using ModInt = MInt<P>;
   ModInt::set_mod(P);

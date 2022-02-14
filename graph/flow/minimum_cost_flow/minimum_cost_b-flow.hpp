@@ -20,16 +20,18 @@ struct MinimumCostBFlow {
     int dst, rev;
     T cap;
     U cost;
-    Edge(int dst, T cap, U cost, int rev) : dst(dst), cap(cap), cost(cost), rev(rev) {}
+    explicit Edge(const int dst, const T cap, const U cost, const int rev)
+        : dst(dst), cap(cap), cost(cost), rev(rev) {}
   };
 
   const U uinf;
   std::vector<std::vector<Edge>> graph;
 
-  MinimumCostBFlow(int n, const U uinf = std::numeric_limits<U>::max())
-  : n(n), uinf(uinf), graph(n + 2), b(n + 2, 0) {}
+  explicit MinimumCostBFlow(const int n,
+                            const U uinf = std::numeric_limits<U>::max())
+      : uinf(uinf), graph(n + 2), n(n), res(0), b(n + 2, 0) {}
 
-  void add_edge(int src, int dst, T cap, U cost) {
+  void add_edge(int src, int dst, const T cap, U cost) {
     if (cost < 0) {
       b[src] -= cap;
       b[dst] += cap;
@@ -41,10 +43,10 @@ struct MinimumCostBFlow {
     graph[dst].emplace_back(src, 0, -cost, graph[src].size() - 1);
   }
 
-  void supply_or_demand(int ver, T amount) { b[ver] += amount; }
+  void supply_or_demand(const int ver, const T amount) { b[ver] += amount; }
 
   U solve() {
-    assert(std::accumulate(b.begin(), b.end(), T(0)) == 0);
+    assert(std::accumulate(b.begin(), b.end(), static_cast<T>(0)) == 0);
     T flow = 0;
     for (int i = 0; i < n; ++i) {
       if (b[i] > 0) {
@@ -56,19 +58,23 @@ struct MinimumCostBFlow {
     }
     std::vector<int> prev_v(n + 2, -1), prev_e(n + 2, -1);
     std::vector<U> dist(n + 2), potential(n + 2, 0);
-    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U, int>>, std::greater<std::pair<U, int>>> que;
+    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U, int>>,
+                        std::greater<std::pair<U, int>>> que;
     while (flow > 0) {
       std::fill(dist.begin(), dist.end(), uinf);
       dist[n] = 0;
       que.emplace(0, n);
       while (!que.empty()) {
-        U fst; int ver; std::tie(fst, ver) = que.top(); que.pop();
-        if (dist[ver] < fst) continue;
+        U d;
+        int ver;
+        std::tie(d, ver) = que.top();
+        que.pop();
+        if (d > dist[ver]) continue;
         for (int i = 0; i < graph[ver].size(); ++i) {
-          const Edge &e = graph[ver][i];
-          U nx = dist[ver] + e.cost + potential[ver] - potential[e.dst];
-          if (e.cap > 0 && dist[e.dst] > nx) {
-            dist[e.dst] = nx;
+          const Edge& e = graph[ver][i];
+          const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];
+          if (e.cap > 0 && dist[e.dst] > nxt) {
+            dist[e.dst] = nxt;
             prev_v[e.dst] = ver;
             prev_e[e.dst] = i;
             que.emplace(dist[e.dst], e.dst);
@@ -81,12 +87,12 @@ struct MinimumCostBFlow {
       }
       T f = flow;
       for (int v = n + 1; v != n; v = prev_v[v]) {
-        if (graph[prev_v[v]][prev_e[v]].cap < f) f = graph[prev_v[v]][prev_e[v]].cap;
+        f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);
       }
       flow -= f;
       res += potential[n + 1] * f;
       for (int v = n + 1; v != n; v = prev_v[v]) {
-        Edge &e = graph[prev_v[v]][prev_e[v]];
+        Edge& e = graph[prev_v[v]][prev_e[v]];
         e.cap -= f;
         graph[v][e.rev].cap += f;
       }
@@ -94,7 +100,7 @@ struct MinimumCostBFlow {
     return res;
   }
 
-  U solve(int s, int t, T flow) {
+  U solve(const int s, const int t, const T flow) {
     supply_or_demand(s, flow);
     supply_or_demand(t, -flow);
     return solve();
@@ -102,6 +108,6 @@ struct MinimumCostBFlow {
 
 private:
   int n;
-  U res = 0;
+  U res;
   std::vector<T> b;
 };

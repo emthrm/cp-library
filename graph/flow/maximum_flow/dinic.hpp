@@ -5,6 +5,7 @@
 
 #pragma once
 #include <algorithm>
+#include <limits>
 #include <queue>
 #include <vector>
 
@@ -13,50 +14,58 @@ struct Dinic {
   struct Edge {
     int dst, rev;
     T cap;
-    Edge(int dst, T cap, int rev) : dst(dst), cap(cap), rev(rev) {}
+    explicit Edge(const int dst, const T cap, const int rev)
+        : dst(dst), cap(cap), rev(rev) {}
   };
 
   std::vector<std::vector<Edge>> graph;
 
-  Dinic(int n) : graph(n), level(n), itr(n) {}
+  explicit Dinic(const int n) : graph(n), level(n), itr(n) {}
 
-  void add_edge(int src, int dst, T cap) {
+  void add_edge(const int src, const int dst, const T cap) {
     graph[src].emplace_back(dst, cap, graph[dst].size());
     graph[dst].emplace_back(src, 0, graph[src].size() - 1);
   }
 
-  T maximum_flow(int s, int t, T limit) {
+  T maximum_flow(const int s, const int t,
+                 T limit = std::numeric_limits<T>::max()) {
     T res = 0;
-    while (true) {
+    while (limit > 0) {
       std::fill(level.begin(), level.end(), -1);
-      std::queue<int> que;
       level[s] = 0;
+      std::queue<int> que;
       que.emplace(s);
       while (!que.empty()) {
-        int ver = que.front(); que.pop();
-        for (const Edge &e : graph[ver]) {
+        const int ver = que.front();
+        que.pop();
+        for (const Edge& e : graph[ver]) {
           if (level[e.dst] == -1 && e.cap > 0) {
             level[e.dst] = level[ver] + 1;
             que.emplace(e.dst);
           }
         }
       }
-      if (level[t] == -1) return res;
+      if (level[t] == -1) break;
       std::fill(itr.begin(), itr.end(), 0);
-      T f;
-      while ((f = dfs(s, t, limit)) > 0) res += f;
+      while (limit > 0) {
+        const T f = dfs(s, t, limit);
+        if (f == 0) break;
+        limit -= f;
+        res += f;
+      }
     }
+    return res;
   }
 
 private:
   std::vector<int> level, itr;
 
-  T dfs(int ver, int t, T flow) {
+  T dfs(const int ver, const int t, const T flow) {
     if (ver == t) return flow;
     for (; itr[ver] < graph[ver].size(); ++itr[ver]) {
-      Edge &e = graph[ver][itr[ver]];
+      Edge& e = graph[ver][itr[ver]];
       if (level[ver] < level[e.dst] && e.cap > 0) {
-        T tmp = dfs(e.dst, t, std::min(flow, e.cap));
+        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));
         if (tmp > 0) {
           e.cap -= tmp;
           graph[e.dst][e.rev].cap += tmp;

@@ -20,15 +20,21 @@ int main() {
   }
   std::sort(v.begin(), v.end());
   v.erase(std::unique(v.begin(), v.end()), v.end());
-  int m = v.size();
-  MinimumCostSTFlow<int, long long> mcf(n + m + 2);
+  const int m = v.size();
+  for (int i = 0; i < n; ++i) {
+    a[i] = std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), a[i]));
+    b[i] = std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), b[i]));
+  }
+  MinimumCostSTFlow<int, long long> minimum_cost_flow(n + m + 2);
   const int s = n + m, t = n + m + 1;
   for (int i = 0; i < n; ++i) {
-    mcf.add_edge(s, i, 1, 0);
-    mcf.add_edge(i, n + std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), a[i])), 1, -b[i]);
-    mcf.add_edge(i, n + std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), b[i])), 1, -a[i]);
+    minimum_cost_flow.add_edge(s, i, 1, 0);
+    minimum_cost_flow.add_edge(i, n + a[i], 1, -v[b[i]]);
+    minimum_cost_flow.add_edge(i, n + b[i], 1, -v[a[i]]);
   }
-  for (int i = 0; i < m; ++i) mcf.add_edge(n + i, t, 1, 0);
-  std::cout << -mcf.solve(s, t) << '\n';
+  for (int i = 0; i < m; ++i) {
+    minimum_cost_flow.add_edge(n + i, t, 1, 0);
+  }
+  std::cout << -minimum_cost_flow.solve(s, t) << '\n';
   return 0;
 }

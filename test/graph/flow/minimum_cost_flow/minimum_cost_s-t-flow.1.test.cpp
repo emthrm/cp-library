@@ -9,13 +9,13 @@
 int main() {
   int v, e, f;
   std::cin >> v >> e >> f;
-  MinimumCostSTFlow<int, int> mcf(v);
+  MinimumCostSTFlow<int, int> minimum_cost_flow(v);
   while (e--) {
     int u, v, c, d;
     std::cin >> u >> v >> c >> d;
-    mcf.add_edge(u, v, c, d);
+    minimum_cost_flow.add_edge(u, v, c, d);
   }
-  int ans = mcf.solve(0, v - 1, f);
-  std::cout << (ans == mcf.uinf ? -1 : ans) << '\n';
+  const int ans = minimum_cost_flow.solve(0, v - 1, f);
+  std::cout << (ans == minimum_cost_flow.uinf ? -1 : ans) << '\n';
   return 0;
 }
