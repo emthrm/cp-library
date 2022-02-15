@@ -3,7 +3,7 @@ title: 彩色数 (chromatic number)
 documentation_of: graph/chromatic_number.hpp
 ---
 
-隣接するもの同士で同じ色にならないよう頂点を彩色するために必要な最小の色数である．
+隣接頂点間で色が異なるような頂点彩色に必要な最小の色の数である．
 
 
 ## 時間計算量
@@ -28,6 +28,9 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
 
 ## ToDo
 
+- 高速化
+  - https://www.mathenachia.blog/chromatic-fast/
+  - https://atcoder.jp/contests/abc056/editorial/2092
 - 二部グラフの辺彩色
   - https://ei1333.hateblo.jp/entry/2020/08/25/015955
   - https://37zigen.com/noga-alon-edge-coloring-bipartite/

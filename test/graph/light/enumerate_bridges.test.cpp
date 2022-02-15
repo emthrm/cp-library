@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../graph/light/lowlink.hpp"
+#include "../../../graph/light/enumerate_bridges.hpp"
 
 int main() {
   int v, e;
@@ -18,16 +18,16 @@ int main() {
     graph[s].emplace_back(t);
     graph[t].emplace_back(s);
   }
-  Lowlink l(graph);
+  std::vector<std::pair<int, int>> bridges = enumerate_bridges(graph);
   std::sort(
-      l.bridges.begin(), l.bridges.end(),
+      bridges.begin(), bridges.end(),
       [](const std::pair<int, int>& a, const std::pair<int, int>& b) -> bool {
-        int source_a, target_a, source_b, target_b;
+        int source_a, target_a, source_t, target_b;
         std::tie(source_a, target_a) = a;
-        std::tie(source_b, target_b) = b;
-        return source_a != source_b ? source_a < source_b : target_a < target_b;
+        std::tie(source_t, target_b) = b;
+        return source_a != source_t ? source_a < source_t : target_a < target_b;
       });
-  for (const std::pair<int, int>& bridge : l.bridges) {
+  for (const std::pair<int, int>& bridge : bridges) {
     std::cout << bridge.first << ' ' << bridge.second << '\n';
   }
   return 0;

@@ -5,35 +5,42 @@
 
 #pragma once
 #include <algorithm>
+#include <functional>
 #include <limits>
 #include <queue>
 #include <tuple>
 #include <utility>
 #include <vector>
+
 #include "edge.hpp"
 
 template <typename CostType>
-CostType girth_in_directed_graph(const std::vector<std::vector<Edge<CostType>>> &graph,
-                                 const CostType inf = std::numeric_limits<CostType>::max()) {
-  int n = graph.size();
+CostType girth_in_directed_graph(
+    const std::vector<std::vector<Edge<CostType>>>& graph,
+    const CostType inf = std::numeric_limits<CostType>::max()) {
+  const int n = graph.size();
   CostType res = inf;
   std::vector<CostType> dist(n);
-  using Pci = std::pair<CostType, int>;
-  std::priority_queue<Pci, std::vector<Pci>, std::greater<Pci>> que;
+  std::priority_queue<std::pair<CostType, int>,
+                      std::vector<std::pair<CostType, int>>,
+                      std::greater<std::pair<CostType, int>>> que;
   for (int root = 0; root < n; ++root) {
     std::fill(dist.begin(), dist.end(), inf);
     dist[root] = 0;
-    que.emplace(0, root);
+    que.emplace(dist[root], root);
     while (!que.empty()) {
-      CostType cost; int ver; std::tie(cost, ver) = que.top(); que.pop();
-      if (dist[ver] < cost) continue;
-      for (const Edge<CostType> &e : graph[ver]) {
-        CostType cost = dist[ver] + e.cost;
-        if (cost < dist[e.dst]) {
-          dist[e.dst] = cost;
-          que.emplace(cost, e.dst);
+      CostType d;
+      int ver;
+      std::tie(d, ver) = que.top();
+      que.pop();
+      if (d > dist[ver]) continue;
+      for (const Edge<CostType>& e : graph[ver]) {
+        const CostType nxt = dist[ver] + e.cost;
+        if (nxt < dist[e.dst]) {
+          dist[e.dst] = nxt;
+          que.emplace(nxt, e.dst);
         } else if (e.dst == root) {
-          if (cost < res) res = cost;
+          res = std::min(res, nxt);
         }
       }
     }

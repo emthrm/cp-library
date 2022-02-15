@@ -26,18 +26,18 @@ e.g. 任意の閉路長が奇数となるグラフ
 
 $O(\lvert V \rvert + \lvert E \rvert)$
 
-重量版 $O(\lvert V \rvert \log{\lvert V \rvert} + \lvert E \rvert)$ ?
+完全版 $O(\lvert V \rvert \log{\lvert V \rvert} + \lvert E \rvert)$ ?
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BiconnectedComponent(graph, 重量版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える．|[lowlink](lowlink.md)|
+|`BiconnectedComponent(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える．|[lowlink](lowlink.md)|
+|`id[i]`|元のグラフの頂点 $i$ を含むブロック|完全版のみ|
+|`vertices[i]`|縮約後のグラフのブロック $i$ に含まれる頂点|完全版のみ|
+|`cutpoint[i]`|元のグラフの関節点 $i$ を含むブロック|完全版のみ|
 |`block[i]`|縮約後のグラフのブロック $i$ に含まれる辺||
-|`id[i]`|元のグラフの頂点 $i$ を含むブロック|重量版のみ|
-|`vertices[i]`|縮約後のグラフのブロック $i$ に含まれる頂点|重量版のみ|
-|`cutpoint[i]`|元のグラフの関節点 $i$ を含むブロック|重量版のみ|
 
 
 ## 参考

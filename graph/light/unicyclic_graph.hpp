@@ -1,84 +1,92 @@
 #pragma once
+#include <cassert>
+#include <iterator>
 #include <queue>
 #include <vector>
 
 struct UnicyclicGraph {
-  std::vector<int> loop, belong, mp;
   std::vector<bool> is_in_loop;
+  std::vector<int> belong, mapping, loop;
+  std::vector<std::vector<int>> invs;
   std::vector<std::vector<std::vector<int>>> forest;
-  std::vector<std::vector<int>> inv;
 
-  UnicyclicGraph(int n) : n(n), is_in_loop(n, false), belong(n, -1), mp(n, -1), graph(n) {}
+  explicit UnicyclicGraph(const int n)
+      : n(n), is_in_loop(n, false), belong(n, -1), mapping(n, -1), graph(n) {}
 
-  void add_edge(int src_i, int dst_i) {
-    int id = src.size();
-    graph[src_i].emplace_back(id);
-    graph[dst_i].emplace_back(id);
-    src.emplace_back(src_i);
-    dst.emplace_back(dst_i);
+  void add_edge(const int src, const int dst) {
+    const int id = srcs.size();
+    srcs.emplace_back(src);
+    dsts.emplace_back(dst);
+    graph[src].emplace_back(id);
+    if (dst != src) graph[dst].emplace_back(id);
   }
 
   void build() {
     dfs(-1, 0);
-    for (int i = 0; i < n; ++i) {
-      if (is_in_loop[i] && graph[i].size() > 2) {
-        int idx = forest.size();
-        forest.emplace_back(std::vector<std::vector<int>>(1));
-        belong[i] = idx;
-        mp[i] = 0;
-        inv.emplace_back(std::vector<int>{i});
-        std::queue<int> que({i});
-        while (!que.empty()) {
-          int ver = que.front();
-          que.pop();
-          for (int id : graph[ver]) {
-            int to = destination(id, ver);
-            if (belong[to] == -1 && !is_in_loop[to]) {
-              int nx = forest[idx].size();
-              forest[idx].emplace_back();
-              forest[idx][mp[ver]].emplace_back(nx);
-              forest[idx][nx].emplace_back(mp[ver]);
-              belong[to] = idx;
-              mp[to] = nx;
-              inv[idx].emplace_back(to);
-              que.emplace(to);
-            }
+    std::queue<int> que;
+    for (const int root : loop) {
+      const int forest_id = forest.size();
+      belong[root] = forest_id;
+      mapping[root] = 0;
+      std::vector<int> inv{root};
+      std::vector<std::vector<int>> tree(1);
+      que.emplace(root);
+      while (!que.empty()) {
+        const int ver = que.front();
+        que.pop();
+        for (const int id : graph[ver]) {
+          const int dst = destination(id, ver);
+          if (belong[dst] == -1 && !is_in_loop[dst]) {
+            const int idx = tree.size();
+            belong[dst] = forest_id;
+            mapping[dst] = idx;
+            inv.emplace_back(dst);
+            tree[mapping[ver]].emplace_back(idx);
+            tree.emplace_back(std::vector<int>{mapping[ver]});
+            que.emplace(dst);
           }
         }
+      }
+      if (inv.size() == 1) {
+        belong[root] = mapping[root] = -1;
+      } else {
+        invs.emplace_back(inv);
+        forest.emplace_back(tree);
       }
     }
   }
 
 private:
-  int n;
+  const int n;
+  std::vector<int> srcs, dsts;
   std::vector<std::vector<int>> graph;
-  std::vector<int> src, dst;
 
-  int destination(int id, int s) const {
-    return src[id] == s ? dst[id] : src[id];
+  int destination(const int id, const int s) const {
+    return (srcs[id] == s ? dsts : srcs)[id];
   }
 
-  bool dfs(int prev_id, int ver) {
-    loop.emplace_back(ver);
+  bool dfs(const int prev_id, const int ver) {
     is_in_loop[ver] = true;
-    for (int id : graph[ver]) {
-      if (id != prev_id) {
-        int to = destination(id, ver);
-        if (is_in_loop[to]) {
-          for (int i = static_cast<int>(loop.size()) - 2; i >= 0; --i) {
-            if (loop[i] == to) {
-              for (int j = 0; j < i; ++j) is_in_loop[loop[j]] = false;
-              loop.erase(loop.begin(), loop.begin() + i);
-              break;
+    loop.emplace_back(ver);
+    for (const int id : graph[ver]) {
+      if (id == prev_id) continue;
+      const int dst = destination(id, ver);
+      if (is_in_loop[dst]) {
+        for (int i = loop.size() - 1; i >= 0; --i) {
+          if (loop[i] == dst) {
+            for (int j = 0; j < i; ++j) {
+              is_in_loop[loop[j]] = false;
             }
+            loop.erase(loop.begin(), std::next(loop.begin(), i));
+            return true;
           }
-          return true;
         }
-        if (dfs(id, to)) return true;
+        assert(false);
       }
+      if (dfs(id, dst)) return true;
     }
-    is_in_loop[ver] = false;
     loop.pop_back();
+    is_in_loop[ver] = false;
     return false;
   }
 };

@@ -1,12 +1,5 @@
 # 最小全域木 (minimum spanning tree)
 
-無向グラフにおいて辺の総コストが最小となる全域木である．
-
-|アルゴリズム|特徴|
-|:--:|:--:|
-|Prim 法|ある頂点から構築を開始する．|
-|Kruskal 法|コストの昇順に辺を見る．|
-
 
 ## 時間計算量
 
@@ -39,6 +32,7 @@ Kruskal 法
 
 ## ToDo
 
+- https://www.slideshare.net/tmaehara/ss-17402143
 - ブルーフカ法 (Borůvka's algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AB%E6%B3%95
   - http://spinda2.blog48.fc2.com/blog-entry-560.html
@@ -48,9 +42,11 @@ Kruskal 法
   - https://lumakernel.github.io/ecasdqina/graph/boruvka
 - Fibonacchi heap を用いた Prim 法の高速化
   - https://github.com/ei1333/library/blob/master/graph/prim-fibonacchi-heap.cpp
-- ボロノイ図を用いる．
+- Euclidean minimum spanning tree
+  - https://en.wikipedia.org/wiki/Euclidean_minimum_spanning_tree
+  - https://www.slideshare.net/maroonrk/ss-65378126
   - http://tokoharuland.hateblo.jp/entry/2018/04/01/155743
-  - https://github.com/beet-aizu/library/blob/master/tree/voronoiminimumspanningtree.cpp
+  - https://github.com/beet-aizu/library/blob/master/graph/voronoiminimumspanningtree.cpp
 - 最小シュタイナー木
   - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%8A%E3%83%BC%E6%9C%A8
   - https://www.slideshare.net/wata_orz/ss-12131479

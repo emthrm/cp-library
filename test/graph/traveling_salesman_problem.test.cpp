@@ -6,6 +6,7 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+
 #include "../../graph/traveling_salesman_problem.hpp"
 
 int main() {
@@ -18,7 +19,7 @@ int main() {
     std::cin >> s >> t >> d;
     g[s].emplace_back(s, t, d);
   }
-  int ans = traveling_salesman_problem(g, INF);
+  const int ans = traveling_salesman_problem(g, INF);
   std::cout << (ans == INF ? -1 : ans) << '\n';
   return 0;
 }

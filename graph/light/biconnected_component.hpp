@@ -3,20 +3,25 @@
 #include <set>
 #include <utility>
 #include <vector>
+
 #include "lowlink.hpp"
 
 struct BiconnectedComponent : Lowlink {
-  std::vector<std::vector<std::pair<int, int>>> block;
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, cutpoint;
+  std::vector<std::vector<std::pair<int, int>>> block;
 
-  BiconnectedComponent(const std::vector<std::vector<int>> &graph, bool heavy = false) : Lowlink(graph), heavy(heavy) {
-    int n = graph.size();
+  BiconnectedComponent(const std::vector<std::vector<int>>& graph,
+                       const bool is_full_ver = false)
+      : Lowlink(graph), is_full_ver(is_full_ver) {
+    const int n = graph.size();
     id.assign(n, -2);
-    if (heavy) {
+    if (is_full_ver) {
       cutpoint.resize(n);
-      is_ap.assign(n, false);
-      for (int e : this->ap) is_ap[e] = true;
+      is_articulation_point.assign(n, false);
+      for (const int articulation_point : this->articulation_points) {
+        is_articulation_point[articulation_point] = true;
+      }
     }
     for (int i = 0; i < n; ++i) {
       if (id[i] == -2) {
@@ -24,49 +29,55 @@ struct BiconnectedComponent : Lowlink {
         dfs(-1, i);
       }
     }
-    // if (heavy) {
-    //   int sz = vertices.size();
-    //   for (int i = 0; i < sz; ++i) {
-    //     std::sort(block[i].begin(), block[i].end());
-    //     std::sort(vertices[i].begin(), vertices[i].end());
-    //   }
-    //   for (int i = 0; i < n; ++i) std::sort(cutpoint[i].begin(), cutpoint[i].end());
-    // }
+    const int m = vertices.size();
+    for (int i = 0; i < m; ++i) {
+      std::sort(block[i].begin(), block[i].end());
+    }
+    if (is_full_ver) {
+      for (int i = 0; i < m; ++i) {
+        std::sort(vertices[i].begin(), vertices[i].end());
+      }
+      for (int i = 0; i < n; ++i) {
+        std::sort(cutpoint[i].begin(), cutpoint[i].end());
+      }
+    }
   }
 
 private:
-  using P = std::pair<int, int>;
+  const bool is_full_ver;
+  std::vector<bool> is_articulation_point;
+  std::vector<std::pair<int, int>> tmp;
 
-  bool heavy;
-  std::vector<bool> is_ap;
-  std::vector<P> tmp;
-
-  void dfs(int par, int ver) {
-    for (int e : this->graph[ver]) {
+  void dfs(const int par, const int ver) {
+    for (const int e : this->graph[ver]) {
       if (e == par) continue;
-      if (id[e] == -2 || this->order[ver] > this->order[e]) tmp.emplace_back(std::minmax(ver, e));
+      if (id[e] == -2 || this->order[ver] > this->order[e]) {
+        tmp.emplace_back(std::minmax(ver, e));
+      }
       if (id[e] == -2) {
         id[e] = -1;
         dfs(ver, e);
         if (this->order[ver] <= this->lowlink[e]) {
-          int idx = block.size();
+          const int idx = block.size();
           block.emplace_back();
           std::set<int> st;
           while (true) {
-            P pr = tmp.back();
-            block[idx].emplace_back(pr);
-            if (heavy) {
+            const std::pair<int, int> pr = tmp.back();
+            tmp.pop_back();
+            block.back().emplace_back(pr);
+            if (is_full_ver) {
               st.emplace(pr.first);
               st.emplace(pr.second);
             }
-            tmp.pop_back();
-            if (pr.first == std::min(ver, e) && pr.second == std::max(ver, e)) break;
+            if (pr == static_cast<std::pair<int, int>>(std::minmax(ver, e))) {
+              break;
+            }
           }
-          if (heavy) {
+          if (is_full_ver) {
             vertices.emplace_back();
-            for (int el : st) {
-              vertices[idx].emplace_back(el);
-              if (is_ap[el]) {
+            for (const int el : st) {
+              vertices.back().emplace_back(el);
+              if (is_articulation_point[el]) {
                 cutpoint[el].emplace_back(idx);
               } else {
                 id[el] = idx;

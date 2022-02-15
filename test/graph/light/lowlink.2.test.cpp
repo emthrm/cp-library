@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 #include "../../../graph/light/lowlink.hpp"
 
 int main() {
@@ -15,8 +16,11 @@ int main() {
     graph[s].emplace_back(t);
     graph[t].emplace_back(s);
   }
-  Lowlink low(graph);
-  std::sort(low.ap.begin(), low.ap.end());
-  for (int e : low.ap) std::cout << e << '\n';
+  std::vector<int> articulation_points =
+      Lowlink(graph).articulation_points;
+  std::sort(articulation_points.begin(), articulation_points.end());
+  for (const int articulation_point : articulation_points) {
+    std::cout << articulation_point << '\n';
+  }
   return 0;
 }

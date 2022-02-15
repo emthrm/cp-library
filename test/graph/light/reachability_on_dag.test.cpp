@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../../graph/light/reachability_on_dag.hpp"
 
 int main() {
@@ -20,7 +21,7 @@ int main() {
     std::cin >> a[i] >> b[i];
     --a[i]; --b[i];
   }
-  for (const int ans : reachability_on_dag(graph, a, b)) {
+  for (const bool ans : reachability_on_dag(graph, a, b)) {
     std::cout << (ans ? "Yes\n" : "No\n");
   }
   return 0;

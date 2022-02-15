@@ -6,8 +6,9 @@
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "../../graph/girth_in_undirected_graph.hpp"
+
 #include "../../graph/girth_in_directed_graph.hpp"
+#include "../../graph/girth_in_undirected_graph.hpp"
 
 int main() {
   constexpr long long LINF = std::numeric_limits<long long>::max();
@@ -21,7 +22,7 @@ int main() {
       --u; --v;
       edges.emplace_back(u, v, w);
     }
-    long long ans = girth_in_undirected_graph(n, edges, LINF);
+    const long long ans = girth_in_undirected_graph(n, edges, LINF);
     std::cout << (ans == LINF ? -1 : ans) << '\n';
   } else if (t == 1) {
     std::vector<std::vector<Edge<long long>>> graph(n);
@@ -31,7 +32,7 @@ int main() {
       --u; --v;
       graph[u].emplace_back(u, v, w);
     }
-    long long ans = girth_in_directed_graph(graph, LINF);
+    const long long ans = girth_in_directed_graph(graph, LINF);
     std::cout << (ans == LINF ? -1 : ans) << '\n';
   }
   return 0;

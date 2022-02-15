@@ -6,12 +6,14 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../graph/noshi_graph.hpp"
 #include "../../graph/shortest_path/dijkstra.hpp"
 
 int main() {
   int n, q, s;
-  std::cin >> n >> q >> s; --s;
+  std::cin >> n >> q >> s;
+  --s;
   NoshiGraph<long long> graph(n);
   while (q--) {
     int t, v;
@@ -33,8 +35,10 @@ int main() {
       }
     }
   }
-  Dijkstra<long long> dij(graph.graph);
-  std::vector<long long> ans = dij.build(s);
-  for (int i = 0; i < n; ++i) std::cout << (ans[i] == dij.inf ? -1 : ans[i]) << " \n"[i + 1 == n];
+  Dijkstra<long long> dijkstra(graph.graph);
+  const std::vector<long long> ans = dijkstra.build(s);
+  for (int i = 0; i < n; ++i) {
+    std::cout << (ans[i] == dijkstra.inf ? -1 : ans[i]) << " \n"[i + 1 == n];
+  }
   return 0;
 }

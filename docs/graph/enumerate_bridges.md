@@ -13,7 +13,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|
 |:--:|:--:|
-|`detect_bridge(graph)`|無向グラフ $\mathrm{graph}$ の橋|
+|`enumerate_bridges(graph)`|無向グラフ $\mathrm{graph}$ の橋|
 
 
 ## 参考

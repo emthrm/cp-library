@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+
 #include "../../graph/edge.hpp"
 #include "../../graph/lowlink.hpp"
 
@@ -19,8 +20,11 @@ int main() {
     graph[s].emplace_back(s, t);
     graph[t].emplace_back(t, s);
   }
-  Lowlink<bool> low(graph);
-  std::sort(low.ap.begin(), low.ap.end());
-  for (int e : low.ap) std::cout << e << '\n';
+  std::vector<int> articulation_points =
+      Lowlink<bool>(graph).articulation_points;
+  std::sort(articulation_points.begin(), articulation_points.end());
+  for (const int articulation_point : articulation_points) {
+    std::cout << articulation_point << '\n';
+  }
   return 0;
 }

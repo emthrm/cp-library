@@ -2,10 +2,12 @@
 #include <functional>
 #include <vector>
 
-bool is_bipartite(const std::vector<std::vector<int>> &graph, std::vector<int> &color) {
+bool is_bipartite(const std::vector<std::vector<int>>& graph,
+                  std::vector<int>& color) {
   const int n = graph.size();
   color.assign(n, -1);
-  std::function<bool(int, int)> dfs = [&graph, &color, &dfs](const int ver, const int c) -> bool {
+  const std::function<bool(int, int)> dfs = [&graph, &color, &dfs](
+      const int ver, const int c) -> bool {
     color[ver] = c;
     for (const int e : graph[ver]) {
       if (color[e] == c || (color[e] == -1 && !dfs(e, c ^ 1))) return false;

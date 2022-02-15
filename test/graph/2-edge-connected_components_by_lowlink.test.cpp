@@ -6,8 +6,9 @@
 
 #include <iostream>
 #include <vector>
+
+#include "../../graph/2-edge-connected_components_by_lowlink.hpp"
 #include "../../graph/edge.hpp"
-#include "../../graph/2-edge-connected_components_lowlink.hpp"
 #include "../../graph/tree/lowest_common_ancestor_by_doubling.hpp"
 
 int main() {
@@ -21,19 +22,23 @@ int main() {
     graph[x].emplace_back(x, y, 1);
     graph[y].emplace_back(y, x, 1);
   }
-  TwoEdgeConnectedComponents<int> twcc(graph);
-  LowestCommonAncestorByDoubling<int> lca(twcc.comp);
-  lca.build();
+  const TwoEdgeConnectedComponents<int> two_edge_connected_components(graph);
+  LowestCommonAncestorByDoubling<int> lowest_common_ancestor(
+      two_edge_connected_components.g);
+  lowest_common_ancestor.build();
   int q;
   std::cin >> q;
   while (q--) {
     int a, b, c;
     std::cin >> a >> b >> c;
     --a; --b; --c;
-    a = twcc.id[a];
-    b = twcc.id[b];
-    c = twcc.id[c];
-    std::cout << (lca.distance(a, b) + lca.distance(b, c) == lca.distance(a, c) ? "OK\n" : "NG\n");
+    a = two_edge_connected_components.id[a];
+    b = two_edge_connected_components.id[b];
+    c = two_edge_connected_components.id[c];
+    std::cout << (lowest_common_ancestor.distance(a, b) +
+                  lowest_common_ancestor.distance(b, c) ==
+                  lowest_common_ancestor.distance(a, c) ?
+                  "OK\n" : "NG\n");
   }
   return 0;
 }

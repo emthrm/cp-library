@@ -4,53 +4,60 @@
 
 struct StronglyConnectedComponents {
   std::vector<int> id;
-  std::vector<std::vector<int>> vertices, comp;
+  std::vector<std::vector<int>> vertices, g;
 
-  StronglyConnectedComponents(const std::vector<std::vector<int>> &graph, bool heavy = false) : graph(graph), heavy(heavy) {
-    n = graph.size();
-    rev_graph.resize(n);
-    for (int i = 0; i < n; ++i) for (int e : graph[i]) rev_graph[e].emplace_back(i);
-    used.assign(n, false);
+  StronglyConnectedComponents(const std::vector<std::vector<int>>& graph,
+                              const bool is_full_ver = false)
+      : is_full_ver(is_full_ver), n(graph.size()), is_used(n, false),
+        graph(graph), rgraph(n) {
+    order.reserve(n);
+    for (int i = 0; i < n; ++i) {
+      if (!is_used[i]) dfs(i);
+    }
     id.assign(n, -1);
     for (int i = 0; i < n; ++i) {
-      if (!used[i]) dfs(i);
+      for (const int e : graph[i]) rgraph[e].emplace_back(i);
     }
-    int now = 0;
+    int m = 0;
     for (int i = n - 1; i >= 0; --i) {
       if (id[order[i]] == -1) {
-        if (heavy) vertices.emplace_back();
-        rev_dfs(order[i], now++);
+        if (is_full_ver) vertices.emplace_back();
+        rdfs(order[i], m++);
       }
     }
-    comp.resize(now);
-    for (int i = 0; i < n; ++i) for (int e : graph[i]) {
-      if (id[i] != id[e]) comp[id[i]].emplace_back(id[e]);
+    g.resize(m);
+    for (int i = 0; i < n; ++i) {
+      for (const int e : graph[i]) {
+        if (id[i] != id[e]) g[id[i]].emplace_back(id[e]);
+      }
     }
-    // if (heavy) {
-    //   for (int i = 0; i < now; ++i) std::sort(vertices[i].begin(), vertices[i].end());
+    // if (is_full_ver) {
+    //   for (int i = 0; i < m; ++i) {
+    //     std::sort(vertices[i].begin(), vertices[i].end());
+    //   }
     // }
   }
 
 private:
-  bool heavy;
-  int n;
-  std::vector<std::vector<int>> graph, rev_graph;
-  std::vector<bool> used;
+  const bool is_full_ver;
+  const int n;
+  std::vector<bool> is_used;
   std::vector<int> order;
+  std::vector<std::vector<int>> graph, rgraph;
 
-  void dfs(int ver) {
-    used[ver] = true;
-    for (int e : graph[ver]) {
-      if (!used[e]) dfs(e);
+  void dfs(const int ver) {
+    is_used[ver] = true;
+    for (const int e : graph[ver]) {
+      if (!is_used[e]) dfs(e);
     }
     order.emplace_back(ver);
   }
 
-  void rev_dfs(int ver, int now) {
-    id[ver] = now;
-    if (heavy) vertices[now].emplace_back(ver);
-    for (int e : rev_graph[ver]) {
-      if (id[e] == -1) rev_dfs(e, now);
+  void rdfs(const int ver, const int m) {
+    id[ver] = m;
+    if (is_full_ver) vertices.back().emplace_back(ver);
+    for (const int e : rgraph[ver]) {
+      if (id[e] == -1) rdfs(e, m);
     }
   }
 };

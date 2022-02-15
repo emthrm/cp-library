@@ -3,6 +3,7 @@ title: 有向非巡回グラフ上の到達可能性判定
 documentation_of: graph/reachability_on_dag.hpp
 ---
 
+
 ## 時間計算量
 
 ワードサイズを $W$ とおくと $O\left(\frac{Q(\lvert V \rvert + \lvert E \rvert)}{W} \right)$．
@@ -12,7 +13,7 @@ documentation_of: graph/reachability_on_dag.hpp
 
 ||説明|
 |:--:|:--:|
-|`reachability_on_dag(graph, src, dst)`|有向非巡回グラフ $\mathrm{graph}$ 上で頂点 $\mathrm{src}_i$ から頂点 $\mathrm{dst}_i$ に到達できるか．|
+|`reachability_on_dag(graph, ss, ts)`|有向非巡回グラフ $\mathrm{graph}$ 上で頂点 $\mathrm{ss}_i$ から頂点 $\mathrm{ts}_i$ に到達できるか．|
 
 
 ## 参考

@@ -3,17 +3,17 @@ title: lowlink
 documentation_of: graph/lowlink.hpp
 ---
 
-深さ優先探索木 (depth-first search tree) において訪問時刻を $\mathrm{order}$ とおいたとき，後退辺 (back edge) を高々一度通ることで到達可能な頂点の $\mathrm{order}$ の最小値である．
+深さ優先探索木 (depth-first search tree) で訪問時刻を $\mathrm{order}$ とおくと，後退辺 (back edge) を高々一度通ることで到達できる頂点の $\mathrm{order}$ の最小値である．
 
 
 ### 橋 (bridge)
 
-無向グラフ $G = (V, E)$ において，グラフ $(V, E - \lbrace e \rbrace)$ が非連結となる辺 $e$ である．
+無向グラフ $G = (V, E)$ に対して，グラフ $(V, E \setminus \lbrace e \rbrace)$ が非連結となる辺 $e$ である．
 
 
 ### 関節点 (articulation point)
 
-無向グラフ $G = (V, E)$ において，グラフ $(V - \lbrace v \rbrace, E)$ が非連結となる頂点 $v$ である．
+無向グラフ $G = (V, E)$ に対して，グラフ $(V \setminus \lbrace v \rbrace, E)$ が非連結となる頂点 $v$ である．
 
 
 ## 時間計算量
@@ -26,11 +26,11 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`Lowlink<CostType>(graph)`|無向グラフ $\mathrm{graph}$ の lowlink を考える．||
-|`graph`|無向グラフ||
 |`order[i]`|頂点 $i$ の訪問時刻||
 |`lowlink`|lowlink||
-|`ap`|関節点||
-|`bridge`|橋|多重辺に対応していない．|
+|`articulation_points`|関節点の集合||
+|`bridges`|橋の集合|多重辺に対応していない．|
+|`graph`|無向グラフ||
 
 
 ## 参考

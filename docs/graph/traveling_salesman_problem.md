@@ -3,7 +3,7 @@ title: 巡回セールスマン問題 (traveling salesman problem)
 documentation_of: graph/traveling_salesman_problem.hpp
 ---
 
-重み付き有向グラフについてハミルトン閉路の最小コストを求める問題である．
+重み付き有向グラフに対してコスト最小のハミルトン閉路を求める問題である．
 
 
 ## 時間計算量
@@ -15,12 +15,12 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解|存在しない場合は $\infty$ となる．|
+|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト|解が存在しないときは $\infty$ となる．|
 
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）
 
 
 ## ToDo

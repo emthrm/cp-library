@@ -5,8 +5,9 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
-#include "../../../math/modint.hpp"
+
 #include "../../../data_structure/union-find/union-find.hpp"
+#include "../../../math/modint.hpp"
 #include "../../../graph/light/matrix_tree_theorem.hpp"
 
 int main() {
@@ -20,10 +21,10 @@ int main() {
       std::cin >> a[i][j];
     }
   }
-  UnionFind uf(n);
+  UnionFind union_find(n);
   for (int i = 0; i < n; ++i) {
     for (int j = i + 1; j < n; ++j) {
-      if (a[i][j] == 1 && !uf.unite(i, j)) {
+      if (a[i][j] == 1 && !union_find.unite(i, j)) {
         std::cout << 0 << '\n';
         return 0;
       }
@@ -31,13 +32,13 @@ int main() {
   }
   std::vector<int> root;
   for (int i = 0; i < n; ++i) {
-    if (uf.root(i) == i) {
-      root.emplace_back(i);
-    }
+    if (union_find.root(i) == i) root.emplace_back(i);
   }
   std::vector<int> id(n);
   for (int i = 0; i < n; ++i) {
-    id[i] = std::distance(root.begin(), std::lower_bound(root.begin(), root.end(), uf.root(i)));
+    id[i] = std::distance(
+        root.begin(),
+        std::lower_bound(root.begin(), root.end(), union_find.root(i)));
   }
   const int m = root.size();
   std::vector<std::vector<int>> graph(m);

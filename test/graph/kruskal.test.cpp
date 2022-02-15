@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../graph/edge.hpp"
 #include "../../graph/kruskal.hpp"
 

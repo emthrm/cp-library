@@ -15,13 +15,15 @@ $O(\lvert V \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`UnicyclicGraph<CostType>(n)`|頂点数 $n$ の unicyclic graph を考える．||
-|`loop`|閉路||
+|`UnicyclicGraph<CostType>(n)`|頂点数 $N$ の unicyclic graph を考える．||
 |`is_in_loop[i]`|頂点 $i$ は閉路に含まれるか．||
-|`forest`|閉路を除いた森||
-|`belong[i]`|頂点 $i$ を含む木の番号|存在しない場合は $-1$ となる．|
-|`mp[i]`|頂点 $i$ に対応する木の頂点番号|存在しない場合は $-1$ となる．|
-|`inv[i][j]`|木 $i$ の頂点 $j$ に対応する元のグラフの頂点番号||
+|`belong[i]`|頂点 $i$ を含む木の番号|存在しないときは $-1$ となる．|
+|`mapping[i]`|頂点 $i$ に対応する木の頂点番号|存在しないときは $-1$ となる．|
+|`loop`|閉路||
+|`invs[i][j]`|木 $i$ の頂点 $j$ に対応する元のグラフの頂点番号||
+|`forests`|閉路を除いた森||
+|`add_edge(src, dst, cost = 0)`|始点 $\mathrm{src}$，終点 $\mathrm{dst}$，コスト $\mathrm{cost}$ の辺を加える．|||
+|`build()`|構築する．||
 
 
 ## 参考

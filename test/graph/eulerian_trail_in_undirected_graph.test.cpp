@@ -4,6 +4,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/583"
 
 #include <iostream>
+
 #include "../../graph/eulerian_trail_in_undirected_graph.hpp"
 
 int main() {

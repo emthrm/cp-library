@@ -1,50 +1,49 @@
 #pragma once
 #include <algorithm>
 #include <vector>
+
 #include "edge.hpp"
 
 template <typename CostType>
 struct Lowlink {
-  std::vector<std::vector<Edge<CostType>>> graph;
-  std::vector<int> order, lowlink, ap;
-  std::vector<Edge<CostType>> bridge;
+  std::vector<int> order, lowlink, articulation_points;
+  std::vector<Edge<CostType>> bridges;
+  const std::vector<std::vector<Edge<CostType>>> graph;
 
-  Lowlink(const std::vector<std::vector<Edge<CostType>>> &graph) : graph(graph) {
-    int n = graph.size();
+  explicit Lowlink(const std::vector<std::vector<Edge<CostType>>>& graph)
+      : graph(graph) {
+    const int n = graph.size();
     order.assign(n, -1);
     lowlink.resize(n);
-    int tm = 0;
+    int t = 0;
     for (int i = 0; i < n; ++i) {
-      if (order[i] == -1) dfs(-1, i, tm);
+      if (order[i] == -1) dfs(-1, i, &t);
     }
-    // std::sort(ap.begin(), ap.end());
-    // std::sort(bridge.begin(), bridge.end(), [](const Edge<CostType> &a, const Edge<CostType> &b) -> bool {
-    //   return a.src != b.src ? a.src < b.src : a.dst != b.dst ? a.dst < b.dst : a.cost < b.cost;
-    // });
   }
 
 private:
-  void dfs(int par, int ver, int &tm) {
-    order[ver] = lowlink[ver] = tm++;
-    int cnt = 0;
-    bool is_ap = false;
-    for (const Edge<CostType> &e : graph[ver]) {
+  void dfs(const int par, const int ver, int* t) {
+    order[ver] = lowlink[ver] = (*t)++;
+    int num = 0;
+    bool is_articulation_point = false;
+    for (const Edge<CostType>& e : graph[ver]) {
       if (order[e.dst] == -1) {
-        ++cnt;
-        dfs(ver, e.dst, tm);
-        if (lowlink[e.dst] < lowlink[ver]) lowlink[ver] = lowlink[e.dst];
+        ++num;
+        dfs(ver, e.dst, t);
+        lowlink[ver] = std::min(lowlink[ver], lowlink[e.dst]);
         if (order[ver] <= lowlink[e.dst]) {
-          is_ap = true;
-          if (order[ver] < lowlink[e.dst]) bridge.emplace_back(std::min(ver, e.dst), std::max(ver, e.dst), e.cost);
+          is_articulation_point = true;
+          if (order[ver] < lowlink[e.dst]) {
+            bridges.emplace_back(std::min(ver, e.dst), std::max(ver, e.dst),
+                                 e.cost);
+          }
         }
       } else if (e.dst != par) {
-        if (order[e.dst] < lowlink[ver]) lowlink[ver] = order[e.dst];
+        lowlink[ver] = std::min(lowlink[ver], order[e.dst]);
       }
     }
-    if (par == -1) {
-      if (cnt >= 2) ap.emplace_back(ver);
-    } else {
-      if (is_ap) ap.emplace_back(ver);
+    if ((par == -1 && num >= 2) || (par != -1 && is_articulation_point)) {
+      articulation_points.emplace_back(ver);
     }
   }
 };

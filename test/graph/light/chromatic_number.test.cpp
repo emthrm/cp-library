@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../../graph/light/chromatic_number.hpp"
 
 int main() {

@@ -7,26 +7,31 @@
 #include <functional>
 #include <queue>
 #include <vector>
+
 #include "edge.hpp"
 
 template <typename CostType>
-CostType prim(const std::vector<std::vector<Edge<CostType>>> &graph, int root = 0) {
-  int n = graph.size();
-  CostType total = 0;
-  std::vector<bool> visited(n, false);
-  visited[root] = true;
-  std::priority_queue<Edge<CostType>, std::vector<Edge<CostType>>, std::greater<Edge<CostType>>> que;
-  for (const Edge<CostType> &e : graph[root]) {
+CostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,
+              const int root = 0) {
+  const int n = graph.size();
+  CostType res = 0;
+  std::vector<bool> is_visited(n, false);
+  is_visited[root] = true;
+  std::priority_queue<Edge<CostType>,
+                      std::vector<Edge<CostType>>,
+                      std::greater<Edge<CostType>>> que;
+  for (const Edge<CostType>& e : graph[root]) {
     if (e.dst != root) que.emplace(e);
   }
   while (!que.empty()) {
-    Edge<CostType> now = que.top(); que.pop();
-    if (visited[now.dst]) continue;
-    visited[now.dst] = true;
-    total += now.cost;
-    for (const Edge<CostType> &e : graph[now.dst]) {
-      if (!visited[e.dst]) que.emplace(e);
+    const Edge<CostType> e1 = que.top();
+    que.pop();
+    if (is_visited[e1.dst]) continue;
+    is_visited[e1.dst] = true;
+    res += e1.cost;
+    for (const Edge<CostType>& e2 : graph[e1.dst]) {
+      if (!is_visited[e2.dst]) que.emplace(e2);
     }
   }
-  return total;
+  return res;
 }
