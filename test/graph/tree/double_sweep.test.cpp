@@ -6,6 +6,7 @@
 #include <iostream>
 #include <tuple>
 #include <vector>
+
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/double_sweep.hpp"
 
@@ -22,8 +23,10 @@ int main() {
   long long x;
   std::vector<int> u;
   std::tie(x, u) = double_sweep(graph);
-  int y = u.size();
+  const int y = u.size();
   std::cout << x << ' ' << y << '\n';
-  for (int i = 0; i < y; ++i) std::cout << u[i] << " \n"[i + 1 == y];
+  for (int i = 0; i < y; ++i) {
+    std::cout << u[i] << " \n"[i + 1 == y];
+  }
   return 0;
 }

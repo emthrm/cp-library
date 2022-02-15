@@ -8,7 +8,7 @@ documentation_of: graph/tree/double_sweep.hpp
 
 ### 木の直径
 
-木の最遠頂点間の距離である．
+木の最遠頂点間距離である．
 
 
 ## 時間計算量
@@ -20,7 +20,7 @@ $O(\lvert V \rvert)$
 
 ||説明|
 |:--:|:--:|
-|`double_sweep(graph)`|グラフ $\mathrm{graph}$ の直径の長さと直径|
+|`double_sweep(graph)`|グラフ $\mathrm{graph}$ の直径とその経路|
 
 
 ## 参考

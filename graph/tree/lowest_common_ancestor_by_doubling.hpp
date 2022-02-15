@@ -7,6 +7,7 @@
 #include <cassert>
 #include <utility>
 #include <vector>
+
 #include "../edge.hpp"
 
 template <typename CostType>
@@ -14,19 +15,23 @@ struct LowestCommonAncestorByDoubling {
   std::vector<int> depth;
   std::vector<CostType> dist;
 
-  LowestCommonAncestorByDoubling(const std::vector<std::vector<Edge<CostType>>> &graph) : graph(graph) {
-    n = graph.size();
+  explicit LowestCommonAncestorByDoubling(
+      const std::vector<std::vector<Edge<CostType>>>& graph)
+      : is_built(false), n(graph.size()), table_h(1), graph(graph) {
     depth.resize(n);
     dist.resize(n);
     while ((1 << table_h) <= n) ++table_h;
     parent.resize(table_h, std::vector<int>(n));
   }
 
-  void build(int root = 0) {
+  void build(const int root = 0) {
     is_built = true;
     dfs(-1, root, 0, 0);
-    for (int i = 0; i + 1 < table_h; ++i) for (int ver = 0; ver < n; ++ver) {
-      parent[i + 1][ver] = parent[i][ver] == -1 ? -1 : parent[i][parent[i][ver]];
+    for (int i = 0; i + 1 < table_h; ++i) {
+      for (int ver = 0; ver < n; ++ver) {
+        parent[i + 1][ver] =
+            (parent[i][ver] == -1 ? -1 : parent[i][parent[i][ver]]);
+      }
     }
   }
 
@@ -43,26 +48,28 @@ struct LowestCommonAncestorByDoubling {
         v = parent[i][v];
       }
     }
-    return parent[0][u];
+    return parent.front()[u];
   }
 
-  CostType distance(int u, int v) const {
+  CostType distance(const int u, const int v) const {
     assert(is_built);
     return dist[u] + dist[v] - dist[query(u, v)] * 2;
   }
 
 private:
-  bool is_built = false;
-  int n, table_h = 1;
-  std::vector<std::vector<Edge<CostType>>> graph;
+  bool is_built;
+  const int n;
+  int table_h;
   std::vector<std::vector<int>> parent;
+  const std::vector<std::vector<Edge<CostType>>> graph;
 
-  void dfs(int par, int ver, int now_depth, CostType now_dist) {
-    depth[ver] = now_depth;
-    dist[ver] = now_dist;
-    parent[0][ver] = par;
-    for (const Edge<CostType> &e : graph[ver]) {
-      if (e.dst != par) dfs(ver, e.dst, now_depth + 1, now_dist + e.cost);
+  void dfs(const int par, const int ver, const int cur_depth,
+           const CostType cur_dist) {
+    depth[ver] = cur_depth;
+    dist[ver] = cur_dist;
+    parent.front()[ver] = par;
+    for (const Edge<CostType>& e : graph[ver]) {
+      if (e.dst != par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);
     }
   }
 };

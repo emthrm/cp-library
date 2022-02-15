@@ -3,7 +3,7 @@ title: Warshall-Floyd 法
 documentation_of: graph/shortest_path/warshall-floyd.hpp
 ---
 
-任意の2頂点間の最短路を求める全点対最短路問題を解くことができるアルゴリズムである．
+任意の2頂点間の最短路を求める全点対最短路問題を解けるアルゴリズムである．
 
 
 ## 時間計算量
@@ -16,10 +16,10 @@ $O({\lvert V \rvert}^3)$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WarshallFloyd<T>(graph, ∞)`|グラフ $\mathrm{graph}$ の全点対最短路を考える．|隣接行列は $\infty$ で初期化しておかなければならない．|
-|`graph[s][t]`|始点 $s$, 終点 $t$ を結ぶ辺のコストの最小値|存在しないならば $\infty$ となる．|
-|`dist[s][t]`|始点 $s$ から終点 $t$ までの最短距離|到達不可能ならば $\infty$ となる．|
-|`add(src, dst, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 重み $\mathrm{cost}$ の辺をグラフに追加する．|
-|`calc()`|辺をグラフに追加後, 全点対最短路を構築する．||
+|`graph[s][t]`|始点 $s$, 終点 $t$ を結ぶ辺の最小コスト|存在しなければ $\infty$ となる．|
+|`dist[s][t]`|始点 $s$ から終点 $t$ までの最短距離|到達できなければ $\infty$ となる．|
+|`add(src, dst, cost)`|始点 $\mathrm{src}$，終点 $\mathrm{dst}$，重み $\mathrm{cost}$ の辺をグラフに加える．|
+|`calc()`|辺をグラフに追加した後, 全点対最短路を構築する．||
 |`has_negative_cycle()`|グラフが負の閉路をもつか．||
 |`build_path(s, t)`|始点 $s$ から終点 $t$ までの最短路||
 

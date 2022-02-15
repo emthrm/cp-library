@@ -7,16 +7,16 @@
 #include <functional>
 #include <iostream>
 #include <vector>
-#include "../../../math/modint.hpp"
+
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/centroid.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;
-  ModInt::init(n);
   std::vector<std::vector<Edge<bool>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int x, y;
@@ -30,32 +30,34 @@ int main() {
     std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\n';
   } else {
     std::vector<int> subtree(n, 1);
-    std::function<void(int, int)> dfs = [&graph, &subtree, &dfs](int par, int ver) -> void {
-      for (const Edge<bool> &e : graph[ver]) {
-        if (e.dst != par) {
-          dfs(ver, e.dst);
-          subtree[ver] += subtree[e.dst];
-        }
-      }
-    };
-    dfs(-1, centroids[0]);
-    std::vector<int> cnt;
-    for (const Edge<bool> &e : graph[centroids[0]]) {
-      cnt.emplace_back(subtree[e.dst]);
+    const std::function<void(int, int)> dfs =
+        [&graph, &subtree, &dfs](const int par, const int ver) -> void {
+          for (const Edge<bool>& e : graph[ver]) {
+            if (e.dst != par) {
+              dfs(ver, e.dst);
+              subtree[ver] += subtree[e.dst];
+            }
+          }
+        };
+    dfs(-1, centroids.front());
+    std::vector<int> nums;
+    for (const Edge<bool>& e : graph[centroids.front()]) {
+      nums.emplace_back(subtree[e.dst]);
     }
-    const int m = cnt.size();
+    const int m = nums.size();
     std::vector<std::vector<ModInt>> dp(m + 1, std::vector<ModInt>(n + 1, 0));
     dp[0][0] = 1;
     for (int i = 0; i < m; ++i) {
       for (int j = 0; j <= n; ++j) {
-        for (int k = 0; k <= cnt[i] && j + k <= n; ++k) {
-          dp[i + 1][j + k] += dp[i][j] * ModInt::nCk(cnt[i], k) * ModInt::nCk(cnt[i], k) * ModInt::fact(k);
+        for (int k = 0; k <= nums[i] && j + k <= n; ++k) {
+          dp[i + 1][j + k] += dp[i][j] * ModInt::nCk(nums[i], k) *
+                              ModInt::nCk(nums[i], k) * ModInt::fact(k);
         }
       }
     }
     ModInt ans = 0;
     for (int j = 0; j <= n; ++j) {
-      ans += dp[m][j] * (j & 1 ? -1 : 1) * ModInt::fact(n - j);
+      ans += (j & 1 ? -dp[m][j] : dp[m][j]) * ModInt::fact(n - j);
     }
     std::cout << ans << '\n';
   }

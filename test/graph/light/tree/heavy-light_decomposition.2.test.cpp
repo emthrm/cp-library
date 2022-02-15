@@ -18,13 +18,13 @@ int main() {
       graph[c].emplace_back(i);
     }
   }
-  HeavyLightDecomposition hld(graph, 0);
+  HeavyLightDecomposition heavy_light_decomposition(graph, 0);
   int q;
   std::cin >> q;
   while (q--) {
     int u, v;
     std::cin >> u >> v;
-    std::cout << hld.lowest_common_ancestor(u, v) << '\n';
+    std::cout << heavy_light_decomposition.lowest_common_ancestor(u, v) << '\n';
   }
   return 0;
 }

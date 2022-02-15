@@ -17,17 +17,17 @@ $O(\lvert V \rvert)$
 |:--:|:--:|
 |`EulerTour(graph, root = 0)`|根を $\mathrm{root}$ とする木 $\mathrm{graph}$ のオイラーツアーを考える．|
 |`tour`|頂点属性のオイラーツアー|
-|`left[i]`|`tour` において頂点 $i$ が登場するインデックスの最小値|
-|`right[i]`|`tour` において頂点 $i$ が登場するインデックスの最大値|
-|`down[i]`|`cost` において頂点 $i$ に下る辺が登場するインデックス|
-|`up[i]`|`cost` において頂点 $i$ から上る辺が登場するインデックス|
 |`depth[i]`|頂点 `tour[i]` の深さ|
+|`left[i]`|`tour` に頂点 $i$ が現れるインデックスの最小値|
+|`right[i]`|`tour` に頂点 $i$ が現れるインデックスの最大値|
+|`down[i]`|`cost` に頂点 $i$ へ下る辺が現れるインデックス|
+|`up[i]`|`cost` に頂点 $i$ から上る辺が現れるインデックス|
 |`cost`|辺属性のオイラーツアー|
-|`v_update(ver, f)`|頂点 $\mathrm{ver}$ の部分木の頂点に対して $f$ を基に更新する．|
-|`v_query<T>(ver, f)`|頂点 $\mathrm{ver}$ の部分木の頂点における $f$ を基にしたクエリの解|
-|`e_query<T>(u, v, f)`|頂点 $u$ から $v$ へ下る辺における $f$ を基にしたクエリの解|
-|`subtree_e_update(ver, f)`|頂点 $\mathrm{ver}$ の部分木の辺に対して $f$ を基に更新する．|
-|`subtree_e_query<T>(ver, f)`|頂点 $\mathrm{ver}$ の部分木の辺における $f$ を基にしたクエリの解|
+|`update_v(ver, f)`|頂点 $\mathrm{ver}$ の部分木の頂点に対して $f$ を基に更新する．|
+|`query_v<T>(ver, f)`|頂点 $\mathrm{ver}$ の部分木の頂点に対する $f$ を基にしたクエリの解|
+|`query_e<T>(u, v, f)`|頂点 $u$ から $v$ へ下る辺に対する $f$ を基にしたクエリの解|
+|`update_subtree_e(ver, f)`|頂点 $\mathrm{ver}$ の部分木の辺に対して $f$ を基に更新する．|
+|`query_subtree_e<T>(ver, f)`|頂点 $\mathrm{ver}$ の部分木の辺に対する $f$ を基にしたクエリの解|
 
 
 ## 参考

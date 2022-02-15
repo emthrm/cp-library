@@ -3,7 +3,7 @@ title: 重心分解 (centroid decompositon)
 documentation_of: graph/tree/centroid_decomposition.hpp
 ---
 
-重心を基にした木の分解方法の一つである．木の上で分割統治法を行う際に有用である．
+重心を基にした木の分解法の一つである．木上で分割統治法を行うときに有用である．
 
 
 ## 時間計算量
@@ -17,8 +17,8 @@ $O(\lvert V \rvert \log{\lvert V \rvert})$
 |:--:|:--:|:--:|
 |`CentroidDecomposition<CostType>(graph)`|木 $\mathrm{graph}$ の重心分解を考える．||
 |`root`|重心分解した木の根||
-|`comp`|重心分解を行った木||
-|`par[i]`|`comp` における頂点 $i$ の親|存在しない場合は $-1$ となる．|
+|`parent[i]`|`g` における頂点 $i$ の親|存在しないときは $-1$ となる．|
+|`g`|重心分解を行った木||
 
 
 ## 参考

@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../../graph/edge.hpp"
 #include "../../../graph/shortest_path/dijkstra.hpp"
 
@@ -17,15 +18,17 @@ int main() {
     std::cin >> a >> b >> c;
     graph[a].emplace_back(a, b, c);
   }
-  Dijkstra<long long> dij(graph);
-  long long x = dij.build(s)[t];
-  if (x == dij.inf) {
+  Dijkstra<long long> dijkstra(graph);
+  const long long x = dijkstra.build(s)[t];
+  if (x == dijkstra.inf) {
     std::cout << "-1\n";
     return 0;
   }
-  std::vector<int> path = dij.build_path(t);
-  int y = static_cast<int>(path.size()) - 1;
+  const std::vector<int> path = dijkstra.build_path(t);
+  const int y = path.size() - 1;
   std::cout << x << ' ' << y << '\n';
-  for (int i = 0; i < y; ++i) std::cout << path[i] << ' ' << path[i + 1] << '\n';
+  for (int i = 0; i < y; ++i) {
+    std::cout << path[i] << ' ' << path[i + 1] << '\n';
+  }
   return 0;
 }

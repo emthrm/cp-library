@@ -5,9 +5,10 @@
 
 #include <iostream>
 #include <vector>
+
+#include "../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/heavy-light_decomposition.hpp"
-#include "../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {
   int n, q;
@@ -19,21 +20,29 @@ int main() {
     graph[a].emplace_back(a, b, 0);
     graph[b].emplace_back(b, a, 0);
   }
-  HeavyLightDecomposition<long long> hld(graph, 0);
+  HeavyLightDecomposition<long long> heavy_light_decomposition(graph, 0);
   FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
-  auto f = [&bit](int l, int r) -> long long { return bit.sum(l, r); };
-  auto g = [](long long a, long long b) -> long long { return a + b; };
+  const auto f = [&bit](const int l, const int r) -> long long {
+    return bit.sum(l, r);
+  };
+  const auto g = [](const long long a, const long long b) -> long long {
+    return a + b;
+  };
   while (q--) {
-    int query;
-    std::cin >> query;
-    if (query == 0) {
+    int type;
+    std::cin >> type;
+    if (type == 0) {
       int u, v;
       std::cin >> u >> v;
-      std::cout << hld.e_query(u, v, f, g, 0LL) << '\n';
-    } else if (query == 1) {
+      std::cout << heavy_light_decomposition.query_e(u, v, f, g, 0LL) << '\n';
+    } else if (type == 1) {
       int v, x;
       std::cin >> v >> x;
-      hld.subtree_e_update(v, [&bit, x](int l, int r) -> void { return bit.add(l, r, x); });
+      heavy_light_decomposition.update_subtree_e(
+          v,
+          [&bit, x](const int l, const int r) -> void {
+            return bit.add(l, r, x);
+          });
     }
   }
   return 0;

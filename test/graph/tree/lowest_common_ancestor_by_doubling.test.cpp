@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../../graph/edge.hpp"
 #include "../../../graph/tree/lowest_common_ancestor_by_doubling.hpp"
 
@@ -22,14 +23,14 @@ int main() {
       graph[c].emplace_back(c, i, 1);
     }
   }
-  LowestCommonAncestorByDoubling<int> lca(graph);
-  lca.build(0);
+  LowestCommonAncestorByDoubling<int> lowest_common_ancestor(graph);
+  lowest_common_ancestor.build(0);
   int q;
   std::cin >> q;
   while (q--) {
     int u, v;
     std::cin >> u >> v;
-    std::cout << lca.query(u, v) << '\n';
+    std::cout << lowest_common_ancestor.query(u, v) << '\n';
   }
   return 0;
 }
