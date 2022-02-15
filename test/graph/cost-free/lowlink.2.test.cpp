@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/light/lowlink.hpp"
+#include "../../../graph/cost-free/lowlink.hpp"
 
 int main() {
   int v, e;

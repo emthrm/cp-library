@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/light/tree/centroid_decomposition.hpp"
+#include "../../../../graph/cost-free/tree/centroid_decomposition.hpp"
 #include "../../../../math/convolution/fast_fourier_transform.hpp"
 
 int main() {

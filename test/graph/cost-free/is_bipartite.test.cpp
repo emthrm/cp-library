@@ -9,7 +9,7 @@
 #include <vector>
 
 #include "../../../data_structure/union-find/union-find.hpp"
-#include "../../../graph/light/is_bipartite.hpp"
+#include "../../../graph/cost-free/is_bipartite.hpp"
 
 int main() {
   int n, m;

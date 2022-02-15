@@ -15,13 +15,13 @@ struct AhoCorasick : Trie<Sigma + 1> {
 
   std::vector<int> nums;
 
-  void build(const bool is_heavy_ = false) {
-    is_heavy = is_heavy_;
+  void build(const bool is_full_ver_ = false) {
+    is_full_ver = is_full_ver_;
     auto& vertices = this->nodes;
     const int n = vertices.size();
     nums.resize(n);
     for (int i = 0; i < n; ++i) {
-      if (is_heavy) {
+      if (is_full_ver) {
         std::sort(vertices[i].tails.begin(), vertices[i].tails.end());
       }
       nums[i] = vertices[i].tails.size();
@@ -46,7 +46,7 @@ struct AhoCorasick : Trie<Sigma + 1> {
           on_failure = vertices[on_failure].nxt[Sigma];
         }
         vertices[node.nxt[i]].nxt[Sigma] = vertices[on_failure].nxt[i];
-        if (is_heavy) {
+        if (is_full_ver) {
           std::vector<int>& ids = vertices[node.nxt[i]].tails;
           std::vector<int> tmp;
           std::set_union(ids.begin(), ids.end(),
@@ -76,8 +76,8 @@ struct AhoCorasick : Trie<Sigma + 1> {
     return total;
   }
 
-  std::map<int, int> match_heavily(const std::string& t, int pos = 0) const {
-    assert(is_heavy);
+  std::map<int, int> match_fully(const std::string& t, int pos = 0) const {
+    assert(is_full_ver);
     std::map<int, int> mp;
     for (const char c : t) {
       pos = move(c, pos);
@@ -87,5 +87,5 @@ struct AhoCorasick : Trie<Sigma + 1> {
   }
 
 private:
-  bool is_heavy = false;
+  bool is_full_ver = false;
 };

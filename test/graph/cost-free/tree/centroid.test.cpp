@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/light/tree/centroid.hpp"
+#include "../../../../graph/cost-free/tree/centroid.hpp"
 #include "../../../../math/modint.hpp"
 
 int main() {

@@ -1,1 +1,1 @@
-exclude: ["graph/light", "math/fast_divisor.hpp", "test/graph/light", "test/math/fast_divisor.hpp"]
+exclude: ["graph/cost-free", "math/fast_divisor.hpp", "test/graph/cost-free", "test/math/fast_divisor.hpp"]

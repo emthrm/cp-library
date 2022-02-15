@@ -1,9 +1,9 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
+#define PROBLEM "https://judge.yosupo.jp/problem/scc"
 
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/light/2-edge-connected_components_by_imos.hpp"
+#include "../../../graph/cost-free/strongly_connected_components.hpp"
 
 int main() {
   int n, m;
@@ -13,10 +13,9 @@ int main() {
     int a, b;
     std::cin >> a >> b;
     graph[a].emplace_back(b);
-    graph[b].emplace_back(a);
   }
   const std::vector<std::vector<int>> ans =
-      TwoEdgeConnectedComponentsByImos(graph, true).vertices;
+      StronglyConnectedComponents(graph, true).vertices;
   const int k = ans.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../graph/light/enumerate_bridges.hpp"
+#include "../../../graph/cost-free/enumerate_bridges.hpp"
 
 int main() {
   int v, e;

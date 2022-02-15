@@ -17,10 +17,10 @@ documentation_of: string/aho-corasick.hpp
 |:--:|:--:|:--:|
 |`AhoCorasick<σ = 26>(convert)`|エイホ-コラシック法を考える．||
 |`nums[i]`|$i$番目のノードが保有する文字列の数||
-|`build(重量版か? = false)`|オートマトンを構築する．||
+|`build(完全版か? = false)`|オートマトンを構築する．||
 |`move(c, pos)`|$\mathrm{pos}$ 番目のノードを起点としたときに文字 $c$ と対応するノードのインデックス||
 |`match(t, pos = 0)`|$\mathrm{pos}$ 番目のノードを起点としたときに文字列 $T$ とマッチした回数||
-|`match_heavily(t, pos = 0)`|$\mathrm{pos}$ 番目のノードを起点としたとき，文字列 $T$ と追加したそれぞれの文字列がマッチした回数|重量版のみ|
+|`match_fully(t, pos = 0)`|$\mathrm{pos}$ 番目のノードを起点としたとき，文字列 $T$ と追加したそれぞれの文字列がマッチした回数|完全版のみ|
 
 
 ## 参考

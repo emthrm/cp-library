@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "../../../../data_structure/lazy_segment_tree.hpp"
-#include "../../../../graph/light/tree/lowest_common_ancestor_by_euler_tour.hpp"
+#include "../../../../graph/cost-free/tree/lowest_common_ancestor_by_euler_tour.hpp"
 
 int main() {
   int n, q;

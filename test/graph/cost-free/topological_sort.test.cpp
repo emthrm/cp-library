@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/light/topological_sort.hpp"
+#include "../../../graph/cost-free/topological_sort.hpp"
 
 int main() {
   int v, e;

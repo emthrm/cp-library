@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "../../../graph/light/eulerian_trail_in_directed_graph.hpp"
+#include "../../../graph/cost-free/eulerian_trail_in_directed_graph.hpp"
 
 int main() {
   constexpr int SIGMA = 26;
