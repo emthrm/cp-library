@@ -7,7 +7,7 @@ std::vector<int> centroid(const std::vector<std::vector<int>>& graph) {
   const int n = graph.size();
   std::vector<int> subtree(n, 1), res;
   const std::function<void(int, int)> dfs =
-      [&graph, n, &subtree, &res, &dfs](const int par, const int ver) {
+      [&graph, n, &subtree, &res, &dfs](const int par, const int ver) -> void {
         bool is_centroid = true;
         for (const int e : graph[ver]) {
           if (e != par) {

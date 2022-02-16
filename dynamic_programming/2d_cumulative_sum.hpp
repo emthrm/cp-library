@@ -40,7 +40,8 @@ struct CumulativeSum2D {
 
   T query(const int y1, const int x1, const int y2, const int x2) const {
     assert(is_built);
-    return y1 <= y2 && x1 <= x2 ? data[y2 + 1][x2 + 1] - data[y2 + 1][x1] - data[y1][x2 + 1] + data[y1][x1] : 0;
+    return y1 > y2 || x1 > x2 ? 0 : data[y2 + 1][x2 + 1] - data[y2 + 1][x1]
+                                    - data[y1][x2 + 1] + data[y1][x1];
   }
 
  private:

@@ -31,8 +31,8 @@ Circle smallest_enclosing_circle(std::vector<Point> ps) {
         const double a = (ps[i] - ps[j]).norm(), b = (ps[k] - ps[i]).norm();
         const double c = (ps[j] - ps[k]).norm();
         const double s = cross(ps[i] - ps[k], ps[j] - ps[k]);
-        const Point p = (ps[k] * a * (b + c - a) + ps[j] * b * (c + a - b) +
-                         ps[i] * c * (a + b - c)) / (4 * s * s);
+        const Point p = (ps[k] * a * (b + c - a) + ps[j] * b * (c + a - b)
+                         + ps[i] * c * (a + b - c)) / (4 * s * s);
         res = Circle(p, distance(ps[k], p));
       }
     }

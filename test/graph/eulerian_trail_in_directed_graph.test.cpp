@@ -26,8 +26,8 @@ int main() {
     }
     const std::vector<Edge<bool>> trail =
         eulerian_trail_in_directed_graph(graph);
-    std::cout << (!trail.empty() &&
-                  trail.front().src == trail.back().dst ? "OK\n" : "NG\n");
+    std::cout << (!trail.empty() && trail.front().src == trail.back().dst ?
+                  "OK\n" : "NG\n");
   }
   return 0;
 }

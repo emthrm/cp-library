@@ -47,7 +47,9 @@ struct RollingHash {
   int longest_common_prefix(const RollingHash<U>& t,
                             const int i, const int j) const {
     int lb = 0;
-    int ub = std::min(static_cast<int>(s.size()) - i, static_cast<int>(t.str.size()) - j) + 1;
+    int ub = std::min(static_cast<int>(s.size()) - i,
+                      static_cast<int>(t.str.size()) - j)
+             + 1;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
       (get(i, i + mid) == t.get(j, j + mid) ? lb : ub) = mid;

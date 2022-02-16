@@ -32,7 +32,8 @@ struct Manacher {
 
   bool is_palindrome(const int left, const int right) const {
     const int mid = (left + right - 1) / 2;
-    return ((right - left) & 1 ? odd(mid) * 2 - 1 : even(mid) * 2) >= right - left;
+    return ((right - left) & 1 ? odd(mid) * 2 - 1 : even(mid) * 2)
+           >= right - left;
   }
 
  private:

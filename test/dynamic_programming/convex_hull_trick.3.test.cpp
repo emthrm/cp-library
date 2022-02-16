@@ -23,8 +23,8 @@ int main() {
                         static_cast<long long>(h.front()) * h.front());
   for (int i = 1; i < n; ++i) {
     const long long dp =
-        convex_hull_trick.monotonically_decreasing_query(h[i]) +
-        static_cast<long long>(h[i]) * h[i] + c;
+        convex_hull_trick.monotonically_decreasing_query(h[i])
+        + static_cast<long long>(h[i]) * h[i] + c;
     if (i + 1 == n) {
       std::cout << dp << '\n';
     } else {

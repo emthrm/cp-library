@@ -46,8 +46,8 @@ int main() {
     for (int i = 0; i < m; ++i) {
       for (int j = 0; j <= n; ++j) {
         for (int k = 0; k <= nums[i] && j + k <= n; ++k) {
-          dp[i + 1][j + k] += dp[i][j] * ModInt::nCk(nums[i], k) *
-                              ModInt::nCk(nums[i], k) * ModInt::fact(k);
+          dp[i + 1][j + k] += dp[i][j] * ModInt::nCk(nums[i], k)
+                              * ModInt::nCk(nums[i], k) * ModInt::fact(k);
         }
       }
     }

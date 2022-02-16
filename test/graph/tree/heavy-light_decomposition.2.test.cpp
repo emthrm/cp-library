@@ -23,7 +23,7 @@ int main() {
       graph[c].emplace_back(c, i, 1);
     }
   }
-  HeavyLightDecomposition<int> heavy_light_decomposition(graph, 0);
+  const HeavyLightDecomposition<int> heavy_light_decomposition(graph, 0);
   int q;
   std::cin >> q;
   while (q--) {

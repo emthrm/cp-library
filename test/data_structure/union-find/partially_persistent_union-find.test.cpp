@@ -26,7 +26,8 @@ int main() {
     int lb = 0, ub = m;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
-      (union_find.size(mid, x) + (union_find.is_same(mid, x, y) ? 0 : union_find.size(mid, y)) >= z ? ub : lb) = mid;
+      (union_find.size(mid, x) + (union_find.is_same(mid, x, y) ?
+       0 : union_find.size(mid, y)) >= z ? ub : lb) = mid;
     }
     std::cout << lb + 1 << '\n';
   }

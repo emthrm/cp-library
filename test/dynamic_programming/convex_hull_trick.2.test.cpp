@@ -18,8 +18,8 @@ int main() {
     if (i == 0) {
       convex_hull_trick.add(-2 * h, static_cast<long long>(h) * h);
     } else {
-      const long long dp = convex_hull_trick.monotonically_increasing_query(h) +
-                           static_cast<long long>(h) * h + c;
+      const long long dp = convex_hull_trick.monotonically_increasing_query(h)
+                           + static_cast<long long>(h) * h + c;
       if (i + 1 == n) {
         std::cout << dp << '\n';
       } else {

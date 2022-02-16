@@ -21,8 +21,8 @@ int main() {
   while (q--) {
     geometry::Point p1, p2;
     std::cin >> p1 >> p2;
-    std::cout << std::fixed << std::setprecision(6) <<
-                 geometry::area(
+    std::cout << std::fixed << std::setprecision(6)
+              << geometry::area(
                      geometry::cut_convex(g, geometry::Line(p1, p2)))
               << '\n';
   }

@@ -50,8 +50,8 @@ int main() {
       int u, v;
       std::cin >> u >> v;
       const int lca = lowest_common_ancestor.query(u, v);
-      std::cout << lowest_common_ancestor.query_e<long long>(lca, u, fn) +
-                   lowest_common_ancestor.query_e<long long>(lca, v, fn)
+      std::cout << lowest_common_ancestor.query_e<long long>(lca, u, fn)
+                   + lowest_common_ancestor.query_e<long long>(lca, v, fn)
                 << '\n';
     } else if (type == 1) {
       int v, x;

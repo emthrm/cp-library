@@ -60,7 +60,8 @@ struct LiChaoTree {
   }
 
   T query(const T x) const {
-    int node = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(), x)) + n;
+    int node = n + std::distance(xs.begin(),
+                                 std::lower_bound(xs.begin(), xs.end(), x));
     T res = dat[node].f(x);
     while (node >>= 1) {
       if (dat[node].f(x) < res) res = dat[node].f(x);

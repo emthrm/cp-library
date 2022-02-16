@@ -68,8 +68,8 @@ struct FenwickTree2DSupportingRangeAddQuery {
   }
 
   Abelian sum(const int y1, const int x1, const int y2, const int x2) const {
-    return y1 > y2 || x1 > x2 ? ID :
-        sum(y2, x2) - sum(y2, x1 - 1) - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1);
+    return y1 > y2 || x1 > x2 ? ID : sum(y2, x2) - sum(y2, x1 - 1)
+                                     - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1);
   }
 
  private:

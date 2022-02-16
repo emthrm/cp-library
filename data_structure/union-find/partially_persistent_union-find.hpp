@@ -35,7 +35,9 @@ struct PartiallyPersistentUnionFind {
 
   int size(const int t, int ver) const {
     ver = root(t, ver);
-    return -std::prev(std::lower_bound(history[ver].begin(), history[ver].end(), std::make_pair(t, 0)))->second;
+    return -std::prev(std::lower_bound(history[ver].begin(),
+                                       history[ver].end(),
+                                       std::make_pair(t, 0)))->second;
   }
 
  private:

@@ -23,9 +23,8 @@ int main() {
     graph[y].emplace_back(y, x, 1);
   }
   const TwoEdgeConnectedComponents<int> two_edge_connected_components(graph);
-  LowestCommonAncestorByDoubling<int> lowest_common_ancestor(
-      two_edge_connected_components.g);
-  lowest_common_ancestor.build();
+  LowestCommonAncestorByDoubling<int> lca(two_edge_connected_components.g);
+  lca.build();
   int q;
   std::cin >> q;
   while (q--) {
@@ -35,10 +34,11 @@ int main() {
     a = two_edge_connected_components.id[a];
     b = two_edge_connected_components.id[b];
     c = two_edge_connected_components.id[c];
-    std::cout << (lowest_common_ancestor.distance(a, b) +
-                  lowest_common_ancestor.distance(b, c) ==
-                  lowest_common_ancestor.distance(a, c) ?
-                  "OK\n" : "NG\n");
+    if (lca.distance(a, b) + lca.distance(b, c) == lca.distance(a, c)) {
+      std::cout << "OK\n";
+    } else {
+      std::cout << "NG\n";
+    }
   }
   return 0;
 }
