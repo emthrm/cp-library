@@ -8,30 +8,29 @@
 #include <vector>
 
 template <typename T>
-std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {
+std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b,
+                               const T id = 0) {
   int n = std::max(a.size(), b.size()), p = 1;
-  while ((1 << p) < n) {
-    ++p;
-  }
+  while ((1 << p) < n) ++p;
   n = 1 << p;
-  a.resize(n, ID);
-  b.resize(n, ID);
-  auto fwht = [n](std::vector<T> &v) -> void {
+  const auto fast_walsh_hadamard_transform = [n](std::vector<T>* v) -> void {
     for (int i = 1; i < n; i <<= 1) {
       for (int s = 0; s < n; ++s) {
         if (s & i) continue;
-        T tmp1 = v[s], tmp2 = v[s | i];
-        v[s] = tmp1 + tmp2;
-        v[s | i] = tmp1 - tmp2;
+        const T tmp1 = (*v)[s], tmp2 = (*v)[s | i];
+        (*v)[s] = tmp1 + tmp2;
+        (*v)[s | i] = tmp1 - tmp2;
       }
     }
   };
-  fwht(a);
-  fwht(b);
+  a.resize(n, id);
+  fast_walsh_hadamard_transform(&a);
+  b.resize(n, id);
+  fast_walsh_hadamard_transform(&b);
   for (int i = 0; i < n; ++i) {
     a[i] *= b[i];
   }
-  fwht(a);
+  fast_walsh_hadamard_transform(&a);
   for (int i = 0; i < n; ++i) {
     a[i] /= n;
   }

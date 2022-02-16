@@ -27,9 +27,9 @@ $O(N\log{N})$
 |`butterfly`|バタフライ演算用の配列|
 |`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$|
 |`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う．|
-|`dft(a)`|複素数列 $A$ に対して離散フーリエ変換を行う．|
+|`dft(&a)`|複素数列 $A$ に対して離散フーリエ変換を行う．|
 |`real_dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
-|`idft(a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．|
+|`idft(&a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．|
 |`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み|
 
 
@@ -37,37 +37,37 @@ $O(N\log{N})$
 
 実数列 $a$ と $b$ の畳み込み $c$ を考える．
 
-複素数列 $p_i = a_i + b_i \sqrt{-1} \ (0 \leq i < N = 2^e,\ e \in \mathbb{N})$ に離散フーリエ変換を行うと，対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に関して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる．
+複素数列 $p_i = a_i + b_i \sqrt{-1}$ ($0 \leq i < N = 2^e,\ e \in \mathbb{N}$) に離散フーリエ変換を行うと，対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に対して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる．
 
 $\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ．すなわち
 
-$$\overline{P_i} = \begin{cases} A_0 - B_0 \sqrt{-1} & (N = 0) \\ A_{N - i} - B_{N - i} \sqrt{-1} & (1 \leq i < N) \end{cases}$$
+$$\overline{P_i} = \begin{cases} A_0 - B_0 \sqrt{-1} & (N = 0), \\ A_{N - i} - B_{N - i} \sqrt{-1} & (1 \leq i < N) \end{cases}$$
 
-が成り立つ．$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}} \ (1 \leq i < N)$ より
+が成り立つ．$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}}$ ($1 \leq i < N$) より
 
-$$A_i = \begin{cases} \dfrac{P_0 + \overline{P_0}}{2} & (i = 0) \\ \dfrac{P_i + \overline{P_{N - i}}}{2} & (1 \leq i < N) \end{cases}$$
+$$A_i = \begin{cases} \dfrac{P_0 + \overline{P_0}}{2} & (i = 0), \\ \dfrac{P_i + \overline{P_{N - i}}}{2} & (1 \leq i < N), \end{cases}$$
 
-$$B_i = \begin{cases} \dfrac{P_0 - \overline{P_0}}{2 \sqrt{-1}} & (i = 0) \\ \dfrac{P_i - \overline{P_{N - i}}}{2 \sqrt{-1}} & (1 \leq i < N) \end{cases}$$
+$$B_i = \begin{cases} \dfrac{P_0 - \overline{P_0}}{2 \sqrt{-1}} & (i = 0), \\ \dfrac{P_i - \overline{P_{N - i}}}{2 \sqrt{-1}} & (1 \leq i < N) \end{cases}$$
 
 となる．$C_i = A_i B_i$ より
 
-$$C_i = \begin{cases} \dfrac{P_0^2 - \overline{P_0}^2}{4 \sqrt{-1}} = \Re(P_0) \Im(P_0) & (i = 0) \\ \dfrac{P_i^2 - \overline{P_{N - i}}^2}{4 \sqrt{-1}} = (\overline{P_{N - i}^2} - P_i^2)\dfrac{\sqrt{-1}}{4} & (1 \leq i < N) \end{cases}$$
+$$C_i = \begin{cases} \dfrac{P_0^2 - \overline{P_0}^2}{4 \sqrt{-1}} = \Re(P_0) \Im(P_0) & (i = 0), \\ \dfrac{P_i^2 - \overline{P_{N - i}}^2}{4 \sqrt{-1}} = (\overline{P_{N - i}^2} - P_i^2)\dfrac{\sqrt{-1}}{4} & (1 \leq i < N) \end{cases}$$
 
-と変形できる．ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うとすると
+と変形できる．ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うと
 
-$$C_i = \begin{cases} \Re(D_0) + \Im(D_0) & (i = 0) \\ D_i - (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
+$$C_i = \begin{cases} \Re(D_0) + \Im(D_0) & (i = 0), \\ D_i - (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}), \end{cases}$$
 
-$$\overline{C_{\frac{N}{2} - i}} = \begin{cases} \Re(D_0) - \Im(D_0) & (i = 0) \\ \overline{D_{\frac{N}{2} - i}} + (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
+$$\overline{C_{\frac{N}{2} - i}} = \begin{cases} \Re(D_0) - \Im(D_0) & (i = 0), \\ \overline{D_{\frac{N}{2} - i}} + (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
 
 となる．変形すると
 
-- $i = 0$ において
+- $i = 0$ に対して
 
-$$D_0 = \frac{(C_0 + \overline{C_{\frac{N}{2}}}) + (C_0 - \overline{C_{\frac{N}{2}}}) \sqrt{-1}}{2} = \frac{(C_0 + C_{\frac{N}{2}}) + (C_0 - C_{\frac{N}{2}}) \sqrt{-1}}{2} \text{，}$$
+$$D_0 = \frac{(C_0 + \overline{C_{\frac{N}{2}}}) + (C_0 - \overline{C_{\frac{N}{2}}}) \sqrt{-1}}{2} = \frac{(C_0 + C_{\frac{N}{2}}) + (C_0 - C_{\frac{N}{2}}) \sqrt{-1}}{2},$$
 
-- $1 \leq i \leq \frac{N}{4}$ において
+- $1 \leq i \leq \frac{N}{4}$ に対して
 
-$$\begin{split} D_i &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \text{，} \\ \overline{D_{\frac{N}{2} - i}} &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \end{split}$$
+$$\begin{split} D_i &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2}, \\ \overline{D_{\frac{N}{2} - i}} &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \end{split}$$
 
 となる．$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい．
 
@@ -106,6 +106,8 @@ $$\begin{split} D_i &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \ov
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
   - https://judge.yosupo.jp/problem/multivariate_convolution
+  - https://nyaannyaan.github.io/library/ntt/multivariate-multiplication.hpp
+  - https://yukicoder.me/problems/no/1783
 - 表現論上の高速フーリエ変換
   - https://hackmd.io/@koboshi/rJpHiXa-O
 

@@ -6,8 +6,10 @@
 #pragma once
 #include <algorithm>
 #include <cassert>
+#include <iterator>
 #include <utility>
 #include <vector>
+
 #include "../modint.hpp"
 
 template <int T>
@@ -18,7 +20,7 @@ struct NumberTheoreticTransform {
     for (int i = 0; i < 23; ++i) {
       if (primes[i][0] == ModInt::get_mod()) {
         n_max = 1 << primes[i][2];
-        root = ModInt(primes[i][1]).pow((ModInt::get_mod() - 1) >> primes[i][2]);
+        root = ModInt(primes[i][1]).pow((primes[i][0] - 1) >> primes[i][2]);
         return;
       }
     }
@@ -26,44 +28,50 @@ struct NumberTheoreticTransform {
   }
 
   template <typename U>
-  std::vector<ModInt> dft(const std::vector<U> &a) {
+  std::vector<ModInt> dft(const std::vector<U>& a) {
     const int n = a.size();
     int lg = 1;
     while ((1 << lg) < n) ++lg;
-    std::vector<ModInt> A(1 << lg, 0);
-    for (int i = 0; i < n; ++i) A[i] = a[i];
-    calc(A);
-    return A;
+    std::vector<ModInt> b(1 << lg, 0);
+    std::copy(a.begin(), a.end(), b.begin());
+    calc(&b);
+    return b;
   }
 
-  void idft(std::vector<ModInt> &a) {
-    const int n = a.size();
+  void idft(std::vector<ModInt>* a) {
+    const int n = a->size();
     assert(__builtin_popcount(n) == 1);
     calc(a);
-    std::reverse(a.begin() + 1, a.end());
-    ModInt inv_n = ModInt::inv(n);
-    for (int i = 0; i < n; ++i) a[i] *= inv_n;
+    std::reverse(std::next(a->begin()), a->end());
+    const ModInt inv_n = ModInt::inv(n);
+    for (int i = 0; i < n; ++i) {
+      (*a)[i] *= inv_n;
+    }
   }
 
   template <typename U>
-  std::vector<ModInt> convolution(const std::vector<U> &a, const std::vector<U> &b) {
-    const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
+  std::vector<ModInt> convolution(const std::vector<U>& a,
+                                  const std::vector<U>& b) {
+    const int a_size = a.size(), b_size = b.size();
+    const int c_size = a_size + b_size - 1;
     int lg = 1;
     while ((1 << lg) < c_size) ++lg;
     const int n = 1 << lg;
-    std::vector<ModInt> A(n, 0), B(n, 0);
-    for (int i = 0; i < a_size; ++i) A[i] = a[i];
-    for (int i = 0; i < b_size; ++i) B[i] = b[i];
-    calc(A);
-    calc(B);
-    for (int i = 0; i < n; ++i) A[i] *= B[i];
-    idft(A);
-    A.resize(c_size);
-    return A;
+    std::vector<ModInt> c(n, 0), d(n, 0);
+    std::copy(a.begin(), a.end(), c.begin());
+    calc(&c);
+    std::copy(b.begin(), b.end(), d.begin());
+    calc(&d);
+    for (int i = 0; i < n; ++i) {
+      c[i] *= d[i];
+    }
+    idft(&c);
+    c.resize(c_size);
+    return c;
   }
 
-private:
-  int primes[23][3]{
+ private:
+  const int primes[23][3]{
     {16957441, 329, 14},
     {17006593, 26, 15},
     {19529729, 770, 17},
@@ -94,18 +102,22 @@ private:
   std::vector<int> butterfly{0};
   std::vector<std::vector<ModInt>> omega{{1}};
 
-  void calc(std::vector<ModInt> &a) {
-    const int n = a.size(), prev_n = butterfly.size();
+  void calc(std::vector<ModInt>* a) {
+    const int n = a->size(), prev_n = butterfly.size();
     if (n > prev_n) {
       assert(n <= n_max);
       butterfly.resize(n);
-      const int prev = omega.size(), lg = __builtin_ctz(n);
-      for (int i = 1; i < prev_n; ++i) butterfly[i] <<= lg - prev;
-      for (int i = prev_n; i < n; ++i) butterfly[i] = (butterfly[i >> 1] >> 1) | ((i & 1) << (lg - 1));
+      const int prev_lg = omega.size(), lg = __builtin_ctz(n);
+      for (int i = 1; i < prev_n; ++i) {
+        butterfly[i] <<= lg - prev_lg;
+      }
+      for (int i = prev_n; i < n; ++i) {
+        butterfly[i] = (butterfly[i >> 1] >> 1) | ((i & 1) << (lg - 1));
+      }
       omega.resize(lg);
-      for (int i = prev; i < lg; ++i) {
+      for (int i = prev_lg; i < lg; ++i) {
         omega[i].resize(1 << i);
-        ModInt tmp = root.pow((ModInt::get_mod() - 1) / (1 << (i + 1)));
+        const ModInt tmp = root.pow((ModInt::get_mod() - 1) >> (i + 1));
         for (int j = 0; j < (1 << (i - 1)); ++j) {
           omega[i][j << 1] = omega[i - 1][j];
           omega[i][(j << 1) + 1] = omega[i - 1][j] * tmp;
@@ -115,13 +127,15 @@ private:
     const int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);
     for (int i = 0; i < n; ++i) {
       const int j = butterfly[i] >> shift;
-      if (i < j) std::swap(a[i], a[j]);
+      if (i < j) std::swap((*a)[i], (*a)[j]);
     }
     for (int block = 1, den = 0; block < n; block <<= 1, ++den) {
-      for (int i = 0; i < n; i += (block << 1)) for (int j = 0; j < block; ++j) {
-        ModInt tmp = a[i + j + block] * omega[den][j];
-        a[i + j + block] = a[i + j] - tmp;
-        a[i + j] += tmp;
+      for (int i = 0; i < n; i += (block << 1)) {
+        for (int j = 0; j < block; ++j) {
+          const ModInt tmp = (*a)[i + j + block] * omega[den][j];
+          (*a)[i + j + block] = (*a)[i + j] - tmp;
+          (*a)[i + j] += tmp;
+        }
       }
     }
   }

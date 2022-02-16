@@ -6,8 +6,9 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../math/modint.hpp"
+
 #include "../../../math/convolution/mod_convolution.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
@@ -15,8 +16,12 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<ModInt> a(n + 1, 0), b(n + 1, 0);
-  for (int i = 1; i <= n; ++i) std::cin >> a[i] >> b[i];
-  std::vector<ModInt> ans = mod_convolution(a, b);
-  for (int i = 1; i <= n * 2; ++i) std::cout << ans[i] << '\n';
+  for (int i = 1; i <= n; ++i) {
+    std::cin >> a[i] >> b[i];
+  }
+  const std::vector<ModInt> ans = mod_convolution(a, b);
+  for (int i = 1; i <= n * 2; ++i) {
+    std::cout << ans[i] << '\n';
+  }
   return 0;
 }

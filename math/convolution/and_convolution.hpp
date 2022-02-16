@@ -6,16 +6,21 @@
 #pragma once
 #include <algorithm>
 #include <vector>
-#include "fast_zeta_transform.hpp"
+
 #include "fast_mobius_transform.hpp"
+#include "fast_zeta_transform.hpp"
 
 template <typename T>
-std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {
+std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b,
+                               const T id = 0) {
   int n = std::max(a.size(), b.size());
-  a.resize(n, ID);
-  b.resize(n, ID);
-  std::vector<T> fzt_a = fast_zeta_transform(a, true, ID), fzt_b = fast_zeta_transform(b, true, ID);
-  n = fzt_a.size();
-  for (int i = 0; i < n; ++i) fzt_a[i] *= fzt_b[i];
-  return fast_mobius_transform(fzt_a, true);
+  a.resize(n, id);
+  b.resize(n, id);
+  a = fast_zeta_transform(a, true, id);
+  b = fast_zeta_transform(b, true, id);
+  n = a.size();
+  for (int i = 0; i < n; ++i) {
+    a[i] *= b[i];
+  }
+  return fast_mobius_transform(a, true);
 }

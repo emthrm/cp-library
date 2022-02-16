@@ -5,8 +5,9 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../math/modint.hpp"
+
 #include "../../../math/convolution/xor_convolution.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

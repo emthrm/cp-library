@@ -8,11 +8,11 @@ documentation_of: math/modint.hpp
 
 - 順列 (permutation)
 
-  $n$ 個の中から $k$ 個を選んで並べたものの総数は ${}_n \mathrm{P}_k = \dfrac{n!}{(n - k)!}$ となる．
+  $n$ 個から $k$ 個を選んで並べたものの総数は ${}_n \mathrm{P}_k = \dfrac{n!}{(n - k)!}$ である．
 
 - 重複組合せ (repeated combination)
 
-  $n$ 種類の中から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ となる．
+  $n$ 種類から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ である．
 
 
 ## 参考
