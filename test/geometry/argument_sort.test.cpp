@@ -16,7 +16,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> ps[i].first >> ps[i].second;
   }
-  argument_sort(ps);
+  argument_sort(&ps);
   for (int i = 0; i < n; ++i) {
     std::cout << ps[i].first << ' ' << ps[i].second << '\n';
   }

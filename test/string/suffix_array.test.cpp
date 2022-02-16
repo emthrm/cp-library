@@ -11,6 +11,6 @@
 int main() {
   std::string t, p;
   std::cin >> t >> p;
-  for (const int ans : SuffixArray<>(t).match(p)) std::cout << ans << '\n';
+  for (const int ans : SuffixArray<>(t).match(&p)) std::cout << ans << '\n';
   return 0;
 }

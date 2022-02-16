@@ -52,9 +52,9 @@ struct SqrtDecomposition {
     }
   }
 
-  template <typename T> void partial_query(const int idx, T& val);
+  template <typename T> void partial_query(const int idx, T* val);
 
-  template <typename T> void total_query(const int idx, T& val);
+  template <typename T> void total_query(const int idx, T* val);
 
   template <typename T>
   T query(const int l, const int r, const T id) {
@@ -62,25 +62,25 @@ struct SqrtDecomposition {
     T res = id;
     if (b_l < b_r) {
       if (l == ls[b_l]) {
-        total_query(b_l, res);
+        total_query(b_l, &res);
       } else {
         for (int i = l; i < rs[b_l]; ++i) {
-          partial_query(i, res);
+          partial_query(i, &res);
         }
       }
       for (int i = b_l + 1; i < b_r; ++i) {
-        total_query(i, res);
+        total_query(i, &res);
       }
       if (r == rs[b_r]) {
-        total_query(b_r, res);
+        total_query(b_r, &res);
       } else {
         for (int i = ls[b_r]; i < r; ++i) {
-          partial_query(i, res);
+          partial_query(i, &res);
         }
       }
     } else {
       for (int i = l; i < r; ++i) {
-        partial_query(i, res);
+        partial_query(i, &res);
       }
     }
     return res;

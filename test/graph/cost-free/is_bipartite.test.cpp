@@ -35,7 +35,7 @@ int main() {
     }
   }
   std::vector<int> color;
-  if (!is_bipartite(graph, color)) {
+  if (!is_bipartite(graph, &color)) {
     std::cout << "-1\n";
     return 0;
   }

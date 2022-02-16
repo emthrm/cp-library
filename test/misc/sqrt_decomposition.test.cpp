@@ -23,7 +23,7 @@ void SqrtDecomposition::total_update(const int idx, const T val) {
 }
 
 template <typename T>
-void SqrtDecomposition::partial_query(const int idx, T& val) {
+void SqrtDecomposition::partial_query(const int idx, T* val) {
   const int block = idx / block_size;
   if (to_be_eval[block]) {
     for (int i = ls[block]; i < rs[block]; ++i) {
@@ -32,12 +32,12 @@ void SqrtDecomposition::partial_query(const int idx, T& val) {
     lazy[block] = 0;
     to_be_eval[block] = false;
   }
-  val += a[idx];
+  *val += a[idx];
 }
 
 template <typename T>
-void SqrtDecomposition::total_query(const int idx, T& val) {
-  val += b[idx] + lazy[idx] * (rs[idx] - ls[idx]);
+void SqrtDecomposition::total_query(const int idx, T* val) {
+  *val += b[idx] + lazy[idx] * (rs[idx] - ls[idx]);
 }
 
 int main() {

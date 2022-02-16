@@ -18,7 +18,7 @@ documentation_of: string/suffix_array.hpp
 |`SuffixArray<T = std::string, U = char>(s, sentinel = 0)`|$S$ の接尾辞配列を考える．|
 |`sa`|接尾辞配列|
 |`rank[i]`|`S[i:]` の接尾辞配列中での位置|
-|`match(t)`|$T$ が出現する文字列 $S$ 中の位置|
+|`match(&t)`|$T$ が出現する文字列 $S$ 中の位置|
 
 
 ## 参考

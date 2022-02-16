@@ -45,11 +45,11 @@ struct SuffixArray {
     }
   }
 
-  std::vector<int> match(T& t) const {
+  std::vector<int> match(T* t) const {
     const int lb = lower_bound(t);
-    ++t.back();
+    ++t->back();
     const int ub = lower_bound(t);
-    --t.back();
+    --t->back();
     std::vector<int> res(ub - lb);
     std::copy(sa.begin() + lb, sa.begin() + ub, res.begin());
     std::sort(res.begin(), res.end());
@@ -59,16 +59,16 @@ struct SuffixArray {
  private:
   T s;
 
-  int lower_bound(const T& t) const {
-    const int s_size = s.size(), t_size = t.size();
+  int lower_bound(const T* t) const {
+    const int s_size = s.size(), t_size = t->size();
     int lb = 0, ub = s_size;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
       int s_idx = sa[mid], t_idx = 0;
       bool finished = false;
       for (; s_idx < s_size && t_idx < t_size; ++s_idx, ++t_idx) {
-        if (s[s_idx] != t[t_idx]) {
-          (s[s_idx] < t[t_idx] ? lb : ub) = mid;
+        if (s[s_idx] != (*t)[t_idx]) {
+          (s[s_idx] < (*t)[t_idx] ? lb : ub) = mid;
           finished = true;
           break;
         }
