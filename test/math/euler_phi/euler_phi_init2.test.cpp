@@ -5,14 +5,15 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../math/euler_phi/euler_phi_init2.hpp"
+
 #include "../../../math/euler_phi/euler_phi.hpp"
+#include "../../../math/euler_phi/euler_phi_init2.hpp"
 
 int main() {
-  constexpr int M = 999000000;
-  std::vector<long long> ans = euler_phi_init2(999000000, 1000000001);
+  constexpr int L = 999000000, H = 1000000000;
+  const std::vector<long long> ans = euler_phi_init2(L, H + 1);
   int n;
   std::cin >> n;
-  std::cout << (n >= M ? ans[n - M] : euler_phi(n)) << '\n';
+  std::cout << (n >= L ? ans[n - L] : euler_phi(n)) << '\n';
   return 0;
 }

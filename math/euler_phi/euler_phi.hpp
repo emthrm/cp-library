@@ -15,6 +15,5 @@ long long euler_phi(long long n) {
       while (n % i == 0) n /= i;
     }
   }
-  if (n > 1) res -= res / n;
-  return res;
+  return n > 1 ? res - res / n : res;
 }

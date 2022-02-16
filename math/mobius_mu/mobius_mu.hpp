@@ -14,8 +14,6 @@ int mobius_mu(long long n) {
       num ^= 1;
     }
   }
-  if (n > 1) {
-    num ^= 1;
-  }
-  return num & 1 ? -1 : 1;
+  if (n > 1) num ^= 1;
+  return num ? -1 : 1;
 }

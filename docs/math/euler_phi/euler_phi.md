@@ -2,7 +2,13 @@
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\begin{aligned} \varphi(n) &= \# \lbrace k \in \mathbb{N} \mid k \perp n,\ 1 \leq k \leq n \rbrace \\ &= n \prod_i \left(1 - \frac{1}{p_i}\right) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
+$$\varphi(n) \mathrel{:=} \# \lbrace k \in \lbrace 1, 2, \ldots, n \rbrace \mid k \perp n \rbrace$$
+
+と定義される $\varphi(n)$ である．
+
+$$\varphi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right)$$
+
+が成り立つ．
 
 
 ### オイラーの定理
@@ -16,7 +22,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 |:--:|:--:|
 ||$O(\sqrt{N})$|
 |数表|$O(N\log{\log{N}})$|
-|数表2|$O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?|
+|数表2|$O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?|
 
 
 ## 使用法
@@ -29,13 +35,13 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 ||説明|
 |:--:|:--:|
-|`euler_phi_init(n)`|$\varphi(i) \ (1 \leq i \leq \mathrm{n})$ の数表|
+|`euler_phi_init(n)`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
 
 - 数表2
 
 ||説明|
 |:--:|:--:|
-|`euler_phi_init2(low, high)`|$\varphi(i) \ (\mathrm{low} \leq i \leq \mathrm{high})$ の数表|
+|`euler_phi_init2(low, high)`|$\varphi(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
 
 
 ## 参考

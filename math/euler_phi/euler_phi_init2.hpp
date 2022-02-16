@@ -7,14 +7,16 @@
 #include <cmath>
 #include <numeric>
 #include <vector>
+
 #include "../prime_sieve.hpp"
 
-std::vector<long long> euler_phi_init2(long long low, long long high) {
+std::vector<long long> euler_phi_init2(const long long low,
+                                       const long long high) {
   std::vector<long long> phi(high - low), rem(high - low);
   std::iota(phi.begin(), phi.end(), low);
   std::iota(rem.begin(), rem.end(), low);
-  for (int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {
-    for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {
+  for (const int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {
+    for (long long i = (low + p - 1) / p * p; i < high; i += p) {
       phi[i - low] -= phi[i - low] / p;
       while (rem[i - low] % p == 0) rem[i - low] /= p;
     }

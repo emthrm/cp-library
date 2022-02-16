@@ -5,12 +5,13 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../math/euler_phi/euler_phi_init.hpp"
+
 #include "../../../math/euler_phi/euler_phi.hpp"
+#include "../../../math/euler_phi/euler_phi_init.hpp"
 
 int main() {
   constexpr int M = 1000000;
-  std::vector<int> ans = euler_phi_init(1000000);
+  const std::vector<int> ans = euler_phi_init(M);
   int n;
   std::cin >> n;
   std::cout << (n <= M ? ans[n] : euler_phi(n)) << '\n';

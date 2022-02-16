@@ -5,22 +5,23 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../math/modint.hpp"
+
 #include "../../../math/mobius_mu/mobius_mu_init.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;
-  std::vector<int> mu = mobius_mu_init(k);
+  const std::vector<int> mu = mobius_mu_init(k);
   ModInt ans = 0;
   for (int g = 1; g <= k; ++g) {
-    ModInt pat = 0;
+    ModInt ways = 0;
     for (int mul = 1; g * mul <= k; ++mul) {
-      pat += ModInt(k / (g * mul)).pow(n) * mu[mul];
+      ways += ModInt(k / (g * mul)).pow(n) * mu[mul];
     }
-    ans += pat * g;
+    ans += ways * g;
   }
   std::cout << ans << '\n';
   return 0;

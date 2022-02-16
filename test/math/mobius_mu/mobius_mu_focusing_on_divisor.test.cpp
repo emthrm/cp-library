@@ -6,8 +6,9 @@
 #include <iostream>
 #include <map>
 #include <utility>
-#include "../../../math/modint.hpp"
+
 #include "../../../math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
@@ -17,16 +18,16 @@ int main() {
   std::map<int, int> mu;
   ModInt ans = 0;
   for (int g = 1; g <= k; ++g) {
-    ModInt pat = 0;
-    for (int mul = k / g; mul >= 1; --mul) {
-      if (mu.count(mul) == 0) {
-        for (const std::pair<int, int> &p : mobius_mu_focusing_on_divisor(mul)) {
+    ModInt ways = 0;
+    for (int m = k / g; m >= 1; --m) {
+      if (mu.count(m) == 0) {
+        for (const std::pair<int, int>& p : mobius_mu_focusing_on_divisor(m)) {
           mu[p.first] = p.second;
         }
       }
-      pat += ModInt(k / (g * mul)).pow(n) * mu[mul];
+      ways += ModInt(k / (g * m)).pow(n) * mu[m];
     }
-    ans += pat * g;
+    ans += ways * g;
   }
   std::cout << ans << '\n';
   return 0;
