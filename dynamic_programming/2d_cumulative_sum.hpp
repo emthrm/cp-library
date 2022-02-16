@@ -43,7 +43,7 @@ struct CumulativeSum2D {
     return y1 <= y2 && x1 <= x2 ? data[y2 + 1][x2 + 1] - data[y2 + 1][x1] - data[y1][x2 + 1] + data[y1][x1] : 0;
   }
 
-private:
+ private:
   bool is_built;
   const int h, w;
   std::vector<std::vector<T>> data;

@@ -53,7 +53,7 @@ struct BellmanFord {
     return res;
   }
 
-private:
+ private:
   bool is_built;
   std::vector<int> prev;
   std::vector<std::vector<Edge<CostType>>> graph;

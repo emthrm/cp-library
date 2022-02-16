@@ -90,7 +90,7 @@ struct SegmentTree {
     return -1;
   }
 
-private:
+ private:
   const int n;
   int p2;
   std::vector<Monoid> dat;

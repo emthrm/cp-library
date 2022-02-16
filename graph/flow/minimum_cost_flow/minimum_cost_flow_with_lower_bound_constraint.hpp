@@ -21,7 +21,7 @@ struct MinimumCostFlowWithLowerBoundConstraint {
     return tmp == uinf ? uinf : tmp + m * sum_lb;
   }
 
-private:
+ private:
   const U m;
   T sum_lb;
   C<T, U> mcf;

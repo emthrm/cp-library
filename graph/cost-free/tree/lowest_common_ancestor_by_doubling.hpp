@@ -47,7 +47,7 @@ struct LowestCommonAncestorByDoubling {
     return dist[u] + dist[v] - dist[query(u, v)] * 2;
   }
 
-private:
+ private:
   bool is_built;
   const int n;
   int table_h;

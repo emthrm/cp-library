@@ -40,7 +40,7 @@ struct FordFulkerson {
     return res;
   }
 
-private:
+ private:
   int timestamp;
   std::vector<int> is_used;
 

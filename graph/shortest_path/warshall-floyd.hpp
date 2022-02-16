@@ -73,7 +73,7 @@ struct WarshallFloyd {
     return res;
   }
 
-private:
+ private:
   const T inf;
   const int n;
   std::vector<int> srcs, dsts;

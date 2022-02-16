@@ -10,6 +10,6 @@ struct Timer {
         std::chrono::high_resolution_clock::now();
     return std::chrono::duration_cast<PeriodType>(end - bgn).count();
   }
-private:
+ private:
   std::chrono::high_resolution_clock::time_point bgn;
 } timer;

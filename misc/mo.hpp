@@ -31,7 +31,7 @@ struct Mo {
 
   void del(const int idx) const;
 
-private:
+ private:
   const int n;
   int ptr, nl, nr;
   std::vector<int> ls, rs, order;

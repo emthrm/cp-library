@@ -43,7 +43,7 @@ struct EulerTour {
     return f(down[ver] + 1, up[ver]);
   }
 
-private:
+ private:
   const std::vector<std::vector<Edge<CostType>>> graph;
 
   void dfs(const int par, const int ver, const int cur_depth) {

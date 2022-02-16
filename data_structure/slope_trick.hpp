@@ -90,7 +90,7 @@ struct SlopeTrick {
     added_r += b;
   }
 
-private:
+ private:
   T added_l, added_r, min_f;
   std::priority_queue<T> l;
   std::priority_queue<T, std::vector<T>, std::greater<T>> r;

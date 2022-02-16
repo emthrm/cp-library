@@ -38,6 +38,6 @@ struct LowestCommonAncestor : EulerTour<CostType> {
     return sparse_table.query(u, v + 1).second;
   }
 
-private:
+ private:
   SparseTable<std::pair<int, int>> sparse_table;
 };

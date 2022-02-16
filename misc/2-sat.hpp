@@ -43,7 +43,7 @@ struct TwoSat {
     return res;
   }
 
-private:
+ private:
   const int n;
   std::vector<std::vector<int>> graph, rgraph;
   std::vector<bool> is_visited;

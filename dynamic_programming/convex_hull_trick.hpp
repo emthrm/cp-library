@@ -62,7 +62,7 @@ struct ConvexHullTrick {
     return IS_MINIMIZED ? f(deq.back(), x) : -f(deq.back(), x);
   }
 
-private:
+ private:
   using Line = std::pair<T, T>;
 
   std::deque<Line> deq;

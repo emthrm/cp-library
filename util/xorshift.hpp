@@ -23,6 +23,6 @@ struct Xor128 {
   long long randll(const long long lb, const long long ub) {
     return lb + randll(ub - lb);
   }
-private:
+ private:
   unsigned int x, y, z, w;
 } xor128;

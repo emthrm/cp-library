@@ -20,7 +20,7 @@ struct CentroidDecomposition {
     root = build(0);
   }
 
-private:
+ private:
   std::vector<bool> is_alive;
   std::vector<int> subtree;
   const std::vector<std::vector<Edge<CostType>>> graph;

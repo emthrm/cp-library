@@ -107,7 +107,7 @@ struct HeavyLightDecomposition {
     return u;
   }
 
-private:
+ private:
   std::vector<std::vector<int>> graph;
 
   void dfs1(const int ver) {

@@ -55,7 +55,7 @@ struct RollingHash {
     return lb;
   }
 
-private:
+ private:
   const int base, mod;
   std::vector<long long> hash, power;
 };

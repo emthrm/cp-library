@@ -41,7 +41,7 @@ struct DisjointSparseTable {
     return fn(data[h][left], data[h][right]);
   }
 
-private:
+ private:
   const Fn fn;
   std::vector<int> lg;
   std::vector<std::vector<Semigroup>> data;

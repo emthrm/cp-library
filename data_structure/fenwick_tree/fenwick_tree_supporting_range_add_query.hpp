@@ -45,7 +45,7 @@ struct FenwickTreeSupportingRangeAddQuery {
 
   Abelian operator[](const int idx) const { return sum(idx, idx + 1); }
 
-private:
+ private:
   const int n;
   const Abelian ID;
   std::vector<Abelian> data_const, data_linear;

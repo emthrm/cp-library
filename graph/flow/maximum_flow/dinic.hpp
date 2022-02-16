@@ -57,7 +57,7 @@ struct Dinic {
     return res;
   }
 
-private:
+ private:
   std::vector<int> level, itr;
 
   T dfs(const int ver, const int t, const T flow) {

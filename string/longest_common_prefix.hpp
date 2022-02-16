@@ -37,6 +37,6 @@ struct LongestCommonPrefix : SuffixArray<T> {
     return st.query(i, j);
   }
 
-private:
+ private:
   SparseTable<int> st;
 };

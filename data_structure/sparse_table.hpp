@@ -35,7 +35,7 @@ struct SparseTable {
     return fn(data[h][left], data[h][right - (1 << h)]);
   }
 
-private:
+ private:
   Fn fn;
   std::vector<int> lg;
   std::vector<std::vector<Band>> data;

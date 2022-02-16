@@ -45,7 +45,7 @@ struct WeightedBipartiteMatching {
     return res;
   }
 
-private:
+ private:
   bool is_built;
   const int left, right;
   MinimumCostSTFlow<int, T> mcf;

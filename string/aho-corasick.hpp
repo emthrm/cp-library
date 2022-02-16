@@ -86,6 +86,6 @@ struct AhoCorasick : Trie<Sigma + 1> {
     return mp;
   }
 
-private:
+ private:
   bool is_full_ver = false;
 };

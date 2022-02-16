@@ -35,7 +35,7 @@ struct MorrisPratt {
 
   int period(const int idx) const { return idx - border[idx]; }
 
-private:
+ private:
   int j;
 
   void solve(const int idx) {

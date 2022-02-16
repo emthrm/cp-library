@@ -50,7 +50,7 @@ struct BipartiteMatching {
     return dfs(m) ? 0 : -1;
   }
 
-private:
+ private:
   const int n;
   int t;
   std::vector<bool> is_alive;

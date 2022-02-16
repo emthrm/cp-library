@@ -56,7 +56,7 @@ struct SuffixArray {
     return res;
   }
 
-private:
+ private:
   T s;
 
   int lower_bound(const T& t) const {

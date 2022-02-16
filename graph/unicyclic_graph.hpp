@@ -62,7 +62,7 @@ struct UnicyclicGraph {
     }
   }
 
-private:
+ private:
   const int n;
   std::vector<int> srcs, dsts;
   std::vector<CostType> costs;

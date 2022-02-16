@@ -43,7 +43,7 @@ struct UndoableUnionFind {
     while (!history.empty()) undo();
   }
 
-private:
+ private:
   std::vector<int> data;
   std::vector<std::pair<int, int>> history;
 };

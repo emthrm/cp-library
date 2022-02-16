@@ -41,7 +41,7 @@ struct EulerTour {
     return f(down[ver] + 1, up[ver]);
   }
 
-private:
+ private:
   const std::vector<std::vector<int>> graph;
 
   void dfs(const int par, const int ver, int cur_depth, int* idx) {

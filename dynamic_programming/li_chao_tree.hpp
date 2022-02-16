@@ -68,7 +68,7 @@ struct LiChaoTree {
     return IS_MINIMIZED ? res : -res;
   }
 
-private:
+ private:
   int n;
   std::vector<T> xs;
   std::vector<Line> dat;

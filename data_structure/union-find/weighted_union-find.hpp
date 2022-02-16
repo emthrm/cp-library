@@ -41,7 +41,7 @@ struct WeightedUnionFind {
 
   Abelian diff(const int u, const int v) { return weight(v) - weight(u); }
 
-private:
+ private:
   const Abelian ID;
   std::vector<int> parent;
   std::vector<Abelian> data;

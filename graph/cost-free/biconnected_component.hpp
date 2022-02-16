@@ -43,7 +43,7 @@ struct BiconnectedComponent : Lowlink {
     }
   }
 
-private:
+ private:
   const bool is_full_ver;
   std::vector<bool> is_articulation_point;
   std::vector<std::pair<int, int>> tmp;

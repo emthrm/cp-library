@@ -45,7 +45,7 @@ struct StronglyConnectedComponents {
     // }
   }
 
-private:
+ private:
   const bool is_full_ver;
   const int n;
   std::vector<bool> is_used;

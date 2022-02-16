@@ -76,7 +76,7 @@ struct MinimumCostSTFlow {
     return {flow - f, cost};
   }
 
-private:
+ private:
   const T tinf;
   const int n;
   bool has_negative_edge;

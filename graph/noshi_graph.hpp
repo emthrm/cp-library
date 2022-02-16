@@ -52,6 +52,6 @@ struct NoshiGraph {
     }
   }
 
-private:
+ private:
   int p2;
 };

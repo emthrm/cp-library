@@ -165,7 +165,7 @@ struct LazySegmentTree {
     return -1;
   }
 
-private:
+ private:
   const int n;
   int p2, height;
   std::vector<Monoid> data;

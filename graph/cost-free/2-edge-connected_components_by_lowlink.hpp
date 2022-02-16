@@ -31,7 +31,7 @@ struct TwoEdgeConnectedComponents : Lowlink {
     // }
   }
 
-private:
+ private:
   const bool is_full_ver;
 
   void dfs(const int par, const int ver, int* m) {

@@ -58,7 +58,7 @@ struct EulerianTrailInUndirectedGraph {
     return false;
   }
 
-private:
+ private:
   struct Edge {
     int dst, rev;
     explicit Edge(const int dst, const int rev) : dst(dst), rev(rev) {}

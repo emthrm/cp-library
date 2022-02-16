@@ -124,7 +124,7 @@ struct BinaryTrie {
     return {node, res};
   }
 
-private:
+ private:
   void free(Node** node) {
     for (int i = 0; i < 2; ++i) {
       if ((*node)->nxt[i]) free(&(*node)->nxt[i]);

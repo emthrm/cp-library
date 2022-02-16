@@ -38,7 +38,7 @@ struct PartiallyPersistentUnionFind {
     return -std::prev(std::lower_bound(history[ver].begin(), history[ver].end(), std::make_pair(t, 0)))->second;
   }
 
-private:
+ private:
   std::vector<int> data, last;
   std::vector<std::vector<std::pair<int, int>>> history;
 };

@@ -106,7 +106,7 @@ struct MinimumCostBFlow {
     return solve();
   }
 
-private:
+ private:
   int n;
   U res;
   std::vector<T> b;

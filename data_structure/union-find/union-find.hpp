@@ -28,6 +28,6 @@ struct UnionFind {
 
   int size(const int ver) { return -data[root(ver)]; }
 
-private:
+ private:
   std::vector<int> data;
 };

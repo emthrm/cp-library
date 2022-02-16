@@ -72,7 +72,7 @@ struct FenwickTree2DSupportingRangeAddQuery {
         sum(y2, x2) - sum(y2, x1 - 1) - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1);
   }
 
-private:
+ private:
   const int height, width;
   const Abelian ID;
   std::vector<std::vector<Abelian>> data_const, data_quadratic;

@@ -41,7 +41,7 @@ struct FenwickTree2D {
 
   Abelian get(const int y, const int x) const { return sum(y, x, y, x); }
 
-private:
+ private:
   const int height, width;
   const Abelian ID;
   std::vector<std::vector<Abelian>> data;

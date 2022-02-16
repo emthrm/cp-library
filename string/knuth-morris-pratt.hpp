@@ -31,6 +31,6 @@ struct KnuthMorrisPratt {
     return res;
   }
 
-private:
+ private:
   const T s;
 };

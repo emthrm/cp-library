@@ -20,7 +20,7 @@ struct MaximumFlowWithLowerBoundConstraint {
     return a + b == sum_lb && b == c ? b + d : -1;
   }
 
-private:
+ private:
   const int n;
   T sum_lb;
   C<T> mf;

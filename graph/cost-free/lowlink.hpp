@@ -19,7 +19,7 @@ struct Lowlink {
     }
   }
 
-private:
+ private:
   void dfs(const int par, const int ver, int* t) {
     order[ver] = lowlink[ver] = (*t)++;
     int num = 0;

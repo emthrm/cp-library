@@ -45,7 +45,7 @@ struct FenwickTree {
     return res;
   }
 
-private:
+ private:
   const int n;
   const Abelian ID;
   std::vector<Abelian> data;

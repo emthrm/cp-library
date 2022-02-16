@@ -53,7 +53,7 @@ struct HopcroftKarp {
     return res;
   }
 
-private:
+ private:
   const int left;
   int t;
   std::vector<int> level, is_used;

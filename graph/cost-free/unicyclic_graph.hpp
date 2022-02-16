@@ -56,7 +56,7 @@ struct UnicyclicGraph {
     }
   }
 
-private:
+ private:
   const int n;
   std::vector<int> srcs, dsts;
   std::vector<std::vector<int>> graph;

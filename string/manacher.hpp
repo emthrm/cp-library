@@ -35,6 +35,6 @@ struct Manacher {
     return ((right - left) & 1 ? odd(mid) * 2 - 1 : even(mid) * 2) >= right - left;
   }
 
-private:
+ private:
   std::vector<int> radius;
 };

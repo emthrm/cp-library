@@ -64,7 +64,7 @@ struct ProjectSelectionProblem {
     return mf.maximum_flow(n, n + 1, inf) - res;
   }
 
-private:
+ private:
   const T inf;
   int n;
   T res;
