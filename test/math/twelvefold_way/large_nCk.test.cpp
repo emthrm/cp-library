@@ -16,7 +16,10 @@ int main() {
   ModInt ans = ModInt(m).pow(n);
   for (int i = 1; i < k; ++i) {
     ModInt tmp = 0;
-    for (int j = 1; j <= i; ++j) tmp += ModInt::nCk(i, j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);
+    for (int j = 1; j <= i; ++j) {
+      tmp += ModInt::nCk(i, j)
+             * ((i - j) & 1 ? -ModInt(j).pow(n) : ModInt(j).pow(n));
+    }
     ans -= tmp * ModInt::large_nCk(m, i);
   }
   std::cout << ans << '\n';

@@ -7,8 +7,8 @@
 #include <vector>
 
 #include "../../../data_structure/union-find/union-find.hpp"
-#include "../../../math/modint.hpp"
 #include "../../../graph/cost-free/matrix_tree_theorem.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

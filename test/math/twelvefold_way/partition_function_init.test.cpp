@@ -4,6 +4,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/269"
 
 #include <iostream>
+
 #include "../../../math/modint.hpp"
 #include "../../../math/twelvefold_way/partition_function.hpp"
 

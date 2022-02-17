@@ -5,21 +5,20 @@
 
 #include <bitset>
 #include <iostream>
+
 #include "../../../../math/matrix/binary_matrix/binary_matrix.hpp"
 #include "../../../../math/matrix/binary_matrix/gauss_jordan.hpp"
 
 int main() {
-  constexpr int N = 61;
+  constexpr int B = 61;
   int n;
   std::cin >> n;
-  BinaryMatrix<N> mat(n);
+  BinaryMatrix<B> matrix(n);
   for (int i = 0; i < n; ++i) {
     long long a;
     std::cin >> a;
-    mat[i] = std::bitset<N>(a);
+    matrix[i] = std::bitset<B>(a);
   }
-  int rank = gauss_jordan(mat);
-  long long ans = 1LL << rank;
-  std::cout << ans << '\n';
+  std::cout << (1LL << gauss_jordan(&matrix)) << '\n';
   return 0;
 }

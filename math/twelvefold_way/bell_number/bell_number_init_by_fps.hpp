@@ -5,6 +5,7 @@
 
 #pragma once
 #include <vector>
+
 #include "../../formal_power_series/formal_power_series.hpp"
 
 template <typename T>

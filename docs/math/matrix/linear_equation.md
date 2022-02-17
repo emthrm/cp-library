@@ -13,7 +13,7 @@ $O(M^2 N)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`linear_equation(a, b)`|$\boldsymbol{x} \text{ s.t. } A \boldsymbol{x} = \boldsymbol{b}$|解なしの場合は空配列となる．|
+|`linear_equation(a, b, ε = 1e-8)`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$|解なしのときは空配列となる．|
 
 
 ## ToDo

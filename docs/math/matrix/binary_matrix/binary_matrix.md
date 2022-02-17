@@ -5,32 +5,34 @@
 
 ## 使用法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`BinaryMatrix(m, n = COL, def = false)`|初期値 $\mathrm{def}$ の $M \times N$ 型バイナリ行列|`COL` はコンパイル時定数である．|
-|`m`|行の数||
-|`n`|列の数||
-|`pow(n)`|$A^n$||
-|`operator()[idx]`|$A$ の $\mathrm{idx}$ 行目|
-|`=`, `+=`, `*=`, `+`, `*`|||
+||説明|
+|:--:|:--:|
+|`BinaryMatrix<N>(m, n = N, def = false)`|初期値 $\mathrm{def}$ の $M \times N$ 型バイナリ行列|
+|`nrow()`|$M$|
+|`ncol()`|$N$|
+|`pow(exponent)`|$A^\mathrm{exponent}$|
+|`operator()[i]`|$A$ の $i$ 行目|
+|`operator=(x)`|代入|
+|`operator+=(x)`<br>`operator+(x)`|加算|
+|`operator+=(*)`<br>`operator+(*)`|乗算|
 
 - [ガウス・ジョルダンの消去法](../gauss_jordan.md)
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`gauss_jordan(mat, 拡大係数行列か? = false)`|行列 $\mathrm{mat}$ のランク|$\mathrm{mat}$ は行階段形に変形される．|
+|`gauss_jordan(&a, 拡大係数行列か? = false)`|行列 $A$ のランク|$A$ は行階段形に変形される．|
 
 - [連立一次方程式](../linear_equation.md)
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`linear_equation(a, b)`|$x \text{ s.t. } A \boldsymbol{x} = \boldsymbol{b}$|解なしの場合は空配列となる．|
+|`linear_equation(a, b)`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$|解なしのときは空配列となる．|
 
 - [逆行列](../inverse_matrix.md)
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`inverse(mat)`|行列 $\mathrm{mat}$ の逆行列|存在しない場合は空行列となる．|
+|`inverse(a)`|行列 $A$ の逆行列|存在しないときは空行列となる．|
 
 
 ## 参考

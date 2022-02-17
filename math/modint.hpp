@@ -144,9 +144,6 @@
 //     return is;
 //   }
 // };
-// namespace std {
-//   template <int M> MInt<M> abs(const MInt<M>& x) { return x; }
-// }  // namespace std
 
 template <int ID>
 struct MInt {
@@ -292,6 +289,3 @@ struct MInt {
     return divisor;
   }
 };
-namespace std {
-  template <int ID> MInt<ID> abs(const MInt<ID>& x) { return x; }
-}  // namespace std

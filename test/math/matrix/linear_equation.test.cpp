@@ -7,10 +7,11 @@
 #include <iomanip>
 #include <iostream>
 #include <vector>
+
 #include "../../../graph/edge.hpp"
 #include "../../../graph/shortest_path/dijkstra.hpp"
-#include "../../../math/matrix/matrix.hpp"
 #include "../../../math/matrix/linear_equation.hpp"
+#include "../../../math/matrix/matrix.hpp"
 
 int main() {
   while (true) {
@@ -27,13 +28,11 @@ int main() {
       for (int j = 0; j < n; ++j) {
         int a;
         std::cin >> a;
-        if (a > 0) {
-          graph[i].emplace_back(i, j, a);
-        }
+        if (a > 0) graph[i].emplace_back(i, j, a);
       }
     }
     Dijkstra<int> dijkstra(graph);
-    std::vector<int> dist = dijkstra.build(t);
+    const std::vector<int> dist = dijkstra.build(t);
     if (dist[s] == dijkstra.inf) {
       std::cout << "impossible\n";
       continue;
@@ -44,24 +43,23 @@ int main() {
       if (i == t) {
         a[i][i] = 1;
       } else {
-        std::vector<Edge<int>> edge;
+        std::vector<Edge<int>> edges;
         if (q[i] == 0) {
-          edge = graph[i];
+          edges = graph[i];
         } else if (q[i] == 1) {
-          for (const Edge<int> &e : graph[i]) {
-            if (dist[e.dst] + e.cost == dist[i]) {
-              edge.emplace_back(e);
-            }
+          for (const Edge<int>& e : graph[i]) {
+            if (dist[e.dst] + e.cost == dist[i]) edges.emplace_back(e);
           }
         }
-        a[i][i] = -edge.size();
-        for (const Edge<int> &e : edge) {
+        a[i][i] = -edges.size();
+        for (const Edge<int>& e : edges) {
           ++a[i][e.dst];
           b[i] -= e.cost;
         }
       }
     }
-    std::cout << std::fixed << std::setprecision(8) << linear_equation(a, b)[s] << '\n';
+    std::cout << std::fixed << std::setprecision(8)
+              << linear_equation(a, b)[s] << '\n';
   }
   return 0;
 }

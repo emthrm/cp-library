@@ -203,6 +203,42 @@
 - https://atcoder.jp/contests/abc217/tasks/abc217_d
 
 
+# ウェーブレット行列 (wavelet matrix)
+
+## ToDo
+- https://www.hamayanhamayan.com/entry/2017/06/13/103352
+- https://takeda25.hatenablog.jp/entry/20130303/1362301095
+- http://miti-7.hatenablog.com/entry/2018/04/28/152259
+- https://scrapbox.io/data-structures/Wavelet_Matrix
+- https://www.dropbox.com/sh/9lknvq4xay709cn/AAAX61z5W1m20MPkJ8V53l5ma/%23WaveletMatrix.cpp?dl=0
+- https://www.pandanoir.info/entry/2016/03/01/230031
+- https://github.com/MitI-7/Algorithm/wiki/%E3%82%A6%E3%82%A7%E3%83%BC%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E8%A1%8C%E5%88%97
+- https://anta1.hatenadiary.org/entry/20130114/1358113488
+- https://docs.google.com/presentation/d/1J7jl8BLHkbukicFzSP7zNYTcwF-DPevCUfVxD4VjzX0
+- https://algoogle.hadrori.jp/algorithm/wavelet.html
+- https://ei1333.github.io/algorithm/wavelet-matrix.html
+- https://ei1333.github.io/luzhiled/snippets/structure/wavelet-matrix.html
+- https://github.com/ei1333/library/tree/master/structure/wavelet
+- https://github.com/beet-aizu/library/blob/master/datastructure/waveletmatrix.cpp
+- https://github.com/spaghetti-source/algorithm/blob/master/data_structure/wavelet_matrix.cc
+- https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletMatrix.cpp
+- https://ferin-tech.hatenablog.com/entry/2019/11/09/yukicoder_No.924_%E7%B4%B2%E6%98%9F
+- https://wiki.kimiyuki.net/wavelet%20matrix
+- https://noshi91.hatenablog.com/entry/2021/06/02/165408
+- https://judge.yosupo.jp/problem/rectangle_sum
+
+
+# ウェーブレット木 (wavelet tree)
+
+## ToDo
+- https://www.slideshare.net/pfi/ss-15916040
+- https://takeda25.hatenablog.jp/entry/20120804/1344066875
+- https://echizen-tm.hatenadiary.org/entry/20100822/1282489619
+- https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletTree.cpp
+- https://jetbead.hatenablog.com/entry/20130202/1359735146
+- https://drive.google.com/file/d/1NQb6ZXrPZuWI0gNBhJUQAvONjGqFxgUX
+
+
 # 永続配列 (persistent array)
 
 ## ToDo
@@ -229,7 +265,7 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
   - https://ei1333.github.io/luzhiled/snippets/math/factorial.html
   - https://codeforces.com/blog/entry/68885
   - https://yukicoder.me/problems/no/502
-- ある素数 $p$ について $n! = a p^e$ を満たす $a \bmod p$ を求める．
+- ある素数 $p$ に対して $n! = a p^e$ を満たす $a \bmod p$ を求める．
   - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.262-263，マイナビ出版（2012）
 
 

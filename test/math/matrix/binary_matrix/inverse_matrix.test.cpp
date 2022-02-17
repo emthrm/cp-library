@@ -5,9 +5,10 @@
 
 #include <bitset>
 #include <iostream>
+
 #include "../../../../math/matrix/binary_matrix/binary_matrix.hpp"
-#include "../../../../math/matrix/binary_matrix/inverse_matrix.hpp"
 #include "../../../../math/matrix/binary_matrix/gauss_jordan.hpp"
+#include "../../../../math/matrix/binary_matrix/inverse_matrix.hpp"
 
 int main() {
   constexpr int N = 600;
@@ -15,31 +16,37 @@ int main() {
   int n;
   std::cin >> n;
   binary_matrix a(n, n), v(n, 1);
-  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) {
-    int aij;
-    std::cin >> aij;
-    a[i][j] = aij;
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+      int a_ij;
+      std::cin >> a_ij;
+      a[i][j] = a_ij;
+    }
   }
   for (int i = 0; i < n; ++i) {
-    int vi;
-    std::cin >> vi;
-    v[i][0] = vi;
+    int v_i;
+    std::cin >> v_i;
+    v[i][0] = v_i;
   }
   int t;
   std::cin >> t;
   binary_matrix inv = inverse_matrix(a);
-  if (inv.n == 0) {
+  if (inv.nrow() == 0) {
     a = a.pow(t);
     binary_matrix av(n, n + 1);
     for (int i = 0; i < n; ++i) {
-      for (int j = 0; j < n; ++j) av[i][j] = a[i][j];
+      for (int j = 0; j < n; ++j) {
+        av[i][j] = a[i][j];
+      }
       av[i][n] = v[i][0];
     }
-    int rank = gauss_jordan(a), rank_av = gauss_jordan(av);
-    std::cout << (rank == rank_av ? "ambiguous\n" : "none\n");
+    std::cout << (gauss_jordan(&a) == gauss_jordan(&av) ?
+                  "ambiguous\n" : "none\n");
   } else {
-    (inv = inv.pow(t)) *= v;
-    for (int i = 0; i < n; ++i) std::cout << inv[i][0] << " \n"[i + 1 == n];
+    inv = inv.pow(t) * v;
+    for (int i = 0; i < n; ++i) {
+      std::cout << inv[i][0] << " \n"[i + 1 == n];
+    }
   }
   return 0;
 }

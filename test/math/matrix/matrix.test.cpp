@@ -4,8 +4,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/matrix_product"
 
 #include <iostream>
-#include "../../../math/modint.hpp"
+
 #include "../../../math/matrix/matrix.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
@@ -23,7 +24,7 @@ int main() {
       std::cin >> b[i][j];
     }
   }
-  Matrix<ModInt> c = a * b;
+  const Matrix<ModInt> c = a * b;
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < k; ++j) {
       std::cout << c[i][j] << " \n"[j + 1 == k];

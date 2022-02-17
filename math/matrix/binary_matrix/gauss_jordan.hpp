@@ -5,24 +5,25 @@
 
 #pragma once
 #include <utility>
+
 #include "binary_matrix.hpp"
 
-template <int Col>
-int gauss_jordan(BinaryMatrix<Col> &mat, bool is_extended = false) {
+template <int N>
+int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false) {
+  const int m = a->nrow(), n = a->ncol();
   int rank = 0;
-  for (int col = 0; col < mat.n; ++col) {
-    if (is_extended && col == mat.n - 1) break;
+  for (int col = 0; col < (is_extended ? n - 1 : n); ++col) {
     int pivot = -1;
-    for (int row = rank; row < mat.m; ++row) {
-      if (mat[row][col]) {
+    for (int row = rank; row < m; ++row) {
+      if ((*a)[row][col]) {
         pivot = row;
         break;
       }
     }
     if (pivot == -1) continue;
-    std::swap(mat[rank], mat[pivot]);
-    for (int row = 0; row < mat.m; ++row) {
-      if (row != rank && mat[row][col]) mat[row] ^= mat[rank];
+    std::swap((*a)[rank], (*a)[pivot]);
+    for (int row = 0; row < m; ++row) {
+      if (row != rank && (*a)[row][col]) (*a)[row] ^= (*a)[rank];
     }
     ++rank;
   }

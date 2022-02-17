@@ -38,13 +38,13 @@ $$\sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}$$
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init<T>(n, k)`|$B(i, j) \ (0 \leq i \leq n,\ 0 \leq j \leq k)$ の数表|
+|`bell_number_init<T>(n, k)`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 - 数表 $n = k$ 版
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init_by_fps<T>(n)`|ベル数 $B_i \ (0 \leq i \leq n)$ の数表|
+|`bell_number_init_by_fps<T>(n)`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考

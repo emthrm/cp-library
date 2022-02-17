@@ -18,8 +18,8 @@ int main() {
       std::cin >> a[i][j];
     }
   }
-  Matrix<ModInt> b = inverse_matrix(a, ModInt(0));
-  if (b.height() == 0) {
+  const Matrix<ModInt> b = inverse_matrix(a, ModInt(0));
+  if (b.nrow() == 0) {
     std::cout << "-1\n";
   } else {
     for (int i = 0; i < n; ++i) {

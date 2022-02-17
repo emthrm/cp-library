@@ -3,8 +3,11 @@
  */
 #define PROBLEM "https://yukicoder.me/problems/no/117"
 
+#include <algorithm>
 #include <iostream>
+#include <iterator>
 #include <string>
+
 #include "../../../math/modint.hpp"
 
 int main() {
@@ -15,16 +18,15 @@ int main() {
   while (t--) {
     std::string s;
     std::cin >> s;
-    std::string n = "";
-    int idx = 2;
-    for (; s[idx] != ','; ++idx) n += s[idx];
-    std::string k = s.substr(idx + 1);
-    if (s[0] == 'C') {
-      std::cout << ModInt::nCk(stoi(n), stoi(k)) << '\n';
-    } else if (s[0] == 'P') {
-      std::cout << ModInt::nPk(stoi(n), stoi(k)) << '\n';
-    } else {
-      std::cout << ModInt::nHk(stoi(n), stoi(k)) << '\n';
+    const auto it = std::find(s.begin(), s.end(), ',');
+    const int n = std::stoi(std::string(std::next(s.begin(), 2), it));
+    const int k = std::stoi(std::string(std::next(it), std::prev(s.end())));
+    if (s.front() == 'C') {
+      std::cout << ModInt::nCk(n, k) << '\n';
+    } else if (s.front() == 'P') {
+      std::cout << ModInt::nPk(n, k) << '\n';
+    } else if (s.front() == 'H') {
+      std::cout << ModInt::nHk(n, k) << '\n';
     }
   }
   return 0;

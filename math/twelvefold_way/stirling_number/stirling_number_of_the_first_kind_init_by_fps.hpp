@@ -5,6 +5,7 @@
 
 #pragma once
 #include <vector>
+
 #include "../../formal_power_series/formal_power_series.hpp"
 
 template <typename T>
@@ -17,7 +18,7 @@ std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n) {
       const int deg = s.degree();
       s <<= 1;
       for (int i = 0; i <= deg; ++i) {
-        s[i] += s[i + 1] * (-deg);
+        s[i] += s[i + 1] * -deg;
       }
     }
   }

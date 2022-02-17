@@ -1,6 +1,6 @@
 # 二項係数 (binomial coefficients)
 
-$$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)!} \text{．}$$
+$$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)!}$$
 
 
 ## 時間計算量
@@ -29,7 +29,7 @@ $$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)
 
 ||説明|
 |:--:|:--:|
-|`large_nCk_init<T>(n, k)`|$\binom{n}{r} \ (0 \leq r \leq k)$ の数表|
+|`large_nCk_init<T>(n, k)`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
 
 
 ## 参考

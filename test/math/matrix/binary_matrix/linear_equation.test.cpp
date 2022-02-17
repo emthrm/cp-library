@@ -5,12 +5,12 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../../../math/matrix/binary_matrix/binary_matrix.hpp"
 #include "../../../../math/matrix/binary_matrix/linear_equation.hpp"
 
 int main() {
   constexpr int N = 50, B = 30;
-  using binary_matrix = BinaryMatrix<N>;
   int n, m;
   std::cin >> n >> m;
   std::vector<std::vector<int>> b(m);
@@ -27,19 +27,23 @@ int main() {
   }
   std::vector<int> x(n, 0);
   for (int bit = 0; bit < B; ++bit) {
-    binary_matrix a(m, n, 0);
+    BinaryMatrix<N> a(m, n, false);
     std::vector<bool> v(m);
     for (int i = 0; i < m; ++i) {
-      for (int bij : b[i]) a[i][bij] = 1;
+      for (const int b_ij : b[i]) a[i].set(b_ij);
       v[i] = y[i] >> bit & 1;
     }
-    std::vector<bool> ans = linear_equation(a, v);
+    const std::vector<bool> ans = linear_equation(a, v);
     if (ans.empty()) {
       std::cout << "-1\n";
       return 0;
     }
-    for (int i = 0; i < n; ++i) x[i] |= ans[i] << bit;
+    for (int i = 0; i < n; ++i) {
+      if (ans[i]) x[i] |= 1 << bit;
+    }
   }
-  for (int i = 0; i < n; ++i) std::cout << x[i] << '\n';
+  for (int i = 0; i < n; ++i) {
+    std::cout << x[i] << '\n';
+  }
   return 0;
 }

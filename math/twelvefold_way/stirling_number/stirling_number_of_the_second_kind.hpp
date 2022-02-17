@@ -5,6 +5,7 @@
 
 #pragma once
 #include <cassert>
+
 #include "../../modint.hpp"
 
 template <int T>
@@ -14,7 +15,8 @@ MInt<T> stirling_number_of_the_second_kind(const int n, const int k) {
   ModInt::init(k);
   ModInt s = 0;
   for (int i = 1; i <= k; ++i) {
-    s += ModInt::nCk(k, i) * ModInt(i).pow(n) * ((k - i) & 1 ? -1 : 1);
+    s += ModInt::nCk(k, i)
+         * ((k - i) & 1 ? -ModInt(i).pow(n) : ModInt(i).pow(n));
   }
   return s * ModInt::fact_inv(k);
 }

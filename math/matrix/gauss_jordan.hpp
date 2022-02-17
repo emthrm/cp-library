@@ -1,29 +1,36 @@
 #pragma once
-#include <cmath>
 #include <utility>
+
 #include "matrix.hpp"
 
 template <typename T>
-int gauss_jordan(Matrix<T> &mat, const T EPS = 1e-8, bool is_extended = false) {
-  int m = mat.height(), n = mat.width(), rank = 0;
-  for (int col = 0; col < n; ++col) {
-    if (is_extended && col == n - 1) break;
+int gauss_jordan(Matrix<T>* a, const T eps = 1e-8,
+                 const bool is_extended = false) {
+  const int m = a->nrow(), n = a->ncol();
+  int rank = 0;
+  for (int col = 0; col < (is_extended ? n - 1 : n); ++col) {
     int pivot = -1;
-    T mx = EPS;
+    T mx = eps;
     for (int row = rank; row < m; ++row) {
-      if (std::abs(mat[row][col]) > mx) {
+      const T abs = ((*a)[row][col] < 0 ? -(*a)[row][col] : (*a)[row][col]);
+      if (abs > mx) {
         pivot = row;
-        mx = std::abs(mat[row][col]);
+        mx = abs;
       }
     }
     if (pivot == -1) continue;
-    std::swap(mat[rank], mat[pivot]);
-    T tmp = mat[rank][col];
-    for (int col2 = 0; col2 < n; ++col2) mat[rank][col2] /= tmp;
+    std::swap((*a)[rank], (*a)[pivot]);
+    T tmp = (*a)[rank][col];
+    for (int col2 = 0; col2 < n; ++col2) {
+      (*a)[rank][col2] /= tmp;
+    }
     for (int row = 0; row < m; ++row) {
-      if (row != rank && std::abs(mat[row][col]) > EPS) {
-        tmp = mat[row][col];
-        for (int col2 = 0; col2 < n; ++col2) mat[row][col2] -= mat[rank][col2] * tmp;
+      if (row != rank &&
+          ((*a)[row][col] < 0 ? -(*a)[row][col] : (*a)[row][col]) > eps) {
+        tmp = (*a)[row][col];
+        for (int col2 = 0; col2 < n; ++col2) {
+          (*a)[row][col2] -= (*a)[rank][col2] * tmp;
+        }
       }
     }
     ++rank;

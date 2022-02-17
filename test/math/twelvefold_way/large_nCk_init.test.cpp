@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../../math/modint.hpp"
 #include "../../../math/twelvefold_way/large_nCk_init.hpp"
 
@@ -18,7 +19,10 @@ int main() {
   std::vector<ModInt> c = large_nCk_init<0>(m, k - 1);
   for (int i = 1; i < k; ++i) {
     ModInt tmp = 0;
-    for (int j = 1; j <= i; ++j) tmp += ModInt::nCk(i, j) * ModInt(j).pow(n) * ((i - j) & 1 ? -1 : 1);
+    for (int j = 1; j <= i; ++j) {
+      tmp += ModInt::nCk(i, j)
+             * ((i - j) & 1 ? -ModInt(j).pow(n) : ModInt(j).pow(n));
+    }
     ans -= tmp * c[i];
   }
   std::cout << ans << '\n';

@@ -1,32 +1,40 @@
 #pragma once
-#include <cmath>
+#include <algorithm>
 #include <utility>
+
 #include "matrix.hpp"
 
 template <typename T, typename U>
-U det(const Matrix<T> &mat, const U EPS) {
-  int n = mat.height();
-  Matrix<U> tmp(n, n);
-  for (int i = 0; i < n; ++i) for (int j = 0; j < n; ++j) tmp[i][j] = mat[i][j];
+U det(const Matrix<T>& a, const U eps) {
+  const int n = a.nrow();
+  Matrix<U> b(n, n);
+  for (int i = 0; i < n; ++i) {
+    std::copy(a[i].begin(), a[i].end(), b[i].begin());
+  }
   U res = 1;
   for (int j = 0; j < n; ++j) {
     int pivot = -1;
-    U mx = EPS;
+    U mx = eps;
     for (int i = j; i < n; ++i) {
-      if (std::abs(tmp[i][j]) > mx) {
+      const U abs = (b[i][j] < 0 ? -b[i][j] : b[i][j]);
+      if (abs > mx) {
         pivot = i;
-        mx = std::abs(tmp[i][j]);
+        mx = abs;
       }
     }
     if (pivot == -1) return 0;
     if (pivot != j) {
-      std::swap(tmp[j], tmp[pivot]);
+      std::swap(b[j], b[pivot]);
       res = -res;
     }
-    res *= tmp[j][j];
-    for (int k = j + 1; k < n; ++k) tmp[j][k] /= tmp[j][j];
-    for (int i = j + 1; i < n; ++i) for (int k = j + 1; k < n; ++k) {
-      tmp[i][k] -= tmp[i][j] * tmp[j][k];
+    res *= b[j][j];
+    for (int k = j + 1; k < n; ++k) {
+      b[j][k] /= b[j][j];
+    }
+    for (int i = j + 1; i < n; ++i) {
+      for (int k = j + 1; k < n; ++k) {
+        b[i][k] -= b[i][j] * b[j][k];
+      }
     }
   }
   return res;

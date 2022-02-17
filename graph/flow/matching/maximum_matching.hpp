@@ -26,5 +26,5 @@ int maximum_matching(const std::vector<std::vector<int>>& graph) {
       }
     }
   }
-  return gauss_jordan(tutte_matrix, ModInt(0)) / 2;
+  return gauss_jordan(&tutte_matrix, ModInt(0)) / 2;
 }

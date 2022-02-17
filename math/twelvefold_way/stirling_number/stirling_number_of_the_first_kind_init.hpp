@@ -7,7 +7,8 @@
 #include <vector>
 
 template <typename T>
-std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(const int n, const int k) {
+std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(
+    const int n, const int k) {
   std::vector<std::vector<T>> s(n + 1, std::vector<T>(k + 1, 0));
   s[0][0] = 1;
   for (int i = 1; i <= n; ++i) {

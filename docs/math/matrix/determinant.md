@@ -13,7 +13,7 @@ $O(N^3)$
 
 ||説明|
 |:--:|:--:|
-|`det(mat, ε)`|$\lvert \mathrm{mat} \rvert$|
+|`det(a, ε)`|$\lvert A \rvert$|
 
 
 ## 参考
