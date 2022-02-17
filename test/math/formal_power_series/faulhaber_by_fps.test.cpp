@@ -5,17 +5,20 @@
 
 #include <iostream>
 #include <vector>
-#include "../../../math/modint.hpp"
-#include "../../../math/formal_power_series/formal_power_series.hpp"
+
 #include "../../../math/convolution/mod_convolution.hpp"
 #include "../../../math/formal_power_series/faulhaber_by_fps.hpp"
+#include "../../../math/formal_power_series/formal_power_series.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
-  FormalPowerSeries<ModInt>::set_mul([&](const std::vector<ModInt> &a, const std::vector<ModInt> &b) -> std::vector<ModInt> {
-    return mod_convolution(a, b);
-  });
+  FormalPowerSeries<ModInt>::set_mult(
+      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
+          -> std::vector<ModInt> {
+        return mod_convolution(a, b);
+      });
   long long n;
   int k;
   std::cin >> n >> k;

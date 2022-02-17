@@ -7,15 +7,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "../../../math/modint.hpp"
-#include "../../../math/formal_power_series/formal_power_series.hpp"
+
 #include "../../../math/convolution/mod_convolution.hpp"
+#include "../../../math/formal_power_series/formal_power_series.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(1000000007);
-  FormalPowerSeries<ModInt>::set_mul(
-      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b) -> std::vector<ModInt> {
+  FormalPowerSeries<ModInt>::set_mult(
+      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
+          -> std::vector<ModInt> {
         return mod_convolution(a, b);
       });
   constexpr int D = 6, M = 13;
@@ -41,9 +43,9 @@ int main() {
     f[i] = f[i].mod_pow(q[i], md);
   }
   for (int i = 1; i < D; ++i) {
-    f[0] *= f[i];
+    f.front() *= f[i];
   }
-  f[0] %= md;
+  f.front() %= md;
   int idx = D - 1, w = 1;
   for (int i = 0; i < s.length(); ++i) {
     if (s[i] != '?') {
@@ -52,6 +54,6 @@ int main() {
     }
     w = w * 10 % M;
   }
-  std::cout << f[0][idx] << '\n';
+  std::cout << f.front()[idx] << '\n';
   return 0;
 }

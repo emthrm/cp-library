@@ -16,9 +16,9 @@ $\langle O(N(\log{N})^2), O(N(\log{N})^2) \rangle$
 ||説明|
 |:--:|:--:|
 |`MultipointEvaluation<多項式, T>(xs)`|multipoint evaluation を考える．|
-|`node`|subproduct tree|
-|`val`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
-|`calc(f)`|多項式 $f$ に対して `val` を構築する．|
+|`f_x`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
+|`subproduct_tree`|subproduct tree|
+|`build(f)`|多項式 $f$ に対して `f_x` を構築する．|
 
 
 ## 参考

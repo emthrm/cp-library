@@ -4,8 +4,9 @@
 #define PROBLEM "https://yukicoder.me/problems/no/665"
 
 #include <iostream>
-#include "../../../math/modint.hpp"
+
 #include "../../../math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp"
+#include "../../../math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

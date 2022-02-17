@@ -5,6 +5,7 @@
 
 #pragma once
 #include <vector>
+
 #include "../modint.hpp"
 #include "formal_power_series.hpp"
 
@@ -19,7 +20,8 @@ std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {
     a[i] = ModInt(i + 1).pow(n);
   }
   for (int i = 0; i < m; ++i) {
-    b[i] = ModInt::fact_inv(i) * ModInt::fact_inv(n + 1 - i) * (i & 1 ? -1 : 1);
+    b[i] = (i & 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i))
+           * ModInt::fact_inv(n + 1 - i);
   }
   a *= b;
   a.resize(n);

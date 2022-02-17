@@ -3,8 +3,6 @@ title: 形式的冪級数 (formal power series)
 documentation_of: math/formal_power_series/formal_power_series.hpp
 ---
 
-### 式変形
-
 - [重複組み合わせ](../modint.md)
 
   $K$ 種類存在するとき
@@ -13,23 +11,21 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 
   となる．
 
-- [二項係数](twelvefold_way/binomial_coefficient/binomial_coefficient.md)
+- [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
 
-  $$(x + y)^n = \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \text{，}$$
-
-  $$(1 - rx)^{-d} = \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n \text{．}$$
+  $$\begin{split} (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\ (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n \end{split}$$
 
 - 累積和
 
-  $$(1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r} \text{．}$$
+  $$(1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}$$
 
 - 階差数列
 
-  $$\sum_{n = 0}^{\infty} (A_n - A_{n - 1}) x^n = (1 - x) f \text{．}$$
+  $$\sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f$$
 
 - [部分和問題](../../dynamic_programming/subset_sum_problem.md)
 
-  $$\prod_{i = 1}^N (1 + x^{A_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid A_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1} \text{．}$$
+  $$\prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}$$
 
 
 ## 時間計算量
@@ -57,15 +53,15 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 ||説明|条件|備考|
 |:--:|:--:|:--:|:--:|
 |`FormalPowerSeries<T>(deg = 0)`|$\mathrm{deg}$ 次まで考える形式的冪級数|||
-|`FormalPowerSeries<T>(coef)`|係数の列を $\mathrm{coef}$ とする形式的冪級数|||
-|`coef`|係数の列|||
+|`FormalPowerSeries<T>(coef)`|係数列を $\mathrm{coef}$ とする形式的冪級数|||
+|`coef`|係数列|||
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
-|`set_mul(mul)`|乗算を定義する．|||
-|`set_sqr(sqr)`|平方根の計算を定義する．|||
+|`set_mult(mult)`|乗算を定義する．|||
+|`set_sqrt(sqrt)`|平方根の計算を定義する．|||
 |`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．|||
 |`shrink()`|正規化を行う．|||
 |`degree()`|現在考えている次数|||
-|`operator=(coef_)`|係数の列 $\mathrm{coef\_}$ を代入する．|||
+|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．|||
 |`operator=(x)`|形式的冪級数 $x$ を代入する．|||
 |`operator+=(x)`<br>`operator+(x)`|加算|||
 |`operator-=(x)`<br>`operator-(x)`|減算|||
@@ -81,11 +77,11 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 |`horner(x)`|$f(x)$|||
 |`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$||
 |`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$||
-|`inv(deg = n)`|$g \text{ s.t. } f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$|${\lbrack x^0 \rbrack}f \neq 0$||
+|`inv(deg = n)`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$||
 |`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$||
 |`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$|||
 |`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|||
-|`sqrt(deg = n)`|$\sqrt{f}$||存在しない場合は空列となる．|
+|`sqrt(deg = n)`|$\sqrt{f}$||存在しないときは空列となる．|
 |`translate(c)`|$f(x + c)$|||
 
 
@@ -113,22 +109,30 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
   - https://codeforces.com/blog/entry/56422?#comment-401173
   - https://codeforces.com/blog/entry/56422?#comment-401217
   - https://codeforces.com/blog/entry/56422?#comment-401351
-- Berlekamp–Massey algorithm
-  - https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm
-  - https://de.wikipedia.org/wiki/Berlekamp-Massey-Algorithmus
-  - ~~https://bitbucket.org/yuki2006/yukicoder_wiki/diff/polynomial_techniques.html?at=master&diff2=fdae5fc5c01dba5670dec4e18ba3be4c90edcc51~~
-  - ~~http://sugarknri.hatenablog.com/entry/2017/11/18/234217~~
-  - https://qiita.com/kenmaro/items/4042b646d39255b623b8
-  - https://haruya12.hatenadiary.org/entry/20160131/1454252059
-  - https://github.com/beet-aizu/library/blob/master/polynomial/berlekampmassey.cpp
-  - https://github.com/ei1333/library/blob/master/math/fps/berlekamp-massey.cpp
-  - https://yukicoder.me/submissions/427818
-  - https://judge.yosupo.jp/problem/find_linear_recurrence
+- black box linear algebra
+  - https://yukicoder.me/wiki/black_box_linear_algebra
+  - https://github.com/ICPCCamp/BlackBoxLinearAlgebra
+  - https://nyaannyaan.github.io/library/matrix/black-box-linear-algebra.hpp
+  - https://twitter.com/hamko_intel/status/944327890400829440
+  - https://yukicoder.me/problems/no/444
+  - Berlekamp–Massey algorithm
+    - https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm
+    - https://de.wikipedia.org/wiki/Berlekamp-Massey-Algorithmus
+    - ~~https://bitbucket.org/yuki2006/yukicoder_wiki/diff/polynomial_techniques.html?at=master&diff2=fdae5fc5c01dba5670dec4e18ba3be4c90edcc51~~
+    - ~~http://sugarknri.hatenablog.com/entry/2017/11/18/234217~~
+    - https://qiita.com/kenmaro/items/4042b646d39255b623b8
+    - https://haruya12.hatenadiary.org/entry/20160131/1454252059
+    - https://github.com/beet-aizu/library/blob/master/polynomial/berlekampmassey.cpp
+    - https://github.com/ei1333/library/blob/master/math/fps/berlekamp-massey.cpp
+    - https://yukicoder.me/submissions/427818
+    - https://judge.yosupo.jp/problem/find_linear_recurrence
+    - https://tsuchi.hateblo.jp/entry/2021/10/09/124804
 - Lagrange inversion theorem
   - https://en.wikipedia.org/wiki/Lagrange_inversion_theorem
   - https://www.mathwills.com/posts/46
   - https://mathlog.info/articles/607
   - https://mathworld.wolfram.com/LagrangeInversionTheorem.html
+  - https://twitter.com/kobae964/status/1466770150108311555
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/kobae964/status/1446833320919064577
   - https://kmjp.hatenablog.jp/entry/2021/10/11/1030

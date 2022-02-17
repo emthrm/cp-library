@@ -9,10 +9,11 @@
 #include <vector>
 
 template <typename T>
-T lagrange_interpolation(const std::vector<T> &x, const std::vector<T> &y, T t) {
-  auto it = std::find(x.begin(), x.end(), t);
+T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y,
+                         const T t) {
+  const auto it = std::find(x.begin(), x.end(), t);
   if (it != x.end()) return y[std::distance(x.begin(), it)];
-  int n = x.size();
+  const int n = x.size();
   T res = 0;
   for (int i = 0; i < n; ++i) {
     T den = t - x[i];
@@ -21,6 +22,8 @@ T lagrange_interpolation(const std::vector<T> &x, const std::vector<T> &y, T t) 
     }
     res += y[i] / den;
   }
-  for (int i = 0; i < n; ++i) res *= t - x[i];
+  for (int i = 0; i < n; ++i) {
+    res *= t - x[i];
+  }
   return res;
 }

@@ -21,7 +21,7 @@ $O(N\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`bernoulli_number<T>(n)`|ベルヌーイ数 $B_i \ (0 \leq i \leq n)$ の数表|
+|`bernoulli_number<T>(n)`|ベルヌーイ数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考

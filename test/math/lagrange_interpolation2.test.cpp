@@ -15,7 +15,9 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<ModInt> a(n + 1);
-  for (int i = 0; i <= n; ++i) std::cin >> a[i];
+  for (int i = 0; i <= n; ++i) {
+    std::cin >> a[i];
+  }
   ModInt t;
   std::cin >> t;
   std::cout << lagrange_interpolation(a, t) << '\n';

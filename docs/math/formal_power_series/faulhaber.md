@@ -1,12 +1,12 @@
 # ファウルハーバーの公式 (Faulhaber's formula)
 
-$$S_k(n) = \sum_{i = 1}^{n - 1} i^k$$
+$$S_k(n) \mathrel{:=} \sum_{i = 1}^{n - 1} i^k$$
 
 と定義すると
 
 $$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i}$$
 
-である．ここで $B$ は[ベルヌーイ数](bernoulli_number)である．
+が成り立つ．ここで $B$ は[ベルヌーイ数](bernoulli_number)である．
 
 
 ## 時間計算量
@@ -14,7 +14,7 @@ $$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i
 ||時間計算量|
 |:--:|:--:|
 |形式的冪級数版|$O(K\log{K})$|
-|ラグランジュ補間版|$O(K \log{\max(K, M)})$|
+|ラグランジュ補間版|$O(K \log{\max{\lbrace K, M \rbrace}})$|
 
 
 ## 使用法

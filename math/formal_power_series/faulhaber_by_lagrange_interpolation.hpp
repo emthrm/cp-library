@@ -5,14 +5,17 @@
 
 #pragma once
 #include <vector>
-#include "../modint.hpp"
+
 #include "../lagrange_interpolation2.hpp"
+#include "../modint.hpp"
 
 template <int T>
-MInt<T> faulhaber_by_lagrange_interpolation(long long n, int k) {
+MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k) {
   using ModInt = MInt<T>;
   if (n < 1) return 0;
   std::vector<ModInt> y(k + 2, 0);
-  for (int i = 1; i < k + 2; ++i) y[i] = y[i - 1] + ModInt(i).pow(k);
+  for (int i = 1; i < k + 2; ++i) {
+    y[i] = y[i - 1] + ModInt(i).pow(k);
+  }
   return n - 1 < k + 2 ? y[n - 1] : lagrange_interpolation(y, ModInt(n - 1));
 }
