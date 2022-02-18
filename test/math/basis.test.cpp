@@ -7,6 +7,7 @@
 #include <functional>
 #include <iostream>
 #include <vector>
+
 #include "../../graph/edge.hpp"
 #include "../../math/basis.hpp"
 
@@ -25,8 +26,9 @@ int main() {
   std::vector<long long> x(n, -1);
   x[0] = 0;
   Basis<D> basis;
-  std::function<void(int, int)> dfs = [&graph, &x, &basis, &dfs](int par, int ver) {
-    for (const Edge<long long> &e : graph[ver]) {
+  const std::function<void(int, int)> dfs = [&graph, &x, &basis, &dfs](
+      const int par, const int ver) {
+    for (const Edge<long long>& e : graph[ver]) {
       if (e.dst != par) {
         if (x[e.dst] == -1) {
           x[e.dst] = x[ver] ^ e.cost;
@@ -42,7 +44,7 @@ int main() {
     int a, b;
     std::cin >> a >> b;
     std::bitset<D> ans(x[a] ^ x[b]);
-    for (int i = 0; i < basis.v.size(); ++i) {
+    for (int i = 0; i < basis.rank(); ++i) {
       if (!ans[basis.msb[i]]) ans ^= basis.v[i];
     }
     std::cout << ans.to_ulong() << '\n';

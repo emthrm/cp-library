@@ -32,7 +32,7 @@ Knuth's Algorithm D
 - 乗算の高速化
   - http://xn--w6q13e505b.jp/method/mult.html
   - http://fussy.web.fc2.com/algo/math3_mult.htm
-  - ショーンハーゲ・ストラッセン法 (Schönhage–Strassen algorithm)
+  - ショーンハーゲ・ストラッセン法 (Schönhage-Strassen algorithm)
     - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%B3%E3%83%8F%E3%83%BC%E3%82%B2%E3%83%BB%E3%82%B9%E3%83%88%E3%83%A9%E3%83%83%E3%82%BB%E3%83%B3%E6%B3%95
     - https://qiita.com/peria/items/fbdd52768b4659823d88
     - http://poset.jp/ompa/node5.html

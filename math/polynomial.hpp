@@ -12,15 +12,18 @@ struct Polynomial {
 
   explicit Polynomial(const int deg = 0) : coef(deg + 1, 0) {}
   explicit Polynomial(const std::vector<T>& coef) : coef(coef) {}
-  Polynomial(std::initializer_list<T> init) : coef(init.begin(), init.end()) {}
+  Polynomial(const std::initializer_list<T> init)
+      : coef(init.begin(), init.end()) {}
   template <typename InputIter>
-  explicit Polynomial(InputIter first, InputIter last) : coef(first, last) {}
+  explicit Polynomial(const InputIter first, const InputIter last)
+      : coef(first, last) {}
 
-  inline const T& operator[](int term) const { return coef[term]; }
-  inline T& operator[](int term) { return coef[term]; }
+  inline const T& operator[](const int term) const { return coef[term]; }
+  inline T& operator[](const int term) { return coef[term]; }
 
-  using MUL = std::function<std::vector<T>(const std::vector<T>&, const std::vector<T>&)>;
-  static void set_mul(const MUL mul) { get_mul() = mul; }
+  using MULT = std::function<std::vector<T>(const std::vector<T>&,
+                                            const std::vector<T>&)>;
+  static void set_mult(const MULT mult) { get_mult() = mult; }
 
   void shrink() {
     while (coef.size() > 1 && coef.back() == 0) coef.pop_back();
@@ -53,62 +56,73 @@ struct Polynomial {
     for (T& e : coef) e *= x;
     return *this;
   }
-  Polynomial& operator*=(const Polynomial& x) { return *this = get_mul()(coef, x.coef); }
+  Polynomial& operator*=(const Polynomial& x) {
+    return *this = get_mult()(coef, x.coef);
+  }
   Polynomial& operator/=(const T x) {
     assert(x != 0);
-    const T inv_x = static_cast<T>(1) / x;
-    for (T& e : coef) e *= inv_x;
-    return *this;
+    return *this *= static_cast<T>(1) / x;
   }
-  std::pair<Polynomial, Polynomial> divide(const Polynomial& x) const {
-    Polynomial p(x);
-    p.shrink();
-    const int n = degree(), m = p.degree(), deg = n - m;
-    if (deg < 0) return {Polynomial{0}, *this};
-    Polynomial quo(deg), rem(*this);
+  std::pair<Polynomial, Polynomial> divide(Polynomial x) const {
+    x.shrink();
+    Polynomial rem = *this;
+    const int n = rem.degree(), m = x.degree(), deg = n - m;
+    if (deg < 0) return {Polynomial{0}, rem};
+    Polynomial quo(deg);
     for (int i = 0; i <= deg; ++i) {
-      quo[deg - i] = rem[n - i] / p[m];
+      quo[deg - i] = rem[n - i] / x[m];
       for (int j = 0; j <= m; ++j) {
-        rem[n - i - j] -= p[m - j] * quo[deg - i];
+        rem[n - i - j] -= x[m - j] * quo[deg - i];
       }
     }
     rem.coef.resize(deg + 1);
     return {quo, rem};
   }
-  Polynomial& operator/=(const Polynomial& x) { return *this = divide(x).first; }
-  Polynomial& operator%=(const Polynomial& x) { return *this = divide(x).second; };
+  Polynomial& operator/=(const Polynomial& x) {
+    return *this = divide(x).first;
+  }
+  Polynomial& operator%=(const Polynomial& x) {
+    return *this = divide(x).second;
+  }
   Polynomial& operator<<=(const int n) {
     coef.insert(coef.begin(), n, 0);
     return *this;
   }
 
-  bool operator==(const Polynomial& x) const {
-    Polynomial a(*this), b(x);
-    a.shrink();
-    b.shrink();
-    const int deg = a.degree();
-    if (deg != b.degree()) return false;
-    for (int i = 0; i <= deg; ++i) {
-      if (a[i] != b[i]) return false;
-    }
-    return true;
+  bool operator==(Polynomial x) const {
+    x.shrink();
+    Polynomial y = *this;
+    y.shrink();
+    return x.coef == y.coef;
   }
   bool operator!=(const Polynomial& x) const { return !(*this == x); }
 
   Polynomial operator+() const { return *this; }
   Polynomial operator-() const {
-    Polynomial res(*this);
+    Polynomial res = *this;
     for (T& e : res.coef) e = -e;
     return res;
   }
 
-  Polynomial operator+(const Polynomial& x) const { return Polynomial(*this) += x; }
-  Polynomial operator-(const Polynomial& x) const { return Polynomial(*this) -= x; }
-  Polynomial operator*(const T x) const { return Polynomial(*this) *= x; }
-  Polynomial operator*(const Polynomial& x) const { return Polynomial(*this) *= x; }
+  Polynomial operator+(const Polynomial& x) const {
+    return Polynomial(*this) += x;
+  }
+  Polynomial operator-(const Polynomial& x) const {
+    return Polynomial(*this) -= x;
+  }
+  Polynomial operator*(const T x) const {
+    return Polynomial(*this) *= x;
+  }
+  Polynomial operator*(const Polynomial& x) const {
+    return Polynomial(*this) *= x;
+  }
   Polynomial operator/(const T x) const { return Polynomial(*this) /= x; }
-  Polynomial operator/(const Polynomial& x) const { return Polynomial(*this) /= x; }
-  Polynomial operator%(const Polynomial& x) const { return Polynomial(*this) %= x; }
+  Polynomial operator/(const Polynomial& x) const {
+    return Polynomial(*this) /= x;
+  }
+  Polynomial operator%(const Polynomial& x) const {
+    return Polynomial(*this) %= x;
+  }
   Polynomial operator<<(const int n) const { return Polynomial(*this) <<= n; }
 
   T horner(const T x) const {
@@ -150,14 +164,15 @@ struct Polynomial {
     }
     std::vector<T> g(n), ex(n);
     for (int i = 0; i < n; ++i) {
-      g[n - 1 - i] = coef[i] * fact[i];
+      g[i] = coef[i] * fact[i];
     }
+    std::reverse(g.begin(), g.end());
     T pow_c = 1;
     for (int i = 0; i < n; ++i) {
       ex[i] = pow_c * inv_fact[i];
       pow_c *= c;
     }
-    const std::vector<T> conv = get_mul()(g, ex);
+    const std::vector<T> conv = get_mult()(g, ex);
     Polynomial res(n - 1);
     for (int i = 0; i < n; ++i) {
       res[i] = conv[n - 1 - i] * inv_fact[i];
@@ -165,9 +180,10 @@ struct Polynomial {
     return res;
   }
 
-private:
-  static MUL& get_mul() {
-    static MUL mul = [](const std::vector<T>& a, const std::vector<T>& b) -> std::vector<T> {
+ private:
+  static MULT& get_mult() {
+    static MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)
+        -> std::vector<T> {
       const int n = a.size(), m = b.size();
       std::vector<T> res(n + m - 1, 0);
       for (int i = 0; i < n; ++i) {
@@ -177,6 +193,6 @@ private:
       }
       return res;
     };
-    return mul;
+    return mult;
   }
 };

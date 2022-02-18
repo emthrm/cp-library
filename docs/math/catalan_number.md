@@ -3,17 +3,17 @@ title: カタラン数 (Catalan number)
 documentation_of: math/catalan_number.hpp
 ---
 
-$$c_n = \dfrac{\binom{2n}{n}}{n + 1} = \dbinom{2n}{n} - \dbinom{2n}{n - 1}$$
+$$c_n \mathrel{:=} \dfrac{\binom{2n}{n}}{n + 1} = \dbinom{2n}{n} - \dbinom{2n}{n - 1}$$
 
 で定義される $c$ である．
 
-$$\begin{cases} c_0 = 1 \\ c_{n + 1} = \sum_{i = 0}^n c_i c_{n - i} \end{cases}$$
+$$\begin{cases} c_0 = 1, \\ c_{n + 1} = \sum_{i = 0}^n c_i c_{n - i} \end{cases}$$
 
 の特殊解である．
 
-カタラン数 $c_n$ の適用可能な例
+カタラン数 $c_n$ を適用できる例として以下がある．
 - 長さ $2n$ の correct bracket sequence の場合の数
-- $n \times n$ マスの格子において左下から右上まで対角線をまたがない最短経路の個数
+- $n \times n$ マスの格子で左下から右上まで対角線をまたがない最短経路の個数
 - $n + 1$ 個の葉を持つ二分木の個数
 - $n + 1$ 人によるトーナメントの総数
 - 凸 $n + 2$ 角形の三角形分割の個数
@@ -28,7 +28,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`catalan_number<T>(n)`|カタラン数 $c_i \ (0 \leq i \leq n)$ の数表|
+|`catalan_number<T>(n)`|カタラン数 $c_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考

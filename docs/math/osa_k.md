@@ -16,7 +16,7 @@ $\langle O(N), O(\log{N}) \rangle$
 ||説明|
 |:--:|:--:|
 |`smallest_prime_factor[i]`|$i$ の最小素因数|
-|`osa_k(n = 10000000)`|$n$ 以下における osa_k 法を考える．|
+|`OsaK(n)`|$n$ 以下における osa_k 法を考える．|
 |`query(n)`|$n$ の素因数分解|
 
 

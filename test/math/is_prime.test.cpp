@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C"
 
 #include <iostream>
+
 #include "../../math/is_prime.hpp"
 
 int main() {
@@ -11,9 +12,9 @@ int main() {
   std::cin >> n;
   int ans = 0;
   for (int i = 0; i < n; ++i) {
-    int query;
-    std::cin >> query;
-    if (is_prime(query)) ++ans;
+    int num;
+    std::cin >> num;
+    if (is_prime(num)) ++ans;
   }
   std::cout << ans << '\n';
   return 0;

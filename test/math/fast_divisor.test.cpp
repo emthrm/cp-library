@@ -7,6 +7,7 @@
 #include <iostream>
 #include <set>
 #include <vector>
+
 #include "../../math/fast_divisor.hpp"
 
 int main() {
@@ -16,7 +17,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  Divisor divisor(*std::max_element(a.begin(), a.end()));
+  const Divisor divisor(*std::max_element(a.begin(), a.end()));
   std::multiset<int> s(a.begin(), a.end());
   int ans = 0;
   for (int i = 0; i < n; ++i) {

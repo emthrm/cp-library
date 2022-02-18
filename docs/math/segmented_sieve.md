@@ -6,14 +6,14 @@ documentation_of: math/segmented_sieve.hpp
 
 ## 時間計算量
 
-$O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?
+$O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?
 
 
 ## 使用法
 
 ||説明|
 |:--:|:--:|
-|`segmented_sieve(low, high)`|$i \ (\mathrm{low} \leq i < \mathrm{high})$ が素数であるか．|
+|`segmented_sieve(low, high)`|$i$ ($\mathrm{low} \leq i < \mathrm{high}$) が素数であるか．|
 
 
 ## 参考

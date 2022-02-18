@@ -6,6 +6,7 @@
 #include <iostream>
 #include <tuple>
 #include <vector>
+
 #include "../../math/simultaneous_linear_congruence.hpp"
 
 int main() {
@@ -15,7 +16,8 @@ int main() {
     std::cin >> x[i] >> y[i];
   }
   long long ans, mod;
-  std::tie(ans, mod) = simultaneous_linear_congruence(std::vector<long long>(N, 1), x, y);
+  std::tie(ans, mod) =
+      simultaneous_linear_congruence(std::vector<long long>(N, 1), x, y);
   if (mod == 0) {
     std::cout << "-1\n";
   } else {

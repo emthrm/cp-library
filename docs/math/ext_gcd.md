@@ -17,7 +17,7 @@ $O(\log{\max \lbrace A, B \rbrace})$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`ext_gcd(a, b)`|$ax + by = \gcd(a, b)$ を満たす整数解 $(x, y)$|$a \neq 0,\ b \neq 0$ のとき $\|x\| \leq \left\|\frac{b}{\mathrm{gcd}(a, b)} \right\|,\ \|y\| \leq \left\|\frac{a}{\mathrm{gcd}(a, b)} \right\|$ が成り立つ．|
+|`ext_gcd(a, b)`|$ax + by = \gcd(a, b)$ を満たす整数解 $(x, y)$|$a \neq 0,\ b \neq 0$ のとき $\lvert x \rvert \leq \left\lvert \frac{b}{\mathrm{gcd}(a, b)} \right\rvert,\ \lvert y \rvert \leq \left\lvert \frac{a}{\mathrm{gcd}(a, b)} \right\rvert$ が成り立つ．|
 
 
 ## 参考

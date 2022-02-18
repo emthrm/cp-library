@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <iostream>
+
 #include "../../math/least_common_multiple.hpp"
 
 int main() {

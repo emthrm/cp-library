@@ -6,6 +6,7 @@
 #include <iostream>
 #include <tuple>
 #include <vector>
+
 #include "../../math/chinese_remainder_theorem.hpp"
 
 int main() {

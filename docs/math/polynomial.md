@@ -24,13 +24,13 @@ documentation_of: math/polynomial.hpp
 ||説明|条件|
 |:--:|:--:|:--:|
 |`Polynomial<T>(deg = 0)`|次数 $\mathrm{deg}$ の多項式||
-|`Polynomial<T>(coef)`|係数の列を $\mathrm{coef}$ とする多項式||
-|`coef`|係数の列||
+|`Polynomial<T>(coef)`|係数列を $\mathrm{coef}$ とする多項式||
+|`coef`|係数列||
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
 |`shrink()`|正規化を行う．||
 |`degree()`|次数||
-|`operator=(coef_)`|係数の列 $\mathrm{coef\_}$ を代入する．||
+|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．||
 |`operator=(x)`|多項式 $x$ を代入する．||
 |`operator+=(x)`<br>`operator+(x)`|加算||
 |`operator-=(x)`<br>`operator-(x)`|減算||
@@ -64,3 +64,7 @@ documentation_of: math/polynomial.hpp
   - https://judge.yosupo.jp/problem/division_of_polynomials
 - DKA 法 (Durand-Kerner-Aberth method)
   - https://drive.google.com/file/d/1Fb5TPXzEQVKzYDwhNN2XZpWZWa49aCIY
+- Bairstow's method
+  - https://en.wikipedia.org/wiki/Bairstow%27s_method
+- 微積分
+  - https://topcoder-g-hatena-ne-jp.jag-icpc.org/pepsin-amylase/20141208/

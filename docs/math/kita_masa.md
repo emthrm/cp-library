@@ -15,7 +15,7 @@ $O(K^2 \log{N})$
 
 ||説明|
 |:--:|:--:|
-|`kita_masa(c, a, n)`|係数 $C$, 初項 $A$ で表される $k$-階定数係数斉次線形漸化式の第 $n$ 項|
+|`kita_masa(c, a, n)`|係数 $C$，初期値 $A$ で表される $k$-階定数係数斉次線形漸化式の第 $n$ 項|
 
 
 ## 参考
@@ -38,6 +38,7 @@ $O(K^2 \log{N})$
   - http://q.c.titech.ac.jp/docs/progs/polynomial_division.html
   - https://qiita.com/ryuhe1/items/da5acbcce4ac1911f47a
   - https://atcoder.jp/contests/abc198/submissions/21708598
+  - https://tsuchi.hateblo.jp/entry/2021/10/09/124804
 
 
 ## Verified

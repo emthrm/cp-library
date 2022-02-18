@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <tuple>
+
 #include "../../math/ext_gcd.hpp"
 
 int main() {

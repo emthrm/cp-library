@@ -2,7 +2,7 @@
 
 $n \in \mathbb{N}^+,\ g \in \mathbb{Z}$ に対して $\mathrm{ord}_n(g) = \varphi(n)$ が成り立つとき，$g \bmod n$ を「$n$ を法とする原始根」と呼ぶ．
 
-$n = 2, 4, p^k, 2p^k \ (p \in \mathbb{P} \setminus \lbrace 2 \rbrace,\ k \in \mathbb{N}^+)$ のときのみ $\varphi(\varphi(n))$ 個原始根が存在する．
+$n = 2, 4, p^k, 2p^k$ ($p \in \mathbb{P} \setminus \lbrace 2 \rbrace,\ k \in \mathbb{N}^+$) のときのみ $\varphi(\varphi(n))$ 個原始根が存在する．
 
 
 ### 位数 (multiplicative order)
@@ -12,7 +12,7 @@ $a \perp n$ を満たす $a \in \mathbb{Z},\ n \in \mathbb{N}^+$ に対して $a
 
 ### 指数 (index)
 
-$n$ を法とする原始根を $g$ とすると，$\forall a \in \mathbb{Z}$ に対して $g^e \equiv a \pmod{n}$ を満たす $0 \leq e < \varphi(n)$ がただ一つ存在する．この $e$ を「$g$ を底とする $a$ の指数」と呼び，$\mathrm{Ind}_g(a)$ と表す．
+$n$ を法とする原始根を $g$ とすると，任意の $a \in \mathbb{Z}$ に対して $g^e \equiv a \pmod{n}$ を満たす $0 \leq e < \varphi(n)$ がただ一つ存在する．この $e$ を「$g$ を底とする $a$ の指数」と呼び，$\mathrm{Ind}_g(a)$ と表す．
 
 
 ## 時間計算量
@@ -45,7 +45,7 @@ $n$ を法とする原始根を $g$ とすると，$\forall a \in \mathbb{Z}$ �
 
 - 高速化
   - https://twitter.com/noshi91/status/1317022141599002624
-- 原始根を求める
+- 原始根を求める．
   - https://github.com/atcoder/ac-library/blob/master/atcoder/internal_math.hpp#L142
   - https://github.com/drken1215/algorithm/blob/master/MathNumberTheory/primitive_root.cpp
 - 位数

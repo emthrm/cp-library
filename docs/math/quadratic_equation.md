@@ -3,7 +3,7 @@ title: 一元二次方程式 (quadratic equation)
 documentation_of: math/quadratic_equation.hpp
 ---
 
-$$ax^2 + bx + c = 0 \text{．}$$
+$$ax^2 + bx + c = 0$$
 
 
 ## 時間計算量
@@ -15,7 +15,7 @@ $O(1)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`quadratic_equation(a, b, c, ε = 1e-8)`|$x \text{ s.t. } ax^2 + bx + c = 0$|$a, b, c$ のいずれかは非零でなければならない．|
+|`quadratic_equation(a, b, c, ε = 1e-8)`|$ax^2 + bx + c = 0$ を満たす $x$|$a, b, c$ のいずれかは非零でなければならない．|
 
 
 ## 参考

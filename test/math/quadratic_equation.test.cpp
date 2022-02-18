@@ -9,6 +9,7 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
 #include "../../geometry/geometry.hpp"
 #include "../../math/quadratic_equation.hpp"
 
@@ -35,21 +36,25 @@ int main() {
         geometry::Point d;
         double v;
         std::tie(d, v) = dog[i];
-        std::vector<double> ans = quadratic_equation(fv.norm() - v * v, geometry::dot(fp - d, fv) * 2, (fp - d).norm());
-        while (!ans.empty()) {
+        for (std::vector<double> ans =
+                 quadratic_equation(fv.norm() - v * v,
+                                    geometry::dot(fp - d, fv) * 2,
+                                    (fp - d).norm());
+             !ans.empty(); ans.pop_back()) {
           if (ans.back() >= 0) t[i] = ans.back();
-          ans.pop_back();
         }
       }
-      double frisbee = *std::min_element(t.begin(), t.end());
+      const double frisbee = *std::min_element(t.begin(), t.end());
       for (int i = 0; i < n; ++i) {
         if (std::abs(t[i] - INF) < EPS) continue;
         if (std::abs(frisbee - t[i]) < EPS) ++ans[i];
-        geometry::Point cat = fp + fv * t[i];
+        const geometry::Point cat = fp + fv * t[i];
         dog[i].first += (cat - dog[i].first) * frisbee / t[i];
       }
     }
-    for (int i = 0; i < n; ++i) std::cout << ans[i] << " \n"[i + 1 == n];
+    for (int i = 0; i < n; ++i) {
+      std::cout << ans[i] << " \n"[i + 1 == n];
+    }
   }
   return 0;
 }

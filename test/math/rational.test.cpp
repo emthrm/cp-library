@@ -7,18 +7,22 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include "../../math/rational.hpp"
 
 int main() {
   using rational = Rational<>;
   constexpr int OCCURRENCE = 20;
-  std::vector<int> p(OCCURRENCE + 1, 1);
-  for (int i = 1; i <= OCCURRENCE; ++i) p[i] = p[i - 1] * 2;
+  int p[OCCURRENCE + 1]{};
+  std::fill(p, p + (OCCURRENCE + 1), 1);
+  for (int i = 1; i <= OCCURRENCE; ++i) {
+    p[i] = p[i - 1] * 2;
+  }
   while (true) {
     std::string s;
     std::cin >> s;
     if (s == "#") break;
-    int n = s.length();
+    const int n = s.length();
     std::vector<int> dir;
     for (int i = 0; i < n;) {
       if (s[i] == 'n') {
@@ -30,8 +34,10 @@ int main() {
       }
     }
     std::reverse(dir.begin(), dir.end());
-    rational ans = dir[0];
-    for (int i = 1; i < dir.size(); ++i) ans += rational(90, p[i]) * (dir[i] == 0 ? -1 : 1);
+    rational ans = dir.front();
+    for (int i = 1; i < dir.size(); ++i) {
+      ans += rational(90, p[i]) * (dir[i] == 0 ? -1 : 1);
+    }
     std::cout << ans << '\n';
   }
   return 0;

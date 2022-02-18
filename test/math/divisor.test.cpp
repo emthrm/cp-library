@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "../../math/divisor.hpp"
 
 int main() {
@@ -12,15 +13,16 @@ int main() {
   std::cin >> n;
   std::vector<long long> d = divisor(n);
   d.pop_back();
-  int cnt = 0, m = d.size();
+  int ans1 = 0;
+  const int ans2 = d.size();
   while (!d.empty()) {
-    ++cnt;
-    std::vector<long long> tmp;
-    for (long long e : d) {
-      if (d.back() % e != 0) tmp.emplace_back(e);
+    ++ans1;
+    std::vector<long long> nxt;
+    for (const long long e : d) {
+      if (d.back() % e != 0) nxt.emplace_back(e);
     }
-    d = tmp;
+    d = nxt;
   }
-  std::cout << cnt << ' ' << m << '\n';
+  std::cout << ans1 << ' ' << ans2 << '\n';
   return 0;
 }

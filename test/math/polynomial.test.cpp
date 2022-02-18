@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <tuple>
+
 #include "../../math/modint.hpp"
 #include "../../math/polynomial.hpp"
 
@@ -30,16 +31,12 @@ int main() {
   std::cout << u << ' ' << v << '\n';
   for (int i = 0; i < u; ++i) {
     std::cout << q[i];
-    if (i + 1 < u) {
-      std::cout << ' ';
-    }
+    if (i + 1 < u) std::cout << ' ';
   }
   std::cout << '\n';
   for (int i = 0; i < v; ++i) {
     std::cout << r[i];
-    if (i + 1 < v) {
-      std::cout << ' ';
-    }
+    if (i + 1 < v) std::cout << ' ';
   }
   std::cout << '\n';
   return 0;

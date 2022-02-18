@@ -5,13 +5,15 @@
 
 #include <iostream>
 #include <tuple>
-#include "../../math/enumerate_quotient.hpp"
+
+#include "../../math/enumerate_quotients.hpp"
 
 int main() {
   long long n;
   std::cin >> n;
   long long ans = 0;
-  for (const std::tuple<long long, long long, long long>& lrq : enumerate_quotient(n)) {
+  for (const std::tuple<long long, long long, long long>& lrq
+       : enumerate_quotients(n)) {
     long long l, r, q;
     std::tie(l, r, q) = lrq;
     ans += q * (r - l);

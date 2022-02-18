@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <utility>
 #include <vector>
+
 #include "mod_inv.hpp"
 
 template <typename T>
@@ -9,9 +10,7 @@ std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {
   const int n = b.size();
   T x = 0, md = 1;
   for (int i = 0; i < n; ++i) {
-    if ((b[i] %= m[i]) < 0) {
-      b[i] += m[i];
-    }
+    if ((b[i] %= m[i]) < 0) b[i] += m[i];
     if (md < m[i]) {
       std::swap(x, b[i]);
       std::swap(md, m[i]);
@@ -25,9 +24,7 @@ std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {
     const T u_i = m[i] / g;
     x += (b[i] - x) / g % u_i * mod_inv(md / g, u_i) % u_i * md;
     md *= u_i;
-    if (x < 0) {
-      x += md;
-    }
+    if (x < 0) x += md;
   }
   return {x, md};
 }

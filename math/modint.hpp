@@ -31,9 +31,8 @@
 //       }
 //       return inverse[n];
 //     }
-//     unsigned int a = n, b = M;
 //     int u = 1, v = 0;
-//     while (b) {
+//     for (unsigned int a = n, b = M; b;) {
 //       const unsigned int q = a / b;
 //       std::swap(a -= q * b, b);
 //       std::swap(u -= q * v, v);
@@ -171,9 +170,8 @@ struct MInt {
       }
       return inverse[n];
     }
-    unsigned int a = n, b = mod();
     int u = 1, v = 0;
-    while (b) {
+    for (unsigned int a = n, b = mod(); b;) {
       const unsigned int q = a / b;
       std::swap(a -= q * b, b);
       std::swap(u -= q * v, v);

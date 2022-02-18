@@ -1,20 +1,21 @@
 #pragma once
 #include <utility>
 #include <vector>
+
 #include "prime_sieve.hpp"
 
-struct osa_k {
-  std::vector<int> smallest_prime_factor;
+struct OsaK {
+  const std::vector<int> smallest_prime_factor;
 
-  osa_k(int n = 10000000) : smallest_prime_factor(prime_sieve(n, false)) {}
+  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false)) {}
 
   std::vector<std::pair<int, int>> query(int n) const {
     std::vector<std::pair<int, int>> res;
     while (n > 1) {
-      int prime = smallest_prime_factor[n], exponent = 0;
-      while (smallest_prime_factor[n] == prime) {
+      const int prime = smallest_prime_factor[n];
+      int exponent = 0;
+      for (; smallest_prime_factor[n] == prime; n /= prime) {
         ++exponent;
-        n /= prime;
       }
       res.emplace_back(prime, exponent);
     }

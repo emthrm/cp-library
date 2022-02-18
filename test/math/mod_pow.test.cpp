@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B"
 
 #include <iostream>
+
 #include "../../math/mod_pow.hpp"
 
 int main() {

@@ -1,5 +1,5 @@
 ---
-title: $i^k \bmod m \ (0 \leq i \leq n)$
+title: $i^k \bmod m$ ($0 \leq i \leq n$)
 documentation_of: math/enumerate_k-th_power.hpp
 ---
 
@@ -13,7 +13,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`enumerate_kth_power(n, k, m)`|$i^k \bmod m \ (0 \leq i \leq n)$|
+|`enumerate_kth_power(n, k, m)`|$i^k \bmod m$ ($0 \leq i \leq n$)|
 
 
 ## 参考

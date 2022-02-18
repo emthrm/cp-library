@@ -3,8 +3,6 @@ title: 最小公倍数 (least common multiple)
 documentation_of: math/least_common_multiple.hpp
 ---
 
-複数の整数に共通する公倍数の内, 最小の自然数である．
-
 
 ## 時間計算量
 

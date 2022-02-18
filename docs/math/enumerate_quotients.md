@@ -1,6 +1,6 @@
 ---
 title: 商の列挙
-documentation_of: math/enumerate_quotient.hpp
+documentation_of: math/enumerate_quotients.hpp
 ---
 
 
@@ -13,7 +13,7 @@ $O(\sqrt{N})$
 
 ||説明|
 |:--:|:--:|
-|`enumerate_quotient(n)`|$\lbrace (l, r, q) \mid \forall x \in \lbrace l, l + 1, \ldots, r - 1 \rbrace,\ \lfloor \frac{n}{x} \rfloor = q \rbrace$|
+|`enumerate_quotients(n)`|$\lbrace (l, r, q) \mid \forall x \in \lbrace l, l + 1, \ldots, r - 1 \rbrace,\ \lfloor \frac{n}{x} \rfloor = q \rbrace$|
 
 
 ## 参考

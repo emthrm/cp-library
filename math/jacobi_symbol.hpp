@@ -14,10 +14,10 @@ int jacobi_symbol(long long a, long long p) {
   if (a == 0) return 0;
   int res = 1;
   while (a > 0) {
-    int ex = __builtin_ctzll(a);
-    if (ex & 1 && (p % 8 == 3 || p % 8 == 5)) res = -res;
-    a >>= ex;
-    if (a % 4 == 3 && p % 4 == 3) res = -res;
+    const int p2 = __builtin_ctzll(a);
+    if ((p2 & 1) && ((p + 2) & 4)) res = -res;
+    a >>= p2;
+    if (a & p & 2) res = -res;
     std::swap(a, p);
     a %= p;
   }

@@ -3,7 +3,7 @@ title: モンモール数 (Montmort number)
 documentation_of: math/montmort_number.hpp
 ---
 
-$$!n = \begin{cases} 1 & (n = 0) \\ 0 & (n = 1) \\ (n - 1)(!(n - 1) + !(n - 2)) & (n \geq 2) \end{cases}$$
+$$!n = \begin{cases} 1 & (n = 0), \\ 0 & (n = 1), \\ (n - 1)(!(n - 1) + !(n - 2)) & (n \geq 2) \end{cases}$$
 
 という漸化式をもつ，完全順列の個数 $!n$ である．これを解くと
 
@@ -20,7 +20,7 @@ $$\sum_{n = 0}^\infty !n \frac{x^n}{n!} = \dfrac{e^{-x}}{1 - x} \text{．}$$
 
 ### 完全順列 (complete permutation) / 攪乱順列 (derangement)
 
-大きさ $N$ の順列 $P$ の内，$P_i \neq i \ (i = 1, 2, \ldots, N)$ を満たすものである．
+大きさ $N$ の順列 $P$ の内，任意の $i \in \lbrace 1, 2, \ldots, N \rbrace$ に対して $P_i \neq i$ を満たすものである．
 
 
 ## 時間計算量
@@ -32,7 +32,7 @@ $O(N)$
 
 ||説明|
 |:--:|:--:|
-|`montmort_number<T>(n)`|モンモール数 $!i \ (1 \leq i \leq n)$ の数表|
+|`montmort_number<T>(n)`|モンモール数 $!i$ ($1 \leq i \leq n$) の数表|
 
 
 ## 参考

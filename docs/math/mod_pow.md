@@ -1,5 +1,5 @@
 ---
-title: 繰り返し二乗法 (二分累乗法, バイナリ法)
+title: 繰り返し二乗法 / 二分累乗法 / バイナリ法
 documentation_of: math/mod_pow.hpp
 ---
 
@@ -15,12 +15,12 @@ $O(\log{N})$
 
 ||説明|
 |:--:|:--:|
-|`mod_pow(base, exponent, mod)`|$\mathrm{base}^{\mathrm{exponent}} \bmod \ \mathrm{mod}$|
+|`mod_pow(x, n, m)`|$x^n \bmod{m}$|
 
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.114-116，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.114-116，マイナビ出版（2012）
 
 
 ## Verified

@@ -4,6 +4,7 @@
 #define PROBLEM "https://yukicoder.me/problems/no/984"
 
 #include <iostream>
+
 #include "../../math/jacobi_symbol.hpp"
 
 int main() {

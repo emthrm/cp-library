@@ -7,6 +7,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+
 #include "../../math/osa_k.hpp"
 
 int main() {
@@ -17,14 +18,15 @@ int main() {
     std::cin >> a[i];
   }
   const int max_a = *std::max_element(a.begin(), a.end());
-  osa_k osa(max_a);
+  const OsaK osa_k(max_a);
   std::vector<int> prime_factor(max_a + 1, 0);
   for (const int a_i : a) {
-    for (const std::pair<int, int> &pr : osa.query(a_i)) {
+    for (const std::pair<int, int>& pr : osa_k.query(a_i)) {
       ++prime_factor[pr.first];
     }
   }
-  const int maximum = *std::max_element(prime_factor.begin(), prime_factor.end());
+  const int maximum =
+      *std::max_element(prime_factor.begin(), prime_factor.end());
   if (maximum <= 1) {
     std::cout << "pairwise coprime\n";
   } else if (maximum == n) {

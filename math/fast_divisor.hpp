@@ -5,14 +5,16 @@
 #pragma once
 // #include <algorithm>
 #include <vector>
+
 #include "prime_sieve.hpp"
 
 struct Divisor {
-  std::vector<int> smallest_prime_factor;
+  const std::vector<int> smallest_prime_factor;
 
-  Divisor(const int n) : smallest_prime_factor(prime_sieve(n, false)) {}
+  explicit Divisor(const int n)
+      : smallest_prime_factor(prime_sieve(n, false)) {}
 
-  std::vector<int> query(int n) {
+  std::vector<int> query(int n) const {
     std::vector<int> res{1};
     while (n > 1) {
       const int prime_factor = smallest_prime_factor[n], d = res.size();
