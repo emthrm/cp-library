@@ -7,7 +7,7 @@ $x^2 \equiv a \pmod{p}$ を満たす $x$ が存在すれば，$a \in \mathbb{Z}$
 
 整数 $a$，奇素数 $p$ に対して
 
-$$\left(\dfrac{a}{p} \right) \mathrel{:=} \begin{cases} 1 & (a \not\equiv 0 \pmod{p} \wedge a \text{ は法 } p \text{ の下で平方剰余}) \\ -1 & (a \text{ は法 } p \text{ の下で平方非剰余}) \\ 0 & (a \equiv 0 \pmod{p}) \end{cases}$$
+$$\left(\dfrac{a}{p} \right) \mathrel{:=} \begin{cases} 1 & (a \not\equiv 0 \pmod{p} \wedge a \text{ は法 } p \text{ の下で平方剰余}), \\ -1 & (a \text{ は法 } p \text{ の下で平方非剰余}), \\ 0 & (a \equiv 0 \pmod{p}) \end{cases}$$
 
 と定義する．
 

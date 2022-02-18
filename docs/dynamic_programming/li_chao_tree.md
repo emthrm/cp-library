@@ -3,7 +3,7 @@ title: Li Chao tree
 documentation_of: dynamic_programming/li_chao_tree.hpp
 ---
 
-[convex hull trick](cht.md) において傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
+[convex hull trick](cht.md) に対して，傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
 
 
 ## 時間計算量

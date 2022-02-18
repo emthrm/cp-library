@@ -47,8 +47,8 @@
 |:--:|:--:|:--:|
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
-|`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか．||
 |`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find
