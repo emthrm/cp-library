@@ -33,26 +33,26 @@ data:
     \ math/mod_sqrt.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u5E73\u65B9\u5270\u4F59\r\n * @docs docs/math/quadratic_residue.md\r\
     \n */\r\n\r\n#pragma once\r\n#include \"../util/xorshift.hpp\"\r\n#include \"\
-    mod_pow.hpp\"\r\n\r\nlong long mod_sqrt(long long a, const int p) {\r\n  if ((a\
-    \ %= p) < 0) a += p;\r\n  if (a == 0) return 0;\r\n  if (p == 2) return 1;\r\n\
-    \  if (mod_pow(a, (p - 1) >> 1, p) == p - 1) return -1;\r\n  if (p % 4 == 3) return\
-    \ mod_pow(a, (p + 1) >> 2, p);\r\n  int s = 1, q = (p - 1) >> 1;\r\n  for (; !(q\
-    \ & 1); q >>= 1) {\r\n    ++s;\r\n  }\r\n  long long z;\r\n  do {\r\n    z = xor128.rand(2,\
-    \ p);\r\n  } while (mod_pow(z, (p - 1) >> 1, p) == 1);\r\n  int m = s;\r\n  long\
-    \ long c = mod_pow(z, q, p), r = mod_pow(a, (q - 1) >> 1, p);\r\n  long long t\
-    \ = a * r % p * r % p;\r\n  r = (r * a) % p;\r\n  while (t != 1) {\r\n    long\
-    \ long t2 = t * t % p;\r\n    for (int i = 1; i < m; ++i) {\r\n      if (t2 ==\
-    \ 1) {\r\n        const long long b = mod_pow(c, 1 << (m - i - 1), p);\r\n   \
-    \     m = i;\r\n        r = (r * b) % p;\r\n        c = b * b % p;\r\n       \
-    \ t = (t * c) % p;\r\n        break;\r\n      }\r\n      t2 = (t2 * t2) % p;\r\
-    \n    }\r\n  }\r\n  return r;\r\n}\r\n"
+    ./mod_pow.hpp\"\r\n\r\nlong long mod_sqrt(long long a, const int p) {\r\n  if\
+    \ ((a %= p) < 0) a += p;\r\n  if (a == 0) return 0;\r\n  if (p == 2) return 1;\r\
+    \n  if (mod_pow(a, (p - 1) >> 1, p) == p - 1) return -1;\r\n  if (p % 4 == 3)\
+    \ return mod_pow(a, (p + 1) >> 2, p);\r\n  int s = 1, q = (p - 1) >> 1;\r\n  for\
+    \ (; !(q & 1); q >>= 1) {\r\n    ++s;\r\n  }\r\n  long long z;\r\n  do {\r\n \
+    \   z = xor128.rand(2, p);\r\n  } while (mod_pow(z, (p - 1) >> 1, p) == 1);\r\n\
+    \  int m = s;\r\n  long long c = mod_pow(z, q, p), r = mod_pow(a, (q - 1) >> 1,\
+    \ p);\r\n  long long t = a * r % p * r % p;\r\n  r = (r * a) % p;\r\n  while (t\
+    \ != 1) {\r\n    long long t2 = t * t % p;\r\n    for (int i = 1; i < m; ++i)\
+    \ {\r\n      if (t2 == 1) {\r\n        const long long b = mod_pow(c, 1 << (m\
+    \ - i - 1), p);\r\n        m = i;\r\n        r = (r * b) % p;\r\n        c = b\
+    \ * b % p;\r\n        t = (t * c) % p;\r\n        break;\r\n      }\r\n      t2\
+    \ = (t2 * t2) % p;\r\n    }\r\n  }\r\n  return r;\r\n}\r\n"
   dependsOn:
   - util/xorshift.hpp
   - math/mod_pow.hpp
   isVerificationFile: false
   path: math/mod_sqrt.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_sqrt.test.cpp

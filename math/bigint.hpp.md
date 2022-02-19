@@ -15,7 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.04.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.05.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u9664\u7B97)"
   - icon: ':heavy_check_mark:'
@@ -175,8 +175,8 @@ data:
     \n    return {dividend, static_cast<int>(rem)};\r\n  }\r\n  std::pair<BigInt,\
     \ BigInt> divide(const BigInt& x) const {\r\n    assert(!x.data.empty());\r\n\
     \    const int k = B / (x.data.back() + 1);\r\n    const BigInt dividend = (sgn\
-    \ == 1 ? *this : -*this) * k;\r\n    const BigInt divisor = (sgn == 1 ? x : -x)\
-    \ * k;\r\n    BigInt quo, rem = 0;\r\n    quo.data.resize(dividend.data.size());\r\
+    \ == 1 ? *this : -*this) * k;\r\n    const BigInt divisor = (x.sgn == 1 ? x :\
+    \ -x) * k;\r\n    BigInt quo, rem = 0;\r\n    quo.data.resize(dividend.data.size());\r\
     \n    const int n = divisor.data.size();\r\n    for (int i = static_cast<int>(dividend.data.size())\
     \ - 1; i >= 0; --i) {\r\n      rem.data.emplace(rem.data.begin(), dividend.data[i]);\r\
     \n      quo.data[i] =\r\n          ((n < rem.data.size() ? static_cast<long long>(rem.data[n])\
@@ -328,8 +328,8 @@ data:
     \n    return {dividend, static_cast<int>(rem)};\r\n  }\r\n  std::pair<BigInt,\
     \ BigInt> divide(const BigInt& x) const {\r\n    assert(!x.data.empty());\r\n\
     \    const int k = B / (x.data.back() + 1);\r\n    const BigInt dividend = (sgn\
-    \ == 1 ? *this : -*this) * k;\r\n    const BigInt divisor = (sgn == 1 ? x : -x)\
-    \ * k;\r\n    BigInt quo, rem = 0;\r\n    quo.data.resize(dividend.data.size());\r\
+    \ == 1 ? *this : -*this) * k;\r\n    const BigInt divisor = (x.sgn == 1 ? x :\
+    \ -x) * k;\r\n    BigInt quo, rem = 0;\r\n    quo.data.resize(dividend.data.size());\r\
     \n    const int n = divisor.data.size();\r\n    for (int i = static_cast<int>(dividend.data.size())\
     \ - 1; i >= 0; --i) {\r\n      rem.data.emplace(rem.data.begin(), dividend.data[i]);\r\
     \n      quo.data[i] =\r\n          ((n < rem.data.size() ? static_cast<long long>(rem.data[n])\
@@ -352,7 +352,7 @@ data:
   isVerificationFile: false
   path: math/bigint.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:06:53+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/bigint.06.test.cpp

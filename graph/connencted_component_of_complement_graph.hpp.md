@@ -29,7 +29,7 @@ data:
     \ data_structure/union-find/union-find.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"../data_structure/union-find/union-find.hpp\"\
-    \r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nUnionFind connencted_component_of_complement_graph(\r\
+    \r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nUnionFind connencted_component_of_complement_graph(\r\
     \n    const std::vector<std::vector<Edge<CostType>>>& graph) {\r\n  const int\
     \ n = graph.size();\r\n  UnionFind union_find(n);\r\n  const auto check = [&graph,\
     \ n, &union_find](const int ver) -> void {\r\n    std::vector<bool> is_adjacent(n,\
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: graph/connencted_component_of_complement_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/connencted_component_of_complement_graph.test.cpp

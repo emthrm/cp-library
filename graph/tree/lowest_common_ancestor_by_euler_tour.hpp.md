@@ -36,7 +36,7 @@ data:
     \u30C4\u30A2\u30FC\u7248\r\n * @docs docs/graph/tree/lowest_common_ancestor.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include\
     \ <vector>\r\n\r\n#include \"../../data_structure/sparse_table.hpp\"\r\n#include\
-    \ \"../edge.hpp\"\r\n#include \"euler_tour.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \ \"../edge.hpp\"\r\n#include \"./euler_tour.hpp\"\r\n\r\ntemplate <typename CostType>\r\
     \nstruct LowestCommonAncestor : EulerTour<CostType> {\r\n  explicit LowestCommonAncestor(\r\
     \n      const std::vector<std::vector<Edge<CostType>>>& graph,\r\n      const\
     \ int root = 0)\r\n      : EulerTour<CostType>(graph, root) {\r\n    const int\
@@ -56,7 +56,7 @@ data:
   isVerificationFile: false
   path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

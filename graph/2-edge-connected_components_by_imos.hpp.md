@@ -32,9 +32,9 @@ data:
   code: "/**\r\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\
     \u3082\u3059\u6CD5\u7248\r\n * @docs docs/graph/2-edge-connected_components.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <set>\r\n#include\
-    \ <queue>\r\n#include <utility>\r\n#include <vector>\r\n\r\n#include \"edge.hpp\"\
-    \r\n#include \"enumerate_bridges.hpp\"\r\n\r\ntemplate <typename CostType>\r\n\
-    struct TwoEdgeConnectedComponentsByImos {\r\n  std::vector<int> id;\r\n  std::vector<Edge<CostType>>\
+    \ <queue>\r\n#include <utility>\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\
+    \r\n#include \"./enumerate_bridges.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nstruct TwoEdgeConnectedComponentsByImos {\r\n  std::vector<int> id;\r\n  std::vector<Edge<CostType>>\
     \ bridge;\r\n  std::vector<std::vector<int>> vertices;\r\n  std::vector<std::vector<Edge<CostType>>>\
     \ g;\r\n\r\n  explicit TwoEdgeConnectedComponentsByImos(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\r\n      const bool is_full_ver = false)\r\n      : bridge(enumerate_bridges(graph))\
@@ -59,7 +59,7 @@ data:
   isVerificationFile: false
   path: graph/2-edge-connected_components_by_imos.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/2-edge-connected_components_by_imos.test.cpp

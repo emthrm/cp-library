@@ -27,7 +27,7 @@ data:
   code: "/**\r\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\
     \u8868\r\n * @docs docs/math/carmichael_function.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n\r\n#include\
-    \ \"least_common_multiple.hpp\"\r\n#include \"prime_sieve.hpp\"\r\n\r\nstd::vector<long\
+    \ \"./least_common_multiple.hpp\"\r\n#include \"./prime_sieve.hpp\"\r\n\r\nstd::vector<long\
     \ long> carmichal_function_init(const long long low,\r\n                     \
     \                          const long long high) {\r\n  std::vector<long long>\
     \ lambda(high - low, 1), tmp(high - low);\r\n  std::iota(tmp.begin(), tmp.end(),\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: math/carmichael_function_init.hpp
   requiredBy: []
-  timestamp: '2022-02-19 19:36:06+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/carmichael_function_init.hpp

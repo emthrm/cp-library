@@ -6,9 +6,9 @@ data:
     title: "\u591A\u500D\u9577\u6574\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D
@@ -150,8 +150,8 @@ data:
     \n    return {dividend, static_cast<int>(rem)};\r\n  }\r\n  std::pair<BigInt,\
     \ BigInt> divide(const BigInt& x) const {\r\n    assert(!x.data.empty());\r\n\
     \    const int k = B / (x.data.back() + 1);\r\n    const BigInt dividend = (sgn\
-    \ == 1 ? *this : -*this) * k;\r\n    const BigInt divisor = (sgn == 1 ? x : -x)\
-    \ * k;\r\n    BigInt quo, rem = 0;\r\n    quo.data.resize(dividend.data.size());\r\
+    \ == 1 ? *this : -*this) * k;\r\n    const BigInt divisor = (x.sgn == 1 ? x :\
+    \ -x) * k;\r\n    BigInt quo, rem = 0;\r\n    quo.data.resize(dividend.data.size());\r\
     \n    const int n = divisor.data.size();\r\n    for (int i = static_cast<int>(dividend.data.size())\
     \ - 1; i >= 0; --i) {\r\n      rem.data.emplace(rem.data.begin(), dividend.data[i]);\r\
     \n      quo.data[i] =\r\n          ((n < rem.data.size() ? static_cast<long long>(rem.data[n])\
@@ -182,8 +182,8 @@ data:
   isVerificationFile: true
   path: test/math/bigint.05.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-02-19 23:06:53+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.05.test.cpp
 layout: document

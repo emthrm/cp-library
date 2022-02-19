@@ -32,10 +32,10 @@ data:
     \ math/is_primitive_root.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u539F\u59CB\u6839\u5224\u5B9A\r\n * @docs docs/math/primitive_root.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <map>\r\n#include\
-    \ <utility>\r\n#include <vector>\r\n\r\n#include \"euler_phi/euler_phi.hpp\"\r\
-    \n#include \"mod_pow.hpp\"\r\n#include \"prime_factorization.hpp\"\r\n\r\nbool\
-    \ is_primitive_root(long long root, const long long m) {\r\n  if ((root %= m)\
-    \ < 0) root += m;\r\n  if (std::__gcd(root, m) > 1) return false;\r\n  static\
+    \ <utility>\r\n#include <vector>\r\n\r\n#include \"./euler_phi/euler_phi.hpp\"\
+    \r\n#include \"./mod_pow.hpp\"\r\n#include \"./prime_factorization.hpp\"\r\n\r\
+    \nbool is_primitive_root(long long root, const long long m) {\r\n  if ((root %=\
+    \ m) < 0) root += m;\r\n  if (std::__gcd(root, m) > 1) return false;\r\n  static\
     \ std::map<long long, long long> phi;\r\n  if (!phi.count(m)) phi[m] = euler_phi(m);\r\
     \n  const long long phi_m = phi[m];\r\n  static std::map<long long, std::vector<long\
     \ long>> primes;\r\n  if (!primes.count(phi_m)) {\r\n    const std::vector<std::pair<long\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_primitive_root.test.cpp

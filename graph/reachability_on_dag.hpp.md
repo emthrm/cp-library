@@ -28,8 +28,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <cstdint>\r\
-    \n#include <limits>\r\n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n#include\
-    \ \"topological_sort.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<bool>\
+    \n#include <limits>\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n#include\
+    \ \"./topological_sort.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<bool>\
     \ reachability_on_dag(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\r\n    const std::vector<int>& ss, const std::vector<int>& ts) {\r\n\
     \  const int n = graph.size(), q = ss.size();\r\n  assert(ts.size() == q);\r\n\
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: graph/reachability_on_dag.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/reachability_on_dag.test.cpp

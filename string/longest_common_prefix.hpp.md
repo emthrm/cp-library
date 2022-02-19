@@ -80,7 +80,7 @@ data:
     \ private:\r\n  SparseTable<int> st;\r\n};\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <string>\r\
     \n#include <utility>\r\n#include <vector>\r\n\r\n#include \"../data_structure/sparse_table.hpp\"\
-    \r\n#include \"suffix_array.hpp\"\r\n\r\ntemplate <typename T = std::string>\r\
+    \r\n#include \"./suffix_array.hpp\"\r\n\r\ntemplate <typename T = std::string>\r\
     \nstruct LongestCommonPrefix : SuffixArray<T> {\r\n  std::vector<int> lcp_array;\r\
     \n\r\n  explicit LongestCommonPrefix(const T& s) : SuffixArray<T>(s) {\r\n   \
     \ const int n = s.size();\r\n    lcp_array.resize(n);\r\n    for (int i = 0, common\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: false
   path: string/longest_common_prefix.hpp
   requiredBy: []
-  timestamp: '2022-02-16 18:14:43+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/longest_common_prefix.test.cpp

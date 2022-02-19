@@ -24,7 +24,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n// #include <algorithm>\r\n#include <vector>\r\n\r\n#include\
-    \ \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct StronglyConnectedComponents\
+    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct StronglyConnectedComponents\
     \ {\r\n  std::vector<int> id;\r\n  std::vector<std::vector<int>> vertices;\r\n\
     \  std::vector<std::vector<Edge<CostType>>> g;\r\n\r\n  explicit StronglyConnectedComponents(\r\
     \n      const std::vector<std::vector<Edge<CostType>>>& graph,\r\n      const\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: graph/strongly_connected_components.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/strongly_connected_components.test.cpp

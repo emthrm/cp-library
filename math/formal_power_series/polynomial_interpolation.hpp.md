@@ -26,10 +26,10 @@ data:
     \ math/formal_power_series/polynomial_interpolation.hpp: line 6: #pragma once\
     \ found in a non-first line\n"
   code: "/**\r\n * @brief \u591A\u9805\u5F0F\u88DC\u9593\r\n * @docs docs/math/lagrange_interpolation.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <functional>\r\n#include <vector>\r\n#include\
-    \ \"multipoint_evaluation.hpp\"\r\n\r\ntemplate <template <typename> class C,\
-    \ typename T>\r\nC<T> polynomial_interpolation(const std::vector<T>& x,\r\n  \
-    \                            const std::vector<T>& y) {\r\n  MultipointEvaluation<C,\
+    \n */\r\n\r\n#pragma once\r\n#include <functional>\r\n#include <vector>\r\n\r\n\
+    #include \"./multipoint_evaluation.hpp\"\r\n\r\ntemplate <template <typename>\
+    \ class C, typename T>\r\nC<T> polynomial_interpolation(const std::vector<T>&\
+    \ x,\r\n                              const std::vector<T>& y) {\r\n  MultipointEvaluation<C,\
     \ T> m(x);\r\n  m.build(m.subproduct_tree[1].differential());\r\n  const int n\
     \ = x.size();\r\n  const std::function<C<T>(int)> f = [&y, &m, n, &f](const int\
     \ node) -> C<T> {\r\n    return node >= n ? C<T>{y[node - n] / m.f_x[node - n]}\
@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/polynomial_interpolation.hpp
   requiredBy: []
-  timestamp: '2022-02-17 13:43:56+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/polynomial_interpolation.test.cpp

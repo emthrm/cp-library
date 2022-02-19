@@ -67,9 +67,9 @@ data:
     \n        for (int col2 = 0; col2 < n; ++col2) {\r\n          (*a)[row][col2]\
     \ -= (*a)[rank][col2] * tmp;\r\n        }\r\n      }\r\n    }\r\n    ++rank;\r\
     \n  }\r\n  return rank;\r\n}\r\n"
-  code: "#pragma once\r\n#include <utility>\r\n\r\n#include \"matrix.hpp\"\r\n\r\n\
-    template <typename T>\r\nint gauss_jordan(Matrix<T>* a, const T eps = 1e-8,\r\n\
-    \                 const bool is_extended = false) {\r\n  const int m = a->nrow(),\
+  code: "#pragma once\r\n#include <utility>\r\n\r\n#include \"./matrix.hpp\"\r\n\r\
+    \ntemplate <typename T>\r\nint gauss_jordan(Matrix<T>* a, const T eps = 1e-8,\r\
+    \n                 const bool is_extended = false) {\r\n  const int m = a->nrow(),\
     \ n = a->ncol();\r\n  int rank = 0;\r\n  for (int col = 0; col < (is_extended\
     \ ? n - 1 : n); ++col) {\r\n    int pivot = -1;\r\n    T mx = eps;\r\n    for\
     \ (int row = rank; row < m; ++row) {\r\n      const T abs = ((*a)[row][col] <\
@@ -89,7 +89,7 @@ data:
   requiredBy:
   - math/matrix/linear_equation.hpp
   - graph/flow/matching/maximum_matching.hpp
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp

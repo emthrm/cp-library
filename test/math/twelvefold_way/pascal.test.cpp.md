@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/pascal.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:06:53+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/pascal.test.cpp

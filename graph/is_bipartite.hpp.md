@@ -24,7 +24,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <functional>\r\n#include <vector>\r\n\r\n#include\
-    \ \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nbool is_bipartite(const\
+    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nbool is_bipartite(const\
     \ std::vector<std::vector<Edge<CostType>>>& graph,\r\n                  std::vector<int>*\
     \ color) {\r\n  const int n = graph.size();\r\n  color->assign(n, -1);\r\n  const\
     \ std::function<bool(int, int)> dfs = [&graph, &color, &dfs](\r\n      const int\
@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: graph/is_bipartite.hpp
   requiredBy: []
-  timestamp: '2022-02-16 18:14:43+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/is_bipartite.test.cpp

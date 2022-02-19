@@ -24,8 +24,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <set>\r\n#include <utility>\r\
-    \n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n#include \"lowlink.hpp\"\r\
-    \n\r\ntemplate <typename CostType>\r\nstruct BiconnectedComponent : Lowlink<CostType>\
+    \n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n#include \"./lowlink.hpp\"\
+    \r\n\r\ntemplate <typename CostType>\r\nstruct BiconnectedComponent : Lowlink<CostType>\
     \ {\r\n  std::vector<int> id;\r\n  std::vector<std::vector<int>> vertices, cutpoint;\r\
     \n  std::vector<std::vector<std::pair<int, int>>> block;\r\n\r\n  explicit BiconnectedComponent(\r\
     \n      const std::vector<std::vector<Edge<CostType>>>& graph,\r\n      const\
@@ -67,7 +67,7 @@ data:
   isVerificationFile: false
   path: graph/biconnected_component.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/biconnected_component.hpp

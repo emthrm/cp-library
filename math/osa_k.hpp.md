@@ -31,7 +31,7 @@ data:
     \ /= prime) {\r\n        ++exponent;\r\n      }\r\n      res.emplace_back(prime,\
     \ exponent);\r\n    }\r\n    return res;\r\n  }\r\n};\r\n"
   code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\n#include \"\
-    prime_sieve.hpp\"\r\n\r\nstruct OsaK {\r\n  const std::vector<int> smallest_prime_factor;\r\
+    ./prime_sieve.hpp\"\r\n\r\nstruct OsaK {\r\n  const std::vector<int> smallest_prime_factor;\r\
     \n\r\n  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false))\
     \ {}\r\n\r\n  std::vector<std::pair<int, int>> query(int n) const {\r\n    std::vector<std::pair<int,\
     \ int>> res;\r\n    while (n > 1) {\r\n      const int prime = smallest_prime_factor[n];\r\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: math/osa_k.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/osa_k.test.cpp

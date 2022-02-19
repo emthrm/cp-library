@@ -41,7 +41,7 @@ data:
     \ non-first line\n"
   code: "/**\r\n * @brief \u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\
     \u6D88\u53BB\u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n\r\n#include \"binary_matrix.hpp\"\
+    \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n\r\n#include \"./binary_matrix.hpp\"\
     \r\n\r\ntemplate <int N>\r\nint gauss_jordan(BinaryMatrix<N>* a, const bool is_extended\
     \ = false) {\r\n  const int m = a->nrow(), n = a->ncol();\r\n  int rank = 0;\r\
     \n  for (int col = 0; col < (is_extended ? n - 1 : n); ++col) {\r\n    int pivot\
@@ -56,7 +56,7 @@ data:
   path: math/matrix/binary_matrix/gauss_jordan.hpp
   requiredBy:
   - math/matrix/binary_matrix/linear_equation.hpp
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp

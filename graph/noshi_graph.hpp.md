@@ -23,8 +23,8 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\ntemplate\
-    \ <typename CostType>\r\nstruct NoshiGraph {\r\n  std::vector<std::vector<Edge<CostType>>>\
+  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\n\
+    template <typename CostType>\r\nstruct NoshiGraph {\r\n  std::vector<std::vector<Edge<CostType>>>\
     \ graph;\r\n\r\n  explicit NoshiGraph(const int n) : p2(1) {\r\n    while (p2\
     \ < n) p2 <<= 1;\r\n    const int dbl = p2 << 1, hlf = p2 >> 1;\r\n    graph.resize(dbl\
     \ + p2);\r\n    for (int i = 1; i < hlf; ++i) {\r\n      add_edge(i + p2, (i <<\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: graph/noshi_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/noshi_graph.test.cpp

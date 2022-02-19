@@ -174,7 +174,7 @@ data:
     \    bernoulli[i] = bernoulli[i - 1] / (i + 1);\r\n  }\r\n  bernoulli = bernoulli.inv(n);\r\
     \n  T fact = 1;\r\n  for (int i = 0; i <= n; ++i) {\r\n    bernoulli[i] *= fact;\r\
     \n    fact *= i + 1;\r\n  }\r\n  return bernoulli.coef;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"formal_power_series.hpp\"\
+  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"./formal_power_series.hpp\"\
     \r\n\r\ntemplate <typename T>\r\nstd::vector<T> bernoulli_number(const int n)\
     \ {\r\n  FormalPowerSeries<T> bernoulli(n);\r\n  bernoulli[0] = 1;\r\n  for (int\
     \ i = 1; i <= n; ++i) {\r\n    bernoulli[i] = bernoulli[i - 1] / (i + 1);\r\n\
@@ -187,7 +187,7 @@ data:
   path: math/formal_power_series/bernoulli_number.hpp
   requiredBy:
   - math/formal_power_series/faulhaber_by_fps.hpp
-  timestamp: '2022-02-17 13:43:56+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/bernoulli_number.test.cpp

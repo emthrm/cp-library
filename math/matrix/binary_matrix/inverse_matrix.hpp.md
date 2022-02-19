@@ -27,7 +27,7 @@ data:
     \ a non-first line\n"
   code: "/**\r\n * @brief \u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\
     \r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <cassert>\r\n#include <utility>\r\n\r\n#include \"binary_matrix.hpp\"\
+    \ once\r\n#include <cassert>\r\n#include <utility>\r\n\r\n#include \"./binary_matrix.hpp\"\
     \r\n\r\ntemplate <int N>\r\nBinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>&\
     \ a) {\r\n  const int n = a.nrow();\r\n  BinaryMatrix<N> b(n, n << 1, 0);\r\n\
     \  for (int i = 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) {\r\n    \
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: math/matrix/binary_matrix/inverse_matrix.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp

@@ -26,7 +26,7 @@ data:
     \ in a non-first line\n"
   code: "/**\r\n * @brief Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\
     \r\n * @docs docs/math/formal_power_series/eulerian_number.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <vector>\r\n\r\n#include \"../modint.hpp\"\r\n#include \"formal_power_series.hpp\"\
+    \ once\r\n#include <vector>\r\n\r\n#include \"../modint.hpp\"\r\n#include \"./formal_power_series.hpp\"\
     \r\n\r\ntemplate <int T>\r\nstd::vector<MInt<T>> eulerian_number_init_by_fps(const\
     \ int n) {\r\n  using ModInt = MInt<T>;\r\n  if (n == 0) return {1};\r\n  ModInt::init(n\
     \ + 1);\r\n  const int m = (n + 1) >> 1;\r\n  FormalPowerSeries<ModInt> a(m -\
@@ -42,7 +42,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/eulerian_number_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/formal_power_series/eulerian_number_by_fps.hpp

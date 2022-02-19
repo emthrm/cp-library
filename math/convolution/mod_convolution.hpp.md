@@ -41,7 +41,7 @@ data:
   code: "/**\r\n * @brief \u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\
     \u8FBC\u307F\r\n * @docs docs/math/convolution/number_theoretic_transform.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <cmath>\r\n#include <vector>\r\n\r\n#include\
-    \ \"../modint.hpp\"\r\n#include \"fast_fourier_transform.hpp\"\r\n\r\ntemplate\
+    \ \"../modint.hpp\"\r\n#include \"./fast_fourier_transform.hpp\"\r\n\r\ntemplate\
     \ <int T>\r\nstd::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>&\
     \ a,\r\n                                     const std::vector<MInt<T>>& b,\r\n\
     \                                     const int pre = 15) {\r\n  using ModInt\
@@ -82,7 +82,7 @@ data:
   isVerificationFile: false
   path: math/convolution/mod_convolution.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/convolution/mod_convolution.test.cpp

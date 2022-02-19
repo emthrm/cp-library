@@ -281,7 +281,7 @@ data:
     \n      }\r\n    }\r\n  }\r\n  return res;\r\n}\r\n\r\n}  // namespace geometry\r\
     \n"
   code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\n#include \"\
-    ../util/xorshift.hpp\"\r\n#include \"geometry.hpp\"\r\n\r\nnamespace geometry\
+    ../util/xorshift.hpp\"\r\n#include \"./geometry.hpp\"\r\n\r\nnamespace geometry\
     \ {\r\n\r\nCircle smallest_enclosing_circle(std::vector<Point> ps) {\r\n  const\
     \ int n = ps.size();\r\n  if (n == 1) return Circle(ps.front(), 0);\r\n  for (int\
     \ i = 0; i < n; ++i) {\r\n    std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);\r\
@@ -306,7 +306,7 @@ data:
   isVerificationFile: false
   path: geometry/smallest_enclosing_circle.hpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/smallest_enclosing_circle.test.cpp

@@ -142,7 +142,7 @@ data:
     \n  using ModInt = MInt<T>;\r\n  ModInt::inv(n + 1, true);\r\n  std::vector<ModInt>\
     \ c(n + 1);\r\n  c[0] = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n    c[i + 1]\
     \ = c[i] * ModInt::inv(i + 2) * 2 * (2 * i + 1);\r\n  }\r\n  return c;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"modint.hpp\"\r\n\r\n\
+  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"./modint.hpp\"\r\n\r\n\
     template <int T>\r\nstd::vector<MInt<T>> catalan_number(const int n) {\r\n  using\
     \ ModInt = MInt<T>;\r\n  ModInt::inv(n + 1, true);\r\n  std::vector<ModInt> c(n\
     \ + 1);\r\n  c[0] = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n    c[i + 1] = c[i]\
@@ -152,7 +152,7 @@ data:
   isVerificationFile: false
   path: math/catalan_number.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/catalan_number.test.cpp

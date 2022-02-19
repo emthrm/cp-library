@@ -29,7 +29,7 @@ data:
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\
     \u7248\r\n * @docs docs/graph/eulerian_trail.md\r\n */\r\n\r\n#pragma once\r\n\
     #include <algorithm>\r\n#include <functional>\r\n#include <vector>\r\n\r\n#include\
-    \ \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<Edge<CostType>>\
+    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<Edge<CostType>>\
     \ eulerian_trail_in_directed_graph(\r\n    std::vector<std::vector<Edge<CostType>>>\
     \ graph, int s = -1) {\r\n  const int n = graph.size();\r\n  int edge_num = 0;\r\
     \n  std::vector<int> deg(n, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n    edge_num\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: false
   path: graph/eulerian_trail_in_directed_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/eulerian_trail_in_directed_graph.test.cpp

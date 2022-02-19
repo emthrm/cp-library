@@ -68,7 +68,7 @@ data:
     \ mp;\r\n  }\r\n\r\n private:\r\n  bool is_full_ver = false;\r\n};\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <iterator>\r\
     \n#include <map>\r\n#include <queue>\r\n#include <string>\r\n#include <vector>\r\
-    \n\r\n#include \"trie.hpp\"\r\n\r\ntemplate <size_t Sigma = 26>\r\nstruct AhoCorasick\
+    \n\r\n#include \"./trie.hpp\"\r\n\r\ntemplate <size_t Sigma = 26>\r\nstruct AhoCorasick\
     \ : Trie<Sigma + 1> {\r\n  using Trie<Sigma + 1>::Trie;\r\n\r\n  std::vector<int>\
     \ nums;\r\n\r\n  void build(const bool is_full_ver_ = false) {\r\n    is_full_ver\
     \ = is_full_ver_;\r\n    auto& vertices = this->nodes;\r\n    const int n = vertices.size();\r\
@@ -106,7 +106,7 @@ data:
   isVerificationFile: false
   path: string/aho-corasick.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/aho-corasick.test.cpp

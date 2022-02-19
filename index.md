@@ -1013,7 +1013,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/bigint.04.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.05.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u9664\u7B97)"
     - icon: ':heavy_check_mark:'

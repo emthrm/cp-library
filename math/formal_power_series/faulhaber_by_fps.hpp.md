@@ -36,7 +36,7 @@ data:
   code: "/**\r\n * @brief \u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\
     \u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\r\n * @docs docs/math/formal_power_series/faulhaber.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n\r\n#include\
-    \ \"../modint.hpp\"\r\n#include \"bernoulli_number.hpp\"\r\n\r\ntemplate <int\
+    \ \"../modint.hpp\"\r\n#include \"./bernoulli_number.hpp\"\r\n\r\ntemplate <int\
     \ T>\r\nMInt<T> faulhaber_by_fps(const long long n, const int k) {\r\n  using\
     \ ModInt = MInt<T>;\r\n  if (n <= 1) return 0;\r\n  if (k == 0) return n - 1;\r\
     \n  ModInt::init(k + 1);\r\n  const std::vector<ModInt> bernoulli = bernoulli_number<ModInt>(k);\r\
@@ -50,7 +50,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/faulhaber_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp

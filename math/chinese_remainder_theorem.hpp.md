@@ -31,10 +31,10 @@ data:
     \    x += (b[i] - x) / g % u_i * mod_inv(md / g, u_i) % u_i * md;\r\n    md *=\
     \ u_i;\r\n    if (x < 0) x += md;\r\n  }\r\n  return {x, md};\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\n#include \"mod_inv.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::pair<T, T>\
-    \ chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {\r\n  const int\
-    \ n = b.size();\r\n  T x = 0, md = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n \
-    \   if ((b[i] %= m[i]) < 0) b[i] += m[i];\r\n    if (md < m[i]) {\r\n      std::swap(x,\
+    \n\r\n#include \"./mod_inv.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::pair<T,\
+    \ T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {\r\n  const\
+    \ int n = b.size();\r\n  T x = 0, md = 1;\r\n  for (int i = 0; i < n; ++i) {\r\
+    \n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\r\n    if (md < m[i]) {\r\n      std::swap(x,\
     \ b[i]);\r\n      std::swap(md, m[i]);\r\n    }\r\n    if (md % m[i] == 0) {\r\
     \n      if (x % m[i] != b[i]) return {0, 0};\r\n      continue;\r\n    }\r\n \
     \   const T g = std::__gcd(md, m[i]);\r\n    if ((b[i] - x) % g != 0) return {0,\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: math/chinese_remainder_theorem.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp

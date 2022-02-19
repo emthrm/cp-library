@@ -309,7 +309,7 @@ data:
   isVerificationFile: true
   path: test/geometry/smallest_enclosing_circle.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/smallest_enclosing_circle.test.cpp

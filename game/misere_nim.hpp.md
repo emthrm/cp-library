@@ -21,7 +21,7 @@ data:
     \ true;\r\n  return *std::max_element(positive.begin(), positive.end()) == 1 ?\r\
     \n         positive.size() % 2 == 0 : nim(positive);\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n#include\
-    \ \"nim.hpp\"\r\n\r\ntemplate <typename T>\r\nbool misere_nim(const std::vector<T>&\
+    \ \"./nim.hpp\"\r\n\r\ntemplate <typename T>\r\nbool misere_nim(const std::vector<T>&\
     \ a) {\r\n  std::vector<T> positive;\r\n  positive.reserve(a.size());\r\n  for\
     \ (const T e : a) {\r\n    if (e > 0) positive.emplace_back(e);\r\n  }\r\n  if\
     \ (positive.empty()) return true;\r\n  return *std::max_element(positive.begin(),\
@@ -32,7 +32,7 @@ data:
   isVerificationFile: false
   path: game/misere_nim.hpp
   requiredBy: []
-  timestamp: '2022-02-14 14:47:00+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: game/misere_nim.hpp

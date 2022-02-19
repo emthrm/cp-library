@@ -32,8 +32,8 @@ data:
     \ a non-first line\n"
   code: "/**\r\n * @brief \u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\
     \u30EA\u884C\u5217\u7248\r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"binary_matrix.hpp\"\
-    \r\n#include \"gauss_jordan.hpp\"\r\n\r\ntemplate <int N>\r\nstd::vector<bool>\
+    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"./binary_matrix.hpp\"\
+    \r\n#include \"./gauss_jordan.hpp\"\r\n\r\ntemplate <int N>\r\nstd::vector<bool>\
     \ linear_equation(const BinaryMatrix<N>& a,\r\n                              \
     \    const std::vector<bool>& b) {\r\n  const int m = a.nrow(), n = a.ncol();\r\
     \n  BinaryMatrix<N> c(m, n + 1);\r\n  for (int i = 0; i < m; ++i) {\r\n    for\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: math/matrix/binary_matrix/linear_equation.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/linear_equation.test.cpp

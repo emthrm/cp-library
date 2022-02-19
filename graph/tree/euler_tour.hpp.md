@@ -28,24 +28,25 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <vector>\r\n#include \"../edge.hpp\"\r\n\r\ntemplate\
-    \ <typename CostType>\r\nstruct EulerTour {\r\n  std::vector<int> tour, depth,\
-    \ left, right, down, up;\r\n  std::vector<CostType> cost;\r\n\r\n  explicit EulerTour(const\
-    \ std::vector<std::vector<Edge<CostType>>> &graph,\r\n                     const\
-    \ int root = 0)\r\n      : graph(graph) {\r\n    const int n = graph.size();\r\
-    \n    left.resize(n);\r\n    right.resize(n);\r\n    down.assign(n, -1);\r\n \
-    \   up.assign(n, (n - 1) << 1);\r\n    dfs(-1, root, 0);\r\n  }\r\n\r\n  template\
-    \ <typename Fn>\r\n  void update_v(const int ver, const Fn f) const {\r\n    f(left[ver],\
-    \ right[ver] + 1);\r\n  }\r\n\r\n  template <typename T, typename Fn>\r\n  T query_v(const\
-    \ int ver, const Fn f) const {\r\n    return f(left[ver], right[ver] + 1);\r\n\
-    \  }\r\n\r\n  template <typename T, typename Fn>\r\n  T query_e(const int u, const\
-    \ int v, const Fn f) const {\r\n    return f(down[u] + 1, down[v] + 1);\r\n  }\r\
-    \n\r\n  template <typename Fn>\r\n  void update_subtree_e(const int ver, const\
-    \ Fn f) const {\r\n    f(down[ver] + 1, up[ver]);\r\n  }\r\n\r\n  template <typename\
-    \ T, typename Fn>\r\n  T query_subtree_e(const int ver, const Fn f) const {\r\n\
-    \    return f(down[ver] + 1, up[ver]);\r\n  }\r\n\r\n private:\r\n  const std::vector<std::vector<Edge<CostType>>>\
-    \ graph;\r\n\r\n  void dfs(const int par, const int ver, const int cur_depth)\
-    \ {\r\n    left[ver] = tour.size();\r\n    tour.emplace_back(ver);\r\n    depth.emplace_back(cur_depth);\r\
+  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"../edge.hpp\"\r\n\r\n\
+    template <typename CostType>\r\nstruct EulerTour {\r\n  std::vector<int> tour,\
+    \ depth, left, right, down, up;\r\n  std::vector<CostType> cost;\r\n\r\n  explicit\
+    \ EulerTour(const std::vector<std::vector<Edge<CostType>>> &graph,\r\n       \
+    \              const int root = 0)\r\n      : graph(graph) {\r\n    const int\
+    \ n = graph.size();\r\n    left.resize(n);\r\n    right.resize(n);\r\n    down.assign(n,\
+    \ -1);\r\n    up.assign(n, (n - 1) << 1);\r\n    dfs(-1, root, 0);\r\n  }\r\n\r\
+    \n  template <typename Fn>\r\n  void update_v(const int ver, const Fn f) const\
+    \ {\r\n    f(left[ver], right[ver] + 1);\r\n  }\r\n\r\n  template <typename T,\
+    \ typename Fn>\r\n  T query_v(const int ver, const Fn f) const {\r\n    return\
+    \ f(left[ver], right[ver] + 1);\r\n  }\r\n\r\n  template <typename T, typename\
+    \ Fn>\r\n  T query_e(const int u, const int v, const Fn f) const {\r\n    return\
+    \ f(down[u] + 1, down[v] + 1);\r\n  }\r\n\r\n  template <typename Fn>\r\n  void\
+    \ update_subtree_e(const int ver, const Fn f) const {\r\n    f(down[ver] + 1,\
+    \ up[ver]);\r\n  }\r\n\r\n  template <typename T, typename Fn>\r\n  T query_subtree_e(const\
+    \ int ver, const Fn f) const {\r\n    return f(down[ver] + 1, up[ver]);\r\n  }\r\
+    \n\r\n private:\r\n  const std::vector<std::vector<Edge<CostType>>> graph;\r\n\
+    \r\n  void dfs(const int par, const int ver, const int cur_depth) {\r\n    left[ver]\
+    \ = tour.size();\r\n    tour.emplace_back(ver);\r\n    depth.emplace_back(cur_depth);\r\
     \n    for (const Edge<CostType>& e : graph[ver]) {\r\n      if (e.dst != par)\
     \ {\r\n        down[e.dst] = cost.size();\r\n        cost.emplace_back(e.cost);\r\
     \n        dfs(ver, e.dst, cur_depth + 1);\r\n        tour.emplace_back(ver);\r\
@@ -58,7 +59,7 @@ data:
   path: graph/tree/euler_tour.hpp
   requiredBy:
   - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

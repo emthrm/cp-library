@@ -102,7 +102,7 @@ data:
   isVerificationFile: true
   path: test/string/longest_common_prefix.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 18:14:43+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/longest_common_prefix.test.cpp

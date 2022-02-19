@@ -32,8 +32,8 @@ data:
   code: "/**\r\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink\
     \ \u7248\r\n * @docs docs/graph/2-edge-connected_components.md\r\n */\r\n\r\n\
     #pragma once\r\n// #include <algorithm>\r\n#include <vector>\r\n\r\n#include \"\
-    edge.hpp\"\r\n#include \"lowlink.hpp\"\r\n\r\ntemplate <typename CostType>\r\n\
-    struct TwoEdgeConnectedComponents : Lowlink<CostType> {\r\n  std::vector<int>\
+    ./edge.hpp\"\r\n#include \"./lowlink.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nstruct TwoEdgeConnectedComponents : Lowlink<CostType> {\r\n  std::vector<int>\
     \ id;\r\n  std::vector<std::vector<int>> vertices;\r\n  std::vector<std::vector<Edge<CostType>>>\
     \ g;\r\n\r\n  explicit TwoEdgeConnectedComponents(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\r\n      const bool is_full_ver = false)\r\n      : Lowlink<CostType>(graph),\
@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: graph/2-edge-connected_components_by_lowlink.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp

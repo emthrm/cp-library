@@ -59,7 +59,7 @@ data:
     \ for (int i = 0; i < n; ++i) {\r\n    std::copy(std::next(b[i].begin(), n), b[i].end(),\
     \ inv[i].begin());\r\n  }\r\n  return inv;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include <utility>\r\
-    \n\r\n#include \"matrix.hpp\"\r\n\r\ntemplate <typename T, typename U = double>\r\
+    \n\r\n#include \"./matrix.hpp\"\r\n\r\ntemplate <typename T, typename U = double>\r\
     \nMatrix<U> inverse_matrix(const Matrix<T>& a, const U eps = 1e-8) {\r\n  const\
     \ int n = a.nrow();\r\n  Matrix<U> b(n, n << 1, 0);\r\n  for (int i = 0; i < n;\
     \ ++i) {\r\n    std::copy(a[i].begin(), a[i].end(), b[i].begin());\r\n    b[i][n\
@@ -81,7 +81,7 @@ data:
   isVerificationFile: false
   path: math/matrix/inverse_matrix.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/inverse_matrix.test.cpp

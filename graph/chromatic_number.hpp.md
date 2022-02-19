@@ -23,8 +23,8 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\ntemplate\
-    \ <typename CostType>\r\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
+  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\n\
+    template <typename CostType>\r\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<int> adj(n, 0);\r\
     \n  for (int i = 0; i < n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i])\
     \ adj[i] |= 1 << e.dst;\r\n  }\r\n  std::vector<int> indep(1 << n);\r\n  indep[0]\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: graph/chromatic_number.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/chromatic_number.test.cpp

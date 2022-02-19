@@ -37,9 +37,9 @@ data:
     \ = mod_pow(i, k, m);\r\n    } else {\r\n      res[i] = static_cast<long long>(res[smallest_prime_factor[i]])\r\
     \n               * res[i / smallest_prime_factor[i]] % m;\r\n    }\r\n  }\r\n\
     \  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"mod_pow.hpp\"\r\n#include\
-    \ \"prime_sieve.hpp\"\r\n\r\nstd::vector<int> enumerate_kth_power(const int n,\
-    \ const int k, const int m) {\r\n  const std::vector<int> smallest_prime_factor\
+  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"./mod_pow.hpp\"\r\n#include\
+    \ \"./prime_sieve.hpp\"\r\n\r\nstd::vector<int> enumerate_kth_power(const int\
+    \ n, const int k, const int m) {\r\n  const std::vector<int> smallest_prime_factor\
     \ = prime_sieve(n, false);\r\n  std::vector<int> res(n + 1, 0);\r\n  for (int\
     \ i = 1; i <= n; ++i) {\r\n    if (smallest_prime_factor[i] == i) {\r\n      res[i]\
     \ = mod_pow(i, k, m);\r\n    } else {\r\n      res[i] = static_cast<long long>(res[smallest_prime_factor[i]])\r\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: math/enumerate_k-th_power.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/enumerate_k-th_power.test.cpp

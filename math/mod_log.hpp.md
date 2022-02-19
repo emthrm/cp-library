@@ -33,7 +33,7 @@ data:
     \ ans = static_cast<long long>(i) * root - baby[giant];\r\n      if (mod_pow(g,\
     \ ans, m) == y) return ans;\r\n    }\r\n    giant = (giant * p) % m;\r\n  }\r\n\
     \  return -1;\r\n}\r\n"
-  code: "#pragma once\r\n#include <cmath>\r\n#include <map>\r\n\r\n#include \"mod_pow.hpp\"\
+  code: "#pragma once\r\n#include <cmath>\r\n#include <map>\r\n\r\n#include \"./mod_pow.hpp\"\
     \r\n\r\nint mod_log(long long g, long long y, const int m) {\r\n  if (m == 1)\
     \ return 0;\r\n  if ((g %= m) < 0) g += m;\r\n  if ((y %= m) < 0) y += m;\r\n\
     \  if (g == 0) {\r\n    if (y == 1) return 0;\r\n    if (y == 0) return 1;\r\n\
@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: math/mod_log.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_log.test.cpp

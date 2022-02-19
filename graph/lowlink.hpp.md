@@ -38,19 +38,19 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n#include\
-    \ \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct Lowlink {\r\n  std::vector<int>\
-    \ order, lowlink, articulation_points;\r\n  std::vector<Edge<CostType>> bridges;\r\
-    \n  const std::vector<std::vector<Edge<CostType>>> graph;\r\n\r\n  explicit Lowlink(const\
-    \ std::vector<std::vector<Edge<CostType>>>& graph)\r\n      : graph(graph) {\r\
-    \n    const int n = graph.size();\r\n    order.assign(n, -1);\r\n    lowlink.resize(n);\r\
-    \n    int t = 0;\r\n    for (int i = 0; i < n; ++i) {\r\n      if (order[i] ==\
-    \ -1) dfs(-1, i, &t);\r\n    }\r\n  }\r\n\r\n private:\r\n  void dfs(const int\
-    \ par, const int ver, int* t) {\r\n    order[ver] = lowlink[ver] = (*t)++;\r\n\
-    \    int num = 0;\r\n    bool is_articulation_point = false;\r\n    for (const\
-    \ Edge<CostType>& e : graph[ver]) {\r\n      if (order[e.dst] == -1) {\r\n   \
-    \     ++num;\r\n        dfs(ver, e.dst, t);\r\n        lowlink[ver] = std::min(lowlink[ver],\
-    \ lowlink[e.dst]);\r\n        if (order[ver] <= lowlink[e.dst]) {\r\n        \
-    \  is_articulation_point = true;\r\n          if (order[ver] < lowlink[e.dst])\
+    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct Lowlink {\r\n \
+    \ std::vector<int> order, lowlink, articulation_points;\r\n  std::vector<Edge<CostType>>\
+    \ bridges;\r\n  const std::vector<std::vector<Edge<CostType>>> graph;\r\n\r\n\
+    \  explicit Lowlink(const std::vector<std::vector<Edge<CostType>>>& graph)\r\n\
+    \      : graph(graph) {\r\n    const int n = graph.size();\r\n    order.assign(n,\
+    \ -1);\r\n    lowlink.resize(n);\r\n    int t = 0;\r\n    for (int i = 0; i <\
+    \ n; ++i) {\r\n      if (order[i] == -1) dfs(-1, i, &t);\r\n    }\r\n  }\r\n\r\
+    \n private:\r\n  void dfs(const int par, const int ver, int* t) {\r\n    order[ver]\
+    \ = lowlink[ver] = (*t)++;\r\n    int num = 0;\r\n    bool is_articulation_point\
+    \ = false;\r\n    for (const Edge<CostType>& e : graph[ver]) {\r\n      if (order[e.dst]\
+    \ == -1) {\r\n        ++num;\r\n        dfs(ver, e.dst, t);\r\n        lowlink[ver]\
+    \ = std::min(lowlink[ver], lowlink[e.dst]);\r\n        if (order[ver] <= lowlink[e.dst])\
+    \ {\r\n          is_articulation_point = true;\r\n          if (order[ver] < lowlink[e.dst])\
     \ {\r\n            bridges.emplace_back(std::min(ver, e.dst), std::max(ver, e.dst),\r\
     \n                                 e.cost);\r\n          }\r\n        }\r\n  \
     \    } else if (e.dst != par) {\r\n        lowlink[ver] = std::min(lowlink[ver],\
@@ -64,7 +64,7 @@ data:
   requiredBy:
   - graph/biconnected_component.hpp
   - graph/2-edge-connected_components_by_lowlink.hpp
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/lowlink.1.test.cpp

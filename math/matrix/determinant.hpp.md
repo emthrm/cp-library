@@ -61,7 +61,7 @@ data:
     \ k < n; ++k) {\r\n        b[i][k] -= b[i][j] * b[j][k];\r\n      }\r\n    }\r\
     \n  }\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n\r\n#include\
-    \ \"matrix.hpp\"\r\n\r\ntemplate <typename T, typename U>\r\nU det(const Matrix<T>&\
+    \ \"./matrix.hpp\"\r\n\r\ntemplate <typename T, typename U>\r\nU det(const Matrix<T>&\
     \ a, const U eps) {\r\n  const int n = a.nrow();\r\n  Matrix<U> b(n, n);\r\n \
     \ for (int i = 0; i < n; ++i) {\r\n    std::copy(a[i].begin(), a[i].end(), b[i].begin());\r\
     \n  }\r\n  U res = 1;\r\n  for (int j = 0; j < n; ++j) {\r\n    int pivot = -1;\r\
@@ -79,7 +79,7 @@ data:
   path: math/matrix/determinant.hpp
   requiredBy:
   - graph/matrix_tree_theorem.hpp
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/determinant.test.cpp

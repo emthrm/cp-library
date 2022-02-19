@@ -25,7 +25,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <limits>\r\n#include <numeric>\r\
-    \n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
     \nCostType traveling_salesman_problem(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\r\n    const CostType inf = std::numeric_limits<CostType>::max()) {\r\
     \n  const int n = graph.size();\r\n  if (n == 1) return 0;\r\n  std::vector<std::vector<CostType>>\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: graph/traveling_salesman_problem.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/traveling_salesman_problem.test.cpp

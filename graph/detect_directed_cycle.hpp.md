@@ -28,7 +28,7 @@ data:
   code: "/**\r\n * @brief \u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\
     \u7248\r\n * @docs docs/graph/detect_cycle.md\r\n */\r\n\r\n#pragma once\r\n#include\
     \ <algorithm>\r\n#include <functional>\r\n#include <vector>\r\n\r\n#include \"\
-    edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<Edge<CostType>>\
+    ./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<Edge<CostType>>\
     \ detect_directed_cycle(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<int> is_visited(n,\
     \ 0);\r\n  std::vector<Edge<CostType>> edges, cycle;\r\n  const std::function<bool(int)>\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: graph/detect_directed_cycle.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/detect_directed_cycle.test.cpp

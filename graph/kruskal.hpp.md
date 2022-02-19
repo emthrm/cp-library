@@ -28,7 +28,7 @@ data:
     \ graph/kruskal.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief Kruskal \u6CD5\r\n * @docs docs/graph/minimum_spanning_tree.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n\
-    #include \"../data_structure/union-find/union-find.hpp\"\r\n#include \"edge.hpp\"\
+    #include \"../data_structure/union-find/union-find.hpp\"\r\n#include \"./edge.hpp\"\
     \r\n\r\ntemplate <typename CostType>\r\nCostType kruskal(const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<Edge<CostType>> edges;\r\
     \n  for (int i = 0; i < n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i])\
@@ -42,7 +42,7 @@ data:
   isVerificationFile: false
   path: graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/kruskal.test.cpp

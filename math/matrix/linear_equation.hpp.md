@@ -72,7 +72,7 @@ data:
     \ rank; ++i) {\r\n    while ((c[i][j] < 0 ? -c[i][j] : c[i][j]) <= eps) ++j;\r\
     \n    res[j++] = c[i].back();\r\n  }\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cmath>\r\n#include <vector>\r\
-    \n\r\n#include \"gauss_jordan.hpp\"\r\n#include \"matrix.hpp\"\r\n\r\ntemplate\
+    \n\r\n#include \"./gauss_jordan.hpp\"\r\n#include \"./matrix.hpp\"\r\n\r\ntemplate\
     \ <typename T, typename U = double>\r\nstd::vector<U> linear_equation(const Matrix<T>&\
     \ a, const std::vector<T>& b,\r\n                               const U eps =\
     \ 1e-8) {\r\n  const int m = a.nrow(), n = a.ncol();\r\n  Matrix<U> c(m, n + 1);\r\
@@ -89,7 +89,7 @@ data:
   isVerificationFile: false
   path: math/matrix/linear_equation.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp

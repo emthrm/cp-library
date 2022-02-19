@@ -21,7 +21,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/carmichael_function.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\r\n * @docs\
-    \ docs/math/carmichael_function.md\r\n */\r\n\r\n#pragma once\r\n#include \"least_common_multiple.hpp\"\
+    \ docs/math/carmichael_function.md\r\n */\r\n\r\n#pragma once\r\n#include \"./least_common_multiple.hpp\"\
     \r\n\r\nlong long carmichael_function(long long n) {\r\n  long long lambda = 1;\r\
     \n  if (n % 8 == 0) n >>= 1;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n\
     \    if (n % i == 0) {\r\n      n /= i;\r\n      long long phi = i - 1;\r\n  \
@@ -33,7 +33,7 @@ data:
   isVerificationFile: false
   path: math/carmichael_function.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/carmichael_function.hpp

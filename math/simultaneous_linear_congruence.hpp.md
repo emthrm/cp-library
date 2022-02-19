@@ -30,21 +30,21 @@ data:
     \n    x += md * (q / g * mod_inv(p / g, m_i) % m_i);\r\n    md *= m_i;\r\n  }\r\
     \n  return {x < 0 ? x + md : x, md};\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\n#include \"mod_inv.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::pair<T, T>\
-    \ simultaneous_linear_congruence(const std::vector<T>& a,\r\n                \
-    \                               const std::vector<T>& b,\r\n                 \
-    \                              const std::vector<T>& m) {\r\n  const int n = a.size();\r\
-    \n  T x = 0, md = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n    const T p = md\
-    \ * a[i], q = -x * a[i] + b[i], g = std::__gcd(p, m[i]);\r\n    if (q % g != 0)\
-    \ return {0, -1};\r\n    const T m_i = m[i] / g;\r\n    x += md * (q / g * mod_inv(p\
-    \ / g, m_i) % m_i);\r\n    md *= m_i;\r\n  }\r\n  return {x < 0 ? x + md : x,\
-    \ md};\r\n}\r\n"
+    \n\r\n#include \"./mod_inv.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::pair<T,\
+    \ T> simultaneous_linear_congruence(const std::vector<T>& a,\r\n             \
+    \                                  const std::vector<T>& b,\r\n              \
+    \                                 const std::vector<T>& m) {\r\n  const int n\
+    \ = a.size();\r\n  T x = 0, md = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n   \
+    \ const T p = md * a[i], q = -x * a[i] + b[i], g = std::__gcd(p, m[i]);\r\n  \
+    \  if (q % g != 0) return {0, -1};\r\n    const T m_i = m[i] / g;\r\n    x +=\
+    \ md * (q / g * mod_inv(p / g, m_i) % m_i);\r\n    md *= m_i;\r\n  }\r\n  return\
+    \ {x < 0 ? x + md : x, md};\r\n}\r\n"
   dependsOn:
   - math/mod_inv.hpp
   isVerificationFile: false
   path: math/simultaneous_linear_congruence.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/simultaneous_linear_congruence.test.cpp

@@ -27,8 +27,8 @@ data:
   code: "/**\r\n * @brief \u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248\r\n *\
     \ @docs docs/graph/girth.md\r\n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\
     \n#include <functional>\r\n#include <limits>\r\n#include <queue>\r\n#include <tuple>\r\
-    \n#include <utility>\r\n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\n\
-    template <typename CostType>\r\nCostType girth_in_directed_graph(\r\n    const\
+    \n#include <utility>\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\
+    \ntemplate <typename CostType>\r\nCostType girth_in_directed_graph(\r\n    const\
     \ std::vector<std::vector<Edge<CostType>>>& graph,\r\n    const CostType inf =\
     \ std::numeric_limits<CostType>::max()) {\r\n  const int n = graph.size();\r\n\
     \  CostType res = inf;\r\n  std::vector<CostType> dist(n);\r\n  std::priority_queue<std::pair<CostType,\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: graph/girth_in_directed_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/girth.test.cpp

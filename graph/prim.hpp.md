@@ -25,9 +25,9 @@ data:
     \ graph/prim.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief Prim \u6CD5\r\n * @docs docs/graph/minimum_spanning_tree.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <functional>\r\n#include <queue>\r\n#include\
-    \ <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\n\
-    CostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,\r\n     \
-    \         const int root = 0) {\r\n  const int n = graph.size();\r\n  CostType\
+    \ <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nCostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,\r\n   \
+    \           const int root = 0) {\r\n  const int n = graph.size();\r\n  CostType\
     \ res = 0;\r\n  std::vector<bool> is_visited(n, false);\r\n  is_visited[root]\
     \ = true;\r\n  std::priority_queue<Edge<CostType>,\r\n                      std::vector<Edge<CostType>>,\r\
     \n                      std::greater<Edge<CostType>>> que;\r\n  for (const Edge<CostType>&\
@@ -42,7 +42,7 @@ data:
   isVerificationFile: false
   path: graph/prim.hpp
   requiredBy: []
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/prim.test.cpp

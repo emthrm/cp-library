@@ -30,8 +30,8 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F\
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <algorithm>\r\n#include <vector>\r\n\r\n#include \"fast_mobius_transform.hpp\"\
-    \r\n#include \"fast_zeta_transform.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
+    \n#include <algorithm>\r\n#include <vector>\r\n\r\n#include \"./fast_mobius_transform.hpp\"\
+    \r\n#include \"./fast_zeta_transform.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
     \ and_convolution(std::vector<T> a, std::vector<T> b,\r\n                    \
     \           const T id = 0) {\r\n  int n = std::max(a.size(), b.size());\r\n \
     \ a.resize(n, id);\r\n  b.resize(n, id);\r\n  a = fast_zeta_transform(a, true,\
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: math/convolution/and_convolution.hpp
   requiredBy: []
-  timestamp: '2022-02-16 22:30:03+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp

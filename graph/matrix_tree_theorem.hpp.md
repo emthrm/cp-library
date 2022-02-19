@@ -32,7 +32,7 @@ data:
   code: "/**\r\n * @brief \u884C\u5217\u6728\u5B9A\u7406\r\n * @docs docs/graph/spectral_graph_theory.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
     \ <vector>\r\n\r\n#include \"../math/matrix/determinant.hpp\"\r\n#include \"../math/matrix/matrix.hpp\"\
-    \r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename T, typename CostType>\r\n\
+    \r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename T, typename CostType>\r\n\
     T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph,\r\
     \n                      const T eps = 1e-8) {\r\n  const int n = graph.size();\r\
     \n  if (n == 1) return 1;\r\n  Matrix<int> laplacian(n, n, 0);\r\n  for (int i\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: graph/matrix_tree_theorem.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/matrix_tree_theorem.test.cpp

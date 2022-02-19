@@ -32,8 +32,8 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <functional>\r\n#include\
-    \ <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\n\
-    std::vector<Edge<CostType>> enumerate_bridges(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nstd::vector<Edge<CostType>> enumerate_bridges(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<Edge<CostType>> res;\r\
     \n  std::vector<int> depth(n, -1), imos(n, 0);\r\n  const std::function<void(int,\
     \ int)> dfs = [&graph, &res, &depth, &imos, &dfs](\r\n      const int par, const\
@@ -53,7 +53,7 @@ data:
   path: graph/enumerate_bridges.hpp
   requiredBy:
   - graph/2-edge-connected_components_by_imos.hpp
-  timestamp: '2022-02-15 21:43:58+09:00'
+  timestamp: '2022-02-19 23:25:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/2-edge-connected_components_by_imos.test.cpp
