@@ -7,8 +7,8 @@
 #include <algorithm>
 #include <vector>
 
-#include "fast_mobius_transform.hpp"
-#include "fast_zeta_transform.hpp"
+#include "./fast_mobius_transform.hpp"
+#include "./fast_zeta_transform.hpp"
 
 template <typename T>
 std::vector<T> or_convolution(std::vector<T> a, std::vector<T> b,

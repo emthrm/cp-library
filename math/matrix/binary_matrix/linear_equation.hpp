@@ -6,8 +6,8 @@
 #pragma once
 #include <vector>
 
-#include "binary_matrix.hpp"
-#include "gauss_jordan.hpp"
+#include "./binary_matrix.hpp"
+#include "./gauss_jordan.hpp"
 
 template <int N>
 std::vector<bool> linear_equation(const BinaryMatrix<N>& a,

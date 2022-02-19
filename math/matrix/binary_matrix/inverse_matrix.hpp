@@ -7,7 +7,7 @@
 #include <cassert>
 #include <utility>
 
-#include "binary_matrix.hpp"
+#include "./binary_matrix.hpp"
 
 template <int N>
 BinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a) {

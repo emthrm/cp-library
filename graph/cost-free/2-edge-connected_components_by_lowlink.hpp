@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 
-#include "lowlink.hpp"
+#include "./lowlink.hpp"
 
 struct TwoEdgeConnectedComponents : Lowlink {
   std::vector<int> id;

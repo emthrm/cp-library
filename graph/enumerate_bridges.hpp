@@ -3,7 +3,7 @@
 #include <functional>
 #include <vector>
 
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 std::vector<Edge<CostType>> enumerate_bridges(

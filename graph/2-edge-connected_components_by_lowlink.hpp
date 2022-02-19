@@ -7,8 +7,8 @@
 // #include <algorithm>
 #include <vector>
 
-#include "edge.hpp"
-#include "lowlink.hpp"
+#include "./edge.hpp"
+#include "./lowlink.hpp"
 
 template <typename CostType>
 struct TwoEdgeConnectedComponents : Lowlink<CostType> {

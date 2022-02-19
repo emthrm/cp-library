@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+
 #include "../edge.hpp"
 
 template <typename CostType>

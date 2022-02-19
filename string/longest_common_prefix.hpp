@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "../data_structure/sparse_table.hpp"
-#include "suffix_array.hpp"
+#include "./suffix_array.hpp"
 
 template <typename T = std::string>
 struct LongestCommonPrefix : SuffixArray<T> {

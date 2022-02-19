@@ -9,9 +9,9 @@
 #include <utility>
 #include <vector>
 
-#include "euler_phi/euler_phi.hpp"
-#include "mod_pow.hpp"
-#include "prime_factorization.hpp"
+#include "./euler_phi/euler_phi.hpp"
+#include "./mod_pow.hpp"
+#include "./prime_factorization.hpp"
 
 bool is_primitive_root(long long root, const long long m) {
   if ((root %= m) < 0) root += m;

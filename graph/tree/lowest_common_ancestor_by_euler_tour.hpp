@@ -10,7 +10,7 @@
 
 #include "../../data_structure/sparse_table.hpp"
 #include "../edge.hpp"
-#include "euler_tour.hpp"
+#include "./euler_tour.hpp"
 
 template <typename CostType>
 struct LowestCommonAncestor : EulerTour<CostType> {

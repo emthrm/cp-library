@@ -5,7 +5,7 @@
 #include <utility>
 #include <vector>
 
-#include "enumerate_bridges.hpp"
+#include "./enumerate_bridges.hpp"
 
 struct TwoEdgeConnectedComponentsByImos {
   std::vector<int> id;

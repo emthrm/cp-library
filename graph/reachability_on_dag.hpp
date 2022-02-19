@@ -5,8 +5,8 @@
 #include <limits>
 #include <vector>
 
-#include "edge.hpp"
-#include "topological_sort.hpp"
+#include "./edge.hpp"
+#include "./topological_sort.hpp"
 
 template <typename CostType>
 std::vector<bool> reachability_on_dag(

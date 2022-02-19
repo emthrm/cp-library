@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "nim.hpp"
+#include "./nim.hpp"
 
 template <typename T>
 bool misere_nim(const std::vector<T>& a) {

@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 
-#include "mod_inv.hpp"
+#include "./mod_inv.hpp"
 
 template <typename T>
 std::pair<T, T> simultaneous_linear_congruence(const std::vector<T>& a,

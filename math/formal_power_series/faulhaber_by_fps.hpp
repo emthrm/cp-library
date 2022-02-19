@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "../modint.hpp"
-#include "bernoulli_number.hpp"
+#include "./bernoulli_number.hpp"
 
 template <int T>
 MInt<T> faulhaber_by_fps(const long long n, const int k) {

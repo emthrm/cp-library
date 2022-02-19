@@ -4,7 +4,7 @@
  */
 
 #pragma once
-#include "least_common_multiple.hpp"
+#include "./least_common_multiple.hpp"
 
 long long carmichael_function(long long n) {
   long long lambda = 1;

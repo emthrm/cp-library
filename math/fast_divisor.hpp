@@ -6,7 +6,7 @@
 // #include <algorithm>
 #include <vector>
 
-#include "prime_sieve.hpp"
+#include "./prime_sieve.hpp"
 
 struct Divisor {
   const std::vector<int> smallest_prime_factor;

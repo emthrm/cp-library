@@ -12,7 +12,7 @@
 #include <utility>
 #include <vector>
 
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 CostType girth_in_undirected_graph(

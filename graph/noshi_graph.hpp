@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 struct NoshiGraph {

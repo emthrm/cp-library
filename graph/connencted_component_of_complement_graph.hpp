@@ -2,7 +2,7 @@
 #include <vector>
 
 #include "../data_structure/union-find/union-find.hpp"
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 UnionFind connencted_component_of_complement_graph(

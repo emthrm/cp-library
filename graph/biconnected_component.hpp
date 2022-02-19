@@ -4,8 +4,8 @@
 #include <utility>
 #include <vector>
 
-#include "edge.hpp"
-#include "lowlink.hpp"
+#include "./edge.hpp"
+#include "./lowlink.hpp"
 
 template <typename CostType>
 struct BiconnectedComponent : Lowlink<CostType> {

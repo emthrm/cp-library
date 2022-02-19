@@ -8,8 +8,8 @@
 #include <numeric>
 #include <vector>
 
-#include "least_common_multiple.hpp"
-#include "prime_sieve.hpp"
+#include "./least_common_multiple.hpp"
+#include "./prime_sieve.hpp"
 
 std::vector<long long> carmichal_function_init(const long long low,
                                                const long long high) {

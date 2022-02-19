@@ -5,7 +5,7 @@
 #include <limits>
 #include <vector>
 
-#include "topological_sort.hpp"
+#include "./topological_sort.hpp"
 
 std::vector<int> reachability_on_dag(
     const std::vector<std::vector<int>>& graph,

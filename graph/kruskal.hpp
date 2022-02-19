@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "../data_structure/union-find/union-find.hpp"
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 CostType kruskal(const std::vector<std::vector<Edge<CostType>>>& graph) {

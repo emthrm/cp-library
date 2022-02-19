@@ -2,7 +2,7 @@
 #include <cmath>
 #include <map>
 
-#include "mod_pow.hpp"
+#include "./mod_pow.hpp"
 
 int mod_log(long long g, long long y, const int m) {
   if (m == 1) return 0;

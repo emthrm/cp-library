@@ -5,7 +5,7 @@
 
 #pragma once
 #include "../util/xorshift.hpp"
-#include "mod_pow.hpp"
+#include "./mod_pow.hpp"
 
 long long mod_sqrt(long long a, const int p) {
   if ((a %= p) < 0) a += p;

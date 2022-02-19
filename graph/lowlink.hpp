@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 struct Lowlink {

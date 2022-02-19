@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "../util/xorshift.hpp"
-#include "geometry.hpp"
+#include "./geometry.hpp"
 
 namespace geometry {
 

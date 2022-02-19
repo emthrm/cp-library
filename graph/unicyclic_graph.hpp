@@ -4,7 +4,7 @@
 #include <queue>
 #include <vector>
 
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 struct UnicyclicGraph {

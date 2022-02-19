@@ -3,7 +3,7 @@
 #include <utility>
 #include <vector>
 
-#include "mod_inv.hpp"
+#include "./mod_inv.hpp"
 
 template <typename T>
 std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {

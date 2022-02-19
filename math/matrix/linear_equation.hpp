@@ -3,8 +3,8 @@
 #include <cmath>
 #include <vector>
 
-#include "gauss_jordan.hpp"
-#include "matrix.hpp"
+#include "./gauss_jordan.hpp"
+#include "./matrix.hpp"
 
 template <typename T, typename U = double>
 std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b,

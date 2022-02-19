@@ -8,7 +8,7 @@
 #include <queue>
 #include <vector>
 
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename CostType>
 CostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,

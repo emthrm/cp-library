@@ -2,7 +2,7 @@
 #include <utility>
 #include <vector>
 
-#include "prime_sieve.hpp"
+#include "./prime_sieve.hpp"
 
 struct OsaK {
   const std::vector<int> smallest_prime_factor;

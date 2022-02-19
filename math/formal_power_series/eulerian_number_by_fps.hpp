@@ -7,7 +7,7 @@
 #include <vector>
 
 #include "../modint.hpp"
-#include "formal_power_series.hpp"
+#include "./formal_power_series.hpp"
 
 template <int T>
 std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {

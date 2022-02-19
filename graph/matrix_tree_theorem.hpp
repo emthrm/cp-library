@@ -10,7 +10,7 @@
 
 #include "../math/matrix/determinant.hpp"
 #include "../math/matrix/matrix.hpp"
-#include "edge.hpp"
+#include "./edge.hpp"
 
 template <typename T, typename CostType>
 T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph,
