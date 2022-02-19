@@ -21,61 +21,62 @@ data:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/segment_tree.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\n * @brief \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n * @docs docs/data_structure/segment_tree.md\n\
-    \ */\n\n#pragma once\n#include <limits>\n#include <vector>\n\ntemplate <typename\
-    \ T>\nstruct SegmentTree {\n  using Monoid = typename T::Monoid;\n\n  SegmentTree(int\
-    \ n) : SegmentTree(std::vector<Monoid>(n, T::id())) {}\n\n  SegmentTree(const\
-    \ std::vector<Monoid> &a) : n(a.size()) {\n    while (p2 < n) p2 <<= 1;\n    dat.assign(p2\
-    \ << 1, T::id());\n    for (int i = 0; i < n; ++i) dat[i + p2] = a[i];\n    for\
-    \ (int i = p2 - 1; i > 0; --i) dat[i] = T::merge(dat[i << 1], dat[(i << 1) + 1]);\n\
-    \  }\n\n  void set(int idx, Monoid val) {\n    idx += p2;\n    dat[idx] = val;\n\
-    \    while (idx >>= 1) dat[idx] = T::merge(dat[idx << 1], dat[(idx << 1) + 1]);\n\
-    \  }\n\n  Monoid get(int left, int right) const {\n    Monoid l_res = T::id(),\
-    \ r_res = T::id();\n    for (left += p2, right += p2; left < right; left >>= 1,\
-    \ right >>= 1) {\n      if (left & 1) l_res = T::merge(l_res, dat[left++]);\n\
-    \      if (right & 1) r_res = T::merge(dat[--right], r_res);\n    }\n    return\
-    \ T::merge(l_res, r_res);\n  }\n\n  Monoid operator[](const int idx) const { return\
-    \ dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int left, G g)\
-    \ {\n    if (left >= n) return n;\n    Monoid val = T::id();\n    left += p2;\n\
-    \    do {\n      while (!(left & 1)) left >>= 1;\n      Monoid nx = T::merge(val,\
-    \ dat[left]);\n      if (!g(nx)) {\n        while (left < p2) {\n          left\
-    \ <<= 1;\n          nx = T::merge(val, dat[left]);\n          if (g(nx)) {\n \
-    \           val = nx;\n            ++left;\n          }\n        }\n        return\
-    \ left - p2;\n      }\n      val = nx;\n      ++left;\n    } while (__builtin_popcount(left)\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <limits>\n#include <vector>\n\
+    \ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \n  explicit SegmentTree(int n) : SegmentTree(std::vector<Monoid>(n, T::id()))\
+    \ {}\n\n  explicit SegmentTree(const std::vector<Monoid>& a) : n(a.size()), p2(1)\
+    \ {\n    while (p2 < n) p2 <<= 1;\n    dat.assign(p2 << 1, T::id());\n    std::copy(a.begin(),\
+    \ a.end(), dat.begin() + p2);\n    for (int i = p2 - 1; i > 0; --i) {\n      dat[i]\
+    \ = T::merge(dat[i << 1], dat[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx,\
+    \ const Monoid val) {\n    idx += p2;\n    dat[idx] = val;\n    while (idx >>=\
+    \ 1) dat[idx] = T::merge(dat[idx << 1], dat[(idx << 1) + 1]);\n  }\n\n  Monoid\
+    \ get(int left, int right) const {\n    Monoid res_l = T::id(), res_r = T::id();\n\
+    \    for (left += p2, right += p2; left < right; left >>= 1, right >>= 1) {\n\
+    \      if (left & 1) res_l = T::merge(res_l, dat[left++]);\n      if (right &\
+    \ 1) res_r = T::merge(dat[--right], res_r);\n    }\n    return T::merge(res_l,\
+    \ res_r);\n  }\n\n  Monoid operator[](const int idx) const { return dat[idx +\
+    \ p2]; }\n\n  template <typename G>\n  int find_right(int left, const G g) {\n\
+    \    if (left >= n) return n;\n    Monoid val = T::id();\n    left += p2;\n  \
+    \  do {\n      while (!(left & 1)) left >>= 1;\n      Monoid nxt = T::merge(val,\
+    \ dat[left]);\n      if (!g(nxt)) {\n        while (left < p2) {\n          left\
+    \ <<= 1;\n          nxt = T::merge(val, dat[left]);\n          if (g(nxt)) {\n\
+    \            val = nxt;\n            ++left;\n          }\n        }\n       \
+    \ return left - p2;\n      }\n      val = nxt;\n      ++left;\n    } while (__builtin_popcount(left)\
     \ > 1);\n    return n;\n  }\n\n  template <typename G>\n  int find_left(int right,\
-    \ G g) {\n    if (right <= 0) return -1;\n    Monoid val = T::id();\n    right\
-    \ += p2;\n    do {\n      --right;\n      while (right > 1 && (right & 1)) right\
-    \ >>= 1;\n      Monoid nx = T::merge(dat[right], val);\n      if (!g(nx)) {\n\
-    \        while (right < p2) {\n          right = (right << 1) + 1;\n         \
-    \ nx = T::merge(dat[right], val);\n          if (g(nx)) {\n            val = nx;\n\
-    \            --right;\n          }\n        }\n        return right - p2;\n  \
-    \    }\n      val = nx;\n    } while (__builtin_popcount(right) > 1);\n    return\
-    \ -1;\n  }\n\nprivate:\n  int n, p2 = 1;\n  std::vector<Monoid> dat;\n};\n\nnamespace\
-    \ monoid {\ntemplate <typename T>\nstruct RangeMinimumQuery {\n  using Monoid\
-    \ = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
-    \ }\n  static Monoid merge(const Monoid &a, const Monoid &b) { return std::min(a,\
-    \ b); }\n};\n\ntemplate <typename T>\nstruct RangeMaximumQuery {\n  using Monoid\
+    \ const G g) {\n    if (right <= 0) return -1;\n    Monoid val = T::id();\n  \
+    \  right += p2;\n    do {\n      --right;\n      while (right > 1 && (right &\
+    \ 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if (!g(nxt))\
+    \ {\n        while (right < p2) {\n          right = (right << 1) + 1;\n     \
+    \     nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n            val\
+    \ = nxt;\n            --right;\n          }\n        }\n        return right -\
+    \ p2;\n      }\n      val = nxt;\n    } while (__builtin_popcount(right) > 1);\n\
+    \    return -1;\n  }\n\n private:\n  const int n;\n  int p2;\n  std::vector<Monoid>\
+    \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
+    \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
+    \ }\n  static Monoid merge(const Monoid& a, const Monoid& b) {\n    return std::min(a,\
+    \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeMaximumQuery {\n  using Monoid\
     \ = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::lowest();\
-    \ }\n  static Monoid merge(const Monoid &a, const Monoid &b) { return std::max(a,\
-    \ b); }\n};\n\ntemplate <typename T>\nstruct RangeSumQuery {\n  using Monoid =\
-    \ T;\n  static constexpr Monoid id() { return 0; }\n  static Monoid merge(const\
-    \ Monoid &a, const Monoid &b) { return a + b; }\n};\n}  // monoid\n"
+    \ }\n  static Monoid merge(const Monoid& a, const Monoid& b) {\n    return std::max(a,\
+    \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeSumQuery {\n  using Monoid\
+    \ = T;\n  static constexpr Monoid id() { return 0; }\n  static Monoid merge(const\
+    \ Monoid& a, const Monoid& b) { return a + b; }\n};\n\n}  // namespace monoid\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:26:06+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/segment_tree.test.cpp
   - test/data_structure/range_sum_query.test.cpp
+  - test/data_structure/segment_tree.test.cpp
   - test/data_structure/range_minimum_query.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document
@@ -100,13 +101,13 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`SegmentTree<T>(n)`|要素数 $n$ のセグメント木||
+|`SegmentTree<T>(n)`|要素数 $N$ のセグメント木||
 |`SegmentTree<T>(a)`|$A$ のセグメント木||
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$||
-|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における取得クエリ||
+|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
+|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しないときは $n$ となる．|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しないときは $-1$ となる．|
 
 `T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
 
@@ -120,7 +121,7 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ||説明|
 |:--:|:--:|
-|`LazySegmentTree<T>(n)`|要素数 $n$ の遅延伝播セグメント木|
+|`LazySegmentTree<T>(n)`|要素数 $N$ の遅延伝播セグメント木|
 |`LazySegmentTree<T>(a)`|$A$ の遅延伝播セグメント木|
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$|
 |`apply(idx, val)`|$\mathrm{idx}$ における変更クエリ|
@@ -184,6 +185,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://onlinejudge.u-aizu.ac.jp/beta/room.html#ACPC2021Day2/problems/H
   - https://codeforces.com/contest/1575/problem/L
   - https://twitter.com/PCTprobability/status/1444372565435170816
+  - https://onlinejudge.u-aizu.ac.jp/problems/1068
   - フラクショナルカスケーディング (fractional cascading)
     - https://en.wikipedia.org/wiki/Fractional_cascading
     - http://sntea.hatenablog.com/entry/2017/09/28/003418

@@ -3,42 +3,42 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/floor_sum.test.cpp
     title: "\u6570\u5B66/sum of floor of linear"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/floor_sum.hpp\"\n#include <utility>\r\n\r\nlong long\
     \ floor_sum(long long a, long long b, long long m, long long n) {\r\n  long long\
-    \ res = 0;\r\n  if (a < 0) {\r\n    long long nx_a = a % m;\r\n    if (nx_a <\
-    \ 0) nx_a += m;\r\n    res -= (n * (n - 1) / 2) * ((nx_a - a) / m);\r\n    a =\
-    \ nx_a;\r\n  }\r\n  if (b < 0) {\r\n    long long nx_b = b % m;\r\n    if (nx_b\
-    \ < 0) nx_b += m;\r\n    res -= n * ((nx_b - b) / m);\r\n    b = nx_b;\r\n  }\r\
-    \n  while (true) {\r\n    if (a >= m) {\r\n      res += (n * (n - 1) / 2) * (a\
-    \ / m);\r\n      a %= m;\r\n    }\r\n    if (b >= m) {\r\n      res += n * (b\
-    \ / m);\r\n      b %= m;\r\n    }\r\n    long long y_max = a * n + b;\r\n    if\
-    \ (y_max < m) break;\r\n    b = y_max % m;\r\n    n = y_max / m;\r\n    std::swap(a,\
-    \ m);\r\n  }\r\n  return res;\r\n}\r\n"
+    \ res = 0;\r\n  if (a < 0) {\r\n    long long nxt_a = a % m;\r\n    if (nxt_a\
+    \ < 0) nxt_a += m;\r\n    res -= n * (n - 1) / 2 * ((nxt_a - a) / m);\r\n    a\
+    \ = nxt_a;\r\n  }\r\n  if (b < 0) {\r\n    long long nxt_b = b % m;\r\n    if\
+    \ (nxt_b < 0) nxt_b += m;\r\n    res -= n * ((nxt_b - b) / m);\r\n    b = nxt_b;\r\
+    \n  }\r\n  while (true) {\r\n    if (a >= m) {\r\n      res += n * (n - 1) / 2\
+    \ * (a / m);\r\n      a %= m;\r\n    }\r\n    if (b >= m) {\r\n      res += n\
+    \ * (b / m);\r\n      b %= m;\r\n    }\r\n    const long long y_max = a * n +\
+    \ b;\r\n    if (y_max < m) break;\r\n    b = y_max % m;\r\n    n = y_max / m;\r\
+    \n    std::swap(a, m);\r\n  }\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <utility>\r\n\r\nlong long floor_sum(long long a,\
     \ long long b, long long m, long long n) {\r\n  long long res = 0;\r\n  if (a\
-    \ < 0) {\r\n    long long nx_a = a % m;\r\n    if (nx_a < 0) nx_a += m;\r\n  \
-    \  res -= (n * (n - 1) / 2) * ((nx_a - a) / m);\r\n    a = nx_a;\r\n  }\r\n  if\
-    \ (b < 0) {\r\n    long long nx_b = b % m;\r\n    if (nx_b < 0) nx_b += m;\r\n\
-    \    res -= n * ((nx_b - b) / m);\r\n    b = nx_b;\r\n  }\r\n  while (true) {\r\
-    \n    if (a >= m) {\r\n      res += (n * (n - 1) / 2) * (a / m);\r\n      a %=\
-    \ m;\r\n    }\r\n    if (b >= m) {\r\n      res += n * (b / m);\r\n      b %=\
-    \ m;\r\n    }\r\n    long long y_max = a * n + b;\r\n    if (y_max < m) break;\r\
-    \n    b = y_max % m;\r\n    n = y_max / m;\r\n    std::swap(a, m);\r\n  }\r\n\
-    \  return res;\r\n}\r\n"
+    \ < 0) {\r\n    long long nxt_a = a % m;\r\n    if (nxt_a < 0) nxt_a += m;\r\n\
+    \    res -= n * (n - 1) / 2 * ((nxt_a - a) / m);\r\n    a = nxt_a;\r\n  }\r\n\
+    \  if (b < 0) {\r\n    long long nxt_b = b % m;\r\n    if (nxt_b < 0) nxt_b +=\
+    \ m;\r\n    res -= n * ((nxt_b - b) / m);\r\n    b = nxt_b;\r\n  }\r\n  while\
+    \ (true) {\r\n    if (a >= m) {\r\n      res += n * (n - 1) / 2 * (a / m);\r\n\
+    \      a %= m;\r\n    }\r\n    if (b >= m) {\r\n      res += n * (b / m);\r\n\
+    \      b %= m;\r\n    }\r\n    const long long y_max = a * n + b;\r\n    if (y_max\
+    \ < m) break;\r\n    b = y_max % m;\r\n    n = y_max / m;\r\n    std::swap(a,\
+    \ m);\r\n  }\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/floor_sum.hpp
   requiredBy: []
-  timestamp: '2021-02-16 03:46:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/floor_sum.test.cpp
 documentation_of: math/floor_sum.hpp
@@ -46,7 +46,7 @@ layout: document
 title: sum of floor of linear
 ---
 
-$$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor \text{．}$$
+$$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor$$
 
 
 ## 時間計算量

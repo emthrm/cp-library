@@ -13,10 +13,10 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "\u90E8\u5206\u6C38\u7D9A union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/partially_persistent_union-find.hpp: line 6: #pragma\
@@ -24,24 +24,25 @@ data:
   code: "/**\r\n * @brief \u90E8\u5206\u6C38\u7D9A union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
     \ <utility>\r\n#include <vector>\r\n\r\nstruct PartiallyPersistentUnionFind {\r\
-    \n  PartiallyPersistentUnionFind(const int n) : data(n, -1), last(n, -1), history(n,\
-    \ {{-1, -1}}) {}\r\n\r\n  int root(const int t, const int ver) const {\r\n   \
-    \ return last[ver] == -1 || t < last[ver] ? ver : root(t, data[ver]);\r\n  }\r\
-    \n\r\n  bool unite(const int t, int u, int v) {\r\n    u = root(t, u);\r\n   \
-    \ v = root(t, v);\r\n    if (u == v) return false;\r\n    if (data[u] > data[v])\
-    \ {\r\n      std::swap(u, v);\r\n    }\r\n    data[u] += data[v];\r\n    data[v]\
+    \n  explicit PartiallyPersistentUnionFind(const int n)\r\n      : data(n, -1),\
+    \ last(n, -1), history(n, {{-1, -1}}) {}\r\n\r\n  int root(const int t, const\
+    \ int ver) const {\r\n    return last[ver] == -1 || t < last[ver] ? ver : root(t,\
+    \ data[ver]);\r\n  }\r\n\r\n  bool unite(const int t, int u, int v) {\r\n    u\
+    \ = root(t, u);\r\n    v = root(t, v);\r\n    if (u == v) return false;\r\n  \
+    \  if (data[u] > data[v]) std::swap(u, v);\r\n    data[u] += data[v];\r\n    data[v]\
     \ = u;\r\n    last[v] = t;\r\n    history[u].emplace_back(t, data[u]);\r\n   \
     \ return true;\r\n  }\r\n\r\n  bool is_same(const int t, const int u, const int\
     \ v) const {\r\n    return root(t, u) == root(t, v);\r\n  }\r\n\r\n  int size(const\
-    \ int t, int ver) const {\r\n    ver = root(t, ver);\r\n    return -std::prev(std::lower_bound(history[ver].begin(),\
-    \ history[ver].end(), std::make_pair(t, 0)))->second;\r\n  }\r\n\r\nprivate:\r\
+    \ int t, int ver) const {\r\n    ver = root(t, ver);\r\n    return -std::prev(std::lower_bound(history[ver].begin(),\r\
+    \n                                       history[ver].end(),\r\n             \
+    \                          std::make_pair(t, 0)))->second;\r\n  }\r\n\r\n private:\r\
     \n  std::vector<int> data, last;\r\n  std::vector<std::vector<std::pair<int, int>>>\
     \ history;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/partially_persistent_union-find.hpp
   requiredBy: []
-  timestamp: '2021-09-24 01:25:42+09:00'
+  timestamp: '2022-02-16 17:10:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/union-find/partially_persistent_union-find.test.cpp
@@ -89,7 +90,7 @@ title: "\u90E8\u5206\u6C38\u7D9A union-find"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
-|`root(ver)`|$ver$ の根||
+|`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
 |`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
@@ -101,8 +102,8 @@ title: "\u90E8\u5206\u6C38\u7D9A union-find"
 |:--:|:--:|:--:|
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
-|`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか．||
 |`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find

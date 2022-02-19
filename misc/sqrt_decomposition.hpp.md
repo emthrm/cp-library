@@ -3,74 +3,83 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/sqrt_decomposition.test.cpp
     title: "\u305D\u306E\u4ED6/\u5E73\u65B9\u5206\u5272"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/sqrt_decomposition.hpp\"\n#include <cmath>\r\n#include\
-    \ <vector>\r\n\r\nstruct SqrtDecomposition {\r\n  int b, n;\r\n  std::vector<int>\
-    \ left, right;\r\n  std::vector<bool> need_to_be_eval;\r\n\r\n  SqrtDecomposition(int\
-    \ n_) : b(std::sqrt(n_)) {\r\n    n = (n_ + b - 1) / b;\r\n    left.resize(n);\r\
-    \n    right.resize(n);\r\n    need_to_be_eval.assign(n, false);\r\n    for (int\
-    \ i = 0; i < n; ++i) {\r\n      left[i] = b * i;\r\n      right[i] = i + 1 ==\
-    \ n ? n_ : b * (i + 1);\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_update(int\
-    \ idx, T val);\r\n\r\n  template <typename T> void total_update(int idx, T val);\r\
-    \n\r\n  template <typename T>\r\n  void update(int l, int r, T val) {\r\n    if\
-    \ (r <= l) return;\r\n    int l_b = l / b, r_b = (r - 1) / b;\r\n    if (l_b <\
-    \ r_b) {\r\n      if (l == left[l_b]) {\r\n        total_update(l_b, val);\r\n\
-    \      } else {\r\n        for (int i = l; i < right[l_b]; ++i) partial_update(i,\
-    \ val);\r\n      }\r\n      for (int i = l_b + 1; i < r_b; ++i) total_update(i,\
-    \ val);\r\n      if (r == right[r_b]) {\r\n        total_update(r_b, val);\r\n\
-    \      } else {\r\n        for (int i = left[r_b]; i < r; ++i) partial_update(i,\
-    \ val);\r\n      }\r\n    } else {\r\n      for (int i = l; i < r; ++i) partial_update(i,\
-    \ val);\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_query(int\
-    \ idx, T &val);\r\n\r\n  template <typename T> void total_query(int idx, T &val);\r\
-    \n\r\n  template <typename T>\r\n  T query(int l, int r, const T ID) {\r\n   \
-    \ int l_b = l / b, r_b = (r - 1) / b;\r\n    T res = ID;\r\n    if (l_b < r_b)\
-    \ {\r\n      if (l == left[l_b]) {\r\n        total_query(l_b, res);\r\n     \
-    \ } else {\r\n        for (int i = l; i < right[l_b]; ++i) partial_query(i, res);\r\
-    \n      }\r\n      for (int i = l_b + 1; i < r_b; ++i) total_query(i, res);\r\n\
-    \      if (r == right[r_b]) {\r\n        total_query(r_b, res);\r\n      } else\
-    \ {\r\n        for (int i = left[r_b]; i < r; ++i) partial_query(i, res);\r\n\
-    \      }\r\n    } else {\r\n      for (int i = l; i < r; ++i) partial_query(i,\
-    \ res);\r\n    }\r\n    return res;\r\n  }\r\n};\r\n"
+    \ <vector>\r\n\r\nstruct SqrtDecomposition {\r\n  const int block_size, n;\r\n\
+    \  std::vector<int> ls, rs;\r\n  std::vector<bool> to_be_eval;\r\n\r\n  explicit\
+    \ SqrtDecomposition(const int n_)\r\n      : block_size(std::round(std::sqrt(n_))),\r\
+    \n        n((n_ + block_size - 1) / block_size) {\r\n    ls.resize(n);\r\n   \
+    \ rs.resize(n);\r\n    to_be_eval.assign(n, false);\r\n    for (int i = 0; i <\
+    \ n; ++i) {\r\n      ls[i] = block_size * i;\r\n      rs[i] = (i + 1 == n ? n_\
+    \ : block_size * (i + 1));\r\n    }\r\n  }\r\n\r\n  template <typename T> void\
+    \ partial_update(const int idx, const T val);\r\n\r\n  template <typename T> void\
+    \ total_update(const int idx, const T val);\r\n\r\n  template <typename T>\r\n\
+    \  void update(const int l, const int r, const T val) {\r\n    if (r <= l) return;\r\
+    \n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\r\n    if (b_l\
+    \ < b_r) {\r\n      if (l == ls[b_l]) {\r\n        total_update(b_l, val);\r\n\
+    \      } else {\r\n        for (int i = l; i < rs[b_l]; ++i) {\r\n          partial_update(i,\
+    \ val);\r\n        }\r\n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\
+    \n        total_update(i, val);\r\n      }\r\n      if (r == rs[b_r]) {\r\n  \
+    \      total_update(b_r, val);\r\n      } else {\r\n        for (int i = ls[b_r];\
+    \ i < r; ++i) {\r\n          partial_update(i, val);\r\n        }\r\n      }\r\
+    \n    } else {\r\n      for (int i = l; i < r; ++i) {\r\n        partial_update(i,\
+    \ val);\r\n      }\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_query(const\
+    \ int idx, T* val);\r\n\r\n  template <typename T> void total_query(const int\
+    \ idx, T* val);\r\n\r\n  template <typename T>\r\n  T query(const int l, const\
+    \ int r, const T id) {\r\n    const int b_l = l / block_size, b_r = (r - 1) /\
+    \ block_size;\r\n    T res = id;\r\n    if (b_l < b_r) {\r\n      if (l == ls[b_l])\
+    \ {\r\n        total_query(b_l, &res);\r\n      } else {\r\n        for (int i\
+    \ = l; i < rs[b_l]; ++i) {\r\n          partial_query(i, &res);\r\n        }\r\
+    \n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\n        total_query(i,\
+    \ &res);\r\n      }\r\n      if (r == rs[b_r]) {\r\n        total_query(b_r, &res);\r\
+    \n      } else {\r\n        for (int i = ls[b_r]; i < r; ++i) {\r\n          partial_query(i,\
+    \ &res);\r\n        }\r\n      }\r\n    } else {\r\n      for (int i = l; i <\
+    \ r; ++i) {\r\n        partial_query(i, &res);\r\n      }\r\n    }\r\n    return\
+    \ res;\r\n  }\r\n};\r\n"
   code: "#pragma once\r\n#include <cmath>\r\n#include <vector>\r\n\r\nstruct SqrtDecomposition\
-    \ {\r\n  int b, n;\r\n  std::vector<int> left, right;\r\n  std::vector<bool> need_to_be_eval;\r\
-    \n\r\n  SqrtDecomposition(int n_) : b(std::sqrt(n_)) {\r\n    n = (n_ + b - 1)\
-    \ / b;\r\n    left.resize(n);\r\n    right.resize(n);\r\n    need_to_be_eval.assign(n,\
-    \ false);\r\n    for (int i = 0; i < n; ++i) {\r\n      left[i] = b * i;\r\n \
-    \     right[i] = i + 1 == n ? n_ : b * (i + 1);\r\n    }\r\n  }\r\n\r\n  template\
-    \ <typename T> void partial_update(int idx, T val);\r\n\r\n  template <typename\
-    \ T> void total_update(int idx, T val);\r\n\r\n  template <typename T>\r\n  void\
-    \ update(int l, int r, T val) {\r\n    if (r <= l) return;\r\n    int l_b = l\
-    \ / b, r_b = (r - 1) / b;\r\n    if (l_b < r_b) {\r\n      if (l == left[l_b])\
-    \ {\r\n        total_update(l_b, val);\r\n      } else {\r\n        for (int i\
-    \ = l; i < right[l_b]; ++i) partial_update(i, val);\r\n      }\r\n      for (int\
-    \ i = l_b + 1; i < r_b; ++i) total_update(i, val);\r\n      if (r == right[r_b])\
-    \ {\r\n        total_update(r_b, val);\r\n      } else {\r\n        for (int i\
-    \ = left[r_b]; i < r; ++i) partial_update(i, val);\r\n      }\r\n    } else {\r\
-    \n      for (int i = l; i < r; ++i) partial_update(i, val);\r\n    }\r\n  }\r\n\
-    \r\n  template <typename T> void partial_query(int idx, T &val);\r\n\r\n  template\
-    \ <typename T> void total_query(int idx, T &val);\r\n\r\n  template <typename\
-    \ T>\r\n  T query(int l, int r, const T ID) {\r\n    int l_b = l / b, r_b = (r\
-    \ - 1) / b;\r\n    T res = ID;\r\n    if (l_b < r_b) {\r\n      if (l == left[l_b])\
-    \ {\r\n        total_query(l_b, res);\r\n      } else {\r\n        for (int i\
-    \ = l; i < right[l_b]; ++i) partial_query(i, res);\r\n      }\r\n      for (int\
-    \ i = l_b + 1; i < r_b; ++i) total_query(i, res);\r\n      if (r == right[r_b])\
-    \ {\r\n        total_query(r_b, res);\r\n      } else {\r\n        for (int i\
-    \ = left[r_b]; i < r; ++i) partial_query(i, res);\r\n      }\r\n    } else {\r\
-    \n      for (int i = l; i < r; ++i) partial_query(i, res);\r\n    }\r\n    return\
+    \ {\r\n  const int block_size, n;\r\n  std::vector<int> ls, rs;\r\n  std::vector<bool>\
+    \ to_be_eval;\r\n\r\n  explicit SqrtDecomposition(const int n_)\r\n      : block_size(std::round(std::sqrt(n_))),\r\
+    \n        n((n_ + block_size - 1) / block_size) {\r\n    ls.resize(n);\r\n   \
+    \ rs.resize(n);\r\n    to_be_eval.assign(n, false);\r\n    for (int i = 0; i <\
+    \ n; ++i) {\r\n      ls[i] = block_size * i;\r\n      rs[i] = (i + 1 == n ? n_\
+    \ : block_size * (i + 1));\r\n    }\r\n  }\r\n\r\n  template <typename T> void\
+    \ partial_update(const int idx, const T val);\r\n\r\n  template <typename T> void\
+    \ total_update(const int idx, const T val);\r\n\r\n  template <typename T>\r\n\
+    \  void update(const int l, const int r, const T val) {\r\n    if (r <= l) return;\r\
+    \n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\r\n    if (b_l\
+    \ < b_r) {\r\n      if (l == ls[b_l]) {\r\n        total_update(b_l, val);\r\n\
+    \      } else {\r\n        for (int i = l; i < rs[b_l]; ++i) {\r\n          partial_update(i,\
+    \ val);\r\n        }\r\n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\
+    \n        total_update(i, val);\r\n      }\r\n      if (r == rs[b_r]) {\r\n  \
+    \      total_update(b_r, val);\r\n      } else {\r\n        for (int i = ls[b_r];\
+    \ i < r; ++i) {\r\n          partial_update(i, val);\r\n        }\r\n      }\r\
+    \n    } else {\r\n      for (int i = l; i < r; ++i) {\r\n        partial_update(i,\
+    \ val);\r\n      }\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_query(const\
+    \ int idx, T* val);\r\n\r\n  template <typename T> void total_query(const int\
+    \ idx, T* val);\r\n\r\n  template <typename T>\r\n  T query(const int l, const\
+    \ int r, const T id) {\r\n    const int b_l = l / block_size, b_r = (r - 1) /\
+    \ block_size;\r\n    T res = id;\r\n    if (b_l < b_r) {\r\n      if (l == ls[b_l])\
+    \ {\r\n        total_query(b_l, &res);\r\n      } else {\r\n        for (int i\
+    \ = l; i < rs[b_l]; ++i) {\r\n          partial_query(i, &res);\r\n        }\r\
+    \n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\n        total_query(i,\
+    \ &res);\r\n      }\r\n      if (r == rs[b_r]) {\r\n        total_query(b_r, &res);\r\
+    \n      } else {\r\n        for (int i = ls[b_r]; i < r; ++i) {\r\n          partial_query(i,\
+    \ &res);\r\n        }\r\n      }\r\n    } else {\r\n      for (int i = l; i <\
+    \ r; ++i) {\r\n        partial_query(i, &res);\r\n      }\r\n    }\r\n    return\
     \ res;\r\n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: misc/sqrt_decomposition.hpp
   requiredBy: []
-  timestamp: '2021-02-13 04:45:32+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-16 18:14:43+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/sqrt_decomposition.test.cpp
 documentation_of: misc/sqrt_decomposition.hpp
@@ -89,14 +98,14 @@ $\langle O(N), O(\sqrt{N}) \rangle$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`SqrtDecomposition(n)`|サイズ $N$ の平方分割を考える．||
-|`b`|ブロックのサイズ||
+|`block_size`|ブロックのサイズ||
 |`n`|ブロックの数||
-|[`left[i]`, `right[i]`)|ブロック $i$ に対応する列のインデックス||
-|`partial_update(idx, val)`|$A_{\mathrm{idx}}$ に対して $\mathrm{val}$ を基に更新する．|関数プロトタイプ|
-|`total_update(idx, val)`|$B_{\mathrm{idx}}$ に対して $\mathrm{val}$ を基に更新する．|関数プロトタイプ|
-|`update(l, r, val)`|$\lbrack l, r)$ に対して $\mathrm{val}$ を基に更新する．||
-|`partial_query(idx, val)`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
-|`total_query(idx, val)`|$B_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
+|[`ls[i]`, `rs[i]`)|ブロック $i$ に対応する列のインデックス||
+|`partial_update(idx, val)`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する．|関数プロトタイプ|
+|`total_update(idx, val)`|$\mathrm{val}$ を基に $B_{\mathrm{idx}}$ を更新する．|関数プロトタイプ|
+|`update(l, r, val)`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する．||
+|`partial_query(idx, &val)`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
+|`total_query(idx, &val)`|$B_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
 |`query(l, r, 単位元)`|$\lbrack l, r)$ に対するクエリの解||
 
 

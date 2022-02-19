@@ -4,46 +4,46 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
       \u306E\u6570\u8868"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/bell_number/bell_number.md
     document_title: "\u30D9\u30EB\u6570\u306E\u6570\u8868"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/bell_number/bell_number_init.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
   code: "/**\r\n * @brief \u30D9\u30EB\u6570\u306E\u6570\u8868\r\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n#include \"../stirling_number/stirling_number_of_the_second_kind_init.hpp\"\
+    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"../stirling_number/stirling_number_of_the_second_kind_init.hpp\"\
     \r\n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> bell_number_init(const\
     \ int n, const int k) {\r\n  std::vector<std::vector<T>> b(n + 1, std::vector<T>(k\
-    \ + 1));\r\n  const std::vector<std::vector<T>> s = stirling_number_of_the_second_kind_init<T>(n,\
-    \ k);\r\n  for (int i = 0; i <= n; ++i) {\r\n    b[i][0] = s[i][0];\r\n    for\
-    \ (int j = 1; j <= k; ++j) {\r\n      b[i][j] = b[i][j - 1] + s[i][j];\r\n   \
-    \ }\r\n  }\r\n  return b;\r\n}\r\n"
+    \ + 1));\r\n  const std::vector<std::vector<T>> s =\r\n      stirling_number_of_the_second_kind_init<T>(n,\
+    \ k);\r\n  for (int i = 0; i <= n; ++i) {\r\n    b[i].front() = s[i].front();\r\
+    \n    for (int j = 1; j <= k; ++j) {\r\n      b[i][j] = b[i][j - 1] + s[i][j];\r\
+    \n    }\r\n  }\r\n  return b;\r\n}\r\n"
   dependsOn:
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number_init.hpp
   requiredBy: []
-  timestamp: '2021-10-13 18:06:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
 documentation_of: math/twelvefold_way/bell_number/bell_number_init.hpp
@@ -93,13 +93,13 @@ $$\sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}$$
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init<T>(n, k)`|$B(i, j) \ (0 \leq i \leq n,\ 0 \leq j \leq k)$ の数表|
+|`bell_number_init<T>(n, k)`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 - 数表 $n = k$ 版
 
 ||説明|
 |:--:|:--:|
-|`bell_number_init_by_fps<T>(n)`|ベル数 $B_i \ (0 \leq i \leq n)$ の数表|
+|`bell_number_init_by_fps<T>(n)`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考

@@ -1,8 +1,8 @@
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
-剰余環 $\mathbb{Z} / m \mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
+剰余環 $\mathbb{Z} / m\mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
 
-特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ について
+特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ に対して
 
 $$\omega^{p - 1} \equiv 1 \pmod{p}$$
 
@@ -24,7 +24,7 @@ $O(N\log{N})$
 |:--:|:--:|:--:|
 |`NumberTheoreticTransform<T>()`|数論変換を考える．||
 |`dft(a)`|整数列 $A$ に対して数論変換を行ったもの||
-|`idft(a)`|$A$ に対して数論変換の逆変換を行う．||
+|`idft(&a)`|$A$ に対して数論変換の逆変換を行う．||
 |`convolution(a, b)`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
 
 - 任意の法の下での畳み込み
@@ -60,6 +60,9 @@ e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
   - https://judge.yosupo.jp/problem/convolution_mod_1000000007
   - https://github.com/yosupo06/library-checker-problems/issues/664
   - https://judge.yosupo.jp/problem/convolution_mod_2_64
+  - https://judge.yosupo.jp/problem/convolution_mod_large
+  - https://judge.yosupo.jp/problem/mul_mod2n_convolution
+  - https://github.com/yosupo06/library-checker-problems/issues/728
 
 
 ## Verified

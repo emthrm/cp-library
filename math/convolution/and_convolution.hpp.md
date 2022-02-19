@@ -1,50 +1,51 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/convolution/fast_mobius_transform.hpp
     title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/convolution/fast_zeta_transform.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/convolution/and_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/and_convolution.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief \u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F\
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <algorithm>\r\n#include <vector>\r\n#include \"fast_zeta_transform.hpp\"\
-    \r\n#include \"fast_mobius_transform.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ and_convolution(std::vector<T> a, std::vector<T> b, const T ID = 0) {\r\n  int\
-    \ n = std::max(a.size(), b.size());\r\n  a.resize(n, ID);\r\n  b.resize(n, ID);\r\
-    \n  std::vector<T> fzt_a = fast_zeta_transform(a, true, ID), fzt_b = fast_zeta_transform(b,\
-    \ true, ID);\r\n  n = fzt_a.size();\r\n  for (int i = 0; i < n; ++i) fzt_a[i]\
-    \ *= fzt_b[i];\r\n  return fast_mobius_transform(fzt_a, true);\r\n}\r\n"
+    \n#include <algorithm>\r\n#include <vector>\r\n\r\n#include \"fast_mobius_transform.hpp\"\
+    \r\n#include \"fast_zeta_transform.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
+    \ and_convolution(std::vector<T> a, std::vector<T> b,\r\n                    \
+    \           const T id = 0) {\r\n  int n = std::max(a.size(), b.size());\r\n \
+    \ a.resize(n, id);\r\n  b.resize(n, id);\r\n  a = fast_zeta_transform(a, true,\
+    \ id);\r\n  b = fast_zeta_transform(b, true, id);\r\n  n = a.size();\r\n  for\
+    \ (int i = 0; i < n; ++i) {\r\n    a[i] *= b[i];\r\n  }\r\n  return fast_mobius_transform(a,\
+    \ true);\r\n}\r\n"
   dependsOn:
-  - math/convolution/fast_zeta_transform.hpp
   - math/convolution/fast_mobius_transform.hpp
+  - math/convolution/fast_zeta_transform.hpp
   isVerificationFile: false
   path: math/convolution/and_convolution.hpp
   requiredBy: []
-  timestamp: '2021-08-20 05:03:13+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-16 22:30:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp
 documentation_of: math/convolution/and_convolution.hpp
@@ -56,19 +57,19 @@ title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
 - 添え字 and での畳み込み
 
-  $$C_k = \sum_{k = i \land j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \land j} A_i B_j$$
 
 - 添え字 or での畳み込み
 
-  $$C_k = \sum_{k = i \lor j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \lor j} A_i B_j$$
 
 - 添え字 xor での畳み込み
 
-  $$C_k = \sum_{k = i \oplus j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \oplus j} A_i B_j$$
 
 - 添え字 gcd での畳み込み
 
-  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
 
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
@@ -152,6 +153,11 @@ $O(N\log{N})$
   - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
   - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
   - https://atcoder.jp/contests/kupc2021/submissions/26987105
+- relaxed multiplication
+  - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
+  - https://atcoder.jp/contests/abc230/tasks/abc230_h
+  - https://atcoder.jp/contests/abc230/editorial/3036
+  - https://twitter.com/noshi91/status/1466764432961585166
 
 
 ## Verified

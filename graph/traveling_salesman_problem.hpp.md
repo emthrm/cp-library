@@ -15,35 +15,35 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <limits>\r\n#include <numeric>\r\n#include <vector>\r\
-    \n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nCostType traveling_salesman_problem(\r\
-    \n  const std::vector<std::vector<Edge<CostType>>> &graph,\r\n  const CostType\
-    \ inf = std::numeric_limits<CostType>::max()\r\n) {\r\n  int n = graph.size();\r\
-    \n  if (n == 1) return 0;\r\n  std::vector<std::vector<CostType>> dp(1 << n, std::vector<CostType>(n,\
-    \ inf));\r\n  dp[1][0] = 0;\r\n  for (int i = 1; i < (1 << n); ++i) for (int j\
-    \ = 0; j < n; ++j) {\r\n    if (dp[i][j] == inf) continue;\r\n    for (const Edge<CostType>\
-    \ &e : graph[j]) {\r\n      if (i >> e.dst & 1) continue;\r\n      CostType tmp\
-    \ = dp[i][j] + e.cost;\r\n      if (tmp < dp[i | (1 << e.dst)][e.dst]) dp[i |\
-    \ (1 << e.dst)][e.dst] = tmp;\r\n    }\r\n  }\r\n  CostType res = inf;\r\n  for\
-    \ (int j = 1; j < n; ++j) {\r\n    if (dp[(1 << n) - 1][j] == inf) continue;\r\
-    \n    for (const Edge<CostType> &e : graph[j]) {\r\n      if (e.dst == 0) {\r\n\
-    \        CostType tmp = dp[(1 << n) - 1][j] + e.cost;\r\n        if (tmp < res)\
-    \ res = tmp;\r\n      }\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
+  code: "#pragma once\r\n#include <algorithm>\r\n#include <limits>\r\n#include <numeric>\r\
+    \n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nCostType traveling_salesman_problem(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\r\n    const CostType inf = std::numeric_limits<CostType>::max()) {\r\
+    \n  const int n = graph.size();\r\n  if (n == 1) return 0;\r\n  std::vector<std::vector<CostType>>\
+    \ dp(1 << n, std::vector<CostType>(n, inf));\r\n  dp[1][0] = 0;\r\n  for (int\
+    \ i = 1; i < (1 << n); ++i) {\r\n    for (int j = 0; j < n; ++j) {\r\n      if\
+    \ (dp[i][j] == inf) continue;\r\n      for (const Edge<CostType>& e : graph[j])\
+    \ {\r\n        if (i >> e.dst & 1) continue;\r\n        dp[i | (1 << e.dst)][e.dst]\
+    \ =\r\n            std::min(dp[i | (1 << e.dst)][e.dst], dp[i][j] + e.cost);\r\
+    \n      }\r\n    }\r\n  }\r\n  CostType res = inf;\r\n  for (int j = 1; j < n;\
+    \ ++j) {\r\n    if (dp.back()[j] == inf) continue;\r\n    for (const Edge<CostType>&\
+    \ e : graph[j]) {\r\n      if (e.dst == 0) res = std::min(res, dp.back()[j] +\
+    \ e.cost);\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/traveling_salesman_problem.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2022-02-15 21:43:58+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/traveling_salesman_problem.test.cpp
@@ -53,7 +53,7 @@ title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling 
   \ problem)"
 ---
 
-重み付き有向グラフについてハミルトン閉路の最小コストを求める問題である．
+重み付き有向グラフに対してコスト最小のハミルトン閉路を求める問題である．
 
 
 ## 時間計算量
@@ -65,12 +65,12 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解|存在しない場合は $\infty$ となる．|
+|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト|解が存在しないときは $\infty$ となる．|
 
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）
 
 
 ## ToDo

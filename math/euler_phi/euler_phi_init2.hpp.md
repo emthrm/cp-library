@@ -1,50 +1,50 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/euler_phi/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/euler_phi/euler_phi.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\
       \u88682"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/euler_phi/euler_phi_init2.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
     \u6570\u88682\r\n * @docs docs/math/euler_phi/euler_phi.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n#include\
-    \ \"../prime_sieve.hpp\"\r\n\r\nstd::vector<long long> euler_phi_init2(long long\
-    \ low, long long high) {\r\n  std::vector<long long> phi(high - low), rem(high\
-    \ - low);\r\n  std::iota(phi.begin(), phi.end(), low);\r\n  std::iota(rem.begin(),\
-    \ rem.end(), low);\r\n  for (int p : prime_sieve(std::ceil(std::sqrt(high)), true))\
-    \ {\r\n    for (long long i = (low + (p - 1)) / p * p; i < high; i += p) {\r\n\
-    \      phi[i - low] -= phi[i - low] / p;\r\n      while (rem[i - low] % p == 0)\
-    \ rem[i - low] /= p;\r\n    }\r\n  }\r\n  for (int i = 0; i < high - low; ++i)\
-    \ {\r\n    if (rem[i] > 1) phi[i] -= phi[i] / rem[i];\r\n  }\r\n  return phi;\r\
-    \n}\r\n"
+    \ once\r\n#include <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n\r\n\
+    #include \"../prime_sieve.hpp\"\r\n\r\nstd::vector<long long> euler_phi_init2(const\
+    \ long long low,\r\n                                       const long long high)\
+    \ {\r\n  std::vector<long long> phi(high - low), rem(high - low);\r\n  std::iota(phi.begin(),\
+    \ phi.end(), low);\r\n  std::iota(rem.begin(), rem.end(), low);\r\n  for (const\
+    \ int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {\r\n    for (long long\
+    \ i = (low + p - 1) / p * p; i < high; i += p) {\r\n      phi[i - low] -= phi[i\
+    \ - low] / p;\r\n      while (rem[i - low] % p == 0) rem[i - low] /= p;\r\n  \
+    \  }\r\n  }\r\n  for (int i = 0; i < high - low; ++i) {\r\n    if (rem[i] > 1)\
+    \ phi[i] -= phi[i] / rem[i];\r\n  }\r\n  return phi;\r\n}\r\n"
   dependsOn:
   - math/prime_sieve.hpp
   isVerificationFile: false
   path: math/euler_phi/euler_phi_init2.hpp
   requiredBy: []
-  timestamp: '2021-02-27 06:50:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
 documentation_of: math/euler_phi/euler_phi_init2.hpp
@@ -58,7 +58,13 @@ title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\begin{aligned} \varphi(n) &= \# \lbrace k \in \mathbb{N} \mid k \perp n,\ 1 \leq k \leq n \rbrace \\ &= n \prod_i \left(1 - \frac{1}{p_i}\right) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
+$$\varphi(n) \mathrel{:=} \# \lbrace k \in \lbrace 1, 2, \ldots, n \rbrace \mid k \perp n \rbrace$$
+
+と定義される $\varphi(n)$ である．
+
+$$\varphi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right)$$
+
+が成り立つ．
 
 
 ### オイラーの定理
@@ -72,7 +78,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 |:--:|:--:|
 ||$O(\sqrt{N})$|
 |数表|$O(N\log{\log{N}})$|
-|数表2|$O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?|
+|数表2|$O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?|
 
 
 ## 使用法
@@ -85,13 +91,13 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 ||説明|
 |:--:|:--:|
-|`euler_phi_init(n)`|$\varphi(i) \ (1 \leq i \leq \mathrm{n})$ の数表|
+|`euler_phi_init(n)`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
 
 - 数表2
 
 ||説明|
 |:--:|:--:|
-|`euler_phi_init2(low, high)`|$\varphi(i) \ (\mathrm{low} \leq i \leq \mathrm{high})$ の数表|
+|`euler_phi_init2(low, high)`|$\varphi(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
 
 
 ## 参考

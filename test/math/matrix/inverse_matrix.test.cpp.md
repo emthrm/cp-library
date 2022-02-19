@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/matrix/inverse_matrix.hpp
     title: "\u9006\u884C\u5217 (inverse matrix)"
   - icon: ':question:'
@@ -12,9 +12,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/inverse_matrix
@@ -26,178 +26,189 @@ data:
     \r\n\r\n#include <iostream>\r\n#line 2 \"math/modint.hpp\"\n// #include <algorithm>\r\
     \n// #include <cassert>\r\n#line 5 \"math/modint.hpp\"\n#include <utility>\r\n\
     #include <vector>\r\n\r\n// template <int M>\r\n// struct MInt {\r\n//   unsigned\
-    \ int val;\r\n//   MInt(): val(0) {}\r\n//   MInt(long long x) : val(x >= 0 ?\
+    \ int v;\r\n//   MInt() : v(0) {}\r\n//   MInt(const long long x) : v(x >= 0 ?\
     \ x % M : x % M + M) {}\r\n//   static constexpr int get_mod() { return M; }\r\
-    \n//   static void set_mod(int divisor) { assert(divisor == M); }\r\n//   static\
-    \ void init(int x = 10000000) { inv(x, true); fact(x); fact_inv(x); }\r\n//  \
-    \ static MInt inv(int x, bool init = false) {\r\n//     // assert(0 <= x && x\
-    \ < M && std::__gcd(x, M) == 1);\r\n//     static std::vector<MInt> inverse{0,\
-    \ 1};\r\n//     int prev = inverse.size();\r\n//     if (init && x >= prev) {\r\
-    \n//       // \"x!\" and \"M\" must be disjoint.\r\n//       inverse.resize(x\
-    \ + 1);\r\n//       for (int i = prev; i <= x; ++i) inverse[i] = -inverse[M %\
-    \ i] * (M / i);\r\n//     }\r\n//     if (x < inverse.size()) return inverse[x];\r\
-    \n//     unsigned int a = x, b = M; int u = 1, v = 0;\r\n//     while (b) {\r\n\
-    //       unsigned int q = a / b;\r\n//       std::swap(a -= q * b, b);\r\n// \
-    \      std::swap(u -= q * v, v);\r\n//     }\r\n//     return u;\r\n//   }\r\n\
-    //   static MInt fact(int x) {\r\n//     static std::vector<MInt> f{1};\r\n//\
-    \     int prev = f.size();\r\n//     if (x >= prev) {\r\n//       f.resize(x +\
-    \ 1);\r\n//       for (int i = prev; i <= x; ++i) f[i] = f[i - 1] * i;\r\n// \
-    \    }\r\n//     return f[x];\r\n//   }\r\n//   static MInt fact_inv(int x) {\r\
-    \n//     static std::vector<MInt> finv{1};\r\n//     int prev = finv.size();\r\
-    \n//     if (x >= prev) {\r\n//       finv.resize(x + 1);\r\n//       finv[x]\
-    \ = inv(fact(x).val);\r\n//       for (int i = x; i > prev; --i) finv[i - 1] =\
-    \ finv[i] * i;\r\n//     }\r\n//     return finv[x];\r\n//   }\r\n//   static\
-    \ MInt nCk(int n, int k) {\r\n//     if (n < 0 || n < k || k < 0) return 0;\r\n\
-    //     if (n - k > k) k = n - k;\r\n//     return fact(n) * fact_inv(k) * fact_inv(n\
-    \ - k);\r\n//   }\r\n//   static MInt nPk(int n, int k) { return n < 0 || n <\
-    \ k || k < 0 ? 0 : fact(n) * fact_inv(n - k); }\r\n//   static MInt nHk(int n,\
-    \ int k) { return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k)); }\r\n\
-    //   static MInt large_nCk(long long n, int k) {\r\n//     if (n < 0 || n < k\
-    \ || k < 0) return 0;\r\n//     inv(k, true);\r\n//     MInt res = 1;\r\n//  \
-    \   for (int i = 1; i <= k; ++i) res *= inv(i) * n--;\r\n//     return res;\r\n\
-    //   }\r\n//   MInt pow(long long exponent) const {\r\n//     MInt tmp = *this,\
-    \ res = 1;\r\n//     while (exponent > 0) {\r\n//       if (exponent & 1) res\
-    \ *= tmp;\r\n//       tmp *= tmp;\r\n//       exponent >>= 1;\r\n//     }\r\n\
-    //     return res;\r\n//   }\r\n//   MInt &operator+=(const MInt &x) { if((val\
-    \ += x.val) >= M) val -= M; return *this; }\r\n//   MInt &operator-=(const MInt\
-    \ &x) { if((val += M - x.val) >= M) val -= M; return *this; }\r\n//   MInt &operator*=(const\
-    \ MInt &x) { val = static_cast<unsigned long long>(val) * x.val % M; return *this;\
-    \ }\r\n//   MInt &operator/=(const MInt &x) { return *this *= inv(x.val); }\r\n\
-    //   bool operator==(const MInt &x) const { return val == x.val; }\r\n//   bool\
-    \ operator!=(const MInt &x) const { return val != x.val; }\r\n//   bool operator<(const\
-    \ MInt &x) const { return val < x.val; }\r\n//   bool operator<=(const MInt &x)\
-    \ const { return val <= x.val; }\r\n//   bool operator>(const MInt &x) const {\
-    \ return val > x.val; }\r\n//   bool operator>=(const MInt &x) const { return\
-    \ val >= x.val; }\r\n//   MInt &operator++() { if (++val == M) val = 0; return\
-    \ *this; }\r\n//   MInt operator++(int) { MInt res = *this; ++*this; return res;\
-    \ }\r\n//   MInt &operator--() { val = (val == 0 ? M : val) - 1; return *this;\
-    \ }\r\n//   MInt operator--(int) { MInt res = *this; --*this; return res; }\r\n\
-    //   MInt operator+() const { return *this; }\r\n//   MInt operator-() const {\
-    \ return MInt(val ? M - val : 0); }\r\n//   MInt operator+(const MInt &x) const\
-    \ { return MInt(*this) += x; }\r\n//   MInt operator-(const MInt &x) const { return\
-    \ MInt(*this) -= x; }\r\n//   MInt operator*(const MInt &x) const { return MInt(*this)\
-    \ *= x; }\r\n//   MInt operator/(const MInt &x) const { return MInt(*this) /=\
-    \ x; }\r\n//   friend std::ostream &operator<<(std::ostream &os, const MInt &x)\
-    \ { return os << x.val; }\r\n//   friend std::istream &operator>>(std::istream\
-    \ &is, MInt &x) { long long val; is >> val; x = MInt(val); return is; }\r\n//\
-    \ };\r\n// namespace std { template <int M> MInt<M> abs(const MInt<M> &x) { return\
-    \ x; } }\r\n\r\ntemplate <int ID>\r\nstruct MInt {\r\n  unsigned int val;\r\n\
-    \  MInt(): val(0) {}\r\n  MInt(long long x) : val(x >= 0 ? x % mod() : x % mod()\
-    \ + mod()) {}\r\n  static int get_mod() { return mod(); }\r\n  static void set_mod(int\
-    \ divisor) { mod() = divisor; }\r\n  static void init(int x = 10000000) { inv(x,\
-    \ true); fact(x); fact_inv(x); }\r\n  static MInt inv(int x, bool init = false)\
-    \ {\r\n    // assert(0 <= x && x < mod() && std::__gcd(x, mod()) == 1);\r\n  \
-    \  static std::vector<MInt> inverse{0, 1};\r\n    int prev = inverse.size();\r\
-    \n    if (init && x >= prev) {\r\n      // \"x!\" and \"mod()\" must be disjoint.\r\
-    \n      inverse.resize(x + 1);\r\n      for (int i = prev; i <= x; ++i) inverse[i]\
-    \ = -inverse[mod() % i] * (mod() / i);\r\n    }\r\n    if (x < inverse.size())\
-    \ return inverse[x];\r\n    unsigned int a = x, b = mod(); int u = 1, v = 0;\r\
-    \n    while (b) {\r\n      unsigned int q = a / b;\r\n      std::swap(a -= q *\
-    \ b, b);\r\n      std::swap(u -= q * v, v);\r\n    }\r\n    return u;\r\n  }\r\
-    \n  static MInt fact(int x) {\r\n    static std::vector<MInt> f{1};\r\n    int\
-    \ prev = f.size();\r\n    if (x >= prev) {\r\n      f.resize(x + 1);\r\n     \
-    \ for (int i = prev; i <= x; ++i) f[i] = f[i - 1] * i;\r\n    }\r\n    return\
-    \ f[x];\r\n  }\r\n  static MInt fact_inv(int x) {\r\n    static std::vector<MInt>\
-    \ finv{1};\r\n    int prev = finv.size();\r\n    if (x >= prev) {\r\n      finv.resize(x\
-    \ + 1);\r\n      finv[x] = inv(fact(x).val);\r\n      for (int i = x; i > prev;\
-    \ --i) finv[i - 1] = finv[i] * i;\r\n    }\r\n    return finv[x];\r\n  }\r\n \
-    \ static MInt nCk(int n, int k) {\r\n    if (n < 0 || n < k || k < 0) return 0;\r\
-    \n    if (n - k > k) k = n - k;\r\n    return fact(n) * fact_inv(k) * fact_inv(n\
-    \ - k);\r\n  }\r\n  static MInt nPk(int n, int k) { return n < 0 || n < k || k\
-    \ < 0 ? 0 : fact(n) * fact_inv(n - k); }\r\n  static MInt nHk(int n, int k) {\
-    \ return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k)); }\r\n  static\
-    \ MInt large_nCk(long long n, int k) {\r\n    if (n < 0 || n < k || k < 0) return\
-    \ 0;\r\n    inv(k, true);\r\n    MInt res = 1;\r\n    for (int i = 1; i <= k;\
-    \ ++i) res *= inv(i) * n--;\r\n    return res;\r\n  }\r\n  MInt pow(long long\
-    \ exponent) const {\r\n    MInt tmp = *this, res = 1;\r\n    while (exponent >\
-    \ 0) {\r\n      if (exponent & 1) res *= tmp;\r\n      tmp *= tmp;\r\n      exponent\
-    \ >>= 1;\r\n    }\r\n    return res;\r\n  }\r\n  MInt &operator+=(const MInt &x)\
-    \ { if((val += x.val) >= mod()) val -= mod(); return *this; }\r\n  MInt &operator-=(const\
-    \ MInt &x) { if((val += mod() - x.val) >= mod()) val -= mod(); return *this; }\r\
-    \n  MInt &operator*=(const MInt &x) { val = static_cast<unsigned long long>(val)\
-    \ * x.val % mod(); return *this; }\r\n  MInt &operator/=(const MInt &x) { return\
-    \ *this *= inv(x.val); }\r\n  bool operator==(const MInt &x) const { return val\
-    \ == x.val; }\r\n  bool operator!=(const MInt &x) const { return val != x.val;\
-    \ }\r\n  bool operator<(const MInt &x) const { return val < x.val; }\r\n  bool\
-    \ operator<=(const MInt &x) const { return val <= x.val; }\r\n  bool operator>(const\
-    \ MInt &x) const { return val > x.val; }\r\n  bool operator>=(const MInt &x) const\
-    \ { return val >= x.val; }\r\n  MInt &operator++() { if (++val == mod()) val =\
-    \ 0; return *this; }\r\n  MInt operator++(int) { MInt res = *this; ++*this; return\
-    \ res; }\r\n  MInt &operator--() { val = (val == 0 ? mod() : val) - 1; return\
-    \ *this; }\r\n  MInt operator--(int) { MInt res = *this; --*this; return res;\
-    \ }\r\n  MInt operator+() const { return *this; }\r\n  MInt operator-() const\
-    \ { return MInt(val ? mod() - val : 0); }\r\n  MInt operator+(const MInt &x) const\
-    \ { return MInt(*this) += x; }\r\n  MInt operator-(const MInt &x) const { return\
-    \ MInt(*this) -= x; }\r\n  MInt operator*(const MInt &x) const { return MInt(*this)\
-    \ *= x; }\r\n  MInt operator/(const MInt &x) const { return MInt(*this) /= x;\
-    \ }\r\n  friend std::ostream &operator<<(std::ostream &os, const MInt &x) { return\
-    \ os << x.val; }\r\n  friend std::istream &operator>>(std::istream &is, MInt &x)\
-    \ { long long val; is >> val; x = MInt(val); return is; }\r\nprivate:\r\n  static\
-    \ int &mod() { static int divisor = 0; return divisor; }\r\n};\r\nnamespace std\
-    \ { template <int ID> MInt<ID> abs(const MInt<ID> &x) { return x; } }\r\n#line\
-    \ 2 \"math/matrix/inverse_matrix.hpp\"\n#include <cassert>\r\n#include <cmath>\r\
-    \n#line 4 \"math/matrix/matrix.hpp\"\n\r\ntemplate <typename T>\r\nstruct Matrix\
-    \ {\r\n  Matrix(int m, int n, T val = 0) : dat(m, std::vector<T>(n, val)) {}\r\
-    \n\r\n  int height() const { return dat.size(); }\r\n\r\n  int width() const {\
-    \ return dat.front().size(); }\r\n\r\n  Matrix pow(long long exponent) const {\r\
-    \n    int n = height();\r\n    Matrix<T> tmp = *this, res(n, n, 0);\r\n    for\
-    \ (int i = 0; i < n; ++i) res[i][i] = 1;\r\n    while (exponent > 0) {\r\n   \
-    \   if (exponent & 1) res *= tmp;\r\n      tmp *= tmp;\r\n      exponent >>= 1;\r\
-    \n    }\r\n    return res;\r\n  }\r\n\r\n  inline const std::vector<T> &operator[](const\
-    \ int idx) const { return dat[idx]; }\r\n  inline std::vector<T> &operator[](const\
-    \ int idx) { return dat[idx]; }\r\n\r\n  Matrix &operator=(const Matrix &x) {\r\
-    \n    int m = x.height(), n = x.width();\r\n    dat.resize(m, std::vector<T>(n));\r\
-    \n    for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j) dat[i][j] = x[i][j];\r\
-    \n    return *this;\r\n  }\r\n\r\n  Matrix &operator+=(const Matrix &x) {\r\n\
-    \    int m = height(), n = width();\r\n    for (int i = 0; i < m; ++i) for (int\
-    \ j = 0; j < n; ++j) dat[i][j] += x[i][j];\r\n    return *this;\r\n  }\r\n\r\n\
-    \  Matrix &operator-=(const Matrix &x) {\r\n    int m = height(), n = width();\r\
-    \n    for (int i = 0; i < m; ++i) for (int j = 0; j < n; ++j) dat[i][j] -= x[i][j];\r\
-    \n    return *this;\r\n  }\r\n\r\n  Matrix &operator*=(const Matrix &x) {\r\n\
-    \    int m = height(), n = x.width(), l = width();\r\n    std::vector<std::vector<T>>\
-    \ res(m, std::vector<T>(n, 0));\r\n    for (int i = 0; i < m; ++i) for (int j\
-    \ = 0; j < n; ++j) {\r\n      for (int k = 0; k < l; ++k) res[i][j] += dat[i][k]\
-    \ * x[k][j];\r\n    }\r\n    std::swap(dat, res);\r\n    return *this;\r\n  }\r\
-    \n\r\n  Matrix operator+(const Matrix &x) const { return Matrix(*this) += x; }\r\
-    \n\r\n  Matrix operator-(const Matrix &x) const { return Matrix(*this) -= x; }\r\
-    \n\r\n  Matrix operator*(const Matrix &x) const { return Matrix(*this) *= x; }\r\
-    \n\r\nprivate:\r\n  std::vector<std::vector<T>> dat;\r\n};\r\n#line 6 \"math/matrix/inverse_matrix.hpp\"\
-    \n\r\ntemplate <typename T, typename U = double>\r\nMatrix<U> inverse_matrix(const\
-    \ Matrix<T> &mat, const U EPS = 1e-8) {\r\n  int n = mat.height();\r\n  Matrix<U>\
-    \ gauss_jordan(n, n << 1, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n    for (int\
-    \ j = 0; j < n; ++j) gauss_jordan[i][j] = mat[i][j];\r\n    gauss_jordan[i][n\
-    \ + i] = 1;\r\n  }\r\n  for (int col = 0; col < n; ++col) {\r\n    int pivot =\
-    \ -1;\r\n    U mx = EPS;\r\n    for (int row = col; row < n; ++row) {\r\n    \
-    \  if (std::abs(gauss_jordan[row][col]) > mx) {\r\n        pivot = row;\r\n  \
-    \      mx = std::abs(gauss_jordan[row][col]);\r\n      }\r\n    }\r\n    if (pivot\
-    \ == -1) return Matrix<U>(0, 0);\r\n    std::swap(gauss_jordan[col], gauss_jordan[pivot]);\r\
-    \n    U tmp = gauss_jordan[col][col];\r\n    for (int col2 = 0; col2 < (n << 1);\
-    \ ++col2) gauss_jordan[col][col2] /= tmp;\r\n    for (int row = 0; row < n; ++row)\
-    \ {\r\n      if (row != col && std::abs(gauss_jordan[row][col]) > EPS) {\r\n \
-    \       tmp = gauss_jordan[row][col];\r\n        for (int col2 = 0; col2 < (n\
-    \ << 1); ++col2) gauss_jordan[row][col2] -= gauss_jordan[col][col2] * tmp;\r\n\
-    \      }\r\n    }\r\n  }\r\n  Matrix<U> inv(n, n);\r\n  for (int i = 0; i < n;\
-    \ ++i) for (int j = 0; j < n; ++j) inv[i][j] = gauss_jordan[i][n + j];\r\n  return\
-    \ inv;\r\n}\r\n#line 9 \"test/math/matrix/inverse_matrix.test.cpp\"\n\r\nint main()\
-    \ {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  int n;\r\
-    \n  std::cin >> n;\r\n  Matrix<ModInt> a(n, n);\r\n  for (int i = 0; i < n; ++i)\
-    \ {\r\n    for (int j = 0; j < n; ++j) {\r\n      std::cin >> a[i][j];\r\n   \
-    \ }\r\n  }\r\n  Matrix<ModInt> b = inverse_matrix(a, ModInt(0));\r\n  if (b.height()\
-    \ == 0) {\r\n    std::cout << \"-1\\n\";\r\n  } else {\r\n    for (int i = 0;\
-    \ i < n; ++i) {\r\n      for (int j = 0; j < n; ++j) {\r\n        std::cout <<\
-    \ b[i][j] << \" \\n\"[j + 1 == n];\r\n      }\r\n    }\r\n  }\r\n  return 0;\r\
-    \n}\r\n"
+    \n//   static void set_mod(const int divisor) { assert(divisor == M); }\r\n//\
+    \   static void init(const int x = 10000000) {\r\n//     inv(x, true);\r\n// \
+    \    fact(x);\r\n//     fact_inv(x);\r\n//   }\r\n//   static MInt inv(const int\
+    \ n, const bool init = false) {\r\n//     // assert(0 <= n && n < M && std::__gcd(n,\
+    \ M) == 1);\r\n//     static std::vector<MInt> inverse{0, 1};\r\n//     const\
+    \ int prev = inverse.size();\r\n//     if (n < prev) {\r\n//       return inverse[n];\r\
+    \n//     } else if (init) {\r\n//       // \"n!\" and \"M\" must be disjoint.\r\
+    \n//       inverse.resize(n + 1);\r\n//       for (int i = prev; i <= n; ++i)\
+    \ {\r\n//         inverse[i] = -inverse[M % i] * (M / i);\r\n//       }\r\n//\
+    \       return inverse[n];\r\n//     }\r\n//     int u = 1, v = 0;\r\n//     for\
+    \ (unsigned int a = n, b = M; b;) {\r\n//       const unsigned int q = a / b;\r\
+    \n//       std::swap(a -= q * b, b);\r\n//       std::swap(u -= q * v, v);\r\n\
+    //     }\r\n//     return u;\r\n//   }\r\n//   static MInt fact(const int n) {\r\
+    \n//     static std::vector<MInt> factorial{1};\r\n//     const int prev = factorial.size();\r\
+    \n//     if (n >= prev) {\r\n//       factorial.resize(n + 1);\r\n//       for\
+    \ (int i = prev; i <= n; ++i) {\r\n//         factorial[i] = factorial[i - 1]\
+    \ * i;\r\n//       }\r\n//     }\r\n//     return factorial[n];\r\n//   }\r\n\
+    //   static MInt fact_inv(const int n) {\r\n//     static std::vector<MInt> f_inv{1};\r\
+    \n//     const int prev = f_inv.size();\r\n//     if (n >= prev) {\r\n//     \
+    \  f_inv.resize(n + 1);\r\n//       f_inv[n] = inv(fact(n).v);\r\n//       for\
+    \ (int i = n; i > prev; --i) {\r\n//         f_inv[i - 1] = f_inv[i] * i;\r\n\
+    //       }\r\n//     }\r\n//     return f_inv[n];\r\n//   }\r\n//   static MInt\
+    \ nCk(const int n, const int k) {\r\n//     if (n < 0 || n < k || k < 0) return\
+    \ 0;\r\n//     return fact(n) * (n - k < k ? fact_inv(k) * fact_inv(n - k) :\r\
+    \n//                                   fact_inv(n - k) * fact_inv(k));\r\n// \
+    \  }\r\n//   static MInt nPk(const int n, const int k) {\r\n//     return n <\
+    \ 0 || n < k || k < 0 ? 0 : fact(n) * fact_inv(n - k);\r\n//   }\r\n//   static\
+    \ MInt nHk(const int n, const int k) {\r\n//     return n < 0 || k < 0 ? 0 : (k\
+    \ == 0 ? 1 : nCk(n + k - 1, k));\r\n//   }\r\n//   static MInt large_nCk(long\
+    \ long n, const int k) {\r\n//     if (n < 0 || n < k || k < 0) return 0;\r\n\
+    //     inv(k, true);\r\n//     MInt res = 1;\r\n//     for (int i = 1; i <= k;\
+    \ ++i) {\r\n//       res *= inv(i) * n--;\r\n//     }\r\n//     return res;\r\n\
+    //   }\r\n//   MInt pow(long long exponent) const {\r\n//     MInt res = 1, tmp\
+    \ = *this;\r\n//     for (; exponent > 0; exponent >>= 1) {\r\n//       if (exponent\
+    \ & 1) res *= tmp;\r\n//       tmp *= tmp;\r\n//     }\r\n//     return res;\r\
+    \n//   }\r\n//   MInt& operator+=(const MInt& x) {\r\n//     if ((v += x.v) >=\
+    \ M) v -= M;\r\n//     return *this;\r\n//   }\r\n//   MInt& operator-=(const\
+    \ MInt& x) {\r\n//     if ((v += M - x.v) >= M) v -= M;\r\n//     return *this;\r\
+    \n//   }\r\n//   MInt& operator*=(const MInt& x) {\r\n//     v = static_cast<unsigned\
+    \ long long>(v) * x.v % M;\r\n//     return *this;\r\n//   }\r\n//   MInt& operator/=(const\
+    \ MInt& x) { return *this *= inv(x.v); }\r\n//   bool operator==(const MInt& x)\
+    \ const { return v == x.v; }\r\n//   bool operator!=(const MInt& x) const { return\
+    \ v != x.v; }\r\n//   bool operator<(const MInt& x) const { return v < x.v; }\r\
+    \n//   bool operator<=(const MInt& x) const { return v <= x.v; }\r\n//   bool\
+    \ operator>(const MInt& x) const { return v > x.v; }\r\n//   bool operator>=(const\
+    \ MInt& x) const { return v >= x.v; }\r\n//   MInt& operator++() {\r\n//     if\
+    \ (++v == M) v = 0;\r\n//     return *this;\r\n//   }\r\n//   MInt operator++(int)\
+    \ {\r\n//     const MInt res = *this;\r\n//     ++*this;\r\n//     return res;\r\
+    \n//   }\r\n//   MInt& operator--() {\r\n//     v = (v == 0 ? M - 1 : v - 1);\r\
+    \n//     return *this;\r\n//   }\r\n//   MInt operator--(int) {\r\n//     const\
+    \ MInt res = *this;\r\n//     --*this;\r\n//     return res;\r\n//   }\r\n// \
+    \  MInt operator+() const { return *this; }\r\n//   MInt operator-() const { return\
+    \ MInt(v ? M - v : 0); }\r\n//   MInt operator+(const MInt& x) const { return\
+    \ MInt(*this) += x; }\r\n//   MInt operator-(const MInt& x) const { return MInt(*this)\
+    \ -= x; }\r\n//   MInt operator*(const MInt& x) const { return MInt(*this) *=\
+    \ x; }\r\n//   MInt operator/(const MInt& x) const { return MInt(*this) /= x;\
+    \ }\r\n//   friend std::ostream& operator<<(std::ostream& os, const MInt& x) {\r\
+    \n//     return os << x.v;\r\n//   }\r\n//   friend std::istream& operator>>(std::istream&\
+    \ is, MInt& x) {\r\n//     long long v;\r\n//     is >> v;\r\n//     x = MInt(v);\r\
+    \n//     return is;\r\n//   }\r\n// };\r\n\r\ntemplate <int ID>\r\nstruct MInt\
+    \ {\r\n  unsigned int v;\r\n  MInt() : v(0) {}\r\n  MInt(const long long x) :\
+    \ v(x >= 0 ? x % mod() : x % mod() + mod()) {}\r\n  static int get_mod() { return\
+    \ mod(); }\r\n  static void set_mod(const int divisor) { mod() = divisor; }\r\n\
+    \  static void init(const int x = 10000000) {\r\n    inv(x, true);\r\n    fact(x);\r\
+    \n    fact_inv(x);\r\n  }\r\n  static MInt inv(const int n, const bool init =\
+    \ false) {\r\n    // assert(0 <= n && n < mod() && std::__gcd(x, mod()) == 1);\r\
+    \n    static std::vector<MInt> inverse{0, 1};\r\n    const int prev = inverse.size();\r\
+    \n    if (n < prev) {\r\n      return inverse[n];\r\n    } else if (init) {\r\n\
+    \      // \"n!\" and \"mod()\" must be disjoint.\r\n      inverse.resize(n + 1);\r\
+    \n      for (int i = prev; i <= n; ++i) {\r\n        inverse[i] = -inverse[mod()\
+    \ % i] * (mod() / i);\r\n      }\r\n      return inverse[n];\r\n    }\r\n    int\
+    \ u = 1, v = 0;\r\n    for (unsigned int a = n, b = mod(); b;) {\r\n      const\
+    \ unsigned int q = a / b;\r\n      std::swap(a -= q * b, b);\r\n      std::swap(u\
+    \ -= q * v, v);\r\n    }\r\n    return u;\r\n  }\r\n  static MInt fact(const int\
+    \ n) {\r\n    static std::vector<MInt> factorial{1};\r\n    const int prev = factorial.size();\r\
+    \n    if (n >= prev) {\r\n      factorial.resize(n + 1);\r\n      for (int i =\
+    \ prev; i <= n; ++i) {\r\n        factorial[i] = factorial[i - 1] * i;\r\n   \
+    \   }\r\n    }\r\n    return factorial[n];\r\n  }\r\n  static MInt fact_inv(const\
+    \ int n) {\r\n    static std::vector<MInt> f_inv{1};\r\n    const int prev = f_inv.size();\r\
+    \n    if (n >= prev) {\r\n      f_inv.resize(n + 1);\r\n      f_inv[n] = inv(fact(n).v);\r\
+    \n      for (int i = n; i > prev; --i) {\r\n        f_inv[i - 1] = f_inv[i] *\
+    \ i;\r\n      }\r\n    }\r\n    return f_inv[n];\r\n  }\r\n  static MInt nCk(const\
+    \ int n, const int k) {\r\n    if (n < 0 || n < k || k < 0) return 0;\r\n    return\
+    \ fact(n) * (n - k < k ? fact_inv(k) * fact_inv(n - k) :\r\n                 \
+    \                 fact_inv(n - k) * fact_inv(k));\r\n  }\r\n  static MInt nPk(const\
+    \ int n, const int k) {\r\n    return n < 0 || n < k || k < 0 ? 0 : fact(n) *\
+    \ fact_inv(n - k);\r\n  }\r\n  static MInt nHk(const int n, const int k) {\r\n\
+    \    return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k));\r\n  }\r\n\
+    \  static MInt large_nCk(long long n, const int k) {\r\n    if (n < 0 || n < k\
+    \ || k < 0) return 0;\r\n    inv(k, true);\r\n    MInt res = 1;\r\n    for (int\
+    \ i = 1; i <= k; ++i) {\r\n      res *= inv(i) * n--;\r\n    }\r\n    return res;\r\
+    \n  }\r\n  MInt pow(long long exponent) const {\r\n    MInt res = 1, tmp = *this;\r\
+    \n    for (; exponent > 0; exponent >>= 1) {\r\n      if (exponent & 1) res *=\
+    \ tmp;\r\n      tmp *= tmp;\r\n    }\r\n    return res;\r\n  }\r\n  MInt& operator+=(const\
+    \ MInt& x) {\r\n    if ((v += x.v) >= mod()) v -= mod();\r\n    return *this;\r\
+    \n  }\r\n  MInt& operator-=(const MInt& x) {\r\n    if ((v += mod() - x.v) >=\
+    \ mod()) v -= mod();\r\n    return *this;\r\n  }\r\n  MInt& operator*=(const MInt&\
+    \ x) {\r\n    v = static_cast<unsigned long long>(v) * x.v % mod();\r\n    return\
+    \ *this;\r\n    }\r\n  MInt& operator/=(const MInt& x) { return *this *= inv(x.v);\
+    \ }\r\n  bool operator==(const MInt& x) const { return v == x.v; }\r\n  bool operator!=(const\
+    \ MInt& x) const { return v != x.v; }\r\n  bool operator<(const MInt& x) const\
+    \ { return v < x.v; }\r\n  bool operator<=(const MInt& x) const { return v <=\
+    \ x.v; }\r\n  bool operator>(const MInt& x) const { return v > x.v; }\r\n  bool\
+    \ operator>=(const MInt& x) const { return v >= x.v; }\r\n  MInt& operator++()\
+    \ {\r\n    if (++v == mod()) v = 0;\r\n    return *this;\r\n  }\r\n  MInt operator++(int)\
+    \ {\r\n    const MInt res = *this;\r\n    ++*this;\r\n    return res;\r\n  }\r\
+    \n  MInt& operator--() {\r\n    v = (v == 0 ? mod() - 1 : v - 1);\r\n    return\
+    \ *this;\r\n  }\r\n  MInt operator--(int) {\r\n    const MInt res = *this;\r\n\
+    \    --*this;\r\n    return res;\r\n  }\r\n  MInt operator+() const { return *this;\
+    \ }\r\n  MInt operator-() const { return MInt(v ? mod() - v : 0); }\r\n  MInt\
+    \ operator+(const MInt& x) const { return MInt(*this) += x; }\r\n  MInt operator-(const\
+    \ MInt& x) const { return MInt(*this) -= x; }\r\n  MInt operator*(const MInt&\
+    \ x) const { return MInt(*this) *= x; }\r\n  MInt operator/(const MInt& x) const\
+    \ { return MInt(*this) /= x; }\r\n  friend std::ostream& operator<<(std::ostream&\
+    \ os, const MInt& x) {\r\n    return os << x.v;\r\n  }\r\n  friend std::istream&\
+    \ operator>>(std::istream& is, MInt& x) {\r\n    long long v;\r\n    is >> v;\r\
+    \n    x = MInt(v);\r\n    return is;\r\n  }\r\n private:\r\n  static int& mod()\
+    \ {\r\n    static int divisor = 0;\r\n    return divisor;\r\n  }\r\n};\r\n#line\
+    \ 2 \"math/matrix/inverse_matrix.hpp\"\n#include <algorithm>\r\n#include <iterator>\r\
+    \n#line 5 \"math/matrix/inverse_matrix.hpp\"\n\r\n#line 3 \"math/matrix/matrix.hpp\"\
+    \n\r\ntemplate <typename T>\r\nstruct Matrix {\r\n  explicit Matrix(const int\
+    \ m, const int n, const T def = 0)\r\n      : data(m, std::vector<T>(n, def))\
+    \ {}\r\n\r\n  int nrow() const { return data.size(); }\r\n  int ncol() const {\
+    \ return data.front().size(); }\r\n\r\n  Matrix pow(long long exponent) const\
+    \ {\r\n    const int n = nrow();\r\n    Matrix<T> res(n, n, 0), tmp = *this;\r\
+    \n    for (int i = 0; i < n; ++i) {\r\n      res[i][i] = 1;\r\n    }\r\n    for\
+    \ (; exponent > 0; exponent >>= 1) {\r\n      if (exponent & 1) res *= tmp;\r\n\
+    \      tmp *= tmp;\r\n    }\r\n    return res;\r\n  }\r\n\r\n  inline const std::vector<T>&\
+    \ operator[](const int i) const { return data[i]; }\r\n  inline std::vector<T>&\
+    \ operator[](const int i) { return data[i]; }\r\n\r\n  Matrix& operator=(const\
+    \ Matrix& x) = default;\r\n\r\n  Matrix& operator+=(const Matrix& x) {\r\n   \
+    \ const int m = nrow(), n = ncol();\r\n    for (int i = 0; i < m; ++i) {\r\n \
+    \     for (int j = 0; j < n; ++j) {\r\n        data[i][j] += x[i][j];\r\n    \
+    \  }\r\n    }\r\n    return *this;\r\n  }\r\n\r\n  Matrix& operator-=(const Matrix&\
+    \ x) {\r\n    const int m = nrow(), n = ncol();\r\n    for (int i = 0; i < m;\
+    \ ++i) {\r\n      for (int j = 0; j < n; ++j) {\r\n        data[i][j] -= x[i][j];\r\
+    \n      }\r\n    }\r\n    return *this;\r\n  }\r\n\r\n  Matrix& operator*=(const\
+    \ Matrix& x) {\r\n    const int m = nrow(), l = ncol(), n = x.ncol();\r\n    std::vector<std::vector<T>>\
+    \ res(m, std::vector<T>(n, 0));\r\n    for (int i = 0; i < m; ++i) {\r\n     \
+    \ for (int k = 0; k < l; ++k) {\r\n        for (int j = 0; j < n; ++j) {\r\n \
+    \         res[i][j] += data[i][k] * x[k][j];\r\n        }\r\n      }\r\n    }\r\
+    \n    data.swap(res);\r\n    return *this;\r\n  }\r\n\r\n  Matrix operator+(const\
+    \ Matrix& x) const { return Matrix(*this) += x; }\r\n  Matrix operator-(const\
+    \ Matrix& x) const { return Matrix(*this) -= x; }\r\n  Matrix operator*(const\
+    \ Matrix& x) const { return Matrix(*this) *= x; }\r\n\r\n private:\r\n  std::vector<std::vector<T>>\
+    \ data;\r\n};\r\n#line 7 \"math/matrix/inverse_matrix.hpp\"\n\r\ntemplate <typename\
+    \ T, typename U = double>\r\nMatrix<U> inverse_matrix(const Matrix<T>& a, const\
+    \ U eps = 1e-8) {\r\n  const int n = a.nrow();\r\n  Matrix<U> b(n, n << 1, 0);\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    std::copy(a[i].begin(), a[i].end(), b[i].begin());\r\
+    \n    b[i][n + i] = 1;\r\n  }\r\n  for (int col = 0; col < n; ++col) {\r\n   \
+    \ int pivot = -1;\r\n    U mx = eps;\r\n    for (int row = col; row < n; ++row)\
+    \ {\r\n      const U abs = (b[row][col] < 0 ? -b[row][col] : b[row][col]);\r\n\
+    \      if (abs > mx) {\r\n        pivot = row;\r\n        mx = abs;\r\n      }\r\
+    \n    }\r\n    if (pivot == -1) return Matrix<U>(0, 0);\r\n    std::swap(b[col],\
+    \ b[pivot]);\r\n    U tmp = b[col][col];\r\n    for (int col2 = 0; col2 < (n <<\
+    \ 1); ++col2) {\r\n      b[col][col2] /= tmp;\r\n    }\r\n    for (int row = 0;\
+    \ row < n; ++row) {\r\n      if (row != col && (b[row][col] < 0 ? -b[row][col]\
+    \ : b[row][col]) > eps) {\r\n        tmp = b[row][col];\r\n        for (int col2\
+    \ = 0; col2 < (n << 1); ++col2) {\r\n          b[row][col2] -= b[col][col2] *\
+    \ tmp;\r\n        }\r\n      }\r\n    }\r\n  }\r\n  Matrix<U> inv(n, n);\r\n \
+    \ for (int i = 0; i < n; ++i) {\r\n    std::copy(std::next(b[i].begin(), n), b[i].end(),\
+    \ inv[i].begin());\r\n  }\r\n  return inv;\r\n}\r\n#line 9 \"test/math/matrix/inverse_matrix.test.cpp\"\
+    \n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
+    \n  int n;\r\n  std::cin >> n;\r\n  Matrix<ModInt> a(n, n);\r\n  for (int i =\
+    \ 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) {\r\n      std::cin >> a[i][j];\r\
+    \n    }\r\n  }\r\n  const Matrix<ModInt> b = inverse_matrix(a, ModInt(0));\r\n\
+    \  if (b.nrow() == 0) {\r\n    std::cout << \"-1\\n\";\r\n  } else {\r\n    for\
+    \ (int i = 0; i < n; ++i) {\r\n      for (int j = 0; j < n; ++j) {\r\n       \
+    \ std::cout << b[i][j] << \" \\n\"[j + 1 == n];\r\n      }\r\n    }\r\n  }\r\n\
+    \  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217\r\n */\r\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\r\n\r\n#include <iostream>\r\
     \n#include \"../../../math/modint.hpp\"\r\n#include \"../../../math/matrix/inverse_matrix.hpp\"\
     \r\n\r\nint main() {\r\n  using ModInt = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\
     \n  int n;\r\n  std::cin >> n;\r\n  Matrix<ModInt> a(n, n);\r\n  for (int i =\
     \ 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) {\r\n      std::cin >> a[i][j];\r\
-    \n    }\r\n  }\r\n  Matrix<ModInt> b = inverse_matrix(a, ModInt(0));\r\n  if (b.height()\
-    \ == 0) {\r\n    std::cout << \"-1\\n\";\r\n  } else {\r\n    for (int i = 0;\
-    \ i < n; ++i) {\r\n      for (int j = 0; j < n; ++j) {\r\n        std::cout <<\
-    \ b[i][j] << \" \\n\"[j + 1 == n];\r\n      }\r\n    }\r\n  }\r\n  return 0;\r\
-    \n}\r\n"
+    \n    }\r\n  }\r\n  const Matrix<ModInt> b = inverse_matrix(a, ModInt(0));\r\n\
+    \  if (b.nrow() == 0) {\r\n    std::cout << \"-1\\n\";\r\n  } else {\r\n    for\
+    \ (int i = 0; i < n; ++i) {\r\n      for (int j = 0; j < n; ++j) {\r\n       \
+    \ std::cout << b[i][j] << \" \\n\"[j + 1 == n];\r\n      }\r\n    }\r\n  }\r\n\
+    \  return 0;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
   - math/matrix/inverse_matrix.hpp
@@ -205,8 +216,8 @@ data:
   isVerificationFile: true
   path: test/math/matrix/inverse_matrix.test.cpp
   requiredBy: []
-  timestamp: '2021-06-21 17:07:08+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/matrix/inverse_matrix.test.cpp
 layout: document

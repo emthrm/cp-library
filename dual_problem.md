@@ -5,7 +5,7 @@
 
 ### 強双対定理 (strong duality theorem)
 
-主問題または双対問題のいずれか一方に最適解が存在するならば, もう一方にもそれに等しい最適解が存在する．
+主問題または双対問題のいずれか一方に最適解が存在するならば，もう一方にもそれに等しい最適解が存在する．
 
 
 ## 例
@@ -56,7 +56,7 @@ $$\max_{\boldsymbol{p}} (p_N - p_0) \text{ s.t. } \begin{cases} p_{R_i} - p_{L_i
 
 主問題（最大流問題）
 
-$E^\prime = E \cup \lbrace (t, s) \rbrace$ とし辺 $e \in E^\prime$ の流量を $x_e$ とおく．
+$E^\prime = E \cup \lbrace (t, s) \rbrace$ とし，辺 $e \in E^\prime$ の流量を $x_e$ とおく．
 
 $$\max_{\boldsymbol{x}} x_{(t, s)} \text{ s.t. } \begin{cases} \sum_{e \in \delta^-(v) \subseteq E^\prime} x_e - \sum_{e \in \delta^+(v) \subseteq E^\prime} x_e = 0 & (v \in V) \\ x_e \leq c_e & (e \in E) \\ x_e \geq 0 & (e \in E^{\prime}) \end{cases}$$
 
@@ -77,7 +77,7 @@ $$\min_{\boldsymbol{z}, \boldsymbol{y}} {\begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ c_1
 
 ### 最小費用流問題
 
-有向グラフ $(V, E)$，頂点 $v \in V$ の流出量を $f_v$，辺 $e \in E$ の流量 $x_e \ (0 \leq l_e \leq x_e \leq u_e)$，コスト $c_e$ とおく．
+有向グラフ $(V, E)$，頂点 $v \in V$ の流出量を $f_v$，辺 $e \in E$ の流量 $x_e$ ($0 \leq l_e \leq x_e \leq u_e$)，コスト $c_e$ とおく．
 
 主問題 (最小流量制約付き最小費用流)
 
@@ -129,7 +129,7 @@ $$\max_{\boldsymbol{p}, \boldsymbol{x}} {\begin{pmatrix} -1 \\ 0 \\ 1 \\ 0 \\ 0 
 
 $$\min_{y, \boldsymbol{f}} \left(Py + \sum_{e \in E} d_e f_e \right) \text{ s.t. } \begin{cases} \sum_{e \in \delta^-(v)} f_e - \sum_{e \in \delta^+(v)} f_e \geq \begin{cases} -1 & (v = s) \\ 1 & (v = t) \\ 0 & (\text{otherwise}) \end{cases} \\ 0 \leq f_e \leq c_e y & (e \in E) \\ y \geq 0 \end{cases}$$
 
-制約条件の上三つより $\boldsymbol{f}$ は始点 $s$, 終点 $t$, 流量 $1$ のフローとなる．
+制約条件の上三つより $\boldsymbol{f}$ は始点 $s$，終点 $t$，流量 $1$ のフローとなる．
 
 Sample Input 1 の場合
 
@@ -141,7 +141,7 @@ $$\min_{y, \boldsymbol{f}} \begin{pmatrix} d_{(1, 2)} = 2 \\ d_{(2, 3)} = 1 \\ P
 - http://tokoharuland.hateblo.jp/entry/2016/12/06/223614
 - https://www.slideshare.net/wata_orz/ss-91375739
 - ~~http://beet-aizu.hatenablog.com/entry/2019/10/20/150649~~
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.223-224，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.223-224，マイナビ出版（2012）
 - https://paper.dropbox.com/doc/YqGiA3I6bDbMWWWsUc1an
 - Security Camera 2
   - https://atcoder.jp/contests/abc224/editorial/2812

@@ -13,34 +13,35 @@ data:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/knuth_yao_speedup.hpp\"\n#include <algorithm>\r\
     \n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>>\
-    \ knuth_yao_speedup(const std::vector<std::vector<T>> &w, const T inf) {\r\n \
-    \ const int n = w.size();\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
+    \ knuth_yao_speedup(\r\n    const std::vector<std::vector<T>>& w, const T inf)\
+    \ {\r\n  const int n = w.size();\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
     \ inf));\r\n  if (n == 0) return dp;\r\n  std::vector<std::vector<int>> argmin(n,\
     \ std::vector<int>(n, -1));\r\n  for (int i = 0; i < n; ++i) {\r\n    dp[i][i]\
     \ = 0;\r\n    argmin[i][i] = i;\r\n  }\r\n  for (int width = 2; width <= n; ++width)\
     \ {\r\n    for (int i = 0; ; ++i) {\r\n      const int j = i + width - 1;\r\n\
     \      if (j >= n) break;\r\n      const int right = std::min(j - 1, argmin[i\
     \ + 1][j]);\r\n      for (int k = argmin[i][j - 1]; k <= right; ++k) {\r\n   \
-    \     T tmp = dp[i][k] + dp[k + 1][j] + w[i][j];\r\n        if (tmp < dp[i][j])\
+    \     const T tmp = dp[i][k] + dp[k + 1][j] + w[i][j];\r\n        if (tmp < dp[i][j])\
     \ {\r\n          dp[i][j] = tmp;\r\n          argmin[i][j] = k;\r\n        }\r\
     \n      }\r\n    }\r\n  }\r\n  return dp;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<std::vector<T>> knuth_yao_speedup(const std::vector<std::vector<T>>\
-    \ &w, const T inf) {\r\n  const int n = w.size();\r\n  std::vector<std::vector<T>>\
-    \ dp(n, std::vector<T>(n, inf));\r\n  if (n == 0) return dp;\r\n  std::vector<std::vector<int>>\
-    \ argmin(n, std::vector<int>(n, -1));\r\n  for (int i = 0; i < n; ++i) {\r\n \
-    \   dp[i][i] = 0;\r\n    argmin[i][i] = i;\r\n  }\r\n  for (int width = 2; width\
-    \ <= n; ++width) {\r\n    for (int i = 0; ; ++i) {\r\n      const int j = i +\
-    \ width - 1;\r\n      if (j >= n) break;\r\n      const int right = std::min(j\
-    \ - 1, argmin[i + 1][j]);\r\n      for (int k = argmin[i][j - 1]; k <= right;\
-    \ ++k) {\r\n        T tmp = dp[i][k] + dp[k + 1][j] + w[i][j];\r\n        if (tmp\
-    \ < dp[i][j]) {\r\n          dp[i][j] = tmp;\r\n          argmin[i][j] = k;\r\n\
-    \        }\r\n      }\r\n    }\r\n  }\r\n  return dp;\r\n}\r\n"
+    \ <typename T>\r\nstd::vector<std::vector<T>> knuth_yao_speedup(\r\n    const\
+    \ std::vector<std::vector<T>>& w, const T inf) {\r\n  const int n = w.size();\r\
+    \n  std::vector<std::vector<T>> dp(n, std::vector<T>(n, inf));\r\n  if (n == 0)\
+    \ return dp;\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n,\
+    \ -1));\r\n  for (int i = 0; i < n; ++i) {\r\n    dp[i][i] = 0;\r\n    argmin[i][i]\
+    \ = i;\r\n  }\r\n  for (int width = 2; width <= n; ++width) {\r\n    for (int\
+    \ i = 0; ; ++i) {\r\n      const int j = i + width - 1;\r\n      if (j >= n) break;\r\
+    \n      const int right = std::min(j - 1, argmin[i + 1][j]);\r\n      for (int\
+    \ k = argmin[i][j - 1]; k <= right; ++k) {\r\n        const T tmp = dp[i][k] +\
+    \ dp[k + 1][j] + w[i][j];\r\n        if (tmp < dp[i][j]) {\r\n          dp[i][j]\
+    \ = tmp;\r\n          argmin[i][j] = k;\r\n        }\r\n      }\r\n    }\r\n \
+    \ }\r\n  return dp;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/knuth_yao_speedup.hpp
   requiredBy: []
-  timestamp: '2021-08-19 14:21:02+09:00'
+  timestamp: '2022-02-12 20:37:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/knuth_yao_speedup.test.cpp
@@ -49,16 +50,16 @@ layout: document
 title: Knuth-Yao speedup
 ---
 
-$N \times N$ 型重み行列 $W$ を考える．ただし $i > j$ を満たす $1 \leq \forall i, j \leq n$ に対して $w_{ij} = \infty$ が成り立つ．
+$N \times N$ 型重み行列 $W$ を考える．ただし $i > j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ に対して $w_{ij} = \infty$ が成り立つ．
 
 - $W$ は Monge property を満たし，
 - $W$ は単調，すなわち任意の $1 \leq i \leq k \leq l \leq j \leq N$ に対して $w_{kl} \leq w_{ij}$ を満たす
 
 とき，
 
-$$f(i, j) \mathrel{:=} \begin{cases} 0 & (i = j) \\ \min_{i \leq k < j} \lbrace f(i, k) + f(k + 1, j) \rbrace + w_{ij} & (i < j) \end{cases}$$
+$$f(i, j) \mathrel{:=} \begin{cases} 0 & (i = j), \\ \min_{i \leq k < j} \lbrace f(i, k) + f(k + 1, j) \rbrace + w_{ij} & (i < j) \end{cases}$$
 
-で定義される $f$ について $f(i, j) \ (1 \leq i \leq j \leq N)$ を $O(N^2)$ で計算できる．
+で定義される $f$ に対して $f(i, j)$ ($1 \leq i \leq j \leq N$) を $O(N^2)$ で計算できる．
 
 
 ### Monge property
@@ -75,7 +76,7 @@ $O(N^2)$
 
 ||説明|
 |:--:|:--:|
-|`knuth_yao_speedup(w, ∞)`|重み行列 $W$ について上で定義した $f$|
+|`knuth_yao_speedup(w, ∞)`|重み行列 $W$ に対して上で定義した $f$|
 
 
 ## 参考
@@ -96,6 +97,7 @@ $O(N^2)$
   - https://dic.kimiyuki.net/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
+  - https://lorent-kyopro.hatenablog.com/entry/2021/04/04/133958
   - https://ei1333.github.io/luzhiled/snippets/dp/monotone-minima.html
   - https://github.com/beet-aizu/library/blob/master/algorithm/monotoneminima.cpp
   - https://lumakernel.github.io/ecasdqina/math/Monge

@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/data_structure/fenwick_tree/bit_range_add.test.cpp
+    path: test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/\u533A\u9593\u52A0\u7B97\u30AF\
       \u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
   - icon: ':heavy_check_mark:'
@@ -18,10 +18,10 @@ data:
     document_title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick\
       \ tree"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp: line\
@@ -29,30 +29,31 @@ data:
   code: "/**\r\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick\
     \ tree\r\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\r\n */\r\n\
     \r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Abelian>\r\nstruct\
-    \ FenwickTreeSupportingRangeAddQuery {\r\n  FenwickTreeSupportingRangeAddQuery(int\
-    \ n_, const Abelian ID = 0) : n(n_), ID(ID) {\r\n    ++n;\r\n    dat_const.assign(n,\
-    \ ID);\r\n    dat_linear.assign(n, ID);\r\n  }\r\n\r\n  void add(int left, int\
-    \ right, Abelian val) {\r\n    if (right < ++left) return;\r\n    for (int i =\
-    \ left; i < n; i += i & -i) {\r\n      dat_const[i] -= val * (left - 1);\r\n \
-    \     dat_linear[i] += val;\r\n    }\r\n    for (int i = right + 1; i < n; i +=\
-    \ i & -i) {\r\n      dat_const[i] += val * right;\r\n      dat_linear[i] -= val;\r\
-    \n    }\r\n  }\r\n\r\n  Abelian sum(int idx) const {\r\n    Abelian res = ID;\r\
-    \n    for (int i = idx; i > 0; i -= i & -i) res += dat_linear[i];\r\n    res *=\
-    \ idx;\r\n    for (int i = idx; i > 0; i -= i & -i) res += dat_const[i];\r\n \
-    \   return res;\r\n  }\r\n\r\n  Abelian sum(int left, int right) const {\r\n \
-    \   return left < right ? sum(right) - sum(left) : ID;\r\n  }\r\n\r\n  Abelian\
-    \ operator[](const int idx) const { return sum(idx, idx + 1); }\r\n\r\nprivate:\r\
-    \n  int n;\r\n  const Abelian ID;\r\n  std::vector<Abelian> dat_const, dat_linear;\r\
-    \n};\r\n"
+    \ FenwickTreeSupportingRangeAddQuery {\r\n  explicit FenwickTreeSupportingRangeAddQuery(\r\
+    \n      const int n_, const Abelian ID = 0)\r\n      : n(n_ + 1), ID(ID) {\r\n\
+    \    data_const.assign(n, ID);\r\n    data_linear.assign(n, ID);\r\n  }\r\n\r\n\
+    \  void add(int left, const int right, const Abelian val) {\r\n    if (right <\
+    \ ++left) return;\r\n    for (int i = left; i < n; i += i & -i) {\r\n      data_const[i]\
+    \ -= val * (left - 1);\r\n      data_linear[i] += val;\r\n    }\r\n    for (int\
+    \ i = right + 1; i < n; i += i & -i) {\r\n      data_const[i] += val * right;\r\
+    \n      data_linear[i] -= val;\r\n    }\r\n  }\r\n\r\n  Abelian sum(const int\
+    \ idx) const {\r\n    Abelian res = ID;\r\n    for (int i = idx; i > 0; i -= i\
+    \ & -i) {\r\n      res += data_linear[i];\r\n    }\r\n    res *= idx;\r\n    for\
+    \ (int i = idx; i > 0; i -= i & -i) {\r\n      res += data_const[i];\r\n    }\r\
+    \n    return res;\r\n  }\r\n\r\n  Abelian sum(const int left, const int right)\
+    \ const {\r\n    return left < right ? sum(right) - sum(left) : ID;\r\n  }\r\n\
+    \r\n  Abelian operator[](const int idx) const { return sum(idx, idx + 1); }\r\n\
+    \r\n private:\r\n  const int n;\r\n  const Abelian ID;\r\n  std::vector<Abelian>\
+    \ data_const, data_linear;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
   requiredBy: []
-  timestamp: '2021-04-24 04:29:28+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
-  - test/data_structure/fenwick_tree/bit_range_add.test.cpp
 documentation_of: data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
 layout: document
 redirect_from:
@@ -78,18 +79,18 @@ title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`FenwickTree<Abelian>(n, 単位元 = 0)`|要素数 $N$ の Fenwick tree||
-|`add(idx, val)`|$A_{\mathrm{idx}} += \mathrm{val}$||
+|`add(idx, val)`|$A_{\mathrm{idx}} \gets A_{\mathrm{idx}} + \mathrm{val}$||
 |`sum(idx)`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$||
 |`sum(left, right)`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`lower_bound(val)`|$\min \lbrace\,k \mid \sum_{i = 0}^k A_i \geq \mathrm{val} \rbrace$|$A_i \geq \text{単位元} \ (i = 0,\ldots, N - 1)$ でなければならない．|
+|`lower_bound(val)`|$\min \lbrace\,k \mid \sum_{i = 0}^k A_i \geq \mathrm{val} \rbrace$|$A_i \geq \text{単位元}$ ($i = 0,\ldots, N - 1$) でなければならない．|
 
 - 区間加算クエリ対応 Fenwick tree
 
 ||説明|
 |:--:|:--:|
 |`FenwickTreeSupportingRangeAddQuery<Abelian>(n, 単位元 = 0)`|要素数 $N$ の区間加算クエリ対応 Fenwick tree|
-|`add(left, right, val)`|$A_i += \mathrm{val} \ (i = \mathrm{left},\ldots, \mathrm{right} - 1)$|
+|`add(left, right, val)`|$A_i \gets A_i + \mathrm{val}$ ($i = \mathrm{left},\ldots, \mathrm{right} - 1$)|
 |`sum(idx)`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$|
 |`sum(left, right)`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$|
 |`operator()[idx]`|$A_{\mathrm{idx}}$|
@@ -99,7 +100,7 @@ title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
 ||説明|
 |:--:|:--:|
 |`FenwickTree2D<Abelian>(height, width, 単位元 = 0)`|要素数 $\mathrm{height} \times \mathrm{width}$ の2次元 Fenwick tree|
-|`add(y, x, val)`|$A_{yx} += \mathrm{val}$|
+|`add(y, x, val)`|$A_{yx} \gets A_{yx} + \mathrm{val}$|
 |`sum(y, x)`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
 |`sum(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
 |`get(y, x)`|$A_{yx}$|
@@ -109,14 +110,14 @@ title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
 ||説明|
 |:--:|:--:|
 |`FenwickTree2DSupportingRangeAddQuery<Abelian>(height, width, 単位元 = 0)`|要素数 $\mathrm{height} \times \mathrm{width}$ の区間加算クエリ対応2次元 Fenwick tree|
-|`add(y1, x1, y2, x2, val)`|$A_{ij} += \mathrm{val} \ (y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2)$|
+|`add(y1, x1, y2, x2, val)`|$A_{ij} \gets A_{ij} + \mathrm{val}$ ($y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2$)|
 |`sum(y, x)`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
 |`sum(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
 
 
 ## 区間加算クエリ対応2次元 Fenwick tree の実装
 
-$A_{ij} += v \ (y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2)$ を考える．
+$A_{ij} \gets A_{ij} + v$ ($y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2$) を考える．
 
 $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $S$ を $S_b$，加算後の $S$ を $S_a$ とすると
 

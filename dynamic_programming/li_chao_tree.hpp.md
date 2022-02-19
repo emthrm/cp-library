@@ -16,76 +16,80 @@ data:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/li_chao_tree.hpp\"\n#include <algorithm>\r\
     \n#include <cassert>\r\n#include <iterator>\r\n#include <utility>\r\n#include\
-    \ <vector>\r\n\r\ntemplate <typename T>\r\nstruct LiChaoTree {\r\n  struct Line\
-    \ {\r\n    T a, b;\r\n    Line(T a, T b) : a(a), b(b) {}\r\n    T f(T x) const\
-    \ { return a * x + b; }\r\n  };\r\n\r\n  LiChaoTree(const std::vector<T> &xs_,\
-    \ const T inf, bool is_minimized = true) : xs(xs_), is_minimized(is_minimized)\
+    \ <vector>\r\n\r\ntemplate <typename T, bool IS_MINIMIZED = true>\r\nstruct LiChaoTree\
+    \ {\r\n  struct Line {\r\n    T a, b;\r\n    explicit Line(const T a, const T\
+    \ b) : a(a), b(b) {}\r\n    T f(const T x) const { return a * x + b; }\r\n  };\r\
+    \n\r\n  explicit LiChaoTree(const std::vector<T>& xs_, const T inf) : n(1), xs(xs_)\
     \ {\r\n    std::sort(xs.begin(), xs.end());\r\n    xs.erase(std::unique(xs.begin(),\
-    \ xs.end()), xs.end());\r\n    int sz = xs.size();\r\n    assert(sz > 0);\r\n\
-    \    while (n < sz) n <<= 1;\r\n    xs.resize(n, xs.back());\r\n    dat.assign(n\
-    \ << 1, Line(0, inf));\r\n  }\r\n\r\n  void add(T a, T b) {\r\n    if (!is_minimized)\
-    \ {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    Line line(a, b);\r\n   \
-    \ add(line, 1, 0, n);\r\n  }\r\n\r\n  void add(T a, T b, T left, T right) {\r\n\
-    \    if (!is_minimized) {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    int\
-    \ l = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(), left));\r\
-    \n    int r = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(),\
-    \ right));\r\n    int len, node_l = l, node_r = r;\r\n    for (l += n, r += n,\
-    \ len = 1; l < r; l >>= 1, r >>= 1, len <<= 1) {\r\n      if (l & 1) {\r\n   \
-    \     Line line(a, b);\r\n        add(line, l++, node_l, node_l + len);\r\n  \
-    \      node_l += len;\r\n      }\r\n      if (r & 1) {\r\n        Line line(a,\
-    \ b);\r\n        node_r -= len;\r\n        add(line, --r, node_r, node_r + len);\r\
-    \n      }\r\n    }\r\n  }\r\n\r\n  T query(T x) const {\r\n    int node = std::distance(xs.begin(),\
-    \ std::lower_bound(xs.begin(), xs.end(), x));\r\n    node += n;\r\n    T res =\
-    \ dat[node].f(x);\r\n    while (node >>= 1) {\r\n      if (dat[node].f(x) < res)\
-    \ res = dat[node].f(x);\r\n    }\r\n    return is_minimized ? res : -res;\r\n\
-    \  }\r\n\r\nprivate:\r\n  bool is_minimized;\r\n  int n = 1;\r\n  std::vector<T>\
-    \ xs;\r\n  std::vector<Line> dat;\r\n\r\n  void add(Line &line, int node, int\
-    \ left, int right) {\r\n    bool l = dat[node].f(xs[left]) <= line.f(xs[left]),\
-    \ r = dat[node].f(xs[right - 1]) <= line.f(xs[right - 1]);\r\n    if (l && r)\
-    \ return;\r\n    if (!l && !r) {\r\n      std::swap(dat[node], line);\r\n    \
-    \  return;\r\n    }\r\n    int mid = (left + right) >> 1;\r\n    if (line.f(xs[mid])\
-    \ < dat[node].f(xs[mid])) std::swap(dat[node], line);\r\n    if (line.f(xs[left])\
-    \ <= dat[node].f(xs[left])) {\r\n      add(line, node << 1, left, mid);\r\n  \
-    \  } else {\r\n      add(line, (node << 1) + 1, mid, right);\r\n    }\r\n  }\r\
-    \n};\r\n"
+    \ xs.end()), xs.end());\r\n    const int xs_size = xs.size();\r\n    assert(xs_size\
+    \ > 0);\r\n    while (n < xs_size) n <<= 1;\r\n    const T xs_back = xs.back();\r\
+    \n    xs.resize(n, xs_back);\r\n    dat.assign(n << 1, Line(0, inf));\r\n  }\r\
+    \n\r\n  void add(T a, T b) {\r\n    if (!IS_MINIMIZED) {\r\n      a = -a;\r\n\
+    \      b = -b;\r\n    }\r\n    Line line(a, b);\r\n    add(&line, 1, 0, n);\r\n\
+    \  }\r\n\r\n  void add(T a, T b, T left, T right) {\r\n    if (!IS_MINIMIZED)\
+    \ {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    for (int len = 1,\r\n  \
+    \           node_l = std::distance(\r\n                 xs.begin(), std::lower_bound(xs.begin(),\
+    \ xs.end(), left)),\r\n             node_r = std::distance(\r\n              \
+    \   xs.begin(), std::lower_bound(xs.begin(), xs.end(), right)),\r\n          \
+    \   l = node_l + n, r = node_r + n;\r\n         l < r;\r\n         l >>= 1, r\
+    \ >>= 1, len <<= 1) {\r\n      if (l & 1) {\r\n        Line line(a, b);\r\n  \
+    \      add(&line, l++, node_l, node_l + len);\r\n        node_l += len;\r\n  \
+    \    }\r\n      if (r & 1) {\r\n        Line line(a, b);\r\n        node_r -=\
+    \ len;\r\n        add(&line, --r, node_r, node_r + len);\r\n      }\r\n    }\r\
+    \n  }\r\n\r\n  T query(const T x) const {\r\n    int node = n + std::distance(xs.begin(),\r\
+    \n                                 std::lower_bound(xs.begin(), xs.end(), x));\r\
+    \n    T res = dat[node].f(x);\r\n    while (node >>= 1) {\r\n      if (dat[node].f(x)\
+    \ < res) res = dat[node].f(x);\r\n    }\r\n    return IS_MINIMIZED ? res : -res;\r\
+    \n  }\r\n\r\n private:\r\n  int n;\r\n  std::vector<T> xs;\r\n  std::vector<Line>\
+    \ dat;\r\n\r\n  void add(Line* line, int node, int left, int right) {\r\n    const\
+    \ bool flag_l = dat[node].f(xs[left]) <= line->f(xs[left]);\r\n    const bool\
+    \ flag_r = dat[node].f(xs[right - 1]) <= line->f(xs[right - 1]);\r\n    if (flag_l\
+    \ && flag_r) return;\r\n    if (!flag_l && !flag_r) {\r\n      std::swap(dat[node],\
+    \ *line);\r\n      return;\r\n    }\r\n    const int mid = (left + right) >> 1;\r\
+    \n    if (line->f(xs[mid]) < dat[node].f(xs[mid])) std::swap(dat[node], *line);\r\
+    \n    if (line->f(xs[left]) <= dat[node].f(xs[left])) {\r\n      add(line, node\
+    \ << 1, left, mid);\r\n    } else {\r\n      add(line, (node << 1) + 1, mid, right);\r\
+    \n    }\r\n  }\r\n};\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <iterator>\r\
-    \n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstruct\
-    \ LiChaoTree {\r\n  struct Line {\r\n    T a, b;\r\n    Line(T a, T b) : a(a),\
-    \ b(b) {}\r\n    T f(T x) const { return a * x + b; }\r\n  };\r\n\r\n  LiChaoTree(const\
-    \ std::vector<T> &xs_, const T inf, bool is_minimized = true) : xs(xs_), is_minimized(is_minimized)\
-    \ {\r\n    std::sort(xs.begin(), xs.end());\r\n    xs.erase(std::unique(xs.begin(),\
-    \ xs.end()), xs.end());\r\n    int sz = xs.size();\r\n    assert(sz > 0);\r\n\
-    \    while (n < sz) n <<= 1;\r\n    xs.resize(n, xs.back());\r\n    dat.assign(n\
-    \ << 1, Line(0, inf));\r\n  }\r\n\r\n  void add(T a, T b) {\r\n    if (!is_minimized)\
+    \n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename T, bool IS_MINIMIZED\
+    \ = true>\r\nstruct LiChaoTree {\r\n  struct Line {\r\n    T a, b;\r\n    explicit\
+    \ Line(const T a, const T b) : a(a), b(b) {}\r\n    T f(const T x) const { return\
+    \ a * x + b; }\r\n  };\r\n\r\n  explicit LiChaoTree(const std::vector<T>& xs_,\
+    \ const T inf) : n(1), xs(xs_) {\r\n    std::sort(xs.begin(), xs.end());\r\n \
+    \   xs.erase(std::unique(xs.begin(), xs.end()), xs.end());\r\n    const int xs_size\
+    \ = xs.size();\r\n    assert(xs_size > 0);\r\n    while (n < xs_size) n <<= 1;\r\
+    \n    const T xs_back = xs.back();\r\n    xs.resize(n, xs_back);\r\n    dat.assign(n\
+    \ << 1, Line(0, inf));\r\n  }\r\n\r\n  void add(T a, T b) {\r\n    if (!IS_MINIMIZED)\
     \ {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    Line line(a, b);\r\n   \
-    \ add(line, 1, 0, n);\r\n  }\r\n\r\n  void add(T a, T b, T left, T right) {\r\n\
-    \    if (!is_minimized) {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    int\
-    \ l = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(), left));\r\
-    \n    int r = std::distance(xs.begin(), std::lower_bound(xs.begin(), xs.end(),\
-    \ right));\r\n    int len, node_l = l, node_r = r;\r\n    for (l += n, r += n,\
-    \ len = 1; l < r; l >>= 1, r >>= 1, len <<= 1) {\r\n      if (l & 1) {\r\n   \
-    \     Line line(a, b);\r\n        add(line, l++, node_l, node_l + len);\r\n  \
-    \      node_l += len;\r\n      }\r\n      if (r & 1) {\r\n        Line line(a,\
-    \ b);\r\n        node_r -= len;\r\n        add(line, --r, node_r, node_r + len);\r\
-    \n      }\r\n    }\r\n  }\r\n\r\n  T query(T x) const {\r\n    int node = std::distance(xs.begin(),\
-    \ std::lower_bound(xs.begin(), xs.end(), x));\r\n    node += n;\r\n    T res =\
-    \ dat[node].f(x);\r\n    while (node >>= 1) {\r\n      if (dat[node].f(x) < res)\
-    \ res = dat[node].f(x);\r\n    }\r\n    return is_minimized ? res : -res;\r\n\
-    \  }\r\n\r\nprivate:\r\n  bool is_minimized;\r\n  int n = 1;\r\n  std::vector<T>\
-    \ xs;\r\n  std::vector<Line> dat;\r\n\r\n  void add(Line &line, int node, int\
-    \ left, int right) {\r\n    bool l = dat[node].f(xs[left]) <= line.f(xs[left]),\
-    \ r = dat[node].f(xs[right - 1]) <= line.f(xs[right - 1]);\r\n    if (l && r)\
-    \ return;\r\n    if (!l && !r) {\r\n      std::swap(dat[node], line);\r\n    \
-    \  return;\r\n    }\r\n    int mid = (left + right) >> 1;\r\n    if (line.f(xs[mid])\
-    \ < dat[node].f(xs[mid])) std::swap(dat[node], line);\r\n    if (line.f(xs[left])\
-    \ <= dat[node].f(xs[left])) {\r\n      add(line, node << 1, left, mid);\r\n  \
-    \  } else {\r\n      add(line, (node << 1) + 1, mid, right);\r\n    }\r\n  }\r\
-    \n};\r\n"
+    \ add(&line, 1, 0, n);\r\n  }\r\n\r\n  void add(T a, T b, T left, T right) {\r\
+    \n    if (!IS_MINIMIZED) {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    for\
+    \ (int len = 1,\r\n             node_l = std::distance(\r\n                 xs.begin(),\
+    \ std::lower_bound(xs.begin(), xs.end(), left)),\r\n             node_r = std::distance(\r\
+    \n                 xs.begin(), std::lower_bound(xs.begin(), xs.end(), right)),\r\
+    \n             l = node_l + n, r = node_r + n;\r\n         l < r;\r\n        \
+    \ l >>= 1, r >>= 1, len <<= 1) {\r\n      if (l & 1) {\r\n        Line line(a,\
+    \ b);\r\n        add(&line, l++, node_l, node_l + len);\r\n        node_l += len;\r\
+    \n      }\r\n      if (r & 1) {\r\n        Line line(a, b);\r\n        node_r\
+    \ -= len;\r\n        add(&line, --r, node_r, node_r + len);\r\n      }\r\n   \
+    \ }\r\n  }\r\n\r\n  T query(const T x) const {\r\n    int node = n + std::distance(xs.begin(),\r\
+    \n                                 std::lower_bound(xs.begin(), xs.end(), x));\r\
+    \n    T res = dat[node].f(x);\r\n    while (node >>= 1) {\r\n      if (dat[node].f(x)\
+    \ < res) res = dat[node].f(x);\r\n    }\r\n    return IS_MINIMIZED ? res : -res;\r\
+    \n  }\r\n\r\n private:\r\n  int n;\r\n  std::vector<T> xs;\r\n  std::vector<Line>\
+    \ dat;\r\n\r\n  void add(Line* line, int node, int left, int right) {\r\n    const\
+    \ bool flag_l = dat[node].f(xs[left]) <= line->f(xs[left]);\r\n    const bool\
+    \ flag_r = dat[node].f(xs[right - 1]) <= line->f(xs[right - 1]);\r\n    if (flag_l\
+    \ && flag_r) return;\r\n    if (!flag_l && !flag_r) {\r\n      std::swap(dat[node],\
+    \ *line);\r\n      return;\r\n    }\r\n    const int mid = (left + right) >> 1;\r\
+    \n    if (line->f(xs[mid]) < dat[node].f(xs[mid])) std::swap(dat[node], *line);\r\
+    \n    if (line->f(xs[left]) <= dat[node].f(xs[left])) {\r\n      add(line, node\
+    \ << 1, left, mid);\r\n    } else {\r\n      add(line, (node << 1) + 1, mid, right);\r\
+    \n    }\r\n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/li_chao_tree.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2022-02-16 17:10:40+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/li_chao_tree.1.test.cpp
@@ -95,7 +99,7 @@ layout: document
 title: Li Chao tree
 ---
 
-[convex hull trick](cht.md) において傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
+[convex hull trick](cht.md) に対して，傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
 
 
 ## 時間計算量
@@ -112,9 +116,9 @@ title: Li Chao tree
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`LiChaoTree<T>(xs, ∞, is_minimized = true)`|解答クエリの $x$ 座標の集合が $\mathrm{xs}$ である Li Chao tree||
+|`LiChaoTree<T, IS_MINIMIZED = true>(xs, ∞)`|解答クエリの $x$ 座標の集合が $\mathrm{xs}$ である Li Chao tree||
 |`add(a, b)`|直線 $f(x) = ax + b$ を追加する．||
-|`add(a, b, left, right)`|線分 $f(x) = ax + b \ (\mathrm{left} \leq x < \mathrm{right})$ を追加する．||
+|`add(a, b, left, right)`|線分 $f(x) = ax + b$ ($\mathrm{left} \leq x < \mathrm{right}$) を追加する．||
 |`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$|オフライン|
 
 

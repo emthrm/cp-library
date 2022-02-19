@@ -3,30 +3,32 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/divisor.hpp\"\n#include <algorithm>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstd::vector<T> divisor(T n) {\r\n  std::vector<T>\
-    \ res;\r\n  for (T i = 1; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n    \
-    \  res.emplace_back(i);\r\n      if (i * i != n) res.emplace_back(n / i);\r\n\
-    \    }\r\n  }\r\n  std::sort(res.begin(), res.end());\r\n  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> divisor(T n) {\r\n  std::vector<T> res;\r\n \
-    \ for (T i = 1; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n      res.emplace_back(i);\r\
-    \n      if (i * i != n) res.emplace_back(n / i);\r\n    }\r\n  }\r\n  std::sort(res.begin(),\
+    \n\r\ntemplate <typename T>\r\nstd::vector<T> divisor(const T n) {\r\n  std::vector<T>\
+    \ res;\r\n  T i = 1;\r\n  for (; i * i < n; ++i) {\r\n    if (n % i == 0) {\r\n\
+    \      res.emplace_back(i);\r\n      res.emplace_back(n / i);\r\n    }\r\n  }\r\
+    \n  if (i * i == n && n % i == 0) res.emplace_back(i);\r\n  std::sort(res.begin(),\
     \ res.end());\r\n  return res;\r\n}\r\n"
+  code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
+    \ <typename T>\r\nstd::vector<T> divisor(const T n) {\r\n  std::vector<T> res;\r\
+    \n  T i = 1;\r\n  for (; i * i < n; ++i) {\r\n    if (n % i == 0) {\r\n      res.emplace_back(i);\r\
+    \n      res.emplace_back(n / i);\r\n    }\r\n  }\r\n  if (i * i == n && n % i\
+    \ == 0) res.emplace_back(i);\r\n  std::sort(res.begin(), res.end());\r\n  return\
+    \ res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/divisor.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/divisor.test.cpp
 documentation_of: math/divisor.hpp
@@ -49,7 +51,7 @@ $O(\sqrt{N})$
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.111，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.111，マイナビ出版（2012）
 
 
 ## Verified

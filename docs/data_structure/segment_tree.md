@@ -14,13 +14,13 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`SegmentTree<T>(n)`|要素数 $n$ のセグメント木||
+|`SegmentTree<T>(n)`|要素数 $N$ のセグメント木||
 |`SegmentTree<T>(a)`|$A$ のセグメント木||
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$||
-|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における取得クエリ||
+|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
+|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しないときは $n$ となる．|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しないときは $-1$ となる．|
 
 `T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
 
@@ -34,7 +34,7 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ||説明|
 |:--:|:--:|
-|`LazySegmentTree<T>(n)`|要素数 $n$ の遅延伝播セグメント木|
+|`LazySegmentTree<T>(n)`|要素数 $N$ の遅延伝播セグメント木|
 |`LazySegmentTree<T>(a)`|$A$ の遅延伝播セグメント木|
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$|
 |`apply(idx, val)`|$\mathrm{idx}$ における変更クエリ|
@@ -98,6 +98,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://onlinejudge.u-aizu.ac.jp/beta/room.html#ACPC2021Day2/problems/H
   - https://codeforces.com/contest/1575/problem/L
   - https://twitter.com/PCTprobability/status/1444372565435170816
+  - https://onlinejudge.u-aizu.ac.jp/problems/1068
   - フラクショナルカスケーディング (fractional cascading)
     - https://en.wikipedia.org/wiki/Fractional_cascading
     - http://sntea.hatenablog.com/entry/2017/09/28/003418

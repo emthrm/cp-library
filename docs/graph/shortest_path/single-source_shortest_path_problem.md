@@ -1,11 +1,6 @@
-# 単一始点最短路問題 (single-source shortest path)
+# 単一始点最短路問題 (single-source shortest path problem)
 
-ある始点から他の任意の頂点までの最短路を求める問題である．
-
-|アルゴリズム|注意|
-|:--:|:--:|
-|Bellman-Ford 法|負の重みをもつ辺が存在していてもよい．|
-|Dijkstra 法|負の重みをもつ辺が存在してはいけない．|
+始点から他の任意の頂点までの最短路を求める問題である．
 
 
 ## 時間計算量
@@ -24,9 +19,9 @@
 |:--:|:--:|:--:|
 |`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
 |`inf`|$\infty$||
-|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達不可能ならば $\infty$ となる．|
+|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達できなければ $\infty$ となる．|
 |`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
-|`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
+|`build_path(t)`|終点 $t$ の最短路|到達できなければ空配列となる．|
 
 - Dijkstra 法
 
@@ -34,8 +29,8 @@
 |:--:|:--:|:--:|
 |`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
 |`inf`|$\infty$||
-|`build(s)`|始点 $s$ の単一始点最短路||
-|`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
+|`build(s)`|始点 $s$ の単一始点最短路|到達できなければ $\infty$ となる．|
+|`build_path(t)`|終点 $t$ の最短路|到達できならば空配列となる．|
 
 
 ## 参考
@@ -49,7 +44,7 @@ Dijkstra 法
 
 ## ToDo
 
-- Shortest Path Faster Algorithm
+- shortest path faster algorithm
   - https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm
   - https://dic.kimiyuki.net/spfa
   - http://hogloid.hatenablog.com/entry/20120409/1333973448
@@ -84,7 +79,7 @@ Dijkstra 法
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
-- $O(\sqrt{N} M \log{C})$
+- $O(\sqrt{N}M\log{C})$
   - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
 - Dial's algorithm
   - https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Specialized_variants

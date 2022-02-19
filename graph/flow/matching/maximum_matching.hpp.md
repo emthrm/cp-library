@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss-Jordan elimination)"
@@ -11,7 +11,7 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []
@@ -28,35 +28,35 @@ data:
     document_title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
       \u30F3\u30B0"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/maximum_matching.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief \u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\
     \u30C1\u30F3\u30B0\r\n * @docs docs/graph/flow/matching/matching.md\r\n */\r\n\
-    \r\n#pragma once\r\n#include <vector>\r\n#include \"../../../math/modint.hpp\"\
-    \r\n#include \"../../../math/matrix/matrix.hpp\"\r\n#include \"../../../math/matrix/gauss_jordan.hpp\"\
+    \r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"../../../math/modint.hpp\"\
+    \r\n#include \"../../../math/matrix/gauss_jordan.hpp\"\r\n#include \"../../../math/matrix/matrix.hpp\"\
     \r\n#include \"../../../util/xorshift.hpp\"\r\n\r\nint maximum_matching(const\
-    \ std::vector<std::vector<int>> &graph) {\r\n  constexpr int P = 1000000007;\r\
+    \ std::vector<std::vector<int>>& graph) {\r\n  constexpr int P = 1000000007;\r\
     \n  using ModInt = MInt<P>;\r\n  ModInt::set_mod(P);\r\n  const int n = graph.size();\r\
     \n  Matrix<ModInt> tutte_matrix(n, n, 0);\r\n  for (int i = 0; i < n; ++i) {\r\
     \n    for (const int j : graph[i]) {\r\n      if (j > i) {\r\n        const ModInt\
     \ x = xor128.rand(1, P);\r\n        tutte_matrix[i][j] = x;\r\n        tutte_matrix[j][i]\
-    \ = -x;\r\n      }\r\n    }\r\n  }\r\n  return gauss_jordan(tutte_matrix, ModInt(0))\
+    \ = -x;\r\n      }\r\n    }\r\n  }\r\n  return gauss_jordan(&tutte_matrix, ModInt(0))\
     \ / 2;\r\n}\r\n"
   dependsOn:
   - math/modint.hpp
-  - math/matrix/matrix.hpp
   - math/matrix/gauss_jordan.hpp
+  - math/matrix/matrix.hpp
   - util/xorshift.hpp
   isVerificationFile: false
   path: graph/flow/matching/maximum_matching.hpp
   requiredBy: []
-  timestamp: '2021-09-05 18:33:12+09:00'
+  timestamp: '2022-02-19 03:53:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/maximum_matching.test.cpp
@@ -89,39 +89,39 @@ title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3
 
 ### クリーク (clique)
 
-無向グラフにおいて完全グラフな部分グラフである．
+無向グラフに対して完全グラフな部分グラフである．
 
 
 ## 性質
 
-1. 孤立点のないグラフにおいて $(\text{最大マッチングのサイズ}) + (\text{最小辺被覆のサイズ}) = (\text{頂点数})$ が成り立つ．
+1. 孤立点のないグラフに対して (最大マッチングのサイズ) + (最小辺被覆のサイズ) = (頂点数) が成り立つ．
 
-2. $(\text{最大独立集合のサイズ}) + (\text{最小頂点被覆のサイズ}) = (\text{頂点数})$．
+2. (最大独立集合のサイズ) + (最小頂点被覆のサイズ) = (頂点数)
 
 3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ．ただし $A$ は $a_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である．
 
-4. 二部グラフにおいて最大マッチングのサイズは最小頂点被覆のサイズに等しい．
+4. 二部グラフに対して，最大マッチングのサイズは最小頂点被覆のサイズに等しい．
 
 5. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる．
 
 
 ### Hall's theorem
 
-二部グラフ $(U, V, E)$ において以下は同値である．
+二部グラフ $(U, V, E)$ に対して，以下は同値である．
 
 - $U$ の元をすべて被覆するマッチングが存在する．
-- $\forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$．
+- $\forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$.
 
 
 ### Dilworth's theorem
 
 任意の有限な半順序集合に対して，反鎖 (antichain) の最大サイズは共通部分のない鎖 (chain) に分解したときの最小サイズに等しい．
 
-特に有向非巡回グラフ $G$ においては，$\forall u, v \in V(G)$ に対して
+特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
 
 $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 
-と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖 (chain) に分解したときの最小サイズは最小パス被覆のサイズを意味する．
+と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 
 
 ## 時間計算量
@@ -141,20 +141,20 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`BipartiteMatching(n)`|頂点数 $N$ の二部グラフの最大マッチングを考える．||
-|`match`|マッチした相手|存在しない場合は $-1$ となる．|
-|`add_edge(u, v)`|辺 $(u, v)$ を張る．||
+|`match`|マッチした相手|存在しないときは $-1$ となる．|
+|`add_edge(u, v)`|辺 $(u, v)$ を加える．||
 |`solve()`|最大マッチングのサイズ||
-|`fix(ver)`|頂点 $\mathrm{ver}$ に関するマッチングを固定する．||
-|`enable(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
-|`disable(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
+|`fix(ver)`|頂点 $\mathrm{ver}$ に対するマッチングを固定する．||
+|`activate(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
+|`deactivate(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
 
 - Hopcroft-Karp algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
 |`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft-Karp algorithm を考える．|
-|`match`|マッチした相手|存在しない場合は $-1$ となる．|
-|`add_edge(u, v)`|辺 $(u, v)$ を張る．||
+|`match`|マッチした相手|存在しないときは $-1$ となる．|
+|`add_edge(u, v)`|辺 $(u, v)$ を加える．||
 |`solve()`|最大マッチングのサイズ||
 
 - 二部グラフの重み付き最大マッチング
@@ -162,9 +162,9 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチングを考える．||
-|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
+|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える．||
 |`solve()`|重み付き最大マッチングの重み||
-|`matching()`|マッチした相手|存在しない場合は $-1$ となる．|
+|`matching()`|マッチした相手|存在しないときは $-1$ となる．|
 
 - 一般グラフの最大マッチング
 
@@ -175,7 +175,7 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）
 
 性質3
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605

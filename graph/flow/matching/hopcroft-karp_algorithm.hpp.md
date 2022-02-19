@@ -14,10 +14,10 @@ data:
     _deprecated_at_docs: docs/graph/flow/matching/matching.md
     document_title: Hopcroft-Karp algorithm
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/hopcroft-karp_algorithm.hpp: line 6: #pragma once found\
@@ -25,32 +25,33 @@ data:
   code: "/**\r\n * @brief Hopcroft-Karp algorithm\r\n * @docs docs/graph/flow/matching/matching.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <queue>\r\n#include\
     \ <vector>\r\n\r\nstruct HopcroftKarp {\r\n  std::vector<int> match;\r\n\r\n \
-    \ HopcroftKarp(const int left, const int right)\r\n  : left(left), graph(left),\
-    \ match(left + right, -1), level(left), is_used(left, -1) {}\r\n\r\n  void add_edge(const\
-    \ int u, const int v) {\r\n    graph[u].emplace_back(left + v);\r\n  }\r\n\r\n\
-    \  int solve() {\r\n    int res = 0;\r\n    while (true) {\r\n      std::fill(level.begin(),\
-    \ level.end(), -1);\r\n      std::queue<int> que;\r\n      for (int i = 0; i <\
-    \ left; ++i) {\r\n        if (match[i] == -1) {\r\n          que.emplace(i);\r\
-    \n          level[i] = 0;\r\n        }\r\n      }\r\n      while (!que.empty())\
-    \ {\r\n        const int ver = que.front();\r\n        que.pop();\r\n        for\
-    \ (const int e : graph[ver]) {\r\n          if (match[e] != -1 && level[match[e]]\
-    \ == -1) {\r\n            level[match[e]] = level[ver] + 1;\r\n            que.emplace(match[e]);\r\
-    \n          }\r\n        }\r\n      }\r\n      int tmp = 0;\r\n      for (int\
-    \ i = 0; i < left; ++i) {\r\n        if (match[i] == -1) {\r\n          tmp +=\
-    \ dfs(i);\r\n          ++t;\r\n        }\r\n      }\r\n      if (tmp == 0) return\
-    \ res;\r\n      res += tmp;\r\n    }\r\n  }\r\n\r\nprivate:\r\n  const int left;\r\
-    \n  int t = 0;\r\n  std::vector<std::vector<int>> graph;\r\n  std::vector<int>\
-    \ level, is_used;\r\n\r\n  bool dfs(const int ver) {\r\n    is_used[ver] = t;\r\
-    \n    for (const int e : graph[ver]) {\r\n      const int m = match[e];\r\n  \
-    \    if (m == -1 || (is_used[m] < t && level[m] == level[ver] + 1 && dfs(m)))\
-    \ {\r\n        is_used[ver] = t;\r\n        match[ver] = e;\r\n        match[e]\
+    \ explicit HopcroftKarp(const int left, const int right)\r\n      : match(left\
+    \ + right, -1), left(left), t(0), level(left),\r\n        is_used(left, -1), graph(left)\
+    \ {}\r\n\r\n  void add_edge(const int u, const int v) {\r\n    graph[u].emplace_back(left\
+    \ + v);\r\n  }\r\n\r\n  int solve() {\r\n    int res = 0;\r\n    while (true)\
+    \ {\r\n      std::fill(level.begin(), level.end(), -1);\r\n      std::queue<int>\
+    \ que;\r\n      for (int i = 0; i < left; ++i) {\r\n        if (match[i] == -1)\
+    \ {\r\n          que.emplace(i);\r\n          level[i] = 0;\r\n        }\r\n \
+    \     }\r\n      while (!que.empty()) {\r\n        const int ver = que.front();\r\
+    \n        que.pop();\r\n        for (const int dst : graph[ver]) {\r\n       \
+    \   if (match[dst] != -1 && level[match[dst]] == -1) {\r\n            level[match[dst]]\
+    \ = level[ver] + 1;\r\n            que.emplace(match[dst]);\r\n          }\r\n\
+    \        }\r\n      }\r\n      int tmp = 0;\r\n      for (int i = 0; i < left;\
+    \ ++i) {\r\n        if (match[i] == -1) {\r\n          tmp += dfs(i);\r\n    \
+    \      ++t;\r\n        }\r\n      }\r\n      if (tmp == 0) break;\r\n      res\
+    \ += tmp;\r\n    }\r\n    return res;\r\n  }\r\n\r\n private:\r\n  const int left;\r\
+    \n  int t;\r\n  std::vector<int> level, is_used;\r\n  std::vector<std::vector<int>>\
+    \ graph;\r\n\r\n  bool dfs(const int ver) {\r\n    is_used[ver] = t;\r\n    for\
+    \ (const int dst : graph[ver]) {\r\n      const int m = match[dst];\r\n      if\
+    \ (m == -1 || (is_used[m] < t && level[m] == level[ver] + 1 && dfs(m))) {\r\n\
+    \        is_used[ver] = t;\r\n        match[ver] = dst;\r\n        match[dst]\
     \ = ver;\r\n        return true;\r\n      }\r\n    }\r\n    return false;\r\n\
     \  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/matching/hopcroft-karp_algorithm.hpp
   requiredBy: []
-  timestamp: '2021-09-14 04:44:47+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
@@ -83,39 +84,39 @@ title: Hopcroft-Karp algorithm
 
 ### クリーク (clique)
 
-無向グラフにおいて完全グラフな部分グラフである．
+無向グラフに対して完全グラフな部分グラフである．
 
 
 ## 性質
 
-1. 孤立点のないグラフにおいて $(\text{最大マッチングのサイズ}) + (\text{最小辺被覆のサイズ}) = (\text{頂点数})$ が成り立つ．
+1. 孤立点のないグラフに対して (最大マッチングのサイズ) + (最小辺被覆のサイズ) = (頂点数) が成り立つ．
 
-2. $(\text{最大独立集合のサイズ}) + (\text{最小頂点被覆のサイズ}) = (\text{頂点数})$．
+2. (最大独立集合のサイズ) + (最小頂点被覆のサイズ) = (頂点数)
 
 3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ．ただし $A$ は $a_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である．
 
-4. 二部グラフにおいて最大マッチングのサイズは最小頂点被覆のサイズに等しい．
+4. 二部グラフに対して，最大マッチングのサイズは最小頂点被覆のサイズに等しい．
 
 5. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる．
 
 
 ### Hall's theorem
 
-二部グラフ $(U, V, E)$ において以下は同値である．
+二部グラフ $(U, V, E)$ に対して，以下は同値である．
 
 - $U$ の元をすべて被覆するマッチングが存在する．
-- $\forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$．
+- $\forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$.
 
 
 ### Dilworth's theorem
 
 任意の有限な半順序集合に対して，反鎖 (antichain) の最大サイズは共通部分のない鎖 (chain) に分解したときの最小サイズに等しい．
 
-特に有向非巡回グラフ $G$ においては，$\forall u, v \in V(G)$ に対して
+特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
 
 $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 
-と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖 (chain) に分解したときの最小サイズは最小パス被覆のサイズを意味する．
+と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 
 
 ## 時間計算量
@@ -135,20 +136,20 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`BipartiteMatching(n)`|頂点数 $N$ の二部グラフの最大マッチングを考える．||
-|`match`|マッチした相手|存在しない場合は $-1$ となる．|
-|`add_edge(u, v)`|辺 $(u, v)$ を張る．||
+|`match`|マッチした相手|存在しないときは $-1$ となる．|
+|`add_edge(u, v)`|辺 $(u, v)$ を加える．||
 |`solve()`|最大マッチングのサイズ||
-|`fix(ver)`|頂点 $\mathrm{ver}$ に関するマッチングを固定する．||
-|`enable(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
-|`disable(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
+|`fix(ver)`|頂点 $\mathrm{ver}$ に対するマッチングを固定する．||
+|`activate(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
+|`deactivate(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
 
 - Hopcroft-Karp algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
 |`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft-Karp algorithm を考える．|
-|`match`|マッチした相手|存在しない場合は $-1$ となる．|
-|`add_edge(u, v)`|辺 $(u, v)$ を張る．||
+|`match`|マッチした相手|存在しないときは $-1$ となる．|
+|`add_edge(u, v)`|辺 $(u, v)$ を加える．||
 |`solve()`|最大マッチングのサイズ||
 
 - 二部グラフの重み付き最大マッチング
@@ -156,9 +157,9 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチングを考える．||
-|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を張る．||
+|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える．||
 |`solve()`|重み付き最大マッチングの重み||
-|`matching()`|マッチした相手|存在しない場合は $-1$ となる．|
+|`matching()`|マッチした相手|存在しないときは $-1$ となる．|
 
 - 一般グラフの最大マッチング
 
@@ -169,7 +170,7 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）
 
 性質3
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605

@@ -3,34 +3,34 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/subsequence_dp.test.cpp
     title: "\u6587\u5B57\u5217/\u90E8\u5206\u5217 DP"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/subsequence_dp.hpp\"\n#include <algorithm>\r\n#include\
-    \ <string>\r\n#include <vector>\r\n\r\nstd::vector<std::vector<int>> subsequence_dp(const\
-    \ std::string &s, const char basis = 'a', const int sigma = 26) {\r\n  const int\
-    \ n = s.size();\r\n  std::vector<std::vector<int>> nx(n, std::vector<int>(sigma,\
+    \ <string>\r\n#include <vector>\r\n\r\nstd::vector<std::vector<int>> subsequence_dp(\r\
+    \n    const std::string& s, const char basis = 'a', const int sigma = 26) {\r\n\
+    \  const int n = s.length();\r\n  std::vector<std::vector<int>> nx(n, std::vector<int>(sigma,\
     \ n));\r\n  nx[n - 1][s[n - 1] - basis] = n - 1;\r\n  for (int i = n - 2; i >=\
     \ 0; --i) {\r\n    std::copy(nx[i + 1].begin(), nx[i + 1].end(), nx[i].begin());\r\
     \n    nx[i][s[i] - basis] = i;\r\n  }\r\n  return nx;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <string>\r\n#include <vector>\r\
-    \n\r\nstd::vector<std::vector<int>> subsequence_dp(const std::string &s, const\
-    \ char basis = 'a', const int sigma = 26) {\r\n  const int n = s.size();\r\n \
-    \ std::vector<std::vector<int>> nx(n, std::vector<int>(sigma, n));\r\n  nx[n -\
-    \ 1][s[n - 1] - basis] = n - 1;\r\n  for (int i = n - 2; i >= 0; --i) {\r\n  \
-    \  std::copy(nx[i + 1].begin(), nx[i + 1].end(), nx[i].begin());\r\n    nx[i][s[i]\
+    \n\r\nstd::vector<std::vector<int>> subsequence_dp(\r\n    const std::string&\
+    \ s, const char basis = 'a', const int sigma = 26) {\r\n  const int n = s.length();\r\
+    \n  std::vector<std::vector<int>> nx(n, std::vector<int>(sigma, n));\r\n  nx[n\
+    \ - 1][s[n - 1] - basis] = n - 1;\r\n  for (int i = n - 2; i >= 0; --i) {\r\n\
+    \    std::copy(nx[i + 1].begin(), nx[i + 1].end(), nx[i].begin());\r\n    nx[i][s[i]\
     \ - basis] = i;\r\n  }\r\n  return nx;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: string/subsequence_dp.hpp
   requiredBy: []
-  timestamp: '2021-09-23 22:47:42+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-08 18:47:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/subsequence_dp.test.cpp
 documentation_of: string/subsequence_dp.hpp

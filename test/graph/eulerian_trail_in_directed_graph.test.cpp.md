@@ -21,33 +21,34 @@ data:
       \u30B0\u30E9\u30D5\u7248"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\
     \u30B0\u30E9\u30D5\u7248\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225\"\
-    \r\n\r\n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\n#include\
-    \ \"../../graph/edge.hpp\"\r\n#include \"../../graph/eulerian_trail_in_directed_graph.hpp\"\
-    \r\n\r\nint main() {\r\n  while (true) {\r\n    int n;\r\n    std::cin >> n;\r\
-    \n    if (n == 0) break;\r\n    std::vector<std::vector<Edge<bool>>> graph(26);\r\
-    \n    while (n--) {\r\n      std::string word;\r\n      std::cin >> word;\r\n\
-    \      graph[word.front() - 'a'].emplace_back(word.front() - 'a', word.back()\
-    \ - 'a');\r\n    }\r\n    std::vector<int> trail = eulerian_trail_in_directed_graph(graph);\r\
-    \n    std::cout << (!trail.empty() && trail.front() == trail.back() ? \"OK\\n\"\
-    \ : \"NG\\n\");\r\n  }\r\n  return 0;\r\n}\r\n"
+    \r\n\r\n#include <iostream>\r\n#include <string>\r\n#include <vector>\r\n\r\n\
+    #include \"../../graph/edge.hpp\"\r\n#include \"../../graph/eulerian_trail_in_directed_graph.hpp\"\
+    \r\n\r\nint main() {\r\n  constexpr int SIGMA = 26;\r\n  while (true) {\r\n  \
+    \  int n;\r\n    std::cin >> n;\r\n    if (n == 0) break;\r\n    std::vector<std::vector<Edge<bool>>>\
+    \ graph(SIGMA);\r\n    while (n--) {\r\n      std::string word;\r\n      std::cin\
+    \ >> word;\r\n      graph[word.front() - 'a'].emplace_back(word.front() - 'a',\r\
+    \n                                             word.back() - 'a');\r\n    }\r\n\
+    \    const std::vector<Edge<bool>> trail =\r\n        eulerian_trail_in_directed_graph(graph);\r\
+    \n    std::cout << (!trail.empty() && trail.front().src == trail.back().dst ?\r\
+    \n                  \"OK\\n\" : \"NG\\n\");\r\n  }\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - graph/edge.hpp
   - graph/eulerian_trail_in_directed_graph.hpp
   isVerificationFile: true
   path: test/graph/eulerian_trail_in_directed_graph.test.cpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2022-02-16 17:10:40+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/eulerian_trail_in_directed_graph.test.cpp

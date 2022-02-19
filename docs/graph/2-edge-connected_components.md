@@ -7,14 +7,14 @@
 
 ### bridge-block tree
 
-二重辺連結成分を一つの頂点につぶすことで得られる木である．
+二重辺連結成分を一つの頂点に縮約することで得られる木である．
 
 
 ## 時間計算量
 
 ||時間計算量|
 |:--:|:--:|
-|lowlink 版|$O(\lvert V \rvert + \lvert E \rvert)$|
+|[lowlink](lowlink.md) 版|$O(\lvert V \rvert + \lvert E \rvert)$|
 |いもす法版|$O(\lvert V \rvert + \lvert E \rvert \log{\lvert E \rvert})$|
 
 
@@ -24,20 +24,20 @@
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`TwoEdgeConnectedComponents<CostType>(graph, 重量版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重辺連結成分分解を考える．|[lowlink](lowlink.md)|
+|`TwoEdgeConnectedComponents<CostType>(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重辺連結成分分解を考える．|
 |`id[i]`|元のグラフの頂点 $i$ を含む頂点||
-|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|重量版のみ|
-|`comp`|二重辺連結成分を一つの頂点につぶしたグラフ||
+|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版のみ|
+|`g`|二重辺連結成分を一つの頂点に縮約したグラフ||
 
 - いもす法版
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`TwoEdgeConnectedComponentsImos<CostType>(graph, 重量版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重辺連結成分分解を考える．||
-|`bridge`|橋||
+|`TwoEdgeConnectedComponentsByImos<CostType>(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重辺連結成分分解を考える．||
 |`id[i]`|元のグラフの頂点 $i$ を含む頂点||
-|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|重量版のみ|
-|`comp`|二重辺連結成分を一つの頂点につぶしたグラフ||
+|`bridge`|橋||
+|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版のみ|
+|`g`|二重辺連結成分を一つの頂点に縮約したグラフ||
 
 
 ## 参考

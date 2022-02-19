@@ -3,34 +3,34 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/z_algorithm.test.cpp
     title: "\u6587\u5B57\u5217/Z algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/z_algorithm.hpp\"\n#include <algorithm>\r\n#include\
     \ <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<int> z_algorithm(const\
-    \ T &s) {\r\n  int n = s.size();\r\n  std::vector<int> res(n, 0);\r\n  for (int\
-    \ i = 1, j = 0; i < n; ++i) {\r\n    if (i + res[i - j] < j + res[j]) {\r\n  \
-    \    res[i] = res[i - j];\r\n    } else {\r\n      res[i] = std::max(j + res[j]\
+    \ T &s) {\r\n  const int n = s.size();\r\n  std::vector<int> res(n, 0);\r\n  for\
+    \ (int i = 1, j = 0; i < n; ++i) {\r\n    if (i + res[i - j] < j + res[j]) {\r\
+    \n      res[i] = res[i - j];\r\n    } else {\r\n      res[i] = std::max(j + res[j]\
     \ - i, 0);\r\n      while (i + res[i] < n && s[i + res[i]] == s[res[i]]) ++res[i];\r\
     \n      j = i;\r\n    }\r\n  }\r\n  res[0] = n;\r\n  return res;\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<int> z_algorithm(const T &s) {\r\n  int n = s.size();\r\
-    \n  std::vector<int> res(n, 0);\r\n  for (int i = 1, j = 0; i < n; ++i) {\r\n\
-    \    if (i + res[i - j] < j + res[j]) {\r\n      res[i] = res[i - j];\r\n    }\
-    \ else {\r\n      res[i] = std::max(j + res[j] - i, 0);\r\n      while (i + res[i]\
-    \ < n && s[i + res[i]] == s[res[i]]) ++res[i];\r\n      j = i;\r\n    }\r\n  }\r\
-    \n  res[0] = n;\r\n  return res;\r\n}\r\n"
+    \ <typename T>\r\nstd::vector<int> z_algorithm(const T &s) {\r\n  const int n\
+    \ = s.size();\r\n  std::vector<int> res(n, 0);\r\n  for (int i = 1, j = 0; i <\
+    \ n; ++i) {\r\n    if (i + res[i - j] < j + res[j]) {\r\n      res[i] = res[i\
+    \ - j];\r\n    } else {\r\n      res[i] = std::max(j + res[j] - i, 0);\r\n   \
+    \   while (i + res[i] < n && s[i + res[i]] == s[res[i]]) ++res[i];\r\n      j\
+    \ = i;\r\n    }\r\n  }\r\n  res[0] = n;\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: string/z_algorithm.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-08 18:47:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/z_algorithm.test.cpp
 documentation_of: string/z_algorithm.hpp
@@ -38,7 +38,7 @@ layout: document
 title: Z algorithm
 ---
 
-ある文字列 $S$ において $S$ と `S[i:|S|]` の最長共通接頭辞の長さを求めるアルゴリズムである．
+文字列 $S$ に対して $S$ と `S[i:]` の最長共通接頭辞の長さを求めるアルゴリズムである．
 
 
 ## 時間計算量

@@ -15,28 +15,28 @@ data:
     document_title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
       \u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/lagrange_interpolation.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
     \u7248\r\n * @docs docs/math/lagrange_interpolation.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <algorithm>\r\n#include <iterator>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nT lagrange_interpolation(const std::vector<T> &x, const std::vector<T>\
-    \ &y, T t) {\r\n  auto it = std::find(x.begin(), x.end(), t);\r\n  if (it != x.end())\
-    \ return y[std::distance(x.begin(), it)];\r\n  int n = x.size();\r\n  T res =\
-    \ 0;\r\n  for (int i = 0; i < n; ++i) {\r\n    T den = t - x[i];\r\n    for (int\
-    \ j = 0; j < n; ++j) {\r\n      if (j != i) den *= x[i] - x[j];\r\n    }\r\n \
-    \   res += y[i] / den;\r\n  }\r\n  for (int i = 0; i < n; ++i) res *= t - x[i];\r\
-    \n  return res;\r\n}\r\n"
+    \ <typename T>\r\nT lagrange_interpolation(const std::vector<T>& x, const std::vector<T>&\
+    \ y,\r\n                         const T t) {\r\n  const auto it = std::find(x.begin(),\
+    \ x.end(), t);\r\n  if (it != x.end()) return y[std::distance(x.begin(), it)];\r\
+    \n  const int n = x.size();\r\n  T res = 0;\r\n  for (int i = 0; i < n; ++i) {\r\
+    \n    T den = t - x[i];\r\n    for (int j = 0; j < n; ++j) {\r\n      if (j !=\
+    \ i) den *= x[i] - x[j];\r\n    }\r\n    res += y[i] / den;\r\n  }\r\n  for (int\
+    \ i = 0; i < n; ++i) {\r\n    res *= t - x[i];\r\n  }\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2021-02-11 04:31:13+09:00'
+  timestamp: '2022-02-17 13:43:56+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/lagrange_interpolation.test.cpp
@@ -49,7 +49,7 @@ title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u7248"
 ---
 # ラグランジュ補間 (Lagrange interpolation)
 
-$x_i \neq x_j \ (1 \leq i < j \leq N)$ を満たす $(x_i, y_i)$ について $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める．
+$1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める．
 
 
 ### ラグランジュの補間多項式 (interpolation polynomial in the Lagrange form)
@@ -72,19 +72,19 @@ $$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \su
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`lagrange_interpolation(x, y, t)`|$f(t) \text{ s.t. } f(x_i) = y_i$|$x$ は互いに異なる．|
+|`lagrange_interpolation(x, y, t)`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる．|
 
 - 評価版2
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`lagrange_interpolation(y, t)`|$f(t) \text{ s.t. } f(i) = y_i$|$t < 0,\ N \leq t$|
+|`lagrange_interpolation(y, t)`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
 
 - 多項式補間
 
 ||説明|
 |:--:|:--:|
-|`polynomial_interpolation<多項式>(x, y)`|$f \text{ s.t. } f(x_i) = y_i$|
+|`polynomial_interpolation<多項式>(x, y)`|$f(x_i) = y_i$ を満たす $f$|
 
 
 ## 参考

@@ -18,36 +18,37 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <cstdint>\r\
-    \n#include <vector>\r\n#include \"edge.hpp\"\r\n#include \"topological_sort.hpp\"\
-    \r\n\r\ntemplate <typename CostType>\r\nstd::vector<int> reachability_on_dag(\r\
-    \n    const std::vector<std::vector<Edge<CostType>>>& graph,\r\n    const std::vector<int>&\
-    \ src,\r\n    const std::vector<int>& dst) {\r\n  constexpr int DIGITS = 64;\r\
-    \n  const int n = graph.size(), q = src.size();\r\n  assert(dst.size() == q);\r\
-    \n  const std::vector<int> order = topological_sort(graph);\r\n  std::vector<int>\
+    \n#include <limits>\r\n#include <vector>\r\n\r\n#include \"edge.hpp\"\r\n#include\
+    \ \"topological_sort.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<bool>\
+    \ reachability_on_dag(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\r\n    const std::vector<int>& ss, const std::vector<int>& ts) {\r\n\
+    \  const int n = graph.size(), q = ss.size();\r\n  assert(ts.size() == q);\r\n\
+    \  const std::vector<int> order = topological_sort(graph);\r\n  std::vector<bool>\
     \ can_reach(q, false);\r\n  std::vector<std::uint64_t> dp(n, 0);\r\n  for (int\
-    \ i = 0; i < q;) {\r\n    const int j = std::min(i + DIGITS, q);\r\n    std::fill(dp.begin(),\
-    \ dp.end(), 0);\r\n    for (int k = i; k < j; ++k) {\r\n      dp[src[k]] |= UINT64_C(1)\
-    \ << (k - i);\r\n    }\r\n    for (const int node : order) {\r\n      for (const\
-    \ Edge<CostType>& e : graph[node]) {\r\n        dp[e.dst] |= dp[node];\r\n   \
-    \   }\r\n    }\r\n    for (int k = i; k < j; ++k) {\r\n      can_reach[k] = dp[dst[k]]\
-    \ >> (k - i) & 1;\r\n    }\r\n    i = j;\r\n  }\r\n  return can_reach;\r\n}\r\n"
+    \ i = 0; i < q;) {\r\n    const int j = std::min(i + std::numeric_limits<std::uint64_t>::digits,\
+    \ q);\r\n    std::fill(dp.begin(), dp.end(), 0);\r\n    for (int k = i; k < j;\
+    \ ++k) {\r\n      dp[ss[k]] |= UINT64_C(1) << (k - i);\r\n    }\r\n    for (const\
+    \ int node : order) {\r\n      for (const Edge<CostType>& e : graph[node]) dp[e.dst]\
+    \ |= dp[node];\r\n    }\r\n    for (int k = i; k < j; ++k) {\r\n      can_reach[k]\
+    \ = dp[ts[k]] >> (k - i) & 1;\r\n    }\r\n    i = j;\r\n  }\r\n  return can_reach;\r\
+    \n}\r\n"
   dependsOn:
   - graph/edge.hpp
   - graph/topological_sort.hpp
   isVerificationFile: false
   path: graph/reachability_on_dag.hpp
   requiredBy: []
-  timestamp: '2021-10-13 18:29:58+09:00'
+  timestamp: '2022-02-15 21:43:58+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/reachability_on_dag.test.cpp
@@ -56,6 +57,7 @@ layout: document
 title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054\u53EF\
   \u80FD\u6027\u5224\u5B9A"
 ---
+
 
 ## 時間計算量
 
@@ -66,7 +68,7 @@ title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054
 
 ||説明|
 |:--:|:--:|
-|`reachability_on_dag(graph, src, dst)`|有向非巡回グラフ $\mathrm{graph}$ 上で頂点 $\mathrm{src}_i$ から頂点 $\mathrm{dst}_i$ に到達できるか．|
+|`reachability_on_dag(graph, ss, ts)`|有向非巡回グラフ $\mathrm{graph}$ 上で頂点 $\mathrm{ss}_i$ から頂点 $\mathrm{ts}_i$ に到達できるか．|
 
 
 ## 参考

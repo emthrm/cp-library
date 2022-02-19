@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (inversion number)"
   _extendedVerifiedWith:
@@ -12,10 +12,10 @@ data:
   - icon: ':x:'
     path: test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (lower_bound(val))"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
   _isVerificationFailed: true
@@ -25,43 +25,43 @@ data:
     _deprecated_at_docs: docs/data_structure/fenwick_tree/fenwick_tree.md
     document_title: Fenwick tree
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/fenwick_tree/fenwick_tree.hpp: line 6: #pragma once found in\
     \ a non-first line\n"
   code: "/**\r\n * @brief Fenwick tree\r\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Abelian>\r\
-    \nstruct FenwickTree {\r\n  FenwickTree(int n, const Abelian ID = 0) : n(n), ID(ID),\
-    \ dat(n, ID) {}\r\n\r\n  void add(int idx, Abelian val) {\r\n    while (idx <\
-    \ n) {\r\n      dat[idx] += val;\r\n      idx |= idx + 1;\r\n    }\r\n  }\r\n\r\
-    \n  Abelian sum(int idx) const {\r\n    Abelian res = ID;\r\n    --idx;\r\n  \
-    \  while (idx >= 0) {\r\n      res += dat[idx];\r\n      idx = (idx & (idx + 1))\
-    \ - 1;\r\n    }\r\n    return res;\r\n  }\r\n\r\n  Abelian sum(int left, int right)\
-    \ const {\r\n    return left < right ? sum(right) - sum(left) : ID;\r\n  }\r\n\
-    \r\n  Abelian operator[](const int idx) const { return sum(idx, idx + 1); }\r\n\
-    \r\n  int lower_bound(Abelian val) const {\r\n    if (val <= ID) return 0;\r\n\
-    \    int res = 0, exponent = 1;\r\n    while (exponent <= n) exponent <<= 1;\r\
-    \n    for (int mask = exponent >> 1; mask > 0; mask >>= 1) {\r\n      if (res\
-    \ + mask - 1 < n && dat[res + mask - 1] < val) {\r\n        val -= dat[res + mask\
-    \ - 1];\r\n        res += mask;\r\n      }\r\n    }\r\n    return res;\r\n  }\r\
-    \n\r\nprivate:\r\n  int n;\r\n  const Abelian ID;\r\n  std::vector<Abelian> dat;\r\
-    \n};\r\n"
+    \nstruct FenwickTree {\r\n  explicit FenwickTree(const int n, const Abelian ID\
+    \ = 0)\r\n      : n(n), ID(ID), data(n, ID) {}\r\n\r\n  void add(int idx, const\
+    \ Abelian val) {\r\n    for (; idx < n; idx |= idx + 1) {\r\n      data[idx] +=\
+    \ val;\r\n    }\r\n  }\r\n\r\n  Abelian sum(int idx) const {\r\n    Abelian res\
+    \ = ID;\r\n    for (--idx; idx >= 0; idx = (idx & (idx + 1)) - 1) {\r\n      res\
+    \ += data[idx];\r\n    }\r\n    return res;\r\n  }\r\n\r\n  Abelian sum(const\
+    \ int left, const int right) const {\r\n    return left < right ? sum(right) -\
+    \ sum(left) : ID;\r\n  }\r\n\r\n  Abelian operator[](const int idx) const { return\
+    \ sum(idx, idx + 1); }\r\n\r\n  int lower_bound(Abelian val) const {\r\n    if\
+    \ (val <= ID) return 0;\r\n    int res = 0, exponent = 1;\r\n    while (exponent\
+    \ <= n) exponent <<= 1;\r\n    for (int mask = exponent >> 1; mask > 0; mask >>=\
+    \ 1) {\r\n      const int idx = res + mask - 1;\r\n      if (idx < n && data[idx]\
+    \ < val) {\r\n        val -= data[idx];\r\n        res += mask;\r\n      }\r\n\
+    \    }\r\n    return res;\r\n  }\r\n\r\n private:\r\n  const int n;\r\n  const\
+    \ Abelian ID;\r\n  std::vector<Abelian> data;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree/fenwick_tree.hpp
   requiredBy:
   - misc/inversion_number.hpp
-  timestamp: '2021-04-24 04:29:28+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/misc/inversion_number.test.cpp
-  - test/misc/mo.test.cpp
-  - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
+  - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
+  - test/misc/mo.test.cpp
+  - test/misc/inversion_number.test.cpp
 documentation_of: data_structure/fenwick_tree/fenwick_tree.hpp
 layout: document
 redirect_from:
@@ -87,18 +87,18 @@ title: Fenwick tree
 ||説明|備考|
 |:--:|:--:|:--:|
 |`FenwickTree<Abelian>(n, 単位元 = 0)`|要素数 $N$ の Fenwick tree||
-|`add(idx, val)`|$A_{\mathrm{idx}} += \mathrm{val}$||
+|`add(idx, val)`|$A_{\mathrm{idx}} \gets A_{\mathrm{idx}} + \mathrm{val}$||
 |`sum(idx)`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$||
 |`sum(left, right)`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`lower_bound(val)`|$\min \lbrace\,k \mid \sum_{i = 0}^k A_i \geq \mathrm{val} \rbrace$|$A_i \geq \text{単位元} \ (i = 0,\ldots, N - 1)$ でなければならない．|
+|`lower_bound(val)`|$\min \lbrace\,k \mid \sum_{i = 0}^k A_i \geq \mathrm{val} \rbrace$|$A_i \geq \text{単位元}$ ($i = 0,\ldots, N - 1$) でなければならない．|
 
 - 区間加算クエリ対応 Fenwick tree
 
 ||説明|
 |:--:|:--:|
 |`FenwickTreeSupportingRangeAddQuery<Abelian>(n, 単位元 = 0)`|要素数 $N$ の区間加算クエリ対応 Fenwick tree|
-|`add(left, right, val)`|$A_i += \mathrm{val} \ (i = \mathrm{left},\ldots, \mathrm{right} - 1)$|
+|`add(left, right, val)`|$A_i \gets A_i + \mathrm{val}$ ($i = \mathrm{left},\ldots, \mathrm{right} - 1$)|
 |`sum(idx)`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$|
 |`sum(left, right)`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$|
 |`operator()[idx]`|$A_{\mathrm{idx}}$|
@@ -108,7 +108,7 @@ title: Fenwick tree
 ||説明|
 |:--:|:--:|
 |`FenwickTree2D<Abelian>(height, width, 単位元 = 0)`|要素数 $\mathrm{height} \times \mathrm{width}$ の2次元 Fenwick tree|
-|`add(y, x, val)`|$A_{yx} += \mathrm{val}$|
+|`add(y, x, val)`|$A_{yx} \gets A_{yx} + \mathrm{val}$|
 |`sum(y, x)`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
 |`sum(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
 |`get(y, x)`|$A_{yx}$|
@@ -118,14 +118,14 @@ title: Fenwick tree
 ||説明|
 |:--:|:--:|
 |`FenwickTree2DSupportingRangeAddQuery<Abelian>(height, width, 単位元 = 0)`|要素数 $\mathrm{height} \times \mathrm{width}$ の区間加算クエリ対応2次元 Fenwick tree|
-|`add(y1, x1, y2, x2, val)`|$A_{ij} += \mathrm{val} \ (y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2)$|
+|`add(y1, x1, y2, x2, val)`|$A_{ij} \gets A_{ij} + \mathrm{val}$ ($y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2$)|
 |`sum(y, x)`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
 |`sum(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
 
 
 ## 区間加算クエリ対応2次元 Fenwick tree の実装
 
-$A_{ij} += v \ (y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2)$ を考える．
+$A_{ij} \gets A_{ij} + v$ ($y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2$) を考える．
 
 $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $S$ を $S_b$，加算後の $S$ を $S_a$ とすると
 

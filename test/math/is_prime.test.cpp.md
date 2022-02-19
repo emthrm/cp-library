@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/is_prime.hpp
     title: "\u7D20\u6570\u5224\u5B9A (primality test)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
@@ -17,26 +17,26 @@ data:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
   bundledCode: "#line 1 \"test/math/is_prime.test.cpp\"\n/*\r\n * @brief \u6570\u5B66\
     /\u7D20\u6570\u5224\u5B9A\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\
-    \r\n\r\n#include <iostream>\r\n#line 2 \"math/is_prime.hpp\"\n\r\nbool is_prime(long\
-    \ long n) {\r\n  if (n <= 1) return false;\r\n  for (long long i = 2; i * i <=\
-    \ n; ++i) {\r\n    if (n % i == 0) return false;\r\n  }\r\n  return true;\r\n\
-    }\r\n#line 8 \"test/math/is_prime.test.cpp\"\n\r\nint main() {\r\n  int n;\r\n\
-    \  std::cin >> n;\r\n  int ans = 0;\r\n  for (int i = 0; i < n; ++i) {\r\n   \
-    \ int query;\r\n    std::cin >> query;\r\n    if (is_prime(query)) ++ans;\r\n\
-    \  }\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
+    \r\n\r\n#include <iostream>\r\n\r\n#line 2 \"math/is_prime.hpp\"\n\r\nbool is_prime(const\
+    \ long long n) {\r\n  if (n <= 1) return false;\r\n  for (long long i = 2; i *\
+    \ i <= n; ++i) {\r\n    if (n % i == 0) return false;\r\n  }\r\n  return true;\r\
+    \n}\r\n#line 9 \"test/math/is_prime.test.cpp\"\n\r\nint main() {\r\n  int n;\r\
+    \n  std::cin >> n;\r\n  int ans = 0;\r\n  for (int i = 0; i < n; ++i) {\r\n  \
+    \  int num;\r\n    std::cin >> num;\r\n    if (is_prime(num)) ++ans;\r\n  }\r\n\
+    \  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u7D20\u6570\u5224\u5B9A\r\n */\r\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C\"\r\n\r\
-    \n#include <iostream>\r\n#include \"../../math/is_prime.hpp\"\r\n\r\nint main()\
+    \n#include <iostream>\r\n\r\n#include \"../../math/is_prime.hpp\"\r\n\r\nint main()\
     \ {\r\n  int n;\r\n  std::cin >> n;\r\n  int ans = 0;\r\n  for (int i = 0; i <\
-    \ n; ++i) {\r\n    int query;\r\n    std::cin >> query;\r\n    if (is_prime(query))\
+    \ n; ++i) {\r\n    int num;\r\n    std::cin >> num;\r\n    if (is_prime(num))\
     \ ++ans;\r\n  }\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/is_prime.hpp
   isVerificationFile: true
   path: test/math/is_prime.test.cpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/is_prime.test.cpp
 layout: document

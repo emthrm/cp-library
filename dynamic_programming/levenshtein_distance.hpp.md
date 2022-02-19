@@ -14,25 +14,28 @@ data:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/levenshtein_distance.hpp\"\n#include\
     \ <algorithm>\r\n#include <numeric>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nint levenshtein_distance(const T &a, const T &b) {\r\n  int n = a.size(),\
-    \ m = b.size();\r\n  std::vector<std::vector<int>> dp(n + 1, std::vector<int>(m\
-    \ + 1));\r\n  for (int i = 1; i <= n; ++i) dp[i][0] = i;\r\n  std::iota(dp[0].begin(),\
-    \ dp[0].end(), 0);\r\n  for (int i = 1; i <= n; ++i) for (int j = 1; j <= m; ++j)\
-    \ {\r\n    dp[i][j] = std::min({dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j\
-    \ - 1] + (a[i - 1] != b[j - 1])});\r\n  }\r\n  return dp[n][m];\r\n}\r\n"
+    \ T>\r\nint levenshtein_distance(const T& a, const T& b) {\r\n  const int n =\
+    \ a.size(), m = b.size();\r\n  std::vector<std::vector<int>> dp(n + 1, std::vector<int>(m\
+    \ + 1));\r\n  for (int i = n; i >= 1; --i) {\r\n    dp[i][0] = i;\r\n  }\r\n \
+    \ std::iota(dp[0].begin(), dp[0].end(), 0);\r\n  for (int i = 1; i <= n; ++i)\
+    \ {\r\n    for (int j = 1; j <= m; ++j) {\r\n      dp[i][j] = std::min({dp[i -\
+    \ 1][j] + 1,\r\n                           dp[i][j - 1] + 1,\r\n             \
+    \              dp[i - 1][j - 1] + (a[i - 1] != b[j - 1])});\r\n    }\r\n  }\r\n\
+    \  return dp[n][m];\r\n}\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <numeric>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nint levenshtein_distance(const T &a, const T &b)\
-    \ {\r\n  int n = a.size(), m = b.size();\r\n  std::vector<std::vector<int>> dp(n\
-    \ + 1, std::vector<int>(m + 1));\r\n  for (int i = 1; i <= n; ++i) dp[i][0] =\
-    \ i;\r\n  std::iota(dp[0].begin(), dp[0].end(), 0);\r\n  for (int i = 1; i <=\
-    \ n; ++i) for (int j = 1; j <= m; ++j) {\r\n    dp[i][j] = std::min({dp[i - 1][j]\
-    \ + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + (a[i - 1] != b[j - 1])});\r\n  }\r\
-    \n  return dp[n][m];\r\n}\r\n"
+    \n\r\ntemplate <typename T>\r\nint levenshtein_distance(const T& a, const T& b)\
+    \ {\r\n  const int n = a.size(), m = b.size();\r\n  std::vector<std::vector<int>>\
+    \ dp(n + 1, std::vector<int>(m + 1));\r\n  for (int i = n; i >= 1; --i) {\r\n\
+    \    dp[i][0] = i;\r\n  }\r\n  std::iota(dp[0].begin(), dp[0].end(), 0);\r\n \
+    \ for (int i = 1; i <= n; ++i) {\r\n    for (int j = 1; j <= m; ++j) {\r\n   \
+    \   dp[i][j] = std::min({dp[i - 1][j] + 1,\r\n                           dp[i][j\
+    \ - 1] + 1,\r\n                           dp[i - 1][j - 1] + (a[i - 1] != b[j\
+    \ - 1])});\r\n    }\r\n  }\r\n  return dp[n][m];\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/levenshtein_distance.hpp
   requiredBy: []
-  timestamp: '2021-04-27 20:17:50+09:00'
+  timestamp: '2022-02-12 20:37:17+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/levenshtein_distance.test.cpp
@@ -42,7 +45,7 @@ title: "\u30EC\u30FC\u30D9\u30F3\u30B7\u30E5\u30BF\u30A4\u30F3\u8DDD\u96E2 (Leve
   \ distance) / \u7DE8\u96C6\u8DDD\u96E2 (edit distance)"
 ---
 
-任意の文字を削除・挿入・置換することによって，二つの文字列を一致させるのに必要な操作回数の最小値である．
+任意の文字を削除・挿入・置換することによって，二つの文字列を一致させるために必要な操作回数の最小値である．
 
 
 ## 時間計算量

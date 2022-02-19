@@ -13,10 +13,6 @@ data:
     path: test/data_structure/union-find/union-find.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/union-find"
   - icon: ':x:'
-    path: test/graph/biconnected_component.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
-      \u89E3"
-  - icon: ':x:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
@@ -36,39 +32,38 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: union-find
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/union-find.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\nstruct\
-    \ UnionFind {\r\n  UnionFind(const int n) : data(n, -1) {}\r\n\r\n  int root(const\
-    \ int ver) {\r\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\r\
+    \ UnionFind {\r\n  explicit UnionFind(const int n) : data(n, -1) {}\r\n\r\n  int\
+    \ root(const int ver) {\r\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\r\
     \n  }\r\n\r\n  bool unite(int u, int v) {\r\n    u = root(u);\r\n    v = root(v);\r\
-    \n    if (u == v) return false;\r\n    if (data[u] > data[v]) {\r\n      std::swap(u,\
-    \ v);\r\n    }\r\n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\
-    \n  }\r\n\r\n  bool is_same(const int u, const int v) {\r\n    return root(u)\
-    \ == root(v);\r\n  }\r\n\r\n  int size(const int ver) {\r\n    return -data[root(ver)];\r\
-    \n  }\r\n\r\nprivate:\r\n  std::vector<int> data;\r\n};\r\n"
+    \n    if (u == v) return false;\r\n    if (data[u] > data[v]) std::swap(u, v);\r\
+    \n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\n  }\r\n\r\
+    \n  bool is_same(const int u, const int v) { return root(u) == root(v); }\r\n\r\
+    \n  int size(const int ver) { return -data[root(ver)]; }\r\n\r\n private:\r\n\
+    \  std::vector<int> data;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/union-find.hpp
   requiredBy:
-  - graph/kruskal.hpp
   - graph/connencted_component_of_complement_graph.hpp
-  timestamp: '2021-09-24 01:25:42+09:00'
+  - graph/kruskal.hpp
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/is_bipartite.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
-  - test/graph/biconnected_component.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
-  - test/graph/kruskal.test.cpp
   - test/data_structure/union-find/union-find.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/graph/kruskal.test.cpp
+  - test/graph/is_bipartite.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:
@@ -113,7 +108,7 @@ title: union-find
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
-|`root(ver)`|$ver$ の根||
+|`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
 |`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
@@ -125,8 +120,8 @@ title: union-find
 |:--:|:--:|:--:|
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
-|`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか．||
 |`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find

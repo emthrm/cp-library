@@ -17,75 +17,77 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"dynamic_programming/convex_hull_trick.hpp\"\n#include <deque>\r\
-    \n#include <utility>\r\n\r\ntemplate <typename T>\r\nstruct ConvexHullTrick {\r\
-    \n  ConvexHullTrick(const bool is_minimized = true) : is_minimized(is_minimized)\
-    \ {}\r\n\r\n  void add(T a, T b) {\r\n    if (!is_minimized) {\r\n      a = -a;\r\
-    \n      b = -b;\r\n    }\r\n    Line line(a, b);\r\n    if (deq.empty()) {\r\n\
-    \      deq.emplace_back(line);\r\n    } else if (deq.back().first >= a) {\r\n\
-    \      if (deq.back().first == a) {\r\n        if (b >= deq.back().second) return;\r\
-    \n        deq.pop_back();\r\n      }\r\n      while (deq.size() >= 2 && must_pop(deq[deq.size()\
-    \ - 2], deq.back(), line)) {\r\n        deq.pop_back();\r\n      }\r\n      deq.emplace_back(line);\r\
-    \n    } else {\r\n      if (deq.front().first == a) {\r\n        if (b >= deq.front().second)\
+  bundledCode: "#line 2 \"dynamic_programming/convex_hull_trick.hpp\"\n// #include\
+    \ <cassert>\r\n#include <deque>\r\n#include <utility>\r\n\r\ntemplate <typename\
+    \ T, bool IS_MINIMIZED = true>\r\nstruct ConvexHullTrick {\r\n  ConvexHullTrick()\
+    \ = default;\r\n\r\n  void add(T a, T b) {\r\n    if (!IS_MINIMIZED) {\r\n   \
+    \   a = -a;\r\n      b = -b;\r\n    }\r\n    const Line line(a, b);\r\n    if\
+    \ (deq.empty()) {\r\n      deq.emplace_back(line);\r\n    } else if (deq.back().first\
+    \ >= a) {\r\n      if (deq.back().first == a) {\r\n        if (b >= deq.back().second)\
+    \ return;\r\n        deq.pop_back();\r\n      }\r\n      for (int i = static_cast<int>(deq.size())\
+    \ - 2; i >= 0; --i) {\r\n        if (!must_pop(deq[i], deq[i + 1], line)) break;\r\
+    \n        deq.pop_back();\r\n      }\r\n      deq.emplace_back(line);\r\n    }\
+    \ else {\r\n      if (deq.front().first == a) {\r\n        if (b >= deq.front().second)\
     \ return;\r\n        deq.pop_front();\r\n      }\r\n      while (deq.size() >=\
     \ 2 && must_pop(line, deq.front(), deq[1])) {\r\n        deq.pop_front();\r\n\
     \      }\r\n      deq.emplace_front(line);\r\n    }\r\n  }\r\n\r\n  T query(const\
-    \ T x) const {\r\n    int lb = -1, ub = deq.size() - 1;\r\n    while (ub - lb\
-    \ > 1) {\r\n      const int mid = (lb + ub) >> 1;\r\n      (f(deq[mid], x) < f(deq[mid\
-    \ + 1], x) ? ub : lb) = mid;\r\n    }\r\n    return is_minimized ? f(deq[ub],\
-    \ x) : -f(deq[ub], x);\r\n  }\r\n\r\n  T monotonically_increasing_query(const\
+    \ T x) const {\r\n    // assert(!deq.empty());\r\n    int lb = -1, ub = deq.size()\
+    \ - 1;\r\n    while (ub - lb > 1) {\r\n      const int mid = (lb + ub) >> 1;\r\
+    \n      (f(deq[mid], x) < f(deq[mid + 1], x) ? ub : lb) = mid;\r\n    }\r\n  \
+    \  return IS_MINIMIZED ? f(deq[ub], x) : -f(deq[ub], x);\r\n  }\r\n\r\n  T monotonically_increasing_query(const\
     \ T x) {\r\n    while (deq.size() >= 2 && f(deq.front(), x) >= f(deq[1], x)) {\r\
-    \n      deq.pop_front();\r\n    }\r\n    return is_minimized ? f(deq.front(),\
+    \n      deq.pop_front();\r\n    }\r\n    return IS_MINIMIZED ? f(deq.front(),\
     \ x) : -f(deq.front(), x);\r\n  }\r\n\r\n  T monotonically_decreasing_query(const\
-    \ T x) {\r\n    while (deq.size() >= 2 && f(deq[deq.size() - 2], x) <= f(deq.back(),\
-    \ x)) {\r\n      deq.pop_back();\r\n    }\r\n    return is_minimized ? f(deq.back(),\
-    \ x) : -f(deq.back(), x);\r\n  }\r\n\r\nprivate:\r\n  using Line = std::pair<T,\
-    \ T>;\r\n\r\n  const bool is_minimized;\r\n  std::deque<Line> deq;\r\n\r\n  using\
-    \ Real = long double;\r\n  bool must_pop(const Line &l1, const Line &l2, const\
-    \ Line &l3) const {\r\n    Real lhs = static_cast<Real>(l3.second - l2.second)\
-    \ / (l2.first - l3.first);\r\n    Real rhs = static_cast<Real>(l2.second - l1.second)\
-    \ / (l1.first - l2.first);\r\n    return lhs <= rhs;\r\n    // T lhs_num = l3.second\
-    \ - l2.second, lhs_den = l2.first - l3.first;\r\n    // T rhs_num = l2.second\
-    \ - l1.second, rhs_den = l1.first - l2.first;\r\n    // return lhs_num * rhs_den\
-    \ <= rhs_num * lhs_den;\r\n  }\r\n\r\n  T f(const Line &l, const T x) const {\
-    \ return l.first * x + l.second; }\r\n};\r\n"
-  code: "#pragma once\r\n#include <deque>\r\n#include <utility>\r\n\r\ntemplate <typename\
-    \ T>\r\nstruct ConvexHullTrick {\r\n  ConvexHullTrick(const bool is_minimized\
-    \ = true) : is_minimized(is_minimized) {}\r\n\r\n  void add(T a, T b) {\r\n  \
-    \  if (!is_minimized) {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    Line\
+    \ T x) {\r\n    for (int i = static_cast<int>(deq.size()) - 2; i >= 0; --i) {\r\
+    \n      if (f(deq[i], x) > f(deq[i + 1], x)) break;\r\n      deq.pop_back();\r\
+    \n    }\r\n    return IS_MINIMIZED ? f(deq.back(), x) : -f(deq.back(), x);\r\n\
+    \  }\r\n\r\n private:\r\n  using Line = std::pair<T, T>;\r\n\r\n  std::deque<Line>\
+    \ deq;\r\n\r\n  using Real = long double;\r\n  bool must_pop(const Line& l1, const\
+    \ Line& l2, const Line& l3) const {\r\n    const Real lhs =\r\n        static_cast<Real>(l3.second\
+    \ - l2.second) / (l2.first - l3.first);\r\n    const Real rhs =\r\n        static_cast<Real>(l2.second\
+    \ - l1.second) / (l1.first - l2.first);\r\n    return lhs <= rhs;\r\n    // const\
+    \ T lhs_num = l3.second - l2.second, lhs_den = l2.first - l3.first;\r\n    //\
+    \ const T rhs_num = l2.second - l1.second, rhs_den = l1.first - l2.first;\r\n\
+    \    // return lhs_num * rhs_den <= rhs_num * lhs_den;\r\n  }\r\n\r\n  T f(const\
+    \ Line& l, const T x) const { return l.first * x + l.second; }\r\n};\r\n"
+  code: "#pragma once\r\n// #include <cassert>\r\n#include <deque>\r\n#include <utility>\r\
+    \n\r\ntemplate <typename T, bool IS_MINIMIZED = true>\r\nstruct ConvexHullTrick\
+    \ {\r\n  ConvexHullTrick() = default;\r\n\r\n  void add(T a, T b) {\r\n    if\
+    \ (!IS_MINIMIZED) {\r\n      a = -a;\r\n      b = -b;\r\n    }\r\n    const Line\
     \ line(a, b);\r\n    if (deq.empty()) {\r\n      deq.emplace_back(line);\r\n \
     \   } else if (deq.back().first >= a) {\r\n      if (deq.back().first == a) {\r\
     \n        if (b >= deq.back().second) return;\r\n        deq.pop_back();\r\n \
-    \     }\r\n      while (deq.size() >= 2 && must_pop(deq[deq.size() - 2], deq.back(),\
-    \ line)) {\r\n        deq.pop_back();\r\n      }\r\n      deq.emplace_back(line);\r\
-    \n    } else {\r\n      if (deq.front().first == a) {\r\n        if (b >= deq.front().second)\
-    \ return;\r\n        deq.pop_front();\r\n      }\r\n      while (deq.size() >=\
-    \ 2 && must_pop(line, deq.front(), deq[1])) {\r\n        deq.pop_front();\r\n\
-    \      }\r\n      deq.emplace_front(line);\r\n    }\r\n  }\r\n\r\n  T query(const\
-    \ T x) const {\r\n    int lb = -1, ub = deq.size() - 1;\r\n    while (ub - lb\
-    \ > 1) {\r\n      const int mid = (lb + ub) >> 1;\r\n      (f(deq[mid], x) < f(deq[mid\
-    \ + 1], x) ? ub : lb) = mid;\r\n    }\r\n    return is_minimized ? f(deq[ub],\
-    \ x) : -f(deq[ub], x);\r\n  }\r\n\r\n  T monotonically_increasing_query(const\
-    \ T x) {\r\n    while (deq.size() >= 2 && f(deq.front(), x) >= f(deq[1], x)) {\r\
-    \n      deq.pop_front();\r\n    }\r\n    return is_minimized ? f(deq.front(),\
-    \ x) : -f(deq.front(), x);\r\n  }\r\n\r\n  T monotonically_decreasing_query(const\
-    \ T x) {\r\n    while (deq.size() >= 2 && f(deq[deq.size() - 2], x) <= f(deq.back(),\
-    \ x)) {\r\n      deq.pop_back();\r\n    }\r\n    return is_minimized ? f(deq.back(),\
-    \ x) : -f(deq.back(), x);\r\n  }\r\n\r\nprivate:\r\n  using Line = std::pair<T,\
-    \ T>;\r\n\r\n  const bool is_minimized;\r\n  std::deque<Line> deq;\r\n\r\n  using\
-    \ Real = long double;\r\n  bool must_pop(const Line &l1, const Line &l2, const\
-    \ Line &l3) const {\r\n    Real lhs = static_cast<Real>(l3.second - l2.second)\
-    \ / (l2.first - l3.first);\r\n    Real rhs = static_cast<Real>(l2.second - l1.second)\
-    \ / (l1.first - l2.first);\r\n    return lhs <= rhs;\r\n    // T lhs_num = l3.second\
-    \ - l2.second, lhs_den = l2.first - l3.first;\r\n    // T rhs_num = l2.second\
-    \ - l1.second, rhs_den = l1.first - l2.first;\r\n    // return lhs_num * rhs_den\
-    \ <= rhs_num * lhs_den;\r\n  }\r\n\r\n  T f(const Line &l, const T x) const {\
-    \ return l.first * x + l.second; }\r\n};\r\n"
+    \     }\r\n      for (int i = static_cast<int>(deq.size()) - 2; i >= 0; --i) {\r\
+    \n        if (!must_pop(deq[i], deq[i + 1], line)) break;\r\n        deq.pop_back();\r\
+    \n      }\r\n      deq.emplace_back(line);\r\n    } else {\r\n      if (deq.front().first\
+    \ == a) {\r\n        if (b >= deq.front().second) return;\r\n        deq.pop_front();\r\
+    \n      }\r\n      while (deq.size() >= 2 && must_pop(line, deq.front(), deq[1]))\
+    \ {\r\n        deq.pop_front();\r\n      }\r\n      deq.emplace_front(line);\r\
+    \n    }\r\n  }\r\n\r\n  T query(const T x) const {\r\n    // assert(!deq.empty());\r\
+    \n    int lb = -1, ub = deq.size() - 1;\r\n    while (ub - lb > 1) {\r\n     \
+    \ const int mid = (lb + ub) >> 1;\r\n      (f(deq[mid], x) < f(deq[mid + 1], x)\
+    \ ? ub : lb) = mid;\r\n    }\r\n    return IS_MINIMIZED ? f(deq[ub], x) : -f(deq[ub],\
+    \ x);\r\n  }\r\n\r\n  T monotonically_increasing_query(const T x) {\r\n    while\
+    \ (deq.size() >= 2 && f(deq.front(), x) >= f(deq[1], x)) {\r\n      deq.pop_front();\r\
+    \n    }\r\n    return IS_MINIMIZED ? f(deq.front(), x) : -f(deq.front(), x);\r\
+    \n  }\r\n\r\n  T monotonically_decreasing_query(const T x) {\r\n    for (int i\
+    \ = static_cast<int>(deq.size()) - 2; i >= 0; --i) {\r\n      if (f(deq[i], x)\
+    \ > f(deq[i + 1], x)) break;\r\n      deq.pop_back();\r\n    }\r\n    return IS_MINIMIZED\
+    \ ? f(deq.back(), x) : -f(deq.back(), x);\r\n  }\r\n\r\n private:\r\n  using Line\
+    \ = std::pair<T, T>;\r\n\r\n  std::deque<Line> deq;\r\n\r\n  using Real = long\
+    \ double;\r\n  bool must_pop(const Line& l1, const Line& l2, const Line& l3) const\
+    \ {\r\n    const Real lhs =\r\n        static_cast<Real>(l3.second - l2.second)\
+    \ / (l2.first - l3.first);\r\n    const Real rhs =\r\n        static_cast<Real>(l2.second\
+    \ - l1.second) / (l1.first - l2.first);\r\n    return lhs <= rhs;\r\n    // const\
+    \ T lhs_num = l3.second - l2.second, lhs_den = l2.first - l3.first;\r\n    //\
+    \ const T rhs_num = l2.second - l1.second, rhs_den = l1.first - l2.first;\r\n\
+    \    // return lhs_num * rhs_den <= rhs_num * lhs_den;\r\n  }\r\n\r\n  T f(const\
+    \ Line& l, const T x) const { return l.first * x + l.second; }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/convex_hull_trick.hpp
   requiredBy: []
-  timestamp: '2021-09-23 22:47:42+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/convex_hull_trick.1.test.cpp
@@ -99,29 +101,29 @@ title: convex hull trick
 $xy$ 平面上の直線集合 $L$ を考える．
 
 - $L$ に直線 $f(x) = ax + b$ を追加する．
-- ある $x$ について $\min \lbrace f(x) \mid f \in L \rbrace$ を答える．
+- ある $x$ に対して $\min \lbrace f(x) \mid f \in L \rbrace$ を答える．
 
-上記のクエリを高速に処理できるテクニックである．
+上のクエリを高速に処理できるテクニックである．
 
 
 ## 時間計算量
 
 |処理|時間計算量|
 |:--:|:--:|
-|追加クエリ|$\text{amortized } O(1)$|
+|追加クエリ|amortized $O(1)$|
 |解答クエリ|$O(\log{N})$|
-|$x$ に単調性のある解答クエリ|$\text{amortized } O(1)$|
+|$x$ に単調性のある解答クエリ|amortized $O(1)$|
 
 
 ## 使用法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`ConvexHullTrick<T>(is_minimized = true)`|convex hull trick||
+|`ConvexHullTrick<T, IS_MINIMIZED>()`|convex hull trick||
 |`add(a, b)`|直線 $f(x) = ax + b$ を追加する．|傾きには単調性が必要である．|
 |`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$||
-|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加している必要がある．|
-|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少している必要がある．|
+|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加しなければならない．|
+|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少しなければならない．|
 
 
 ## 参考
@@ -135,7 +137,7 @@ $xy$ 平面上の直線集合 $L$ を考える．
 - 直線を削除できる．
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/RemovableCHT~~
   - https://codeforces.com/blog/entry/60514
-- 追加する直線の傾きに単調性が不必要である．
+- 追加する直線の傾きに単調性が必要ない．
   - https://sune2.hatenadiary.org/entry/20140310/1394440369
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/CHT-Ex~~
 - $x \in \mathbb{Z}$

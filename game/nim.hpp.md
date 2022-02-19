@@ -15,17 +15,17 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"game/nim.hpp\"\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nbool nim(const std::vector<T> &a) {\r\n  long long x = 0;\r\n  for (const\
-    \ T e : a) {\r\n    x ^= e;\r\n  }\r\n  return x != 0;\r\n}\r\n"
+    \ T>\r\nbool nim(const std::vector<T>& a) {\r\n  long long x = 0;\r\n  for (const\
+    \ T e : a) x ^= e;\r\n  return x != 0;\r\n}\r\n"
   code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nbool nim(const\
-    \ std::vector<T> &a) {\r\n  long long x = 0;\r\n  for (const T e : a) {\r\n  \
-    \  x ^= e;\r\n  }\r\n  return x != 0;\r\n}\r\n"
+    \ std::vector<T>& a) {\r\n  long long x = 0;\r\n  for (const T e : a) x ^= e;\r\
+    \n  return x != 0;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: game/nim.hpp
   requiredBy:
   - game/misere_nim.hpp
-  timestamp: '2021-09-23 22:47:42+09:00'
+  timestamp: '2022-02-09 12:27:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/game/nim.test.cpp
@@ -51,7 +51,7 @@ $O(N)$
 
 ## 参考
 
-- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.277-278，マイナビ出版（2012）．
+- 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.277-278，マイナビ出版（2012）
 
 
 ## ToDo
@@ -60,6 +60,7 @@ $O(N)$
   - https://drive.google.com/file/d/16g1tfSHUU4NXNTDgaD8FSA1WB4FtJCyV
   - https://github.com/yosupo06/library-checker-problems/issues/317
   - https://judge.yosupo.jp/problem/nim_product_64
+  - https://yukicoder.me/problems/no/1775
 
 
 ## Verified

@@ -19,30 +19,30 @@ data:
     _deprecated_at_docs: docs/graph/minimum_spanning_tree.md
     document_title: "Kruskal \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/kruskal.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief Kruskal \u6CD5\r\n * @docs docs/graph/minimum_spanning_tree.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n#include\
-    \ \"edge.hpp\"\r\n#include \"../data_structure/union-find/union-find.hpp\"\r\n\
-    \r\ntemplate <typename CostType>\r\nCostType kruskal(const std::vector<std::vector<Edge<CostType>>>\
-    \ &graph) {\r\n  int n = graph.size();\r\n  std::vector<Edge<CostType>> edges;\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    for (const Edge<CostType> &e : graph[i])\
+    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n\
+    #include \"../data_structure/union-find/union-find.hpp\"\r\n#include \"edge.hpp\"\
+    \r\n\r\ntemplate <typename CostType>\r\nCostType kruskal(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<Edge<CostType>> edges;\r\
+    \n  for (int i = 0; i < n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i])\
     \ edges.emplace_back(e);\r\n  }\r\n  std::sort(edges.begin(), edges.end());\r\n\
-    \  CostType total = 0;\r\n  UnionFind uf(n);\r\n  for (const Edge<CostType> &e\
-    \ : edges) {\r\n    if (uf.unite(e.src, e.dst)) total += e.cost;\r\n  }\r\n  return\
-    \ total;\r\n}\r\n"
+    \  CostType res = 0;\r\n  UnionFind uf(n);\r\n  for (const Edge<CostType>& e :\
+    \ edges) {\r\n    if (uf.unite(e.src, e.dst)) res += e.cost;\r\n  }\r\n  return\
+    \ res;\r\n}\r\n"
   dependsOn:
-  - graph/edge.hpp
   - data_structure/union-find/union-find.hpp
+  - graph/edge.hpp
   isVerificationFile: false
   path: graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2021-09-24 01:25:42+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/kruskal.test.cpp
@@ -54,13 +54,6 @@ redirect_from:
 title: "Kruskal \u6CD5"
 ---
 # 最小全域木 (minimum spanning tree)
-
-無向グラフにおいて辺の総コストが最小となる全域木である．
-
-|アルゴリズム|特徴|
-|:--:|:--:|
-|Prim 法|ある頂点から構築を開始する．|
-|Kruskal 法|コストの昇順に辺を見る．|
 
 
 ## 時間計算量
@@ -94,6 +87,7 @@ Kruskal 法
 
 ## ToDo
 
+- https://www.slideshare.net/tmaehara/ss-17402143
 - ブルーフカ法 (Borůvka's algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AB%E6%B3%95
   - http://spinda2.blog48.fc2.com/blog-entry-560.html
@@ -103,9 +97,11 @@ Kruskal 法
   - https://lumakernel.github.io/ecasdqina/graph/boruvka
 - Fibonacchi heap を用いた Prim 法の高速化
   - https://github.com/ei1333/library/blob/master/graph/prim-fibonacchi-heap.cpp
-- ボロノイ図を用いる．
+- Euclidean minimum spanning tree
+  - https://en.wikipedia.org/wiki/Euclidean_minimum_spanning_tree
+  - https://www.slideshare.net/maroonrk/ss-65378126
   - http://tokoharuland.hateblo.jp/entry/2018/04/01/155743
-  - https://github.com/beet-aizu/library/blob/master/tree/voronoiminimumspanningtree.cpp
+  - https://github.com/beet-aizu/library/blob/master/graph/voronoiminimumspanningtree.cpp
 - 最小シュタイナー木
   - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%8A%E3%83%BC%E6%9C%A8
   - https://www.slideshare.net/wata_orz/ss-12131479

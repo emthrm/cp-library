@@ -13,35 +13,34 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "undo \u53EF\u80FD union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/undoable_union-find.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
   code: "/**\r\n * @brief undo \u53EF\u80FD union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\nstruct\
-    \ UndoableUnionFind {\r\n  UndoableUnionFind(const int n) : data(n, -1) {}\r\n\
-    \r\n  int root(const int ver) const {\r\n    return data[ver] < 0 ? ver : root(data[ver]);\r\
-    \n  }\r\n\r\n  bool unite(int u, int v) {\r\n    u = root(u);\r\n    history.emplace_back(u,\
-    \ data[u]);\r\n    v = root(v);\r\n    history.emplace_back(v, data[v]);\r\n \
-    \   if (u == v) return false;\r\n    if (data[u] > data[v]) {\r\n      std::swap(u,\
-    \ v);\r\n    }\r\n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\
-    \n  }\r\n\r\n  bool is_same(const int u, const int v) const {\r\n    return root(u)\
-    \ == root(v);\r\n  }\r\n\r\n  int size(const int ver) const {\r\n    return -data[root(ver)];\r\
-    \n  }\r\n\r\n  void undo() {\r\n    for (int i = 0; i < 2; ++i) {\r\n      data[history.back().first]\
+    \ UndoableUnionFind {\r\n  explicit UndoableUnionFind(const int n) : data(n, -1)\
+    \ {}\r\n\r\n  int root(const int ver) const {\r\n    return data[ver] < 0 ? ver\
+    \ : root(data[ver]);\r\n  }\r\n\r\n  bool unite(int u, int v) {\r\n    u = root(u);\r\
+    \n    history.emplace_back(u, data[u]);\r\n    v = root(v);\r\n    history.emplace_back(v,\
+    \ data[v]);\r\n    if (u == v) return false;\r\n    if (data[u] > data[v]) std::swap(u,\
+    \ v);\r\n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\n \
+    \ }\r\n\r\n  bool is_same(const int u, const int v) const { return root(u) ==\
+    \ root(v); }\r\n\r\n  int size(const int ver) const { return -data[root(ver)];\
+    \ }\r\n\r\n  void undo() {\r\n    for (int i = 0; i < 2; ++i) {\r\n      data[history.back().first]\
     \ = history.back().second;\r\n      history.pop_back();\r\n    }\r\n  }\r\n\r\n\
-    \  void snapshot() {\r\n    history.clear();\r\n  }\r\n\r\n  void rollback() {\r\
-    \n    while (!history.empty()) {\r\n      undo();\r\n    }\r\n  }\r\n\r\nprivate:\r\
-    \n  std::vector<int> data;\r\n  std::vector<std::pair<int, int>> history;\r\n\
-    };\r\n"
+    \  void snapshot() { history.clear(); }\r\n\r\n  void rollback() {\r\n    while\
+    \ (!history.empty()) undo();\r\n  }\r\n\r\n private:\r\n  std::vector<int> data;\r\
+    \n  std::vector<std::pair<int, int>> history;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/undoable_union-find.hpp
   requiredBy: []
-  timestamp: '2021-09-24 01:25:42+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/data_structure/union-find/undoable_union-find.test.cpp
@@ -89,7 +88,7 @@ title: "undo \u53EF\u80FD union-find"
 ||説明|備考|
 |:--:|:--:|:--:|
 |`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
-|`root(ver)`|$ver$ の根||
+|`root(ver)`|$\mathrm{ver}$ の根||
 |`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
 |`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
 |`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
@@ -101,8 +100,8 @@ title: "undo \u53EF\u80FD union-find"
 |:--:|:--:|:--:|
 |`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
 |`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
-|`unite(t, u, v)`|時刻 $t$ において $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(t, u, v)`|時刻 $t$ において $u$ と $v$ は同じ集合に属しているか．||
+|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
+|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか．||
 |`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
 
 - undo 可能 union-find

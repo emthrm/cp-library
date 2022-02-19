@@ -1,18 +1,18 @@
 - 添え字 and での畳み込み
 
-  $$C_k = \sum_{k = i \land j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \land j} A_i B_j$$
 
 - 添え字 or での畳み込み
 
-  $$C_k = \sum_{k = i \lor j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \lor j} A_i B_j$$
 
 - 添え字 xor での畳み込み
 
-  $$C_k = \sum_{k = i \oplus j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \oplus j} A_i B_j$$
 
 - 添え字 gcd での畳み込み
 
-  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
 
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
@@ -96,6 +96,11 @@ $O(N\log{N})$
   - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
   - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
   - https://atcoder.jp/contests/kupc2021/submissions/26987105
+- relaxed multiplication
+  - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
+  - https://atcoder.jp/contests/abc230/tasks/abc230_h
+  - https://atcoder.jp/contests/abc230/editorial/3036
+  - https://twitter.com/noshi91/status/1466764432961585166
 
 
 ## Verified

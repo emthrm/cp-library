@@ -1,6 +1,6 @@
 # ラグランジュ補間 (Lagrange interpolation)
 
-$x_i \neq x_j \ (1 \leq i < j \leq N)$ を満たす $(x_i, y_i)$ について $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める．
+$1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める．
 
 
 ### ラグランジュの補間多項式 (interpolation polynomial in the Lagrange form)
@@ -23,19 +23,19 @@ $$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \su
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`lagrange_interpolation(x, y, t)`|$f(t) \text{ s.t. } f(x_i) = y_i$|$x$ は互いに異なる．|
+|`lagrange_interpolation(x, y, t)`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる．|
 
 - 評価版2
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`lagrange_interpolation(y, t)`|$f(t) \text{ s.t. } f(i) = y_i$|$t < 0,\ N \leq t$|
+|`lagrange_interpolation(y, t)`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
 
 - 多項式補間
 
 ||説明|
 |:--:|:--:|
-|`polynomial_interpolation<多項式>(x, y)`|$f \text{ s.t. } f(x_i) = y_i$|
+|`polynomial_interpolation<多項式>(x, y)`|$f(x_i) = y_i$ を満たす $f$|
 
 
 ## 参考

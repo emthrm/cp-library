@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: graph/2-edge-connected_components_imos.hpp
+    path: graph/2-edge-connected_components_by_imos.hpp
     title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\u3082\u3059\
       \u6CD5\u7248"
   - icon: ':x:'
-    path: graph/2-edge-connected_components_lowlink.hpp
+    path: graph/2-edge-connected_components_by_lowlink.hpp
     title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: graph/biconnected_component.hpp
     title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)\
       \ \u5206\u89E3"
@@ -20,11 +20,11 @@ data:
     path: graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
-    path: graph/detect_bridge.hpp
-    title: "\u6A4B\u306E\u691C\u51FA"
-  - icon: ':heavy_check_mark:'
     path: graph/detect_directed_cycle.hpp
     title: "\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\u7248"
+  - icon: ':heavy_check_mark:'
+    path: graph/enumerate_bridges.hpp
+    title: graph/enumerate_bridges.hpp
   - icon: ':x:'
     path: graph/eulerian_trail_in_directed_graph.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\u7248"
@@ -75,7 +75,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/tree/centroid_decomposition.hpp
     title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
   - icon: ':heavy_check_mark:'
@@ -99,17 +99,13 @@ data:
     title: unicyclic graph (1-tree)
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/2-edge-connected_components_imos.test.cpp
+    path: test/graph/2-edge-connected_components_by_imos.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
       \ \u3044\u3082\u3059\u6CD5\u7248"
   - icon: ':x:'
-    path: test/graph/2-edge-connected_components_lowlink.test.cpp
+    path: test/graph/2-edge-connected_components_by_lowlink.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
       \ lowlink \u7248"
-  - icon: ':x:'
-    path: test/graph/biconnected_component.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
-      \u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/chromatic_number.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F69\u8272\u6570"
@@ -118,18 +114,18 @@ data:
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
   - icon: ':heavy_check_mark:'
-    path: test/graph/detect_bridge.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u691C\u51FA"
-  - icon: ':heavy_check_mark:'
     path: test/graph/detect_directed_cycle.test.cpp
     title: "\u30B0\u30E9\u30D5/\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\
       \u30D5\u7248"
+  - icon: ':heavy_check_mark:'
+    path: test/graph/enumerate_bridges.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u5217\u6319"
   - icon: ':x:'
     path: test/graph/eulerian_trail_in_directed_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\
       \u30D5\u7248"
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
+    path: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528\u6D41"
   - icon: ':heavy_check_mark:'
@@ -179,7 +175,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
   - icon: ':heavy_check_mark:'
@@ -206,7 +202,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/basis.test.cpp
     title: "\u6570\u5B66/\u57FA\u5E95"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
   _isVerificationFailed: true
@@ -215,91 +211,91 @@ data:
   attributes:
     document_title: "\u8FBA"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief \u8FBA\r\n */\r\n\r\n#pragma once\r\n\r\ntemplate <typename\
-    \ CostType>\r\nstruct Edge {\r\n  int src, dst; CostType cost;\r\n  Edge(int src,\
-    \ int dst, CostType cost = 0) : src(src), dst(dst), cost(cost) {}\r\n  inline\
-    \ bool operator<(const Edge &x) const {\r\n    return cost != x.cost ? cost <\
-    \ x.cost : dst != x.dst ? dst < x.dst : src < x.src;\r\n  }\r\n  inline bool operator<=(const\
-    \ Edge &x) const { return !(x < *this); }\r\n  inline bool operator>(const Edge\
-    \ &x) const { return x < *this; }\r\n  inline bool operator>=(const Edge &x) const\
-    \ { return !(*this < x); }\r\n};\r\n"
+    \ CostType>\r\nstruct Edge {\r\n  int src, dst;\r\n  CostType cost;\r\n  explicit\
+    \ Edge(const int src, const int dst, const CostType cost = 0)\r\n      : src(src),\
+    \ dst(dst), cost(cost) {}\r\n  inline bool operator<(const Edge& x) const {\r\n\
+    \    if (cost != x.cost) return cost < x.cost;\r\n    return src != x.src ? src\
+    \ < x.src : dst < x.dst;\r\n  }\r\n  inline bool operator<=(const Edge& x) const\
+    \ { return !(x < *this); }\r\n  inline bool operator>(const Edge& x) const { return\
+    \ x < *this; }\r\n  inline bool operator>=(const Edge& x) const { return !(*this\
+    \ < x); }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/edge.hpp
   requiredBy:
-  - graph/girth_in_directed_graph.hpp
-  - graph/chromatic_number.hpp
-  - graph/detect_directed_cycle.hpp
-  - graph/girth_in_undirected_graph.hpp
+  - graph/lowlink.hpp
+  - graph/noshi_graph.hpp
   - graph/shortest_path/bellman-ford.hpp
   - graph/shortest_path/dijkstra.hpp
-  - graph/lowlink.hpp
-  - graph/topological_sort.hpp
-  - graph/tree/centroid.hpp
-  - graph/tree/lowest_common_ancestor_by_doubling.hpp
-  - graph/tree/heavy-light_decomposition.hpp
+  - graph/chromatic_number.hpp
+  - graph/reachability_on_dag.hpp
+  - graph/is_bipartite.hpp
+  - graph/eulerian_trail_in_directed_graph.hpp
+  - graph/connencted_component_of_complement_graph.hpp
+  - graph/unicyclic_graph.hpp
   - graph/tree/centroid_decomposition.hpp
-  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - graph/tree/euler_tour.hpp
+  - graph/tree/heavy-light_decomposition.hpp
+  - graph/tree/lowest_common_ancestor_by_doubling.hpp
+  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - graph/tree/double_sweep.hpp
+  - graph/tree/centroid.hpp
+  - graph/topological_sort.hpp
+  - graph/2-edge-connected_components_by_imos.hpp
   - graph/kruskal.hpp
-  - graph/2-edge-connected_components_lowlink.hpp
   - graph/biconnected_component.hpp
   - graph/prim.hpp
-  - graph/eulerian_trail_in_directed_graph.hpp
-  - graph/detect_bridge.hpp
-  - graph/is_bipartite.hpp
-  - graph/noshi_graph.hpp
-  - graph/2-edge-connected_components_imos.hpp
-  - graph/reachability_on_dag.hpp
   - graph/matrix_tree_theorem.hpp
-  - graph/unicyclic_graph.hpp
   - graph/traveling_salesman_problem.hpp
-  - graph/connencted_component_of_complement_graph.hpp
+  - graph/enumerate_bridges.hpp
+  - graph/girth_in_directed_graph.hpp
+  - graph/detect_directed_cycle.hpp
   - graph/strongly_connected_components.hpp
-  timestamp: '2021-02-09 04:38:15+09:00'
+  - graph/girth_in_undirected_graph.hpp
+  - graph/2-edge-connected_components_by_lowlink.hpp
+  timestamp: '2022-02-14 13:55:33+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/linear_equation.test.cpp
   - test/math/basis.test.cpp
-  - test/graph/detect_directed_cycle.test.cpp
-  - test/graph/reachability_on_dag.test.cpp
-  - test/graph/detect_bridge.test.cpp
-  - test/graph/shortest_path/dijkstra.test.cpp
-  - test/graph/shortest_path/bellman-ford.test.cpp
-  - test/graph/topological_sort.test.cpp
-  - test/graph/girth.test.cpp
+  - test/math/matrix/linear_equation.test.cpp
   - test/graph/lowlink.1.test.cpp
-  - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
-  - test/graph/tree/double_sweep.test.cpp
-  - test/graph/tree/centroid_decomposition.test.cpp
-  - test/graph/tree/heavy-light_decomposition.1.test.cpp
-  - test/graph/tree/heavy-light_decomposition.2.test.cpp
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/graph/tree/centroid.test.cpp
-  - test/graph/noshi_graph.test.cpp
   - test/graph/traveling_salesman_problem.test.cpp
-  - test/graph/unicyclic_graph.test.cpp
-  - test/graph/is_bipartite.test.cpp
-  - test/graph/2-edge-connected_components_lowlink.test.cpp
-  - test/graph/lowlink.2.test.cpp
   - test/graph/strongly_connected_components.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
-  - test/graph/2-edge-connected_components_imos.test.cpp
-  - test/graph/chromatic_number.test.cpp
-  - test/graph/prim.test.cpp
+  - test/graph/2-edge-connected_components_by_imos.test.cpp
+  - test/graph/enumerate_bridges.test.cpp
   - test/graph/eulerian_trail_in_directed_graph.test.cpp
-  - test/graph/biconnected_component.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/graph/shortest_path/bellman-ford.test.cpp
+  - test/graph/shortest_path/dijkstra.test.cpp
+  - test/graph/prim.test.cpp
+  - test/graph/girth.test.cpp
+  - test/graph/topological_sort.test.cpp
+  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
+  - test/graph/tree/double_sweep.test.cpp
+  - test/graph/tree/centroid.test.cpp
+  - test/graph/tree/centroid_decomposition.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
+  - test/graph/tree/heavy-light_decomposition.1.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
+  - test/graph/tree/heavy-light_decomposition.2.test.cpp
   - test/graph/kruskal.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_minimum_flow_constraint.test.cpp
+  - test/graph/is_bipartite.test.cpp
+  - test/graph/reachability_on_dag.test.cpp
+  - test/graph/detect_directed_cycle.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/lowlink.2.test.cpp
+  - test/graph/unicyclic_graph.test.cpp
+  - test/graph/chromatic_number.test.cpp
+  - test/graph/noshi_graph.test.cpp
 documentation_of: graph/edge.hpp
 layout: document
 redirect_from:

@@ -3,39 +3,39 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/euler_phi/euler_phi_init.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/euler_phi/euler_phi.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\
       \u8868"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/euler_phi/euler_phi_init.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
     \u6570\u8868\r\n * @docs docs/math/euler_phi/euler_phi.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <vector>\r\n\r\nstd::vector<int> euler_phi_init(int n) {\r\n\
-    \  std::vector<int> phi(n + 1);\r\n  for (int i = 0; i <= n; ++i) phi[i] = i;\r\
-    \n  for (int i = 2; i <= n; ++i) {\r\n    if (phi[i] == i) {\r\n      for (int\
-    \ j = i; j <= n; j += i) phi[j] -= phi[j] / i;\r\n    }\r\n  }\r\n  return phi;\r\
-    \n}\r\n"
+    \ once\r\n#include <numeric>\r\n#include <vector>\r\n\r\nstd::vector<int> euler_phi_init(const\
+    \ int n) {\r\n  std::vector<int> phi(n + 1);\r\n  std::iota(phi.begin(), phi.end(),\
+    \ 0);\r\n  for (int i = 2; i <= n; ++i) {\r\n    if (phi[i] == i) {\r\n      for\
+    \ (int j = i; j <= n; j += i) {\r\n        phi[j] -= phi[j] / i;\r\n      }\r\n\
+    \    }\r\n  }\r\n  return phi;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/euler_phi/euler_phi_init.hpp
   requiredBy: []
-  timestamp: '2021-02-12 01:21:30+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-17 00:01:08+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/euler_phi/euler_phi_init.test.cpp
 documentation_of: math/euler_phi/euler_phi_init.hpp
@@ -49,7 +49,13 @@ title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\begin{aligned} \varphi(n) &= \# \lbrace k \in \mathbb{N} \mid k \perp n,\ 1 \leq k \leq n \rbrace \\ &= n \prod_i \left(1 - \frac{1}{p_i}\right) \ (p_i \text{ : } n \text{ の素因数}) \text{．} \end{aligned}$$
+$$\varphi(n) \mathrel{:=} \# \lbrace k \in \lbrace 1, 2, \ldots, n \rbrace \mid k \perp n \rbrace$$
+
+と定義される $\varphi(n)$ である．
+
+$$\varphi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right)$$
+
+が成り立つ．
 
 
 ### オイラーの定理
@@ -63,7 +69,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 |:--:|:--:|
 ||$O(\sqrt{N})$|
 |数表|$O(N\log{\log{N}})$|
-|数表2|$O(\sqrt{H}\log{\log{\sqrt{H}}} + \frac{(H - L)\sqrt{H}}{\log{H}})$ ?|
+|数表2|$O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?|
 
 
 ## 使用法
@@ -76,13 +82,13 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 ||説明|
 |:--:|:--:|
-|`euler_phi_init(n)`|$\varphi(i) \ (1 \leq i \leq \mathrm{n})$ の数表|
+|`euler_phi_init(n)`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
 
 - 数表2
 
 ||説明|
 |:--:|:--:|
-|`euler_phi_init2(low, high)`|$\varphi(i) \ (\mathrm{low} \leq i \leq \mathrm{high})$ の数表|
+|`euler_phi_init2(low, high)`|$\varphi(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
 
 
 ## 参考

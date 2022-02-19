@@ -12,50 +12,51 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/dijkstra.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/graph/shortest_path/sssp.md
+    _deprecated_at_docs: docs/graph/shortest_path/single-source_shortest_path_problem.md
     document_title: "Dijkstra \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/shortest_path/dijkstra.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\n * @brief Dijkstra \u6CD5\n * @docs docs/graph/shortest_path/sssp.md\n\
+  code: "/**\n * @brief Dijkstra \u6CD5\n * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md\n\
     \ */\n\n#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
     #include <limits>\n#include <queue>\n#include <tuple>\n#include <utility>\n#include\
-    \ <vector>\n#include \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct Dijkstra\
-    \ {\n  const CostType inf;\n\n  Dijkstra(const std::vector<std::vector<Edge<CostType>>>\
-    \ &graph,\n           const CostType inf = std::numeric_limits<CostType>::max())\n\
-    \  : graph(graph), inf(inf) {}\n\n  std::vector<CostType> build(int s) {\n   \
-    \ is_built = true;\n    int n = graph.size();\n    std::vector<CostType> dist(n,\
-    \ inf);\n    dist[s] = 0;\n    prev.assign(n, -1);\n    using Pci = std::pair<CostType,\
-    \ int>;\n    std::priority_queue<Pci, std::vector<Pci>, std::greater<Pci>> que;\n\
-    \    que.emplace(0, s);\n    while (!que.empty()) {\n      CostType cost; int\
-    \ ver; std::tie(cost, ver) = que.top(); que.pop();\n      if (dist[ver] < cost)\
-    \ continue;\n      for (const Edge<CostType> &e : graph[ver]) {\n        if (dist[e.dst]\
-    \ > dist[ver] + e.cost) {\n          dist[e.dst] = dist[ver] + e.cost;\n     \
-    \     prev[e.dst] = ver;\n          que.emplace(dist[e.dst], e.dst);\n       \
-    \ }\n      }\n    }\n    return dist;\n  }\n\n  std::vector<int> build_path(int\
-    \ t) const {\n    assert(is_built);\n    std::vector<int> res;\n    for (; t !=\
-    \ -1; t = prev[t]) res.emplace_back(t);\n    std::reverse(res.begin(), res.end());\n\
-    \    return res;\n  }\n\nprivate:\n  bool is_built = false;\n  std::vector<std::vector<Edge<CostType>>>\
-    \ graph;\n  std::vector<int> prev;\n};\n"
+    \ <vector>\n\n#include \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct\
+    \ Dijkstra {\n  const CostType inf;\n\n  Dijkstra(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n           const CostType inf = std::numeric_limits<CostType>::max())\n\
+    \      : inf(inf), is_built(false), graph(graph) {}\n\n  std::vector<CostType>\
+    \ build(const int s) {\n    is_built = true;\n    const int n = graph.size();\n\
+    \    std::vector<CostType> dist(n, inf);\n    dist[s] = 0;\n    prev.assign(n,\
+    \ -1);\n    std::priority_queue<std::pair<CostType, int>,\n                  \
+    \      std::vector<std::pair<CostType, int>>,\n                        std::greater<std::pair<CostType,\
+    \ int>>> que;\n    que.emplace(0, s);\n    while (!que.empty()) {\n      CostType\
+    \ d;\n      int ver;\n      std::tie(d, ver) = que.top();\n      que.pop();\n\
+    \      if (d > dist[ver]) continue;\n      for (const Edge<CostType>& e : graph[ver])\
+    \ {\n        if (dist[ver] + e.cost < dist[e.dst]) {\n          dist[e.dst] =\
+    \ dist[ver] + e.cost;\n          prev[e.dst] = ver;\n          que.emplace(dist[e.dst],\
+    \ e.dst);\n        }\n      }\n    }\n    return dist;\n  }\n\n  std::vector<int>\
+    \ build_path(int t) const {\n    assert(is_built);\n    std::vector<int> res;\n\
+    \    for (; t != -1; t = prev[t]) {\n      res.emplace_back(t);\n    }\n    std::reverse(res.begin(),\
+    \ res.end());\n    return res;\n  }\n\n private:\n  bool is_built;\n  std::vector<int>\
+    \ prev;\n  std::vector<std::vector<Edge<CostType>>> graph;\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/shortest_path/dijkstra.hpp
   requiredBy: []
-  timestamp: '2021-02-13 06:42:09+09:00'
+  timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
@@ -68,14 +69,9 @@ redirect_from:
 - /library/graph/shortest_path/dijkstra.hpp.html
 title: "Dijkstra \u6CD5"
 ---
-# 単一始点最短路問題 (single-source shortest path)
+# 単一始点最短路問題 (single-source shortest path problem)
 
-ある始点から他の任意の頂点までの最短路を求める問題である．
-
-|アルゴリズム|注意|
-|:--:|:--:|
-|Bellman-Ford 法|負の重みをもつ辺が存在していてもよい．|
-|Dijkstra 法|負の重みをもつ辺が存在してはいけない．|
+始点から他の任意の頂点までの最短路を求める問題である．
 
 
 ## 時間計算量
@@ -94,9 +90,9 @@ title: "Dijkstra \u6CD5"
 |:--:|:--:|:--:|
 |`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
 |`inf`|$\infty$||
-|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達不可能ならば $\infty$ となる．|
+|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達できなければ $\infty$ となる．|
 |`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
-|`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
+|`build_path(t)`|終点 $t$ の最短路|到達できなければ空配列となる．|
 
 - Dijkstra 法
 
@@ -104,8 +100,8 @@ title: "Dijkstra \u6CD5"
 |:--:|:--:|:--:|
 |`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
 |`inf`|$\infty$||
-|`build(s)`|始点 $s$ の単一始点最短路||
-|`build_path(t)`|終点 $t$ の最短路|到達不可能ならば空配列となる．|
+|`build(s)`|始点 $s$ の単一始点最短路|到達できなければ $\infty$ となる．|
+|`build_path(t)`|終点 $t$ の最短路|到達できならば空配列となる．|
 
 
 ## 参考
@@ -119,7 +115,7 @@ Dijkstra 法
 
 ## ToDo
 
-- Shortest Path Faster Algorithm
+- shortest path faster algorithm
   - https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm
   - https://dic.kimiyuki.net/spfa
   - http://hogloid.hatenablog.com/entry/20120409/1333973448
@@ -154,7 +150,7 @@ Dijkstra 法
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://judge.yosupo.jp/problem/k_shortest_walk
-- $O(\sqrt{N} M \log{C})$
+- $O(\sqrt{N}M\log{C})$
   - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
 - Dial's algorithm
   - https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Specialized_variants

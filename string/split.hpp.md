@@ -12,22 +12,23 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"string/split.hpp\"\n#include <string>\r\n#include <vector>\r\
-    \n\r\nstd::vector<std::string> split(const std::string &s, const std::string &delimiter)\
-    \ {\r\n  std::vector<std::string> res;\r\n  int pos = 0;\r\n  while (true) {\r\
-    \n    int del_pos = s.find(delimiter, pos);\r\n    if (del_pos == s.npos) break;\r\
-    \n    res.emplace_back(s.substr(pos, del_pos - pos));\r\n    pos = del_pos + delimiter.length();\r\
-    \n  }\r\n  res.emplace_back(s.substr(pos));\r\n  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\nstd::vector<std::string>\
-    \ split(const std::string &s, const std::string &delimiter) {\r\n  std::vector<std::string>\
-    \ res;\r\n  int pos = 0;\r\n  while (true) {\r\n    int del_pos = s.find(delimiter,\
-    \ pos);\r\n    if (del_pos == s.npos) break;\r\n    res.emplace_back(s.substr(pos,\
-    \ del_pos - pos));\r\n    pos = del_pos + delimiter.length();\r\n  }\r\n  res.emplace_back(s.substr(pos));\r\
+    \n\r\nstd::vector<std::string> split(\r\n    const std::string& s, const std::string&\
+    \ delimiter) {\r\n  std::vector<std::string> res;\r\n  int pos = 0;\r\n  while\
+    \ (true) {\r\n    const int pos_to_del = s.find(delimiter, pos);\r\n    if (pos_to_del\
+    \ == s.npos) break;\r\n    res.emplace_back(s.substr(pos, pos_to_del - pos));\r\
+    \n    pos = pos_to_del + delimiter.length();\r\n  }\r\n  res.emplace_back(s.substr(pos));\r\
     \n  return res;\r\n}\r\n"
+  code: "#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\nstd::vector<std::string>\
+    \ split(\r\n    const std::string& s, const std::string& delimiter) {\r\n  std::vector<std::string>\
+    \ res;\r\n  int pos = 0;\r\n  while (true) {\r\n    const int pos_to_del = s.find(delimiter,\
+    \ pos);\r\n    if (pos_to_del == s.npos) break;\r\n    res.emplace_back(s.substr(pos,\
+    \ pos_to_del - pos));\r\n    pos = pos_to_del + delimiter.length();\r\n  }\r\n\
+    \  res.emplace_back(s.substr(pos));\r\n  return res;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: string/split.hpp
   requiredBy: []
-  timestamp: '2021-02-09 04:38:15+09:00'
+  timestamp: '2022-02-08 18:47:07+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/split.test.cpp

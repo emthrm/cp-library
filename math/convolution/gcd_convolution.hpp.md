@@ -3,21 +3,21 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/convolution/gcd_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 gcd \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/gcd_convolution.hpp: line 6: #pragma once found in a non-first\
@@ -26,18 +26,19 @@ data:
     \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
     \n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
     \ gcd_convolution(std::vector<T> a, std::vector<T> b) {\r\n  const int n = std::max(a.size(),\
-    \ b.size());\r\n  a.resize(n, 0);\r\n  b.resize(n, 0);\r\n  auto transform = [&](std::vector<T>\
-    \ &v) -> void {\r\n    for (int i = 1; i < n; ++i) {\r\n      for (int j = i <<\
-    \ 1; j < n; j += i) v[i] += v[j];\r\n    }\r\n  };\r\n  transform(a);\r\n  transform(b);\r\
-    \n  for (int i = 1; i < n; ++i) a[i] *= b[i];\r\n  for (int i = n - 1; i >= 1;\
-    \ --i) {\r\n    for (int j = i << 1; j < n; j += i) a[i] -= a[j];\r\n  }\r\n \
-    \ return a;\r\n}\r\n"
+    \ b.size());\r\n  const auto transform = [n](std::vector<T>* v) -> void {\r\n\
+    \    for (int i = 1; i < n; ++i) {\r\n      for (int j = i << 1; j < n; j += i)\
+    \ {\r\n        (*v)[i] += (*v)[j];\r\n      }\r\n    }\r\n  };\r\n  a.resize(n,\
+    \ 0);\r\n  transform(&a);\r\n  b.resize(n, 0);\r\n  transform(&b);\r\n  for (int\
+    \ i = 1; i < n; ++i) {\r\n    a[i] *= b[i];\r\n  }\r\n  for (int i = n - 1; i\
+    \ >= 1; --i) {\r\n    for (int j = i << 1; j < n; j += i) {\r\n      a[i] -= a[j];\r\
+    \n    }\r\n  }\r\n  return a;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/gcd_convolution.hpp
   requiredBy: []
-  timestamp: '2021-08-18 00:31:23+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-16 22:30:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/convolution/gcd_convolution.test.cpp
 documentation_of: math/convolution/gcd_convolution.hpp
@@ -49,19 +50,19 @@ title: "\u6DFB\u3048\u5B57 gcd \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
 - 添え字 and での畳み込み
 
-  $$C_k = \sum_{k = i \land j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \land j} A_i B_j$$
 
 - 添え字 or での畳み込み
 
-  $$C_k = \sum_{k = i \lor j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \lor j} A_i B_j$$
 
 - 添え字 xor での畳み込み
 
-  $$C_k = \sum_{k = i \oplus j} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = i \oplus j} A_i B_j$$
 
 - 添え字 gcd での畳み込み
 
-  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j \text{．}$$
+  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
 
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
@@ -145,6 +146,11 @@ $O(N\log{N})$
   - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
   - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
   - https://atcoder.jp/contests/kupc2021/submissions/26987105
+- relaxed multiplication
+  - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
+  - https://atcoder.jp/contests/abc230/tasks/abc230_h
+  - https://atcoder.jp/contests/abc230/editorial/3036
+  - https://twitter.com/noshi91/status/1466764432961585166
 
 
 ## Verified

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/morris-pratt.1.test.cpp
     title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))"
   - icon: ':x:'
@@ -11,38 +11,38 @@ data:
     title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/string/knuth-morris-pratt.md
     document_title: Morris-Pratt algorithm
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.0/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
   code: "/**\r\n * @brief Morris-Pratt algorithm\r\n * @docs docs/string/knuth-morris-pratt.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\nstruct\
-    \ MorrisPratt {\r\n  std::vector<int> border;\r\n\r\n  MorrisPratt(const std::string\
-    \ &s) : str(s) {\r\n    int n = str.length();\r\n    border.assign(1, -1);\r\n\
-    \    for (int i = 0; i < n; ++i) solve(i);\r\n  }\r\n\r\n  void add(char c) {\r\
-    \n    int idx = str.length();\r\n    str += c;\r\n    solve(idx);\r\n  }\r\n\r\
-    \n  std::vector<int> match(const std::string &t) const {\r\n    int n = str.length(),\
-    \ m = t.length();\r\n    std::vector<int> res;\r\n    int k = 0;\r\n    for (int\
-    \ i = 0; i < m; ++i) {\r\n      while (k >= 0 && t[i] != str[k]) k = border[k];\r\
-    \n      if (++k == n) res.emplace_back(i - n + 1);\r\n    }\r\n    return res;\r\
-    \n  }\r\n\r\n  int period(int idx) const { return idx - border[idx]; }\r\n\r\n\
-    private:\r\n  int j = -1;\r\n  std::string str;\r\n\r\n  void solve(int idx) {\r\
-    \n    while (j >= 0 && str[idx] != str[j]) j = border[j];\r\n    border.emplace_back(++j);\r\
+    \ MorrisPratt {\r\n  std::string s;\r\n  std::vector<int> border;\r\n\r\n  explicit\
+    \ MorrisPratt(const std::string& s) : s(s), border({-1}), j(-1) {\r\n    const\
+    \ int n = s.length();\r\n    for (int i = 0; i < n; ++i) {\r\n      solve(i);\r\
+    \n    }\r\n  }\r\n\r\n  void add(const char c) {\r\n    s += c;\r\n    solve(s.length()\
+    \ - 1);\r\n  }\r\n\r\n  std::vector<int> match(const std::string& t) const {\r\
+    \n    const int n = s.length(), m = t.length();\r\n    std::vector<int> res;\r\
+    \n    for (int i = 0, k = 0; i < m; ++i) {\r\n      while (k >= 0 && t[i] != s[k])\
+    \ k = border[k];\r\n      if (++k == n) res.emplace_back(i - n + 1);\r\n    }\r\
+    \n    return res;\r\n  }\r\n\r\n  int period(const int idx) const { return idx\
+    \ - border[idx]; }\r\n\r\n private:\r\n  int j;\r\n\r\n  void solve(const int\
+    \ idx) {\r\n    while (j >= 0 && s[idx] != s[j]) j = border[j];\r\n    border.emplace_back(++j);\r\
     \n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: string/morris-pratt.hpp
   requiredBy: []
-  timestamp: '2021-04-28 01:24:53+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-02-16 15:47:44+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/morris-pratt.1.test.cpp
   - test/string/morris-pratt.2.test.cpp
@@ -55,7 +55,7 @@ title: Morris-Pratt algorithm
 ---
 # Knuth-Morris-Pratt algorithm
 
-ある文字列 $S$ について `S[0:i]` の接頭辞と接尾辞の最大共通文字数 $(< i)$ を求めるアルゴリズムである．
+文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである．
 
 
 ## 時間計算量
@@ -67,7 +67,7 @@ title: Morris-Pratt algorithm
 |処理|時間計算量|
 |:--:|:--:|
 |前処理|$O(N)$|
-|更新|$\text{amortized } O(N)$ ?|
+|更新|amortized $O(N)$ ?|
 |パターンマッチング|$O(M)$|
 
 - Knuth-Morris-Pratt algorithm
@@ -82,6 +82,7 @@ $$\langle O(N), O(M) \rangle$$
 ||説明|
 |:--:|:--:|
 |`MorrisPratt(s)`|文字列 $S$ の Morris-Pratt algorithm を考える．|
+|`str`|文字列 $S$|
 |`border[i]`|`S[0:i]` の最長 border 長|
 |`add(c)`|$S$ に文字 $c$ を追加する．|
 |`match(t)`|$S$ が出現する文字列 $T$ 中の位置|

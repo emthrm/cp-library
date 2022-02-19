@@ -1,50 +1,50 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/osa_k.test.cpp
     title: "\u6570\u5B66/osa_k \u6CD5"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/osa_k.hpp\"\n#include <utility>\r\n#include <vector>\r\
-    \n#line 2 \"math/prime_sieve.hpp\"\n#include <numeric>\r\n#line 4 \"math/prime_sieve.hpp\"\
-    \n\r\nstd::vector<int> prime_sieve(int n, bool get_only_prime) {\r\n  std::vector<int>\
-    \ prime, smallest_prime_factor(n + 1);\r\n  std::iota(smallest_prime_factor.begin(),\
+    \n\r\n#line 2 \"math/prime_sieve.hpp\"\n#include <numeric>\r\n#line 4 \"math/prime_sieve.hpp\"\
+    \n\r\nstd::vector<int> prime_sieve(const int n, const bool get_only_prime) {\r\
+    \n  std::vector<int> smallest_prime_factor(n + 1), prime;\r\n  std::iota(smallest_prime_factor.begin(),\
     \ smallest_prime_factor.end(), 0);\r\n  for (int i = 2; i <= n; ++i) {\r\n   \
-    \ if (smallest_prime_factor[i] == i) prime.emplace_back(i);\r\n    for (int p\
-    \ : prime) {\r\n      if (i * p > n || p > smallest_prime_factor[i]) break;\r\n\
-    \      smallest_prime_factor[i * p] = p;\r\n    }\r\n  }\r\n  return get_only_prime\
-    \ ? prime : smallest_prime_factor;\r\n}\r\n#line 5 \"math/osa_k.hpp\"\n\r\nstruct\
-    \ osa_k {\r\n  std::vector<int> smallest_prime_factor;\r\n\r\n  osa_k(int n =\
-    \ 10000000) : smallest_prime_factor(prime_sieve(n, false)) {}\r\n\r\n  std::vector<std::pair<int,\
-    \ int>> query(int n) const {\r\n    std::vector<std::pair<int, int>> res;\r\n\
-    \    while (n > 1) {\r\n      int prime = smallest_prime_factor[n], exponent =\
-    \ 0;\r\n      while (smallest_prime_factor[n] == prime) {\r\n        ++exponent;\r\
-    \n        n /= prime;\r\n      }\r\n      res.emplace_back(prime, exponent);\r\
-    \n    }\r\n    return res;\r\n  }\r\n};\r\n"
-  code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n#include \"prime_sieve.hpp\"\
-    \r\n\r\nstruct osa_k {\r\n  std::vector<int> smallest_prime_factor;\r\n\r\n  osa_k(int\
-    \ n = 10000000) : smallest_prime_factor(prime_sieve(n, false)) {}\r\n\r\n  std::vector<std::pair<int,\
-    \ int>> query(int n) const {\r\n    std::vector<std::pair<int, int>> res;\r\n\
-    \    while (n > 1) {\r\n      int prime = smallest_prime_factor[n], exponent =\
-    \ 0;\r\n      while (smallest_prime_factor[n] == prime) {\r\n        ++exponent;\r\
-    \n        n /= prime;\r\n      }\r\n      res.emplace_back(prime, exponent);\r\
-    \n    }\r\n    return res;\r\n  }\r\n};\r\n"
+    \ if (smallest_prime_factor[i] == i) prime.emplace_back(i);\r\n    for (const\
+    \ int p : prime) {\r\n      if (i * p > n || p > smallest_prime_factor[i]) break;\r\
+    \n      smallest_prime_factor[i * p] = p;\r\n    }\r\n  }\r\n  return get_only_prime\
+    \ ? prime : smallest_prime_factor;\r\n}\r\n#line 6 \"math/osa_k.hpp\"\n\r\nstruct\
+    \ OsaK {\r\n  const std::vector<int> smallest_prime_factor;\r\n\r\n  explicit\
+    \ OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false)) {}\r\n\r\n\
+    \  std::vector<std::pair<int, int>> query(int n) const {\r\n    std::vector<std::pair<int,\
+    \ int>> res;\r\n    while (n > 1) {\r\n      const int prime = smallest_prime_factor[n];\r\
+    \n      int exponent = 0;\r\n      for (; smallest_prime_factor[n] == prime; n\
+    \ /= prime) {\r\n        ++exponent;\r\n      }\r\n      res.emplace_back(prime,\
+    \ exponent);\r\n    }\r\n    return res;\r\n  }\r\n};\r\n"
+  code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\n#include \"\
+    prime_sieve.hpp\"\r\n\r\nstruct OsaK {\r\n  const std::vector<int> smallest_prime_factor;\r\
+    \n\r\n  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false))\
+    \ {}\r\n\r\n  std::vector<std::pair<int, int>> query(int n) const {\r\n    std::vector<std::pair<int,\
+    \ int>> res;\r\n    while (n > 1) {\r\n      const int prime = smallest_prime_factor[n];\r\
+    \n      int exponent = 0;\r\n      for (; smallest_prime_factor[n] == prime; n\
+    \ /= prime) {\r\n        ++exponent;\r\n      }\r\n      res.emplace_back(prime,\
+    \ exponent);\r\n    }\r\n    return res;\r\n  }\r\n};\r\n"
   dependsOn:
   - math/prime_sieve.hpp
   isVerificationFile: false
   path: math/osa_k.hpp
   requiredBy: []
-  timestamp: '2021-02-27 06:50:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-02-19 03:53:07+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/osa_k.test.cpp
 documentation_of: math/osa_k.hpp
@@ -65,7 +65,7 @@ $\langle O(N), O(\log{N}) \rangle$
 ||説明|
 |:--:|:--:|
 |`smallest_prime_factor[i]`|$i$ の最小素因数|
-|`osa_k(n = 10000000)`|$n$ 以下における osa_k 法を考える．|
+|`OsaK(n)`|$n$ 以下における osa_k 法を考える．|
 |`query(n)`|$n$ の素因数分解|
 
 
