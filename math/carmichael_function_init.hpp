@@ -1,6 +1,6 @@
 /**
  * @brief カーマイケル関数の数表
- * @docs docs/math/carmichal_function.md
+ * @docs docs/math/carmichael_function.md
  */
 
 #pragma once

@@ -16,7 +16,7 @@ struct CentroidDecomposition {
     parent.assign(n, -1);
     g.resize(n);
     is_alive.assign(n, true);
-    subtree.assign(n, 1);
+    subtree.resize(n);
     root = build(0);
   }
 
@@ -39,6 +39,7 @@ struct CentroidDecomposition {
   }
 
   int calc_subtree(const int par, const int ver) {
+    subtree[ver] = 1;
     for (const Edge<CostType>& e : graph[ver]) {
       if (e.dst != par && is_alive[e.dst]) {
         subtree[ver] += calc_subtree(ver, e.dst);

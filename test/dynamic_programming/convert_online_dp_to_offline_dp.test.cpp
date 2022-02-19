@@ -35,7 +35,7 @@ int main() {
         for (int id = 0; id < m; ++id) {
           std::vector<ModInt> dp_id(mid - l), p_id(r - l);
           std::copy(std::next(dp[a[id]].begin(), l),
-                    std::next(dp[a[id]].begin() + mid), dp_id.begin());
+                    std::next(dp[a[id]].begin(), mid), dp_id.begin());
           std::copy(p[id].begin(), std::next(p[id].begin(), r - l),
                     p_id.begin());
           std::vector<ModInt> c = ntt.convolution(dp_id, p_id);
