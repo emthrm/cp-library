@@ -108,4 +108,4 @@ $O(N\log{N})$
 - [添え字 and での畳み込み](https://judge.yosupo.jp/submission/32176)
 - 添え字 or での畳み込み
 - [添え字 xor での畳み込み](https://judge.yosupo.jp/submission/32459)
-- [添え字 gcd での畳み込み](https://atcoder.jp/contests/agc038/submissions/9311349)
+- [添え字 gcd での畳み込み](https://judge.yosupo.jp/submission/79257)
