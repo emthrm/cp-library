@@ -1,0 +1,47 @@
+name: cpplint
+
+on: push
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+
+      - name: Install dependencies
+        run: pip install cpplint
+
+      - name: Get specific changed files
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v16
+        with:
+          files: |
+            **/*.cpp
+            **/*.hpp
+
+      - name: Run tests
+        run: |
+          for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
+            case "$file" in
+              "data_structure/binary_trie.hpp" | "string/aho-corasick.hpp" )
+                cpplint --filter=-build/include_what_you_use,-legal/copyright,-runtime/int $file ;;
+              "math/bigint.hpp" | "math/modint.hpp" | "math/rational.hpp" )
+                cpplint --filter=-legal/copyright,-runtime/explicit,-runtime/int,-whitespace/blank_line $file ;;
+              "util/template.hpp" )
+                ;;  # skip
+              "util/timer.hpp" )
+                cpplint --filter=-build/c++11,-legal/copyright,-runtime/int $file ;;
+              "util/xorshift.hpp" )
+                cpplint --filter=-legal/copyright,-runtime/int,-runtime/threadsafe_fn $file ;;
+              *.test.cpp )
+                cpplint --filter=-legal/copyright,-runtime/int,-whitespace/line_length $file ;;
+              * )
+                cpplint --filter=-legal/copyright,-runtime/int $file ;;
+            esac
+          done
