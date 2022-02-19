@@ -1,6 +1,6 @@
 ---
 title: 区間を std::set で管理するやつ
-documentation_of: data_structure/set_managed_by_interval.hpp
+documentation_of: data_structure/interval_managed_by_set.hpp
 ---
 
 閉区間を `std::set` によって管理するデータ構造である．
