@@ -305,7 +305,7 @@ struct BigInt {
     assert(!x.data.empty());
     const int k = B / (x.data.back() + 1);
     const BigInt dividend = (sgn == 1 ? *this : -*this) * k;
-    const BigInt divisor = (sgn == 1 ? x : -x) * k;
+    const BigInt divisor = (x.sgn == 1 ? x : -x) * k;
     BigInt quo, rem = 0;
     quo.data.resize(dividend.data.size());
     const int n = divisor.data.size();
