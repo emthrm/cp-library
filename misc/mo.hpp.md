@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/mo.hpp\"\n#include <algorithm>\r\n#include <cmath>\r\
@@ -46,7 +46,7 @@ data:
   path: misc/mo.hpp
   requiredBy: []
   timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/mo.test.cpp
 documentation_of: misc/mo.hpp

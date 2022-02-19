@@ -12,7 +12,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/dijkstra.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
   _isVerificationFailed: true

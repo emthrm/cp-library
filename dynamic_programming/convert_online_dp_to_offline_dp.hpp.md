@@ -3,36 +3,36 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
     \n#include <functional>\r\n\r\nvoid convert_online_dp_to_offline_dp(\r\n    const\
-    \ int n, const std::function<void(int, int, int)> induce) {\r\n  std::function<void(const\
-    \ int, const int)> solve =\r\n      [&solve, induce](const int l, const int r)\
+    \ int n, const std::function<void(int, int, int)> induce) {\r\n  const std::function<void(const\
+    \ int, const int)> solve =\r\n      [induce, &solve](const int l, const int r)\
     \ -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l) <- dp(l) \uFF65\
     \ b_l\r\n          return;\r\n        }\r\n        const int m = (l + r) >> 1;\r\
     \n        solve(l, m);\r\n        induce(l, m, r);\r\n        solve(m, r);\r\n\
     \      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
   code: "#pragma once\r\n#include <functional>\r\n\r\nvoid convert_online_dp_to_offline_dp(\r\
-    \n    const int n, const std::function<void(int, int, int)> induce) {\r\n  std::function<void(const\
-    \ int, const int)> solve =\r\n      [&solve, induce](const int l, const int r)\
-    \ -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l) <- dp(l) \uFF65\
-    \ b_l\r\n          return;\r\n        }\r\n        const int m = (l + r) >> 1;\r\
-    \n        solve(l, m);\r\n        induce(l, m, r);\r\n        solve(m, r);\r\n\
-    \      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
+    \n    const int n, const std::function<void(int, int, int)> induce) {\r\n  const\
+    \ std::function<void(const int, const int)> solve =\r\n      [induce, &solve](const\
+    \ int l, const int r) -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l)\
+    \ <- dp(l) \uFF65 b_l\r\n          return;\r\n        }\r\n        const int m\
+    \ = (l + r) >> 1;\r\n        solve(l, m);\r\n        induce(l, m, r);\r\n    \
+    \    solve(m, r);\r\n      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
   requiredBy: []
-  timestamp: '2022-02-12 20:37:17+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-02-19 19:36:06+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
 documentation_of: dynamic_programming/convert_online_dp_to_offline_dp.hpp

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_prime.test.cpp
     title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/is_prime.hpp\"\n\r\nbool is_prime(const long long n)\
@@ -22,7 +22,7 @@ data:
   path: math/is_prime.hpp
   requiredBy: []
   timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_prime.test.cpp
 documentation_of: math/is_prime.hpp

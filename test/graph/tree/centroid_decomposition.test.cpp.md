@@ -4,17 +4,17 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/centroid_decomposition.hpp
     title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/convolution/fast_fourier_transform.hpp
     title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/frequency_table_of_tree_distance
@@ -70,8 +70,8 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid_decomposition.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 22:30:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-02-19 19:36:06+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid_decomposition.test.cpp
 layout: document

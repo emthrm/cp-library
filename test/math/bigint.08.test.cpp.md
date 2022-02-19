@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/bigint.hpp
     title: "\u591A\u500D\u9577\u6574\u6570"
   _extendedRequiredBy: []

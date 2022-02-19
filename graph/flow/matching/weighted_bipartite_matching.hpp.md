@@ -12,12 +12,12 @@ data:
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E8C\
       \u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\u30DE\u30C3\
       \u30C1\u30F3\u30B0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.01.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/graph/flow/matching/matching.md
     document_title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\
@@ -56,7 +56,7 @@ data:
   path: graph/flow/matching/weighted_bipartite_matching.hpp
   requiredBy: []
   timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/bigint.01.test.cpp
   - test/graph/flow/matching/weighted_bipartite_matching.test.cpp

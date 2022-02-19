@@ -4,10 +4,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: dynamic_programming/subset_sum_problem.hpp
     title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'

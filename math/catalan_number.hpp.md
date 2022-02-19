@@ -6,12 +6,12 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/catalan_number.test.cpp
     title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/catalan_number.hpp\"\n#include <vector>\r\n\r\n#line\
@@ -153,7 +153,7 @@ data:
   path: math/catalan_number.hpp
   requiredBy: []
   timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/catalan_number.test.cpp
 documentation_of: math/catalan_number.hpp

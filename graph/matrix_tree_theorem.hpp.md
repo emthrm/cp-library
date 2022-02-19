@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'

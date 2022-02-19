@@ -6,12 +6,12 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -28,20 +28,20 @@ data:
     \n  std::vector<int> parent;\r\n  std::vector<std::vector<int>> g;\r\n\r\n  explicit\
     \ CentroidDecomposition(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
     \ graph)\r\n      : graph(graph) {\r\n    const int n = graph.size();\r\n    parent.assign(n,\
-    \ -1);\r\n    g.resize(n);\r\n    is_alive.assign(n, true);\r\n    subtree.assign(n,\
-    \ 1);\r\n    root = build(0);\r\n  }\r\n\r\n private:\r\n  std::vector<bool> is_alive;\r\
+    \ -1);\r\n    g.resize(n);\r\n    is_alive.assign(n, true);\r\n    subtree.resize(n);\r\
+    \n    root = build(0);\r\n  }\r\n\r\n private:\r\n  std::vector<bool> is_alive;\r\
     \n  std::vector<int> subtree;\r\n  const std::vector<std::vector<Edge<CostType>>>\
     \ graph;\r\n\r\n  int build(const int s) {\r\n    const int centroid = search_centroid(-1,\
     \ s, calc_subtree(-1, s) / 2);\r\n    is_alive[centroid] = false;\r\n    for (const\
     \ Edge<CostType>& e : graph[centroid]) {\r\n      if (is_alive[e.dst]) {\r\n \
     \       g[centroid].emplace_back(build(e.dst));\r\n        parent[e.dst] = centroid;\r\
     \n      }\r\n    }\r\n    is_alive[centroid] = true;\r\n    return centroid;\r\
-    \n  }\r\n\r\n  int calc_subtree(const int par, const int ver) {\r\n    for (const\
-    \ Edge<CostType>& e : graph[ver]) {\r\n      if (e.dst != par && is_alive[e.dst])\
-    \ {\r\n        subtree[ver] += calc_subtree(ver, e.dst);\r\n      }\r\n    }\r\
-    \n    return subtree[ver];\r\n  }\r\n\r\n  int search_centroid(const int par,\
-    \ const int ver, const int half) const {\r\n    for (const Edge<CostType>& e :\
-    \ graph[ver]) {\r\n      if (e.dst != par && is_alive[e.dst] && subtree[e.dst]\
+    \n  }\r\n\r\n  int calc_subtree(const int par, const int ver) {\r\n    subtree[ver]\
+    \ = 1;\r\n    for (const Edge<CostType>& e : graph[ver]) {\r\n      if (e.dst\
+    \ != par && is_alive[e.dst]) {\r\n        subtree[ver] += calc_subtree(ver, e.dst);\r\
+    \n      }\r\n    }\r\n    return subtree[ver];\r\n  }\r\n\r\n  int search_centroid(const\
+    \ int par, const int ver, const int half) const {\r\n    for (const Edge<CostType>&\
+    \ e : graph[ver]) {\r\n      if (e.dst != par && is_alive[e.dst] && subtree[e.dst]\
     \ > half) {\r\n        return search_centroid(ver, e.dst, half);\r\n      }\r\n\
     \    }\r\n    return ver;\r\n  }\r\n};\r\n"
   dependsOn:
@@ -49,8 +49,8 @@ data:
   isVerificationFile: false
   path: graph/tree/centroid_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-02-19 19:36:06+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: graph/tree/centroid_decomposition.hpp

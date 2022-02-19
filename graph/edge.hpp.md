@@ -75,7 +75,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/tree/centroid_decomposition.hpp
     title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
   - icon: ':heavy_check_mark:'
@@ -175,7 +175,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
   - icon: ':heavy_check_mark:'
@@ -202,7 +202,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/basis.test.cpp
     title: "\u6570\u5B66/\u57FA\u5E95"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
   _isVerificationFailed: true

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/morris-pratt.1.test.cpp
     title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))"
   - icon: ':x:'
@@ -11,7 +11,7 @@ data:
     title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/string/knuth-morris-pratt.md
     document_title: Morris-Pratt algorithm
@@ -42,7 +42,7 @@ data:
   path: string/morris-pratt.hpp
   requiredBy: []
   timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/string/morris-pratt.1.test.cpp
   - test/string/morris-pratt.2.test.cpp

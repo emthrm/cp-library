@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/binary_matrix/binary_matrix.hpp
     title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/binary_matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/184
@@ -47,7 +47,7 @@ data:
   path: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
   requiredBy: []
   timestamp: '2022-02-17 20:33:52+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
 layout: document

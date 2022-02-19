@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/enumerate_quotients.test.cpp
     title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/enumerate_quotients.hpp\"\n#include <tuple>\r\n#include\
@@ -26,7 +26,7 @@ data:
   path: math/enumerate_quotients.hpp
   requiredBy: []
   timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/enumerate_quotients.test.cpp
 documentation_of: math/enumerate_quotients.hpp

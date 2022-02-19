@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/kita_masa.test.cpp
     title: "\u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/kita_masa.hpp\"\n#include <algorithm>\r\n#include <iterator>\r\
@@ -56,7 +56,7 @@ data:
   path: math/kita_masa.hpp
   requiredBy: []
   timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/kita_masa.test.cpp
 documentation_of: math/kita_masa.hpp

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/rotate.test.cpp
     title: "\u305D\u306E\u4ED6/\u56DE\u8EE2"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/rotate.hpp\"\n#include <cassert>\r\n#include <vector>\r\
@@ -40,7 +40,7 @@ data:
   path: misc/rotate.hpp
   requiredBy: []
   timestamp: '2022-02-08 21:48:59+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/rotate.test.cpp
 documentation_of: misc/rotate.hpp

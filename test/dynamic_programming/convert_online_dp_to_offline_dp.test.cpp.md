@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
       \u63DB"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':question:'
@@ -13,9 +13,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc213/tasks/abc213_h
@@ -50,7 +50,7 @@ data:
     \ void {\r\n        static NumberTheoreticTransform<0> ntt;\r\n        for (int\
     \ id = 0; id < m; ++id) {\r\n          std::vector<ModInt> dp_id(mid - l), p_id(r\
     \ - l);\r\n          std::copy(std::next(dp[a[id]].begin(), l),\r\n          \
-    \          std::next(dp[a[id]].begin() + mid), dp_id.begin());\r\n          std::copy(p[id].begin(),\
+    \          std::next(dp[a[id]].begin(), mid), dp_id.begin());\r\n          std::copy(p[id].begin(),\
     \ std::next(p[id].begin(), r - l),\r\n                    p_id.begin());\r\n \
     \         std::vector<ModInt> c = ntt.convolution(dp_id, p_id);\r\n          for\
     \ (int i = mid; i < r; ++i) {\r\n            dp[b[id]][i] += c[i - l];\r\n   \
@@ -67,8 +67,8 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-02-19 19:36:06+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
 layout: document

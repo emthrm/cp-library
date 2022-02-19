@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/sparse_table.hpp
     title: sparse table
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/suffix_array.hpp
     title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (suffix array)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/longest_common_prefix.hpp\"\n#include <algorithm>\r\
@@ -100,7 +100,7 @@ data:
   path: string/longest_common_prefix.hpp
   requiredBy: []
   timestamp: '2022-02-16 18:14:43+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/longest_common_prefix.test.cpp
 documentation_of: string/longest_common_prefix.hpp
