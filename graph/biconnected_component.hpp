@@ -1,5 +1,5 @@
 #pragma once
-#include <algorithm>
+// #include <algorithm>
 #include <set>
 #include <utility>
 #include <vector>
@@ -27,10 +27,7 @@ struct BiconnectedComponent : Lowlink<CostType> {
       }
     }
     for (int i = 0; i < n; ++i) {
-      if (id[i] == -2) {
-        id[i] = -1;
-        dfs(-1, i);
-      }
+      if (id[i] == -2) dfs(-1, i);
     }
     // const int m = vertices.size();
     // for (int i = 0; i < m; ++i) {
@@ -49,33 +46,32 @@ struct BiconnectedComponent : Lowlink<CostType> {
  private:
   const bool is_full_ver;
   std::vector<bool> is_articulation_point;
-  std::vector<std::pair<int, int>> tmp;
+  std::vector<Edge<CostType>> tmp;
 
   void dfs(const int par, const int ver) {
+    id[ver] = -1;
     for (const Edge<CostType>& e : this->graph[ver]) {
       if (e.dst == par) continue;
-      if (id[e.dst] == -2 || this->order[ver] > this->order[e.dst]) {
-        tmp.emplace_back(std::minmax(ver, e.dst));
+      int src = ver, dst = e.dst;
+      if (src > dst) std::swap(src, dst);
+      if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver]) {
+        tmp.emplace_back(src, dst, e.cost);
       }
       if (id[e.dst] == -2) {
-        id[e.dst] = -1;
         dfs(ver, e.dst);
-        if (this->order[ver] <= this->lowlink[e.dst]) {
+        if (this->lowlink[e.dst] >= this->order[ver]) {
           const int idx = block.size();
           block.emplace_back();
           std::set<int> st;
           while (true) {
-            const std::pair<int, int> pr = tmp.back();
+            const Edge<CostType> edge = tmp.back();
             tmp.pop_back();
-            block.back().emplace_back(pr);
+            block.back().emplace_back(edge);
             if (is_full_ver) {
-              st.emplace(pr.first);
-              st.emplace(pr.second);
+              st.emplace(edge.src);
+              st.emplace(edge.dst);
             }
-            if (pr ==
-                static_cast<std::pair<int, int>>(std::minmax(ver, e.dst))) {
-              break;
-            }
+            if (edge.src == src && edge.dst == dst) break;
           }
           if (is_full_ver) {
             vertices.emplace_back();

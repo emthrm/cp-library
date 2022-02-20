@@ -1,5 +1,5 @@
 #pragma once
-#include <algorithm>
+// #include <algorithm>
 #include <set>
 #include <utility>
 #include <vector>
@@ -24,23 +24,20 @@ struct BiconnectedComponent : Lowlink {
       }
     }
     for (int i = 0; i < n; ++i) {
-      if (id[i] == -2) {
-        id[i] = -1;
-        dfs(-1, i);
-      }
+      if (id[i] == -2) dfs(-1, i);
     }
-    const int m = vertices.size();
-    for (int i = 0; i < m; ++i) {
-      std::sort(block[i].begin(), block[i].end());
-    }
-    if (is_full_ver) {
-      for (int i = 0; i < m; ++i) {
-        std::sort(vertices[i].begin(), vertices[i].end());
-      }
-      for (int i = 0; i < n; ++i) {
-        std::sort(cutpoint[i].begin(), cutpoint[i].end());
-      }
-    }
+    // const int m = vertices.size();
+    // for (int i = 0; i < m; ++i) {
+    //   std::sort(block[i].begin(), block[i].end());
+    // }
+    // if (is_full_ver) {
+    //   for (int i = 0; i < m; ++i) {
+    //     std::sort(vertices[i].begin(), vertices[i].end());
+    //   }
+    //   for (int i = 0; i < n; ++i) {
+    //     std::sort(cutpoint[i].begin(), cutpoint[i].end());
+    //   }
+    // }
   }
 
  private:
@@ -49,29 +46,29 @@ struct BiconnectedComponent : Lowlink {
   std::vector<std::pair<int, int>> tmp;
 
   void dfs(const int par, const int ver) {
+    id[ver] = -1;
     for (const int e : this->graph[ver]) {
       if (e == par) continue;
-      if (id[e] == -2 || this->order[ver] > this->order[e]) {
-        tmp.emplace_back(std::minmax(ver, e));
+      int src = ver, dst = e;
+      if (src > dst) std::swap(src, dst);
+      if (id[e] == -2 || this->order[e] < this->order[ver]) {
+        tmp.emplace_back(src, dst);
       }
       if (id[e] == -2) {
-        id[e] = -1;
         dfs(ver, e);
-        if (this->order[ver] <= this->lowlink[e]) {
+        if (this->lowlink[e] >= this->order[ver]) {
           const int idx = block.size();
           block.emplace_back();
           std::set<int> st;
           while (true) {
-            const std::pair<int, int> pr = tmp.back();
+            const std::pair<int, int> edge = tmp.back();
             tmp.pop_back();
-            block.back().emplace_back(pr);
+            block.back().emplace_back(edge);
             if (is_full_ver) {
-              st.emplace(pr.first);
-              st.emplace(pr.second);
+              st.emplace(edge.first);
+              st.emplace(edge.second);
             }
-            if (pr == static_cast<std::pair<int, int>>(std::minmax(ver, e))) {
-              break;
-            }
+            if (edge.first == src && edge.second == dst) break;
           }
           if (is_full_ver) {
             vertices.emplace_back();

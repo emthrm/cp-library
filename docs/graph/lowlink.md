@@ -3,7 +3,7 @@ title: lowlink
 documentation_of: graph/lowlink.hpp
 ---
 
-深さ優先探索木 (depth-first search tree) で訪問時刻を $\mathrm{order}$ とおくと，後退辺 (back edge) を高々一度通ることで到達できる頂点の $\mathrm{order}$ の最小値である．
+深さ優先探索木 (depth-first search tree) で頂点 $i$ の訪問時刻を $\mathrm{order}_i$ とおく．このとき子孫から後退辺 (back edge) を高々一度通ることで到達できる頂点の $\mathrm{order}$ の最小値である．
 
 
 ### 橋 (bridge)

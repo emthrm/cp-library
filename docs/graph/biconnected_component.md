@@ -10,7 +10,7 @@ documentation_of: graph/biconnected_component.hpp
 
 ### block-cut tree
 
-二重頂点連結成分を一つの頂点につぶすことで得られる木である．
+二重頂点連結成分を一つの頂点に縮約することで得られる木である．
 
 
 ### カクタスグラフ (cactus)
@@ -33,8 +33,8 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BiconnectedComponent(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える．|[lowlink](lowlink.md)|
-|`id[i]`|元のグラフの頂点 $i$ を含むブロック|完全版のみ|
+|`BiconnectedComponent(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える．||
+|`id[i]`|元のグラフの頂点 $i$ を含むブロック|関節点のときは $-1$ である．<br>完全版のみ|
 |`vertices[i]`|縮約後のグラフのブロック $i$ に含まれる頂点|完全版のみ|
 |`cutpoint[i]`|元のグラフの関節点 $i$ を含むブロック|完全版のみ|
 |`block[i]`|縮約後のグラフのブロック $i$ に含まれる辺||
@@ -48,6 +48,11 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 カクタスグラフ
 - https://pekempey.hatenablog.com/entry/2017/03/28/203856
+
+
+## ToDo
+
+- https://judge.yosupo.jp/problem/biconnected_components
 
 
 ## Verified
