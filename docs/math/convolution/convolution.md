@@ -14,6 +14,10 @@
 
   $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
 
+- 添え字 lcm での畳み込み
+
+  $$C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j$$
+
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
 
@@ -48,6 +52,12 @@ $O(N\log{N})$
 |:--:|:--:|
 |`gcd_convolution(a, b)`|$A, B$ に対する添え字 gcd での畳み込み|
 
+- 添え字 lcm での畳み込み
+
+||説明|
+|:--:|:--:|
+|`lcm_convolution(a, b, n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
+
 
 ## 参考
 
@@ -62,8 +72,12 @@ $O(N\log{N})$
 - https://twitter.com/maspy_stars/status/1350467886775603200
 
 添え字 gcd での畳み込み
-  - https://noshi91.hatenablog.com/entry/2019/09/23/002445
-  - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
+- https://noshi91.hatenablog.com/entry/2019/09/23/002445
+- https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
+
+添え字 lcm での畳み込み
+- https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
+- https://yukicoder.me/problems/no/1760
 
 
 ## ToDo
@@ -109,3 +123,4 @@ $O(N\log{N})$
 - 添え字 or での畳み込み
 - [添え字 xor での畳み込み](https://judge.yosupo.jp/submission/32459)
 - [添え字 gcd での畳み込み](https://judge.yosupo.jp/submission/79257)
+- [添え字 lcm での畳み込み](https://judge.yosupo.jp/submission/79261)

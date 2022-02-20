@@ -29,7 +29,7 @@ jobs:
         run: |
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
             case "$file" in
-              "data_structure/binary_trie.hpp" | "string/aho-corasick.hpp" )
+              "data_structure/binary_trie.hpp" | "math/convolution/lcm_convolution.hpp" | "string/aho-corasick.hpp" )
                 cpplint --filter=-build/include_what_you_use,-legal/copyright,-runtime/int $file ;;
               "math/bigint.hpp" | "math/modint.hpp" | "math/rational.hpp" )
                 cpplint --filter=-legal/copyright,-runtime/explicit,-runtime/int,-whitespace/blank_line $file ;;
