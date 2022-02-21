@@ -69,6 +69,7 @@ $O(N\log{N})$
 高速ウォルシュ・アダマール変換
 - https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 - https://cympfh.cc/aiura/hadamard-xor-convolution
+- https://pctprobability.hatenadiary.com/entry/2022/01/10/185418
 - https://twitter.com/maspy_stars/status/1350467886775603200
 
 添え字 gcd での畳み込み

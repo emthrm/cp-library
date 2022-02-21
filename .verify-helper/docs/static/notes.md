@@ -65,3 +65,13 @@ $m \in \mathbb{N}^+,\ a \in \mathbb{Z}$ ($0 < a < m$) に対して
 長さ $n$ の文字列の部分文字列として現れる回文は $n$ 種類以下である．
 
 > https://hackmd.io/@tatyam-prime/pallindromes
+
+---
+
+$N, A, B \in \mathbb{N}^+$ に対して
+
+$$\lfloor {\lfloor N / A \rfloor} / B \rfloor = \lfloor N / AB \rfloor$$
+
+が成り立つ．
+
+> https://atcoder.jp/contests/abc239/editorial/3357
