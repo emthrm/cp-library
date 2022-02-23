@@ -15,8 +15,7 @@ $O(B)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`BinaryTrie<ビット幅 = 32, T = int>()`|binary trie $S$ を考える．||
-|`~BinaryTrie()`|||
+|`BinaryTrie<ビット幅 = 32, T = std::uint32_t>()`|binary trie $S$ を考える．||
 |`root`|根のポインタ||
 |`clear()`|すべての要素を削除する．||
 |`empty()`|$S$ は空集合であるか．||
@@ -44,6 +43,9 @@ $O(B)$
 
 - 永続 binary trie
   - https://kazuma8128.hatenablog.com/entry/2018/02/17/224151
+- a powerful representation of integer sets
+  - https://codeforces.com/blog/entry/83969
+  - https://twitter.com/keijak/status/1488232021394702336
 
 
 ## Verified

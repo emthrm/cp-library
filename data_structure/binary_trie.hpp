@@ -1,28 +1,22 @@
 #pragma once
 #include <cassert>
+#include <cstdint>
+#include <memory>
 #include <utility>
 
-template <int B = 32, typename T = int>
+template <int B = 32, typename T = std::uint32_t>
 struct BinaryTrie {
   struct Node {
-    Node* nxt[2];
+    std::shared_ptr<Node> nxt[2];
     int child;
     Node() : nxt{nullptr, nullptr}, child(0) {}
   };
 
-  Node* root;
+  std::shared_ptr<Node> root;
 
   BinaryTrie() : root(nullptr) {}
-  ~BinaryTrie() {
-    if (root) free(&root);
-  }
 
-  void clear() {
-    if (root) {
-      free(&root);
-      root = nullptr;
-    }
-  }
+  void clear() { root.reset(); }
 
   bool empty() const { return !root; }
 
@@ -32,9 +26,9 @@ struct BinaryTrie {
     if (root) erase(&root, x, B - 1);
   }
 
-  Node* find(const T& x) const {
+  std::shared_ptr<Node> find(const T& x) const {
     if (!root) return nullptr;
-    Node* node = root;
+    std::shared_ptr<Node> node = root;
     for (int b = B - 1; b >= 0; --b) {
       const bool digit = x >> b & 1;
       if (!node->nxt[digit]) return nullptr;
@@ -43,11 +37,13 @@ struct BinaryTrie {
     return node;
   }
 
-  std::pair<Node*, T> operator[](const int n) const { return find_nth(n, 0); }
+  std::pair<std::shared_ptr<Node>, T> operator[](const int n) const {
+    return find_nth(n, 0);
+  }
 
-  std::pair<Node*, T> find_nth(int n, const T& x) const {
+  std::pair<std::shared_ptr<Node>, T> find_nth(int n, const T& x) const {
     assert(0 <= n && n < size());
-    Node* node = root;
+    std::shared_ptr<Node> node = root;
     T res = 0;
     for (int b = B - 1; b >= 0; --b) {
       bool digit = x >> b & 1;
@@ -62,13 +58,13 @@ struct BinaryTrie {
     return {node, res};
   }
 
-  Node* insert(const T& x) {
-    if (!root) root = new Node();
-    Node* node = root;
+  std::shared_ptr<Node> insert(const T& x) {
+    if (!root) root = std::make_shared<Node>();
+    std::shared_ptr<Node> node = root;
     ++node->child;
     for (int b = B - 1; b >= 0; --b) {
       const bool digit = x >> b & 1;
-      if (!node->nxt[digit]) node->nxt[digit] = new Node();
+      if (!node->nxt[digit]) node->nxt[digit] = std::make_shared<Node>();
       node = node->nxt[digit];
       ++node->child;
     }
@@ -76,14 +72,12 @@ struct BinaryTrie {
   }
 
   int less_than(const T& x) const {
-    if (!root) return 0;
-    Node* node = root;
     int res = 0;
-    for (int b = B - 1; b >= 0; --b) {
+    std::shared_ptr<Node> node = root;
+    for (int b = B - 1; node && b >= 0; --b) {
       const bool digit = x >> b & 1;
       if (digit && node->nxt[0]) res += node->nxt[0]->child;
       node = node->nxt[digit];
-      if (!node) return res;
     }
     return res;
   }
@@ -93,27 +87,26 @@ struct BinaryTrie {
   }
 
   int count(const T& x) const {
-    const auto ptr = find(x);
+    const std::shared_ptr<Node> ptr = find(x);
     return ptr ? ptr->child : 0;
   }
 
-  std::pair<Node*, T> lower_bound(const T& x) const {
+  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {
     const int lt = less_than(x);
-    return lt == size() ? std::make_pair(static_cast<Node*>(nullptr), -1) :
-                          (*this)[lt];
+    return lt == size() ? std::make_pair(nullptr, -1) : find_nth(lt, 0);
   }
 
-  std::pair<Node*, T> upper_bound(const T& x) const {
+  std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const {
     return lower_bound(x + 1);
   }
 
-  std::pair<Node*, T> max_element(const T& x = 0) const {
+  std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0) const {
     return min_element(~x);
   }
 
-  std::pair<Node*, T> min_element(const T& x = 0) const {
+  std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const {
     assert(root);
-    Node* node = root;
+    std::shared_ptr<Node> node = root;
     T res = 0;
     for (int b = B - 1; b >= 0; --b) {
       bool digit = x >> b & 1;
@@ -125,19 +118,9 @@ struct BinaryTrie {
   }
 
  private:
-  void free(Node** node) {
-    for (int i = 0; i < 2; ++i) {
-      if ((*node)->nxt[i]) free(&(*node)->nxt[i]);
-    }
-    delete *node;
-  }
-
-  void erase(Node** node, const T& x, int b) {
+  void erase(std::shared_ptr<Node>* node, const T& x, int b) {
     if (b == -1) {
-      if (--(*node)->child == 0) {
-        delete *node;
-        *node = nullptr;
-      }
+      if (--(*node)->child == 0) node->reset();
       return;
     }
     const bool digit = x >> b & 1;
@@ -147,8 +130,7 @@ struct BinaryTrie {
     if ((*node)->nxt[digit]) {
       (*node)->child += (*node)->nxt[digit]->child;
     } else if ((*node)->child == 0) {
-      delete *node;
-      *node = nullptr;
+      node->reset();
     }
   }
 };
