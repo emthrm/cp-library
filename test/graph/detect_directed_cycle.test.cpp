@@ -1,13 +1,13 @@
 /*
- * @brief グラフ/閉路の検出 有向グラフ版
+ * @brief グラフ/有向閉路の検出
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/cycle_detection"
 
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
 #include "../../graph/detect_directed_cycle.hpp"
+#include "../../graph/edge.hpp"
 
 int main() {
   int n, m;

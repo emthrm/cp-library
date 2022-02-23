@@ -1,6 +1,6 @@
 /**
- * @brief 閉路の検出 有向グラフ版
- * @docs docs/graph/detect_cycle.md
+ * @brief 有向閉路の検出
+ * @docs docs/graph/detect_walk.md
  */
 
 #pragma once
