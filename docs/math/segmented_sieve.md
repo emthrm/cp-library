@@ -24,3 +24,8 @@ $O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?
 ## ToDo
 
 - https://uwitenpen.hatenadiary.org/entries/2011/12/03
+
+
+## Verified
+
+https://atcoder.jp/contests/math-and-algorithm/submissions/29613055

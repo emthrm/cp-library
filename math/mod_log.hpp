@@ -1,5 +1,4 @@
 #pragma once
-#include <cmath>
 #include <map>
 
 #include "./mod_pow.hpp"
@@ -13,7 +12,8 @@ int mod_log(long long g, long long y, const int m) {
     if (y == 0) return 1;
     return -1;
   }
-  const int root = std::ceil(std::sqrt(m));
+  int root = 1;
+  while (root * root < m) ++root;
   std::map<long long, int> baby;
   long long p = 1;
   for (int i = 0; i < root; ++i) {

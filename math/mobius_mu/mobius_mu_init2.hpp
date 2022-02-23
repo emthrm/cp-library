@@ -4,7 +4,6 @@
  */
 
 #pragma once
-#include <cmath>
 #include <numeric>
 #include <vector>
 
@@ -15,7 +14,9 @@ std::vector<int> mobius_mu_init2(const long long low, const long long high) {
   std::vector<long long> tmp(high - low);
   std::iota(tmp.begin(), tmp.end(), low);
   if (low == 0 && high > 0) mu[0] = 0;
-  for (const int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {
+  long long root = 1;
+  while ((root + 1) * (root + 1) < high) ++root;
+  for (const int p : prime_sieve(root, true)) {
     for (long long i = (low + p - 1) / p * p; i < high; i += p) {
       if ((i / p) % p == 0) {
         mu[i - low] = tmp[i - low] = 0;

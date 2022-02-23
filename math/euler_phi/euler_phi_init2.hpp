@@ -4,7 +4,6 @@
  */
 
 #pragma once
-#include <cmath>
 #include <numeric>
 #include <vector>
 
@@ -15,7 +14,9 @@ std::vector<long long> euler_phi_init2(const long long low,
   std::vector<long long> phi(high - low), rem(high - low);
   std::iota(phi.begin(), phi.end(), low);
   std::iota(rem.begin(), rem.end(), low);
-  for (const int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {
+  long long root = 1;
+  while ((root + 1) * (root + 1) < high) ++root;
+  for (const int p : prime_sieve(root, true)) {
     for (long long i = (low + p - 1) / p * p; i < high; i += p) {
       phi[i - low] -= phi[i - low] / p;
       while (rem[i - low] % p == 0) rem[i - low] /= p;
