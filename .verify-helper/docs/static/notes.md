@@ -20,12 +20,7 @@ $A + B = (A \oplus B) + 2(A \wedge B)$
 
 ---
 
-$a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して
-
-- $ab < c \iff a < \left\lfloor \frac{c}{b} \right\rfloor$，
-- $ab \leq c \iff a \leq \left\lfloor \frac{c}{b} \right\rfloor$
-
-が成り立つ．
+$a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して $ab \leq c \iff a \leq \left\lfloor \frac{c}{b} \right\rfloor$ が成り立つ．
 
 > https://hackmd.io/@qLethon/B1ZGcrbnI
 
