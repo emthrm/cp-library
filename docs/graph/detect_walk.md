@@ -35,4 +35,5 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Verified
 
+- [道の検出](https://atcoder.jp/contests/past202112-open/submissions/29621513)
 - [有向閉路の検出](https://judge.yosupo.jp/submission/15525)
