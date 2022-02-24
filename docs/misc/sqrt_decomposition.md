@@ -33,10 +33,11 @@ $\langle O(N), O(\sqrt{N}) \rangle$
 ## ToDo
 
 - https://www.hamayanhamayan.com/entry/2017/04/12/180257
-- クエリの平方分割 (木の圧縮)
+- 指定された頂点たちの最小共通祖先関係を保って木を圧縮してできる補助的な木
+  - https://dic.kimiyuki.net/auxiliary-tree
   - https://www.slideshare.net/iwiwi/2-12188845/7
   - http://drken1215.hatenablog.com/entry/2018/08/14/193500
-  - https://ei1333.github.io/algorithm/graph-decomp.html
+  - https://atcoder.jp/contests/typical90/tasks/typical90_ai
 - 木の平方分割
   - http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376
   - https://tubo28.me/compprog/algorithm/sqrt-decomp-tree/

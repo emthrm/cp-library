@@ -100,3 +100,12 @@ e.g. $(\mathbb{N}, \oplus, \land, 0, \text{0xFFFF...})$
 
 半群
 - https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4
+
+群
+- https://hackmd.io/@koboshi/H1li1wPlF
+
+
+## ToDo
+
+- 半群の区間クエリ
+  - https://qiita.com/convexineq/items/4b6920af3e3d37a96540#%E5%8C%BA%E9%96%93%E3%81%AB%E8%BE%BA%E3%82%92%E5%BC%B5%E3%82%8B%E3%83%86%E3%82%AF

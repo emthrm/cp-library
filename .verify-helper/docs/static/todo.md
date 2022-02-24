@@ -50,6 +50,7 @@
 ## ToDo
 - https://en.wikipedia.org/wiki/Hackenbush
 - https://www.link.cs.cmu.edu/15859-s11/notes/Hackenbush.pdf
+- https://klein.mit.edu/~rstan/transparencies/games.pdf
 - Green Hackenbush
   - https://codeforces.com/contest/1610/problem/I
   - https://atcoder.jp/contests/agc017/tasks/agc017_d
@@ -330,6 +331,18 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
 - https://drive.google.com/file/d/1s6x_07yD54QVXrIgyUfF4Wu5qzmt1I4U
 
 
+# 乗法的関数 (multiplicative function)
+
+$n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，$a \perp b$ を満たす $a, b \in \mathbb{N}^+$ に対して $f(ab) = f(a)f(b)$ が成り立つものである．
+
+## 参考
+- https://ja.wikipedia.org/wiki/%E4%B9%97%E6%B3%95%E7%9A%84%E9%96%A2%E6%95%B0
+
+## ToDo
+- https://nyaannyaan.github.io/library/multiplicative-function/sum-of-multiplicative-function.hpp.html
+- https://atcoder.jp/contests/abc239/tasks/abc239_h
+
+
 # 線形マトロイドパリティ問題
 
 ## ToDo
@@ -418,6 +431,17 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
     - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23PairingHeap.cpp~~
   - Fibonacchi heap
     - https://en.wikipedia.org/wiki/Fibonacci_heap
+
+
+# 非不偏ゲーム (partisan game)
+
+## ToDo
+- https://en.wikipedia.org/wiki/Partisan_game
+- http://www.ivis.co.jp/text/20111102.pdf
+- hot game / cold game
+  - https://en.wikipedia.org/wiki/Hot_game
+  - https://atcoder.jp/contests/abc229/tasks/abc229_h
+  - https://twitter.com/noshi91/status/1464590806841696256
 
 
 # 平衡二分探索木 (self-balancing binary search tree)

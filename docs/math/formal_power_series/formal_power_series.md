@@ -155,6 +155,8 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
   - https://yukicoder.me/problems/no/1532
   - https://atcoder.jp/contests/arc116/submissions/21399687
   - https://atcoder.jp/contests/abc020/submissions/21426601
+- 桁 DP
+  - https://qiita.com/ryuhe1/items/185e1a283f13ac638a53
 
 
 ## Verified

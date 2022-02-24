@@ -85,6 +85,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - http://degwer.hatenablog.com/entry/20131211/1386757368
   - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140
+  - https://twitter.com/noshi91/status/1338881669525172224
 - 2D セグメント木
   - https://www.hamayanhamayan.com/entry/2017/12/09/015937
   - https://ei1333.github.io/algorithm/segment-tree.html

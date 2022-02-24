@@ -87,6 +87,8 @@ $O(N\log{N})$
 - 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する．
   - http://noshi91.hatenablog.com/entry/2018/12/27/121649
   - https://github.com/drken1215/algorithm/blob/master/MathAlgebra/fast_gcd_convolution.cpp
+- 添え字 xor での畳み込みにおける逆元
+  - https://yukicoder.me/problems/no/1753/editorial
 - subset convolution
   - https://github.com/yosupo06/library-checker-problems/issues/297
   - https://judge.yosupo.jp/problem/subset_convolution
@@ -107,6 +109,8 @@ $O(N\log{N})$
   - https://twitter.com/_su1sen/status/1425871066916790281
   - https://atcoder.jp/contests/abc213/submissions/24925408
   - https://atcoder.jp/contests/abc213/submissions/24953805
+  - https://atcoder.jp/contests/abc236/tasks/abc236_h
+  - https://twitter.com/noshi91/status/1485246655419260939
 - $(\max, +)$-convolution を用いたナップサック問題
   - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
   - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
