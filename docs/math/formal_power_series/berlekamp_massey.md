@@ -3,7 +3,7 @@ title: Berlekamp–Massey algorithm
 documentation_of: math/formal_power_series/berlekamp-massey.hpp
 ---
 
-任意の体上で線形回帰数列 (linear recursive sequence) の特性多項式を求められるアルゴリズムである．
+任意の体上で線形回帰数列 (linear recurrence sequence) の特性多項式を求められるアルゴリズムである．
 
 
 ## 時間計算量
@@ -15,7 +15,7 @@ $O(N^2)$
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`berlekamp-massey(s)`|$S(x) = \frac{P(x)}{Q(x)} \bmod{x^n}$ を満たす最小次数の $Q(x)$ ？|${\lbrack x^0 \rbrack}Q = 1$<br>$\mathrm{deg}(P) < \mathrm{deg}(Q) = d$ を満たす $\frac{P(x)}{Q(x)}$ を想定するならば $n \geq 2d$ でなければならない．|
+|`berlekamp-massey(s)`|$S(x) = \frac{P(x)}{Q(x)} \bmod{x^n}$ を満たす最小次数の $Q(x)$？|${\lbrack x^0 \rbrack}Q = 1$<br>$\mathrm{deg}(P) < \mathrm{deg}(Q) = d$ を満たす $\frac{P(x)}{Q(x)}$ を想定するならば $n \geq 2d$ でなければならない．|
 
 
 ## 実装

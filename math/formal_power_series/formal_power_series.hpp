@@ -21,11 +21,11 @@ struct FormalPowerSeries {
   inline const T& operator[](const int term) const { return coef[term]; }
   inline T& operator[](const int term) { return coef[term]; }
 
-  using MULT = std::function<std::vector<T>(const std::vector<T>&,
+  using Mult = std::function<std::vector<T>(const std::vector<T>&,
                                             const std::vector<T>&)>;
-  using SQRT = std::function<bool(const T&, T*)>;
-  static void set_mult(const MULT mult) { get_mult() = mult; }
-  static void set_sqrt(const SQRT sqrt) { get_sqrt() = sqrt; }
+  using Sqrt = std::function<bool(const T&, T*)>;
+  static void set_mult(const Mult mult) { get_mult() = mult; }
+  static void set_sqrt(const Sqrt sqrt) { get_sqrt() = sqrt; }
 
   void resize(const int deg) { coef.resize(deg + 1, 0); }
   void shrink() {
@@ -306,8 +306,8 @@ struct FormalPowerSeries {
   }
 
  private:
-  static MULT& get_mult() {
-    static MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)
+  static Mult& get_mult() {
+    static Mult mult = [](const std::vector<T>& a, const std::vector<T>& b)
         -> std::vector<T> {
       const int n = a.size(), m = b.size();
       std::vector<T> res(n + m - 1, 0);
@@ -320,8 +320,8 @@ struct FormalPowerSeries {
     };
     return mult;
   }
-  static SQRT& get_sqrt() {
-    static SQRT sqrt = [](const T& a, T* res) -> bool { return false; };
+  static Sqrt& get_sqrt() {
+    static Sqrt sqrt = [](const T& a, T* res) -> bool { return false; };
     return sqrt;
   }
 };

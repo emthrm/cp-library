@@ -58,7 +58,7 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
 |`set_mult(mult)`|乗算を定義する．|||
 |`set_sqrt(sqrt)`|平方根の計算を定義する．|||
-|`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．|||
+|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
 |`shrink()`|正規化を行う．|||
 |`degree()`|現在考えている次数|||
 |`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．|||
@@ -128,8 +128,6 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#1%E8%A8%98%E5%8F%B7%E7%9A%84%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/tatyam_prime/status/1446841586252324866
-- $x^n \bmod f$
-  - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
 - $\sum_{n = 0}^\infty \frac{n^a}{n!} x^n$
   - https://qiita.com/hotman78/items/90dba287b98629767d6c
 - 多項式ハッシュ

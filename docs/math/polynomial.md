@@ -28,6 +28,7 @@ documentation_of: math/polynomial.hpp
 |`coef`|係数列||
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`set_mul(mul)`|乗算を定義する．||
+|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
 |`shrink()`|正規化を行う．||
 |`degree()`|次数||
 |`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．||

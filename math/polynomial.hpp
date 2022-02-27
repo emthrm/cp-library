@@ -21,10 +21,11 @@ struct Polynomial {
   inline const T& operator[](const int term) const { return coef[term]; }
   inline T& operator[](const int term) { return coef[term]; }
 
-  using MULT = std::function<std::vector<T>(const std::vector<T>&,
+  using Mult = std::function<std::vector<T>(const std::vector<T>&,
                                             const std::vector<T>&)>;
-  static void set_mult(const MULT mult) { get_mult() = mult; }
+  static void set_mult(const Mult mult) { get_mult() = mult; }
 
+  void resize(const int deg) { coef.resize(deg + 1, 0); }
   void shrink() {
     while (coef.size() > 1 && coef.back() == 0) coef.pop_back();
   }
@@ -38,7 +39,7 @@ struct Polynomial {
 
   Polynomial& operator+=(const Polynomial& x) {
     const int deg_x = x.degree();
-    if (deg_x > degree()) coef.resize(deg_x + 1, 0);
+    if (deg_x > degree()) resize(deg_x);
     for (int i = 0; i <= deg_x; ++i) {
       coef[i] += x[i];
     }
@@ -46,7 +47,7 @@ struct Polynomial {
   }
   Polynomial& operator-=(const Polynomial& x) {
     const int deg_x = x.degree();
-    if (deg_x > degree()) coef.resize(deg_x + 1, 0);
+    if (deg_x > degree()) resize(deg_x);
     for (int i = 0; i <= deg_x; ++i) {
       coef[i] -= x[i];
     }
@@ -75,7 +76,7 @@ struct Polynomial {
         rem[n - i - j] -= x[m - j] * quo[deg - i];
       }
     }
-    rem.coef.resize(deg + 1);
+    rem.resize(deg);
     return {quo, rem};
   }
   Polynomial& operator/=(const Polynomial& x) {
@@ -181,8 +182,8 @@ struct Polynomial {
   }
 
  private:
-  static MULT& get_mult() {
-    static MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)
+  static Mult& get_mult() {
+    static Mult mult = [](const std::vector<T>& a, const std::vector<T>& b)
         -> std::vector<T> {
       const int n = a.size(), m = b.size();
       std::vector<T> res(n + m - 1, 0);
