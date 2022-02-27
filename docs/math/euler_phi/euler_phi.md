@@ -4,9 +4,9 @@ $n \in \mathbb{N}^+$ に対して
 
 $$\varphi(n) \mathrel{:=} \# \lbrace k \in \lbrace 1, 2, \ldots, n \rbrace \mid k \perp n \rbrace$$
 
-と定義される $\varphi(n)$ である．
+と定義される $\varphi(n)$ である．素因数分解 $n = \prod_{i = 1}^k p_i^{e_i}$ に対して
 
-$$\varphi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right)$$
+$$\varphi(n) = n \prod_{i = 1}^k \left(1 - \frac{1}{p_i}\right)$$
 
 が成り立つ．
 

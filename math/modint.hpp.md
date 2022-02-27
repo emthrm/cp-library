@@ -84,6 +84,10 @@ data:
     path: test/math/convolution/gcd_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
+  - icon: ':heavy_check_mark:'
+    path: test/math/convolution/lcm_convolution.test.cpp
+    title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
+      \u7573\u307F\u8FBC\u307F"
   - icon: ':x:'
     path: test/math/convolution/mod_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\
@@ -96,9 +100,17 @@ data:
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 xor \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
+    path: test/math/formal_power_series/berlekamp-massey.test.cpp
+    title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Berlekamp\u2013Massey\
+      \ algorithm"
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
+  - icon: ':heavy_check_mark:'
+    path: test/math/formal_power_series/bostan-mori.test.cpp
+    title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
+      \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
@@ -144,9 +156,6 @@ data:
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':heavy_check_mark:'
-    path: test/math/kita_masa.test.cpp
-    title: "\u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5"
   - icon: ':x:'
     path: test/math/lagrange_interpolation.test.cpp
     title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
@@ -505,6 +514,7 @@ data:
   verifiedWith:
   - test/math/catalan_number.test.cpp
   - test/math/montmort_number.test.cpp
+  - test/math/convolution/lcm_convolution.test.cpp
   - test/math/convolution/and_convolution.test.cpp
   - test/math/convolution/xor_convolution.test.cpp
   - test/math/convolution/gcd_convolution.test.cpp
@@ -518,6 +528,8 @@ data:
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/berlekamp-massey.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
@@ -531,7 +543,6 @@ data:
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
   - test/math/mobius_mu/mobius_mu_init.test.cpp
   - test/math/mobius_mu/mobius_mu.test.cpp
-  - test/math/kita_masa.test.cpp
   - test/math/twelvefold_way/large_nCk_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp

@@ -97,7 +97,7 @@ data:
 documentation_of: math/matrix/gauss_jordan.hpp
 layout: document
 title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5\
-  \ (Gauss-Jordan elimination)"
+  \ (Gauss\u2013Jordan elimination)"
 ---
 
 行基本変形を用いて行列を行階段形に変形するアルゴリズムである．

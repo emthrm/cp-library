@@ -21,6 +21,10 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
   - icon: ':heavy_check_mark:'
+    path: test/math/formal_power_series/bostan-mori.test.cpp
+    title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
+      \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
@@ -146,6 +150,7 @@ data:
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/formal_power_series/multipoint_evaluation.test.cpp

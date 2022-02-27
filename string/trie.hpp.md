@@ -4,12 +4,11 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: string/aho-corasick.hpp
-    title: "\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5 (Aho-Corasick\
-      \ algorithm)"
+    title: "Aho\u2013Corasick algorithm"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/string/aho-corasick.test.cpp
-    title: "\u6587\u5B57\u5217/\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5"
+    title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'

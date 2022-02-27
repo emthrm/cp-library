@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp

@@ -15,29 +15,28 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/mod_log.hpp\"\n#include <cmath>\r\n#include <map>\r\
-    \n\r\n#line 2 \"math/mod_pow.hpp\"\n\r\nlong long mod_pow(long long x, long long\
-    \ n, const int m) {\r\n  if ((x %= m) < 0) x += m;\r\n  long long res = 1;\r\n\
-    \  for (; n > 0; n >>= 1) {\r\n    if (n & 1) res = (res * x) % m;\r\n    x =\
-    \ (x * x) % m;\r\n  }\r\n  return res;\r\n}\r\n#line 6 \"math/mod_log.hpp\"\n\r\
-    \nint mod_log(long long g, long long y, const int m) {\r\n  if (m == 1) return\
-    \ 0;\r\n  if ((g %= m) < 0) g += m;\r\n  if ((y %= m) < 0) y += m;\r\n  if (g\
-    \ == 0) {\r\n    if (y == 1) return 0;\r\n    if (y == 0) return 1;\r\n    return\
-    \ -1;\r\n  }\r\n  const int root = std::ceil(std::sqrt(m));\r\n  std::map<long\
-    \ long, int> baby;\r\n  long long p = 1;\r\n  for (int i = 0; i < root; ++i) {\r\
-    \n    if (p == y) return i;\r\n    baby[p * y % m] = i;\r\n    p = (p * g) % m;\r\
-    \n  }\r\n  long long brute_force = p;\r\n  for (int i = root; i < 100; ++i) {\r\
-    \n    if (i == m) return -1;\r\n    if (brute_force == y) return i;\r\n    brute_force\
-    \ = (brute_force * g) % m;\r\n  }\r\n  long long giant = p;\r\n  for (int i =\
-    \ 1; i <= root; ++i) {\r\n    if (baby.count(giant) == 1) {\r\n      const int\
-    \ ans = static_cast<long long>(i) * root - baby[giant];\r\n      if (mod_pow(g,\
-    \ ans, m) == y) return ans;\r\n    }\r\n    giant = (giant * p) % m;\r\n  }\r\n\
-    \  return -1;\r\n}\r\n"
-  code: "#pragma once\r\n#include <cmath>\r\n#include <map>\r\n\r\n#include \"./mod_pow.hpp\"\
-    \r\n\r\nint mod_log(long long g, long long y, const int m) {\r\n  if (m == 1)\
-    \ return 0;\r\n  if ((g %= m) < 0) g += m;\r\n  if ((y %= m) < 0) y += m;\r\n\
-    \  if (g == 0) {\r\n    if (y == 1) return 0;\r\n    if (y == 0) return 1;\r\n\
-    \    return -1;\r\n  }\r\n  const int root = std::ceil(std::sqrt(m));\r\n  std::map<long\
+  bundledCode: "#line 2 \"math/mod_log.hpp\"\n#include <map>\r\n\r\n#line 2 \"math/mod_pow.hpp\"\
+    \n\r\nlong long mod_pow(long long x, long long n, const int m) {\r\n  if ((x %=\
+    \ m) < 0) x += m;\r\n  long long res = 1;\r\n  for (; n > 0; n >>= 1) {\r\n  \
+    \  if (n & 1) res = (res * x) % m;\r\n    x = (x * x) % m;\r\n  }\r\n  return\
+    \ res;\r\n}\r\n#line 5 \"math/mod_log.hpp\"\n\r\nint mod_log(long long g, long\
+    \ long y, const int m) {\r\n  if (m == 1) return 0;\r\n  if ((g %= m) < 0) g +=\
+    \ m;\r\n  if ((y %= m) < 0) y += m;\r\n  if (g == 0) {\r\n    if (y == 1) return\
+    \ 0;\r\n    if (y == 0) return 1;\r\n    return -1;\r\n  }\r\n  int root = 1;\r\
+    \n  while (root * root < m) ++root;\r\n  std::map<long long, int> baby;\r\n  long\
+    \ long p = 1;\r\n  for (int i = 0; i < root; ++i) {\r\n    if (p == y) return\
+    \ i;\r\n    baby[p * y % m] = i;\r\n    p = (p * g) % m;\r\n  }\r\n  long long\
+    \ brute_force = p;\r\n  for (int i = root; i < 100; ++i) {\r\n    if (i == m)\
+    \ return -1;\r\n    if (brute_force == y) return i;\r\n    brute_force = (brute_force\
+    \ * g) % m;\r\n  }\r\n  long long giant = p;\r\n  for (int i = 1; i <= root; ++i)\
+    \ {\r\n    if (baby.count(giant) == 1) {\r\n      const int ans = static_cast<long\
+    \ long>(i) * root - baby[giant];\r\n      if (mod_pow(g, ans, m) == y) return\
+    \ ans;\r\n    }\r\n    giant = (giant * p) % m;\r\n  }\r\n  return -1;\r\n}\r\n"
+  code: "#pragma once\r\n#include <map>\r\n\r\n#include \"./mod_pow.hpp\"\r\n\r\n\
+    int mod_log(long long g, long long y, const int m) {\r\n  if (m == 1) return 0;\r\
+    \n  if ((g %= m) < 0) g += m;\r\n  if ((y %= m) < 0) y += m;\r\n  if (g == 0)\
+    \ {\r\n    if (y == 1) return 0;\r\n    if (y == 0) return 1;\r\n    return -1;\r\
+    \n  }\r\n  int root = 1;\r\n  while (root * root < m) ++root;\r\n  std::map<long\
     \ long, int> baby;\r\n  long long p = 1;\r\n  for (int i = 0; i < root; ++i) {\r\
     \n    if (p == y) return i;\r\n    baby[p * y % m] = i;\r\n    p = (p * g) % m;\r\
     \n  }\r\n  long long brute_force = p;\r\n  for (int i = root; i < 100; ++i) {\r\
@@ -52,7 +51,7 @@ data:
   isVerificationFile: false
   path: math/mod_log.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-02-24 04:47:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_log.test.cpp
@@ -85,7 +84,7 @@ $O(\sqrt{P} \log{P})$
 
 ## ToDo
 
-- Pohlig-Hellman algorithm
+- Pohlig–Hellman algorithm
   - http://sonickun.hatenablog.com/entry/2016/11/20/192743
   - https://yukicoder.me/problems/no/950
   - https://twitter.com/nuo_chocorusk/status/1205509988912783360

@@ -15,7 +15,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
-      \u6CD5 (Gauss-Jordan elimination)"
+      \u6CD5 (Gauss\u2013Jordan elimination)"
   - icon: ':heavy_check_mark:'
     path: math/matrix/inverse_matrix.hpp
     title: "\u9006\u884C\u5217 (inverse matrix)"

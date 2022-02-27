@@ -94,6 +94,9 @@ http://drken1215.hatenablog.com/entry/2018/06/08/210000
 - https://w.atwiki.jp/uwicoder/pages/2118.html
 - https://ferin-tech.hatenablog.com/entry/2018/01/17/010829
 - https://judge.yosupo.jp/problem/binomial_coefficient
+- $\sum_{i = 0}^M \binom{N}{i}$
+  - https://twitter.com/noshi91/status/1349778791262945280
+  - https://atcoder.jp/contests/abc235/tasks/abc235_g
 
 
 ## Verified

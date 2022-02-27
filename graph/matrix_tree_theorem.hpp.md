@@ -75,7 +75,7 @@ $N$ 頂点のラベル付きの木の個数は $N^{N - 2}$ である．
 行列木定理の特殊なときとして示せる．
 
 
-### Lindström-Gessel-Viennot lemma
+### Lindström–Gessel–Viennot lemma
 
 有向非巡回グラフ $G$，頂点集合 $A = \lbrace a_1, a_2, \ldots, a_n \rbrace,\ B = \lbrace b_1, b_2, \ldots, b_n \rbrace$，[可換環](../../.verify-helper/docs/static/algebraic_structure.md) $R$ 上の重み $w \colon E(G) \to R$ が与えられる．ただし有向パス $P$ に対して $\omega(P) \mathrel{:=} \prod_{e \in P} w(e)$ とおき，任意の $s, t \in V(G)$ に対して $e(s, t) \mathrel{:=} \sum_{\text{始点 } s \text{・終点 } t \text{ の有向パス } P} \omega(P)$ が well-defined であるとする．
 
@@ -120,7 +120,7 @@ $$\det(M) = \sum_{(P_1, P_2, \ldots, P_n)} \mathrm{sgn}(\sigma) \prod_{i = 1}^n 
 ケイリーの公式
 - http://joisino.hatenablog.com/entry/2017/08/20/200000
 
-Lindström-Gessel-Viennot lemma
+Lindström–Gessel–Viennot lemma
 - https://en.wikipedia.org/wiki/Lindstr%C3%B6m%E2%80%93Gessel%E2%80%93Viennot_lemma
 - https://suikaba.hatenablog.com/entry/2018/12/19/025636
 - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf

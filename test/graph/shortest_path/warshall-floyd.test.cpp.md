@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/shortest_path/warshall-floyd.hpp
-    title: "Warshall-Floyd \u6CD5"
+    title: "Warshall\u2013Floyd \u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,13 +12,13 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526
-    document_title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd\
-      \ \u6CD5"
+    document_title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013\
+      Floyd \u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526
   bundledCode: "#line 1 \"test/graph/shortest_path/warshall-floyd.test.cpp\"\n/*\r\
-    \n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd \u6CD5\
-    \r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526\"\
+    \n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013Floyd\
+    \ \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#line 2 \"graph/shortest_path/warshall-floyd.hpp\"\
     \n#include <algorithm>\r\n#include <iterator>\r\n#line 5 \"graph/shortest_path/warshall-floyd.hpp\"\
     \n\r\ntemplate <typename T>\r\nstruct WarshallFloyd {\r\n  std::vector<std::vector<T>>\
@@ -68,8 +68,8 @@ data:
     \ >> c >> d >> e;\r\n        --c; --d;\r\n        warshall_floyd.add(c, d, e);\r\
     \n        warshall_floyd.add(d, c, e);\r\n        warshall_floyd.calc();\r\n \
     \     }\r\n    }\r\n  }\r\n  return 0;\r\n}\r\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd\
-    \ \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526\"\
+  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013\
+    Floyd \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../../graph/shortest_path/warshall-floyd.hpp\"\
     \r\n\r\nint main() {\r\n  constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\r\n\
     \  while (true) {\r\n    int n, k;\r\n    std::cin >> n >> k;\r\n    if (n ==\
@@ -90,7 +90,7 @@ data:
   isVerificationFile: true
   path: test/graph/shortest_path/warshall-floyd.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/shortest_path/warshall-floyd.test.cpp
@@ -98,5 +98,5 @@ layout: document
 redirect_from:
 - /verify/test/graph/shortest_path/warshall-floyd.test.cpp
 - /verify/test/graph/shortest_path/warshall-floyd.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd \u6CD5"
+title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013Floyd \u6CD5"
 ---

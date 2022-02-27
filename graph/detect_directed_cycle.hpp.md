@@ -8,15 +8,13 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/detect_directed_cycle.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\
-      \u30D5\u7248"
+    title: "\u30B0\u30E9\u30D5/\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/detect_cycle.md
-    document_title: "\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\
-      \u7248"
+    _deprecated_at_docs: docs/graph/detect_walk.md
+    document_title: "\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -25,11 +23,10 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/detect_directed_cycle.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\
-    \u7248\r\n * @docs docs/graph/detect_cycle.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <algorithm>\r\n#include <functional>\r\n#include <vector>\r\n\r\n#include \"\
-    ./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<Edge<CostType>>\
-    \ detect_directed_cycle(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
+  code: "/**\r\n * @brief \u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA\r\n * @docs docs/graph/detect_walk.md\r\
+    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <functional>\r\n\
+    #include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
+    \nstd::vector<Edge<CostType>> detect_directed_cycle(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<int> is_visited(n,\
     \ 0);\r\n  std::vector<Edge<CostType>> edges, cycle;\r\n  const std::function<bool(int)>\
     \ dfs =\r\n      [&graph, &is_visited, &edges, &cycle, &dfs](const int ver) ->\
@@ -49,7 +46,7 @@ data:
   isVerificationFile: false
   path: graph/detect_directed_cycle.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-02-23 17:39:20+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/detect_directed_cycle.test.cpp
@@ -58,28 +55,34 @@ layout: document
 redirect_from:
 - /library/graph/detect_directed_cycle.hpp
 - /library/graph/detect_directed_cycle.hpp.html
-title: "\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\u7248"
+title: "\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
 ---
-# 閉路の検出
+# 歩道 (walk) の検出
 
 
 ## 時間計算量
 
-有向グラフ版 $O(\lvert V \rvert + \lvert E \rvert)$
+$O(\lvert V \rvert + \lvert E \rvert)$
 
 
 ## 使用法
 
-- 有向グラフ版
+- 道 (path) の検出
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`detect_directed_cycle(graph)`|有向グラフ $\mathrm{graph}$ の閉路|存在しない場合は空配列となる．|
+|`detect_path(graph, s, t)`|有向グラフ $\mathrm{graph}$ における始点 $s$，終点 $t$ の道|存在しないときは空配列となる．|
+
+- 有向閉路 (directed cycle) の検出
+
+||説明|備考|
+|:--:|:--:|:--:|
+|`detect_directed_cycle(graph)`|有向グラフ $\mathrm{graph}$ における閉路|存在しないときは空配列となる．|
 
 
 ## 参考
 
-有向グラフ版
+有向閉路の検出
 - https://qiita.com/drken/items/a803d4fc4a727e02f7ba#4-6-%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E6%A4%9C%E5%87%BA
 
 
@@ -91,4 +94,5 @@ title: "\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\u7248"
 
 ## Verified
 
-- [有向グラフ版](https://judge.yosupo.jp/submission/15525)
+- [道の検出](https://atcoder.jp/contests/past202112-open/submissions/29621513)
+- [有向閉路の検出](https://judge.yosupo.jp/submission/15525)

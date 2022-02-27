@@ -26,10 +26,10 @@ data:
     \ InputIter first, const InputIter last)\r\n      : coef(first, last) {}\r\n\r\
     \n  inline const T& operator[](const int term) const { return coef[term]; }\r\n\
     \  inline T& operator[](const int term) { return coef[term]; }\r\n\r\n  using\
-    \ MULT = std::function<std::vector<T>(const std::vector<T>&,\r\n             \
-    \                               const std::vector<T>&)>;\r\n  using SQRT = std::function<bool(const\
-    \ T&, T*)>;\r\n  static void set_mult(const MULT mult) { get_mult() = mult; }\r\
-    \n  static void set_sqrt(const SQRT sqrt) { get_sqrt() = sqrt; }\r\n\r\n  void\
+    \ Mult = std::function<std::vector<T>(const std::vector<T>&,\r\n             \
+    \                               const std::vector<T>&)>;\r\n  using Sqrt = std::function<bool(const\
+    \ T&, T*)>;\r\n  static void set_mult(const Mult mult) { get_mult() = mult; }\r\
+    \n  static void set_sqrt(const Sqrt sqrt) { get_sqrt() = sqrt; }\r\n\r\n  void\
     \ resize(const int deg) { coef.resize(deg + 1, 0); }\r\n  void shrink() {\r\n\
     \    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\r\n  }\r\n \
     \ int degree() const { return static_cast<int>(coef.size()) - 1; }\r\n\r\n  FormalPowerSeries&\
@@ -150,13 +150,13 @@ data:
     \ inv_fact[i];\r\n      pow_c *= c;\r\n    }\r\n    const std::vector<T> conv\
     \ = get_mult()(g, ex);\r\n    FormalPowerSeries res(n - 1);\r\n    for (int i\
     \ = 0; i < n; ++i) {\r\n      res[i] = conv[n - 1 - i] * inv_fact[i];\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n private:\r\n  static MULT& get_mult() {\r\n \
-    \   static MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n\
+    \n    return res;\r\n  }\r\n\r\n private:\r\n  static Mult& get_mult() {\r\n \
+    \   static Mult mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n\
     \        -> std::vector<T> {\r\n      const int n = a.size(), m = b.size();\r\n\
     \      std::vector<T> res(n + m - 1, 0);\r\n      for (int i = 0; i < n; ++i)\
     \ {\r\n        for (int j = 0; j < m; ++j) {\r\n          res[i + j] += a[i] *\
     \ b[j];\r\n        }\r\n      }\r\n      return res;\r\n    };\r\n    return mult;\r\
-    \n  }\r\n  static SQRT& get_sqrt() {\r\n    static SQRT sqrt = [](const T& a,\
+    \n  }\r\n  static Sqrt& get_sqrt() {\r\n    static Sqrt sqrt = [](const T& a,\
     \ T* res) -> bool { return false; };\r\n    return sqrt;\r\n  }\r\n};\r\n#line\
     \ 5 \"dynamic_programming/subset_sum_problem.hpp\"\n\r\ntemplate <typename T>\r\
     \nstd::vector<T> subset_sum_problem(const std::vector<int>& a, const int d) {\r\
@@ -179,7 +179,7 @@ data:
   isVerificationFile: false
   path: dynamic_programming/subset_sum_problem.hpp
   requiredBy: []
-  timestamp: '2022-02-17 13:43:56+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp

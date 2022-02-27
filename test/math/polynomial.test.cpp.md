@@ -155,21 +155,21 @@ data:
     \n  explicit Polynomial(const InputIter first, const InputIter last)\r\n     \
     \ : coef(first, last) {}\r\n\r\n  inline const T& operator[](const int term) const\
     \ { return coef[term]; }\r\n  inline T& operator[](const int term) { return coef[term];\
-    \ }\r\n\r\n  using MULT = std::function<std::vector<T>(const std::vector<T>&,\r\
+    \ }\r\n\r\n  using Mult = std::function<std::vector<T>(const std::vector<T>&,\r\
     \n                                            const std::vector<T>&)>;\r\n  static\
-    \ void set_mult(const MULT mult) { get_mult() = mult; }\r\n\r\n  void shrink()\
-    \ {\r\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\r\n  }\r\
-    \n  int degree() const { return static_cast<int>(coef.size()) - 1; }\r\n\r\n \
-    \ Polynomial& operator=(const std::vector<T>& coef_) {\r\n    coef = coef_;\r\n\
-    \    return *this;\r\n  }\r\n  Polynomial& operator=(const Polynomial& x) = default;\r\
-    \n\r\n  Polynomial& operator+=(const Polynomial& x) {\r\n    const int deg_x =\
-    \ x.degree();\r\n    if (deg_x > degree()) coef.resize(deg_x + 1, 0);\r\n    for\
-    \ (int i = 0; i <= deg_x; ++i) {\r\n      coef[i] += x[i];\r\n    }\r\n    return\
-    \ *this;\r\n  }\r\n  Polynomial& operator-=(const Polynomial& x) {\r\n    const\
-    \ int deg_x = x.degree();\r\n    if (deg_x > degree()) coef.resize(deg_x + 1,\
-    \ 0);\r\n    for (int i = 0; i <= deg_x; ++i) {\r\n      coef[i] -= x[i];\r\n\
-    \    }\r\n    return *this;\r\n  }\r\n  Polynomial& operator*=(const T x) {\r\n\
-    \    for (T& e : coef) e *= x;\r\n    return *this;\r\n  }\r\n  Polynomial& operator*=(const\
+    \ void set_mult(const Mult mult) { get_mult() = mult; }\r\n\r\n  void resize(const\
+    \ int deg) { coef.resize(deg + 1, 0); }\r\n  void shrink() {\r\n    while (coef.size()\
+    \ > 1 && coef.back() == 0) coef.pop_back();\r\n  }\r\n  int degree() const { return\
+    \ static_cast<int>(coef.size()) - 1; }\r\n\r\n  Polynomial& operator=(const std::vector<T>&\
+    \ coef_) {\r\n    coef = coef_;\r\n    return *this;\r\n  }\r\n  Polynomial& operator=(const\
+    \ Polynomial& x) = default;\r\n\r\n  Polynomial& operator+=(const Polynomial&\
+    \ x) {\r\n    const int deg_x = x.degree();\r\n    if (deg_x > degree()) resize(deg_x);\r\
+    \n    for (int i = 0; i <= deg_x; ++i) {\r\n      coef[i] += x[i];\r\n    }\r\n\
+    \    return *this;\r\n  }\r\n  Polynomial& operator-=(const Polynomial& x) {\r\
+    \n    const int deg_x = x.degree();\r\n    if (deg_x > degree()) resize(deg_x);\r\
+    \n    for (int i = 0; i <= deg_x; ++i) {\r\n      coef[i] -= x[i];\r\n    }\r\n\
+    \    return *this;\r\n  }\r\n  Polynomial& operator*=(const T x) {\r\n    for\
+    \ (T& e : coef) e *= x;\r\n    return *this;\r\n  }\r\n  Polynomial& operator*=(const\
     \ Polynomial& x) {\r\n    return *this = get_mult()(coef, x.coef);\r\n  }\r\n\
     \  Polynomial& operator/=(const T x) {\r\n    assert(x != 0);\r\n    return *this\
     \ *= static_cast<T>(1) / x;\r\n  }\r\n  std::pair<Polynomial, Polynomial> divide(Polynomial\
@@ -178,16 +178,16 @@ data:
     \ rem};\r\n    Polynomial quo(deg);\r\n    for (int i = 0; i <= deg; ++i) {\r\n\
     \      quo[deg - i] = rem[n - i] / x[m];\r\n      for (int j = 0; j <= m; ++j)\
     \ {\r\n        rem[n - i - j] -= x[m - j] * quo[deg - i];\r\n      }\r\n    }\r\
-    \n    rem.coef.resize(deg + 1);\r\n    return {quo, rem};\r\n  }\r\n  Polynomial&\
-    \ operator/=(const Polynomial& x) {\r\n    return *this = divide(x).first;\r\n\
-    \  }\r\n  Polynomial& operator%=(const Polynomial& x) {\r\n    return *this =\
-    \ divide(x).second;\r\n  }\r\n  Polynomial& operator<<=(const int n) {\r\n   \
-    \ coef.insert(coef.begin(), n, 0);\r\n    return *this;\r\n  }\r\n\r\n  bool operator==(Polynomial\
-    \ x) const {\r\n    x.shrink();\r\n    Polynomial y = *this;\r\n    y.shrink();\r\
-    \n    return x.coef == y.coef;\r\n  }\r\n  bool operator!=(const Polynomial& x)\
-    \ const { return !(*this == x); }\r\n\r\n  Polynomial operator+() const { return\
-    \ *this; }\r\n  Polynomial operator-() const {\r\n    Polynomial res = *this;\r\
-    \n    for (T& e : res.coef) e = -e;\r\n    return res;\r\n  }\r\n\r\n  Polynomial\
+    \n    rem.resize(deg);\r\n    return {quo, rem};\r\n  }\r\n  Polynomial& operator/=(const\
+    \ Polynomial& x) {\r\n    return *this = divide(x).first;\r\n  }\r\n  Polynomial&\
+    \ operator%=(const Polynomial& x) {\r\n    return *this = divide(x).second;\r\n\
+    \  }\r\n  Polynomial& operator<<=(const int n) {\r\n    coef.insert(coef.begin(),\
+    \ n, 0);\r\n    return *this;\r\n  }\r\n\r\n  bool operator==(Polynomial x) const\
+    \ {\r\n    x.shrink();\r\n    Polynomial y = *this;\r\n    y.shrink();\r\n   \
+    \ return x.coef == y.coef;\r\n  }\r\n  bool operator!=(const Polynomial& x) const\
+    \ { return !(*this == x); }\r\n\r\n  Polynomial operator+() const { return *this;\
+    \ }\r\n  Polynomial operator-() const {\r\n    Polynomial res = *this;\r\n   \
+    \ for (T& e : res.coef) e = -e;\r\n    return res;\r\n  }\r\n\r\n  Polynomial\
     \ operator+(const Polynomial& x) const {\r\n    return Polynomial(*this) += x;\r\
     \n  }\r\n  Polynomial operator-(const Polynomial& x) const {\r\n    return Polynomial(*this)\
     \ -= x;\r\n  }\r\n  Polynomial operator*(const T x) const {\r\n    return Polynomial(*this)\
@@ -216,8 +216,8 @@ data:
     \ inv_fact[i];\r\n      pow_c *= c;\r\n    }\r\n    const std::vector<T> conv\
     \ = get_mult()(g, ex);\r\n    Polynomial res(n - 1);\r\n    for (int i = 0; i\
     \ < n; ++i) {\r\n      res[i] = conv[n - 1 - i] * inv_fact[i];\r\n    }\r\n  \
-    \  return res;\r\n  }\r\n\r\n private:\r\n  static MULT& get_mult() {\r\n    static\
-    \ MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n       \
+    \  return res;\r\n  }\r\n\r\n private:\r\n  static Mult& get_mult() {\r\n    static\
+    \ Mult mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n       \
     \ -> std::vector<T> {\r\n      const int n = a.size(), m = b.size();\r\n     \
     \ std::vector<T> res(n + m - 1, 0);\r\n      for (int i = 0; i < n; ++i) {\r\n\
     \        for (int j = 0; j < m; ++j) {\r\n          res[i + j] += a[i] * b[j];\r\
@@ -255,7 +255,7 @@ data:
   isVerificationFile: true
   path: test/math/polynomial.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/polynomial.test.cpp

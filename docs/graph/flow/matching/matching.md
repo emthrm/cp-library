@@ -60,7 +60,7 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 ||計算量|
 |:--:|:--:|
 |二部グラフの最大マッチング|$O(\lvert V \rvert \lvert E \rvert)$|
-|Hopcroft-Karp algorithm|$O(\lvert E \rvert \sqrt{\lvert V \rvert})$|
+|Hopcroft–Karp algorithm|$O(\lvert E \rvert \sqrt{\lvert V \rvert})$|
 |二部グラフの重み付き最大マッチング|$O(\lvert E \rvert \lvert V \rvert \log{\lvert V \rvert})$|
 |一般グラフの最大マッチング|$O({\lvert V \rvert}^3 + \lvert E \rvert)$|
 
@@ -79,11 +79,11 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 |`activate(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
 |`deactivate(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
 
-- Hopcroft-Karp algorithm
+- Hopcroft–Karp algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft-Karp algorithm を考える．|
+|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft–Karp algorithm を考える．|
 |`match`|マッチした相手|存在しないときは $-1$ となる．|
 |`add_edge(u, v)`|辺 $(u, v)$ を加える．||
 |`solve()`|最大マッチングのサイズ||
@@ -122,7 +122,7 @@ Hall's theorem
 二部グラフの最大マッチング
 - https://ei1333.github.io/algorithm/bipartite-matching.html
 
-Hopcroft-Karp algorithm
+Hopcroft–Karp algorithm
 - https://misteer.hatenablog.com/entry/hopcroft-karp
 - https://ei1333.github.io/luzhiled/snippets/graph/hopcroft-karp.html
 
@@ -190,6 +190,6 @@ Hopcroft-Karp algorithm
 ## Verified
 
 - [二部グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_7_A/review/5876417/emthrm/C++17)
-- [Hopcroft-Karp algorithm](https://judge.yosupo.jp/submission/2723)
+- [Hopcroft–Karp algorithm](https://judge.yosupo.jp/submission/2723)
 - [二部グラフの重み付き最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2429/review/4092692/emthrm/C++14)
 - [一般グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3032/review/5853683/emthrm/C++17)

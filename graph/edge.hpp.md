@@ -21,7 +21,10 @@ data:
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: graph/detect_directed_cycle.hpp
-    title: "\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\u7248"
+    title: "\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
+  - icon: ':x:'
+    path: graph/detect_path.hpp
+    title: "\u9053\u306E\u691C\u51FA"
   - icon: ':heavy_check_mark:'
     path: graph/enumerate_bridges.hpp
     title: graph/enumerate_bridges.hpp
@@ -58,7 +61,7 @@ data:
       \u53EF\u80FD\u6027\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: graph/shortest_path/bellman-ford.hpp
-    title: "Bellman-Ford \u6CD5"
+    title: "Bellman\u2013Ford \u6CD5"
   - icon: ':question:'
     path: graph/shortest_path/dijkstra.hpp
     title: "Dijkstra \u6CD5"
@@ -115,8 +118,10 @@ data:
       \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/detect_directed_cycle.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\
-      \u30D5\u7248"
+    title: "\u30B0\u30E9\u30D5/\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
+  - icon: ':x:'
+    path: test/graph/detect_path.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u9053\u306E\u691C\u51FA"
   - icon: ':heavy_check_mark:'
     path: test/graph/enumerate_bridges.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u5217\u6319"
@@ -158,7 +163,7 @@ data:
       \u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/bellman-ford.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford \u6CD5"
+    title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013Ford \u6CD5"
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/dijkstra.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
@@ -235,6 +240,7 @@ data:
   - graph/noshi_graph.hpp
   - graph/shortest_path/bellman-ford.hpp
   - graph/shortest_path/dijkstra.hpp
+  - graph/detect_path.hpp
   - graph/chromatic_number.hpp
   - graph/reachability_on_dag.hpp
   - graph/is_bipartite.hpp
@@ -291,6 +297,7 @@ data:
   - test/graph/reachability_on_dag.test.cpp
   - test/graph/detect_directed_cycle.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
+  - test/graph/detect_path.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/lowlink.2.test.cpp
   - test/graph/unicyclic_graph.test.cpp

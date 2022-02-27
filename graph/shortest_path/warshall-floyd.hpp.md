@@ -5,7 +5,8 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/warshall-floyd.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd \u6CD5"
+    title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013Floyd\
+      \ \u6CD5"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -89,7 +90,7 @@ data:
   - test/graph/shortest_path/warshall-floyd.test.cpp
 documentation_of: graph/shortest_path/warshall-floyd.hpp
 layout: document
-title: "Warshall-Floyd \u6CD5"
+title: "Warshall\u2013Floyd \u6CD5"
 ---
 
 任意の2頂点間の最短路を求める全点対最短路問題を解けるアルゴリズムである．

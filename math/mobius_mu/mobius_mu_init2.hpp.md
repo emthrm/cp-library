@@ -27,22 +27,23 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682\r\
     \n * @docs docs/math/mobius_mu/mobius_mu.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n\r\n#include \"../prime_sieve.hpp\"\
-    \r\n\r\nstd::vector<int> mobius_mu_init2(const long long low, const long long\
-    \ high) {\r\n  std::vector<int> mu(high - low, 1);\r\n  std::vector<long long>\
-    \ tmp(high - low);\r\n  std::iota(tmp.begin(), tmp.end(), low);\r\n  if (low ==\
-    \ 0 && high > 0) mu[0] = 0;\r\n  for (const int p : prime_sieve(std::ceil(std::sqrt(high)),\
-    \ true)) {\r\n    for (long long i = (low + p - 1) / p * p; i < high; i += p)\
-    \ {\r\n      if ((i / p) % p == 0) {\r\n        mu[i - low] = tmp[i - low] = 0;\r\
-    \n      } else {\r\n        mu[i - low] = -mu[i - low];\r\n        tmp[i - low]\
-    \ /= p;\r\n      }\r\n    }\r\n  }\r\n  for (int i = 0; i < high - low; ++i) {\r\
-    \n    if (tmp[i] > 1) mu[i] = -mu[i];\r\n  }\r\n  return mu;\r\n}\r\n"
+    \ <numeric>\r\n#include <vector>\r\n\r\n#include \"../prime_sieve.hpp\"\r\n\r\n\
+    std::vector<int> mobius_mu_init2(const long long low, const long long high) {\r\
+    \n  std::vector<int> mu(high - low, 1);\r\n  std::vector<long long> tmp(high -\
+    \ low);\r\n  std::iota(tmp.begin(), tmp.end(), low);\r\n  if (low == 0 && high\
+    \ > 0) mu[0] = 0;\r\n  long long root = 1;\r\n  while ((root + 1) * (root + 1)\
+    \ < high) ++root;\r\n  for (const int p : prime_sieve(root, true)) {\r\n    for\
+    \ (long long i = (low + p - 1) / p * p; i < high; i += p) {\r\n      if ((i /\
+    \ p) % p == 0) {\r\n        mu[i - low] = tmp[i - low] = 0;\r\n      } else {\r\
+    \n        mu[i - low] = -mu[i - low];\r\n        tmp[i - low] /= p;\r\n      }\r\
+    \n    }\r\n  }\r\n  for (int i = 0; i < high - low; ++i) {\r\n    if (tmp[i] >\
+    \ 1) mu[i] = -mu[i];\r\n  }\r\n  return mu;\r\n}\r\n"
   dependsOn:
   - math/prime_sieve.hpp
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_init2.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-24 04:47:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init2.test.cpp

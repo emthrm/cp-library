@@ -70,6 +70,6 @@ $O(1)$
   - https://cafecoder.top/contests/test003/tasks/test003_b
 
 
-## Verify
+## Verified
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/1039/review/4338571/emthrm/C++14

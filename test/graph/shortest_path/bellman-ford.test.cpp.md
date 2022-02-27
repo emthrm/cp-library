@@ -6,7 +6,7 @@ data:
     title: "\u8FBA"
   - icon: ':heavy_check_mark:'
     path: graph/shortest_path/bellman-ford.hpp
-    title: "Bellman-Ford \u6CD5"
+    title: "Bellman\u2013Ford \u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -15,8 +15,8 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
-    document_title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford\
-      \ \u6CD5"
+    document_title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013\
+      Ford \u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -28,8 +28,8 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford\
-    \ \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
+  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013\
+    Ford \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../../graph/edge.hpp\"\
     \r\n#include \"../../../graph/shortest_path/bellman-ford.hpp\"\r\n\r\nint main()\
     \ {\r\n  int v, e, r;\r\n  std::cin >> v >> e >> r;\r\n  std::vector<std::vector<Edge<long\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/graph/shortest_path/bellman-ford.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/shortest_path/bellman-ford.test.cpp
@@ -54,5 +54,5 @@ layout: document
 redirect_from:
 - /verify/test/graph/shortest_path/bellman-ford.test.cpp
 - /verify/test/graph/shortest_path/bellman-ford.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford \u6CD5"
+title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013Ford \u6CD5"
 ---

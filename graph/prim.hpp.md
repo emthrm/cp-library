@@ -88,6 +88,7 @@ Kruskal 法
 ## ToDo
 
 - https://www.slideshare.net/tmaehara/ss-17402143
+- https://twitter.com/noshi91/status/1482583425421029376
 - ブルーフカ法 (Borůvka's algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%82%AB%E6%B3%95
   - http://spinda2.blog48.fc2.com/blog-entry-560.html

@@ -5,14 +5,14 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford-Fulkerson\
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013Fulkerson\
       \ \u6CD5"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/flow/maximum_flow/maximum_flow.md
-    document_title: "Ford-Fulkerson \u6CD5"
+    document_title: "Ford\u2013Fulkerson \u6CD5"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -22,7 +22,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/maximum_flow/ford-fulkerson.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
-  code: "/**\r\n * @brief Ford-Fulkerson \u6CD5\r\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\r\
+  code: "/**\r\n * @brief Ford\u2013Fulkerson \u6CD5\r\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <limits>\r\n#include\
     \ <vector>\r\n\r\ntemplate <typename T>\r\nstruct FordFulkerson {\r\n  struct\
     \ Edge {\r\n    int dst, rev;\r\n    T cap;\r\n    explicit Edge(const int dst,\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: graph/flow/maximum_flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
@@ -56,7 +56,7 @@ layout: document
 redirect_from:
 - /library/graph/flow/maximum_flow/ford-fulkerson.hpp
 - /library/graph/flow/maximum_flow/ford-fulkerson.hpp.html
-title: "Ford-Fulkerson \u6CD5"
+title: "Ford\u2013Fulkerson \u6CD5"
 ---
 # 最大流 (maximum flow)
 
@@ -69,17 +69,17 @@ title: "Ford-Fulkerson \u6CD5"
 
 |アルゴリズム|時間計算量|
 |:--:|:--:|
-|Ford-Fulkerson 法|最大流を $F$ とおくと $O(F \lvert E \rvert)$．|
+|Ford–Fulkerson 法|最大流を $F$ とおくと $O(F \lvert E \rvert)$．|
 |Dinic 法|最大流を $F$ とおくと $O\left(\min \left\lbrace {\lvert V \rvert}^2 \lvert E \rvert,\ F \lvert E \rvert,\ {\lvert E \rvert}^{3/2} \max_{e \in E} C_e,\ \sqrt{\lvert V \rvert} \lvert E \rvert \max_{v \in V} \min \left\lbrace \sum_{e \in \delta^-(v) \subset E} C_e, \sum_{e \in \delta^+(v) \subset E} C_e \right\rbrace \right\rbrace\right)$．|
 
 
 ## 使用法
 
-- Ford-Fulkerson 法
+- Ford–Fulkerson 法
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`FordFulkerson<T>(n)`|頂点数 $N$ の Ford-Fulkerson 法を考える．||
+|`FordFulkerson<T>(n)`|頂点数 $N$ の Ford–Fulkerson 法を考える．||
 |`graph`|残余グラフ||
 |`add_edge(src, dst, cap)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$ の辺を追加する．||
 |`maximum_flow(s, t, limit = ∞)`|上限を $\mathrm{limit}$ とした始点 $s$ から終点 $t$ までの最大流|容量が整数でなければ，停止しないときがある．|
@@ -135,7 +135,7 @@ title: "Ford-Fulkerson \u6CD5"
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.188-195，マイナビ出版（2012）
 - https://twitter.com/kotatsugame_t/status/1192092085479858176
 
-Ford-Fulkerson 法
+Ford–Fulkerson 法
 - https://ei1333.github.io/luzhiled/snippets/graph/ford-fulkerson.html
 
 Dinic 法
@@ -144,7 +144,7 @@ Dinic 法
 
 ## ToDo
 
-- エドモンズ・カープのアルゴリズム (Edmonds-Karp algorithm)
+- エドモンズ・カープのアルゴリズム (Edmonds–Karp algorithm)
   - https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%89%E3%83%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
   - http://www.prefield.com/algorithm/graph/edmonds_karp.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/maximum_flow_edmonds_karp.cc
@@ -177,5 +177,5 @@ Dinic 法
 
 ## Verified
 
-- [Ford-Fulkerson 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_6_A/review/4085135/emthrm/C++14)
+- [Ford–Fulkerson 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_6_A/review/4085135/emthrm/C++14)
 - [Dinic 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/1615/review/4085139/emthrm/C++14)

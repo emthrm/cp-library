@@ -337,6 +337,6 @@ expected $O(N)$
 - http://nonoishi.web.fc2.com/math/fivecenters.pdf
 
 
-## Verify
+## Verified
 
 - https://atcoder.jp/contests/abc151/submissions/11968904

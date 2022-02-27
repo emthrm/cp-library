@@ -8,7 +8,7 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/string/aho-corasick.test.cpp
-    title: "\u6587\u5B57\u5217/\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5"
+    title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -112,7 +112,7 @@ data:
   - test/string/aho-corasick.test.cpp
 documentation_of: string/aho-corasick.hpp
 layout: document
-title: "\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5 (Aho-Corasick algorithm)"
+title: "Aho\u2013Corasick algorithm"
 ---
 
 トライ木を用いてパターンマッチングを行うアルゴリズムである．
@@ -127,7 +127,7 @@ title: "\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5 (Aho-Corasick al
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`AhoCorasick<σ = 26>(convert)`|エイホ-コラシック法を考える．||
+|`AhoCorasick<σ = 26>(convert)`|Aho–Corasick algorithm を考える．||
 |`nums[i]`|$i$番目のノードが保有する文字列の数||
 |`build(完全版か? = false)`|オートマトンを構築する．||
 |`move(c, pos)`|$\mathrm{pos}$ 番目のノードを起点としたときに文字 $c$ と対応するノードのインデックス||

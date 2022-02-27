@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/math/euler_phi/euler_phi_init2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-24 04:47:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/euler_phi/euler_phi_init2.test.cpp

@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: string/morris-pratt.hpp
-    title: Morris-Pratt algorithm
+    title: "Morris\u2013Pratt algorithm"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,7 +12,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
-    document_title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))"
+    document_title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -24,8 +24,8 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))\r\n\
-    \ */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
+  code: "/*\r\n * @brief \u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))\r\
+    \n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
     \r\n\r\n#include <iostream>\r\n#include <string>\r\n\r\n#include \"../../string/morris-pratt.hpp\"\
     \r\n\r\nint main() {\r\n  std::string t, p;\r\n  std::cin >> t >> p;\r\n  for\
     \ (const int ans : MorrisPratt(p).match(t)) std::cout << ans << '\\n';\r\n  return\
@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/string/morris-pratt.1.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/morris-pratt.1.test.cpp
@@ -43,5 +43,5 @@ layout: document
 redirect_from:
 - /verify/test/string/morris-pratt.1.test.cpp
 - /verify/test/string/morris-pratt.1.test.cpp.html
-title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))"
+title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
 ---

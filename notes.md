@@ -20,12 +20,7 @@ $A + B = (A \oplus B) + 2(A \wedge B)$
 
 ---
 
-$a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して
-
-- $ab < c \iff a < \left\lfloor \frac{c}{b} \right\rfloor$，
-- $ab \leq c \iff a \leq \left\lfloor \frac{c}{b} \right\rfloor$
-
-が成り立つ．
+$a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して $ab \leq c \iff a \leq \left\lfloor \frac{c}{b} \right\rfloor$ が成り立つ．
 
 > https://hackmd.io/@qLethon/B1ZGcrbnI
 
@@ -65,3 +60,13 @@ $m \in \mathbb{N}^+,\ a \in \mathbb{Z}$ ($0 < a < m$) に対して
 長さ $n$ の文字列の部分文字列として現れる回文は $n$ 種類以下である．
 
 > https://hackmd.io/@tatyam-prime/pallindromes
+
+---
+
+$N, A, B \in \mathbb{N}^+$ に対して
+
+$$\lfloor {\lfloor N / A \rfloor} / B \rfloor = \lfloor N / AB \rfloor$$
+
+が成り立つ．
+
+> https://atcoder.jp/contests/abc239/editorial/3357

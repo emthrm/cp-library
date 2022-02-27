@@ -71,6 +71,10 @@ title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
 
   $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
 
+- 添え字 lcm での畳み込み
+
+  $$C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j$$
+
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
 
@@ -105,6 +109,12 @@ $O(N\log{N})$
 |:--:|:--:|
 |`gcd_convolution(a, b)`|$A, B$ に対する添え字 gcd での畳み込み|
 
+- 添え字 lcm での畳み込み
+
+||説明|
+|:--:|:--:|
+|`lcm_convolution(a, b, n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
+
 
 ## 参考
 
@@ -116,11 +126,16 @@ $O(N\log{N})$
 高速ウォルシュ・アダマール変換
 - https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 - https://cympfh.cc/aiura/hadamard-xor-convolution
+- https://pctprobability.hatenadiary.com/entry/2022/01/10/185418
 - https://twitter.com/maspy_stars/status/1350467886775603200
 
 添え字 gcd での畳み込み
-  - https://noshi91.hatenablog.com/entry/2019/09/23/002445
-  - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
+- https://noshi91.hatenablog.com/entry/2019/09/23/002445
+- https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
+
+添え字 lcm での畳み込み
+- https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
+- https://yukicoder.me/problems/no/1760
 
 
 ## ToDo
@@ -129,6 +144,8 @@ $O(N\log{N})$
 - 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する．
   - http://noshi91.hatenablog.com/entry/2018/12/27/121649
   - https://github.com/drken1215/algorithm/blob/master/MathAlgebra/fast_gcd_convolution.cpp
+- 添え字 xor での畳み込みにおける逆元
+  - https://yukicoder.me/problems/no/1753/editorial
 - subset convolution
   - https://github.com/yosupo06/library-checker-problems/issues/297
   - https://judge.yosupo.jp/problem/subset_convolution
@@ -149,6 +166,8 @@ $O(N\log{N})$
   - https://twitter.com/_su1sen/status/1425871066916790281
   - https://atcoder.jp/contests/abc213/submissions/24925408
   - https://atcoder.jp/contests/abc213/submissions/24953805
+  - https://atcoder.jp/contests/abc236/tasks/abc236_h
+  - https://twitter.com/noshi91/status/1485246655419260939
 - $(\max, +)$-convolution を用いたナップサック問題
   - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
   - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
@@ -165,4 +184,5 @@ $O(N\log{N})$
 - [添え字 and での畳み込み](https://judge.yosupo.jp/submission/32176)
 - 添え字 or での畳み込み
 - [添え字 xor での畳み込み](https://judge.yosupo.jp/submission/32459)
-- [添え字 gcd での畳み込み](https://atcoder.jp/contests/agc038/submissions/9311349)
+- [添え字 gcd での畳み込み](https://judge.yosupo.jp/submission/79257)
+- [添え字 lcm での畳み込み](https://judge.yosupo.jp/submission/79261)

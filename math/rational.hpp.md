@@ -119,7 +119,7 @@ title: "\u6709\u7406\u6570 (rational number)"
 
 ## ToDo
 
-- Stern-Brocot tree
+- Stern–Brocot tree
   - https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree
   - http://satashun.hatenablog.com/entry/2018/12/13/163524
   - http://blue-jam.hatenablog.com/entry/20110306/1299415086

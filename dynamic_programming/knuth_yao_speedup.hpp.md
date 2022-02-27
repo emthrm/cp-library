@@ -5,7 +5,7 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/knuth_yao_speedup.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -47,7 +47,7 @@ data:
   - test/dynamic_programming/knuth_yao_speedup.test.cpp
 documentation_of: dynamic_programming/knuth_yao_speedup.hpp
 layout: document
-title: Knuth-Yao speedup
+title: "Knuth\u2013Yao speedup"
 ---
 
 $N \times N$ 型重み行列 $W$ を考える．ただし $i > j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ に対して $w_{ij} = \infty$ が成り立つ．
@@ -88,7 +88,7 @@ $O(N^2)$
 
 - 最適二分探索木問題
   - https://atcoder.jp/contests/atc002/tasks/atc002_c
-  - Hu-Tucker algorithm
+  - Hu–Tucker algorithm
     - https://ei1333.github.io/luzhiled/snippets/dp/hu-tucker.html
     - https://github.com/beet-aizu/library/blob/master/algorithm/optimalbinarytree.cpp
     - ~~https://lumakernel.github.io/ecasdqina/algorithm/Hu-Tucker~~

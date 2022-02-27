@@ -823,6 +823,7 @@ title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
 - kd 木 (k-d tree)
   - https://ja.wikipedia.org/wiki/Kd%E6%9C%A8
   - https://www.slideshare.net/okuraofvegetable/ss-65377588
+  - https://twitter.com/noshi91/status/1395285823403167745
   - https://github.com/beet-aizu/library/blob/master/datastructure/kdtree.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Structure/kdTree.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/kd_tree.cc

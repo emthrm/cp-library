@@ -52,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.2.test.cpp

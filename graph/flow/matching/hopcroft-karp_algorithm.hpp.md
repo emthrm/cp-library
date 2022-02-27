@@ -5,14 +5,14 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/Hopcroft-Karp\
-      \ algorithm"
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/Hopcroft\u2013\
+      Karp algorithm"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/flow/matching/matching.md
-    document_title: Hopcroft-Karp algorithm
+    document_title: "Hopcroft\u2013Karp algorithm"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -22,7 +22,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/hopcroft-karp_algorithm.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief Hopcroft-Karp algorithm\r\n * @docs docs/graph/flow/matching/matching.md\r\
+  code: "/**\r\n * @brief Hopcroft\u2013Karp algorithm\r\n * @docs docs/graph/flow/matching/matching.md\r\
     \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <queue>\r\n#include\
     \ <vector>\r\n\r\nstruct HopcroftKarp {\r\n  std::vector<int> match;\r\n\r\n \
     \ explicit HopcroftKarp(const int left, const int right)\r\n      : match(left\
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: graph/flow/matching/hopcroft-karp_algorithm.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
@@ -60,7 +60,7 @@ layout: document
 redirect_from:
 - /library/graph/flow/matching/hopcroft-karp_algorithm.hpp
 - /library/graph/flow/matching/hopcroft-karp_algorithm.hpp.html
-title: Hopcroft-Karp algorithm
+title: "Hopcroft\u2013Karp algorithm"
 ---
 ### マッチング (matching)
 
@@ -124,7 +124,7 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 ||計算量|
 |:--:|:--:|
 |二部グラフの最大マッチング|$O(\lvert V \rvert \lvert E \rvert)$|
-|Hopcroft-Karp algorithm|$O(\lvert E \rvert \sqrt{\lvert V \rvert})$|
+|Hopcroft–Karp algorithm|$O(\lvert E \rvert \sqrt{\lvert V \rvert})$|
 |二部グラフの重み付き最大マッチング|$O(\lvert E \rvert \lvert V \rvert \log{\lvert V \rvert})$|
 |一般グラフの最大マッチング|$O({\lvert V \rvert}^3 + \lvert E \rvert)$|
 
@@ -143,11 +143,11 @@ $$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
 |`activate(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
 |`deactivate(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
 
-- Hopcroft-Karp algorithm
+- Hopcroft–Karp algorithm
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft-Karp algorithm を考える．|
+|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft–Karp algorithm を考える．|
 |`match`|マッチした相手|存在しないときは $-1$ となる．|
 |`add_edge(u, v)`|辺 $(u, v)$ を加える．||
 |`solve()`|最大マッチングのサイズ||
@@ -186,7 +186,7 @@ Hall's theorem
 二部グラフの最大マッチング
 - https://ei1333.github.io/algorithm/bipartite-matching.html
 
-Hopcroft-Karp algorithm
+Hopcroft–Karp algorithm
 - https://misteer.hatenablog.com/entry/hopcroft-karp
 - https://ei1333.github.io/luzhiled/snippets/graph/hopcroft-karp.html
 
@@ -254,6 +254,6 @@ Hopcroft-Karp algorithm
 ## Verified
 
 - [二部グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_7_A/review/5876417/emthrm/C++17)
-- [Hopcroft-Karp algorithm](https://judge.yosupo.jp/submission/2723)
+- [Hopcroft–Karp algorithm](https://judge.yosupo.jp/submission/2723)
 - [二部グラフの重み付き最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2429/review/4092692/emthrm/C++14)
 - [一般グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3032/review/5853683/emthrm/C++17)

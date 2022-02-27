@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: string/knuth-morris-pratt.hpp
-    title: Knuth-Morris-Pratt algorithm
+    title: "Knuth\u2013Morris\u2013Pratt algorithm"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,7 +12,7 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
-    document_title: "\u6587\u5B57\u5217/Knuth-Morris-Pratt algorithm"
+    document_title: "\u6587\u5B57\u5217/Knuth\u2013Morris\u2013Pratt algorithm"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -24,8 +24,8 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/knuth-morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u6587\u5B57\u5217/Knuth-Morris-Pratt algorithm\r\n */\r\n\
-    #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
+  code: "/*\r\n * @brief \u6587\u5B57\u5217/Knuth\u2013Morris\u2013Pratt algorithm\r\
+    \n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
     \r\n\r\n#include <iostream>\r\n#include <string>\r\n\r\n#include \"../../string/knuth-morris-pratt.hpp\"\
     \r\n\r\nint main() {\r\n  std::string t, p;\r\n  std::cin >> t >> p;\r\n  for\
     \ (const int ans : KnuthMorrisPratt<>(p).match(t)) std::cout << ans << '\\n';\r\
@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/string/knuth-morris-pratt.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/knuth-morris-pratt.test.cpp
@@ -43,5 +43,5 @@ layout: document
 redirect_from:
 - /verify/test/string/knuth-morris-pratt.test.cpp
 - /verify/test/string/knuth-morris-pratt.test.cpp.html
-title: "\u6587\u5B57\u5217/Knuth-Morris-Pratt algorithm"
+title: "\u6587\u5B57\u5217/Knuth\u2013Morris\u2013Pratt algorithm"
 ---

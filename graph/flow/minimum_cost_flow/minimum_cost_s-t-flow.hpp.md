@@ -188,6 +188,7 @@ title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u
 - 最小費用 $\boldsymbol{b}$-フロー
   - https://misawa.github.io/others/flow/library_design.html
   - https://twitter.com/Mi_Sawa/status/1283768916775321601
+  - https://noshi91.hatenablog.com/entry/2021/12/15/012019
   - https://judge.yosupo.jp/problem/min_cost_b_flow
 - グラフにコスト負の閉路が存在するとき
 

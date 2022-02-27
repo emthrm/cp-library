@@ -78,13 +78,13 @@ title: "Dijkstra \u6CD5"
 
 |アルゴリズム|時間計算量|
 |:--:|:--:|
-|Bellman-Ford 法|$O(\lvert V \rvert \lvert E \rvert)$|
+|Bellman–Ford 法|$O(\lvert V \rvert \lvert E \rvert)$|
 |Dijkstra 法|$O(\lvert E \rvert \log{\lvert V \rvert})$|
 
 
 ## 使用法
 
-- Bellman-Ford 法
+- Bellman–Ford 法
 
 ||説明|備考|
 |:--:|:--:|:--:|
@@ -106,7 +106,7 @@ title: "Dijkstra \u6CD5"
 
 ## 参考
 
-Bellman-Ford 法
+Bellman–Ford 法
 - http://www.prefield.com/algorithm/graph/bellman_ford.html
 
 Dijkstra 法
@@ -165,5 +165,5 @@ Dijkstra 法
 
 ## Verified
 
-- [Bellman-Ford 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_1_B/review/4082583/emthrm/C++14)
+- [Bellman–Ford 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_1_B/review/4082583/emthrm/C++14)
 - [Dijkstra 法](https://judge.yosupo.jp/submission/8211)

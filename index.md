@@ -67,7 +67,7 @@ data:
       title: convex hull trick
     - icon: ':heavy_check_mark:'
       path: dynamic_programming/knuth_yao_speedup.hpp
-      title: Knuth-Yao speedup
+      title: "Knuth\u2013Yao speedup"
     - icon: ':heavy_check_mark:'
       path: dynamic_programming/largest_rectangle.hpp
       title: "\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\u306E\u6700\u5927\u9577\u65B9\
@@ -131,7 +131,10 @@ data:
       title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
     - icon: ':heavy_check_mark:'
       path: graph/detect_directed_cycle.hpp
-      title: "\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\u30E9\u30D5\u7248"
+      title: "\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
+    - icon: ':x:'
+      path: graph/detect_path.hpp
+      title: "\u9053\u306E\u691C\u51FA"
     - icon: ':question:'
       path: graph/edge.hpp
       title: "\u8FBA"
@@ -195,7 +198,7 @@ data:
         \u30B0"
     - icon: ':heavy_check_mark:'
       path: graph/flow/matching/hopcroft-karp_algorithm.hpp
-      title: Hopcroft-Karp algorithm
+      title: "Hopcroft\u2013Karp algorithm"
     - icon: ':heavy_check_mark:'
       path: graph/flow/matching/maximum_matching.hpp
       title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
@@ -211,7 +214,7 @@ data:
       title: "Dinic \u6CD5"
     - icon: ':heavy_check_mark:'
       path: graph/flow/maximum_flow/ford-fulkerson.hpp
-      title: "Ford-Fulkerson \u6CD5"
+      title: "Ford\u2013Fulkerson \u6CD5"
     - icon: ':heavy_check_mark:'
       path: graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
       title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
@@ -236,13 +239,13 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: graph/shortest_path/bellman-ford.hpp
-      title: "Bellman-Ford \u6CD5"
+      title: "Bellman\u2013Ford \u6CD5"
     - icon: ':question:'
       path: graph/shortest_path/dijkstra.hpp
       title: "Dijkstra \u6CD5"
     - icon: ':heavy_check_mark:'
       path: graph/shortest_path/warshall-floyd.hpp
-      title: "Warshall-Floyd \u6CD5"
+      title: "Warshall\u2013Floyd \u6CD5"
   - name: graph/tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -311,9 +314,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/jacobi_symbol.hpp
       title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
-    - icon: ':heavy_check_mark:'
-      path: math/kita_masa.hpp
-      title: "\u304D\u305F\u307E\u3055\u6CD5"
     - icon: ':x:'
       path: math/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u7248"
@@ -360,7 +360,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/rational.hpp
       title: "\u6709\u7406\u6570 (rational number)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: math/segmented_sieve.hpp
       title: segmented sieve
     - icon: ':heavy_check_mark:'
@@ -383,6 +383,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/convolution/gcd_convolution.hpp
       title: "\u6DFB\u3048\u5B57 gcd \u3067\u306E\u7573\u307F\u8FBC\u307F"
+    - icon: ':heavy_check_mark:'
+      path: math/convolution/lcm_convolution.hpp
+      title: "\u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':question:'
       path: math/convolution/mod_convolution.hpp
       title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -410,8 +413,14 @@ data:
   - name: math/formal_power_series
     pages:
     - icon: ':heavy_check_mark:'
+      path: math/formal_power_series/berlekamp-massey.hpp
+      title: "Berlekamp\u2013Massey algorithm"
+    - icon: ':heavy_check_mark:'
       path: math/formal_power_series/bernoulli_number.hpp
       title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
+    - icon: ':heavy_check_mark:'
+      path: math/formal_power_series/bostan-mori.hpp
+      title: "Bostan\u2013Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
     - icon: ':warning:'
       path: math/formal_power_series/eulerian_number.hpp
       title: Eulerian number
@@ -432,6 +441,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/formal_power_series/multipoint_evaluation.hpp
       title: multipoint evaluation
+    - icon: ':heavy_check_mark:'
+      path: math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
+      title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217\u306E\u7B2C $N$ \u9805"
     - icon: ':heavy_check_mark:'
       path: math/formal_power_series/polynomial_interpolation.hpp
       title: "\u591A\u9805\u5F0F\u88DC\u9593"
@@ -459,7 +471,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/matrix/gauss_jordan.hpp
       title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
-        \u6CD5 (Gauss-Jordan elimination)"
+        \u6CD5 (Gauss\u2013Jordan elimination)"
     - icon: ':heavy_check_mark:'
       path: math/matrix/inverse_matrix.hpp
       title: "\u9006\u884C\u5217 (inverse matrix)"
@@ -551,11 +563,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: string/aho-corasick.hpp
-      title: "\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\u6CD5 (Aho-Corasick\
-        \ algorithm)"
+      title: "Aho\u2013Corasick algorithm"
     - icon: ':heavy_check_mark:'
       path: string/knuth-morris-pratt.hpp
-      title: Knuth-Morris-Pratt algorithm
+      title: "Knuth\u2013Morris\u2013Pratt algorithm"
     - icon: ':heavy_check_mark:'
       path: string/longest_common_prefix.hpp
       title: longest common prefix
@@ -564,7 +575,7 @@ data:
       title: Manacher
     - icon: ':question:'
       path: string/morris-pratt.hpp
-      title: Morris-Pratt algorithm
+      title: "Morris\u2013Pratt algorithm"
     - icon: ':warning:'
       path: string/replace.hpp
       title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
@@ -704,7 +715,7 @@ data:
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotonically_decreasing_query(x))"
     - icon: ':heavy_check_mark:'
       path: test/dynamic_programming/knuth_yao_speedup.test.cpp
-      title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
+      title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup"
     - icon: ':heavy_check_mark:'
       path: test/dynamic_programming/largest_rectangle.test.cpp
       title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\
@@ -851,8 +862,10 @@ data:
         \u5206\u89E3"
     - icon: ':heavy_check_mark:'
       path: test/graph/detect_directed_cycle.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u9589\u8DEF\u306E\u691C\u51FA \u6709\u5411\u30B0\
-        \u30E9\u30D5\u7248"
+      title: "\u30B0\u30E9\u30D5/\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
+    - icon: ':x:'
+      path: test/graph/detect_path.test.cpp
+      title: "\u30B0\u30E9\u30D5/\u9053\u306E\u691C\u51FA"
     - icon: ':heavy_check_mark:'
       path: test/graph/enumerate_bridges.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u5217\u6319"
@@ -914,7 +927,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0\
-        /Hopcroft-Karp algorithm"
+        /Hopcroft\u2013Karp algorithm"
     - icon: ':heavy_check_mark:'
       path: test/graph/flow/matching/maximum_matching.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0\
@@ -928,8 +941,8 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford-Fulkerson\
-        \ \u6CD5"
+      title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013\
+        Fulkerson \u6CD5"
     - icon: ':heavy_check_mark:'
       path: test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/\u6700\u5C0F\
@@ -963,13 +976,15 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: test/graph/shortest_path/bellman-ford.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford \u6CD5"
+      title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013Ford\
+        \ \u6CD5"
     - icon: ':heavy_check_mark:'
       path: test/graph/shortest_path/dijkstra.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
     - icon: ':heavy_check_mark:'
       path: test/graph/shortest_path/warshall-floyd.test.cpp
-      title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall-Floyd \u6CD5"
+      title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013Floyd\
+        \ \u6CD5"
   - name: test/graph/tree
     pages:
     - icon: ':heavy_check_mark:'
@@ -1066,9 +1081,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/jacobi_symbol.test.cpp
       title: "\u6570\u5B66/\u30E4\u30B3\u30D3\u8A18\u53F7"
-    - icon: ':heavy_check_mark:'
-      path: test/math/kita_masa.test.cpp
-      title: "\u6570\u5B66/\u304D\u305F\u307E\u3055\u6CD5"
     - icon: ':x:'
       path: test/math/lagrange_interpolation.test.cpp
       title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\
@@ -1110,6 +1122,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/rational.test.cpp
       title: "\u6570\u5B66/\u6709\u7406\u6570"
+    - icon: ':x:'
+      path: test/math/segmented_sieve.test.cpp
+      title: "\u6570\u5B66/segmented sieve"
     - icon: ':heavy_check_mark:'
       path: test/math/simultaneous_linear_congruence.test.cpp
       title: "\u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F"
@@ -1134,6 +1149,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/convolution/gcd_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd \u3067\u306E\
+        \u7573\u307F\u8FBC\u307F"
+    - icon: ':heavy_check_mark:'
+      path: test/math/convolution/lcm_convolution.test.cpp
+      title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
     - icon: ':x:'
       path: test/math/convolution/mod_convolution.test.cpp
@@ -1163,9 +1182,17 @@ data:
   - name: test/math/formal_power_series
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/math/formal_power_series/berlekamp-massey.test.cpp
+      title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Berlekamp\u2013Massey\
+        \ algorithm"
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/bernoulli_number.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\
         \u30FC\u30A4\u6570"
+    - icon: ':heavy_check_mark:'
+      path: test/math/formal_power_series/bostan-mori.test.cpp
+      title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
+        \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
     - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
@@ -1335,11 +1362,10 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: test/string/aho-corasick.test.cpp
-      title: "\u6587\u5B57\u5217/\u30A8\u30A4\u30DB-\u30B3\u30E9\u30B7\u30C3\u30AF\
-        \u6CD5"
+      title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
     - icon: ':heavy_check_mark:'
       path: test/string/knuth-morris-pratt.test.cpp
-      title: "\u6587\u5B57\u5217/Knuth-Morris-Pratt algorithm"
+      title: "\u6587\u5B57\u5217/Knuth\u2013Morris\u2013Pratt algorithm"
     - icon: ':heavy_check_mark:'
       path: test/string/longest_common_prefix.test.cpp
       title: "\u6587\u5B57\u5217/longest common prefix"
@@ -1348,10 +1374,10 @@ data:
       title: "\u6587\u5B57\u5217/Manacher"
     - icon: ':heavy_check_mark:'
       path: test/string/morris-pratt.1.test.cpp
-      title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (match(t))"
+      title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
     - icon: ':x:'
       path: test/string/morris-pratt.2.test.cpp
-      title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))"
+      title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
     - icon: ':heavy_check_mark:'
       path: test/string/rolling_hash.test.cpp
       title: "\u6587\u5B57\u5217/\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5"

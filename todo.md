@@ -50,6 +50,7 @@
 ## ToDo
 - https://en.wikipedia.org/wiki/Hackenbush
 - https://www.link.cs.cmu.edu/15859-s11/notes/Hackenbush.pdf
+- https://klein.mit.edu/~rstan/transparencies/games.pdf
 - Green Hackenbush
   - https://codeforces.com/contest/1610/problem/I
   - https://atcoder.jp/contests/agc017/tasks/agc017_d
@@ -316,7 +317,7 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23RecursiveDecentParsing.cpp~~
 
 
-# ゴモリ・フー木 (Gomory-Hu tree)
+# ゴモリ・フー木 (Gomory–Hu tree)
 
 ## ToDo
 - https://ja.wikipedia.org/wiki/%E3%82%B4%E3%83%A2%E3%83%AA%E3%83%BB%E3%83%95%E3%83%BC%E6%9C%A8
@@ -328,6 +329,18 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
 
 ## ToDo
 - https://drive.google.com/file/d/1s6x_07yD54QVXrIgyUfF4Wu5qzmt1I4U
+
+
+# 乗法的関数 (multiplicative function)
+
+$n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，$a \perp b$ を満たす $a, b \in \mathbb{N}^+$ に対して $f(ab) = f(a)f(b)$ が成り立つものである．
+
+## 参考
+- https://ja.wikipedia.org/wiki/%E4%B9%97%E6%B3%95%E7%9A%84%E9%96%A2%E6%95%B0
+
+## ToDo
+- https://nyaannyaan.github.io/library/multiplicative-function/sum-of-multiplicative-function.hpp.html
+- https://atcoder.jp/contests/abc239/tasks/abc239_h
 
 
 # 線形マトロイドパリティ問題
@@ -420,6 +433,17 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
     - https://en.wikipedia.org/wiki/Fibonacci_heap
 
 
+# 非不偏ゲーム (partisan game)
+
+## ToDo
+- https://en.wikipedia.org/wiki/Partisan_game
+- http://www.ivis.co.jp/text/20111102.pdf
+- hot game / cold game
+  - https://en.wikipedia.org/wiki/Hot_game
+  - https://atcoder.jp/contests/abc229/tasks/abc229_h
+  - https://twitter.com/noshi91/status/1464590806841696256
+
+
 # 平衡二分探索木 (self-balancing binary search tree)
 
 ## ToDo
@@ -502,7 +526,7 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
   - https://ja.wikipedia.org/wiki/Bitap%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
   - ~~http://www.prefield.com/algorithm/string/shift_and.html~~
   - http://monyone.github.io/teihen_library/#ShiftAnd
-- ボイヤー-ムーア文字列検索アルゴリズム (Boyer-Moore string search algorithm)
+- ボイヤー・ムーア文字列検索アルゴリズム (Boyer–Moore string search algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%A4%E3%83%A4%E3%83%BC-%E3%83%A0%E3%83%BC%E3%82%A2%E6%96%87%E5%AD%97%E5%88%97%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
   - https://dic.kimiyuki.net/boyer-moore
   - https://algoful.com/Archive/Algorithm/BMSearch
@@ -510,9 +534,9 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
   - ~~http://www.prefield.com/algorithm/string/boyer_moore.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/string/boyer_moore.cc
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23BoyerMoore.cpp~~
-- Baker-Bird Algorithm
+- Baker–Bird Algorithm
   - ~~http://www.prefield.com/algorithm/string/baker_bird.html~~
-- Karp-Miller-Rosenberg algorithm
+- Karp–Miller–Rosenberg algorithm
   - ~~http://www.prefield.com/algorithm/string/karp_miller_rosenberg.html~~
 
 

@@ -8,13 +8,13 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/bellman-ford.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman-Ford \u6CD5"
+    title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013Ford \u6CD5"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/shortest_path/single-source_shortest_path_problem.md
-    document_title: "Bellman-Ford \u6CD5"
+    document_title: "Bellman\u2013Ford \u6CD5"
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
@@ -24,7 +24,7 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/shortest_path/bellman-ford.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\n * @brief Bellman-Ford \u6CD5\n * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md\n\
+  code: "/**\n * @brief Bellman\u2013Ford \u6CD5\n * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md\n\
     \ */\n\n#pragma once\n#include <algorithm>\n#include <cassert>\n#include <limits>\n\
     #include <vector>\n\n#include \"../edge.hpp\"\n\ntemplate <typename CostType>\n\
     struct BellmanFord {\n  const CostType inf;\n  std::vector<CostType> dist;\n\n\
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: graph/shortest_path/bellman-ford.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/shortest_path/bellman-ford.test.cpp
@@ -57,7 +57,7 @@ layout: document
 redirect_from:
 - /library/graph/shortest_path/bellman-ford.hpp
 - /library/graph/shortest_path/bellman-ford.hpp.html
-title: "Bellman-Ford \u6CD5"
+title: "Bellman\u2013Ford \u6CD5"
 ---
 # 単一始点最短路問題 (single-source shortest path problem)
 
@@ -68,13 +68,13 @@ title: "Bellman-Ford \u6CD5"
 
 |アルゴリズム|時間計算量|
 |:--:|:--:|
-|Bellman-Ford 法|$O(\lvert V \rvert \lvert E \rvert)$|
+|Bellman–Ford 法|$O(\lvert V \rvert \lvert E \rvert)$|
 |Dijkstra 法|$O(\lvert E \rvert \log{\lvert V \rvert})$|
 
 
 ## 使用法
 
-- Bellman-Ford 法
+- Bellman–Ford 法
 
 ||説明|備考|
 |:--:|:--:|:--:|
@@ -96,7 +96,7 @@ title: "Bellman-Ford \u6CD5"
 
 ## 参考
 
-Bellman-Ford 法
+Bellman–Ford 法
 - http://www.prefield.com/algorithm/graph/bellman_ford.html
 
 Dijkstra 法
@@ -155,5 +155,5 @@ Dijkstra 法
 
 ## Verified
 
-- [Bellman-Ford 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_1_B/review/4082583/emthrm/C++14)
+- [Bellman–Ford 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_1_B/review/4082583/emthrm/C++14)
 - [Dijkstra 法](https://judge.yosupo.jp/submission/8211)

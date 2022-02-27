@@ -50,7 +50,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/faulhaber_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp

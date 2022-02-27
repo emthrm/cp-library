@@ -56,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/subset_sum_problem.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/subset_sum_problem.test.cpp

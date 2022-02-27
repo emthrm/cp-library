@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://atcoder.jp/contests/agc038/tasks/agc038_c
+    PROBLEM: https://judge.yosupo.jp/problem/gcd_convolution
     document_title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd\
       \ \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links:
-    - https://atcoder.jp/contests/agc038/tasks/agc038_c
+    - https://judge.yosupo.jp/problem/gcd_convolution
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -30,25 +30,22 @@ data:
     \ math/convolution/gcd_convolution.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
   code: "/*\r\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57\
-    \ gcd \u3067\u306E\u7573\u307F\u8FBC\u307F\r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/agc038/tasks/agc038_c\"\
+    \ gcd \u3067\u306E\u7573\u307F\u8FBC\u307F\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/gcd_convolution\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../../math/convolution/gcd_convolution.hpp\"\
     \r\n#include \"../../../math/modint.hpp\"\r\n\r\nint main() {\r\n  using ModInt\
-    \ = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  constexpr int N = 1000000;\r\
-    \n  int n;\r\n  std::cin >> n;\r\n  std::vector<int> a(n);\r\n  for (int i = 0;\
-    \ i < n; ++i) {\r\n    std::cin >> a[i];\r\n  }\r\n  std::vector<ModInt> b(N +\
-    \ 1, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n    b[a[i]] += a[i];\r\n  }\r\n\
-    \  std::vector<ModInt> c = gcd_convolution(b, b);\r\n  for (int i = 0; i < n;\
-    \ ++i) {\r\n    c[a[i]] -= static_cast<long long>(a[i]) * a[i];\r\n  }\r\n  for\
-    \ (int i = 1; i <= N; ++i) {\r\n    c[i] /= 2;\r\n  }\r\n  ModInt ans = 0;\r\n\
-    \  for (int i = 1; i <= N; ++i) {\r\n    ans += c[i] / i;\r\n  }\r\n  std::cout\
-    \ << ans << '\\n';\r\n  return 0;\r\n}\r\n"
+    \ = MInt<0>;\r\n  ModInt::set_mod(998244353);\r\n  int n;\r\n  std::cin >> n;\r\
+    \n  std::vector<ModInt> a(n + 1, 0), b(n + 1, 0);\r\n  for (int i = 1; i <= n;\
+    \ ++i) {\r\n    std::cin >> a[i];\r\n  }\r\n  for (int i = 1; i <= n; ++i) {\r\
+    \n    std::cin >> b[i];\r\n  }\r\n  const std::vector<ModInt> c = gcd_convolution(a,\
+    \ b);\r\n  for (int i = 1; i <= n; ++i) {\r\n    std::cout << c[i] << \" \\n\"\
+    [i == n];\r\n  }\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - math/convolution/gcd_convolution.hpp
   - math/modint.hpp
   isVerificationFile: true
   path: test/math/convolution/gcd_convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-20 00:39:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/gcd_convolution.test.cpp

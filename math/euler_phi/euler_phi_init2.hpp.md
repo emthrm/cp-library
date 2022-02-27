@@ -28,22 +28,23 @@ data:
     \ line\n"
   code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
     \u6570\u88682\r\n * @docs docs/math/euler_phi/euler_phi.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <cmath>\r\n#include <numeric>\r\n#include <vector>\r\n\r\n\
-    #include \"../prime_sieve.hpp\"\r\n\r\nstd::vector<long long> euler_phi_init2(const\
-    \ long long low,\r\n                                       const long long high)\
-    \ {\r\n  std::vector<long long> phi(high - low), rem(high - low);\r\n  std::iota(phi.begin(),\
-    \ phi.end(), low);\r\n  std::iota(rem.begin(), rem.end(), low);\r\n  for (const\
-    \ int p : prime_sieve(std::ceil(std::sqrt(high)), true)) {\r\n    for (long long\
-    \ i = (low + p - 1) / p * p; i < high; i += p) {\r\n      phi[i - low] -= phi[i\
-    \ - low] / p;\r\n      while (rem[i - low] % p == 0) rem[i - low] /= p;\r\n  \
-    \  }\r\n  }\r\n  for (int i = 0; i < high - low; ++i) {\r\n    if (rem[i] > 1)\
-    \ phi[i] -= phi[i] / rem[i];\r\n  }\r\n  return phi;\r\n}\r\n"
+    \ once\r\n#include <numeric>\r\n#include <vector>\r\n\r\n#include \"../prime_sieve.hpp\"\
+    \r\n\r\nstd::vector<long long> euler_phi_init2(const long long low,\r\n      \
+    \                                 const long long high) {\r\n  std::vector<long\
+    \ long> phi(high - low), rem(high - low);\r\n  std::iota(phi.begin(), phi.end(),\
+    \ low);\r\n  std::iota(rem.begin(), rem.end(), low);\r\n  long long root = 1;\r\
+    \n  while ((root + 1) * (root + 1) < high) ++root;\r\n  for (const int p : prime_sieve(root,\
+    \ true)) {\r\n    for (long long i = (low + p - 1) / p * p; i < high; i += p)\
+    \ {\r\n      phi[i - low] -= phi[i - low] / p;\r\n      while (rem[i - low] %\
+    \ p == 0) rem[i - low] /= p;\r\n    }\r\n  }\r\n  for (int i = 0; i < high - low;\
+    \ ++i) {\r\n    if (rem[i] > 1) phi[i] -= phi[i] / rem[i];\r\n  }\r\n  return\
+    \ phi;\r\n}\r\n"
   dependsOn:
   - math/prime_sieve.hpp
   isVerificationFile: false
   path: math/euler_phi/euler_phi_init2.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-02-24 04:47:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
@@ -60,9 +61,9 @@ $n \in \mathbb{N}^+$ に対して
 
 $$\varphi(n) \mathrel{:=} \# \lbrace k \in \lbrace 1, 2, \ldots, n \rbrace \mid k \perp n \rbrace$$
 
-と定義される $\varphi(n)$ である．
+と定義される $\varphi(n)$ である．素因数分解 $n = \prod_{i = 1}^k p_i^{e_i}$ に対して
 
-$$\varphi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right)$$
+$$\varphi(n) = n \prod_{i = 1}^k \left(1 - \frac{1}{p_i}\right)$$
 
 が成り立つ．
 

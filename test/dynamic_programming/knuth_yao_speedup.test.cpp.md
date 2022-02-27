@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: dynamic_programming/knuth_yao_speedup.hpp
-    title: Knuth-Yao speedup
+    title: "Knuth\u2013Yao speedup"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,13 +12,13 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415
-    document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
+    document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup"
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415
   bundledCode: "#line 1 \"test/dynamic_programming/knuth_yao_speedup.test.cpp\"\n\
-    /*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup\r\n */\r\n#define\
-    \ PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415\"\r\
-    \n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#line 2 \"dynamic_programming/knuth_yao_speedup.hpp\"\
+    /*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup\r\n */\r\
+    \n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415\"\
+    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#line 2 \"dynamic_programming/knuth_yao_speedup.hpp\"\
     \n#include <algorithm>\r\n#line 4 \"dynamic_programming/knuth_yao_speedup.hpp\"\
     \n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> knuth_yao_speedup(\r\
     \n    const std::vector<std::vector<T>>& w, const T inf) {\r\n  const int n =\
@@ -41,8 +41,8 @@ data:
     \ + 1; j < n; ++j) {\r\n      f[i][j] = f[i][j - 1] + w[j];\r\n    }\r\n  }\r\n\
     \  std::cout << knuth_yao_speedup(f, LINF)[0][n - 1] << '\\n';\r\n  return 0;\r\
     \n}\r\n"
-  code: "/*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup\r\n */\r\
-    \n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415\"\
+  code: "/*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup\r\n\
+    \ */\r\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415\"\
     \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../dynamic_programming/knuth_yao_speedup.hpp\"\
     \r\n\r\n// \u4E8C\u5206\u63A2\u7D22\u6728\u306E\u30B3\u30B9\u30C8 \\sum_{i = 1}^N\
     \ w_i * depth(i) \u306E\u6700\u5C0F\u5024\r\nint main() {\r\n  constexpr long\
@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/knuth_yao_speedup.test.cpp
   requiredBy: []
-  timestamp: '2022-02-14 14:47:00+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/knuth_yao_speedup.test.cpp
@@ -66,5 +66,5 @@ layout: document
 redirect_from:
 - /verify/test/dynamic_programming/knuth_yao_speedup.test.cpp
 - /verify/test/dynamic_programming/knuth_yao_speedup.test.cpp.html
-title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth-Yao speedup"
+title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup"
 ---

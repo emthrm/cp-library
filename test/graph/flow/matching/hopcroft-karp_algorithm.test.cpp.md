@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/flow/matching/hopcroft-karp_algorithm.hpp
-    title: Hopcroft-Karp algorithm
+    title: "Hopcroft\u2013Karp algorithm"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -13,7 +13,7 @@ data:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/bipartitematching
     document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\
-      \u30B0/Hopcroft-Karp algorithm"
+      \u30B0/Hopcroft\u2013Karp algorithm"
     links:
     - https://judge.yosupo.jp/problem/bipartitematching
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -27,7 +27,7 @@ data:
     \ graph/flow/matching/hopcroft-karp_algorithm.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\
-    \u30B0/Hopcroft-Karp algorithm\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\
+    \u30B0/Hopcroft\u2013Karp algorithm\r\n */\r\n#define PROBLEM \"https://judge.yosupo.jp/problem/bipartitematching\"\
     \r\n\r\n#include <iostream>\r\n\r\n#include \"../../../../graph/flow/matching/hopcroft-karp_algorithm.hpp\"\
     \r\n\r\nint main() {\r\n  int l, r, m;\r\n  std::cin >> l >> r >> m;\r\n  HopcroftKarp\
     \ hopcroft_karp(l, r);\r\n  while (m--) {\r\n    int a, b;\r\n    std::cin >>\
@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
@@ -48,6 +48,6 @@ layout: document
 redirect_from:
 - /verify/test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
 - /verify/test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/Hopcroft-Karp\
-  \ algorithm"
+title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/Hopcroft\u2013\
+  Karp algorithm"
 ---

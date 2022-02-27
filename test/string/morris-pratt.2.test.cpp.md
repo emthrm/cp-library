@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':question:'
     path: string/morris-pratt.hpp
-    title: Morris-Pratt algorithm
+    title: "Morris\u2013Pratt algorithm"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
@@ -14,7 +14,7 @@ data:
     IGNORE: ''
     IGNORE_IF_CLANG: ''
     IGNORE_IF_GCC: ''
-    document_title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))"
+    document_title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
     links:
     - https://codeforces.com/problemset/problem/1138/D
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -26,7 +26,7 @@ data:
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))\r\
+  code: "/*\r\n * @brief \u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))\r\
     \n */\r\n#define IGNORE\r\n#define PROBLEM \"https://codeforces.com/problemset/problem/1138/D\"\
     \r\n\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <iostream>\r\n\
     #include <string>\r\n\r\n#include \"../../string/morris-pratt.hpp\"\r\n\r\nint\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/string/morris-pratt.2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/morris-pratt.2.test.cpp
@@ -51,5 +51,5 @@ layout: document
 redirect_from:
 - /verify/test/string/morris-pratt.2.test.cpp
 - /verify/test/string/morris-pratt.2.test.cpp.html
-title: "\u6587\u5B57\u5217/Morris-Pratt algorithm (period(idx))"
+title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
 ---

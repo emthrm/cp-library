@@ -38,6 +38,10 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
   - icon: ':heavy_check_mark:'
+    path: test/math/formal_power_series/bostan-mori.test.cpp
+    title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
+      \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
@@ -105,10 +109,10 @@ data:
     \n  explicit FormalPowerSeries(const InputIter first, const InputIter last)\r\n\
     \      : coef(first, last) {}\r\n\r\n  inline const T& operator[](const int term)\
     \ const { return coef[term]; }\r\n  inline T& operator[](const int term) { return\
-    \ coef[term]; }\r\n\r\n  using MULT = std::function<std::vector<T>(const std::vector<T>&,\r\
+    \ coef[term]; }\r\n\r\n  using Mult = std::function<std::vector<T>(const std::vector<T>&,\r\
     \n                                            const std::vector<T>&)>;\r\n  using\
-    \ SQRT = std::function<bool(const T&, T*)>;\r\n  static void set_mult(const MULT\
-    \ mult) { get_mult() = mult; }\r\n  static void set_sqrt(const SQRT sqrt) { get_sqrt()\
+    \ Sqrt = std::function<bool(const T&, T*)>;\r\n  static void set_mult(const Mult\
+    \ mult) { get_mult() = mult; }\r\n  static void set_sqrt(const Sqrt sqrt) { get_sqrt()\
     \ = sqrt; }\r\n\r\n  void resize(const int deg) { coef.resize(deg + 1, 0); }\r\
     \n  void shrink() {\r\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\r\
     \n  }\r\n  int degree() const { return static_cast<int>(coef.size()) - 1; }\r\n\
@@ -229,13 +233,13 @@ data:
     \ inv_fact[i];\r\n      pow_c *= c;\r\n    }\r\n    const std::vector<T> conv\
     \ = get_mult()(g, ex);\r\n    FormalPowerSeries res(n - 1);\r\n    for (int i\
     \ = 0; i < n; ++i) {\r\n      res[i] = conv[n - 1 - i] * inv_fact[i];\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n private:\r\n  static MULT& get_mult() {\r\n \
-    \   static MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n\
+    \n    return res;\r\n  }\r\n\r\n private:\r\n  static Mult& get_mult() {\r\n \
+    \   static Mult mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n\
     \        -> std::vector<T> {\r\n      const int n = a.size(), m = b.size();\r\n\
     \      std::vector<T> res(n + m - 1, 0);\r\n      for (int i = 0; i < n; ++i)\
     \ {\r\n        for (int j = 0; j < m; ++j) {\r\n          res[i + j] += a[i] *\
     \ b[j];\r\n        }\r\n      }\r\n      return res;\r\n    };\r\n    return mult;\r\
-    \n  }\r\n  static SQRT& get_sqrt() {\r\n    static SQRT sqrt = [](const T& a,\
+    \n  }\r\n  static Sqrt& get_sqrt() {\r\n    static Sqrt sqrt = [](const T& a,\
     \ T* res) -> bool { return false; };\r\n    return sqrt;\r\n  }\r\n};\r\n"
   code: "#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <functional>\r\
     \n#include <initializer_list>\r\n#include <iterator>\r\n#include <vector>\r\n\r\
@@ -247,10 +251,10 @@ data:
     \ InputIter first, const InputIter last)\r\n      : coef(first, last) {}\r\n\r\
     \n  inline const T& operator[](const int term) const { return coef[term]; }\r\n\
     \  inline T& operator[](const int term) { return coef[term]; }\r\n\r\n  using\
-    \ MULT = std::function<std::vector<T>(const std::vector<T>&,\r\n             \
-    \                               const std::vector<T>&)>;\r\n  using SQRT = std::function<bool(const\
-    \ T&, T*)>;\r\n  static void set_mult(const MULT mult) { get_mult() = mult; }\r\
-    \n  static void set_sqrt(const SQRT sqrt) { get_sqrt() = sqrt; }\r\n\r\n  void\
+    \ Mult = std::function<std::vector<T>(const std::vector<T>&,\r\n             \
+    \                               const std::vector<T>&)>;\r\n  using Sqrt = std::function<bool(const\
+    \ T&, T*)>;\r\n  static void set_mult(const Mult mult) { get_mult() = mult; }\r\
+    \n  static void set_sqrt(const Sqrt sqrt) { get_sqrt() = sqrt; }\r\n\r\n  void\
     \ resize(const int deg) { coef.resize(deg + 1, 0); }\r\n  void shrink() {\r\n\
     \    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\r\n  }\r\n \
     \ int degree() const { return static_cast<int>(coef.size()) - 1; }\r\n\r\n  FormalPowerSeries&\
@@ -371,13 +375,13 @@ data:
     \ inv_fact[i];\r\n      pow_c *= c;\r\n    }\r\n    const std::vector<T> conv\
     \ = get_mult()(g, ex);\r\n    FormalPowerSeries res(n - 1);\r\n    for (int i\
     \ = 0; i < n; ++i) {\r\n      res[i] = conv[n - 1 - i] * inv_fact[i];\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n private:\r\n  static MULT& get_mult() {\r\n \
-    \   static MULT mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n\
+    \n    return res;\r\n  }\r\n\r\n private:\r\n  static Mult& get_mult() {\r\n \
+    \   static Mult mult = [](const std::vector<T>& a, const std::vector<T>& b)\r\n\
     \        -> std::vector<T> {\r\n      const int n = a.size(), m = b.size();\r\n\
     \      std::vector<T> res(n + m - 1, 0);\r\n      for (int i = 0; i < n; ++i)\
     \ {\r\n        for (int j = 0; j < m; ++j) {\r\n          res[i + j] += a[i] *\
     \ b[j];\r\n        }\r\n      }\r\n      return res;\r\n    };\r\n    return mult;\r\
-    \n  }\r\n  static SQRT& get_sqrt() {\r\n    static SQRT sqrt = [](const T& a,\
+    \n  }\r\n  static Sqrt& get_sqrt() {\r\n    static Sqrt sqrt = [](const T& a,\
     \ T* res) -> bool { return false; };\r\n    return sqrt;\r\n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
@@ -391,7 +395,7 @@ data:
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - math/twelvefold_way/partition_function_by_fps.hpp
   - dynamic_programming/subset_sum_problem.hpp
-  timestamp: '2022-02-17 13:43:56+09:00'
+  timestamp: '2022-02-27 17:53:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/bernoulli_number.test.cpp
@@ -401,6 +405,7 @@ data:
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
@@ -469,7 +474,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
 |`set_mult(mult)`|乗算を定義する．|||
 |`set_sqrt(sqrt)`|平方根の計算を定義する．|||
-|`resize(deg)`|先頭 $\mathrm{deg}$ 次を考える．|||
+|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
 |`shrink()`|正規化を行う．|||
 |`degree()`|現在考えている次数|||
 |`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．|||
@@ -526,18 +531,6 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://nyaannyaan.github.io/library/matrix/black-box-linear-algebra.hpp
   - https://twitter.com/hamko_intel/status/944327890400829440
   - https://yukicoder.me/problems/no/444
-  - Berlekamp–Massey algorithm
-    - https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm
-    - https://de.wikipedia.org/wiki/Berlekamp-Massey-Algorithmus
-    - ~~https://bitbucket.org/yuki2006/yukicoder_wiki/diff/polynomial_techniques.html?at=master&diff2=fdae5fc5c01dba5670dec4e18ba3be4c90edcc51~~
-    - ~~http://sugarknri.hatenablog.com/entry/2017/11/18/234217~~
-    - https://qiita.com/kenmaro/items/4042b646d39255b623b8
-    - https://haruya12.hatenadiary.org/entry/20160131/1454252059
-    - https://github.com/beet-aizu/library/blob/master/polynomial/berlekampmassey.cpp
-    - https://github.com/ei1333/library/blob/master/math/fps/berlekamp-massey.cpp
-    - https://yukicoder.me/submissions/427818
-    - https://judge.yosupo.jp/problem/find_linear_recurrence
-    - https://tsuchi.hateblo.jp/entry/2021/10/09/124804
 - Lagrange inversion theorem
   - https://en.wikipedia.org/wiki/Lagrange_inversion_theorem
   - https://www.mathwills.com/posts/46
@@ -551,8 +544,6 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#1%E8%A8%98%E5%8F%B7%E7%9A%84%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/tatyam_prime/status/1446841586252324866
-- $x^n \bmod f$
-  - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
 - $\sum_{n = 0}^\infty \frac{n^a}{n!} x^n$
   - https://qiita.com/hotman78/items/90dba287b98629767d6c
 - 多項式ハッシュ
@@ -566,6 +557,8 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://yukicoder.me/problems/no/1532
   - https://atcoder.jp/contests/arc116/submissions/21399687
   - https://atcoder.jp/contests/abc020/submissions/21426601
+- 桁 DP
+  - https://qiita.com/ryuhe1/items/185e1a283f13ac638a53
 
 
 ## Verified

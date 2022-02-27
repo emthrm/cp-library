@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: graph/flow/maximum_flow/ford-fulkerson.hpp
-    title: "Ford-Fulkerson \u6CD5"
+    title: "Ford\u2013Fulkerson \u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,8 +12,8 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
-    document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford-Fulkerson\
-      \ \u6CD5"
+    document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013\
+      Fulkerson \u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -27,7 +27,7 @@ data:
     \ graph/flow/maximum_flow/ford-fulkerson.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
   code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41\
-    /Ford-Fulkerson \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
+    /Ford\u2013Fulkerson \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
     \r\n\r\n#include <iostream>\r\n\r\n#include \"../../../../graph/flow/maximum_flow/ford-fulkerson.hpp\"\
     \r\n\r\nint main() {\r\n  int v, e;\r\n  std::cin >> v >> e;\r\n  FordFulkerson<long\
     \ long> ford_fulkerson(v);\r\n  while (e--) {\r\n    int u_i, v_i, c_i;\r\n  \
@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-02-27 15:05:10+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
@@ -47,5 +47,6 @@ layout: document
 redirect_from:
 - /verify/test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
 - /verify/test/graph/flow/maximum_flow/ford-fulkerson.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford-Fulkerson \u6CD5"
+title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013Fulkerson\
+  \ \u6CD5"
 ---
