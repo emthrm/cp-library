@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/Knuth-Yao speedup
+ * @brief 動的計画法/Knuth–Yao speedup
  */
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415"
 

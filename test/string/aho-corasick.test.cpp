@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/エイホ-コラシック法
+ * @brief 文字列/Aho–Corasick algorithm
  */
 #define PROBLEM "https://yukicoder.me/problems/no/430"
 

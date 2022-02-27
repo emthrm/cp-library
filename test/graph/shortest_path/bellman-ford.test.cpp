@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/最短路問題/Bellman-Ford 法
+ * @brief グラフ/最短路問題/Bellman–Ford 法
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B"
 

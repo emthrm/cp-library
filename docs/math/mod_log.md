@@ -27,7 +27,7 @@ $O(\sqrt{P} \log{P})$
 
 ## ToDo
 
-- Pohlig-Hellman algorithm
+- Pohlig–Hellman algorithm
   - http://sonickun.hatenablog.com/entry/2016/11/20/192743
   - https://yukicoder.me/problems/no/950
   - https://twitter.com/nuo_chocorusk/status/1205509988912783360

@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/最大流/Ford-Fulkerson 法
+ * @brief グラフ/フロー/最大流/Ford–Fulkerson 法
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 

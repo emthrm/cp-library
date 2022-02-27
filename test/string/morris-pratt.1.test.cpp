@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/Morris-Pratt algorithm (match(t))
+ * @brief 文字列/Morris–Pratt algorithm (match(t))
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 

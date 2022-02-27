@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/マッチング/Hopcroft-Karp algorithm
+ * @brief グラフ/フロー/マッチング/Hopcroft–Karp algorithm
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 

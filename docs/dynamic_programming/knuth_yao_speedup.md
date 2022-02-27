@@ -1,5 +1,5 @@
 ---
-title: Knuth-Yao speedup
+title: Knuth–Yao speedup
 documentation_of: dynamic_programming/knuth_yao_speedup.hpp
 ---
 
@@ -41,7 +41,7 @@ $O(N^2)$
 
 - 最適二分探索木問題
   - https://atcoder.jp/contests/atc002/tasks/atc002_c
-  - Hu-Tucker algorithm
+  - Hu–Tucker algorithm
     - https://ei1333.github.io/luzhiled/snippets/dp/hu-tucker.html
     - https://github.com/beet-aizu/library/blob/master/algorithm/optimalbinarytree.cpp
     - ~~https://lumakernel.github.io/ecasdqina/algorithm/Hu-Tucker~~

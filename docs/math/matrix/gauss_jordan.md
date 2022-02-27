@@ -1,5 +1,5 @@
 ---
-title: ガウス・ジョルダンの消去法 (Gauss-Jordan elimination)
+title: ガウス・ジョルダンの消去法 (Gauss–Jordan elimination)
 documentation_of: math/matrix/gauss_jordan.hpp
 ---
 

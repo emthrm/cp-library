@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/Morris-Pratt algorithm (period(idx))
+ * @brief 文字列/Morris–Pratt algorithm (period(idx))
  */
 #define IGNORE
 #define PROBLEM "https://codeforces.com/problemset/problem/1138/D"

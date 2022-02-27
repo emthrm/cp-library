@@ -1,5 +1,5 @@
 ---
-title: Berlekamp-Massey algorithm
+title: Berlekamp–Massey algorithm
 documentation_of: math/formal_power_series/berlekamp-massey.hpp
 ---
 

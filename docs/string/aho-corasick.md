@@ -1,5 +1,5 @@
 ---
-title: エイホ-コラシック法 (Aho-Corasick algorithm)
+title: Aho–Corasick algorithm
 documentation_of: string/aho-corasick.hpp
 ---
 
@@ -15,7 +15,7 @@ documentation_of: string/aho-corasick.hpp
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`AhoCorasick<σ = 26>(convert)`|エイホ-コラシック法を考える．||
+|`AhoCorasick<σ = 26>(convert)`|Aho–Corasick algorithm を考える．||
 |`nums[i]`|$i$番目のノードが保有する文字列の数||
 |`build(完全版か? = false)`|オートマトンを構築する．||
 |`move(c, pos)`|$\mathrm{pos}$ 番目のノードを起点としたときに文字 $c$ と対応するノードのインデックス||

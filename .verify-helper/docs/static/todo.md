@@ -317,7 +317,7 @@ $$(m - 1)! \equiv -1 \pmod{m}$$
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23RecursiveDecentParsing.cpp~~
 
 
-# ゴモリ・フー木 (Gomory-Hu tree)
+# ゴモリ・フー木 (Gomory–Hu tree)
 
 ## ToDo
 - https://ja.wikipedia.org/wiki/%E3%82%B4%E3%83%A2%E3%83%AA%E3%83%BB%E3%83%95%E3%83%BC%E6%9C%A8
@@ -526,7 +526,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - https://ja.wikipedia.org/wiki/Bitap%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
   - ~~http://www.prefield.com/algorithm/string/shift_and.html~~
   - http://monyone.github.io/teihen_library/#ShiftAnd
-- ボイヤー-ムーア文字列検索アルゴリズム (Boyer-Moore string search algorithm)
+- ボイヤー・ムーア文字列検索アルゴリズム (Boyer–Moore string search algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%A4%E3%83%A4%E3%83%BC-%E3%83%A0%E3%83%BC%E3%82%A2%E6%96%87%E5%AD%97%E5%88%97%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
   - https://dic.kimiyuki.net/boyer-moore
   - https://algoful.com/Archive/Algorithm/BMSearch
@@ -534,9 +534,9 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - ~~http://www.prefield.com/algorithm/string/boyer_moore.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/string/boyer_moore.cc
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23BoyerMoore.cpp~~
-- Baker-Bird Algorithm
+- Baker–Bird Algorithm
   - ~~http://www.prefield.com/algorithm/string/baker_bird.html~~
-- Karp-Miller-Rosenberg algorithm
+- Karp–Miller–Rosenberg algorithm
   - ~~http://www.prefield.com/algorithm/string/karp_miller_rosenberg.html~~
 
 

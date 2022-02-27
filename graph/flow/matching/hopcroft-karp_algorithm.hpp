@@ -1,5 +1,5 @@
 /**
- * @brief Hopcroft-Karp algorithm
+ * @brief Hopcroft–Karp algorithm
  * @docs docs/graph/flow/matching/matching.md
  */
 

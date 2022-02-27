@@ -20,7 +20,7 @@ $O(N\log{N})$
 
 ## 使用法
 
-- Cooley-Tukey algorithm
+- Cooley–Tukey algorithm
 
 ||説明|
 |:--:|:--:|

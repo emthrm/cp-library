@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/最短路問題/Warshall-Floyd 法
+ * @brief グラフ/最短路問題/Warshall–Floyd 法
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526"
 

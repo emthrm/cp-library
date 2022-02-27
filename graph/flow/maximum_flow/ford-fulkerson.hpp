@@ -1,5 +1,5 @@
 /**
- * @brief Ford-Fulkerson 法
+ * @brief Ford–Fulkerson 法
  * @docs docs/graph/flow/maximum_flow/maximum_flow.md
  */
 

@@ -1,5 +1,5 @@
 /**
- * @brief Morris-Pratt algorithm
+ * @brief Morris–Pratt algorithm
  * @docs docs/string/knuth-morris-pratt.md
  */
 

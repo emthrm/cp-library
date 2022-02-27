@@ -1,5 +1,5 @@
 ---
-title: Warshall-Floyd 法
+title: Warshall–Floyd 法
 documentation_of: graph/shortest_path/warshall-floyd.hpp
 ---
 
