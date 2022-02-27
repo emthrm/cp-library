@@ -2,17 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/data_structure/interval_managed_by_set.test.cpp
-    title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\
-      \u308B\u3084\u3064"
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"data_structure/inverval_managed_by_set.hpp\"\n#include <cassert>\r\
+  bundledCode: "#line 2 \"data_structure/interval_managed_by_set.hpp\"\n#include <cassert>\r\
     \n#include <iostream>\r\n#include <iterator>\r\n#include <limits>\r\n#include\
     \ <set>\r\n#include <tuple>\r\n#include <utility>\r\n\r\ntemplate <typename T>\r\
     \nstruct IntervalManagedBySet {\r\n  using IntervalType = std::set<std::pair<T,\
@@ -129,16 +125,44 @@ data:
     \n      os << ' ';\r\n    }\r\n    return os;\r\n  }\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
-  path: data_structure/inverval_managed_by_set.hpp
+  path: data_structure/interval_managed_by_set.hpp
   requiredBy: []
-  timestamp: '2022-02-08 04:56:11+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/data_structure/interval_managed_by_set.test.cpp
-documentation_of: data_structure/inverval_managed_by_set.hpp
+  timestamp: '2022-02-27 20:23:22+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: data_structure/interval_managed_by_set.hpp
 layout: document
-redirect_from:
-- /library/data_structure/inverval_managed_by_set.hpp
-- /library/data_structure/inverval_managed_by_set.hpp.html
-title: data_structure/inverval_managed_by_set.hpp
+title: "\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
 ---
+
+閉区間を `std::set` によって管理するデータ構造である．
+
+
+## 時間計算量
+
+amortized $O(\log{N})$ ?
+
+
+## 使用法
+
+||説明|備考|
+|:--:|:--:|:--:|
+|`IntervalManagedBySet<T>`|区間を std::set で管理するやつ||
+|`intervals`|閉区間の集合||
+|`contains(x)`|$x$ は集合に含まれるか．||
+|`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか．||
+|`erase(x)`|集合から $x$ を削除する．|返り値は削除された要素の次を指すイテレータと実際に削除したかである．|
+|`erase(left, right)`|集合から $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を削除する．|返り値は削除された要素の次を指すイテレータと削除した要素数である．|
+|`insert(x)`|集合に $x$ を挿入する．|返り値は要素へのイテレータと挿入されたかどうかである．|
+|`insert(left, right)`|集合に $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を挿入する．|返り値は要素へのイテレータと挿入した要素数である．|
+|`mex(x = 0)`|mex||
+
+
+## 参考
+
+- https://mugen1337.hatenablog.com/entry/2020/10/14/134022
+
+
+## Verified
+
+https://onlinejudge.u-aizu.ac.jp/solutions/problem/2880/review/5242323/emthrm/C++17

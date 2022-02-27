@@ -13,39 +13,37 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"math/formal_power_series/berlekamp-massey.hpp\"\n#include\
-    \ <algorithm>\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<T> berlekamp_massey(const std::vector<T>& s) {\r\n  const\
-    \ int n = s.size();\r\n  std::vector<T> b{1}, c{1};\r\n  int m = b.size(), l =\
-    \ c.size(), f = -1;\r\n  T prv_delta = 1;\r\n  for (int i = 0; i < n; ++i) {\r\
-    \n    T delta = 0;\r\n    for (int j = 0; j < l; ++j) {\r\n      delta += c[j]\
-    \ * s[i - (l - j - 1)];\r\n    }\r\n    if (delta == 0) continue;\r\n    const\
-    \ T mul = -delta / prv_delta;\r\n    const int shift = i - f;\r\n    if (m + shift\
-    \ > l) {\r\n      const std::vector<T> nxt_b = c;\r\n      c.insert(c.begin(),\
-    \ m + shift - l, 0);\r\n      for (int j = 0; j < m; ++j) {\r\n        c[j] +=\
-    \ mul * b[j];\r\n      }\r\n      b = nxt_b;\r\n      m += shift;\r\n      std::swap(m,\
-    \ l);\r\n      f = i;\r\n      prv_delta = delta;\r\n    } else {\r\n      for\
-    \ (int j = 0; j < m; ++j) {\r\n        c[l - 1 - shift - j] += mul * b[m - 1 -\
-    \ j];\r\n      }\r\n    }\r\n  }\r\n  std::reverse(c.begin(), c.end());\r\n  return\
-    \ c;\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstd::vector<T> berlekamp_massey(const std::vector<T>&\
-    \ s) {\r\n  const int n = s.size();\r\n  std::vector<T> b{1}, c{1};\r\n  int m\
-    \ = b.size(), l = c.size(), f = -1;\r\n  T prv_delta = 1;\r\n  for (int i = 0;\
-    \ i < n; ++i) {\r\n    T delta = 0;\r\n    for (int j = 0; j < l; ++j) {\r\n \
-    \     delta += c[j] * s[i - (l - j - 1)];\r\n    }\r\n    if (delta == 0) continue;\r\
-    \n    const T mul = -delta / prv_delta;\r\n    const int shift = i - f;\r\n  \
-    \  if (m + shift > l) {\r\n      const std::vector<T> nxt_b = c;\r\n      c.insert(c.begin(),\
-    \ m + shift - l, 0);\r\n      for (int j = 0; j < m; ++j) {\r\n        c[j] +=\
-    \ mul * b[j];\r\n      }\r\n      b = nxt_b;\r\n      m += shift;\r\n      std::swap(m,\
-    \ l);\r\n      f = i;\r\n      prv_delta = delta;\r\n    } else {\r\n      for\
-    \ (int j = 0; j < m; ++j) {\r\n        c[l - 1 - shift - j] += mul * b[m - 1 -\
-    \ j];\r\n      }\r\n    }\r\n  }\r\n  std::reverse(c.begin(), c.end());\r\n  return\
-    \ c;\r\n}\r\n"
+    \ <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T> berlekamp_massey(const\
+    \ std::vector<T>& s) {\r\n  const int n = s.size();\r\n  std::vector<T> b{1},\
+    \ c{1};\r\n  b.reserve(n);\r\n  c.reserve(n + 1);\r\n  int m = b.size(), l = c.size(),\
+    \ f = -1;\r\n  T prv_delta = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n    T delta\
+    \ = s[i];\r\n    for (int j = 1; j < l; ++j) {\r\n      delta += c[j] * s[i -\
+    \ j];\r\n    }\r\n    if (delta == 0) continue;\r\n    const T mul = -delta /\
+    \ prv_delta;\r\n    const int shift = i - f;\r\n    if (m + shift > l) {\r\n \
+    \     l = m + shift;\r\n      const std::vector<T> nxt_b = c;\r\n      c.resize(l,\
+    \ 0);\r\n      for (int j = 0; j < m; ++j) {\r\n        c[l - 1 - j] += mul *\
+    \ b[m - 1 - j];\r\n      }\r\n      b = nxt_b;\r\n      m = b.size();\r\n    \
+    \  f = i;\r\n      prv_delta = delta;\r\n    } else {\r\n      for (int j = 0;\
+    \ j < m; ++j) {\r\n        c[shift + j] += mul * b[j];\r\n      }\r\n    }\r\n\
+    \  }\r\n  return c;\r\n}\r\n"
+  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
+    \ berlekamp_massey(const std::vector<T>& s) {\r\n  const int n = s.size();\r\n\
+    \  std::vector<T> b{1}, c{1};\r\n  b.reserve(n);\r\n  c.reserve(n + 1);\r\n  int\
+    \ m = b.size(), l = c.size(), f = -1;\r\n  T prv_delta = 1;\r\n  for (int i =\
+    \ 0; i < n; ++i) {\r\n    T delta = s[i];\r\n    for (int j = 1; j < l; ++j) {\r\
+    \n      delta += c[j] * s[i - j];\r\n    }\r\n    if (delta == 0) continue;\r\n\
+    \    const T mul = -delta / prv_delta;\r\n    const int shift = i - f;\r\n   \
+    \ if (m + shift > l) {\r\n      l = m + shift;\r\n      const std::vector<T> nxt_b\
+    \ = c;\r\n      c.resize(l, 0);\r\n      for (int j = 0; j < m; ++j) {\r\n   \
+    \     c[l - 1 - j] += mul * b[m - 1 - j];\r\n      }\r\n      b = nxt_b;\r\n \
+    \     m = b.size();\r\n      f = i;\r\n      prv_delta = delta;\r\n    } else\
+    \ {\r\n      for (int j = 0; j < m; ++j) {\r\n        c[shift + j] += mul * b[j];\r\
+    \n      }\r\n    }\r\n  }\r\n  return c;\r\n}\r\n"
   dependsOn: []
   isVerificationFile: false
   path: math/formal_power_series/berlekamp-massey.hpp
   requiredBy: []
-  timestamp: '2022-02-27 17:53:24+09:00'
+  timestamp: '2022-02-28 01:01:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/berlekamp-massey.test.cpp
@@ -73,9 +71,9 @@ $O(N^2)$
 
 入力を $S \mathrel{:=} (S_0, S_1, \ldots)$ とおく．数列 $C$ に対して
 
-$$C(i) \mathrel{:=} \begin{cases} \sum_{k = 0}^{\lvert C \rvert - 1} C_k S_{i - (\lvert C \rvert - 1) + k} & (i \geq \lvert C \rvert - 1), \\ 0 & (\text{otherwise}) \end{cases}$$
+$$C(i) \mathrel{:=} \begin{cases} \sum_{k = 0}^{\lvert C \rvert - 1} C_k S_{i - k} & (i \geq \lvert C \rvert - 1), \\ 0 & (\text{otherwise}) \end{cases}$$
 
-とおく（$C$ の順番はこの逆である方が望ましい？）．任意の $i \in \mathbb{N}$ に対して $C(i) = 0$ が成り立つ $C$ を求めたい．
+とおく．任意の $i \in \mathbb{N}$ に対して $C(i) = 0$ が成り立つ $C$ を求めたい．
 
 初期値 $C \gets (1)$ とする．$n$ 番目 (0-based) のイテレーションを考える．$\lvert C \rvert \mathrel{:=} l$ とおき，任意の $i \in \lbrace 0, 1, \ldots, n - 1 \rbrace$ に対して $C(i) = 0$ が成り立つとする．
 
@@ -85,25 +83,25 @@ $$D(i) = \begin{cases} 0 & (i = 0, 1, \ldots, n - 1), \\ -\Delta_n & (i = n) \en
 
 を満たす $D$ を求めたい．
 
-$\Delta_f \neq 0$ を満たす $f < n$ を一つとる（$n = \min \lbrace S_i \neq 0 \mid i \in \mathbb{N} \rbrace$ のときは後述する）．$f$ 番目のイテレーションのときの $C$ を $B$ とおく．
+$\Delta_f \neq 0$ を満たす $f < n$ を一つとる（$n = \min \lbrace i \in \mathbb{N} \mid S_i \neq 0 \rbrace$ のときは後述する）．$f$ 番目のイテレーションのときの $C$ を $B$ とおく．
 
 $$B(i) = \begin{cases} 0 & (i = 0, 1, \ldots, f - 1), \\ \Delta_f & (i = f) \end{cases}$$
 
 が成り立つ．
 
-$$D_i \mathrel{:=} \begin{cases} -\frac{\Delta_n}{\Delta_f} B_i & (i = 0, 1, \ldots, \lvert B \rvert - 1), \\ 0 & (i = \lvert B \rvert, \lvert B \rvert + 1, \ldots, \lvert B \rvert + (n - f - 1)) \end{cases}$$
+$$D_i \mathrel{:=} \begin{cases} 0 & (i = 0, 1, \ldots, n - f - 1), \\ -\frac{\Delta_n}{\Delta_f} B_{i - (n - f)} & (i = n - f, n - f + 1, \ldots, n - f + \lvert B \rvert - 1) \end{cases}$$
 
 とおくと
 
-$$\begin{split} B(i) &= \sum_{k = 0}^{\lvert B \rvert + n - f - 1} -\frac{\Delta_n}{\Delta_f} B_k C_{i - ((\lvert B \rvert + n - f) - 1) + k} \\ &= -\frac{\Delta_n}{\Delta_f} \sum_{k = 0}^{\lvert B \rvert - 1} B_k C_{(i - (n - f)) - (\lvert B \rvert - 1) + k} \\ &= -\frac{\Delta_n}{\Delta_f} B(i - (n - f)) \\ &= \begin{cases} 0 & (i = 0, 1, \ldots, n - f - 1) \\ 0 & (i = n - f, n - f + 1, \ldots, n - 1) \\ -\frac{\Delta_n}{\Delta_f} \cdot \Delta_f = -\Delta_n & (i = n) \end{cases} \end{split}$$
+$$\begin{split} D(i) &= \sum_{k = 0}^{n - f + \lvert B \rvert - 1} D_k C_{i - k} \\ &= \sum_{k = n - f}^{n - f + \lvert B \rvert - 1} D_k C_{i - k} \\ &= \sum_{k = 0}^{\lvert B \rvert - 1} -\frac{\Delta_n}{\Delta_f} B_k C_{i - (k + n - f)} \\ &= -\frac{\Delta_n}{\Delta_f} \sum_{k = 0}^{\lvert B \rvert - 1} B_k C_{(i - (n - f)) - k} \\ &= -\frac{\Delta_n}{\Delta_f} B(i - (n - f)) \\ &= \begin{cases} 0 & (i = 0, 1, \ldots, n - f - 1) \\ 0 & (i = n - f, n - f + 1, \ldots, n - 1) \\ -\frac{\Delta_n}{\Delta_f} \cdot \Delta_f = -\Delta_n & (i = n) \end{cases} \end{split}$$
 
 となり，条件を満たす．
 
-$m \mathrel{:=} \lvert D \rvert = \lvert B \rvert + n - f$ とおく．
-- $m > l$ のとき，$C \gets (D_0, D_1, \ldots, C_0 + D_{m - l}, C_1 + D_{m - l + 1}, \ldots, C_{l - 1} + D_{m - 1})$ と更新すればよい．
-- $m \leq l$ のとき，$C \gets (C_0, C_1, \ldots, C_{l - m} + D_0, C_{l - m + 1} + D_1, \ldots, C_{l - 1} + D_{m - 1})$ と更新すればよい．
+$m \mathrel{:=} \lvert D \rvert = n - f + \lvert B \rvert$ とおく．
+- $m > l$ のとき，$C \gets (C_0 + D_0, C_1 + D_1, \ldots, C_{l - 1} + D_{l - 1}, D_{l}, D_{l + 1}, \ldots, D_{m - 1})$ と更新すればよい．
+- $m \leq l$ のとき，$C \gets (C_0 + D_0, C_1 + D_1, \ldots, C_{m - 1} + D_{m - 1}, C_m, C_{m + 1} \ldots, C_{l - 1})$ と更新すればよい．
 
-$n = \min \lbrace S_i \neq 0 \mid i \in \mathbb{N} \rbrace$ のとき，$C^\prime_{\lvert C^\prime \rvert - 1} \neq 0$ かつ $\lvert C^\prime \rvert \leq n + 1$ を満たす任意の数列 $C^\prime$ に対して $C^\prime(n) \neq 0$ が成り立つ．$\lvert C \rvert > n + 1$ を満たすように更新しなければならない．実装では $C \gets (-\Delta_n, 0, 0, \ldots, 0, 1)$ と更新するように初期値を設定している．
+$n = \min \lbrace S_i \neq 0 \mid i \in \mathbb{N} \rbrace$ のとき，$C^\prime_0 \neq 0$ かつ $\lvert C^\prime \rvert \leq n + 1$ を満たす任意の数列 $C^\prime$ に対して $C^\prime(n) \neq 0$ が成り立つ．$\lvert C \rvert > n + 1$ を満たすように更新しなければならない．実装では $C \gets (1, 0, 0, \ldots, 0, -\Delta_n)$ と更新するように初期値を設定している．
 
 
 ## 参考
@@ -116,4 +114,4 @@ $n = \min \lbrace S_i \neq 0 \mid i \in \mathbb{N} \rbrace$ のとき，$C^\prim
 
 ## Verified
 
-https://judge.yosupo.jp/submission/80013
+https://judge.yosupo.jp/submission/80147

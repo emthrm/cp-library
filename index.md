@@ -9,9 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/disjoint_sparse_table.hpp
       title: disjoint sparse table
-    - icon: ':heavy_check_mark:'
-      path: data_structure/inverval_managed_by_set.hpp
-      title: data_structure/inverval_managed_by_set.hpp
+    - icon: ':warning:'
+      path: data_structure/interval_managed_by_set.hpp
+      title: "\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
     - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segment_tree.hpp
       title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
@@ -620,10 +620,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/data_structure/disjoint_sparse_table.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/disjoint sparse table"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/data_structure/interval_managed_by_set.test.cpp
-      title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\
-        \u308B\u3084\u3064"
+      title: test/data_structure/interval_managed_by_set.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/data_structure/lazy_segment_tree.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
