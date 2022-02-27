@@ -2,10 +2,14 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/data_structure/interval_managed_by_set.test.cpp
+    title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\
+      \u308B\u3084\u3064"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/interval_managed_by_set.hpp\"\n#include <cassert>\r\
@@ -128,8 +132,9 @@ data:
   path: data_structure/interval_managed_by_set.hpp
   requiredBy: []
   timestamp: '2022-02-27 20:23:22+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/data_structure/interval_managed_by_set.test.cpp
 documentation_of: data_structure/interval_managed_by_set.hpp
 layout: document
 title: "\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
