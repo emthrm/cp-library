@@ -5,6 +5,7 @@
 "test/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.test.cpp": "2022-02-16 17:10:40 +0900",
 "test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp": "2022-02-16 15:47:44 +0900",
 "test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp": "2022-02-16 15:47:44 +0900",
+"test/data_structure/interval_managed_by_set.test.cpp": "2022-02-28 01:05:32 +0900",
 "test/data_structure/lazy_segment_tree.test.cpp": "2022-02-19 03:53:07 +0900",
 "test/data_structure/range_minimum_query.test.cpp": "2022-02-16 15:47:44 +0900",
 "test/data_structure/range_minimum_query_and_range_add_query.test.cpp": "2022-02-16 17:10:40 +0900",
