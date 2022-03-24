@@ -140,6 +140,7 @@ documentation_of: geometry/geometry.hpp
 - 動的凸包
   - https://codeforces.com/blog/entry/75929
   - https://judge.yosupo.jp/problem/convex_layers
+  - https://atcoder.jp/contests/geocon2013/tasks/geocon2013_c
 - 線分アレンジメント
   - https://github.com/ei1333/library/blob/master/geometry/template.cpp
   - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
@@ -219,6 +220,7 @@ documentation_of: geometry/geometry.hpp
 - kd 木 (k-d tree)
   - https://ja.wikipedia.org/wiki/Kd%E6%9C%A8
   - https://www.slideshare.net/okuraofvegetable/ss-65377588
+  - https://trap.jp/post/1489/
   - https://twitter.com/noshi91/status/1395285823403167745
   - https://github.com/beet-aizu/library/blob/master/datastructure/kdtree.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Structure/kdTree.cpp

@@ -17,6 +17,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> p[i];
   }
-  std::cout << std::fixed << std::setprecision(7) << closest_pair(p) << '\n';
+  std::cout << std::fixed << std::setprecision(7) << geometry::closest_pair(p)
+            << '\n';
   return 0;
 }
