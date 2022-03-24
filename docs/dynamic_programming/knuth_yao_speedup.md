@@ -39,7 +39,7 @@ Monge matrix は totally monotone である．逆は必ずしも成り立つと�
 
 ### monotone
 
-$m \times n$ 型行列 $A$ を考える．任意の $i \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \in \argmin_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ のとり方を一つ定める．$i < i^\prime$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \leq j_{i^\prime}$ が成り立つならば，$A$ は monotone であると呼ぶ．
+$m \times n$ 型行列 $A$ を考える．任意の $i \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \in \mathrm{argmin}_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ のとり方を一つ定める．$i < i^\prime$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \leq j_{i^\prime}$ が成り立つならば，$A$ は monotone であると呼ぶ．
 
 
 ### totally monotone
@@ -92,7 +92,7 @@ Monge property
   - https://twitter.com/noshi91/status/1436688971778519046
   - https://atcoder.jp/contests/arc129/tasks/arc129_e
   - https://twitter.com/noshi91/status/1462421876802977792
-- monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \argmin_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
+- monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
   - https://dic.kimiyuki.net/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
@@ -104,7 +104,7 @@ Monge property
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/speedup/Monotone-Minima~~
   - http://sigma425.hatenablog.com/entry/2015/12/01/162720
   - https://docs.google.com/presentation/d/1cgPtVG4j4Ima6Exf_Kw1IdYVfmfDJSGwaEgOMgPkWHg/
-- SMAWK algorithm: totally monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \argmin_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ ($i = 1, 2, \ldots, m$) を $O(m + n)$ 時間で求めるアルゴリズム
+- SMAWK algorithm: totally monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ ($i = 1, 2, \ldots, m$) を $O(m + n)$ 時間で求めるアルゴリズム
   - https://en.wikipedia.org/wiki/SMAWK_algorithm
   - https://dic.kimiyuki.net/smawk-algorithm
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
@@ -134,7 +134,7 @@ Monge property
   - https://atcoder.jp/contests/abc228/tasks/abc228_h
   - https://twitter.com/noshi91/status/1462064752759230471
   - https://twitter.com/hotmanww/status/1462077828422246406
-- divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える．任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\argmin_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace \leq \argmin_{k \in \lbrace 1, 2, \ldots, j \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる．
+- divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える．任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\mathrm{argmin}_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace \leq \mathrm{argmin}_{k \in \lbrace 1, 2, \ldots, j \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる．
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://www.hamayanhamayan.com/entry/2017/03/20/234711
   - https://ei1333.github.io/algorithm/dynamic-programming.html

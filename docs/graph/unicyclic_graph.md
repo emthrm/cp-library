@@ -1,5 +1,5 @@
 ---
-title: unicyclic graph (1-tree)
+title: unicyclic graph / 1-tree
 documentation_of: graph/unicyclic_graph.hpp
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 橋の検出
-documentation_of: graph/detect_bridge.hpp
+documentation_of: graph/enumerate_bridges.hpp
 ---
 
 
