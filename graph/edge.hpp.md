@@ -98,6 +98,9 @@ data:
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
   - icon: ':heavy_check_mark:'
+    path: graph/tree/rerooting_dp.hpp
+    title: "\u5168\u65B9\u4F4D\u6728 DP"
+  - icon: ':heavy_check_mark:'
     path: graph/unicyclic_graph.hpp
     title: unicyclic graph (1-tree)
   _extendedVerifiedWith:
@@ -202,6 +205,9 @@ data:
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   - icon: ':heavy_check_mark:'
+    path: test/graph/tree/rerooting_dp.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6728/\u5168\u65B9\u4F4D\u6728 DP"
+  - icon: ':heavy_check_mark:'
     path: test/graph/unicyclic_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/unicyclic graph"
   - icon: ':heavy_check_mark:'
@@ -253,6 +259,7 @@ data:
   - graph/tree/lowest_common_ancestor_by_doubling.hpp
   - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - graph/tree/double_sweep.hpp
+  - graph/tree/rerooting_dp.hpp
   - graph/tree/centroid.hpp
   - graph/topological_sort.hpp
   - graph/2-edge-connected_components_by_imos.hpp
@@ -289,6 +296,7 @@ data:
   - test/graph/tree/centroid.test.cpp
   - test/graph/tree/centroid_decomposition.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
+  - test/graph/tree/rerooting_dp.test.cpp
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/graph/tree/heavy-light_decomposition.2.test.cpp

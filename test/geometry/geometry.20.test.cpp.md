@@ -252,8 +252,119 @@ data:
     \ Real tmp = (a[j] - a[i]).norm();\r\n    if (sgn(tmp - max_norm) == 1) {\r\n\
     \      max_norm = tmp;\r\n      argmax_i = i; argmax_j = j;\r\n    }\r\n  } while\
     \ (i != high || j != low);\r\n  return {a[argmax_i], a[argmax_j]};\r\n}\r\n\r\n\
-    }  // namespace geometry\r\n#line 14 \"test/geometry/geometry.20.test.cpp\"\n\r\
-    \nint main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<geometry::Point>\
+    }  // namespace geometry\r\n\r\n// namespace geometry {\r\n\r\n// using Integer\
+    \ = long long;\r\n\r\n// int sgn(const Integer x) {\r\n//   return x > 0 ? 1 :\
+    \ (x < 0 ? -1 : 0);\r\n// }\r\n\r\n// struct Point {\r\n//   Integer x, y;\r\n\
+    //   explicit Point(const Integer x = 0, const Integer y = 0) : x(x), y(y) {}\r\
+    \n//   Integer norm() const { return x * x + y * y; }\r\n//   Point& operator+=(const\
+    \ Point& p) {\r\n//     x += p.x; y += p.y;\r\n//     return *this;\r\n//   }\r\
+    \n//   Point& operator-=(const Point& p) {\r\n//     x -= p.x; y -= p.y;\r\n//\
+    \     return *this;\r\n//   }\r\n//   Point& operator*=(const Integer k) {\r\n\
+    //     x *= k; y *= k;\r\n//     return *this;\r\n//   }\r\n//   Point& operator/=(const\
+    \ Integer k) {\r\n//     x /= k; y /= k;\r\n//     return *this;\r\n//   }\r\n\
+    //   bool operator<(const Point& p) const {\r\n//     const int x_sgn = sgn(p.x\
+    \ - x);\r\n//     return x_sgn != 0 ? x_sgn == 1 : sgn(p.y - y) == 1;\r\n//  \
+    \ }\r\n//   bool operator<=(const Point& p) const { return !(p < *this); }\r\n\
+    //   bool operator>(const Point& p) const { return p < *this; }\r\n//   bool operator>=(const\
+    \ Point& p) const { return !(*this < p); }\r\n//   Point operator+() const { return\
+    \ *this; }\r\n//   Point operator-() const { return Point(-x, -y); }\r\n//   Point\
+    \ operator+(const Point& p) const { return Point(*this) += p; }\r\n//   Point\
+    \ operator-(const Point& p) const { return Point(*this) -= p; }\r\n//   Point\
+    \ operator*(const Integer k) const { return Point(*this) *= k; }\r\n//   Point\
+    \ operator/(const Integer k) const { return Point(*this) /= k; }\r\n//   friend\
+    \ std::ostream& operator<<(std::ostream& os, const Point& p) {\r\n//     return\
+    \ os << '(' << p.x << \", \" << p.y << ')';\r\n//   }\r\n//   friend std::istream&\
+    \ operator>>(std::istream& is, Point& p) {\r\n//     Integer x, y; is >> x >>\
+    \ y;\r\n//     p = Point(x, y);\r\n//     return is;\r\n//   }\r\n// };\r\n\r\n\
+    // struct Segment {\r\n//   Point s, t;\r\n//   explicit Segment(const Point&\
+    \ s = Point(0, 0), const Point& t = Point(0, 0))\r\n//       : s(s), t(t) {}\r\
+    \n// };\r\n// struct Line : Segment {\r\n//   using Segment::Segment;\r\n// };\r\
+    \n\r\n// struct Circle {\r\n//   Point p; Integer r;\r\n//   explicit Circle(const\
+    \ Point& p = Point(0, 0), const Integer r = 0)\r\n//       : p(p), r(r) {}\r\n\
+    // };\r\n\r\n// Integer cross(const Point& a, const Point& b) { return a.x * b.y\
+    \ - a.y * b.x; }\r\n// Integer dot(const Point& a, const Point& b) { return a.x\
+    \ * b.x + a.y * b.y; }\r\n\r\n// int ccw(const Point& a, const Point& b, const\
+    \ Point& c) {\r\n//   const Point ab = b - a, ac = c - a;\r\n//   const int sign\
+    \ = sgn(cross(ab, ac));\r\n//   if (sign == 0) {\r\n//     if (sgn(dot(ab, ac))\
+    \ == -1) return 2;\r\n//     if (sgn(ac.norm() - ab.norm()) == 1) return -2;\r\
+    \n//   }\r\n//   return sign;\r\n// }\r\n\r\n// Integer closest_pair(std::vector<Point>\
+    \ ps) {\r\n//   const int n = ps.size();\r\n//   assert(n >= 2);\r\n//   std::sort(ps.begin(),\
+    \ ps.end());\r\n//   const std::function<Integer(int, int)> f =\r\n//       [&ps,\
+    \ &f](const int left, const int right) -> Integer {\r\n//         const int mid\
+    \ = (left + right) >> 1;\r\n//         Integer x_mid = ps[mid].x, d = std::numeric_limits<Integer>::max();\r\
+    \n//         if (left + 1 < mid) d = std::min(d, f(left, mid));\r\n//        \
+    \ if (mid + 1 < right) d = std::min(d, f(mid, right));\r\n//         std::inplace_merge(std::next(ps.begin(),\
+    \ left),\r\n//                            std::next(ps.begin(), mid),\r\n//  \
+    \                          std::next(ps.begin(), right),\r\n//               \
+    \             [](const Point& a, const Point& b) -> bool {\r\n//             \
+    \                 return sgn(b.y - a.y) == 1;\r\n//                          \
+    \  });\r\n//         std::vector<Point> tmp;\r\n//         for (int i = left;\
+    \ i < right; ++i) {\r\n//           if (sgn((ps[i].x - x_mid) * (ps[i].x - x_mid)\
+    \ - d) == 1) continue;\r\n//           for (int j = static_cast<int>(tmp.size())\
+    \ - 1; j >= 0; --j) {\r\n//             const Point v = ps[i] - tmp[j];\r\n//\
+    \             if (sgn(v.y * v.y - d) == 1) break;\r\n//             d = std::min(d,\
+    \ v.norm());\r\n//           }\r\n//           tmp.emplace_back(ps[i]);\r\n//\
+    \         }\r\n//         return d;\r\n//       };\r\n//   return f(0, n);\r\n\
+    // }\r\n\r\n// bool is_parallel(const Segment& a, const Segment& b) {\r\n//  \
+    \ return sgn(cross(a.t - a.s, b.t - b.s)) == 0;\r\n// }\r\n// bool is_orthogonal(const\
+    \ Segment& a, const Segment& b) {\r\n//   return sgn(dot(a.t - a.s, b.t - b.s))\
+    \ == 0;\r\n// }\r\n\r\n// int common_tangent_num(const Circle&, const Circle&);\r\
+    \n// bool has_intersected(const Segment& a, const Point& b) {\r\n//   return ccw(a.s,\
+    \ a.t, b) == 0;\r\n// }\r\n// bool has_intersected(const Segment& a, const Segment&\
+    \ b) {\r\n//   return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) <= 0 &&\r\n//  \
+    \        ccw(b.s, b.t, a.s) * ccw(b.s, b.t, a.t) <= 0;\r\n// }\r\n// bool has_intersected(const\
+    \ Line& a, const Point& b) {\r\n//   const int c = ccw(a.s, a.t, b);\r\n//   return\
+    \ c != 1 && c != -1;\r\n// }\r\n// bool has_intersected(const Line& a, const Segment&\
+    \ b) {\r\n//   return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) != 1;\r\n// }\r\n\
+    // bool has_intersected(const Line& a, const Line& b) {\r\n//   return sgn(cross(a.t\
+    \ - a.s, b.t - b.s)) != 0 ||\r\n//          sgn(cross(a.t - a.s, b.s - a.s)) ==\
+    \ 0;\r\n// }\r\n// bool has_intersected(const Circle& a, const Point& b) {\r\n\
+    //   return (a.p - b).norm() == a.r * a.r;\r\n// }\r\n// bool has_intersected(const\
+    \ Circle& a, const Circle& b) {\r\n//   const int num = common_tangent_num(a,\
+    \ b);\r\n//   return 1 <= num && num <= 3;\r\n// }\r\n\r\n// int common_tangent_num(const\
+    \ Circle& a, const Circle& b) {\r\n//   const Integer dist = (a.p - b.p).norm();\r\
+    \n//   int sign = sgn((a.r + b.r) * (a.r + b.r) - dist);\r\n//   if (sign == -1)\
+    \ return 4;\r\n//   if (sign == 0) return 3;\r\n//   sign = sgn((b.r - a.r) *\
+    \ (b.r - a.r) - dist);\r\n//   if (sign == -1) return 2;\r\n//   if (sign == 0)\
+    \ return 1;\r\n//   return 0;\r\n// }\r\n\r\n// using Polygon = std::vector<Point>;\r\
+    \n\r\n// Integer area(Polygon a) {\r\n//   const int n = a.size();\r\n//   a.resize(n\
+    \ + 1);\r\n//   a.back() = a.front();\r\n//   Integer res = 0;\r\n//   for (int\
+    \ i = 0; i < n; ++i) {\r\n//     res += cross(a[i], a[i + 1]);\r\n//   }\r\n//\
+    \   // return res / 2;\r\n//   return res;\r\n// }\r\n\r\n// int contains(Polygon\
+    \ a, const Point &b) {\r\n//   const int n = a.size();\r\n//   a.resize(n + 1);\r\
+    \n//   a.back() = a.front();\r\n//   bool is_in = false;\r\n//   for (int i =\
+    \ 0; i < n; ++i) {\r\n//     Point p = a[i] - b, q = a[i + 1] - b;\r\n//     if\
+    \ (sgn(q.y - p.y) == -1) std::swap(p, q);\r\n//     const int sign = sgn(cross(p,\
+    \ q));\r\n//     if (sign == 1 && sgn(p.y) != 1 && sgn(q.y) == 1) is_in = !is_in;\r\
+    \n//     if (sign == 0 && sgn(dot(p, q)) != 1) return 1;\r\n//   }\r\n//   return\
+    \ is_in ? 2 : 0;\r\n// }\r\n\r\n// bool is_convex(Polygon a) {\r\n//   const int\
+    \ n = a.size();\r\n//   a.resize(n + 2);\r\n//   a[n] = a[0];\r\n//   a[n + 1]\
+    \ = a[1];\r\n//   for (int i = 1; i <= n; ++i) {\r\n//     if (ccw(a[i - 1], a[i],\
+    \ a[i + 1]) == -1) return false;\r\n//   }\r\n//   return true;\r\n// }\r\n\r\n\
+    // Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {\r\
+    \n//   const int n = ps.size();\r\n//   std::sort(ps.begin(), ps.end());\r\n//\
+    \   Polygon convex_hull(n << 1);\r\n//   int idx = 0;\r\n//   for (int i = 0;\
+    \ i < n; convex_hull[idx++] = ps[i++]) {\r\n//     while (idx >= 2 &&\r\n//  \
+    \          sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],\r\n//      \
+    \                ps[i] - convex_hull[idx - 1])) < is_tight) {\r\n//       --idx;\r\
+    \n//     }\r\n//   }\r\n//   for (int i = n - 2, border = idx + 1; i >= 0; convex_hull[idx++]\
+    \ = ps[i--]) {\r\n//     while (idx >= border &&\r\n//            sgn(cross(convex_hull[idx\
+    \ - 1] - convex_hull[idx - 2],\r\n//                      ps[i] - convex_hull[idx\
+    \ - 1])) < is_tight) {\r\n//       --idx;\r\n//     }\r\n//   }\r\n//   convex_hull.resize(idx\
+    \ - 1);\r\n//   return convex_hull;\r\n// }\r\n\r\n// std::pair<Point, Point>\
+    \ rotating_calipers(Polygon a) {\r\n//   const int n = a.size();\r\n//   if (n\
+    \ <= 2) {\r\n//     assert(n == 2);\r\n//     return {a[0], a[1]};\r\n//   }\r\
+    \n//   a.resize(n + 1);\r\n//   a.back() = a.front();\r\n//   int high = 0, low\
+    \ = 0;\r\n//   for (int i = 1; i < n; ++i) {\r\n//     if (a[i].y > a[high].y)\
+    \ high = i;\r\n//     if (a[i].y < a[low].y) low = i;\r\n//   }\r\n//   Integer\
+    \ max_norm = (a[high] - a[low]).norm();\r\n//   int i = high, j = low, argmax_i\
+    \ = i, argmax_j = j;\r\n//   do {\r\n//     int* i_or_j = &(sgn(cross(a[i + 1]\
+    \ - a[i], a[j + 1] - a[j])) != -1 ? j : i);\r\n//     if (++(*i_or_j) == n) *i_or_j\
+    \ = 0;\r\n//     const Integer tmp = (a[j] - a[i]).norm();\r\n//     if (sgn(tmp\
+    \ - max_norm) == 1) {\r\n//       max_norm = tmp;\r\n//       argmax_i = i; argmax_j\
+    \ = j;\r\n//     }\r\n//   } while (i != high || j != low);\r\n//   return {a[argmax_i],\
+    \ a[argmax_j]};\r\n// }\r\n\r\n// }  // namespace geometry\r\n#line 14 \"test/geometry/geometry.20.test.cpp\"\
+    \n\r\nint main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<geometry::Point>\
     \ p(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> p[i];\r\n  }\r\n\
     \  geometry::Polygon convex_hull = monotone_chain(p, false);\r\n  const int m\
     \ = convex_hull.size();\r\n  std::vector<std::pair<geometry::Point, int>> ps;\r\
@@ -294,7 +405,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.20.test.cpp
   requiredBy: []
-  timestamp: '2022-02-14 14:47:00+09:00'
+  timestamp: '2022-03-25 02:44:38+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.20.test.cpp

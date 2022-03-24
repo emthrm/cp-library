@@ -164,10 +164,8 @@ $O(N\log{N})$
   - https://atcoder.jp/contests/abc213/submissions/24953805
   - https://atcoder.jp/contests/abc236/tasks/abc236_h
   - https://twitter.com/noshi91/status/1485246655419260939
-- $(\max, +)$-convolution を用いたナップサック問題
-  - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
-  - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
-  - https://atcoder.jp/contests/kupc2021/submissions/26987105
+- 凸性のある畳み込み
+  - https://twitter.com/hotmanww/status/1482185138125832192
 - relaxed multiplication
   - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
   - https://atcoder.jp/contests/abc230/tasks/abc230_h

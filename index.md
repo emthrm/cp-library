@@ -58,6 +58,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: dynamic_programming/2d_cumulative_sum.hpp
       title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
+    - icon: ':warning:'
+      path: dynamic_programming/aliens_dp.hpp
+      title: Aliens DP
     - icon: ':heavy_check_mark:'
       path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
       title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
@@ -270,6 +273,9 @@ data:
       path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
         \u30FC\u7248"
+    - icon: ':heavy_check_mark:'
+      path: graph/tree/rerooting_dp.hpp
+      title: "\u5168\u65B9\u4F4D\u6728 DP"
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
@@ -1011,6 +1017,9 @@ data:
       path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\
         \u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
+    - icon: ':heavy_check_mark:'
+      path: test/graph/tree/rerooting_dp.test.cpp
+      title: "\u30B0\u30E9\u30D5/\u6728/\u5168\u65B9\u4F4D\u6728 DP"
   - name: test/math
     pages:
     - icon: ':heavy_check_mark:'
