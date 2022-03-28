@@ -3,7 +3,7 @@
 #include <vector>
 
 template <typename T>
-std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>> &grid,
+std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,
                                    const int angle, const T space = ' ') {
   const int h = grid.size(), w = grid.front().size();
   std::vector<std::vector<T>> rotated_grid;
