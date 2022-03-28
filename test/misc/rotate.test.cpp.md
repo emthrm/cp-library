@@ -20,7 +20,7 @@ data:
     \r\n\r\n#include <algorithm>\r\n#include <iostream>\r\n#include <set>\r\n#include\
     \ <vector>\r\n\r\n#line 2 \"misc/rotate.hpp\"\n#include <cassert>\r\n#line 4 \"\
     misc/rotate.hpp\"\n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> rotate(const\
-    \ std::vector<std::vector<T>> &grid,\r\n                                   const\
+    \ std::vector<std::vector<T>>& grid,\r\n                                   const\
     \ int angle, const T space = ' ') {\r\n  const int h = grid.size(), w = grid.front().size();\r\
     \n  std::vector<std::vector<T>> rotated_grid;\r\n  if (angle == 45) {\r\n    rotated_grid.assign(h\
     \ + w - 1, std::vector<T>(h + w - 1, space));\r\n    for (int i = 0; i < h; ++i)\
@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/misc/rotate.test.cpp
   requiredBy: []
-  timestamp: '2022-02-14 14:47:00+09:00'
+  timestamp: '2022-03-29 00:51:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/misc/rotate.test.cpp

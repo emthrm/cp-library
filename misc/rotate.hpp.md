@@ -12,9 +12,9 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/rotate.hpp\"\n#include <cassert>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>\
-    \ &grid,\r\n                                   const int angle, const T space\
-    \ = ' ') {\r\n  const int h = grid.size(), w = grid.front().size();\r\n  std::vector<std::vector<T>>\
+    \n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>&\
+    \ grid,\r\n                                   const int angle, const T space =\
+    \ ' ') {\r\n  const int h = grid.size(), w = grid.front().size();\r\n  std::vector<std::vector<T>>\
     \ rotated_grid;\r\n  if (angle == 45) {\r\n    rotated_grid.assign(h + w - 1,\
     \ std::vector<T>(h + w - 1, space));\r\n    for (int i = 0; i < h; ++i) {\r\n\
     \      for (int j = 0; j < w; ++j) {\r\n        rotated_grid[i + j][i - j + w\
@@ -24,9 +24,9 @@ data:
     \ = grid[i][j];\r\n      }\r\n    }\r\n  } else {\r\n    assert(false);\r\n  }\r\
     \n  return rotated_grid;\r\n}\r\n"
   code: "#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>> &grid,\r\
-    \n                                   const int angle, const T space = ' ') {\r\
-    \n  const int h = grid.size(), w = grid.front().size();\r\n  std::vector<std::vector<T>>\
+    \ T>\r\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>&\
+    \ grid,\r\n                                   const int angle, const T space =\
+    \ ' ') {\r\n  const int h = grid.size(), w = grid.front().size();\r\n  std::vector<std::vector<T>>\
     \ rotated_grid;\r\n  if (angle == 45) {\r\n    rotated_grid.assign(h + w - 1,\
     \ std::vector<T>(h + w - 1, space));\r\n    for (int i = 0; i < h; ++i) {\r\n\
     \      for (int j = 0; j < w; ++j) {\r\n        rotated_grid[i + j][i - j + w\
@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: misc/rotate.hpp
   requiredBy: []
-  timestamp: '2022-02-08 21:48:59+09:00'
+  timestamp: '2022-03-29 00:51:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/rotate.test.cpp

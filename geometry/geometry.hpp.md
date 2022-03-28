@@ -963,10 +963,18 @@ title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   - 3次元凸包
     - https://lumakernel.github.io/ecasdqina/geometory/ConvexHull3D
     - https://www.slideshare.net/abc3141/3-65377198
+- monotone chain 以外の凸包を求めるアルゴリズム
+  - https://www.jaist.ac.jp/~uehara/course/2014/i481f/pdf/ppt-3.pdf
+  - http://www-ikn.ist.hokudai.ac.jp/~k-sekine/slides/convexhull.pdf
+  - http://www.thothchildren.com/chapter/5b268e086298160664e807e9
+- 凸包の併合
+  - https://atcoder.jp/contests/abc244/tasks/abc244_h
+  - https://twitter.com/tatyam_prime/status/1505549013260537858
 - 動的凸包
   - https://codeforces.com/blog/entry/75929
   - https://judge.yosupo.jp/problem/convex_layers
   - https://atcoder.jp/contests/geocon2013/tasks/geocon2013_c
+  - https://atcoder.jp/contests/abc244/tasks/abc244_h
 - 線分アレンジメント
   - https://github.com/ei1333/library/blob/master/geometry/template.cpp
   - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
@@ -1000,10 +1008,6 @@ title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   - http://www.prefield.com/algorithm/geometry/convex_contains.html
 - 直線から最も遠い凸多角形上の点
   - http://www.prefield.com/algorithm/geometry/convex_extreme.html
-- monotone chain 以外の凸包を求めるアルゴリズム
-  - https://www.jaist.ac.jp/~uehara/course/2014/i481f/pdf/ppt-3.pdf
-  - http://www-ikn.ist.hokudai.ac.jp/~k-sekine/slides/convexhull.pdf
-  - http://www.thothchildren.com/chapter/5b268e086298160664e807e9
 - 二等分線
   - https://github.com/beet-aizu/library/blob/master/geometry/geometry.cpp
   - https://github.com/drken1215/algorithm/blob/master/Geometry/convex_cut.cpp

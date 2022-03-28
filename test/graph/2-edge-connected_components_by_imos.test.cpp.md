@@ -10,7 +10,7 @@ data:
     title: "\u8FBA"
   - icon: ':heavy_check_mark:'
     path: graph/enumerate_bridges.hpp
-    title: graph/enumerate_bridges.hpp
+    title: "\u6A4B\u306E\u691C\u51FA"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false

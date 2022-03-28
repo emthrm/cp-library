@@ -143,7 +143,7 @@ data:
       title: "\u8FBA"
     - icon: ':heavy_check_mark:'
       path: graph/enumerate_bridges.hpp
-      title: graph/enumerate_bridges.hpp
+      title: "\u6A4B\u306E\u691C\u51FA"
     - icon: ':x:'
       path: graph/eulerian_trail_in_directed_graph.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\u7248"
@@ -192,7 +192,7 @@ data:
         \ salesman problem)"
     - icon: ':heavy_check_mark:'
       path: graph/unicyclic_graph.hpp
-      title: unicyclic graph (1-tree)
+      title: unicyclic graph / 1-tree
   - name: graph/flow/matching
     pages:
     - icon: ':heavy_check_mark:'

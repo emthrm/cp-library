@@ -142,6 +142,10 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://null-mn.hatenablog.com/entry/2021/08/22/064325
   - https://twitter.com/yosupot/status/1104175527923986432
   - https://twitter.com/kuma_program/status/1358762477589155840
+- $A_{l \oplus x} A_{(l + 1) \oplus x} \cdots A_{(r - 1) \oplus x}$
+  - https://codeforces.com/contest/1401/problem/F
+  - https://codeforces.com/contest/1654/problem/F
+  - https://twitter.com/SSRS_cp/status/1505543549601054720
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 

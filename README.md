@@ -10,6 +10,7 @@
 - The author is not responsible for any damage arising from this library.
 - It is highly recommended to refer to the links.
 - This library requires C++11 and GCC built-in functions.
+- See [here](https://github.com/emthrm/library/issues/2) for my style.
 
 
 ## Thanks

@@ -72,7 +72,7 @@ data:
   - test/graph/unicyclic_graph.test.cpp
 documentation_of: graph/unicyclic_graph.hpp
 layout: document
-title: unicyclic graph (1-tree)
+title: unicyclic graph / 1-tree
 ---
 
 閉路をただ一つだけ含む単純連結無向グラフである．俗に[ある漫画家の名前を用いて表現される](https://twitter.com/chokudai/status/772440823170379776)．

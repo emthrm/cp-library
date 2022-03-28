@@ -6,7 +6,7 @@ data:
     title: "\u8FBA"
   - icon: ':heavy_check_mark:'
     path: graph/unicyclic_graph.hpp
-    title: unicyclic graph (1-tree)
+    title: unicyclic graph / 1-tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
