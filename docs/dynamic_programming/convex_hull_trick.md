@@ -50,6 +50,10 @@ $xy$ 平面上の直線集合 $L$ を考える．
   - https://judge.yosupo.jp/submission/35152
 - 永続 convex full trick
   - https://codeforces.com/blog/entry/51684
+- $\min_i \lbrace A_i x + B_i y \rbrace$
+  - https://twitter.com/maspy_stars/status/1502589106039123970
+  - 第41回TechFUL Coding Battle「最大値はいくつ？」
+  - https://atcoder.jp/contests/abc244/tasks/abc244_h
 
 
 ## Verified
