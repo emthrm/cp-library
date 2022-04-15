@@ -272,8 +272,9 @@ documentation_of: geometry/geometry.hpp
 
 ## Verified
 
+- [単位ベクトル](https://atcoder.jp/contests/abc246/submissions/30680516)
 - [`ccw(a, b, c)`](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_1_C/review/4325588/emthrm/C++14)
-- $\angle{\mathrm{ABC}}$
+- ~~$\angle{\mathrm{ABC}}$~~
 - [最近点対](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_5_A/review/4325777/emthrm/C++14)
 - [射影](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_1_A/review/4325794/emthrm/C++14)
 - [鏡映](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_1_B/review/4325814/emthrm/C++14)
@@ -281,31 +282,31 @@ documentation_of: geometry/geometry.hpp
 - [垂直](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_2_A/review/4325838/emthrm/C++14)
 - [点と線分の交差判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_2_D/review/4325929/emthrm/C++14)
 - [2線分の交差判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_2_B/review/4325860/emthrm/C++14)
-- 点と直線の交差判定
-- 線分と直線の交差判定
-- 2直線の交差判定
-- 点と円の交差判定
+- ~~点と直線の交差判定~~
+- ~~線分と直線の交差判定~~
+- ~~2直線の交差判定~~
+- ~~点と円の交差判定~~
 - [線分と円の交差判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2276/review/4339412/emthrm/C++14)
-- 直線と円の交差判定
-- 2円の交差判定
+- ~~直線と円の交差判定~~
+- ~~2円の交差判定~~
 - [2直線の交点](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_4_C/review/4326103/emthrm/C++14)
 - [2線分の交点](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_2_C/review/4325877/emthrm/C++14)
-- 線分と直線の交点
+- ~~線分と直線の交点~~
 - [直線と円の交点](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_D/review/4325892/emthrm/C++14)
 - [線分と円の交点](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2316/review/4345536/emthrm/C++14)
 - [2円の交点](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_E/review/4325909/emthrm/C++14)
 - [2点の距離](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_F/review/4325939/emthrm/C++14)
 - [点と線分の距離](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_2_D/review/4325929/emthrm/C++14)
 - [2線分の距離](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_2_D/review/4325929/emthrm/C++14)
-- 点と直線の距離
-- 線分と直線の距離
-- 2直線の距離
+- ~~点と直線の距離~~
+- ~~線分と直線の距離~~
+- ~~2直線の距離~~
 - [接点](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_F/review/4325939/emthrm/C++14)
 - [2円の共通接線の本数](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_A/review/4325959/emthrm/C++14)
 - [2円の共通接線](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_G/review/4325977/emthrm/C++14)
 - [2円の共通部分の面積](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_7_I/review/4967134/emthrm/C++17)
 - [多角形の面積](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_A/review/4326007/emthrm/C++14)
-- 多角形の重心
+- ~~多角形の重心~~
 - [多角形に対する点の内外判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_C/review/4326013/emthrm/C++14)
 - [凸性判定](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_3_B/review/4326091/emthrm/C++14)
 - [凸包](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_4_A/review/4326095/emthrm/C++14)
