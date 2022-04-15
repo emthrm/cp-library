@@ -6,22 +6,23 @@ data:
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    ERROR: '0.000001'
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I
+    IGNORE: ''
+    IGNORE_IF_CLANG: ''
+    IGNORE_IF_GCC: ''
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-      \ (2\u5186\u306E\u5171\u901A\u90E8\u5206\u306E\u9762\u7A4D)"
+      \ (\u5358\u4F4D\u30D9\u30AF\u30C8\u30EB)"
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I
-  bundledCode: "#line 1 \"test/geometry/geometry.16.test.cpp\"\n/*\r\n * @brief \u8A08\
-    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u5186\u306E\u5171\u901A\
-    \u90E8\u5206\u306E\u9762\u7A4D)\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I\"\
-    \r\n#define ERROR \"0.000001\"\r\n\r\n#include <iomanip>\r\n#include <iostream>\r\
-    \n\r\n#line 2 \"geometry/geometry.hpp\"\n#include <algorithm>\r\n#include <cassert>\r\
+    - https://atcoder.jp/contests/abc246/tasks/abc246_b
+  bundledCode: "#line 1 \"test/geometry/geometry.23.test.cpp\"\n/*\r\n * @brief \u8A08\
+    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5358\u4F4D\u30D9\u30AF\
+    \u30C8\u30EB)\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/abc246/tasks/abc246_b\"\
+    \r\n#define ERROR \"1e-6\"\r\n\r\n#include <iomanip>\r\n#include <iostream>\r\n\
+    \r\n#line 2 \"geometry/geometry.hpp\"\n#include <algorithm>\r\n#include <cassert>\r\
     \n#include <cmath>\r\n#include <functional>\r\n#line 7 \"geometry/geometry.hpp\"\
     \n#include <iterator>\r\n#include <limits>\r\n#include <utility>\r\n#include <vector>\r\
     \n\r\nnamespace geometry {\r\n\r\nusing Real = double;\r\nconstexpr long double\
@@ -364,34 +365,30 @@ data:
     \ = 0;\r\n//     const Integer tmp = (a[j] - a[i]).norm();\r\n//     if (sgn(tmp\
     \ - max_norm) == 1) {\r\n//       max_norm = tmp;\r\n//       argmax_i = i; argmax_j\
     \ = j;\r\n//     }\r\n//   } while (i != high || j != low);\r\n//   return {a[argmax_i],\
-    \ a[argmax_j]};\r\n// }\r\n\r\n// }  // namespace geometry\r\n#line 11 \"test/geometry/geometry.16.test.cpp\"\
-    \n\r\nint main() {\r\n  geometry::Point c1_o, c2_o;\r\n  double c1r, c2r;\r\n\
-    \  std::cin >> c1_o >> c1r >> c2_o >> c2r;\r\n  std::cout << std::fixed << std::setprecision(7)\r\
-    \n            << geometry::intersection_area(geometry::Circle(c1_o, c1r),\r\n\
-    \                                           geometry::Circle(c2_o, c2r))\r\n \
-    \           << '\\n';\r\n  return 0;\r\n}\r\n"
+    \ a[argmax_j]};\r\n// }\r\n\r\n// }  // namespace geometry\r\n#line 12 \"test/geometry/geometry.23.test.cpp\"\
+    \n\r\nint main() {\r\n  geometry::Point p;\r\n  std::cin >> p;\r\n  const geometry::Point\
+    \ ans = p.unit_vector();\r\n  std::cout << std::fixed << std::setprecision(7)\r\
+    \n            << ans.x << ' ' << ans.y << '\\n';\r\n  return 0;\r\n}\r\n"
   code: "/*\r\n * @brief \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (2\u5186\u306E\u5171\u901A\u90E8\u5206\u306E\u9762\u7A4D)\r\n */\r\n#define\
-    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I\"\
-    \r\n#define ERROR \"0.000001\"\r\n\r\n#include <iomanip>\r\n#include <iostream>\r\
-    \n\r\n#include \"../../geometry/geometry.hpp\"\r\n\r\nint main() {\r\n  geometry::Point\
-    \ c1_o, c2_o;\r\n  double c1r, c2r;\r\n  std::cin >> c1_o >> c1r >> c2_o >> c2r;\r\
-    \n  std::cout << std::fixed << std::setprecision(7)\r\n            << geometry::intersection_area(geometry::Circle(c1_o,\
-    \ c1r),\r\n                                           geometry::Circle(c2_o, c2r))\r\
-    \n            << '\\n';\r\n  return 0;\r\n}\r\n"
+    \ (\u5358\u4F4D\u30D9\u30AF\u30C8\u30EB)\r\n */\r\n#define IGNORE\r\n#define PROBLEM\
+    \ \"https://atcoder.jp/contests/abc246/tasks/abc246_b\"\r\n#define ERROR \"1e-6\"\
+    \r\n\r\n#include <iomanip>\r\n#include <iostream>\r\n\r\n#include \"../../geometry/geometry.hpp\"\
+    \r\n\r\nint main() {\r\n  geometry::Point p;\r\n  std::cin >> p;\r\n  const geometry::Point\
+    \ ans = p.unit_vector();\r\n  std::cout << std::fixed << std::setprecision(7)\r\
+    \n            << ans.x << ' ' << ans.y << '\\n';\r\n  return 0;\r\n}\r\n"
   dependsOn:
   - geometry/geometry.hpp
   isVerificationFile: true
-  path: test/geometry/geometry.16.test.cpp
+  path: test/geometry/geometry.23.test.cpp
   requiredBy: []
-  timestamp: '2022-03-25 02:44:38+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-04-16 01:17:16+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/geometry/geometry.16.test.cpp
+documentation_of: test/geometry/geometry.23.test.cpp
 layout: document
 redirect_from:
-- /verify/test/geometry/geometry.16.test.cpp
-- /verify/test/geometry/geometry.16.test.cpp.html
-title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u5186\u306E\
-  \u5171\u901A\u90E8\u5206\u306E\u9762\u7A4D)"
+- /verify/test/geometry/geometry.23.test.cpp
+- /verify/test/geometry/geometry.23.test.cpp.html
+title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5358\u4F4D\
+  \u30D9\u30AF\u30C8\u30EB)"
 ---

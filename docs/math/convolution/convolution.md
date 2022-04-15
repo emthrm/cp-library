@@ -111,10 +111,12 @@ $O(N\log{N})$
   - https://atcoder.jp/contests/abc213/submissions/24953805
   - https://atcoder.jp/contests/abc236/tasks/abc236_h
   - https://twitter.com/noshi91/status/1485246655419260939
+  - https://yukicoder.me/problems/no/1901
 - 凸性のある畳み込み
   - https://twitter.com/hotmanww/status/1482185138125832192
 - relaxed multiplication
   - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
+  - https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c
   - https://atcoder.jp/contests/abc230/tasks/abc230_h
   - https://atcoder.jp/contests/abc230/editorial/3036
   - https://twitter.com/noshi91/status/1466764432961585166

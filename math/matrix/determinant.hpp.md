@@ -113,6 +113,7 @@ $O(N^3)$
   - https://ja.wikipedia.org/wiki/%E5%9B%BA%E6%9C%89%E5%A4%9A%E9%A0%85%E5%BC%8F
   - https://github.com/yosupo06/library-checker-problems/issues/665
   - https://judge.yosupo.jp/problem/characteristic_polynomial
+  - https://yukicoder.me/problems/no/1907
 - 任意の法の下での行列式
   - https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod
   - https://github.com/yosupo06/library-checker-problems/issues/750

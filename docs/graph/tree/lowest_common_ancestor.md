@@ -51,9 +51,15 @@
   - http://monyone.github.io/teihen_library/#OfflineLCA
 - level ancestor problem
   - https://en.wikipedia.org/wiki/Level_ancestor_problem
+  - https://www2.compute.dtu.dk/courses/02282/2018/levelancestor/levelancestor1x1.pdf
   - https://37zigen.com/level-ancestor-problem/
+  - https://hdbn.hatenadiary.org/entry/20111125/1322194487
   - https://drive.google.com/drive/folders/1atQRO6Y9bHgLDH-YLq3obDwMxIuk7--h
   - https://noshi91.hatenablog.com/entry/2019/09/22/114149
+  - https://suisen-kyopro.hatenablog.com/entry/2022/04/04/043452
+  - https://twitter.com/GauravML/status/1415073033522319367
+  - https://twitter.com/keijak/status/1510953079872663555
+  - https://github.com/noshi91/n91lib_rs/blob/master/src/data_structure/level_ancestor.rs
 
 
 ## Verified

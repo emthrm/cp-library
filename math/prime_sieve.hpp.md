@@ -64,20 +64,20 @@ data:
   isVerificationFile: false
   path: math/prime_sieve.hpp
   requiredBy:
-  - math/euler_phi/euler_phi_init2.hpp
-  - math/mobius_mu/mobius_mu_init2.hpp
   - math/osa_k.hpp
-  - math/carmichael_function_init.hpp
+  - math/euler_phi/euler_phi_init2.hpp
   - math/enumerate_k-th_power.hpp
+  - math/carmichael_function_init.hpp
+  - math/mobius_mu/mobius_mu_init2.hpp
   timestamp: '2022-02-19 03:53:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/euler_phi/euler_phi_init2.test.cpp
-  - test/math/enumerate_k-th_power.test.cpp
-  - test/math/osa_k.test.cpp
-  - test/math/mobius_mu/mobius_mu_init2.test.cpp
-  - test/math/fast_divisor.test.cpp
   - test/math/prime_sieve.test.cpp
+  - test/math/osa_k.test.cpp
+  - test/math/euler_phi/euler_phi_init2.test.cpp
+  - test/math/fast_divisor.test.cpp
+  - test/math/mobius_mu/mobius_mu_init2.test.cpp
+  - test/math/enumerate_k-th_power.test.cpp
 documentation_of: math/prime_sieve.hpp
 layout: document
 title: prime sieve

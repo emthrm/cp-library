@@ -21,10 +21,10 @@ data:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/segment_tree.hpp: line 6: #pragma once found in a non-first line\n"
@@ -75,9 +75,9 @@ data:
   timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_sum_query.test.cpp
   - test/data_structure/segment_tree.test.cpp
   - test/data_structure/range_minimum_query.test.cpp
+  - test/data_structure/range_sum_query.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document
 redirect_from:
@@ -233,6 +233,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://codeforces.com/contest/1401/problem/F
   - https://codeforces.com/contest/1654/problem/F
   - https://twitter.com/SSRS_cp/status/1505543549601054720
+  - https://yukicoder.me/problems/no/1891
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 

@@ -22,10 +22,10 @@ data:
     document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
       \u30B0\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/tree/lowest_common_ancestor_by_doubling.hpp: line 6: #pragma once found\
@@ -66,8 +66,8 @@ data:
   timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
+  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
 documentation_of: graph/tree/lowest_common_ancestor_by_doubling.hpp
 layout: document
 redirect_from:
@@ -128,9 +128,15 @@ title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u724
   - http://monyone.github.io/teihen_library/#OfflineLCA
 - level ancestor problem
   - https://en.wikipedia.org/wiki/Level_ancestor_problem
+  - https://www2.compute.dtu.dk/courses/02282/2018/levelancestor/levelancestor1x1.pdf
   - https://37zigen.com/level-ancestor-problem/
+  - https://hdbn.hatenadiary.org/entry/20111125/1322194487
   - https://drive.google.com/drive/folders/1atQRO6Y9bHgLDH-YLq3obDwMxIuk7--h
   - https://noshi91.hatenablog.com/entry/2019/09/22/114149
+  - https://suisen-kyopro.hatenablog.com/entry/2022/04/04/043452
+  - https://twitter.com/GauravML/status/1415073033522319367
+  - https://twitter.com/keijak/status/1510953079872663555
+  - https://github.com/noshi91/n91lib_rs/blob/master/src/data_structure/level_ancestor.rs
 
 
 ## Verified

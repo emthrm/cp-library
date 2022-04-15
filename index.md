@@ -107,7 +107,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: geometry/argument_sort.hpp
       title: "\u504F\u89D2\u30BD\u30FC\u30C8"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: geometry/geometry.hpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
     - icon: ':heavy_check_mark:'
@@ -846,6 +846,10 @@ data:
       path: test/geometry/geometry.22.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\
         \u591A\u89D2\u5F62\u306E\u76F4\u5F84)"
+    - icon: ':x:'
+      path: test/geometry/geometry.23.test.cpp
+      title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5358\
+        \u4F4D\u30D9\u30AF\u30C8\u30EB)"
     - icon: ':heavy_check_mark:'
       path: test/geometry/smallest_enclosing_circle.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"

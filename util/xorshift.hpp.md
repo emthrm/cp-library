@@ -64,16 +64,16 @@ data:
   path: util/xorshift.hpp
   requiredBy:
   - math/mod_sqrt.hpp
-  - geometry/smallest_enclosing_circle.hpp
   - graph/flow/matching/maximum_matching.hpp
+  - geometry/smallest_enclosing_circle.hpp
   timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/is_primitive_root.test.cpp
   - test/math/mod_sqrt.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/is_primitive_root.test.cpp
-  - test/geometry/smallest_enclosing_circle.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
+  - test/geometry/smallest_enclosing_circle.test.cpp
 documentation_of: util/xorshift.hpp
 layout: document
 title: xorshift
