@@ -11,7 +11,7 @@ template <typename CostType>
 struct BiconnectedComponent : Lowlink<CostType> {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, cutpoint;
-  std::vector<std::vector<std::pair<int, int>>> block;
+  std::vector<std::vector<Edge<CostType>>> block;
 
   explicit BiconnectedComponent(
       const std::vector<std::vector<Edge<CostType>>>& graph,

@@ -57,4 +57,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Verified
 
-https://atcoder.jp/contests/arc045/submissions/9253901
+https://atcoder.jp/contests/nadafes2022_day2/submissions/31595927
