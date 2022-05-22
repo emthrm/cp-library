@@ -1,10 +1,14 @@
 # ファウルハーバーの公式 (Faulhaber's formula)
 
-$$S_k(n) \mathrel{:=} \sum_{i = 1}^{n - 1} i^k$$
+$$
+  S_k(n) \mathrel{:=} \sum_{i = 1}^{n - 1} i^k
+$$
 
 と定義すると
 
-$$S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i}$$
+$$
+  S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i}
+$$
 
 が成り立つ．ここで $B$ は[ベルヌーイ数](bernoulli_number)である．
 

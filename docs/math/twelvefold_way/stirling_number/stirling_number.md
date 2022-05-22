@@ -3,11 +3,22 @@
 
 ## 第1種スターリング数 (Stirling number of the first kind)
 
-$$x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k$$
+$$
+  x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k
+$$
 
 で定義される $s$ である．
 
-$$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0), \\ s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
+$$
+  \begin{aligned}
+    s(n, k) =
+    \begin{cases}
+      1 & (n = k), \\
+      0 & (n \geq 1,\ k = 0), \\
+      s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n)
+    \end{cases}
+  \end{aligned}
+$$
 
 という漸化式をもつ．
 
@@ -16,17 +27,30 @@ $$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0)
 
 ## 第2種スターリング数 (Stirling number of the second kind)
 
-$$x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}$$
+$$
+  x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}
+$$
 
 で定義される $S$ である．
 
-$$\begin{aligned} S(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0), \\ S(n-1, k-1) + k S(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
+$$
+  \begin{aligned}
+    S(n, k) =
+    \begin{cases}
+      1 & (n = k), \\
+      0 & (n \geq 1,\ k = 0), \\
+      S(n-1, k-1) + k S(n - 1, k) & (1 \leq k < n)
+    \end{cases}
+  \end{aligned}
+$$
 
 という漸化式をもつ．
 
 一般項は
 
-$$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
+$$
+  S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}
+$$
 
 である．
 

@@ -2,13 +2,24 @@
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\forall a \in \mathbb{N}^+,\ a \perp n \implies a^x \equiv 1 \pmod{n}$$
+$$
+  \forall a \in \mathbb{N}^+,\ a \perp n \implies a^x \equiv 1 \pmod{n}
+$$
 
 を満たす最小の $x \in \mathbb{N}^+$ を $\lambda(n)$ と定義する．
 
 素因数分解 $n = \prod_{i = 1}^k p_i^{e_i}$ に対して
 
-$$\lambda(n) = \begin{cases} 1 & (n = 1, 2), \\ 2 & (n = 4), \\ 2^{e - 2} & (\exists e \geq 3,\ n = 2^e), \\ (p - 1)p^{e - 1} & (\exists p \text{ : 奇素数},\ \exists e \in \mathbb{N}^+,\ n = p^e), \\ \mathrm{lcm} (\lambda(p_1^{e_1}),\ldots, \lambda(p_k^{e_k})) & (\text{otherwise}) \end{cases}$$
+$$
+  \lambda(n) =
+  \begin{cases}
+    1 & (n = 1, 2), \\
+    2 & (n = 4), \\
+    2^{e - 2} & (\exists e \geq 3,\ n = 2^e), \\
+    (p - 1)p^{e - 1} & (\exists p \text{ : 奇素数},\ \exists e \in \mathbb{N}^+,\ n = p^e), \\
+    \mathrm{lcm} (\lambda(p_1^{e_1}),\ldots, \lambda(p_k^{e_k})) & (\text{otherwise})
+  \end{cases}
+$$
 
 が成り立つ．
 

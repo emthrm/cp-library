@@ -2,7 +2,9 @@
 
 区別された $n$ 個を $k$ グループ以下に分割する場合の数を $B(n, k)$ とおくと
 
-$$B(n,k) = \sum_{j = 0}^k S(n, j) = \sum_{i = 0}^k \frac{i^n}{i!} \sum_{j = 0}^{k - i} \frac{(-1)^j}{j!}$$
+$$
+  B(n,k) = \sum_{j = 0}^k S(n, j) = \sum_{i = 0}^k \frac{i^n}{i!} \sum_{j = 0}^{k - i} \frac{(-1)^j}{j!}
+$$
 
 が成り立つ．ここで $S$ は[第2種スターリング数](../stirling_number/stirling_number.md)である．
 
@@ -10,11 +12,15 @@ $n = k$ を満たす $B(n, k)$ をベル数 $B_n$ と呼ぶ．
 
 漸化式は
 
-$$B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k$$
+$$
+  B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k
+$$
 
 であり，指数型母関数は
 
-$$\sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}$$
+$$
+  \sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}
+$$
 
 である．
 

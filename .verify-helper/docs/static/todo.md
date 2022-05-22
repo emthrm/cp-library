@@ -255,11 +255,15 @@
 
 # 階乗 (factorial)
 
-$$n! = \prod_{i = 1}^n i$$
+$$
+  n! = \prod_{i = 1}^n i
+$$
 
 ### ウィルソンの定理
 
-$$(m - 1)! \equiv -1 \pmod{m}$$
+$$
+  (m - 1)! \equiv -1 \pmod{m}
+$$
 
 ## ToDo
 - https://github.com/beet-aizu/library/blob/master/mod/factorial.cpp
@@ -544,7 +548,9 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 約数関数 (divisor function)
 
-$$\sigma_x(n) = \sum_{d \mid n} d^x$$
+$$
+  \sigma_x(n) = \sum_{d \mid n} d^x
+$$
 
 ## 参考
 - https://ja.wikipedia.org/wiki/%E7%B4%84%E6%95%B0%E9%96%A2%E6%95%B0

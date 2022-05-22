@@ -13,11 +13,22 @@ e.g. [Stroll](https://atcoder.jp/contests/abc213/submissions/25161037)
 
 $i = 0$ のとき
 
-$$\mathrm{dp}(i) \mathrel{:=} \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} + \boldsymbol{0} \text{，}$$
+$$
+  \mathrm{dp}(i) \mathrel{:=}
+  \begin{pmatrix}
+    1 \\
+    0 \\
+    \vdots \\
+    0
+  \end{pmatrix}
+  + \boldsymbol{0} \text{，}
+$$
 
 $i = 1, 2, \ldots, T$ のとき
 
-$$\mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} \cdot p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} \cdot p_{m, i - j} \right) + 0$$
+$$
+  \mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} \cdot p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} \cdot p_{m, i - j} \right) + 0
+$$
 
 と表せる．
 

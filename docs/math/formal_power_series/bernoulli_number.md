@@ -3,11 +3,18 @@ title: ベルヌーイ数 (Bernoulli number)
 documentation_of: math/formal_power_series/bernoulli_number.hpp
 ---
 
-$$\dfrac{x}{e^x - 1} = \sum_{n = 0}^{\infty} B_n \frac{x^n}{n!}$$
+$$
+  \dfrac{x}{e^x - 1} = \sum_{n = 0}^{\infty} B_n \frac{x^n}{n!}
+$$
 
 で定義される $B_n$ である．
 
-$$\begin{cases} B_0 = 1 \text{，} \\ B_n = -\dfrac{1}{n + 1} \sum_{k = 0}^{n - 1} \binom{n + 1}{k} B_k \end{cases}$$
+$$
+  \begin{cases}
+    B_0 = 1, \\
+    B_n = -\dfrac{1}{n + 1} \sum_{k = 0}^{n - 1} \binom{n + 1}{k} B_k
+  \end{cases}
+$$
 
 という漸化式をもつ．
 

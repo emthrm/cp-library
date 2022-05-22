@@ -3,7 +3,9 @@ title: 一元二次方程式 (quadratic equation)
 documentation_of: math/quadratic_equation.hpp
 ---
 
-$$ax^2 + bx + c = 0$$
+$$
+  ax^2 + bx + c = 0
+$$
 
 
 ## 時間計算量

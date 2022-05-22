@@ -60,31 +60,56 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $
 
 - $y_1 \leq y \leq y_2,\ x_1 \leq x \leq x_2$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y - y_1 + 1)(x - x_1 + 1) \\ &= vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y - y_1 + 1)(x - x_1 + 1) \\
+                &= vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1)
+    \end{aligned}
+  $$
 
   が成り立つ．$S_1 \mathrel{:=} vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1)$ とおく．
 
 - $y_1 \leq y \leq y_2,\ x_2 < x$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y - y_1 + 1)(x_2 - x_1 + 1) \\ &= -v(x_1 - 1)y + v(y_1 - 1)(x_1 - 1) + vx_2y - v(y_1 - 1)x_2 \\ &= S_1 - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2 \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y - y_1 + 1)(x_2 - x_1 + 1) \\
+                &= -v(x_1 - 1)y + v(y_1 - 1)(x_1 - 1) + vx_2y - v(y_1 - 1)x_2 \\
+                &= S_1 - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2
+    \end{aligned}
+  $$
 
   が成り立つ．$S_2 \mathrel{:=} - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2$ とおく．
 
 - $y_2 < y,\ x_1 \leq x \leq x_2$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y_2 - y_1 + 1)(x - x_1 + 1) \\ &= -v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) + vy_2x - vy_2(x_1 - 1) \\ &= S_1 - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1) \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y_2 - y_1 + 1)(x - x_1 + 1) \\
+                &= -v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) + vy_2x - vy_2(x_1 - 1) \\
+                &= S_1 - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1)
+    \end{aligned}
+  $$
 
   が成り立つ．$S_3 \mathrel{:=} - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1)$ とおく．
 
 - $y_2 < y,\ x_2 < x$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y_2 - y_1 + 1)(x_2 - x_1 + 1) \\ &= v(y_1 - 1)(x_1 - 1) - v(y_1 - 1) x_2 - vy_2(x_1 - 1) + v y_2 x_2 \\ &= S_1 + S_2 + S_3 + vyx - vy_2x - vx_2y + vy_2x_2 \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y_2 - y_1 + 1)(x_2 - x_1 + 1) \\
+                &= v(y_1 - 1)(x_1 - 1) - v(y_1 - 1) x_2 - vy_2(x_1 - 1) + v y_2 x_2 \\
+                &= S_1 + S_2 + S_3 + vyx - vy_2x - vx_2y + vy_2x_2
+    \end{aligned}
+  $$
 
   が成り立つ．
 
 - $\text{otherwise}$
 
-  $$S_a - S_b = 0$$
+  $$
+    S_a - S_b = 0
+  $$
 
   が成り立つ．
 

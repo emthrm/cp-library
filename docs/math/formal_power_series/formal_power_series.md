@@ -7,25 +7,38 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 
   $K$ 種類存在するとき
 
-  $$\sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}$$
+  $$
+    \sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}
+  $$
 
   となる．
 
 - [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
 
-  $$\begin{split} (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\ (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n \end{split}$$
+  $$
+    \begin{split}
+      (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\
+      (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n
+    \end{split}
+  $$
 
 - 累積和
 
-  $$(1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}$$
+  $$
+    (1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}
+  $$
 
 - 階差数列
 
-  $$\sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f$$
+  $$
+    \sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f
+  $$
 
 - [部分和問題](../../dynamic_programming/subset_sum_problem.md)
 
-  $$\prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}$$
+  $$
+    \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
+  $$
 
 
 ## 時間計算量

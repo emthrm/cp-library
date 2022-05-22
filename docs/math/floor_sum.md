@@ -3,7 +3,9 @@ title: sum of floor of linear
 documentation_of: math/floor_sum.hpp
 ---
 
-$$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor$$
+$$
+  \sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor
+$$
 
 
 ## 時間計算量

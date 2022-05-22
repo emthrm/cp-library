@@ -28,7 +28,17 @@ $a, c \in \mathbb{N},\ b \in \mathbb{N}^+$ に対して $ab \leq c \iff a \leq \
 
 $f_i(x) \mathrel{:=} \min(\max(x + a_i, b_i), c_i)$ とおくと
 
-$$\begin{aligned} f_2 \circ f_1(x) &= \min(\max(\min(\max(x + a_1, b_1), c_1) + a_2, b_2), c_2) \\ &= \min(\max(\min(\max(x + a_1 + a_2, b_1 + a_2), c_1 + a_2), b_2), c_2) \\ &= \min(\min(\max(\max(x + a_1 + a_2, b_1 + a_2), b_2), \max(c_1 + a_2, b_2)), c_2) \\ &= \min(\min(\max(x + a_1 + a_2, \max(b_1 + a_2, b_2)), \max(c_1 + a_2, b_2)), c_2) \\ &= \min(\max(x + a_1 + a_2, \max(b_1 + a_2, b_2)), \min(\max(c_1 + a_2, b_2), c_2)) \\ &= \min(\max(x + A, B), C) \end{aligned}$$
+$$
+  \begin{aligned}
+    f_2 \circ f_1(x)
+    &= \min(\max(\min(\max(x + a_1, b_1), c_1) + a_2, b_2), c_2) \\
+    &= \min(\max(\min(\max(x + a_1 + a_2, b_1 + a_2), c_1 + a_2), b_2), c_2) \\
+    &= \min(\min(\max(\max(x + a_1 + a_2, b_1 + a_2), b_2), \max(c_1 + a_2, b_2)), c_2) \\
+    &= \min(\min(\max(x + a_1 + a_2, \max(b_1 + a_2, b_2)), \max(c_1 + a_2, b_2)), c_2) \\
+    &= \min(\max(x + a_1 + a_2, \max(b_1 + a_2, b_2)), \min(\max(c_1 + a_2, b_2), c_2)) \\
+    &= \min(\max(x + A, B), C)
+  \end{aligned}
+$$
 
 が成り立つ．ただし $A \mathrel{:=} a_1 + a_2,\ B \mathrel{:=} \max(b_1 + a_2, b_2),\ C \mathrel{:=} \min(\max(c_1 + a_2, b_2), c_2)$ である．
 
@@ -65,7 +75,9 @@ $m \in \mathbb{N}^+,\ a \in \mathbb{Z}$ ($0 < a < m$) に対して
 
 $N, A, B \in \mathbb{N}^+$ に対して
 
-$$\lfloor {\lfloor N / A \rfloor} / B \rfloor = \lfloor N / AB \rfloor$$
+$$
+  \lfloor {\lfloor N / A \rfloor} / B \rfloor = \lfloor N / AB \rfloor
+$$
 
 が成り立つ．
 

@@ -6,7 +6,9 @@
 
 分割数 $p(n)$ の母関数は
 
-$$\sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
+$$
+  \sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}
+$$
 
 である．
 

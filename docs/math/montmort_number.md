@@ -3,17 +3,28 @@ title: モンモール数 (Montmort number)
 documentation_of: math/montmort_number.hpp
 ---
 
-$$!n = \begin{cases} 1 & (n = 0), \\ 0 & (n = 1), \\ (n - 1)(!(n - 1) + !(n - 2)) & (n \geq 2) \end{cases}$$
+$$
+  !n =
+  \begin{cases}
+    1 & (n = 0), \\
+    0 & (n = 1), \\
+    (n - 1)(!(n - 1) + !(n - 2)) & (n \geq 2)
+  \end{cases}
+$$
 
 という漸化式をもつ，完全順列の個数 $!n$ である．これを解くと
 
-$$!n = n! \sum_{k = 0}^n \dfrac{(-1)^k}{k!}$$
+$$
+  !n = n! \sum_{k = 0}^n \dfrac{(-1)^k}{k!}
+$$
 
 という一般項が得られる．
 
 指数型母関数は
 
-$$\sum_{n = 0}^\infty !n \frac{x^n}{n!} = \dfrac{e^{-x}}{1 - x} \text{．}$$
+$$
+  \sum_{n = 0}^\infty !n \frac{x^n}{n!} = \dfrac{e^{-x}}{1 - x}
+$$
 
 である．
 

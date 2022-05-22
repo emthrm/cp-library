@@ -5,7 +5,9 @@ documentation_of: math/convolution/fast_fourier_transform.hpp
 
 離散フーリエ変換 (discrete Fourier transform)
 
-$$F(t) = \sum_{x = 0}^{N - 1} f(x) \zeta_N^{-tx} = \sum_{x = 0}^{N - 1} f(x) \exp\left(-i \frac{2 \pi tx}{N} \right)$$
+$$
+  F(t) = \sum_{x = 0}^{N - 1} f(x) \zeta_N^{-tx} = \sum_{x = 0}^{N - 1} f(x) \exp\left(-i \frac{2 \pi tx}{N} \right)
+$$
 
 を高速に行うアルゴリズムである．
 
@@ -41,33 +43,74 @@ $O(N\log{N})$
 
 $\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ．すなわち
 
-$$\overline{P_i} = \begin{cases} A_0 - B_0 \sqrt{-1} & (N = 0), \\ A_{N - i} - B_{N - i} \sqrt{-1} & (1 \leq i < N) \end{cases}$$
+$$
+  \overline{P_i} =
+  \begin{cases}
+    A_0 - B_0 \sqrt{-1} & (N = 0), \\
+    A_{N - i} - B_{N - i} \sqrt{-1} & (1 \leq i < N)
+  \end{cases}
+$$
 
 が成り立つ．$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}}$ ($1 \leq i < N$) より
 
-$$A_i = \begin{cases} \dfrac{P_0 + \overline{P_0}}{2} & (i = 0), \\ \dfrac{P_i + \overline{P_{N - i}}}{2} & (1 \leq i < N), \end{cases}$$
-
-$$B_i = \begin{cases} \dfrac{P_0 - \overline{P_0}}{2 \sqrt{-1}} & (i = 0), \\ \dfrac{P_i - \overline{P_{N - i}}}{2 \sqrt{-1}} & (1 \leq i < N) \end{cases}$$
+$$
+  \begin{split}
+    A_i &=
+    \begin{cases}
+      \dfrac{P_0 + \overline{P_0}}{2} & (i = 0), \\
+      \dfrac{P_i + \overline{P_{N - i}}}{2} & (1 \leq i < N),
+    \end{cases} \\
+    B_i &=
+    \begin{cases}
+      \dfrac{P_0 - \overline{P_0}}{2 \sqrt{-1}} & (i = 0), \\
+      \dfrac{P_i - \overline{P_{N - i}}}{2 \sqrt{-1}} & (1 \leq i < N)
+    \end{cases}
+  \end{split}
+$$
 
 となる．$C_i = A_i B_i$ より
 
-$$C_i = \begin{cases} \dfrac{P_0^2 - \overline{P_0}^2}{4 \sqrt{-1}} = \Re(P_0) \Im(P_0) & (i = 0), \\ \dfrac{P_i^2 - \overline{P_{N - i}}^2}{4 \sqrt{-1}} = (\overline{P_{N - i}^2} - P_i^2)\dfrac{\sqrt{-1}}{4} & (1 \leq i < N) \end{cases}$$
+$$
+  C_i =
+  \begin{cases}
+    \dfrac{P_0^2 - \overline{P_0}^2}{4 \sqrt{-1}} = \Re(P_0) \Im(P_0) & (i = 0), \\
+    \dfrac{P_i^2 - \overline{P_{N - i}}^2}{4 \sqrt{-1}} = (\overline{P_{N - i}^2} - P_i^2)\dfrac{\sqrt{-1}}{4} & (1 \leq i < N)
+  \end{cases}
+$$
 
 と変形できる．ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うと
 
-$$C_i = \begin{cases} \Re(D_0) + \Im(D_0) & (i = 0), \\ D_i - (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}), \end{cases}$$
-
-$$\overline{C_{\frac{N}{2} - i}} = \begin{cases} \Re(D_0) - \Im(D_0) & (i = 0), \\ \overline{D_{\frac{N}{2} - i}} + (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}) \end{cases}$$
+$$
+  \begin{split}
+    C_i &=
+    \begin{cases}
+      \Re(D_0) + \Im(D_0) & (i = 0), \\
+      D_i - (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4}),
+    \end{cases} \\
+    \overline{C_{\frac{N}{2} - i}} &=
+    \begin{cases}
+      \Re(D_0) - \Im(D_0) & (i = 0), \\
+      \overline{D_{\frac{N}{2} - i}} + (D_i - \overline{D_{\frac{N}{2} - i}}) \dfrac{1 + \xi_N^{-i} \sqrt{-1}}{2} & (1 \leq i \leq \frac{N}{4})
+    \end{cases}
+  \end{split}
+$$
 
 となる．変形すると
 
 - $i = 0$ に対して
 
-$$D_0 = \frac{(C_0 + \overline{C_{\frac{N}{2}}}) + (C_0 - \overline{C_{\frac{N}{2}}}) \sqrt{-1}}{2} = \frac{(C_0 + C_{\frac{N}{2}}) + (C_0 - C_{\frac{N}{2}}) \sqrt{-1}}{2},$$
+$$
+  D_0 = \frac{(C_0 + \overline{C_{\frac{N}{2}}}) + (C_0 - \overline{C_{\frac{N}{2}}}) \sqrt{-1}}{2} = \frac{(C_0 + C_{\frac{N}{2}}) + (C_0 - C_{\frac{N}{2}}) \sqrt{-1}}{2},
+$$
 
 - $1 \leq i \leq \frac{N}{4}$ に対して
 
-$$\begin{split} D_i &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2}, \\ \overline{D_{\frac{N}{2} - i}} &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2} \end{split}$$
+$$
+  \begin{split}
+    D_i &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) - (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2}, \\
+    \overline{D_{\frac{N}{2} - i}} &= \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) (-\xi_N^i) \sqrt{-1}}{2} = \frac{(C_i + \overline{C_{\frac{N}{2} - i}}) + (C_i - \overline{C_{\frac{N}{2} - i}}) \xi_N^{-(\frac{N}{2} - i)} \sqrt{-1}}{2}
+  \end{split}
+$$
 
 となる．$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい．
 

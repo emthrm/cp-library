@@ -3,7 +3,9 @@ title: 連立線形合同式 (simultaneous linear congruence)
 documentation_of: math/simultaneous_linear_congruence.hpp
 ---
 
-$$A_i x \equiv B_i \pmod{M_i}$$
+$$
+  A_i x \equiv B_i \pmod{M_i}
+$$
 
 
 ## 使用法
