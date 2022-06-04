@@ -1,7 +1,6 @@
 /*
  * @brief 計算幾何学/計算幾何学 (単位ベクトル)
  */
-#define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/abc246/tasks/abc246_b"
 #define ERROR "1e-6"
 
