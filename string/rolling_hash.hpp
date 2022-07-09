@@ -48,7 +48,7 @@ struct RollingHash {
                             const int i, const int j) const {
     int lb = 0;
     int ub = std::min(static_cast<int>(s.size()) - i,
-                      static_cast<int>(t.str.size()) - j)
+                      static_cast<int>(t.s.size()) - j)
              + 1;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
