@@ -119,6 +119,7 @@
 - https://github.com/noshi91/n91lib_rs/blob/master/src/algorithm/permutation_tree.rs
 - https://twitter.com/rsat__m/status/1452104874619904001
 - https://yukicoder.me/problems/no/1720
+- https://atcoder.jp/contests/abc248/tasks/abc248_h
 
 
 # policy based data structures
@@ -174,6 +175,8 @@
 - https://paper.dropbox.com/doc/Top-Tree-ZWtQdaUh68tou1iu0YdRG
 - https://yukicoder.me/problems/no/902
 - https://yukicoder.me/problems/no/1787
+- https://yukicoder.me/problems/no/1976
+- https://yukicoder.me/submissions/769888
 
 
 # triangle enumeration
@@ -346,6 +349,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 ## ToDo
 - https://nyaannyaan.github.io/library/multiplicative-function/sum-of-multiplicative-function.hpp.html
+- https://rsk0315.github.io/slides/prime-counting.pdf
 - https://atcoder.jp/contests/abc239/tasks/abc239_h
 
 

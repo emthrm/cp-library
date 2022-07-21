@@ -114,6 +114,13 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 - https://yukicoder.me/wiki/polynomial_techniques
 - https://37zigen.com/exponential-generating-function/
 - https://drive.google.com/drive/folders/1CI4P9TUWcK_sGLkUBsA4ORNilIcNjB-N
+- 疎な形式的冪級数
+  - https://github.com/yosupo06/library-checker-problems/issues/767
+  - https://judge.yosupo.jp/problem/exp_of_formal_power_series_sparse
+  - https://judge.yosupo.jp/problem/inv_of_formal_power_series_sparse
+  - https://judge.yosupo.jp/problem/log_of_formal_power_series_sparse
+  - https://judge.yosupo.jp/problem/pow_of_formal_power_series_sparse
+  - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series_sparse
 - $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める．
   - http://www.eecs.harvard.edu/~htk/publication/1978-jacm-brent-kung.pdf
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#7-fgx

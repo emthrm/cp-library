@@ -98,6 +98,8 @@ Monge property
   - https://twitter.com/noshi91/status/1436688971778519046
   - https://atcoder.jp/contests/arc129/tasks/arc129_e
   - https://twitter.com/noshi91/status/1462421876802977792
+- anti-Monge matrix
+  - https://twitter.com/noshi91/status/1499821624266493952
 - monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
   - https://dic.kimiyuki.net/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html

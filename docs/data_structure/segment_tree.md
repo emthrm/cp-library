@@ -135,6 +135,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_1.html
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
   - https://onlinejudge.u-aizu.ac.jp/problems/0427
+  - https://atcoder.jp/contests/abc256/tasks/abc256_h
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
