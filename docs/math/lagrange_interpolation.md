@@ -5,7 +5,9 @@ $1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x
 
 ### ラグランジュの補間多項式 (interpolation polynomial in the Lagrange form)
 
-$$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \sum_{i = 1}^N \dfrac{f(x_i)}{g^{\prime}(x_i)} \prod_{j \neq i} (x - x_j) \text{ where } g(x) = \prod_{i = 1}^N (x - x_i). \\ \left( \because g^{\prime}(x) = \sum_{i = 1}^N \prod_{j \neq i} (x - x_j) \text{ より } g^{\prime}(x_i) = \prod_{j \neq i} (x_i - x_j)\text{．}\right)$$
+$$
+  f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \sum_{i = 1}^N \dfrac{f(x_i)}{g^{\prime}(x_i)} \prod_{j \neq i} (x - x_j) \text{ where } g(x) = \prod_{i = 1}^N (x - x_i).
+$$
 
 
 ## 時間計算量

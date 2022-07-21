@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
@@ -11,7 +11,7 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []
@@ -28,26 +28,25 @@ data:
     document_title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
       \u30F3\u30B0"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/maximum_matching.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\r\n * @brief \u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\
-    \u30C1\u30F3\u30B0\r\n * @docs docs/graph/flow/matching/matching.md\r\n */\r\n\
-    \r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"../../../math/modint.hpp\"\
-    \r\n#include \"../../../math/matrix/gauss_jordan.hpp\"\r\n#include \"../../../math/matrix/matrix.hpp\"\
-    \r\n#include \"../../../util/xorshift.hpp\"\r\n\r\nint maximum_matching(const\
-    \ std::vector<std::vector<int>>& graph) {\r\n  constexpr int P = 1000000007;\r\
-    \n  using ModInt = MInt<P>;\r\n  ModInt::set_mod(P);\r\n  const int n = graph.size();\r\
-    \n  Matrix<ModInt> tutte_matrix(n, n, 0);\r\n  for (int i = 0; i < n; ++i) {\r\
-    \n    for (const int j : graph[i]) {\r\n      if (j > i) {\r\n        const ModInt\
-    \ x = xor128.rand(1, P);\r\n        tutte_matrix[i][j] = x;\r\n        tutte_matrix[j][i]\
-    \ = -x;\r\n      }\r\n    }\r\n  }\r\n  return gauss_jordan(&tutte_matrix, ModInt(0))\
-    \ / 2;\r\n}\r\n"
+  code: "/**\n * @brief \u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\
+    \u30C1\u30F3\u30B0\n * @docs docs/graph/flow/matching/matching.md\n */\n\n#pragma\
+    \ once\n#include <vector>\n\n#include \"../../../math/modint.hpp\"\n#include \"\
+    ../../../math/matrix/gauss_jordan.hpp\"\n#include \"../../../math/matrix/matrix.hpp\"\
+    \n#include \"../../../util/xorshift.hpp\"\n\nint maximum_matching(const std::vector<std::vector<int>>&\
+    \ graph) {\n  constexpr int P = 1000000007;\n  using ModInt = MInt<P>;\n  ModInt::set_mod(P);\n\
+    \  const int n = graph.size();\n  Matrix<ModInt> tutte_matrix(n, n, 0);\n  for\
+    \ (int i = 0; i < n; ++i) {\n    for (const int j : graph[i]) {\n      if (j >\
+    \ i) {\n        const ModInt x = xor128.rand(1, P);\n        tutte_matrix[i][j]\
+    \ = x;\n        tutte_matrix[j][i] = -x;\n      }\n    }\n  }\n  return gauss_jordan(&tutte_matrix,\
+    \ ModInt(0)) / 2;\n}\n"
   dependsOn:
   - math/modint.hpp
   - math/matrix/gauss_jordan.hpp
@@ -56,7 +55,7 @@ data:
   isVerificationFile: false
   path: graph/flow/matching/maximum_matching.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/maximum_matching.test.cpp
@@ -119,7 +118,9 @@ title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3
 
 特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
 
-$$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
+$$
+  u \leq v \iff u \text{ から } v \text{ に到達可能である．}
+$$
 
 と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 

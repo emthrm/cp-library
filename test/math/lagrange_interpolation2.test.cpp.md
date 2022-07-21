@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/lagrange_interpolation2.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u72482"
   - icon: ':question:'
@@ -21,31 +21,31 @@ data:
       \ \u8A55\u4FA1\u72482"
     links:
     - https://atcoder.jp/contests/arc033/tasks/arc033_4
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/lagrange_interpolation2.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/*\r\n * @brief \u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\
-    \ \u8A55\u4FA1\u72482\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/arc033/tasks/arc033_4\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../math/modint.hpp\"\
-    \r\n#include \"../../math/lagrange_interpolation2.hpp\"\r\n\r\nint main() {\r\n\
-    \  using ModInt = MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  int n;\r\n \
-    \ std::cin >> n;\r\n  std::vector<ModInt> a(n + 1);\r\n  for (int i = 0; i <=\
-    \ n; ++i) {\r\n    std::cin >> a[i];\r\n  }\r\n  ModInt t;\r\n  std::cin >> t;\r\
-    \n  std::cout << lagrange_interpolation(a, t) << '\\n';\r\n  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\
+    \ \u8A55\u4FA1\u72482\n */\n#define IGNORE\n#define PROBLEM \"https://atcoder.jp/contests/arc033/tasks/arc033_4\"\
+    \n\n#include <iostream>\n#include <vector>\n\n#include \"../../math/modint.hpp\"\
+    \n#include \"../../math/lagrange_interpolation2.hpp\"\n\nint main() {\n  using\
+    \ ModInt = MInt<0>;\n  ModInt::set_mod(1000000007);\n  int n;\n  std::cin >> n;\n\
+    \  std::vector<ModInt> a(n + 1);\n  for (int i = 0; i <= n; ++i) {\n    std::cin\
+    \ >> a[i];\n  }\n  ModInt t;\n  std::cin >> t;\n  std::cout << lagrange_interpolation(a,\
+    \ t) << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - math/modint.hpp
   - math/lagrange_interpolation2.hpp
   isVerificationFile: true
   path: test/math/lagrange_interpolation2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/lagrange_interpolation2.test.cpp

@@ -13,36 +13,34 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "\u90E8\u5206\u6C38\u7D9A union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/partially_persistent_union-find.hpp: line 6: #pragma\
     \ once found in a non-first line\n"
-  code: "/**\r\n * @brief \u90E8\u5206\u6C38\u7D9A union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
-    \ <utility>\r\n#include <vector>\r\n\r\nstruct PartiallyPersistentUnionFind {\r\
-    \n  explicit PartiallyPersistentUnionFind(const int n)\r\n      : data(n, -1),\
-    \ last(n, -1), history(n, {{-1, -1}}) {}\r\n\r\n  int root(const int t, const\
-    \ int ver) const {\r\n    return last[ver] == -1 || t < last[ver] ? ver : root(t,\
-    \ data[ver]);\r\n  }\r\n\r\n  bool unite(const int t, int u, int v) {\r\n    u\
-    \ = root(t, u);\r\n    v = root(t, v);\r\n    if (u == v) return false;\r\n  \
-    \  if (data[u] > data[v]) std::swap(u, v);\r\n    data[u] += data[v];\r\n    data[v]\
-    \ = u;\r\n    last[v] = t;\r\n    history[u].emplace_back(t, data[u]);\r\n   \
-    \ return true;\r\n  }\r\n\r\n  bool is_same(const int t, const int u, const int\
-    \ v) const {\r\n    return root(t, u) == root(t, v);\r\n  }\r\n\r\n  int size(const\
-    \ int t, int ver) const {\r\n    ver = root(t, ver);\r\n    return -std::prev(std::lower_bound(history[ver].begin(),\r\
-    \n                                       history[ver].end(),\r\n             \
-    \                          std::make_pair(t, 0)))->second;\r\n  }\r\n\r\n private:\r\
-    \n  std::vector<int> data, last;\r\n  std::vector<std::vector<std::pair<int, int>>>\
-    \ history;\r\n};\r\n"
+  code: "/**\n * @brief \u90E8\u5206\u6C38\u7D9A union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <iterator>\n#include <utility>\n\
+    #include <vector>\n\nstruct PartiallyPersistentUnionFind {\n  explicit PartiallyPersistentUnionFind(const\
+    \ int n)\n      : data(n, -1), last(n, -1), history(n, {{-1, -1}}) {}\n\n  int\
+    \ root(const int t, const int ver) const {\n    return last[ver] == -1 || t <\
+    \ last[ver] ? ver : root(t, data[ver]);\n  }\n\n  bool unite(const int t, int\
+    \ u, int v) {\n    u = root(t, u);\n    v = root(t, v);\n    if (u == v) return\
+    \ false;\n    if (data[u] > data[v]) std::swap(u, v);\n    data[u] += data[v];\n\
+    \    data[v] = u;\n    last[v] = t;\n    history[u].emplace_back(t, data[u]);\n\
+    \    return true;\n  }\n\n  bool is_same(const int t, const int u, const int v)\
+    \ const {\n    return root(t, u) == root(t, v);\n  }\n\n  int size(const int t,\
+    \ int ver) const {\n    ver = root(t, ver);\n    return -std::prev(std::lower_bound(history[ver].begin(),\n\
+    \                                       history[ver].end(),\n                \
+    \                       std::make_pair(t, 0)))->second;\n  }\n\n private:\n  std::vector<int>\
+    \ data, last;\n  std::vector<std::vector<std::pair<int, int>>> history;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/partially_persistent_union-find.hpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/union-find/partially_persistent_union-find.test.cpp

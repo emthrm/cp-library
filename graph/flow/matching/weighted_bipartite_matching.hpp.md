@@ -23,39 +23,37 @@ data:
     document_title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\
       \u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/weighted_bipartite_matching.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\
-    \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0\r\n * @docs docs/graph/flow/matching/matching.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n\r\n#include\
-    \ \"../minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\r\n\r\ntemplate <typename\
-    \ T>\r\nstruct WeightedBipartiteMatching {\r\n  explicit WeightedBipartiteMatching(const\
-    \ int left, const int right)\r\n      : is_built(false), left(left), right(right),\
-    \ mcf(left + right + 2) {}\r\n\r\n  void add_edge(const int src, const int dst,\
-    \ const T cost) {\r\n    mcf.add_edge(src, left + dst, 1, -cost);\r\n  }\r\n\r\
-    \n  T solve() {\r\n    assert(!is_built);\r\n    is_built = true;\r\n    const\
-    \ int s = left + right, t = left + right + 1;\r\n    for (int i = 0; i < left;\
-    \ ++i) {\r\n      mcf.add_edge(s, i, 1, 0);\r\n    }\r\n    for (int i = 0; i\
-    \ < right; ++i) {\r\n      mcf.add_edge(left + i, t, 1, 0);\r\n    }\r\n    return\
-    \ -mcf.minimum_cost_maximum_flow(s, t, left).second;\r\n  }\r\n\r\n  std::vector<int>\
-    \ matching() const {\r\n    assert(is_built);\r\n    std::vector<int> res(left,\
-    \ -1);\r\n    for (int i = 0; i < left; ++i) {\r\n      for (const auto& e : mcf.graph[i])\
-    \ {\r\n        if (e.cap == 0 && left <= e.dst && e.dst < left + right) {\r\n\
-    \          res[i] = e.dst - left;\r\n          break;\r\n        }\r\n      }\r\
-    \n    }\r\n    return res;\r\n  }\r\n\r\n private:\r\n  bool is_built;\r\n  const\
-    \ int left, right;\r\n  MinimumCostSTFlow<int, T> mcf;\r\n};\r\n"
+  code: "/**\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\
+    \u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0\n * @docs docs/graph/flow/matching/matching.md\n\
+    \ */\n\n#pragma once\n#include <cassert>\n#include <vector>\n\n#include \"../minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
+    \n\ntemplate <typename T>\nstruct WeightedBipartiteMatching {\n  explicit WeightedBipartiteMatching(const\
+    \ int left, const int right)\n      : is_built(false), left(left), right(right),\
+    \ mcf(left + right + 2) {}\n\n  void add_edge(const int src, const int dst, const\
+    \ T cost) {\n    mcf.add_edge(src, left + dst, 1, -cost);\n  }\n\n  T solve()\
+    \ {\n    assert(!is_built);\n    is_built = true;\n    const int s = left + right,\
+    \ t = left + right + 1;\n    for (int i = 0; i < left; ++i) {\n      mcf.add_edge(s,\
+    \ i, 1, 0);\n    }\n    for (int i = 0; i < right; ++i) {\n      mcf.add_edge(left\
+    \ + i, t, 1, 0);\n    }\n    return -mcf.minimum_cost_maximum_flow(s, t, left).second;\n\
+    \  }\n\n  std::vector<int> matching() const {\n    assert(is_built);\n    std::vector<int>\
+    \ res(left, -1);\n    for (int i = 0; i < left; ++i) {\n      for (const auto&\
+    \ e : mcf.graph[i]) {\n        if (e.cap == 0 && left <= e.dst && e.dst < left\
+    \ + right) {\n          res[i] = e.dst - left;\n          break;\n        }\n\
+    \      }\n    }\n    return res;\n  }\n\n private:\n  bool is_built;\n  const\
+    \ int left, right;\n  MinimumCostSTFlow<int, T> mcf;\n};\n"
   dependsOn:
   - graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   isVerificationFile: false
   path: graph/flow/matching/weighted_bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/bigint.01.test.cpp
@@ -120,7 +118,9 @@ title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927
 
 特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
 
-$$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
+$$
+  u \leq v \iff u \text{ から } v \text{ に到達可能である．}
+$$
 
 と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 

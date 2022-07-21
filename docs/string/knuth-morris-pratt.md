@@ -17,7 +17,9 @@
 
 - Knuth–Morris–Pratt algorithm
 
-$$\langle O(N), O(M) \rangle$$
+$$
+  \langle O(N), O(M) \rangle
+$$
 
 
 ## 使用法

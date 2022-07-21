@@ -22,48 +22,45 @@ data:
     document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
       \u30B0\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/tree/lowest_common_ancestor_by_doubling.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
-    \u30B0\u7248\r\n * @docs docs/graph/tree/lowest_common_ancestor.md\r\n */\r\n\r\
-    \n#pragma once\r\n#include <cassert>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\n#include \"../edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct LowestCommonAncestorByDoubling\
-    \ {\r\n  std::vector<int> depth;\r\n  std::vector<CostType> dist;\r\n\r\n  explicit\
-    \ LowestCommonAncestorByDoubling(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph)\r\n      : is_built(false), n(graph.size()), table_h(1), graph(graph)\
-    \ {\r\n    depth.resize(n);\r\n    dist.resize(n);\r\n    while ((1 << table_h)\
-    \ <= n) ++table_h;\r\n    parent.resize(table_h, std::vector<int>(n));\r\n  }\r\
-    \n\r\n  void build(const int root = 0) {\r\n    is_built = true;\r\n    dfs(-1,\
-    \ root, 0, 0);\r\n    for (int i = 0; i + 1 < table_h; ++i) {\r\n      for (int\
-    \ ver = 0; ver < n; ++ver) {\r\n        parent[i + 1][ver] =\r\n            (parent[i][ver]\
-    \ == -1 ? -1 : parent[i][parent[i][ver]]);\r\n      }\r\n    }\r\n  }\r\n\r\n\
-    \  int query(int u, int v) const {\r\n    assert(is_built);\r\n    if (depth[u]\
-    \ > depth[v]) std::swap(u, v);\r\n    for (int i = 0; i < table_h; ++i) {\r\n\
-    \      if ((depth[v] - depth[u]) >> i & 1) v = parent[i][v];\r\n    }\r\n    if\
-    \ (u == v) return u;\r\n    for (int i = table_h - 1; i >= 0; --i) {\r\n     \
-    \ if (parent[i][u] != parent[i][v]) {\r\n        u = parent[i][u];\r\n       \
-    \ v = parent[i][v];\r\n      }\r\n    }\r\n    return parent.front()[u];\r\n \
-    \ }\r\n\r\n  CostType distance(const int u, const int v) const {\r\n    assert(is_built);\r\
-    \n    return dist[u] + dist[v] - dist[query(u, v)] * 2;\r\n  }\r\n\r\n private:\r\
-    \n  bool is_built;\r\n  const int n;\r\n  int table_h;\r\n  std::vector<std::vector<int>>\
-    \ parent;\r\n  const std::vector<std::vector<Edge<CostType>>> graph;\r\n\r\n \
-    \ void dfs(const int par, const int ver, const int cur_depth,\r\n           const\
-    \ CostType cur_dist) {\r\n    depth[ver] = cur_depth;\r\n    dist[ver] = cur_dist;\r\
-    \n    parent.front()[ver] = par;\r\n    for (const Edge<CostType>& e : graph[ver])\
-    \ {\r\n      if (e.dst != par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\r\
-    \n    }\r\n  }\r\n};\r\n"
+  code: "/**\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
+    \u30B0\u7248\n * @docs docs/graph/tree/lowest_common_ancestor.md\n */\n\n#pragma\
+    \ once\n#include <cassert>\n#include <utility>\n#include <vector>\n\n#include\
+    \ \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct LowestCommonAncestorByDoubling\
+    \ {\n  std::vector<int> depth;\n  std::vector<CostType> dist;\n\n  explicit LowestCommonAncestorByDoubling(\n\
+    \      const std::vector<std::vector<Edge<CostType>>>& graph)\n      : is_built(false),\
+    \ n(graph.size()), table_h(1), graph(graph) {\n    depth.resize(n);\n    dist.resize(n);\n\
+    \    while ((1 << table_h) <= n) ++table_h;\n    parent.resize(table_h, std::vector<int>(n));\n\
+    \  }\n\n  void build(const int root = 0) {\n    is_built = true;\n    dfs(-1,\
+    \ root, 0, 0);\n    for (int i = 0; i + 1 < table_h; ++i) {\n      for (int ver\
+    \ = 0; ver < n; ++ver) {\n        parent[i + 1][ver] =\n            (parent[i][ver]\
+    \ == -1 ? -1 : parent[i][parent[i][ver]]);\n      }\n    }\n  }\n\n  int query(int\
+    \ u, int v) const {\n    assert(is_built);\n    if (depth[u] > depth[v]) std::swap(u,\
+    \ v);\n    for (int i = 0; i < table_h; ++i) {\n      if ((depth[v] - depth[u])\
+    \ >> i & 1) v = parent[i][v];\n    }\n    if (u == v) return u;\n    for (int\
+    \ i = table_h - 1; i >= 0; --i) {\n      if (parent[i][u] != parent[i][v]) {\n\
+    \        u = parent[i][u];\n        v = parent[i][v];\n      }\n    }\n    return\
+    \ parent.front()[u];\n  }\n\n  CostType distance(const int u, const int v) const\
+    \ {\n    assert(is_built);\n    return dist[u] + dist[v] - dist[query(u, v)] *\
+    \ 2;\n  }\n\n private:\n  bool is_built;\n  const int n;\n  int table_h;\n  std::vector<std::vector<int>>\
+    \ parent;\n  const std::vector<std::vector<Edge<CostType>>> graph;\n\n  void dfs(const\
+    \ int par, const int ver, const int cur_depth,\n           const CostType cur_dist)\
+    \ {\n    depth[ver] = cur_depth;\n    dist[ver] = cur_dist;\n    parent.front()[ver]\
+    \ = par;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst !=\
+    \ par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n    }\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/tree/lowest_common_ancestor_by_doubling.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp

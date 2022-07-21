@@ -3,44 +3,42 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/rotate.test.cpp
     title: "\u305D\u306E\u4ED6/\u56DE\u8EE2"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"misc/rotate.hpp\"\n#include <cassert>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>&\
-    \ grid,\r\n                                   const int angle, const T space =\
-    \ ' ') {\r\n  const int h = grid.size(), w = grid.front().size();\r\n  std::vector<std::vector<T>>\
-    \ rotated_grid;\r\n  if (angle == 45) {\r\n    rotated_grid.assign(h + w - 1,\
-    \ std::vector<T>(h + w - 1, space));\r\n    for (int i = 0; i < h; ++i) {\r\n\
-    \      for (int j = 0; j < w; ++j) {\r\n        rotated_grid[i + j][i - j + w\
-    \ - 1] = grid[i][j];\r\n      }\r\n    }\r\n  } else if (angle == 90) {\r\n  \
-    \  rotated_grid.assign(w, std::vector<T>(h));\r\n    for (int i = 0; i < h; ++i)\
-    \ {\r\n      for (int j = 0; j < w; ++j) {\r\n        rotated_grid[w - 1 - j][i]\
-    \ = grid[i][j];\r\n      }\r\n    }\r\n  } else {\r\n    assert(false);\r\n  }\r\
-    \n  return rotated_grid;\r\n}\r\n"
-  code: "#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>&\
-    \ grid,\r\n                                   const int angle, const T space =\
-    \ ' ') {\r\n  const int h = grid.size(), w = grid.front().size();\r\n  std::vector<std::vector<T>>\
-    \ rotated_grid;\r\n  if (angle == 45) {\r\n    rotated_grid.assign(h + w - 1,\
-    \ std::vector<T>(h + w - 1, space));\r\n    for (int i = 0; i < h; ++i) {\r\n\
-    \      for (int j = 0; j < w; ++j) {\r\n        rotated_grid[i + j][i - j + w\
-    \ - 1] = grid[i][j];\r\n      }\r\n    }\r\n  } else if (angle == 90) {\r\n  \
-    \  rotated_grid.assign(w, std::vector<T>(h));\r\n    for (int i = 0; i < h; ++i)\
-    \ {\r\n      for (int j = 0; j < w; ++j) {\r\n        rotated_grid[w - 1 - j][i]\
-    \ = grid[i][j];\r\n      }\r\n    }\r\n  } else {\r\n    assert(false);\r\n  }\r\
-    \n  return rotated_grid;\r\n}\r\n"
+  bundledCode: "#line 2 \"misc/rotate.hpp\"\n#include <cassert>\n#include <vector>\n\
+    \ntemplate <typename T>\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>&\
+    \ grid,\n                                   const int angle, const T space = '\
+    \ ') {\n  const int h = grid.size(), w = grid.front().size();\n  std::vector<std::vector<T>>\
+    \ rotated_grid;\n  if (angle == 45) {\n    rotated_grid.assign(h + w - 1, std::vector<T>(h\
+    \ + w - 1, space));\n    for (int i = 0; i < h; ++i) {\n      for (int j = 0;\
+    \ j < w; ++j) {\n        rotated_grid[i + j][i - j + w - 1] = grid[i][j];\n  \
+    \    }\n    }\n  } else if (angle == 90) {\n    rotated_grid.assign(w, std::vector<T>(h));\n\
+    \    for (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j) {\n    \
+    \    rotated_grid[w - 1 - j][i] = grid[i][j];\n      }\n    }\n  } else {\n  \
+    \  assert(false);\n  }\n  return rotated_grid;\n}\n"
+  code: "#pragma once\n#include <cassert>\n#include <vector>\n\ntemplate <typename\
+    \ T>\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,\n\
+    \                                   const int angle, const T space = ' ') {\n\
+    \  const int h = grid.size(), w = grid.front().size();\n  std::vector<std::vector<T>>\
+    \ rotated_grid;\n  if (angle == 45) {\n    rotated_grid.assign(h + w - 1, std::vector<T>(h\
+    \ + w - 1, space));\n    for (int i = 0; i < h; ++i) {\n      for (int j = 0;\
+    \ j < w; ++j) {\n        rotated_grid[i + j][i - j + w - 1] = grid[i][j];\n  \
+    \    }\n    }\n  } else if (angle == 90) {\n    rotated_grid.assign(w, std::vector<T>(h));\n\
+    \    for (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j) {\n    \
+    \    rotated_grid[w - 1 - j][i] = grid[i][j];\n      }\n    }\n  } else {\n  \
+    \  assert(false);\n  }\n  return rotated_grid;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: misc/rotate.hpp
   requiredBy: []
-  timestamp: '2022-03-29 00:51:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/rotate.test.cpp
 documentation_of: misc/rotate.hpp

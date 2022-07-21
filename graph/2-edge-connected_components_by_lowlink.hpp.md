@@ -21,43 +21,41 @@ data:
     document_title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink\
       \ \u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/2-edge-connected_components_by_lowlink.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink\
-    \ \u7248\r\n * @docs docs/graph/2-edge-connected_components.md\r\n */\r\n\r\n\
-    #pragma once\r\n// #include <algorithm>\r\n#include <vector>\r\n\r\n#include \"\
-    ./edge.hpp\"\r\n#include \"./lowlink.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nstruct TwoEdgeConnectedComponents : Lowlink<CostType> {\r\n  std::vector<int>\
-    \ id;\r\n  std::vector<std::vector<int>> vertices;\r\n  std::vector<std::vector<Edge<CostType>>>\
-    \ g;\r\n\r\n  explicit TwoEdgeConnectedComponents(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\r\n      const bool is_full_ver = false)\r\n      : Lowlink<CostType>(graph),\
-    \ is_full_ver(is_full_ver) {\r\n    const int n = graph.size();\r\n    id.assign(n,\
-    \ -1);\r\n    int m = 0;\r\n    for (int i = 0; i < n; ++i) {\r\n      if (id[i]\
-    \ == -1) dfs(-1, i, &m);\r\n    }\r\n    g.resize(m);\r\n    for (const Edge<CostType>&\
-    \ e : this->bridges) {\r\n      const int u = id[e.src], v = id[e.dst];\r\n  \
-    \    g[u].emplace_back(u, v, e.cost);\r\n      g[v].emplace_back(v, u, e.cost);\r\
-    \n    }\r\n    // if (is_full_ver) {\r\n    //   for (int i = 0; i < m; ++i) {\r\
-    \n    //     std::sort(vertices[i].begin(), vertices[i].end());\r\n    //   }\r\
-    \n    // }\r\n  }\r\n\r\n private:\r\n  const bool is_full_ver;\r\n\r\n  void\
-    \ dfs(const int par, const int ver, int* m) {\r\n    if (par != -1 && this->order[par]\
-    \ >= this->lowlink[ver]) {\r\n      id[ver] = id[par];\r\n    } else {\r\n   \
-    \   id[ver] = (*m)++;\r\n      if (is_full_ver) vertices.emplace_back();\r\n \
-    \   }\r\n    if (is_full_ver) vertices[id[ver]].emplace_back(ver);\r\n    for\
-    \ (const Edge<CostType>& e : this->graph[ver]) {\r\n      if (id[e.dst] == -1)\
-    \ dfs(ver, e.dst, m);\r\n    }\r\n  }\r\n};\r\n"
+  code: "/**\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink\
+    \ \u7248\n * @docs docs/graph/2-edge-connected_components.md\n */\n\n#pragma once\n\
+    // #include <algorithm>\n#include <vector>\n\n#include \"./edge.hpp\"\n#include\
+    \ \"./lowlink.hpp\"\n\ntemplate <typename CostType>\nstruct TwoEdgeConnectedComponents\
+    \ : Lowlink<CostType> {\n  std::vector<int> id;\n  std::vector<std::vector<int>>\
+    \ vertices;\n  std::vector<std::vector<Edge<CostType>>> g;\n\n  explicit TwoEdgeConnectedComponents(\n\
+    \      const std::vector<std::vector<Edge<CostType>>>& graph,\n      const bool\
+    \ is_full_ver = false)\n      : Lowlink<CostType>(graph), is_full_ver(is_full_ver)\
+    \ {\n    const int n = graph.size();\n    id.assign(n, -1);\n    int m = 0;\n\
+    \    for (int i = 0; i < n; ++i) {\n      if (id[i] == -1) dfs(-1, i, &m);\n \
+    \   }\n    g.resize(m);\n    for (const Edge<CostType>& e : this->bridges) {\n\
+    \      const int u = id[e.src], v = id[e.dst];\n      g[u].emplace_back(u, v,\
+    \ e.cost);\n      g[v].emplace_back(v, u, e.cost);\n    }\n    // if (is_full_ver)\
+    \ {\n    //   for (int i = 0; i < m; ++i) {\n    //     std::sort(vertices[i].begin(),\
+    \ vertices[i].end());\n    //   }\n    // }\n  }\n\n private:\n  const bool is_full_ver;\n\
+    \n  void dfs(const int par, const int ver, int* m) {\n    if (par != -1 && this->order[par]\
+    \ >= this->lowlink[ver]) {\n      id[ver] = id[par];\n    } else {\n      id[ver]\
+    \ = (*m)++;\n      if (is_full_ver) vertices.emplace_back();\n    }\n    if (is_full_ver)\
+    \ vertices[id[ver]].emplace_back(ver);\n    for (const Edge<CostType>& e : this->graph[ver])\
+    \ {\n      if (id[e.dst] == -1) dfs(ver, e.dst, m);\n    }\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   - graph/lowlink.hpp
   isVerificationFile: false
   path: graph/2-edge-connected_components_by_lowlink.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp

@@ -3,34 +3,34 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/run_length_encoding.test.cpp
     title: "\u6587\u5B57\u5217/\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"string/run_length_encoding.hpp\"\n#include <utility>\r\n\
-    #include <vector>\r\n\r\ntemplate <typename T = char, typename U>\r\nstd::vector<std::pair<T,\
-    \ int>> run_length_encoding(const U& s) {\r\n  const int n = s.size();\r\n  std::vector<std::pair<T,\
-    \ int>> res;\r\n  if (n == 0) return res;\r\n  T ch = s.front();\r\n  int num\
-    \ = 1;\r\n  for (int i = 1; i < n; ++i) {\r\n    if (s[i] != ch) {\r\n      res.emplace_back(ch,\
-    \ num);\r\n      num = 0;\r\n    }\r\n    ch = s[i];\r\n    ++num;\r\n  }\r\n\
-    \  res.emplace_back(ch, num);\r\n  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T = char, typename U>\r\nstd::vector<std::pair<T, int>> run_length_encoding(const\
-    \ U& s) {\r\n  const int n = s.size();\r\n  std::vector<std::pair<T, int>> res;\r\
-    \n  if (n == 0) return res;\r\n  T ch = s.front();\r\n  int num = 1;\r\n  for\
-    \ (int i = 1; i < n; ++i) {\r\n    if (s[i] != ch) {\r\n      res.emplace_back(ch,\
-    \ num);\r\n      num = 0;\r\n    }\r\n    ch = s[i];\r\n    ++num;\r\n  }\r\n\
-    \  res.emplace_back(ch, num);\r\n  return res;\r\n}\r\n"
+  bundledCode: "#line 2 \"string/run_length_encoding.hpp\"\n#include <utility>\n#include\
+    \ <vector>\n\ntemplate <typename T = char, typename U>\nstd::vector<std::pair<T,\
+    \ int>> run_length_encoding(const U& s) {\n  const int n = s.size();\n  std::vector<std::pair<T,\
+    \ int>> res;\n  if (n == 0) return res;\n  T ch = s.front();\n  int num = 1;\n\
+    \  for (int i = 1; i < n; ++i) {\n    if (s[i] != ch) {\n      res.emplace_back(ch,\
+    \ num);\n      num = 0;\n    }\n    ch = s[i];\n    ++num;\n  }\n  res.emplace_back(ch,\
+    \ num);\n  return res;\n}\n"
+  code: "#pragma once\n#include <utility>\n#include <vector>\n\ntemplate <typename\
+    \ T = char, typename U>\nstd::vector<std::pair<T, int>> run_length_encoding(const\
+    \ U& s) {\n  const int n = s.size();\n  std::vector<std::pair<T, int>> res;\n\
+    \  if (n == 0) return res;\n  T ch = s.front();\n  int num = 1;\n  for (int i\
+    \ = 1; i < n; ++i) {\n    if (s[i] != ch) {\n      res.emplace_back(ch, num);\n\
+    \      num = 0;\n    }\n    ch = s[i];\n    ++num;\n  }\n  res.emplace_back(ch,\
+    \ num);\n  return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: string/run_length_encoding.hpp
   requiredBy: []
-  timestamp: '2022-02-08 18:47:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/run_length_encoding.test.cpp
 documentation_of: string/run_length_encoding.hpp

@@ -3,41 +3,40 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/knuth-morris-pratt.test.cpp
     title: "\u6587\u5B57\u5217/Knuth\u2013Morris\u2013Pratt algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/string/knuth-morris-pratt.md
     document_title: "Knuth\u2013Morris\u2013Pratt algorithm"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/knuth-morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief Knuth\u2013Morris\u2013Pratt algorithm\r\n * @docs docs/string/knuth-morris-pratt.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T = std::string>\r\nstruct KnuthMorrisPratt {\r\n  std::vector<int>\
-    \ border;\r\n\r\n  explicit KnuthMorrisPratt(const T& s) : s(s) {\r\n    const\
-    \ int n = s.size();\r\n    border.assign(n + 1, -1);\r\n    for (int i = 0, j\
-    \ = -1; i < n; ++i) {\r\n      while (j >= 0 && s[i] != s[j]) j = border[j];\r\
-    \n      ++j;\r\n      border[i + 1] = (i + 1 < n && s[i + 1] == s[j] ? border[j]\
-    \ : j);\r\n    }\r\n  }\r\n\r\n  std::vector<int> match(const T& t) const {\r\n\
-    \    const int n = s.size(), m = t.size();\r\n    std::vector<int> res;\r\n  \
-    \  for (int i = 0, k = 0; i < m; ++i) {\r\n      while (k >= 0 && t[i] != s[k])\
-    \ k = border[k];\r\n      if (++k == n) res.emplace_back(i - n + 1);\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n private:\r\n  const T s;\r\n};\r\n"
+  code: "/**\n * @brief Knuth\u2013Morris\u2013Pratt algorithm\n * @docs docs/string/knuth-morris-pratt.md\n\
+    \ */\n\n#pragma once\n#include <string>\n#include <vector>\n\ntemplate <typename\
+    \ T = std::string>\nstruct KnuthMorrisPratt {\n  std::vector<int> border;\n\n\
+    \  explicit KnuthMorrisPratt(const T& s) : s(s) {\n    const int n = s.size();\n\
+    \    border.assign(n + 1, -1);\n    for (int i = 0, j = -1; i < n; ++i) {\n  \
+    \    while (j >= 0 && s[i] != s[j]) j = border[j];\n      ++j;\n      border[i\
+    \ + 1] = (i + 1 < n && s[i + 1] == s[j] ? border[j] : j);\n    }\n  }\n\n  std::vector<int>\
+    \ match(const T& t) const {\n    const int n = s.size(), m = t.size();\n    std::vector<int>\
+    \ res;\n    for (int i = 0, k = 0; i < m; ++i) {\n      while (k >= 0 && t[i]\
+    \ != s[k]) k = border[k];\n      if (++k == n) res.emplace_back(i - n + 1);\n\
+    \    }\n    return res;\n  }\n\n private:\n  const T s;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: string/knuth-morris-pratt.hpp
   requiredBy: []
-  timestamp: '2022-02-27 15:05:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/knuth-morris-pratt.test.cpp
 documentation_of: string/knuth-morris-pratt.hpp
@@ -66,7 +65,9 @@ title: "Knuth\u2013Morris\u2013Pratt algorithm"
 
 - Knuth–Morris–Pratt algorithm
 
-$$\langle O(N), O(M) \rangle$$
+$$
+  \langle O(N), O(M) \rangle
+$$
 
 
 ## 使用法

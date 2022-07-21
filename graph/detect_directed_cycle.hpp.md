@@ -16,37 +16,35 @@ data:
     _deprecated_at_docs: docs/graph/detect_walk.md
     document_title: "\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/detect_directed_cycle.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA\r\n * @docs docs/graph/detect_walk.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <functional>\r\n\
-    #include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nstd::vector<Edge<CostType>> detect_directed_cycle(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<int> is_visited(n,\
-    \ 0);\r\n  std::vector<Edge<CostType>> edges, cycle;\r\n  const std::function<bool(int)>\
-    \ dfs =\r\n      [&graph, &is_visited, &edges, &cycle, &dfs](const int ver) ->\
-    \ bool {\r\n        is_visited[ver] = 1;\r\n        for (const Edge<CostType>&\
-    \ e : graph[ver]) {\r\n          if (is_visited[e.dst] == 1) {\r\n           \
-    \ cycle.emplace_back(e);\r\n            while (cycle.back().src != e.dst) {\r\n\
-    \              cycle.emplace_back(edges.back());\r\n              edges.pop_back();\r\
-    \n            }\r\n            std::reverse(cycle.begin(), cycle.end());\r\n \
-    \           return true;\r\n          } else if (is_visited[e.dst] == 0) {\r\n\
-    \            edges.emplace_back(e);\r\n            if (dfs(e.dst)) return true;\r\
-    \n            edges.pop_back();\r\n          }\r\n        }\r\n        is_visited[ver]\
-    \ = 2;\r\n        return false;\r\n      };\r\n  for (int i = 0; i < n; ++i) {\r\
-    \n    if (is_visited[i] == 0 && dfs(i)) break;\r\n  }\r\n  return cycle;\r\n}\r\
-    \n"
+  code: "/**\n * @brief \u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA\n * @docs docs/graph/detect_walk.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <functional>\n#include <vector>\n\
+    \n#include \"./edge.hpp\"\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>>\
+    \ detect_directed_cycle(\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph) {\n  const int n = graph.size();\n  std::vector<int> is_visited(n, 0);\n\
+    \  std::vector<Edge<CostType>> edges, cycle;\n  const std::function<bool(int)>\
+    \ dfs =\n      [&graph, &is_visited, &edges, &cycle, &dfs](const int ver) -> bool\
+    \ {\n        is_visited[ver] = 1;\n        for (const Edge<CostType>& e : graph[ver])\
+    \ {\n          if (is_visited[e.dst] == 1) {\n            cycle.emplace_back(e);\n\
+    \            while (cycle.back().src != e.dst) {\n              cycle.emplace_back(edges.back());\n\
+    \              edges.pop_back();\n            }\n            std::reverse(cycle.begin(),\
+    \ cycle.end());\n            return true;\n          } else if (is_visited[e.dst]\
+    \ == 0) {\n            edges.emplace_back(e);\n            if (dfs(e.dst)) return\
+    \ true;\n            edges.pop_back();\n          }\n        }\n        is_visited[ver]\
+    \ = 2;\n        return false;\n      };\n  for (int i = 0; i < n; ++i) {\n   \
+    \ if (is_visited[i] == 0 && dfs(i)) break;\n  }\n  return cycle;\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/detect_directed_cycle.hpp
   requiredBy: []
-  timestamp: '2022-02-23 17:39:20+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/detect_directed_cycle.test.cpp

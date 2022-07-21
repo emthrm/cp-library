@@ -3,30 +3,30 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/enumerate_quotients.test.cpp
     title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/enumerate_quotients.hpp\"\n#include <tuple>\r\n#include\
-    \ <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<std::tuple<T, T, T>> enumerate_quotients(const\
-    \ T n) {\r\n  std::vector<std::tuple<T, T, T>> quotients;\r\n  for (T l = 1; l\
-    \ <= n;) {\r\n    const T quotient = n / l, r = n / quotient + 1;\r\n    quotients.emplace_back(l,\
-    \ r, quotient);\r\n    l = r;\r\n  }\r\n  return quotients;\r\n}\r\n"
-  code: "#pragma once\r\n#include <tuple>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<std::tuple<T, T, T>> enumerate_quotients(const T n) {\r\n\
-    \  std::vector<std::tuple<T, T, T>> quotients;\r\n  for (T l = 1; l <= n;) {\r\
-    \n    const T quotient = n / l, r = n / quotient + 1;\r\n    quotients.emplace_back(l,\
-    \ r, quotient);\r\n    l = r;\r\n  }\r\n  return quotients;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/enumerate_quotients.hpp\"\n#include <tuple>\n#include\
+    \ <vector>\n\ntemplate <typename T>\nstd::vector<std::tuple<T, T, T>> enumerate_quotients(const\
+    \ T n) {\n  std::vector<std::tuple<T, T, T>> quotients;\n  for (T l = 1; l <=\
+    \ n;) {\n    const T quotient = n / l, r = n / quotient + 1;\n    quotients.emplace_back(l,\
+    \ r, quotient);\n    l = r;\n  }\n  return quotients;\n}\n"
+  code: "#pragma once\n#include <tuple>\n#include <vector>\n\ntemplate <typename T>\n\
+    std::vector<std::tuple<T, T, T>> enumerate_quotients(const T n) {\n  std::vector<std::tuple<T,\
+    \ T, T>> quotients;\n  for (T l = 1; l <= n;) {\n    const T quotient = n / l,\
+    \ r = n / quotient + 1;\n    quotients.emplace_back(l, r, quotient);\n    l =\
+    \ r;\n  }\n  return quotients;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/enumerate_quotients.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/enumerate_quotients.test.cpp
 documentation_of: math/enumerate_quotients.hpp

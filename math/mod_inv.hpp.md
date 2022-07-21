@@ -2,44 +2,44 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/chinese_remainder_theorem.hpp
     title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/simultaneous_linear_congruence.hpp
     title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/chinese_remainder_theorem.test.cpp
     title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/simultaneous_linear_congruence.test.cpp
     title: "\u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/mod_inv.hpp\"\n#include <algorithm>\r\n#include <utility>\r\
-    \n\r\nlong long mod_inv(long long a, const int m) {\r\n  if ((a %= m) < 0) a +=\
-    \ m;\r\n  if (std::__gcd(a, static_cast<long long>(m)) != 1) return -1;\r\n  long\
-    \ long x = 1;\r\n  for (long long b = m, u = 0; b > 0;) {\r\n    const long long\
-    \ q = a / b;\r\n    std::swap(a -= q * b, b);\r\n    std::swap(x -= q * u, u);\r\
-    \n  }\r\n  x %= m;\r\n  return x < 0 ? x + m : x;\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n\r\nlong long\
-    \ mod_inv(long long a, const int m) {\r\n  if ((a %= m) < 0) a += m;\r\n  if (std::__gcd(a,\
-    \ static_cast<long long>(m)) != 1) return -1;\r\n  long long x = 1;\r\n  for (long\
-    \ long b = m, u = 0; b > 0;) {\r\n    const long long q = a / b;\r\n    std::swap(a\
-    \ -= q * b, b);\r\n    std::swap(x -= q * u, u);\r\n  }\r\n  x %= m;\r\n  return\
-    \ x < 0 ? x + m : x;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/mod_inv.hpp\"\n#include <algorithm>\n#include <utility>\n\
+    \nlong long mod_inv(long long a, const int m) {\n  if ((a %= m) < 0) a += m;\n\
+    \  if (std::__gcd(a, static_cast<long long>(m)) != 1) return -1;\n  long long\
+    \ x = 1;\n  for (long long b = m, u = 0; b > 0;) {\n    const long long q = a\
+    \ / b;\n    std::swap(a -= q * b, b);\n    std::swap(x -= q * u, u);\n  }\n  x\
+    \ %= m;\n  return x < 0 ? x + m : x;\n}\n"
+  code: "#pragma once\n#include <algorithm>\n#include <utility>\n\nlong long mod_inv(long\
+    \ long a, const int m) {\n  if ((a %= m) < 0) a += m;\n  if (std::__gcd(a, static_cast<long\
+    \ long>(m)) != 1) return -1;\n  long long x = 1;\n  for (long long b = m, u =\
+    \ 0; b > 0;) {\n    const long long q = a / b;\n    std::swap(a -= q * b, b);\n\
+    \    std::swap(x -= q * u, u);\n  }\n  x %= m;\n  return x < 0 ? x + m : x;\n\
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: math/mod_inv.hpp
   requiredBy:
-  - math/simultaneous_linear_congruence.hpp
   - math/chinese_remainder_theorem.hpp
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  - math/simultaneous_linear_congruence.hpp
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp
   - test/math/simultaneous_linear_congruence.test.cpp

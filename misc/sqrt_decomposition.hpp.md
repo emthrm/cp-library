@@ -3,83 +3,78 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/sqrt_decomposition.test.cpp
     title: "\u305D\u306E\u4ED6/\u5E73\u65B9\u5206\u5272"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"misc/sqrt_decomposition.hpp\"\n#include <cmath>\r\n#include\
-    \ <vector>\r\n\r\nstruct SqrtDecomposition {\r\n  const int block_size, n;\r\n\
-    \  std::vector<int> ls, rs;\r\n  std::vector<bool> to_be_eval;\r\n\r\n  explicit\
-    \ SqrtDecomposition(const int n_)\r\n      : block_size(std::round(std::sqrt(n_))),\r\
-    \n        n((n_ + block_size - 1) / block_size) {\r\n    ls.resize(n);\r\n   \
-    \ rs.resize(n);\r\n    to_be_eval.assign(n, false);\r\n    for (int i = 0; i <\
-    \ n; ++i) {\r\n      ls[i] = block_size * i;\r\n      rs[i] = (i + 1 == n ? n_\
-    \ : block_size * (i + 1));\r\n    }\r\n  }\r\n\r\n  template <typename T> void\
-    \ partial_update(const int idx, const T val);\r\n\r\n  template <typename T> void\
-    \ total_update(const int idx, const T val);\r\n\r\n  template <typename T>\r\n\
-    \  void update(const int l, const int r, const T val) {\r\n    if (r <= l) return;\r\
-    \n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\r\n    if (b_l\
-    \ < b_r) {\r\n      if (l == ls[b_l]) {\r\n        total_update(b_l, val);\r\n\
-    \      } else {\r\n        for (int i = l; i < rs[b_l]; ++i) {\r\n          partial_update(i,\
-    \ val);\r\n        }\r\n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\
-    \n        total_update(i, val);\r\n      }\r\n      if (r == rs[b_r]) {\r\n  \
-    \      total_update(b_r, val);\r\n      } else {\r\n        for (int i = ls[b_r];\
-    \ i < r; ++i) {\r\n          partial_update(i, val);\r\n        }\r\n      }\r\
-    \n    } else {\r\n      for (int i = l; i < r; ++i) {\r\n        partial_update(i,\
-    \ val);\r\n      }\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_query(const\
-    \ int idx, T* val);\r\n\r\n  template <typename T> void total_query(const int\
-    \ idx, T* val);\r\n\r\n  template <typename T>\r\n  T query(const int l, const\
-    \ int r, const T id) {\r\n    const int b_l = l / block_size, b_r = (r - 1) /\
-    \ block_size;\r\n    T res = id;\r\n    if (b_l < b_r) {\r\n      if (l == ls[b_l])\
-    \ {\r\n        total_query(b_l, &res);\r\n      } else {\r\n        for (int i\
-    \ = l; i < rs[b_l]; ++i) {\r\n          partial_query(i, &res);\r\n        }\r\
-    \n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\n        total_query(i,\
-    \ &res);\r\n      }\r\n      if (r == rs[b_r]) {\r\n        total_query(b_r, &res);\r\
-    \n      } else {\r\n        for (int i = ls[b_r]; i < r; ++i) {\r\n          partial_query(i,\
-    \ &res);\r\n        }\r\n      }\r\n    } else {\r\n      for (int i = l; i <\
-    \ r; ++i) {\r\n        partial_query(i, &res);\r\n      }\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n};\r\n"
-  code: "#pragma once\r\n#include <cmath>\r\n#include <vector>\r\n\r\nstruct SqrtDecomposition\
-    \ {\r\n  const int block_size, n;\r\n  std::vector<int> ls, rs;\r\n  std::vector<bool>\
-    \ to_be_eval;\r\n\r\n  explicit SqrtDecomposition(const int n_)\r\n      : block_size(std::round(std::sqrt(n_))),\r\
-    \n        n((n_ + block_size - 1) / block_size) {\r\n    ls.resize(n);\r\n   \
-    \ rs.resize(n);\r\n    to_be_eval.assign(n, false);\r\n    for (int i = 0; i <\
-    \ n; ++i) {\r\n      ls[i] = block_size * i;\r\n      rs[i] = (i + 1 == n ? n_\
-    \ : block_size * (i + 1));\r\n    }\r\n  }\r\n\r\n  template <typename T> void\
-    \ partial_update(const int idx, const T val);\r\n\r\n  template <typename T> void\
-    \ total_update(const int idx, const T val);\r\n\r\n  template <typename T>\r\n\
-    \  void update(const int l, const int r, const T val) {\r\n    if (r <= l) return;\r\
-    \n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\r\n    if (b_l\
-    \ < b_r) {\r\n      if (l == ls[b_l]) {\r\n        total_update(b_l, val);\r\n\
-    \      } else {\r\n        for (int i = l; i < rs[b_l]; ++i) {\r\n          partial_update(i,\
-    \ val);\r\n        }\r\n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\
-    \n        total_update(i, val);\r\n      }\r\n      if (r == rs[b_r]) {\r\n  \
-    \      total_update(b_r, val);\r\n      } else {\r\n        for (int i = ls[b_r];\
-    \ i < r; ++i) {\r\n          partial_update(i, val);\r\n        }\r\n      }\r\
-    \n    } else {\r\n      for (int i = l; i < r; ++i) {\r\n        partial_update(i,\
-    \ val);\r\n      }\r\n    }\r\n  }\r\n\r\n  template <typename T> void partial_query(const\
-    \ int idx, T* val);\r\n\r\n  template <typename T> void total_query(const int\
-    \ idx, T* val);\r\n\r\n  template <typename T>\r\n  T query(const int l, const\
-    \ int r, const T id) {\r\n    const int b_l = l / block_size, b_r = (r - 1) /\
-    \ block_size;\r\n    T res = id;\r\n    if (b_l < b_r) {\r\n      if (l == ls[b_l])\
-    \ {\r\n        total_query(b_l, &res);\r\n      } else {\r\n        for (int i\
-    \ = l; i < rs[b_l]; ++i) {\r\n          partial_query(i, &res);\r\n        }\r\
-    \n      }\r\n      for (int i = b_l + 1; i < b_r; ++i) {\r\n        total_query(i,\
-    \ &res);\r\n      }\r\n      if (r == rs[b_r]) {\r\n        total_query(b_r, &res);\r\
-    \n      } else {\r\n        for (int i = ls[b_r]; i < r; ++i) {\r\n          partial_query(i,\
-    \ &res);\r\n        }\r\n      }\r\n    } else {\r\n      for (int i = l; i <\
-    \ r; ++i) {\r\n        partial_query(i, &res);\r\n      }\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n};\r\n"
+  bundledCode: "#line 2 \"misc/sqrt_decomposition.hpp\"\n#include <cmath>\n#include\
+    \ <vector>\n\nstruct SqrtDecomposition {\n  const int block_size, n;\n  std::vector<int>\
+    \ ls, rs;\n  std::vector<bool> to_be_eval;\n\n  explicit SqrtDecomposition(const\
+    \ int n_)\n      : block_size(std::round(std::sqrt(n_))),\n        n((n_ + block_size\
+    \ - 1) / block_size) {\n    ls.resize(n);\n    rs.resize(n);\n    to_be_eval.assign(n,\
+    \ false);\n    for (int i = 0; i < n; ++i) {\n      ls[i] = block_size * i;\n\
+    \      rs[i] = (i + 1 == n ? n_ : block_size * (i + 1));\n    }\n  }\n\n  template\
+    \ <typename T> void partial_update(const int idx, const T val);\n\n  template\
+    \ <typename T> void total_update(const int idx, const T val);\n\n  template <typename\
+    \ T>\n  void update(const int l, const int r, const T val) {\n    if (r <= l)\
+    \ return;\n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\n \
+    \   if (b_l < b_r) {\n      if (l == ls[b_l]) {\n        total_update(b_l, val);\n\
+    \      } else {\n        for (int i = l; i < rs[b_l]; ++i) {\n          partial_update(i,\
+    \ val);\n        }\n      }\n      for (int i = b_l + 1; i < b_r; ++i) {\n   \
+    \     total_update(i, val);\n      }\n      if (r == rs[b_r]) {\n        total_update(b_r,\
+    \ val);\n      } else {\n        for (int i = ls[b_r]; i < r; ++i) {\n       \
+    \   partial_update(i, val);\n        }\n      }\n    } else {\n      for (int\
+    \ i = l; i < r; ++i) {\n        partial_update(i, val);\n      }\n    }\n  }\n\
+    \n  template <typename T> void partial_query(const int idx, T* val);\n\n  template\
+    \ <typename T> void total_query(const int idx, T* val);\n\n  template <typename\
+    \ T>\n  T query(const int l, const int r, const T id) {\n    const int b_l = l\
+    \ / block_size, b_r = (r - 1) / block_size;\n    T res = id;\n    if (b_l < b_r)\
+    \ {\n      if (l == ls[b_l]) {\n        total_query(b_l, &res);\n      } else\
+    \ {\n        for (int i = l; i < rs[b_l]; ++i) {\n          partial_query(i, &res);\n\
+    \        }\n      }\n      for (int i = b_l + 1; i < b_r; ++i) {\n        total_query(i,\
+    \ &res);\n      }\n      if (r == rs[b_r]) {\n        total_query(b_r, &res);\n\
+    \      } else {\n        for (int i = ls[b_r]; i < r; ++i) {\n          partial_query(i,\
+    \ &res);\n        }\n      }\n    } else {\n      for (int i = l; i < r; ++i)\
+    \ {\n        partial_query(i, &res);\n      }\n    }\n    return res;\n  }\n};\n"
+  code: "#pragma once\n#include <cmath>\n#include <vector>\n\nstruct SqrtDecomposition\
+    \ {\n  const int block_size, n;\n  std::vector<int> ls, rs;\n  std::vector<bool>\
+    \ to_be_eval;\n\n  explicit SqrtDecomposition(const int n_)\n      : block_size(std::round(std::sqrt(n_))),\n\
+    \        n((n_ + block_size - 1) / block_size) {\n    ls.resize(n);\n    rs.resize(n);\n\
+    \    to_be_eval.assign(n, false);\n    for (int i = 0; i < n; ++i) {\n      ls[i]\
+    \ = block_size * i;\n      rs[i] = (i + 1 == n ? n_ : block_size * (i + 1));\n\
+    \    }\n  }\n\n  template <typename T> void partial_update(const int idx, const\
+    \ T val);\n\n  template <typename T> void total_update(const int idx, const T\
+    \ val);\n\n  template <typename T>\n  void update(const int l, const int r, const\
+    \ T val) {\n    if (r <= l) return;\n    const int b_l = l / block_size, b_r =\
+    \ (r - 1) / block_size;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n   \
+    \     total_update(b_l, val);\n      } else {\n        for (int i = l; i < rs[b_l];\
+    \ ++i) {\n          partial_update(i, val);\n        }\n      }\n      for (int\
+    \ i = b_l + 1; i < b_r; ++i) {\n        total_update(i, val);\n      }\n     \
+    \ if (r == rs[b_r]) {\n        total_update(b_r, val);\n      } else {\n     \
+    \   for (int i = ls[b_r]; i < r; ++i) {\n          partial_update(i, val);\n \
+    \       }\n      }\n    } else {\n      for (int i = l; i < r; ++i) {\n      \
+    \  partial_update(i, val);\n      }\n    }\n  }\n\n  template <typename T> void\
+    \ partial_query(const int idx, T* val);\n\n  template <typename T> void total_query(const\
+    \ int idx, T* val);\n\n  template <typename T>\n  T query(const int l, const int\
+    \ r, const T id) {\n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\n\
+    \    T res = id;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n        total_query(b_l,\
+    \ &res);\n      } else {\n        for (int i = l; i < rs[b_l]; ++i) {\n      \
+    \    partial_query(i, &res);\n        }\n      }\n      for (int i = b_l + 1;\
+    \ i < b_r; ++i) {\n        total_query(i, &res);\n      }\n      if (r == rs[b_r])\
+    \ {\n        total_query(b_r, &res);\n      } else {\n        for (int i = ls[b_r];\
+    \ i < r; ++i) {\n          partial_query(i, &res);\n        }\n      }\n    }\
+    \ else {\n      for (int i = l; i < r; ++i) {\n        partial_query(i, &res);\n\
+    \      }\n    }\n    return res;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: misc/sqrt_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-02-16 18:14:43+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/sqrt_decomposition.test.cpp
 documentation_of: misc/sqrt_decomposition.hpp

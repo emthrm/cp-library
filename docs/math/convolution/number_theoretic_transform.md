@@ -4,11 +4,15 @@
 
 特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ に対して
 
-$$\omega^{p - 1} \equiv 1 \pmod{p}$$
+$$
+  \omega^{p - 1} \equiv 1 \pmod{p}
+$$
 
 すなわち
 
-$$(\omega^k)^{2^x} \equiv 1 \pmod{p}$$
+$$
+  (\omega^k)^{2^x} \equiv 1 \pmod{p}
+$$
 
 が成り立つので，条件を満たす．
 

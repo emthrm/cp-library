@@ -24,32 +24,31 @@ data:
       \u30C6\u30AF"
     links:
     - https://codeforces.com/problemset/problem/786/B
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\
-    \u30C6\u30AF\r\n */\r\n#define IGNORE\r\n#define PROBLEM \"https://codeforces.com/problemset/problem/786/B\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../graph/noshi_graph.hpp\"\
-    \r\n#include \"../../graph/shortest_path/dijkstra.hpp\"\r\n\r\nint main() {\r\n\
-    \  int n, q, s;\r\n  std::cin >> n >> q >> s;\r\n  --s;\r\n  NoshiGraph<long long>\
-    \ graph(n);\r\n  while (q--) {\r\n    int t, v;\r\n    std::cin >> t >> v;\r\n\
-    \    --v;\r\n    if (t == 1) {\r\n      int u, w;\r\n      std::cin >> u >> w;\r\
-    \n      --u;\r\n      graph.add_edge(v, u, w);\r\n    } else {\r\n      int l,\
-    \ r, w;\r\n      std::cin >> l >> r >> w;\r\n      --l; --r;\r\n      if (t ==\
-    \ 2) {\r\n        graph.add_edge(v, v + 1, l, r + 1, w);\r\n      } else if (t\
-    \ == 3) {\r\n        graph.add_edge(l, r + 1, v, v + 1, w);\r\n      }\r\n   \
-    \ }\r\n  }\r\n  Dijkstra<long long> dijkstra(graph.graph);\r\n  const std::vector<long\
-    \ long> ans = dijkstra.build(s);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cout\
-    \ << (ans[i] == dijkstra.inf ? -1 : ans[i]) << \" \\n\"[i + 1 == n];\r\n  }\r\n\
-    \  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\
+    \u30C6\u30AF\n */\n#define IGNORE\n#define PROBLEM \"https://codeforces.com/problemset/problem/786/B\"\
+    \n\n#include <iostream>\n#include <vector>\n\n#include \"../../graph/noshi_graph.hpp\"\
+    \n#include \"../../graph/shortest_path/dijkstra.hpp\"\n\nint main() {\n  int n,\
+    \ q, s;\n  std::cin >> n >> q >> s;\n  --s;\n  NoshiGraph<long long> graph(n);\n\
+    \  while (q--) {\n    int t, v;\n    std::cin >> t >> v;\n    --v;\n    if (t\
+    \ == 1) {\n      int u, w;\n      std::cin >> u >> w;\n      --u;\n      graph.add_edge(v,\
+    \ u, w);\n    } else {\n      int l, r, w;\n      std::cin >> l >> r >> w;\n \
+    \     --l; --r;\n      if (t == 2) {\n        graph.add_edge(v, v + 1, l, r +\
+    \ 1, w);\n      } else if (t == 3) {\n        graph.add_edge(l, r + 1, v, v +\
+    \ 1, w);\n      }\n    }\n  }\n  Dijkstra<long long> dijkstra(graph.graph);\n\
+    \  const std::vector<long long> ans = dijkstra.build(s);\n  for (int i = 0; i\
+    \ < n; ++i) {\n    std::cout << (ans[i] == dijkstra.inf ? -1 : ans[i]) << \" \\\
+    n\"[i + 1 == n];\n  }\n  return 0;\n}\n"
   dependsOn:
   - graph/noshi_graph.hpp
   - graph/edge.hpp
@@ -57,7 +56,7 @@ data:
   isVerificationFile: true
   path: test/graph/noshi_graph.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/noshi_graph.test.cpp

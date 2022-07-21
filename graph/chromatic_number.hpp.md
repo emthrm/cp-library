@@ -14,36 +14,35 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\n\
-    template <typename CostType>\r\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<int> adj(n, 0);\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i])\
-    \ adj[i] |= 1 << e.dst;\r\n  }\r\n  std::vector<int> indep(1 << n);\r\n  indep[0]\
-    \ = 1;\r\n  for (int i = 1; i < (1 << n); ++i) {\r\n    const int v = __builtin_ctz(i);\r\
-    \n    indep[i] = indep[i ^ (1 << v)] + indep[(i ^ (1 << v)) & ~adj[v]];\r\n  }\r\
-    \n  int res = n;\r\n  for (const int mod : std::vector<int>{1000000007, 1000000011})\
-    \ {\r\n    std::vector<long long> f(1 << n);\r\n    for (int i = 0; i < (1 <<\
-    \ n); ++i) {\r\n      f[i] = ((n - __builtin_popcount(i)) & 1 ? mod - 1 : 1);\r\
-    \n    }\r\n    for (int c = 1; c < res; ++c) {\r\n      long long pat = 0;\r\n\
-    \      for (int i = 0; i < (1 << n); ++i) {\r\n        f[i] = (f[i] * indep[i])\
-    \ % mod;\r\n        pat += f[i];\r\n      }\r\n      if (pat % mod > 0) {\r\n\
-    \        res = c;\r\n        break;\r\n      }\r\n    }\r\n  }\r\n  return res;\r\
-    \n}\r\n"
+  code: "#pragma once\n#include <vector>\n\n#include \"./edge.hpp\"\n\ntemplate <typename\
+    \ CostType>\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph) {\n  const int n = graph.size();\n  std::vector<int> adj(n, 0);\n  for\
+    \ (int i = 0; i < n; ++i) {\n    for (const Edge<CostType>& e : graph[i]) adj[i]\
+    \ |= 1 << e.dst;\n  }\n  std::vector<int> indep(1 << n);\n  indep[0] = 1;\n  for\
+    \ (int i = 1; i < (1 << n); ++i) {\n    const int v = __builtin_ctz(i);\n    indep[i]\
+    \ = indep[i ^ (1 << v)] + indep[(i ^ (1 << v)) & ~adj[v]];\n  }\n  int res = n;\n\
+    \  for (const int mod : std::vector<int>{1000000007, 1000000011}) {\n    std::vector<long\
+    \ long> f(1 << n);\n    for (int i = 0; i < (1 << n); ++i) {\n      f[i] = ((n\
+    \ - __builtin_popcount(i)) & 1 ? mod - 1 : 1);\n    }\n    for (int c = 1; c <\
+    \ res; ++c) {\n      long long pat = 0;\n      for (int i = 0; i < (1 << n); ++i)\
+    \ {\n        f[i] = (f[i] * indep[i]) % mod;\n        pat += f[i];\n      }\n\
+    \      if (pat % mod > 0) {\n        res = c;\n        break;\n      }\n    }\n\
+    \  }\n  return res;\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/chromatic_number.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/chromatic_number.test.cpp

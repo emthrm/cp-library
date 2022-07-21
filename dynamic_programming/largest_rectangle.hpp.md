@@ -12,32 +12,30 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"dynamic_programming/largest_rectangle.hpp\"\n#include <algorithm>\r\
-    \n#include <stack>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nlong long\
-    \ largest_rectangle(const std::vector<T>& height) {\r\n  const int n = height.size();\r\
-    \n  std::vector<int> left(n);\r\n  std::stack<T> st;\r\n  long long res = 0;\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    while (!st.empty() && height[st.top()]\
-    \ >= height[i]) {\r\n      res = std::max(\r\n          res, static_cast<long\
-    \ long>(height[st.top()]) * (i - left[st.top()]));\r\n      st.pop();\r\n    }\r\
-    \n    left[i] = (st.empty() ? 0 : st.top() + 1);\r\n    st.emplace(i);\r\n  }\r\
-    \n  while (!st.empty()) {\r\n    res = std::max(\r\n        res, static_cast<long\
-    \ long>(height[st.top()]) * (n - left[st.top()]));\r\n    st.pop();\r\n  }\r\n\
-    \  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <stack>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nlong long largest_rectangle(const std::vector<T>&\
-    \ height) {\r\n  const int n = height.size();\r\n  std::vector<int> left(n);\r\
-    \n  std::stack<T> st;\r\n  long long res = 0;\r\n  for (int i = 0; i < n; ++i)\
-    \ {\r\n    while (!st.empty() && height[st.top()] >= height[i]) {\r\n      res\
-    \ = std::max(\r\n          res, static_cast<long long>(height[st.top()]) * (i\
-    \ - left[st.top()]));\r\n      st.pop();\r\n    }\r\n    left[i] = (st.empty()\
-    \ ? 0 : st.top() + 1);\r\n    st.emplace(i);\r\n  }\r\n  while (!st.empty()) {\r\
-    \n    res = std::max(\r\n        res, static_cast<long long>(height[st.top()])\
-    \ * (n - left[st.top()]));\r\n    st.pop();\r\n  }\r\n  return res;\r\n}\r\n"
+  bundledCode: "#line 2 \"dynamic_programming/largest_rectangle.hpp\"\n#include <algorithm>\n\
+    #include <stack>\n#include <vector>\n\ntemplate <typename T>\nlong long largest_rectangle(const\
+    \ std::vector<T>& height) {\n  const int n = height.size();\n  std::vector<int>\
+    \ left(n);\n  std::stack<T> st;\n  long long res = 0;\n  for (int i = 0; i < n;\
+    \ ++i) {\n    while (!st.empty() && height[st.top()] >= height[i]) {\n      res\
+    \ = std::max(\n          res, static_cast<long long>(height[st.top()]) * (i -\
+    \ left[st.top()]));\n      st.pop();\n    }\n    left[i] = (st.empty() ? 0 : st.top()\
+    \ + 1);\n    st.emplace(i);\n  }\n  while (!st.empty()) {\n    res = std::max(\n\
+    \        res, static_cast<long long>(height[st.top()]) * (n - left[st.top()]));\n\
+    \    st.pop();\n  }\n  return res;\n}\n"
+  code: "#pragma once\n#include <algorithm>\n#include <stack>\n#include <vector>\n\
+    \ntemplate <typename T>\nlong long largest_rectangle(const std::vector<T>& height)\
+    \ {\n  const int n = height.size();\n  std::vector<int> left(n);\n  std::stack<T>\
+    \ st;\n  long long res = 0;\n  for (int i = 0; i < n; ++i) {\n    while (!st.empty()\
+    \ && height[st.top()] >= height[i]) {\n      res = std::max(\n          res, static_cast<long\
+    \ long>(height[st.top()]) * (i - left[st.top()]));\n      st.pop();\n    }\n \
+    \   left[i] = (st.empty() ? 0 : st.top() + 1);\n    st.emplace(i);\n  }\n  while\
+    \ (!st.empty()) {\n    res = std::max(\n        res, static_cast<long long>(height[st.top()])\
+    \ * (n - left[st.top()]));\n    st.pop();\n  }\n  return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/largest_rectangle.hpp
   requiredBy: []
-  timestamp: '2022-02-12 20:37:17+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/largest_rectangle.test.cpp

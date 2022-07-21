@@ -1,52 +1,51 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/matrix/binary_matrix/binary_matrix.hpp
     title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/binary_matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9006\u884C\
       \u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/matrix/binary_matrix/inverse_matrix.hpp: line 6: #pragma once found in\
     \ a non-first line\n"
-  code: "/**\r\n * @brief \u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\
-    \r\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <cassert>\r\n#include <utility>\r\n\r\n#include \"./binary_matrix.hpp\"\
-    \r\n\r\ntemplate <int N>\r\nBinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>&\
-    \ a) {\r\n  const int n = a.nrow();\r\n  BinaryMatrix<N> b(n, n << 1, 0);\r\n\
-    \  for (int i = 0; i < n; ++i) {\r\n    for (int j = 0; j < n; ++j) {\r\n    \
-    \  b[i][j] = a[i][j];\r\n    }\r\n    b[i][n + i] = 1;\r\n  }\r\n  for (int col\
-    \ = 0; col < n; ++col) {\r\n    int pivot = -1;\r\n    for (int row = col; row\
-    \ < n; ++row) {\r\n      if (b[row][col]) {\r\n        pivot = row;\r\n      \
-    \  break;\r\n      }\r\n    }\r\n    if (pivot == -1) return BinaryMatrix<N>(0,\
-    \ 0);\r\n    std::swap(b[col], b[pivot]);\r\n    for (int row = 0; row < n; ++row)\
-    \ {\r\n      if (row != col && b[row][col]) b[row] ^= b[col];\r\n    }\r\n  }\r\
-    \n  BinaryMatrix<N> inv(n, n);\r\n  for (int i = 0; i < n; ++i) {\r\n    for (int\
-    \ j = 0; j < n; ++j) {\r\n      inv[i][j] = b[i][n + j];\r\n    }\r\n  }\r\n \
-    \ return inv;\r\n}\r\n"
+  code: "/**\n * @brief \u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\
+    \n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\n */\n\n#pragma once\n\
+    #include <cassert>\n#include <utility>\n\n#include \"./binary_matrix.hpp\"\n\n\
+    template <int N>\nBinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a) {\n\
+    \  const int n = a.nrow();\n  BinaryMatrix<N> b(n, n << 1, 0);\n  for (int i =\
+    \ 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      b[i][j] = a[i][j];\n\
+    \    }\n    b[i][n + i] = 1;\n  }\n  for (int col = 0; col < n; ++col) {\n   \
+    \ int pivot = -1;\n    for (int row = col; row < n; ++row) {\n      if (b[row][col])\
+    \ {\n        pivot = row;\n        break;\n      }\n    }\n    if (pivot == -1)\
+    \ return BinaryMatrix<N>(0, 0);\n    std::swap(b[col], b[pivot]);\n    for (int\
+    \ row = 0; row < n; ++row) {\n      if (row != col && b[row][col]) b[row] ^= b[col];\n\
+    \    }\n  }\n  BinaryMatrix<N> inv(n, n);\n  for (int i = 0; i < n; ++i) {\n \
+    \   for (int j = 0; j < n; ++j) {\n      inv[i][j] = b[i][n + j];\n    }\n  }\n\
+    \  return inv;\n}\n"
   dependsOn:
   - math/matrix/binary_matrix/binary_matrix.hpp
   isVerificationFile: false
   path: math/matrix/binary_matrix/inverse_matrix.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
 documentation_of: math/matrix/binary_matrix/inverse_matrix.hpp

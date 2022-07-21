@@ -23,39 +23,36 @@ data:
     document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/weighted_bipartite_matching.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/*\r\n * @brief \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\r\n */\r\n#define\
-    \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679\"\r\n\
-    \r\n#include <algorithm>\r\n#include <iostream>\r\n#include <map>\r\n#include\
-    \ <string>\r\n#include <vector>\r\n\r\n#include \"../../graph/flow/matching/weighted_bipartite_matching.hpp\"\
-    \r\n#include \"../../math/bigint.hpp\"\r\n\r\nnamespace std {\r\n\r\ntemplate\
-    \ <int LogB, int B>\r\nstruct numeric_limits<BigInt<LogB, B>> {\r\n  static constexpr\
-    \ BigInt<LogB, B> max() {\r\n    return static_cast<std::string>(\r\n        \"\
-    453152254949043485887196599220742984693877551020408163265306122448979591836734693877551\"\
-    );\r\n  }\r\n};\r\n\r\n};  // namespace std\r\n\r\nint main() {\r\n  using bigint\
-    \ = BigInt<>;\r\n  constexpr int SIGMA = 26;\r\n  int n;\r\n  std::cin >> n;\r\
-    \n  std::map<char, bigint> cost;\r\n  bigint cur = 0;\r\n  for (int i = SIGMA\
-    \ - 1; i >= 0; --i) {\r\n    cost['a' + i] = cur;\r\n    cur = cur * SIGMA * 2\
-    \ + 1;\r\n  }\r\n  for (int i = SIGMA - 1; i >= 0; --i) {\r\n    cost['A' + i]\
-    \ = cur;\r\n    cur = cur * SIGMA * 2 + 1;\r\n  }\r\n  std::vector<std::string>\
-    \ c(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> c[i];\r\n  }\r\n\
-    \  WeightedBipartiteMatching<bigint> weighted_bipartite_matching(n, n);\r\n  for\
-    \ (int i = 0; i < n; ++i) {\r\n    std::cin >> c[i];\r\n    for (int j = 0; j\
-    \ < n; ++j) {\r\n      weighted_bipartite_matching.add_edge(i, j, cost[c[i][j]]);\r\
-    \n    }\r\n  }\r\n  weighted_bipartite_matching.solve();\r\n  std::string ans\
-    \ = \"\";\r\n  const std::vector<int> matching = weighted_bipartite_matching.matching();\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    ans += c[i][matching[i]];\r\n  }\r\n\
-    \  std::sort(ans.begin(), ans.end());\r\n  std::cout << ans << '\\n';\r\n  return\
-    \ 0;\r\n}\r\n"
+  code: "/*\n * @brief \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\n */\n#define PROBLEM\
+    \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679\"\n\n#include\
+    \ <algorithm>\n#include <iostream>\n#include <map>\n#include <string>\n#include\
+    \ <vector>\n\n#include \"../../graph/flow/matching/weighted_bipartite_matching.hpp\"\
+    \n#include \"../../math/bigint.hpp\"\n\nnamespace std {\n\ntemplate <int LogB,\
+    \ int B>\nstruct numeric_limits<BigInt<LogB, B>> {\n  static constexpr BigInt<LogB,\
+    \ B> max() {\n    return static_cast<std::string>(\n        \"453152254949043485887196599220742984693877551020408163265306122448979591836734693877551\"\
+    );\n  }\n};\n\n};  // namespace std\n\nint main() {\n  using bigint = BigInt<>;\n\
+    \  constexpr int SIGMA = 26;\n  int n;\n  std::cin >> n;\n  std::map<char, bigint>\
+    \ cost;\n  bigint cur = 0;\n  for (int i = SIGMA - 1; i >= 0; --i) {\n    cost['a'\
+    \ + i] = cur;\n    cur = cur * SIGMA * 2 + 1;\n  }\n  for (int i = SIGMA - 1;\
+    \ i >= 0; --i) {\n    cost['A' + i] = cur;\n    cur = cur * SIGMA * 2 + 1;\n \
+    \ }\n  std::vector<std::string> c(n);\n  for (int i = 0; i < n; ++i) {\n    std::cin\
+    \ >> c[i];\n  }\n  WeightedBipartiteMatching<bigint> weighted_bipartite_matching(n,\
+    \ n);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> c[i];\n    for (int j\
+    \ = 0; j < n; ++j) {\n      weighted_bipartite_matching.add_edge(i, j, cost[c[i][j]]);\n\
+    \    }\n  }\n  weighted_bipartite_matching.solve();\n  std::string ans = \"\"\
+    ;\n  const std::vector<int> matching = weighted_bipartite_matching.matching();\n\
+    \  for (int i = 0; i < n; ++i) {\n    ans += c[i][matching[i]];\n  }\n  std::sort(ans.begin(),\
+    \ ans.end());\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - graph/flow/matching/weighted_bipartite_matching.hpp
   - graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
@@ -63,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.01.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 23:06:53+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.01.test.cpp

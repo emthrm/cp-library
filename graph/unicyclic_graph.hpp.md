@@ -14,59 +14,57 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <cassert>\r\n#include <iterator>\r\n#include <queue>\r\
-    \n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nstruct UnicyclicGraph {\r\n  std::vector<bool> is_in_loop;\r\n  std::vector<int>\
-    \ belong, mapping;\r\n  std::vector<Edge<CostType>> loop;\r\n  std::vector<std::vector<int>>\
-    \ invs;\r\n  std::vector<std::vector<std::vector<Edge<CostType>>>> forest;\r\n\
-    \r\n  explicit UnicyclicGraph(const int n)\r\n      : n(n), is_in_loop(n, false),\
-    \ belong(n, -1), mapping(n, -1), graph(n) {}\r\n\r\n  void add_edge(const int\
-    \ src, const int dst, const CostType cost = 0) {\r\n    const int id = srcs.size();\r\
-    \n    srcs.emplace_back(src);\r\n    dsts.emplace_back(dst);\r\n    costs.emplace_back(cost);\r\
-    \n    graph[src].emplace_back(id);\r\n    if (dst != src) graph[dst].emplace_back(id);\r\
-    \n  }\r\n\r\n  void build() {\r\n    dfs(-1, 0);\r\n    std::queue<int> que;\r\
-    \n    for (const Edge<CostType>& e : loop) {\r\n      const int root = e.src,\
-    \ forest_id = forest.size();\r\n      belong[root] = forest_id;\r\n      mapping[root]\
-    \ = 0;\r\n      std::vector<int> inv{root};\r\n      std::vector<std::vector<Edge<CostType>>>\
-    \ tree(1);\r\n      que.emplace(root);\r\n      while (!que.empty()) {\r\n   \
-    \     const int ver = que.front();\r\n        que.pop();\r\n        for (const\
-    \ int id : graph[ver]) {\r\n          const int dst = destination(id, ver);\r\n\
-    \          if (belong[dst] == -1 && !is_in_loop[dst]) {\r\n            const int\
-    \ idx = tree.size();\r\n            belong[dst] = forest_id;\r\n            mapping[dst]\
-    \ = idx;\r\n            inv.emplace_back(dst);\r\n            tree[mapping[ver]].emplace_back(mapping[ver],\
-    \ idx, costs[id]);\r\n            tree.emplace_back(std::vector<Edge<CostType>>{\r\
-    \n                Edge<CostType>(idx, mapping[ver], costs[id])});\r\n        \
-    \    que.emplace(dst);\r\n          }\r\n        }\r\n      }\r\n      if (inv.size()\
-    \ == 1) {\r\n        belong[root] = mapping[root] = -1;\r\n      } else {\r\n\
-    \        invs.emplace_back(inv);\r\n        forest.emplace_back(tree);\r\n   \
-    \   }\r\n    }\r\n  }\r\n\r\n private:\r\n  const int n;\r\n  std::vector<int>\
-    \ srcs, dsts;\r\n  std::vector<CostType> costs;\r\n  std::vector<std::vector<int>>\
-    \ graph;\r\n\r\n  int destination(const int id, const int s) const {\r\n    return\
-    \ (srcs[id] == s ? dsts : srcs)[id];\r\n  }\r\n\r\n  bool dfs(const int prev_id,\
-    \ const int ver) {\r\n    is_in_loop[ver] = true;\r\n    for (const int id : graph[ver])\
-    \ {\r\n      if (id == prev_id) continue;\r\n      const int dst = destination(id,\
-    \ ver);\r\n      loop.emplace_back(ver, dst, costs[id]);\r\n      if (is_in_loop[dst])\
-    \ {\r\n        for (int i = loop.size() - 1; i >= 0; --i) {\r\n          if (loop[i].src\
-    \ == dst) {\r\n            for (int j = 0; j < i; ++j) {\r\n              is_in_loop[loop[j].src]\
-    \ = false;\r\n            }\r\n            loop.erase(loop.begin(), std::next(loop.begin(),\
-    \ i));\r\n            return true;\r\n          }\r\n        }\r\n        assert(false);\r\
-    \n      }\r\n      if (dfs(id, dst)) return true;\r\n      loop.pop_back();\r\n\
-    \    }\r\n    is_in_loop[ver] = false;\r\n    return false;\r\n  }\r\n};\r\n"
+  code: "#pragma once\n#include <cassert>\n#include <iterator>\n#include <queue>\n\
+    #include <vector>\n\n#include \"./edge.hpp\"\n\ntemplate <typename CostType>\n\
+    struct UnicyclicGraph {\n  std::vector<bool> is_in_loop;\n  std::vector<int> belong,\
+    \ mapping;\n  std::vector<Edge<CostType>> loop;\n  std::vector<std::vector<int>>\
+    \ invs;\n  std::vector<std::vector<std::vector<Edge<CostType>>>> forest;\n\n \
+    \ explicit UnicyclicGraph(const int n)\n      : n(n), is_in_loop(n, false), belong(n,\
+    \ -1), mapping(n, -1), graph(n) {}\n\n  void add_edge(const int src, const int\
+    \ dst, const CostType cost = 0) {\n    const int id = srcs.size();\n    srcs.emplace_back(src);\n\
+    \    dsts.emplace_back(dst);\n    costs.emplace_back(cost);\n    graph[src].emplace_back(id);\n\
+    \    if (dst != src) graph[dst].emplace_back(id);\n  }\n\n  void build() {\n \
+    \   dfs(-1, 0);\n    std::queue<int> que;\n    for (const Edge<CostType>& e :\
+    \ loop) {\n      const int root = e.src, forest_id = forest.size();\n      belong[root]\
+    \ = forest_id;\n      mapping[root] = 0;\n      std::vector<int> inv{root};\n\
+    \      std::vector<std::vector<Edge<CostType>>> tree(1);\n      que.emplace(root);\n\
+    \      while (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
+    \        for (const int id : graph[ver]) {\n          const int dst = destination(id,\
+    \ ver);\n          if (belong[dst] == -1 && !is_in_loop[dst]) {\n            const\
+    \ int idx = tree.size();\n            belong[dst] = forest_id;\n            mapping[dst]\
+    \ = idx;\n            inv.emplace_back(dst);\n            tree[mapping[ver]].emplace_back(mapping[ver],\
+    \ idx, costs[id]);\n            tree.emplace_back(std::vector<Edge<CostType>>{\n\
+    \                Edge<CostType>(idx, mapping[ver], costs[id])});\n           \
+    \ que.emplace(dst);\n          }\n        }\n      }\n      if (inv.size() ==\
+    \ 1) {\n        belong[root] = mapping[root] = -1;\n      } else {\n        invs.emplace_back(inv);\n\
+    \        forest.emplace_back(tree);\n      }\n    }\n  }\n\n private:\n  const\
+    \ int n;\n  std::vector<int> srcs, dsts;\n  std::vector<CostType> costs;\n  std::vector<std::vector<int>>\
+    \ graph;\n\n  int destination(const int id, const int s) const {\n    return (srcs[id]\
+    \ == s ? dsts : srcs)[id];\n  }\n\n  bool dfs(const int prev_id, const int ver)\
+    \ {\n    is_in_loop[ver] = true;\n    for (const int id : graph[ver]) {\n    \
+    \  if (id == prev_id) continue;\n      const int dst = destination(id, ver);\n\
+    \      loop.emplace_back(ver, dst, costs[id]);\n      if (is_in_loop[dst]) {\n\
+    \        for (int i = loop.size() - 1; i >= 0; --i) {\n          if (loop[i].src\
+    \ == dst) {\n            for (int j = 0; j < i; ++j) {\n              is_in_loop[loop[j].src]\
+    \ = false;\n            }\n            loop.erase(loop.begin(), std::next(loop.begin(),\
+    \ i));\n            return true;\n          }\n        }\n        assert(false);\n\
+    \      }\n      if (dfs(id, dst)) return true;\n      loop.pop_back();\n    }\n\
+    \    is_in_loop[ver] = false;\n    return false;\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/unicyclic_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/unicyclic_graph.test.cpp

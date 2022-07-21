@@ -6,40 +6,40 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/stirling_number/stirling_number.md
     document_title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp:\
     \ line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\r\
-    \n * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md\r\n */\r\
-    \n\r\n#pragma once\r\n#include <cassert>\r\n\r\n#include \"../../modint.hpp\"\r\
-    \n\r\ntemplate <int T>\r\nMInt<T> stirling_number_of_the_second_kind(const int\
-    \ n, const int k) {\r\n  using ModInt = MInt<T>;\r\n  if (n < k) return 0;\r\n\
-    \  ModInt::init(k);\r\n  ModInt s = 0;\r\n  for (int i = 1; i <= k; ++i) {\r\n\
-    \    s += ModInt::nCk(k, i)\r\n         * ((k - i) & 1 ? -ModInt(i).pow(n) : ModInt(i).pow(n));\r\
-    \n  }\r\n  return s * ModInt::fact_inv(k);\r\n}\r\n"
+  code: "/**\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\n\
+    \ * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md\n */\n\n\
+    #pragma once\n#include <cassert>\n\n#include \"../../modint.hpp\"\n\ntemplate\
+    \ <int T>\nMInt<T> stirling_number_of_the_second_kind(const int n, const int k)\
+    \ {\n  using ModInt = MInt<T>;\n  if (n < k) return 0;\n  ModInt::init(k);\n \
+    \ ModInt s = 0;\n  for (int i = 1; i <= k; ++i) {\n    s += ModInt::nCk(k, i)\n\
+    \         * ((k - i) & 1 ? -ModInt(i).pow(n) : ModInt(i).pow(n));\n  }\n  return\
+    \ s * ModInt::fact_inv(k);\n}\n"
   dependsOn:
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
 documentation_of: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
@@ -54,11 +54,22 @@ title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
 
 ## 第1種スターリング数 (Stirling number of the first kind)
 
-$$x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k$$
+$$
+  x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k
+$$
 
 で定義される $s$ である．
 
-$$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0), \\ s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
+$$
+  \begin{aligned}
+    s(n, k) =
+    \begin{cases}
+      1 & (n = k), \\
+      0 & (n \geq 1,\ k = 0), \\
+      s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n)
+    \end{cases}
+  \end{aligned}
+$$
 
 という漸化式をもつ．
 
@@ -67,17 +78,30 @@ $$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0)
 
 ## 第2種スターリング数 (Stirling number of the second kind)
 
-$$x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}$$
+$$
+  x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}
+$$
 
 で定義される $S$ である．
 
-$$\begin{aligned} S(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0), \\ S(n-1, k-1) + k S(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
+$$
+  \begin{aligned}
+    S(n, k) =
+    \begin{cases}
+      1 & (n = k), \\
+      0 & (n \geq 1,\ k = 0), \\
+      S(n-1, k-1) + k S(n - 1, k) & (1 \leq k < n)
+    \end{cases}
+  \end{aligned}
+$$
 
 という漸化式をもつ．
 
 一般項は
 
-$$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
+$$
+  S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}
+$$
 
 である．
 

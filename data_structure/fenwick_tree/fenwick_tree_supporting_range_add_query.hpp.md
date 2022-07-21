@@ -18,42 +18,40 @@ data:
     document_title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick\
       \ tree"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp: line\
     \ 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick\
-    \ tree\r\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\r\n */\r\n\
-    \r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Abelian>\r\nstruct\
-    \ FenwickTreeSupportingRangeAddQuery {\r\n  explicit FenwickTreeSupportingRangeAddQuery(\r\
-    \n      const int n_, const Abelian ID = 0)\r\n      : n(n_ + 1), ID(ID) {\r\n\
-    \    data_const.assign(n, ID);\r\n    data_linear.assign(n, ID);\r\n  }\r\n\r\n\
-    \  void add(int left, const int right, const Abelian val) {\r\n    if (right <\
-    \ ++left) return;\r\n    for (int i = left; i < n; i += i & -i) {\r\n      data_const[i]\
-    \ -= val * (left - 1);\r\n      data_linear[i] += val;\r\n    }\r\n    for (int\
-    \ i = right + 1; i < n; i += i & -i) {\r\n      data_const[i] += val * right;\r\
-    \n      data_linear[i] -= val;\r\n    }\r\n  }\r\n\r\n  Abelian sum(const int\
-    \ idx) const {\r\n    Abelian res = ID;\r\n    for (int i = idx; i > 0; i -= i\
-    \ & -i) {\r\n      res += data_linear[i];\r\n    }\r\n    res *= idx;\r\n    for\
-    \ (int i = idx; i > 0; i -= i & -i) {\r\n      res += data_const[i];\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n  Abelian sum(const int left, const int right)\
-    \ const {\r\n    return left < right ? sum(right) - sum(left) : ID;\r\n  }\r\n\
-    \r\n  Abelian operator[](const int idx) const { return sum(idx, idx + 1); }\r\n\
-    \r\n private:\r\n  const int n;\r\n  const Abelian ID;\r\n  std::vector<Abelian>\
-    \ data_const, data_linear;\r\n};\r\n"
+  code: "/**\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick\
+    \ tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n */\n\n#pragma\
+    \ once\n#include <vector>\n\ntemplate <typename Abelian>\nstruct FenwickTreeSupportingRangeAddQuery\
+    \ {\n  explicit FenwickTreeSupportingRangeAddQuery(\n      const int n_, const\
+    \ Abelian ID = 0)\n      : n(n_ + 1), ID(ID) {\n    data_const.assign(n, ID);\n\
+    \    data_linear.assign(n, ID);\n  }\n\n  void add(int left, const int right,\
+    \ const Abelian val) {\n    if (right < ++left) return;\n    for (int i = left;\
+    \ i < n; i += i & -i) {\n      data_const[i] -= val * (left - 1);\n      data_linear[i]\
+    \ += val;\n    }\n    for (int i = right + 1; i < n; i += i & -i) {\n      data_const[i]\
+    \ += val * right;\n      data_linear[i] -= val;\n    }\n  }\n\n  Abelian sum(const\
+    \ int idx) const {\n    Abelian res = ID;\n    for (int i = idx; i > 0; i -= i\
+    \ & -i) {\n      res += data_linear[i];\n    }\n    res *= idx;\n    for (int\
+    \ i = idx; i > 0; i -= i & -i) {\n      res += data_const[i];\n    }\n    return\
+    \ res;\n  }\n\n  Abelian sum(const int left, const int right) const {\n    return\
+    \ left < right ? sum(right) - sum(left) : ID;\n  }\n\n  Abelian operator[](const\
+    \ int idx) const { return sum(idx, idx + 1); }\n\n private:\n  const int n;\n\
+    \  const Abelian ID;\n  std::vector<Abelian> data_const, data_linear;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
+  - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
 documentation_of: data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
 layout: document
 redirect_from:
@@ -123,31 +121,56 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $
 
 - $y_1 \leq y \leq y_2,\ x_1 \leq x \leq x_2$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y - y_1 + 1)(x - x_1 + 1) \\ &= vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y - y_1 + 1)(x - x_1 + 1) \\
+                &= vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1)
+    \end{aligned}
+  $$
 
   が成り立つ．$S_1 \mathrel{:=} vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1)$ とおく．
 
 - $y_1 \leq y \leq y_2,\ x_2 < x$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y - y_1 + 1)(x_2 - x_1 + 1) \\ &= -v(x_1 - 1)y + v(y_1 - 1)(x_1 - 1) + vx_2y - v(y_1 - 1)x_2 \\ &= S_1 - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2 \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y - y_1 + 1)(x_2 - x_1 + 1) \\
+                &= -v(x_1 - 1)y + v(y_1 - 1)(x_1 - 1) + vx_2y - v(y_1 - 1)x_2 \\
+                &= S_1 - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2
+    \end{aligned}
+  $$
 
   が成り立つ．$S_2 \mathrel{:=} - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2$ とおく．
 
 - $y_2 < y,\ x_1 \leq x \leq x_2$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y_2 - y_1 + 1)(x - x_1 + 1) \\ &= -v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) + vy_2x - vy_2(x_1 - 1) \\ &= S_1 - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1) \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y_2 - y_1 + 1)(x - x_1 + 1) \\
+                &= -v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) + vy_2x - vy_2(x_1 - 1) \\
+                &= S_1 - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1)
+    \end{aligned}
+  $$
 
   が成り立つ．$S_3 \mathrel{:=} - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1)$ とおく．
 
 - $y_2 < y,\ x_2 < x$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y_2 - y_1 + 1)(x_2 - x_1 + 1) \\ &= v(y_1 - 1)(x_1 - 1) - v(y_1 - 1) x_2 - vy_2(x_1 - 1) + v y_2 x_2 \\ &= S_1 + S_2 + S_3 + vyx - vy_2x - vx_2y + vy_2x_2 \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y_2 - y_1 + 1)(x_2 - x_1 + 1) \\
+                &= v(y_1 - 1)(x_1 - 1) - v(y_1 - 1) x_2 - vy_2(x_1 - 1) + v y_2 x_2 \\
+                &= S_1 + S_2 + S_3 + vyx - vy_2x - vx_2y + vy_2x_2
+    \end{aligned}
+  $$
 
   が成り立つ．
 
 - $\text{otherwise}$
 
-  $$S_a - S_b = 0$$
+  $$
+    S_a - S_b = 0
+  $$
 
   が成り立つ．
 

@@ -9,7 +9,7 @@ data:
     path: graph/flow/matching/maximum_matching.hpp
     title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   _extendedVerifiedWith:
@@ -20,45 +20,43 @@ data:
     path: test/graph/flow/matching/maximum_matching.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
       \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"util/xorshift.hpp\"\n#include <ctime>\r\n\r\nstruct Xor128\
-    \ {\r\n  Xor128() : x(123456789), y(362436069), z(521288629), w(std::time(nullptr))\
-    \ {}\r\n  int rand() {\r\n    unsigned int t = x ^ (x << 11);\r\n    x = y; y\
-    \ = z; z = w;\r\n    return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\r\n  }\r\n \
-    \ int rand(const int ub) {\r\n    const int res = rand() % ub;\r\n    return res\
-    \ < 0 ? res + ub : res;\r\n  }\r\n  int rand(const int lb, const int ub) { return\
-    \ lb + rand(ub - lb); }\r\n  long long randll() {\r\n    return (static_cast<unsigned\
-    \ long long>(rand()) << 32) | rand();\r\n  }\r\n  long long randll(const long\
-    \ long ub) {\r\n    const long long res = randll() % ub;\r\n    return res < 0\
-    \ ? res + ub : res;\r\n  }\r\n  long long randll(const long long lb, const long\
-    \ long ub) {\r\n    return lb + randll(ub - lb);\r\n  }\r\n private:\r\n  unsigned\
-    \ int x, y, z, w;\r\n} xor128;\r\n"
-  code: "#pragma once\r\n#include <ctime>\r\n\r\nstruct Xor128 {\r\n  Xor128() : x(123456789),\
-    \ y(362436069), z(521288629), w(std::time(nullptr)) {}\r\n  int rand() {\r\n \
-    \   unsigned int t = x ^ (x << 11);\r\n    x = y; y = z; z = w;\r\n    return\
-    \ w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\r\n  }\r\n  int rand(const int ub) {\r\
-    \n    const int res = rand() % ub;\r\n    return res < 0 ? res + ub : res;\r\n\
-    \  }\r\n  int rand(const int lb, const int ub) { return lb + rand(ub - lb); }\r\
-    \n  long long randll() {\r\n    return (static_cast<unsigned long long>(rand())\
-    \ << 32) | rand();\r\n  }\r\n  long long randll(const long long ub) {\r\n    const\
-    \ long long res = randll() % ub;\r\n    return res < 0 ? res + ub : res;\r\n \
-    \ }\r\n  long long randll(const long long lb, const long long ub) {\r\n    return\
-    \ lb + randll(ub - lb);\r\n  }\r\n private:\r\n  unsigned int x, y, z, w;\r\n\
-    } xor128;\r\n"
+  bundledCode: "#line 2 \"util/xorshift.hpp\"\n#include <ctime>\n\nstruct Xor128 {\n\
+    \  Xor128() : x(123456789), y(362436069), z(521288629), w(std::time(nullptr))\
+    \ {}\n  int rand() {\n    unsigned int t = x ^ (x << 11);\n    x = y; y = z; z\
+    \ = w;\n    return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));\n  }\n  int rand(const\
+    \ int ub) {\n    const int res = rand() % ub;\n    return res < 0 ? res + ub :\
+    \ res;\n  }\n  int rand(const int lb, const int ub) { return lb + rand(ub - lb);\
+    \ }\n  long long randll() {\n    return (static_cast<unsigned long long>(rand())\
+    \ << 32) | rand();\n  }\n  long long randll(const long long ub) {\n    const long\
+    \ long res = randll() % ub;\n    return res < 0 ? res + ub : res;\n  }\n  long\
+    \ long randll(const long long lb, const long long ub) {\n    return lb + randll(ub\
+    \ - lb);\n  }\n private:\n  unsigned int x, y, z, w;\n} xor128;\n"
+  code: "#pragma once\n#include <ctime>\n\nstruct Xor128 {\n  Xor128() : x(123456789),\
+    \ y(362436069), z(521288629), w(std::time(nullptr)) {}\n  int rand() {\n    unsigned\
+    \ int t = x ^ (x << 11);\n    x = y; y = z; z = w;\n    return w = (w ^ (w >>\
+    \ 19)) ^ (t ^ (t >> 8));\n  }\n  int rand(const int ub) {\n    const int res =\
+    \ rand() % ub;\n    return res < 0 ? res + ub : res;\n  }\n  int rand(const int\
+    \ lb, const int ub) { return lb + rand(ub - lb); }\n  long long randll() {\n \
+    \   return (static_cast<unsigned long long>(rand()) << 32) | rand();\n  }\n  long\
+    \ long randll(const long long ub) {\n    const long long res = randll() % ub;\n\
+    \    return res < 0 ? res + ub : res;\n  }\n  long long randll(const long long\
+    \ lb, const long long ub) {\n    return lb + randll(ub - lb);\n  }\n private:\n\
+    \  unsigned int x, y, z, w;\n} xor128;\n"
   dependsOn: []
   isVerificationFile: false
   path: util/xorshift.hpp
@@ -66,11 +64,11 @@ data:
   - math/mod_sqrt.hpp
   - graph/flow/matching/maximum_matching.hpp
   - geometry/smallest_enclosing_circle.hpp
-  timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/is_primitive_root.test.cpp
   - test/math/mod_sqrt.test.cpp
+  - test/math/is_primitive_root.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp

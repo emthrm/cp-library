@@ -11,29 +11,29 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"dynamic_programming/slide_min.hpp\"\n#include <deque>\r\n\
-    #include <vector>\r\n\r\ntemplate <bool IS_MINIMIZED = true, typename T>\r\nstd::vector<T>\
-    \ slide_min(const std::vector<T>& a, const int len) {\r\n  const int n = a.size();\r\
-    \n  std::vector<T> res(n - len + 1);\r\n  std::deque<T> deq;\r\n  for (int i =\
-    \ 0; i < n; ++i) {\r\n    while (!deq.empty() &&\r\n           !(IS_MINIMIZED\
-    \ ? a[deq.back()] < a[i] : a[deq.back()] > a[i])) {\r\n      deq.pop_back();\r\
-    \n    }\r\n    deq.emplace_back(i);\r\n    if (i + 1 >= len) {\r\n      const\
-    \ int left = i + 1 - len;\r\n      res[left] = a[deq.front()];\r\n      if (deq.front()\
-    \ == left) deq.pop_front();\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <deque>\r\n#include <vector>\r\n\r\ntemplate <bool\
-    \ IS_MINIMIZED = true, typename T>\r\nstd::vector<T> slide_min(const std::vector<T>&\
-    \ a, const int len) {\r\n  const int n = a.size();\r\n  std::vector<T> res(n -\
-    \ len + 1);\r\n  std::deque<T> deq;\r\n  for (int i = 0; i < n; ++i) {\r\n   \
-    \ while (!deq.empty() &&\r\n           !(IS_MINIMIZED ? a[deq.back()] < a[i] :\
-    \ a[deq.back()] > a[i])) {\r\n      deq.pop_back();\r\n    }\r\n    deq.emplace_back(i);\r\
-    \n    if (i + 1 >= len) {\r\n      const int left = i + 1 - len;\r\n      res[left]\
-    \ = a[deq.front()];\r\n      if (deq.front() == left) deq.pop_front();\r\n   \
-    \ }\r\n  }\r\n  return res;\r\n}\r\n"
+  bundledCode: "#line 2 \"dynamic_programming/slide_min.hpp\"\n#include <deque>\n\
+    #include <vector>\n\ntemplate <bool IS_MINIMIZED = true, typename T>\nstd::vector<T>\
+    \ slide_min(const std::vector<T>& a, const int len) {\n  const int n = a.size();\n\
+    \  std::vector<T> res(n - len + 1);\n  std::deque<T> deq;\n  for (int i = 0; i\
+    \ < n; ++i) {\n    while (!deq.empty() &&\n           !(IS_MINIMIZED ? a[deq.back()]\
+    \ < a[i] : a[deq.back()] > a[i])) {\n      deq.pop_back();\n    }\n    deq.emplace_back(i);\n\
+    \    if (i + 1 >= len) {\n      const int left = i + 1 - len;\n      res[left]\
+    \ = a[deq.front()];\n      if (deq.front() == left) deq.pop_front();\n    }\n\
+    \  }\n  return res;\n}\n"
+  code: "#pragma once\n#include <deque>\n#include <vector>\n\ntemplate <bool IS_MINIMIZED\
+    \ = true, typename T>\nstd::vector<T> slide_min(const std::vector<T>& a, const\
+    \ int len) {\n  const int n = a.size();\n  std::vector<T> res(n - len + 1);\n\
+    \  std::deque<T> deq;\n  for (int i = 0; i < n; ++i) {\n    while (!deq.empty()\
+    \ &&\n           !(IS_MINIMIZED ? a[deq.back()] < a[i] : a[deq.back()] > a[i]))\
+    \ {\n      deq.pop_back();\n    }\n    deq.emplace_back(i);\n    if (i + 1 >=\
+    \ len) {\n      const int left = i + 1 - len;\n      res[left] = a[deq.front()];\n\
+    \      if (deq.front() == left) deq.pop_front();\n    }\n  }\n  return res;\n\
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/slide_min.hpp
   requiredBy: []
-  timestamp: '2022-02-12 20:37:17+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/slide_min.test.cpp

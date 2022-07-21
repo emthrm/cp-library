@@ -2,20 +2,36 @@
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\mu(n) \mathrel{:=} \begin{cases} 0 & (\exists p \in \mathbb{P},\ n \equiv 0 \pmod{p^2}), \\ (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise}) \end{cases}$$
+$$
+  \mu(n) \mathrel{:=}
+  \begin{cases}
+    0 & (\exists p \in \mathbb{P},\ n \equiv 0 \pmod{p^2}), \\
+    (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise})
+  \end{cases}
+$$
 
 で定義される $\mu(n)$ である．
 
-- $$\forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,$$
+- $$
+    \forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,
+  $$
 
-- $$\mu(mn) = \begin{cases} \mu(m) \mu(n) & (m \perp n), \\ 0 & (\text{otherwise}) \end{cases}$$
+- $$
+    \mu(mn) =
+    \begin{cases}
+      \mu(m) \mu(n) & (m \perp n), \\
+      0 & (\text{otherwise})
+    \end{cases}
+  $$
 
 が成り立つ．
 
 
 ### メビウスの反転公式 (Möbius inversion formula)
 
-$$f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right)$$
+$$
+  f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right)
+$$
 
 
 ## 時間計算量

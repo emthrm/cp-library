@@ -19,33 +19,33 @@ data:
       \u901A\u7956\u5148)"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\
-    \u901A\u7956\u5148)\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../../graph/edge.hpp\"\
-    \r\n#include \"../../../graph/tree/heavy-light_decomposition.hpp\"\r\n\r\nint\
-    \ main() {\r\n  int n;\r\n  std::cin >> n;\r\n  std::vector<std::vector<Edge<int>>>\
-    \ graph(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    int k;\r\n    std::cin >>\
-    \ k;\r\n    while (k--) {\r\n      int c;\r\n      std::cin >> c;\r\n      graph[i].emplace_back(i,\
-    \ c, 1);\r\n      graph[c].emplace_back(c, i, 1);\r\n    }\r\n  }\r\n  const HeavyLightDecomposition<int>\
-    \ heavy_light_decomposition(graph, 0);\r\n  int q;\r\n  std::cin >> q;\r\n  while\
-    \ (q--) {\r\n    int u, v;\r\n    std::cin >> u >> v;\r\n    std::cout << heavy_light_decomposition.lowest_common_ancestor(u,\
-    \ v) << '\\n';\r\n  }\r\n  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\
+    \u901A\u7956\u5148)\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C\"\
+    \n\n#include <iostream>\n#include <vector>\n\n#include \"../../../graph/edge.hpp\"\
+    \n#include \"../../../graph/tree/heavy-light_decomposition.hpp\"\n\nint main()\
+    \ {\n  int n;\n  std::cin >> n;\n  std::vector<std::vector<Edge<int>>> graph(n);\n\
+    \  for (int i = 0; i < n; ++i) {\n    int k;\n    std::cin >> k;\n    while (k--)\
+    \ {\n      int c;\n      std::cin >> c;\n      graph[i].emplace_back(i, c, 1);\n\
+    \      graph[c].emplace_back(c, i, 1);\n    }\n  }\n  const HeavyLightDecomposition<int>\
+    \ heavy_light_decomposition(graph, 0);\n  int q;\n  std::cin >> q;\n  while (q--)\
+    \ {\n    int u, v;\n    std::cin >> u >> v;\n    std::cout << heavy_light_decomposition.lowest_common_ancestor(u,\
+    \ v) << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - graph/edge.hpp
   - graph/tree/heavy-light_decomposition.hpp
   isVerificationFile: true
   path: test/graph/tree/heavy-light_decomposition.2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/heavy-light_decomposition.2.test.cpp

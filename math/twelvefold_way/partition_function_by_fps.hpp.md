@@ -1,44 +1,43 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/partition_function.md
     document_title: "\u5206\u5272\u6570 $n = m$ \u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/partition_function_by_fps.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u5206\u5272\u6570 $n = m$ \u7248\r\n * @docs docs/math/twelvefold_way/partition_function.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"../formal_power_series/formal_power_series.hpp\"\
-    \r\n\r\ntemplate <typename T>\r\nstd::vector<T> partition_function_by_fps(const\
-    \ int n) {\r\n  FormalPowerSeries<T> fps(n);\r\n  fps[0] = 1;\r\n  for (int i\
-    \ = 1; i <= n; ++i) {\r\n    int idx = (3 * i - 1) * i / 2;\r\n    if (idx > n)\
-    \ break;\r\n    fps[idx] = (i & 1 ? -1 : 1);\r\n    idx = (3 * i + 1) * i / 2;\r\
-    \n    if (idx <= n) fps[idx] = (i & 1 ? -1 : 1);\r\n  }\r\n  return fps.inv(n).coef;\r\
-    \n}\r\n"
+  code: "/**\n * @brief \u5206\u5272\u6570 $n = m$ \u7248\n * @docs docs/math/twelvefold_way/partition_function.md\n\
+    \ */\n\n#pragma once\n#include <vector>\n\n#include \"../formal_power_series/formal_power_series.hpp\"\
+    \n\ntemplate <typename T>\nstd::vector<T> partition_function_by_fps(const int\
+    \ n) {\n  FormalPowerSeries<T> fps(n);\n  fps[0] = 1;\n  for (int i = 1; i <=\
+    \ n; ++i) {\n    int idx = (3 * i - 1) * i / 2;\n    if (idx > n) break;\n   \
+    \ fps[idx] = (i & 1 ? -1 : 1);\n    idx = (3 * i + 1) * i / 2;\n    if (idx <=\
+    \ n) fps[idx] = (i & 1 ? -1 : 1);\n  }\n  return fps.inv(n).coef;\n}\n"
   dependsOn:
   - math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: math/twelvefold_way/partition_function_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-27 17:53:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
 documentation_of: math/twelvefold_way/partition_function_by_fps.hpp
@@ -56,7 +55,9 @@ title: "\u5206\u5272\u6570 $n = m$ \u7248"
 
 分割数 $p(n)$ の母関数は
 
-$$\sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
+$$
+  \sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}
+$$
 
 である．
 

@@ -14,47 +14,45 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n// #include <algorithm>\r\n#include <vector>\r\n\r\n#include\
-    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct StronglyConnectedComponents\
-    \ {\r\n  std::vector<int> id;\r\n  std::vector<std::vector<int>> vertices;\r\n\
-    \  std::vector<std::vector<Edge<CostType>>> g;\r\n\r\n  explicit StronglyConnectedComponents(\r\
-    \n      const std::vector<std::vector<Edge<CostType>>>& graph,\r\n      const\
-    \ bool is_full_ver = false)\r\n      : is_full_ver(is_full_ver), n(graph.size()),\
-    \ is_used(n, false),\r\n        graph(graph), rgraph(n) {\r\n    for (int i =\
-    \ 0; i < n; ++i) {\r\n      if (!is_used[i]) dfs(i);\r\n    }\r\n    id.assign(n,\
-    \ -1);\r\n    order.reserve(n);\r\n    for (int i = 0; i < n; ++i) {\r\n     \
-    \ for (const Edge<CostType>& e : graph[i]) {\r\n        rgraph[e.dst].emplace_back(e.dst,\
-    \ e.src, e.cost);\r\n      }\r\n    }\r\n    int m = 0;\r\n    for (int i = n\
-    \ - 1; i >= 0; --i) {\r\n      if (id[order[i]] == -1) {\r\n        if (is_full_ver)\
-    \ vertices.emplace_back();\r\n        rdfs(order[i], m++);\r\n      }\r\n    }\r\
-    \n    g.resize(m);\r\n    for (int i = 0; i < n; ++i) {\r\n      for (const Edge<CostType>&\
-    \ e : graph[i]) {\r\n        if (id[i] != id[e.dst]) g[id[i]].emplace_back(id[i],\
-    \ id[e.dst], e.cost);\r\n      }\r\n    }\r\n    // if (is_full_ver) {\r\n   \
-    \ //   for (int i = 0; i < m; ++i) {\r\n    //     std::sort(vertices[i].begin(),\
-    \ vertices[i].end());\r\n    //   }\r\n    // }\r\n  }\r\n\r\n private:\r\n  const\
-    \ bool is_full_ver;\r\n  const int n;\r\n  std::vector<bool> is_used;\r\n  std::vector<int>\
-    \ order;\r\n  const std::vector<std::vector<Edge<CostType>>> graph;\r\n  std::vector<std::vector<Edge<CostType>>>\
-    \ rgraph;\r\n\r\n  void dfs(const int ver) {\r\n    is_used[ver] = true;\r\n \
-    \   for (const Edge<CostType>& e : graph[ver]) {\r\n      if (!is_used[e.dst])\
-    \ dfs(e.dst);\r\n    }\r\n    order.emplace_back(ver);\r\n  }\r\n\r\n  void rdfs(const\
-    \ int ver, const int m) {\r\n    id[ver] = m;\r\n    if (is_full_ver) vertices.back().emplace_back(ver);\r\
-    \n    for (const Edge<CostType>& e : rgraph[ver]) {\r\n      if (id[e.dst] ==\
-    \ -1) rdfs(e.dst, m);\r\n    }\r\n  }\r\n};\r\n"
+  code: "#pragma once\n// #include <algorithm>\n#include <vector>\n\n#include \"./edge.hpp\"\
+    \n\ntemplate <typename CostType>\nstruct StronglyConnectedComponents {\n  std::vector<int>\
+    \ id;\n  std::vector<std::vector<int>> vertices;\n  std::vector<std::vector<Edge<CostType>>>\
+    \ g;\n\n  explicit StronglyConnectedComponents(\n      const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n      const bool is_full_ver = false)\n      : is_full_ver(is_full_ver),\
+    \ n(graph.size()), is_used(n, false),\n        graph(graph), rgraph(n) {\n   \
+    \ for (int i = 0; i < n; ++i) {\n      if (!is_used[i]) dfs(i);\n    }\n    id.assign(n,\
+    \ -1);\n    order.reserve(n);\n    for (int i = 0; i < n; ++i) {\n      for (const\
+    \ Edge<CostType>& e : graph[i]) {\n        rgraph[e.dst].emplace_back(e.dst, e.src,\
+    \ e.cost);\n      }\n    }\n    int m = 0;\n    for (int i = n - 1; i >= 0; --i)\
+    \ {\n      if (id[order[i]] == -1) {\n        if (is_full_ver) vertices.emplace_back();\n\
+    \        rdfs(order[i], m++);\n      }\n    }\n    g.resize(m);\n    for (int\
+    \ i = 0; i < n; ++i) {\n      for (const Edge<CostType>& e : graph[i]) {\n   \
+    \     if (id[i] != id[e.dst]) g[id[i]].emplace_back(id[i], id[e.dst], e.cost);\n\
+    \      }\n    }\n    // if (is_full_ver) {\n    //   for (int i = 0; i < m; ++i)\
+    \ {\n    //     std::sort(vertices[i].begin(), vertices[i].end());\n    //   }\n\
+    \    // }\n  }\n\n private:\n  const bool is_full_ver;\n  const int n;\n  std::vector<bool>\
+    \ is_used;\n  std::vector<int> order;\n  const std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n  std::vector<std::vector<Edge<CostType>>> rgraph;\n\n  void dfs(const\
+    \ int ver) {\n    is_used[ver] = true;\n    for (const Edge<CostType>& e : graph[ver])\
+    \ {\n      if (!is_used[e.dst]) dfs(e.dst);\n    }\n    order.emplace_back(ver);\n\
+    \  }\n\n  void rdfs(const int ver, const int m) {\n    id[ver] = m;\n    if (is_full_ver)\
+    \ vertices.back().emplace_back(ver);\n    for (const Edge<CostType>& e : rgraph[ver])\
+    \ {\n      if (id[e.dst] == -1) rdfs(e.dst, m);\n    }\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/strongly_connected_components.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/strongly_connected_components.test.cpp

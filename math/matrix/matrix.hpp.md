@@ -9,17 +9,17 @@ data:
   - icon: ':x:'
     path: graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/matrix/inverse_matrix.hpp
     title: "\u9006\u884C\u5217 (inverse matrix)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation)"
   _extendedVerifiedWith:
@@ -30,16 +30,16 @@ data:
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
   _isVerificationFailed: true
@@ -47,76 +47,72 @@ data:
   _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/matrix/matrix.hpp\"\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstruct Matrix {\r\n  explicit Matrix(const int m, const int\
-    \ n, const T def = 0)\r\n      : data(m, std::vector<T>(n, def)) {}\r\n\r\n  int\
-    \ nrow() const { return data.size(); }\r\n  int ncol() const { return data.front().size();\
-    \ }\r\n\r\n  Matrix pow(long long exponent) const {\r\n    const int n = nrow();\r\
-    \n    Matrix<T> res(n, n, 0), tmp = *this;\r\n    for (int i = 0; i < n; ++i)\
-    \ {\r\n      res[i][i] = 1;\r\n    }\r\n    for (; exponent > 0; exponent >>=\
-    \ 1) {\r\n      if (exponent & 1) res *= tmp;\r\n      tmp *= tmp;\r\n    }\r\n\
-    \    return res;\r\n  }\r\n\r\n  inline const std::vector<T>& operator[](const\
-    \ int i) const { return data[i]; }\r\n  inline std::vector<T>& operator[](const\
-    \ int i) { return data[i]; }\r\n\r\n  Matrix& operator=(const Matrix& x) = default;\r\
-    \n\r\n  Matrix& operator+=(const Matrix& x) {\r\n    const int m = nrow(), n =\
-    \ ncol();\r\n    for (int i = 0; i < m; ++i) {\r\n      for (int j = 0; j < n;\
-    \ ++j) {\r\n        data[i][j] += x[i][j];\r\n      }\r\n    }\r\n    return *this;\r\
-    \n  }\r\n\r\n  Matrix& operator-=(const Matrix& x) {\r\n    const int m = nrow(),\
-    \ n = ncol();\r\n    for (int i = 0; i < m; ++i) {\r\n      for (int j = 0; j\
-    \ < n; ++j) {\r\n        data[i][j] -= x[i][j];\r\n      }\r\n    }\r\n    return\
-    \ *this;\r\n  }\r\n\r\n  Matrix& operator*=(const Matrix& x) {\r\n    const int\
-    \ m = nrow(), l = ncol(), n = x.ncol();\r\n    std::vector<std::vector<T>> res(m,\
-    \ std::vector<T>(n, 0));\r\n    for (int i = 0; i < m; ++i) {\r\n      for (int\
-    \ k = 0; k < l; ++k) {\r\n        for (int j = 0; j < n; ++j) {\r\n          res[i][j]\
-    \ += data[i][k] * x[k][j];\r\n        }\r\n      }\r\n    }\r\n    data.swap(res);\r\
-    \n    return *this;\r\n  }\r\n\r\n  Matrix operator+(const Matrix& x) const {\
-    \ return Matrix(*this) += x; }\r\n  Matrix operator-(const Matrix& x) const {\
-    \ return Matrix(*this) -= x; }\r\n  Matrix operator*(const Matrix& x) const {\
-    \ return Matrix(*this) *= x; }\r\n\r\n private:\r\n  std::vector<std::vector<T>>\
-    \ data;\r\n};\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstruct\
-    \ Matrix {\r\n  explicit Matrix(const int m, const int n, const T def = 0)\r\n\
-    \      : data(m, std::vector<T>(n, def)) {}\r\n\r\n  int nrow() const { return\
-    \ data.size(); }\r\n  int ncol() const { return data.front().size(); }\r\n\r\n\
-    \  Matrix pow(long long exponent) const {\r\n    const int n = nrow();\r\n   \
-    \ Matrix<T> res(n, n, 0), tmp = *this;\r\n    for (int i = 0; i < n; ++i) {\r\n\
-    \      res[i][i] = 1;\r\n    }\r\n    for (; exponent > 0; exponent >>= 1) {\r\
-    \n      if (exponent & 1) res *= tmp;\r\n      tmp *= tmp;\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n\r\n  inline const std::vector<T>& operator[](const int i) const\
-    \ { return data[i]; }\r\n  inline std::vector<T>& operator[](const int i) { return\
-    \ data[i]; }\r\n\r\n  Matrix& operator=(const Matrix& x) = default;\r\n\r\n  Matrix&\
-    \ operator+=(const Matrix& x) {\r\n    const int m = nrow(), n = ncol();\r\n \
-    \   for (int i = 0; i < m; ++i) {\r\n      for (int j = 0; j < n; ++j) {\r\n \
-    \       data[i][j] += x[i][j];\r\n      }\r\n    }\r\n    return *this;\r\n  }\r\
-    \n\r\n  Matrix& operator-=(const Matrix& x) {\r\n    const int m = nrow(), n =\
-    \ ncol();\r\n    for (int i = 0; i < m; ++i) {\r\n      for (int j = 0; j < n;\
-    \ ++j) {\r\n        data[i][j] -= x[i][j];\r\n      }\r\n    }\r\n    return *this;\r\
-    \n  }\r\n\r\n  Matrix& operator*=(const Matrix& x) {\r\n    const int m = nrow(),\
-    \ l = ncol(), n = x.ncol();\r\n    std::vector<std::vector<T>> res(m, std::vector<T>(n,\
-    \ 0));\r\n    for (int i = 0; i < m; ++i) {\r\n      for (int k = 0; k < l; ++k)\
-    \ {\r\n        for (int j = 0; j < n; ++j) {\r\n          res[i][j] += data[i][k]\
-    \ * x[k][j];\r\n        }\r\n      }\r\n    }\r\n    data.swap(res);\r\n    return\
-    \ *this;\r\n  }\r\n\r\n  Matrix operator+(const Matrix& x) const { return Matrix(*this)\
-    \ += x; }\r\n  Matrix operator-(const Matrix& x) const { return Matrix(*this)\
-    \ -= x; }\r\n  Matrix operator*(const Matrix& x) const { return Matrix(*this)\
-    \ *= x; }\r\n\r\n private:\r\n  std::vector<std::vector<T>> data;\r\n};\r\n"
+  bundledCode: "#line 2 \"math/matrix/matrix.hpp\"\n#include <vector>\n\ntemplate\
+    \ <typename T>\nstruct Matrix {\n  explicit Matrix(const int m, const int n, const\
+    \ T def = 0)\n      : data(m, std::vector<T>(n, def)) {}\n\n  int nrow() const\
+    \ { return data.size(); }\n  int ncol() const { return data.front().size(); }\n\
+    \n  Matrix pow(long long exponent) const {\n    const int n = nrow();\n    Matrix<T>\
+    \ res(n, n, 0), tmp = *this;\n    for (int i = 0; i < n; ++i) {\n      res[i][i]\
+    \ = 1;\n    }\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent\
+    \ & 1) res *= tmp;\n      tmp *= tmp;\n    }\n    return res;\n  }\n\n  inline\
+    \ const std::vector<T>& operator[](const int i) const { return data[i]; }\n  inline\
+    \ std::vector<T>& operator[](const int i) { return data[i]; }\n\n  Matrix& operator=(const\
+    \ Matrix& x) = default;\n\n  Matrix& operator+=(const Matrix& x) {\n    const\
+    \ int m = nrow(), n = ncol();\n    for (int i = 0; i < m; ++i) {\n      for (int\
+    \ j = 0; j < n; ++j) {\n        data[i][j] += x[i][j];\n      }\n    }\n    return\
+    \ *this;\n  }\n\n  Matrix& operator-=(const Matrix& x) {\n    const int m = nrow(),\
+    \ n = ncol();\n    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n;\
+    \ ++j) {\n        data[i][j] -= x[i][j];\n      }\n    }\n    return *this;\n\
+    \  }\n\n  Matrix& operator*=(const Matrix& x) {\n    const int m = nrow(), l =\
+    \ ncol(), n = x.ncol();\n    std::vector<std::vector<T>> res(m, std::vector<T>(n,\
+    \ 0));\n    for (int i = 0; i < m; ++i) {\n      for (int k = 0; k < l; ++k) {\n\
+    \        for (int j = 0; j < n; ++j) {\n          res[i][j] += data[i][k] * x[k][j];\n\
+    \        }\n      }\n    }\n    data.swap(res);\n    return *this;\n  }\n\n  Matrix\
+    \ operator+(const Matrix& x) const { return Matrix(*this) += x; }\n  Matrix operator-(const\
+    \ Matrix& x) const { return Matrix(*this) -= x; }\n  Matrix operator*(const Matrix&\
+    \ x) const { return Matrix(*this) *= x; }\n\n private:\n  std::vector<std::vector<T>>\
+    \ data;\n};\n"
+  code: "#pragma once\n#include <vector>\n\ntemplate <typename T>\nstruct Matrix {\n\
+    \  explicit Matrix(const int m, const int n, const T def = 0)\n      : data(m,\
+    \ std::vector<T>(n, def)) {}\n\n  int nrow() const { return data.size(); }\n \
+    \ int ncol() const { return data.front().size(); }\n\n  Matrix pow(long long exponent)\
+    \ const {\n    const int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n\
+    \    for (int i = 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent\
+    \ > 0; exponent >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n\
+    \    }\n    return res;\n  }\n\n  inline const std::vector<T>& operator[](const\
+    \ int i) const { return data[i]; }\n  inline std::vector<T>& operator[](const\
+    \ int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\
+    \n  Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
+    \    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
+    \    data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix&\
+    \ operator-=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for\
+    \ (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n        data[i][j]\
+    \ -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix& operator*=(const\
+    \ Matrix& x) {\n    const int m = nrow(), l = ncol(), n = x.ncol();\n    std::vector<std::vector<T>>\
+    \ res(m, std::vector<T>(n, 0));\n    for (int i = 0; i < m; ++i) {\n      for\
+    \ (int k = 0; k < l; ++k) {\n        for (int j = 0; j < n; ++j) {\n         \
+    \ res[i][j] += data[i][k] * x[k][j];\n        }\n      }\n    }\n    data.swap(res);\n\
+    \    return *this;\n  }\n\n  Matrix operator+(const Matrix& x) const { return\
+    \ Matrix(*this) += x; }\n  Matrix operator-(const Matrix& x) const { return Matrix(*this)\
+    \ -= x; }\n  Matrix operator*(const Matrix& x) const { return Matrix(*this) *=\
+    \ x; }\n\n private:\n  std::vector<std::vector<T>> data;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: math/matrix/matrix.hpp
   requiredBy:
-  - math/matrix/linear_equation.hpp
-  - math/matrix/determinant.hpp
-  - math/matrix/gauss_jordan.hpp
   - math/matrix/inverse_matrix.hpp
-  - graph/matrix_tree_theorem.hpp
+  - math/matrix/linear_equation.hpp
+  - math/matrix/gauss_jordan.hpp
+  - math/matrix/determinant.hpp
   - graph/flow/matching/maximum_matching.hpp
-  timestamp: '2022-02-17 20:33:52+09:00'
+  - graph/matrix_tree_theorem.hpp
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/matrix/linear_equation.test.cpp
-  - test/math/matrix/matrix.test.cpp
   - test/math/matrix/determinant.test.cpp
   - test/math/matrix/inverse_matrix.test.cpp
+  - test/math/matrix/matrix.test.cpp
+  - test/math/matrix/linear_equation.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: math/matrix/matrix.hpp

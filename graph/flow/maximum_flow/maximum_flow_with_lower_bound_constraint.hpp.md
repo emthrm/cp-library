@@ -13,31 +13,30 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp\"\
-    \n\r\ntemplate <template <typename> class C, typename T>\r\nstruct MaximumFlowWithLowerBoundConstraint\
-    \ {\r\n  explicit MaximumFlowWithLowerBoundConstraint(const int n)\r\n      :\
-    \ n(n), sum_lb(0), mf(n + 2) {}\r\n\r\n  void add_edge(const int src, const int\
-    \ dst, const T lb, const T ub) {\r\n    mf.add_edge(src, dst, ub - lb);\r\n  \
-    \  mf.add_edge(n, dst, lb);\r\n    mf.add_edge(src, n + 1, lb);\r\n    sum_lb\
-    \ += lb;\r\n  }\r\n\r\n  T solve(const int s, const int t) {\r\n    const T a\
-    \ = mf.maximum_flow(n, n + 1);\r\n    const T b = mf.maximum_flow(s, n + 1);\r\
-    \n    const T c = mf.maximum_flow(n, t);\r\n    const T d = mf.maximum_flow(s,\
-    \ t);\r\n    return a + b == sum_lb && b == c ? b + d : -1;\r\n  }\r\n\r\n private:\r\
-    \n  const int n;\r\n  T sum_lb;\r\n  C<T> mf;\r\n};\r\n"
-  code: "#pragma once\r\n\r\ntemplate <template <typename> class C, typename T>\r\n\
-    struct MaximumFlowWithLowerBoundConstraint {\r\n  explicit MaximumFlowWithLowerBoundConstraint(const\
-    \ int n)\r\n      : n(n), sum_lb(0), mf(n + 2) {}\r\n\r\n  void add_edge(const\
-    \ int src, const int dst, const T lb, const T ub) {\r\n    mf.add_edge(src, dst,\
-    \ ub - lb);\r\n    mf.add_edge(n, dst, lb);\r\n    mf.add_edge(src, n + 1, lb);\r\
-    \n    sum_lb += lb;\r\n  }\r\n\r\n  T solve(const int s, const int t) {\r\n  \
-    \  const T a = mf.maximum_flow(n, n + 1);\r\n    const T b = mf.maximum_flow(s,\
-    \ n + 1);\r\n    const T c = mf.maximum_flow(n, t);\r\n    const T d = mf.maximum_flow(s,\
-    \ t);\r\n    return a + b == sum_lb && b == c ? b + d : -1;\r\n  }\r\n\r\n private:\r\
-    \n  const int n;\r\n  T sum_lb;\r\n  C<T> mf;\r\n};\r\n"
+    \n\ntemplate <template <typename> class C, typename T>\nstruct MaximumFlowWithLowerBoundConstraint\
+    \ {\n  explicit MaximumFlowWithLowerBoundConstraint(const int n)\n      : n(n),\
+    \ sum_lb(0), mf(n + 2) {}\n\n  void add_edge(const int src, const int dst, const\
+    \ T lb, const T ub) {\n    mf.add_edge(src, dst, ub - lb);\n    mf.add_edge(n,\
+    \ dst, lb);\n    mf.add_edge(src, n + 1, lb);\n    sum_lb += lb;\n  }\n\n  T solve(const\
+    \ int s, const int t) {\n    const T a = mf.maximum_flow(n, n + 1);\n    const\
+    \ T b = mf.maximum_flow(s, n + 1);\n    const T c = mf.maximum_flow(n, t);\n \
+    \   const T d = mf.maximum_flow(s, t);\n    return a + b == sum_lb && b == c ?\
+    \ b + d : -1;\n  }\n\n private:\n  const int n;\n  T sum_lb;\n  C<T> mf;\n};\n"
+  code: "#pragma once\n\ntemplate <template <typename> class C, typename T>\nstruct\
+    \ MaximumFlowWithLowerBoundConstraint {\n  explicit MaximumFlowWithLowerBoundConstraint(const\
+    \ int n)\n      : n(n), sum_lb(0), mf(n + 2) {}\n\n  void add_edge(const int src,\
+    \ const int dst, const T lb, const T ub) {\n    mf.add_edge(src, dst, ub - lb);\n\
+    \    mf.add_edge(n, dst, lb);\n    mf.add_edge(src, n + 1, lb);\n    sum_lb +=\
+    \ lb;\n  }\n\n  T solve(const int s, const int t) {\n    const T a = mf.maximum_flow(n,\
+    \ n + 1);\n    const T b = mf.maximum_flow(s, n + 1);\n    const T c = mf.maximum_flow(n,\
+    \ t);\n    const T d = mf.maximum_flow(s, t);\n    return a + b == sum_lb && b\
+    \ == c ? b + d : -1;\n  }\n\n private:\n  const int n;\n  T sum_lb;\n  C<T> mf;\n\
+    };\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp

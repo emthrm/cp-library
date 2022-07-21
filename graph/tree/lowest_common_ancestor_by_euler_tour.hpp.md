@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/sparse_table.hpp
     title: sparse table
   - icon: ':question:'
@@ -24,31 +24,29 @@ data:
     document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\
       \u30C4\u30A2\u30FC\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/tree/lowest_common_ancestor_by_euler_tour.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\
-    \u30C4\u30A2\u30FC\u7248\r\n * @docs docs/graph/tree/lowest_common_ancestor.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include\
-    \ <vector>\r\n\r\n#include \"../../data_structure/sparse_table.hpp\"\r\n#include\
-    \ \"../edge.hpp\"\r\n#include \"./euler_tour.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nstruct LowestCommonAncestor : EulerTour<CostType> {\r\n  explicit LowestCommonAncestor(\r\
-    \n      const std::vector<std::vector<Edge<CostType>>>& graph,\r\n      const\
-    \ int root = 0)\r\n      : EulerTour<CostType>(graph, root) {\r\n    const int\
-    \ n = this->tour.size();\r\n    std::vector<std::pair<int, int>> nodes(n);\r\n\
-    \    for (int i = 0; i < n; ++i) {\r\n      nodes[i] = {this->depth[i], this->tour[i]};\r\
-    \n    }\r\n    sparse_table.init(\r\n        nodes,\r\n        [](const std::pair<int,\
-    \ int>& a, const std::pair<int, int>& b)\r\n            -> std::pair<int, int>\
-    \ {\r\n          return std::min(a, b);\r\n        });\r\n  }\r\n\r\n  int query(int\
-    \ u, int v) const {\r\n    u = this->left[u];\r\n    v = this->left[v];\r\n  \
-    \  if (u > v) std::swap(u, v);\r\n    return sparse_table.query(u, v + 1).second;\r\
-    \n  }\r\n\r\n private:\r\n  SparseTable<std::pair<int, int>> sparse_table;\r\n\
-    };\r\n"
+  code: "/**\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\
+    \u30C4\u30A2\u30FC\u7248\n * @docs docs/graph/tree/lowest_common_ancestor.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <utility>\n#include <vector>\n\
+    \n#include \"../../data_structure/sparse_table.hpp\"\n#include \"../edge.hpp\"\
+    \n#include \"./euler_tour.hpp\"\n\ntemplate <typename CostType>\nstruct LowestCommonAncestor\
+    \ : EulerTour<CostType> {\n  explicit LowestCommonAncestor(\n      const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n      const int root = 0)\n      : EulerTour<CostType>(graph, root)\
+    \ {\n    const int n = this->tour.size();\n    std::vector<std::pair<int, int>>\
+    \ nodes(n);\n    for (int i = 0; i < n; ++i) {\n      nodes[i] = {this->depth[i],\
+    \ this->tour[i]};\n    }\n    sparse_table.init(\n        nodes,\n        [](const\
+    \ std::pair<int, int>& a, const std::pair<int, int>& b)\n            -> std::pair<int,\
+    \ int> {\n          return std::min(a, b);\n        });\n  }\n\n  int query(int\
+    \ u, int v) const {\n    u = this->left[u];\n    v = this->left[v];\n    if (u\
+    \ > v) std::swap(u, v);\n    return sparse_table.query(u, v + 1).second;\n  }\n\
+    \n private:\n  SparseTable<std::pair<int, int>> sparse_table;\n};\n"
   dependsOn:
   - data_structure/sparse_table.hpp
   - graph/edge.hpp
@@ -56,7 +54,7 @@ data:
   isVerificationFile: false
   path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

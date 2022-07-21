@@ -1,53 +1,52 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/mod_inv.hpp
     title: "\u9006\u5143 (inverse element)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/chinese_remainder_theorem.test.cpp
     title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/chinese_remainder_theorem.hpp\"\n#include <algorithm>\r\
-    \n#include <utility>\r\n#include <vector>\r\n\r\n#line 4 \"math/mod_inv.hpp\"\n\
-    \r\nlong long mod_inv(long long a, const int m) {\r\n  if ((a %= m) < 0) a +=\
-    \ m;\r\n  if (std::__gcd(a, static_cast<long long>(m)) != 1) return -1;\r\n  long\
-    \ long x = 1;\r\n  for (long long b = m, u = 0; b > 0;) {\r\n    const long long\
-    \ q = a / b;\r\n    std::swap(a -= q * b, b);\r\n    std::swap(x -= q * u, u);\r\
-    \n  }\r\n  x %= m;\r\n  return x < 0 ? x + m : x;\r\n}\r\n#line 7 \"math/chinese_remainder_theorem.hpp\"\
-    \n\r\ntemplate <typename T>\r\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
-    \ b, std::vector<T> m) {\r\n  const int n = b.size();\r\n  T x = 0, md = 1;\r\n\
-    \  for (int i = 0; i < n; ++i) {\r\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\r\
-    \n    if (md < m[i]) {\r\n      std::swap(x, b[i]);\r\n      std::swap(md, m[i]);\r\
-    \n    }\r\n    if (md % m[i] == 0) {\r\n      if (x % m[i] != b[i]) return {0,\
-    \ 0};\r\n      continue;\r\n    }\r\n    const T g = std::__gcd(md, m[i]);\r\n\
-    \    if ((b[i] - x) % g != 0) return {0, 0};\r\n    const T u_i = m[i] / g;\r\n\
-    \    x += (b[i] - x) / g % u_i * mod_inv(md / g, u_i) % u_i * md;\r\n    md *=\
-    \ u_i;\r\n    if (x < 0) x += md;\r\n  }\r\n  return {x, md};\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\n#include \"./mod_inv.hpp\"\r\n\r\ntemplate <typename T>\r\nstd::pair<T,\
-    \ T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {\r\n  const\
-    \ int n = b.size();\r\n  T x = 0, md = 1;\r\n  for (int i = 0; i < n; ++i) {\r\
-    \n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\r\n    if (md < m[i]) {\r\n      std::swap(x,\
-    \ b[i]);\r\n      std::swap(md, m[i]);\r\n    }\r\n    if (md % m[i] == 0) {\r\
-    \n      if (x % m[i] != b[i]) return {0, 0};\r\n      continue;\r\n    }\r\n \
-    \   const T g = std::__gcd(md, m[i]);\r\n    if ((b[i] - x) % g != 0) return {0,\
-    \ 0};\r\n    const T u_i = m[i] / g;\r\n    x += (b[i] - x) / g % u_i * mod_inv(md\
-    \ / g, u_i) % u_i * md;\r\n    md *= u_i;\r\n    if (x < 0) x += md;\r\n  }\r\n\
-    \  return {x, md};\r\n}\r\n"
+  bundledCode: "#line 2 \"math/chinese_remainder_theorem.hpp\"\n#include <algorithm>\n\
+    #include <utility>\n#include <vector>\n\n#line 4 \"math/mod_inv.hpp\"\n\nlong\
+    \ long mod_inv(long long a, const int m) {\n  if ((a %= m) < 0) a += m;\n  if\
+    \ (std::__gcd(a, static_cast<long long>(m)) != 1) return -1;\n  long long x =\
+    \ 1;\n  for (long long b = m, u = 0; b > 0;) {\n    const long long q = a / b;\n\
+    \    std::swap(a -= q * b, b);\n    std::swap(x -= q * u, u);\n  }\n  x %= m;\n\
+    \  return x < 0 ? x + m : x;\n}\n#line 7 \"math/chinese_remainder_theorem.hpp\"\
+    \n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
+    \ b, std::vector<T> m) {\n  const int n = b.size();\n  T x = 0, md = 1;\n  for\
+    \ (int i = 0; i < n; ++i) {\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\n    if\
+    \ (md < m[i]) {\n      std::swap(x, b[i]);\n      std::swap(md, m[i]);\n    }\n\
+    \    if (md % m[i] == 0) {\n      if (x % m[i] != b[i]) return {0, 0};\n     \
+    \ continue;\n    }\n    const T g = std::__gcd(md, m[i]);\n    if ((b[i] - x)\
+    \ % g != 0) return {0, 0};\n    const T u_i = m[i] / g;\n    x += (b[i] - x) /\
+    \ g % u_i * mod_inv(md / g, u_i) % u_i * md;\n    md *= u_i;\n    if (x < 0) x\
+    \ += md;\n  }\n  return {x, md};\n}\n"
+  code: "#pragma once\n#include <algorithm>\n#include <utility>\n#include <vector>\n\
+    \n#include \"./mod_inv.hpp\"\n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
+    \ b, std::vector<T> m) {\n  const int n = b.size();\n  T x = 0, md = 1;\n  for\
+    \ (int i = 0; i < n; ++i) {\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\n    if\
+    \ (md < m[i]) {\n      std::swap(x, b[i]);\n      std::swap(md, m[i]);\n    }\n\
+    \    if (md % m[i] == 0) {\n      if (x % m[i] != b[i]) return {0, 0};\n     \
+    \ continue;\n    }\n    const T g = std::__gcd(md, m[i]);\n    if ((b[i] - x)\
+    \ % g != 0) return {0, 0};\n    const T u_i = m[i] / g;\n    x += (b[i] - x) /\
+    \ g % u_i * mod_inv(md / g, u_i) % u_i * md;\n    md *= u_i;\n    if (x < 0) x\
+    \ += md;\n  }\n  return {x, md};\n}\n"
   dependsOn:
   - math/mod_inv.hpp
   isVerificationFile: false
   path: math/chinese_remainder_theorem.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp
 documentation_of: math/chinese_remainder_theorem.hpp

@@ -13,36 +13,35 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "\u91CD\u307F\u3064\u304D union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/weighted_union-find.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u91CD\u307F\u3064\u304D union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename Abelian>\r\nstruct WeightedUnionFind {\r\n  explicit WeightedUnionFind(const\
-    \ int n, const Abelian ID = 0)\r\n      : ID(ID), parent(n, -1), data(n, ID) {}\r\
-    \n\r\n  int root(const int ver) {\r\n    if (parent[ver] < 0) return ver;\r\n\
-    \    const int r = root(parent[ver]);\r\n    data[ver] += data[parent[ver]];\r\
-    \n    return parent[ver] = r;\r\n  }\r\n\r\n  bool unite(int u, int v, Abelian\
-    \ wt) {\r\n    wt += weight(u);\r\n    wt -= weight(v);\r\n    u = root(u);\r\n\
-    \    v = root(v);\r\n    if (u == v) return false;\r\n    if (parent[u] > parent[v])\
-    \ {\r\n      std::swap(u, v);\r\n      wt = -wt;\r\n    }\r\n    parent[u] +=\
-    \ parent[v];\r\n    parent[v] = u;\r\n    data[v] = wt;\r\n    return true;\r\n\
-    \  }\r\n\r\n  bool is_same(const int u, const int v) { return root(u) == root(v);\
-    \ }\r\n\r\n  int size(const int ver) { return -parent[root(ver)]; }\r\n\r\n  Abelian\
-    \ diff(const int u, const int v) { return weight(v) - weight(u); }\r\n\r\n private:\r\
-    \n  const Abelian ID;\r\n  std::vector<int> parent;\r\n  std::vector<Abelian>\
-    \ data;\r\n\r\n  Abelian weight(const int ver) {\r\n    root(ver);\r\n    return\
-    \ data[ver];\r\n  }\r\n};\r\n"
+  code: "/**\n * @brief \u91CD\u307F\u3064\u304D union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
+    \ */\n\n#pragma once\n#include <utility>\n#include <vector>\n\ntemplate <typename\
+    \ Abelian>\nstruct WeightedUnionFind {\n  explicit WeightedUnionFind(const int\
+    \ n, const Abelian ID = 0)\n      : ID(ID), parent(n, -1), data(n, ID) {}\n\n\
+    \  int root(const int ver) {\n    if (parent[ver] < 0) return ver;\n    const\
+    \ int r = root(parent[ver]);\n    data[ver] += data[parent[ver]];\n    return\
+    \ parent[ver] = r;\n  }\n\n  bool unite(int u, int v, Abelian wt) {\n    wt +=\
+    \ weight(u);\n    wt -= weight(v);\n    u = root(u);\n    v = root(v);\n    if\
+    \ (u == v) return false;\n    if (parent[u] > parent[v]) {\n      std::swap(u,\
+    \ v);\n      wt = -wt;\n    }\n    parent[u] += parent[v];\n    parent[v] = u;\n\
+    \    data[v] = wt;\n    return true;\n  }\n\n  bool is_same(const int u, const\
+    \ int v) { return root(u) == root(v); }\n\n  int size(const int ver) { return\
+    \ -parent[root(ver)]; }\n\n  Abelian diff(const int u, const int v) { return weight(v)\
+    \ - weight(u); }\n\n private:\n  const Abelian ID;\n  std::vector<int> parent;\n\
+    \  std::vector<Abelian> data;\n\n  Abelian weight(const int ver) {\n    root(ver);\n\
+    \    return data[ver];\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/weighted_union-find.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/union-find/weighted_union-find.test.cpp

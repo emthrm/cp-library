@@ -2,57 +2,55 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/formal_power_series/polynomial_interpolation.hpp
     title: "\u591A\u9805\u5F0F\u88DC\u9593"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/formal_power_series/multipoint_evaluation.hpp\"\n#include\
-    \ <vector>\r\n\r\ntemplate <template <typename> class C, typename T>\r\nstruct\
-    \ MultipointEvaluation {\r\n  std::vector<T> f_x;\r\n  std::vector<C<T>> subproduct_tree;\r\
-    \n\r\n  explicit MultipointEvaluation(const std::vector<T> &xs)\r\n      : n(xs.size()),\
-    \ f_x(xs.size()), subproduct_tree(xs.size() << 1) {\r\n    for (int i = 0; i <\
-    \ n; ++i) {\r\n      subproduct_tree[i + n] = C<T>{-xs[i], 1};\r\n    }\r\n  \
-    \  for (int i = n - 1; i > 0; --i) {\r\n      subproduct_tree[i] =\r\n       \
-    \   subproduct_tree[i << 1] * subproduct_tree[(i << 1) + 1];\r\n    }\r\n  }\r\
-    \n\r\n  void build(const C<T>& f) { dfs(f, 1); }\r\n\r\n private:\r\n  const int\
-    \ n;\r\n\r\n  void dfs(C<T> f, int node) {\r\n    f %= subproduct_tree[node];\r\
-    \n    if (node < n) {\r\n      dfs(f, node << 1);\r\n      dfs(f, (node << 1)\
-    \ + 1);\r\n    } else {\r\n      f_x[node - n] = f[0];\r\n    }\r\n  }\r\n};\r\
-    \n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <template <typename> class\
-    \ C, typename T>\r\nstruct MultipointEvaluation {\r\n  std::vector<T> f_x;\r\n\
-    \  std::vector<C<T>> subproduct_tree;\r\n\r\n  explicit MultipointEvaluation(const\
-    \ std::vector<T> &xs)\r\n      : n(xs.size()), f_x(xs.size()), subproduct_tree(xs.size()\
-    \ << 1) {\r\n    for (int i = 0; i < n; ++i) {\r\n      subproduct_tree[i + n]\
-    \ = C<T>{-xs[i], 1};\r\n    }\r\n    for (int i = n - 1; i > 0; --i) {\r\n   \
-    \   subproduct_tree[i] =\r\n          subproduct_tree[i << 1] * subproduct_tree[(i\
-    \ << 1) + 1];\r\n    }\r\n  }\r\n\r\n  void build(const C<T>& f) { dfs(f, 1);\
-    \ }\r\n\r\n private:\r\n  const int n;\r\n\r\n  void dfs(C<T> f, int node) {\r\
-    \n    f %= subproduct_tree[node];\r\n    if (node < n) {\r\n      dfs(f, node\
-    \ << 1);\r\n      dfs(f, (node << 1) + 1);\r\n    } else {\r\n      f_x[node -\
-    \ n] = f[0];\r\n    }\r\n  }\r\n};\r\n"
+    \ <vector>\n\ntemplate <template <typename> class C, typename T>\nstruct MultipointEvaluation\
+    \ {\n  std::vector<T> f_x;\n  std::vector<C<T>> subproduct_tree;\n\n  explicit\
+    \ MultipointEvaluation(const std::vector<T> &xs)\n      : n(xs.size()), f_x(xs.size()),\
+    \ subproduct_tree(xs.size() << 1) {\n    for (int i = 0; i < n; ++i) {\n     \
+    \ subproduct_tree[i + n] = C<T>{-xs[i], 1};\n    }\n    for (int i = n - 1; i\
+    \ > 0; --i) {\n      subproduct_tree[i] =\n          subproduct_tree[i << 1] *\
+    \ subproduct_tree[(i << 1) + 1];\n    }\n  }\n\n  void build(const C<T>& f) {\
+    \ dfs(f, 1); }\n\n private:\n  const int n;\n\n  void dfs(C<T> f, int node) {\n\
+    \    f %= subproduct_tree[node];\n    if (node < n) {\n      dfs(f, node << 1);\n\
+    \      dfs(f, (node << 1) + 1);\n    } else {\n      f_x[node - n] = f[0];\n \
+    \   }\n  }\n};\n"
+  code: "#pragma once\n#include <vector>\n\ntemplate <template <typename> class C,\
+    \ typename T>\nstruct MultipointEvaluation {\n  std::vector<T> f_x;\n  std::vector<C<T>>\
+    \ subproduct_tree;\n\n  explicit MultipointEvaluation(const std::vector<T> &xs)\n\
+    \      : n(xs.size()), f_x(xs.size()), subproduct_tree(xs.size() << 1) {\n   \
+    \ for (int i = 0; i < n; ++i) {\n      subproduct_tree[i + n] = C<T>{-xs[i], 1};\n\
+    \    }\n    for (int i = n - 1; i > 0; --i) {\n      subproduct_tree[i] =\n  \
+    \        subproduct_tree[i << 1] * subproduct_tree[(i << 1) + 1];\n    }\n  }\n\
+    \n  void build(const C<T>& f) { dfs(f, 1); }\n\n private:\n  const int n;\n\n\
+    \  void dfs(C<T> f, int node) {\n    f %= subproduct_tree[node];\n    if (node\
+    \ < n) {\n      dfs(f, node << 1);\n      dfs(f, (node << 1) + 1);\n    } else\
+    \ {\n      f_x[node - n] = f[0];\n    }\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: math/formal_power_series/multipoint_evaluation.hpp
   requiredBy:
   - math/formal_power_series/polynomial_interpolation.hpp
-  timestamp: '2022-02-17 13:43:56+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
 documentation_of: math/formal_power_series/multipoint_evaluation.hpp
 layout: document
 title: multipoint evaluation

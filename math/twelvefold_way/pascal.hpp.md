@@ -3,37 +3,37 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/pascal.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\
       \u89D2\u5F62"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/binomial_coefficients.md
     document_title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/pascal.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62\r\n * @docs\
-    \ docs/math/twelvefold_way/binomial_coefficients.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>>\
-    \ pascal(const int n) {\r\n  std::vector<std::vector<T>> c(n + 1, std::vector<T>(n\
-    \ + 1, 0));\r\n  for (int i = 0; i <= n; ++i) {\r\n    c[i][0] = 1;\r\n    for\
-    \ (int j = 1; j <= i; ++j) {\r\n      c[i][j] = c[i - 1][j - 1] + c[i - 1][j];\r\
-    \n    }\r\n  }\r\n  return c;\r\n}\r\n"
+  code: "/**\n * @brief \u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62\n * @docs\
+    \ docs/math/twelvefold_way/binomial_coefficients.md\n */\n\n#pragma once\n#include\
+    \ <vector>\n\ntemplate <typename T>\nstd::vector<std::vector<T>> pascal(const\
+    \ int n) {\n  std::vector<std::vector<T>> c(n + 1, std::vector<T>(n + 1, 0));\n\
+    \  for (int i = 0; i <= n; ++i) {\n    c[i][0] = 1;\n    for (int j = 1; j <=\
+    \ i; ++j) {\n      c[i][j] = c[i - 1][j - 1] + c[i - 1][j];\n    }\n  }\n  return\
+    \ c;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/twelvefold_way/pascal.hpp
   requiredBy: []
-  timestamp: '2022-02-17 20:33:52+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/pascal.test.cpp
 documentation_of: math/twelvefold_way/pascal.hpp
@@ -45,7 +45,9 @@ title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
 ---
 # 二項係数 (binomial coefficients)
 
-$$\binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)!}$$
+$$
+  \binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)!}
+$$
 
 
 ## 時間計算量

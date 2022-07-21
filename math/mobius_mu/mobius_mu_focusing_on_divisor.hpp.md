@@ -3,41 +3,40 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570 \u7D04\u6570\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/mobius_mu/mobius_mu.md
     document_title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/mobius_mu/mobius_mu_focusing_on_divisor.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\r\
-    \n * @docs docs/math/mobius_mu/mobius_mu.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <map>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::map<T, int>\
-    \ mobius_mu_focusing_on_divisor(T n) {\r\n  std::vector<T> primes;\r\n  for (T\
-    \ i = 2; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n      primes.emplace_back(i);\r\
-    \n      while (n % i == 0) n /= i;\r\n    }\r\n  }\r\n  if (n > 1) primes.emplace_back(n);\r\
-    \n  const int p = primes.size();\r\n  std::map<T, int> mu;\r\n  for (int i = 0;\
-    \ i < (1 << p); ++i) {\r\n    T d = 1;\r\n    for (int j = 0; j < p; ++j) {\r\n\
-    \      if (i >> j & 1) d *= primes[j];\r\n    }\r\n    mu[d] = (__builtin_popcount(i)\
-    \ & 1 ? -1 : 1);\r\n  }\r\n  return mu;\r\n}\r\n"
+  code: "/**\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\n\
+    \ * @docs docs/math/mobius_mu/mobius_mu.md\n */\n\n#pragma once\n#include <map>\n\
+    #include <vector>\n\ntemplate <typename T>\nstd::map<T, int> mobius_mu_focusing_on_divisor(T\
+    \ n) {\n  std::vector<T> primes;\n  for (T i = 2; i * i <= n; ++i) {\n    if (n\
+    \ % i == 0) {\n      primes.emplace_back(i);\n      while (n % i == 0) n /= i;\n\
+    \    }\n  }\n  if (n > 1) primes.emplace_back(n);\n  const int p = primes.size();\n\
+    \  std::map<T, int> mu;\n  for (int i = 0; i < (1 << p); ++i) {\n    T d = 1;\n\
+    \    for (int j = 0; j < p; ++j) {\n      if (i >> j & 1) d *= primes[j];\n  \
+    \  }\n    mu[d] = (__builtin_popcount(i) & 1 ? -1 : 1);\n  }\n  return mu;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_focusing_on_divisor.hpp
   requiredBy: []
-  timestamp: '2022-02-17 00:01:08+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
 documentation_of: math/mobius_mu/mobius_mu_focusing_on_divisor.hpp
@@ -51,20 +50,36 @@ title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\mu(n) \mathrel{:=} \begin{cases} 0 & (\exists p \in \mathbb{P},\ n \equiv 0 \pmod{p^2}), \\ (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise}) \end{cases}$$
+$$
+  \mu(n) \mathrel{:=}
+  \begin{cases}
+    0 & (\exists p \in \mathbb{P},\ n \equiv 0 \pmod{p^2}), \\
+    (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise})
+  \end{cases}
+$$
 
 で定義される $\mu(n)$ である．
 
-- $$\forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,$$
+- $$
+    \forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,
+  $$
 
-- $$\mu(mn) = \begin{cases} \mu(m) \mu(n) & (m \perp n), \\ 0 & (\text{otherwise}) \end{cases}$$
+- $$
+    \mu(mn) =
+    \begin{cases}
+      \mu(m) \mu(n) & (m \perp n), \\
+      0 & (\text{otherwise})
+    \end{cases}
+  $$
 
 が成り立つ．
 
 
 ### メビウスの反転公式 (Möbius inversion formula)
 
-$$f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right)$$
+$$
+  f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right)
+$$
 
 
 ## 時間計算量

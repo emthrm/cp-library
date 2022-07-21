@@ -12,79 +12,73 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"graph/shortest_path/warshall-floyd.hpp\"\n#include <algorithm>\r\
-    \n#include <iterator>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstruct\
-    \ WarshallFloyd {\r\n  std::vector<std::vector<T>> graph, dist;\r\n\r\n  WarshallFloyd(const\
-    \ std::vector<std::vector<T>>& graph, const T inf)\r\n      : graph(graph), dist(graph),\
-    \ inf(inf), n(graph.size()),\r\n        internal(n, std::vector<int>(n, -1)) {\r\
-    \n    for (int k = 0; k < n; ++k) {\r\n      for (int i = 0; i < n; ++i) {\r\n\
-    \        for (int j = 0; j < n; ++j) {\r\n          if (dist[i][k] + dist[k][j]\
-    \ < dist[i][j]) {\r\n            dist[i][j] = dist[i][k] + dist[k][j];\r\n   \
-    \         internal[i][j] = k;\r\n          }\r\n        }\r\n      }\r\n    }\r\
-    \n  }\r\n\r\n  void add(const int src, const int dst, const T cost) {\r\n    srcs.emplace_back(src);\r\
-    \n    dsts.emplace_back(dst);\r\n    costs.emplace_back(cost);\r\n  }\r\n\r\n\
-    \  void calc() {\r\n    const int m = srcs.size();\r\n    for (int i = 0; i <\
-    \ m; ++i) {\r\n      graph[srcs[i]][dsts[i]] = std::min(graph[srcs[i]][dsts[i]],\
-    \ costs[i]);\r\n      if (costs[i] <= dist[srcs[i]][dsts[i]]) {\r\n        dist[srcs[i]][dsts[i]]\
-    \ = costs[i];\r\n        internal[srcs[i]][dsts[i]] = -1;\r\n      }\r\n    }\r\
-    \n    std::vector<int> vers(m * 2);\r\n    std::copy(srcs.begin(), srcs.end(),\
-    \ vers.begin());\r\n    std::copy(dsts.begin(), dsts.end(), std::next(vers.begin(),\
-    \ m));\r\n    std::sort(vers.begin(), vers.end());\r\n    vers.erase(std::unique(vers.begin(),\
-    \ vers.end()), vers.end());\r\n    for (const int ver : vers) {\r\n      for (int\
-    \ i = 0; i < n; ++i) {\r\n        for (int j = 0; j < n; ++j) {\r\n          if\
-    \ (dist[i][j] > dist[i][ver] + dist[ver][j]) {\r\n            dist[i][j] = dist[i][ver]\
-    \ + dist[ver][j];\r\n            internal[i][j] = ver;\r\n          }\r\n    \
-    \    }\r\n      }\r\n    }\r\n    srcs.clear();\r\n    dsts.clear();\r\n    costs.clear();\r\
-    \n  }\r\n\r\n  bool has_negative_cycle() const {\r\n    for (int i = 0; i < n;\
-    \ ++i) {\r\n      if (dist[i][i] < 0) return true;\r\n    }\r\n    return false;\r\
-    \n  }\r\n\r\n  std::vector<int> build_path(const int s, const int t) const {\r\
-    \n    std::vector<int> res;\r\n    if (dist[s][t] != inf) {\r\n      build_path(s,\
-    \ t, &res);\r\n      res.emplace_back(t);\r\n    }\r\n    return res;\r\n  }\r\
-    \n\r\n private:\r\n  const T inf;\r\n  const int n;\r\n  std::vector<int> srcs,\
-    \ dsts;\r\n  std::vector<T> costs;\r\n  std::vector<std::vector<int>> internal;\r\
-    \n\r\n  void build_path(const int s, const int t, std::vector<int>* path) const\
-    \ {\r\n    const int k = internal[s][t];\r\n    if (k == -1) {\r\n      (*path).emplace_back(s);\r\
-    \n    } else {\r\n      build_path(s, k, path);\r\n      build_path(k, t, path);\r\
-    \n    }\r\n  }\r\n};\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstruct WarshallFloyd {\r\n  std::vector<std::vector<T>>\
-    \ graph, dist;\r\n\r\n  WarshallFloyd(const std::vector<std::vector<T>>& graph,\
-    \ const T inf)\r\n      : graph(graph), dist(graph), inf(inf), n(graph.size()),\r\
-    \n        internal(n, std::vector<int>(n, -1)) {\r\n    for (int k = 0; k < n;\
-    \ ++k) {\r\n      for (int i = 0; i < n; ++i) {\r\n        for (int j = 0; j <\
-    \ n; ++j) {\r\n          if (dist[i][k] + dist[k][j] < dist[i][j]) {\r\n     \
-    \       dist[i][j] = dist[i][k] + dist[k][j];\r\n            internal[i][j] =\
-    \ k;\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n\r\n  void add(const\
-    \ int src, const int dst, const T cost) {\r\n    srcs.emplace_back(src);\r\n \
-    \   dsts.emplace_back(dst);\r\n    costs.emplace_back(cost);\r\n  }\r\n\r\n  void\
-    \ calc() {\r\n    const int m = srcs.size();\r\n    for (int i = 0; i < m; ++i)\
-    \ {\r\n      graph[srcs[i]][dsts[i]] = std::min(graph[srcs[i]][dsts[i]], costs[i]);\r\
-    \n      if (costs[i] <= dist[srcs[i]][dsts[i]]) {\r\n        dist[srcs[i]][dsts[i]]\
-    \ = costs[i];\r\n        internal[srcs[i]][dsts[i]] = -1;\r\n      }\r\n    }\r\
-    \n    std::vector<int> vers(m * 2);\r\n    std::copy(srcs.begin(), srcs.end(),\
-    \ vers.begin());\r\n    std::copy(dsts.begin(), dsts.end(), std::next(vers.begin(),\
-    \ m));\r\n    std::sort(vers.begin(), vers.end());\r\n    vers.erase(std::unique(vers.begin(),\
-    \ vers.end()), vers.end());\r\n    for (const int ver : vers) {\r\n      for (int\
-    \ i = 0; i < n; ++i) {\r\n        for (int j = 0; j < n; ++j) {\r\n          if\
-    \ (dist[i][j] > dist[i][ver] + dist[ver][j]) {\r\n            dist[i][j] = dist[i][ver]\
-    \ + dist[ver][j];\r\n            internal[i][j] = ver;\r\n          }\r\n    \
-    \    }\r\n      }\r\n    }\r\n    srcs.clear();\r\n    dsts.clear();\r\n    costs.clear();\r\
-    \n  }\r\n\r\n  bool has_negative_cycle() const {\r\n    for (int i = 0; i < n;\
-    \ ++i) {\r\n      if (dist[i][i] < 0) return true;\r\n    }\r\n    return false;\r\
-    \n  }\r\n\r\n  std::vector<int> build_path(const int s, const int t) const {\r\
-    \n    std::vector<int> res;\r\n    if (dist[s][t] != inf) {\r\n      build_path(s,\
-    \ t, &res);\r\n      res.emplace_back(t);\r\n    }\r\n    return res;\r\n  }\r\
-    \n\r\n private:\r\n  const T inf;\r\n  const int n;\r\n  std::vector<int> srcs,\
-    \ dsts;\r\n  std::vector<T> costs;\r\n  std::vector<std::vector<int>> internal;\r\
-    \n\r\n  void build_path(const int s, const int t, std::vector<int>* path) const\
-    \ {\r\n    const int k = internal[s][t];\r\n    if (k == -1) {\r\n      (*path).emplace_back(s);\r\
-    \n    } else {\r\n      build_path(s, k, path);\r\n      build_path(k, t, path);\r\
-    \n    }\r\n  }\r\n};\r\n"
+  bundledCode: "#line 2 \"graph/shortest_path/warshall-floyd.hpp\"\n#include <algorithm>\n\
+    #include <iterator>\n#include <vector>\n\ntemplate <typename T>\nstruct WarshallFloyd\
+    \ {\n  std::vector<std::vector<T>> graph, dist;\n\n  WarshallFloyd(const std::vector<std::vector<T>>&\
+    \ graph, const T inf)\n      : graph(graph), dist(graph), inf(inf), n(graph.size()),\n\
+    \        internal(n, std::vector<int>(n, -1)) {\n    for (int k = 0; k < n; ++k)\
+    \ {\n      for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < n; ++j)\
+    \ {\n          if (dist[i][k] + dist[k][j] < dist[i][j]) {\n            dist[i][j]\
+    \ = dist[i][k] + dist[k][j];\n            internal[i][j] = k;\n          }\n \
+    \       }\n      }\n    }\n  }\n\n  void add(const int src, const int dst, const\
+    \ T cost) {\n    srcs.emplace_back(src);\n    dsts.emplace_back(dst);\n    costs.emplace_back(cost);\n\
+    \  }\n\n  void calc() {\n    const int m = srcs.size();\n    for (int i = 0; i\
+    \ < m; ++i) {\n      graph[srcs[i]][dsts[i]] = std::min(graph[srcs[i]][dsts[i]],\
+    \ costs[i]);\n      if (costs[i] <= dist[srcs[i]][dsts[i]]) {\n        dist[srcs[i]][dsts[i]]\
+    \ = costs[i];\n        internal[srcs[i]][dsts[i]] = -1;\n      }\n    }\n    std::vector<int>\
+    \ vers(m * 2);\n    std::copy(srcs.begin(), srcs.end(), vers.begin());\n    std::copy(dsts.begin(),\
+    \ dsts.end(), std::next(vers.begin(), m));\n    std::sort(vers.begin(), vers.end());\n\
+    \    vers.erase(std::unique(vers.begin(), vers.end()), vers.end());\n    for (const\
+    \ int ver : vers) {\n      for (int i = 0; i < n; ++i) {\n        for (int j =\
+    \ 0; j < n; ++j) {\n          if (dist[i][j] > dist[i][ver] + dist[ver][j]) {\n\
+    \            dist[i][j] = dist[i][ver] + dist[ver][j];\n            internal[i][j]\
+    \ = ver;\n          }\n        }\n      }\n    }\n    srcs.clear();\n    dsts.clear();\n\
+    \    costs.clear();\n  }\n\n  bool has_negative_cycle() const {\n    for (int\
+    \ i = 0; i < n; ++i) {\n      if (dist[i][i] < 0) return true;\n    }\n    return\
+    \ false;\n  }\n\n  std::vector<int> build_path(const int s, const int t) const\
+    \ {\n    std::vector<int> res;\n    if (dist[s][t] != inf) {\n      build_path(s,\
+    \ t, &res);\n      res.emplace_back(t);\n    }\n    return res;\n  }\n\n private:\n\
+    \  const T inf;\n  const int n;\n  std::vector<int> srcs, dsts;\n  std::vector<T>\
+    \ costs;\n  std::vector<std::vector<int>> internal;\n\n  void build_path(const\
+    \ int s, const int t, std::vector<int>* path) const {\n    const int k = internal[s][t];\n\
+    \    if (k == -1) {\n      (*path).emplace_back(s);\n    } else {\n      build_path(s,\
+    \ k, path);\n      build_path(k, t, path);\n    }\n  }\n};\n"
+  code: "#pragma once\n#include <algorithm>\n#include <iterator>\n#include <vector>\n\
+    \ntemplate <typename T>\nstruct WarshallFloyd {\n  std::vector<std::vector<T>>\
+    \ graph, dist;\n\n  WarshallFloyd(const std::vector<std::vector<T>>& graph, const\
+    \ T inf)\n      : graph(graph), dist(graph), inf(inf), n(graph.size()),\n    \
+    \    internal(n, std::vector<int>(n, -1)) {\n    for (int k = 0; k < n; ++k) {\n\
+    \      for (int i = 0; i < n; ++i) {\n        for (int j = 0; j < n; ++j) {\n\
+    \          if (dist[i][k] + dist[k][j] < dist[i][j]) {\n            dist[i][j]\
+    \ = dist[i][k] + dist[k][j];\n            internal[i][j] = k;\n          }\n \
+    \       }\n      }\n    }\n  }\n\n  void add(const int src, const int dst, const\
+    \ T cost) {\n    srcs.emplace_back(src);\n    dsts.emplace_back(dst);\n    costs.emplace_back(cost);\n\
+    \  }\n\n  void calc() {\n    const int m = srcs.size();\n    for (int i = 0; i\
+    \ < m; ++i) {\n      graph[srcs[i]][dsts[i]] = std::min(graph[srcs[i]][dsts[i]],\
+    \ costs[i]);\n      if (costs[i] <= dist[srcs[i]][dsts[i]]) {\n        dist[srcs[i]][dsts[i]]\
+    \ = costs[i];\n        internal[srcs[i]][dsts[i]] = -1;\n      }\n    }\n    std::vector<int>\
+    \ vers(m * 2);\n    std::copy(srcs.begin(), srcs.end(), vers.begin());\n    std::copy(dsts.begin(),\
+    \ dsts.end(), std::next(vers.begin(), m));\n    std::sort(vers.begin(), vers.end());\n\
+    \    vers.erase(std::unique(vers.begin(), vers.end()), vers.end());\n    for (const\
+    \ int ver : vers) {\n      for (int i = 0; i < n; ++i) {\n        for (int j =\
+    \ 0; j < n; ++j) {\n          if (dist[i][j] > dist[i][ver] + dist[ver][j]) {\n\
+    \            dist[i][j] = dist[i][ver] + dist[ver][j];\n            internal[i][j]\
+    \ = ver;\n          }\n        }\n      }\n    }\n    srcs.clear();\n    dsts.clear();\n\
+    \    costs.clear();\n  }\n\n  bool has_negative_cycle() const {\n    for (int\
+    \ i = 0; i < n; ++i) {\n      if (dist[i][i] < 0) return true;\n    }\n    return\
+    \ false;\n  }\n\n  std::vector<int> build_path(const int s, const int t) const\
+    \ {\n    std::vector<int> res;\n    if (dist[s][t] != inf) {\n      build_path(s,\
+    \ t, &res);\n      res.emplace_back(t);\n    }\n    return res;\n  }\n\n private:\n\
+    \  const T inf;\n  const int n;\n  std::vector<int> srcs, dsts;\n  std::vector<T>\
+    \ costs;\n  std::vector<std::vector<int>> internal;\n\n  void build_path(const\
+    \ int s, const int t, std::vector<int>* path) const {\n    const int k = internal[s][t];\n\
+    \    if (k == -1) {\n      (*path).emplace_back(s);\n    } else {\n      build_path(s,\
+    \ k, path);\n      build_path(k, t, path);\n    }\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/shortest_path/warshall-floyd.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/shortest_path/warshall-floyd.test.cpp

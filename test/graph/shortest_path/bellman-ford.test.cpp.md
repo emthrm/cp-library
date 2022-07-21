@@ -19,34 +19,33 @@ data:
       Ford \u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013\
-    Ford \u6CD5\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../../graph/edge.hpp\"\
-    \r\n#include \"../../../graph/shortest_path/bellman-ford.hpp\"\r\n\r\nint main()\
-    \ {\r\n  int v, e, r;\r\n  std::cin >> v >> e >> r;\r\n  std::vector<std::vector<Edge<long\
-    \ long>>> graph(v);\r\n  while (e--) {\r\n    int s, t, d;\r\n    std::cin >>\
-    \ s >> t >> d;\r\n    graph[s].emplace_back(s, t, d);\r\n  }\r\n  BellmanFord<long\
-    \ long> bellman_ford(graph);\r\n  if (bellman_ford.has_negative_cycle(r)) {\r\n\
-    \    std::cout << \"NEGATIVE CYCLE\\n\";\r\n    return 0;\r\n  }\r\n  for (int\
-    \ i = 0; i < v; ++i) {\r\n    if (bellman_ford.dist[i] == bellman_ford.inf) {\r\
-    \n      std::cout << \"INF\\n\";\r\n    } else {\r\n      std::cout << bellman_ford.dist[i]\
-    \ << '\\n';\r\n    }\r\n  }\r\n  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Bellman\u2013\
+    Ford \u6CD5\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B\"\
+    \n\n#include <iostream>\n#include <vector>\n\n#include \"../../../graph/edge.hpp\"\
+    \n#include \"../../../graph/shortest_path/bellman-ford.hpp\"\n\nint main() {\n\
+    \  int v, e, r;\n  std::cin >> v >> e >> r;\n  std::vector<std::vector<Edge<long\
+    \ long>>> graph(v);\n  while (e--) {\n    int s, t, d;\n    std::cin >> s >> t\
+    \ >> d;\n    graph[s].emplace_back(s, t, d);\n  }\n  BellmanFord<long long> bellman_ford(graph);\n\
+    \  if (bellman_ford.has_negative_cycle(r)) {\n    std::cout << \"NEGATIVE CYCLE\\\
+    n\";\n    return 0;\n  }\n  for (int i = 0; i < v; ++i) {\n    if (bellman_ford.dist[i]\
+    \ == bellman_ford.inf) {\n      std::cout << \"INF\\n\";\n    } else {\n     \
+    \ std::cout << bellman_ford.dist[i] << '\\n';\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - graph/edge.hpp
   - graph/shortest_path/bellman-ford.hpp
   isVerificationFile: true
   path: test/graph/shortest_path/bellman-ford.test.cpp
   requiredBy: []
-  timestamp: '2022-02-27 15:05:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/shortest_path/bellman-ford.test.cpp

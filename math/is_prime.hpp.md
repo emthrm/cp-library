@@ -3,26 +3,26 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_prime.test.cpp
     title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/is_prime.hpp\"\n\r\nbool is_prime(const long long n)\
-    \ {\r\n  if (n <= 1) return false;\r\n  for (long long i = 2; i * i <= n; ++i)\
-    \ {\r\n    if (n % i == 0) return false;\r\n  }\r\n  return true;\r\n}\r\n"
-  code: "#pragma once\r\n\r\nbool is_prime(const long long n) {\r\n  if (n <= 1) return\
-    \ false;\r\n  for (long long i = 2; i * i <= n; ++i) {\r\n    if (n % i == 0)\
-    \ return false;\r\n  }\r\n  return true;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/is_prime.hpp\"\n\nbool is_prime(const long long n)\
+    \ {\n  if (n <= 1) return false;\n  for (long long i = 2; i * i <= n; ++i) {\n\
+    \    if (n % i == 0) return false;\n  }\n  return true;\n}\n"
+  code: "#pragma once\n\nbool is_prime(const long long n) {\n  if (n <= 1) return\
+    \ false;\n  for (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return\
+    \ false;\n  }\n  return true;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/is_prime.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/is_prime.test.cpp
 documentation_of: math/is_prime.hpp

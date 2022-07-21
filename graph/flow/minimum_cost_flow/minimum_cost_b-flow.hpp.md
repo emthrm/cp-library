@@ -15,64 +15,59 @@ data:
     document_title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC\
       \ \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC\
-    \ \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248\r\n * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <cassert>\r\n#include\
-    \ <functional>\r\n#include <limits>\r\n#include <numeric>\r\n#include <queue>\r\
-    \n#include <tuple>\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T, typename U>\r\nstruct MinimumCostBFlow {\r\n  struct Edge {\r\n\
-    \    int dst, rev;\r\n    T cap;\r\n    U cost;\r\n    explicit Edge(const int\
-    \ dst, const T cap, const U cost, const int rev)\r\n        : dst(dst), cap(cap),\
-    \ cost(cost), rev(rev) {}\r\n  };\r\n\r\n  const U uinf;\r\n  std::vector<std::vector<Edge>>\
-    \ graph;\r\n\r\n  explicit MinimumCostBFlow(const int n,\r\n                 \
-    \           const U uinf = std::numeric_limits<U>::max())\r\n      : uinf(uinf),\
-    \ graph(n + 2), n(n), res(0), b(n + 2, 0) {}\r\n\r\n  void add_edge(int src, int\
-    \ dst, const T cap, U cost) {\r\n    if (cost < 0) {\r\n      b[src] -= cap;\r\
-    \n      b[dst] += cap;\r\n      res += cost * cap;\r\n      std::swap(src, dst);\r\
-    \n      cost = -cost;\r\n    }\r\n    graph[src].emplace_back(dst, cap, cost,\
-    \ graph[dst].size());\r\n    graph[dst].emplace_back(src, 0, -cost, graph[src].size()\
-    \ - 1);\r\n  }\r\n\r\n  void supply_or_demand(const int ver, const T amount) {\
-    \ b[ver] += amount; }\r\n\r\n  U solve() {\r\n    assert(std::accumulate(b.begin(),\
-    \ b.end(), static_cast<T>(0)) == 0);\r\n    T flow = 0;\r\n    for (int i = 0;\
-    \ i < n; ++i) {\r\n      if (b[i] > 0) {\r\n        add_edge(n, i, b[i], 0);\r\
-    \n        flow += b[i];\r\n      } else if (b[i] < 0) {\r\n        add_edge(i,\
-    \ n + 1, -b[i], 0);\r\n      }\r\n    }\r\n    std::vector<int> prev_v(n + 2,\
-    \ -1), prev_e(n + 2, -1);\r\n    std::vector<U> dist(n + 2), potential(n + 2,\
-    \ 0);\r\n    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U, int>>,\r\
-    \n                        std::greater<std::pair<U, int>>> que;\r\n    while (flow\
-    \ > 0) {\r\n      std::fill(dist.begin(), dist.end(), uinf);\r\n      dist[n]\
-    \ = 0;\r\n      que.emplace(0, n);\r\n      while (!que.empty()) {\r\n       \
-    \ U d;\r\n        int ver;\r\n        std::tie(d, ver) = que.top();\r\n      \
-    \  que.pop();\r\n        if (d > dist[ver]) continue;\r\n        for (int i =\
-    \ 0; i < graph[ver].size(); ++i) {\r\n          const Edge& e = graph[ver][i];\r\
-    \n          const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];\r\
-    \n          if (e.cap > 0 && dist[e.dst] > nxt) {\r\n            dist[e.dst] =\
-    \ nxt;\r\n            prev_v[e.dst] = ver;\r\n            prev_e[e.dst] = i;\r\
-    \n            que.emplace(dist[e.dst], e.dst);\r\n          }\r\n        }\r\n\
-    \      }\r\n      if (dist[n + 1] == uinf) return uinf;\r\n      for (int i =\
-    \ 0; i < n + 2; ++i) {\r\n        if (dist[i] != uinf) potential[i] += dist[i];\r\
-    \n      }\r\n      T f = flow;\r\n      for (int v = n + 1; v != n; v = prev_v[v])\
-    \ {\r\n        f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);\r\n      }\r\n\
-    \      flow -= f;\r\n      res += potential[n + 1] * f;\r\n      for (int v =\
-    \ n + 1; v != n; v = prev_v[v]) {\r\n        Edge& e = graph[prev_v[v]][prev_e[v]];\r\
-    \n        e.cap -= f;\r\n        graph[v][e.rev].cap += f;\r\n      }\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n  U solve(const int s, const int t, const T flow)\
-    \ {\r\n    supply_or_demand(s, flow);\r\n    supply_or_demand(t, -flow);\r\n \
-    \   return solve();\r\n  }\r\n\r\n private:\r\n  int n;\r\n  U res;\r\n  std::vector<T>\
-    \ b;\r\n};\r\n"
+  code: "/**\n * @brief \u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC\
+    \ \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248\n * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <cassert>\n#include <functional>\n\
+    #include <limits>\n#include <numeric>\n#include <queue>\n#include <tuple>\n#include\
+    \ <utility>\n#include <vector>\n\ntemplate <typename T, typename U>\nstruct MinimumCostBFlow\
+    \ {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    U cost;\n    explicit\
+    \ Edge(const int dst, const T cap, const U cost, const int rev)\n        : dst(dst),\
+    \ cap(cap), cost(cost), rev(rev) {}\n  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>>\
+    \ graph;\n\n  explicit MinimumCostBFlow(const int n,\n                       \
+    \     const U uinf = std::numeric_limits<U>::max())\n      : uinf(uinf), graph(n\
+    \ + 2), n(n), res(0), b(n + 2, 0) {}\n\n  void add_edge(int src, int dst, const\
+    \ T cap, U cost) {\n    if (cost < 0) {\n      b[src] -= cap;\n      b[dst] +=\
+    \ cap;\n      res += cost * cap;\n      std::swap(src, dst);\n      cost = -cost;\n\
+    \    }\n    graph[src].emplace_back(dst, cap, cost, graph[dst].size());\n    graph[dst].emplace_back(src,\
+    \ 0, -cost, graph[src].size() - 1);\n  }\n\n  void supply_or_demand(const int\
+    \ ver, const T amount) { b[ver] += amount; }\n\n  U solve() {\n    assert(std::accumulate(b.begin(),\
+    \ b.end(), static_cast<T>(0)) == 0);\n    T flow = 0;\n    for (int i = 0; i <\
+    \ n; ++i) {\n      if (b[i] > 0) {\n        add_edge(n, i, b[i], 0);\n       \
+    \ flow += b[i];\n      } else if (b[i] < 0) {\n        add_edge(i, n + 1, -b[i],\
+    \ 0);\n      }\n    }\n    std::vector<int> prev_v(n + 2, -1), prev_e(n + 2, -1);\n\
+    \    std::vector<U> dist(n + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U,\
+    \ int>, std::vector<std::pair<U, int>>,\n                        std::greater<std::pair<U,\
+    \ int>>> que;\n    while (flow > 0) {\n      std::fill(dist.begin(), dist.end(),\
+    \ uinf);\n      dist[n] = 0;\n      que.emplace(0, n);\n      while (!que.empty())\
+    \ {\n        U d;\n        int ver;\n        std::tie(d, ver) = que.top();\n \
+    \       que.pop();\n        if (d > dist[ver]) continue;\n        for (int i =\
+    \ 0; i < graph[ver].size(); ++i) {\n          const Edge& e = graph[ver][i];\n\
+    \          const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];\n\
+    \          if (e.cap > 0 && dist[e.dst] > nxt) {\n            dist[e.dst] = nxt;\n\
+    \            prev_v[e.dst] = ver;\n            prev_e[e.dst] = i;\n          \
+    \  que.emplace(dist[e.dst], e.dst);\n          }\n        }\n      }\n      if\
+    \ (dist[n + 1] == uinf) return uinf;\n      for (int i = 0; i < n + 2; ++i) {\n\
+    \        if (dist[i] != uinf) potential[i] += dist[i];\n      }\n      T f = flow;\n\
+    \      for (int v = n + 1; v != n; v = prev_v[v]) {\n        f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);\n\
+    \      }\n      flow -= f;\n      res += potential[n + 1] * f;\n      for (int\
+    \ v = n + 1; v != n; v = prev_v[v]) {\n        Edge& e = graph[prev_v[v]][prev_e[v]];\n\
+    \        e.cap -= f;\n        graph[v][e.rev].cap += f;\n      }\n    }\n    return\
+    \ res;\n  }\n\n  U solve(const int s, const int t, const T flow) {\n    supply_or_demand(s,\
+    \ flow);\n    supply_or_demand(t, -flow);\n    return solve();\n  }\n\n private:\n\
+    \  int n;\n  U res;\n  std::vector<T> b;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp

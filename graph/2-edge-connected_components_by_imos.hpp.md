@@ -21,45 +21,45 @@ data:
     document_title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\
       \u3082\u3059\u6CD5\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/2-edge-connected_components_by_imos.hpp: line 6: #pragma once found in\
     \ a non-first line\n"
-  code: "/**\r\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\
-    \u3082\u3059\u6CD5\u7248\r\n * @docs docs/graph/2-edge-connected_components.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <set>\r\n#include\
-    \ <queue>\r\n#include <utility>\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\
-    \r\n#include \"./enumerate_bridges.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nstruct TwoEdgeConnectedComponentsByImos {\r\n  std::vector<int> id;\r\n  std::vector<Edge<CostType>>\
-    \ bridge;\r\n  std::vector<std::vector<int>> vertices;\r\n  std::vector<std::vector<Edge<CostType>>>\
-    \ g;\r\n\r\n  explicit TwoEdgeConnectedComponentsByImos(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\r\n      const bool is_full_ver = false)\r\n      : bridge(enumerate_bridges(graph))\
-    \ {\r\n    const int n = graph.size();\r\n    id.assign(n, -1);\r\n    std::set<std::pair<int,\
-    \ int>> st;\r\n    for (const Edge<CostType>& e : bridge) st.emplace(e.src, e.dst);\r\
-    \n    int m = 0;\r\n    std::queue<int> que;\r\n    for (int i = 0; i < n; ++i)\
-    \ {\r\n      if (id[i] != -1) continue;\r\n      que.emplace(i);\r\n      id[i]\
-    \ = m++;\r\n      if (is_full_ver) vertices.emplace_back(std::vector<int>{i});\r\
-    \n      while (!que.empty()) {\r\n        const int ver = que.front();\r\n   \
-    \     que.pop();\r\n        for (const Edge<CostType>& e : graph[ver]) {\r\n \
-    \         if (id[e.dst] == -1 && !st.count(std::minmax(ver, e.dst))) {\r\n   \
-    \         id[e.dst] = id[i];\r\n            if (is_full_ver) vertices.back().emplace_back(e.dst);\r\
-    \n            que.emplace(e.dst);\r\n          }\r\n        }\r\n      }\r\n \
-    \   }\r\n    g.resize(m);\r\n    for (const Edge<CostType>& e : bridge) {\r\n\
-    \      const int u = id[e.src], v = id[e.dst];\r\n      g[u].emplace_back(u, v,\
-    \ e.cost);\r\n      g[v].emplace_back(v, u, e.cost);\r\n    }\r\n    if (is_full_ver)\
-    \ {\r\n      for (int i = 0; i < m; ++i) {\r\n        std::sort(vertices[i].begin(),\
-    \ vertices[i].end());\r\n      }\r\n    }\r\n  }\r\n};\r\n"
+  code: "/**\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\
+    \u3082\u3059\u6CD5\u7248\n * @docs docs/graph/2-edge-connected_components.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <set>\n#include <queue>\n\
+    #include <utility>\n#include <vector>\n\n#include \"./edge.hpp\"\n#include \"\
+    ./enumerate_bridges.hpp\"\n\ntemplate <typename CostType>\nstruct TwoEdgeConnectedComponentsByImos\
+    \ {\n  std::vector<int> id;\n  std::vector<Edge<CostType>> bridge;\n  std::vector<std::vector<int>>\
+    \ vertices;\n  std::vector<std::vector<Edge<CostType>>> g;\n\n  explicit TwoEdgeConnectedComponentsByImos(\n\
+    \      const std::vector<std::vector<Edge<CostType>>>& graph,\n      const bool\
+    \ is_full_ver = false)\n      : bridge(enumerate_bridges(graph)) {\n    const\
+    \ int n = graph.size();\n    id.assign(n, -1);\n    std::set<std::pair<int, int>>\
+    \ st;\n    for (const Edge<CostType>& e : bridge) st.emplace(e.src, e.dst);\n\
+    \    int m = 0;\n    std::queue<int> que;\n    for (int i = 0; i < n; ++i) {\n\
+    \      if (id[i] != -1) continue;\n      que.emplace(i);\n      id[i] = m++;\n\
+    \      if (is_full_ver) vertices.emplace_back(std::vector<int>{i});\n      while\
+    \ (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
+    \        for (const Edge<CostType>& e : graph[ver]) {\n          if (id[e.dst]\
+    \ == -1 && !st.count(std::minmax(ver, e.dst))) {\n            id[e.dst] = id[i];\n\
+    \            if (is_full_ver) vertices.back().emplace_back(e.dst);\n         \
+    \   que.emplace(e.dst);\n          }\n        }\n      }\n    }\n    g.resize(m);\n\
+    \    for (const Edge<CostType>& e : bridge) {\n      const int u = id[e.src],\
+    \ v = id[e.dst];\n      g[u].emplace_back(u, v, e.cost);\n      g[v].emplace_back(v,\
+    \ u, e.cost);\n    }\n    if (is_full_ver) {\n      for (int i = 0; i < m; ++i)\
+    \ {\n        std::sort(vertices[i].begin(), vertices[i].end());\n      }\n   \
+    \ }\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   - graph/enumerate_bridges.hpp
   isVerificationFile: false
   path: graph/2-edge-connected_components_by_imos.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/2-edge-connected_components_by_imos.test.cpp

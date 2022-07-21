@@ -21,10 +21,10 @@ data:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/segment_tree.hpp: line 6: #pragma once found in a non-first line\n"
@@ -75,9 +75,9 @@ data:
   timestamp: '2022-02-16 15:47:44+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/segment_tree.test.cpp
-  - test/data_structure/range_minimum_query.test.cpp
   - test/data_structure/range_sum_query.test.cpp
+  - test/data_structure/range_minimum_query.test.cpp
+  - test/data_structure/segment_tree.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document
 redirect_from:
@@ -222,6 +222,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_1.html
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
   - https://onlinejudge.u-aizu.ac.jp/problems/0427
+  - https://atcoder.jp/contests/abc256/tasks/abc256_h
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html

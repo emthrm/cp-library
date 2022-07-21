@@ -11,74 +11,69 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"data_structure/slope_trick.hpp\"\n#include <cassert>\r\n\
-    #include <functional>\r\n#include <limits>\r\n#include <numeric>\r\n#include <queue>\r\
-    \n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstruct\
-    \ SlopeTrick {\r\n  const T inf;\r\n\r\n  explicit SlopeTrick(\r\n      const\
-    \ T min_f = 0, const T inf = std::numeric_limits<T>::max())\r\n      : added_l(0),\
-    \ added_r(0), min_f(min_f), inf(inf) {}\r\n\r\n  T min() const { return min_f;\
-    \ }\r\n  std::pair<T, T> argmin() const { return {top_l(), top_r()}; }\r\n\r\n\
-    \  template <typename U>\r\n  U f(const U x) {\r\n    U f_x = min_f;\r\n    std::vector<T>\
-    \ tmp;\r\n    for (; top_l() > x; l.pop()) {\r\n      const T t = top_l();\r\n\
-    \      f_x += t - x;\r\n      tmp.emplace_back(t);\r\n    }\r\n    for (; !tmp.empty();\
-    \ tmp.pop_back()) {\r\n      emplace_l(tmp.back());\r\n    }\r\n    for (; top_r()\
-    \ < x; r.pop()) {\r\n      const T t = top_r();\r\n      f_x += x - t;\r\n   \
-    \   tmp.emplace_back(t);\r\n    }\r\n    for (; !tmp.empty(); tmp.pop_back())\
-    \ {\r\n      emplace_r(tmp.back());\r\n    }\r\n    return f_x;\r\n  }\r\n\r\n\
-    \  void constant_function(const T c) { min_f += c; }\r\n\r\n  void x_minus_a(const\
-    \ T a) {\r\n    const T t = top_l();\r\n    if (t <= a) {\r\n      emplace_r(a);\r\
-    \n    } else {\r\n      min_f += t - a;\r\n      emplace_l(a);\r\n      l.pop();\r\
-    \n      emplace_r(t);\r\n    }\r\n  }\r\n\r\n  void a_minus_x(const T a) {\r\n\
-    \    const T t = top_r();\r\n    if (a <= t) {\r\n      emplace_l(a);\r\n    }\
-    \ else {\r\n      min_f += a - t;\r\n      emplace_r(a);\r\n      r.pop();\r\n\
-    \      emplace_l(t);\r\n    }\r\n  }\r\n\r\n  void abs_x_minus_a(const T a) {\r\
-    \n    x_minus_a(a);\r\n    a_minus_x(a);\r\n  }\r\n\r\n  void cumulative_min()\
-    \ {\r\n    while (!r.empty()) r.pop();\r\n    added_r = 0;\r\n  }\r\n\r\n  void\
-    \ rcumulative_min() {\r\n    while (!l.empty()) l.pop();\r\n    added_l = 0;\r\
-    \n  }\r\n\r\n  void translate(const T a) { sliding_window_minimum(a, a); }\r\n\
-    \r\n  void sliding_window_minimum(const T a, const T b) {\r\n    assert(a <= b);\r\
-    \n    added_l += a;\r\n    added_r += b;\r\n  }\r\n\r\n private:\r\n  T added_l,\
-    \ added_r, min_f;\r\n  std::priority_queue<T> l;\r\n  std::priority_queue<T, std::vector<T>,\
-    \ std::greater<T>> r;\r\n\r\n  void emplace_l(const T a) { l.emplace(a - added_l);\
-    \ }\r\n  void emplace_r(const T a) { r.emplace(a - added_r); }\r\n\r\n  T top_l()\
-    \ const { return l.empty() ? -inf : l.top() + added_l; }\r\n  T top_r() const\
-    \ { return r.empty() ? inf : r.top() + added_r; }\r\n};\r\n"
-  code: "#pragma once\r\n#include <cassert>\r\n#include <functional>\r\n#include <limits>\r\
-    \n#include <numeric>\r\n#include <queue>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nstruct SlopeTrick {\r\n  const T inf;\r\n\r\n \
-    \ explicit SlopeTrick(\r\n      const T min_f = 0, const T inf = std::numeric_limits<T>::max())\r\
-    \n      : added_l(0), added_r(0), min_f(min_f), inf(inf) {}\r\n\r\n  T min() const\
-    \ { return min_f; }\r\n  std::pair<T, T> argmin() const { return {top_l(), top_r()};\
-    \ }\r\n\r\n  template <typename U>\r\n  U f(const U x) {\r\n    U f_x = min_f;\r\
-    \n    std::vector<T> tmp;\r\n    for (; top_l() > x; l.pop()) {\r\n      const\
-    \ T t = top_l();\r\n      f_x += t - x;\r\n      tmp.emplace_back(t);\r\n    }\r\
-    \n    for (; !tmp.empty(); tmp.pop_back()) {\r\n      emplace_l(tmp.back());\r\
-    \n    }\r\n    for (; top_r() < x; r.pop()) {\r\n      const T t = top_r();\r\n\
-    \      f_x += x - t;\r\n      tmp.emplace_back(t);\r\n    }\r\n    for (; !tmp.empty();\
-    \ tmp.pop_back()) {\r\n      emplace_r(tmp.back());\r\n    }\r\n    return f_x;\r\
-    \n  }\r\n\r\n  void constant_function(const T c) { min_f += c; }\r\n\r\n  void\
-    \ x_minus_a(const T a) {\r\n    const T t = top_l();\r\n    if (t <= a) {\r\n\
-    \      emplace_r(a);\r\n    } else {\r\n      min_f += t - a;\r\n      emplace_l(a);\r\
-    \n      l.pop();\r\n      emplace_r(t);\r\n    }\r\n  }\r\n\r\n  void a_minus_x(const\
-    \ T a) {\r\n    const T t = top_r();\r\n    if (a <= t) {\r\n      emplace_l(a);\r\
-    \n    } else {\r\n      min_f += a - t;\r\n      emplace_r(a);\r\n      r.pop();\r\
-    \n      emplace_l(t);\r\n    }\r\n  }\r\n\r\n  void abs_x_minus_a(const T a) {\r\
-    \n    x_minus_a(a);\r\n    a_minus_x(a);\r\n  }\r\n\r\n  void cumulative_min()\
-    \ {\r\n    while (!r.empty()) r.pop();\r\n    added_r = 0;\r\n  }\r\n\r\n  void\
-    \ rcumulative_min() {\r\n    while (!l.empty()) l.pop();\r\n    added_l = 0;\r\
-    \n  }\r\n\r\n  void translate(const T a) { sliding_window_minimum(a, a); }\r\n\
-    \r\n  void sliding_window_minimum(const T a, const T b) {\r\n    assert(a <= b);\r\
-    \n    added_l += a;\r\n    added_r += b;\r\n  }\r\n\r\n private:\r\n  T added_l,\
-    \ added_r, min_f;\r\n  std::priority_queue<T> l;\r\n  std::priority_queue<T, std::vector<T>,\
-    \ std::greater<T>> r;\r\n\r\n  void emplace_l(const T a) { l.emplace(a - added_l);\
-    \ }\r\n  void emplace_r(const T a) { r.emplace(a - added_r); }\r\n\r\n  T top_l()\
-    \ const { return l.empty() ? -inf : l.top() + added_l; }\r\n  T top_r() const\
-    \ { return r.empty() ? inf : r.top() + added_r; }\r\n};\r\n"
+  bundledCode: "#line 2 \"data_structure/slope_trick.hpp\"\n#include <cassert>\n#include\
+    \ <functional>\n#include <limits>\n#include <numeric>\n#include <queue>\n#include\
+    \ <utility>\n#include <vector>\n\ntemplate <typename T>\nstruct SlopeTrick {\n\
+    \  const T inf;\n\n  explicit SlopeTrick(\n      const T min_f = 0, const T inf\
+    \ = std::numeric_limits<T>::max())\n      : added_l(0), added_r(0), min_f(min_f),\
+    \ inf(inf) {}\n\n  T min() const { return min_f; }\n  std::pair<T, T> argmin()\
+    \ const { return {top_l(), top_r()}; }\n\n  template <typename U>\n  U f(const\
+    \ U x) {\n    U f_x = min_f;\n    std::vector<T> tmp;\n    for (; top_l() > x;\
+    \ l.pop()) {\n      const T t = top_l();\n      f_x += t - x;\n      tmp.emplace_back(t);\n\
+    \    }\n    for (; !tmp.empty(); tmp.pop_back()) {\n      emplace_l(tmp.back());\n\
+    \    }\n    for (; top_r() < x; r.pop()) {\n      const T t = top_r();\n     \
+    \ f_x += x - t;\n      tmp.emplace_back(t);\n    }\n    for (; !tmp.empty(); tmp.pop_back())\
+    \ {\n      emplace_r(tmp.back());\n    }\n    return f_x;\n  }\n\n  void constant_function(const\
+    \ T c) { min_f += c; }\n\n  void x_minus_a(const T a) {\n    const T t = top_l();\n\
+    \    if (t <= a) {\n      emplace_r(a);\n    } else {\n      min_f += t - a;\n\
+    \      emplace_l(a);\n      l.pop();\n      emplace_r(t);\n    }\n  }\n\n  void\
+    \ a_minus_x(const T a) {\n    const T t = top_r();\n    if (a <= t) {\n      emplace_l(a);\n\
+    \    } else {\n      min_f += a - t;\n      emplace_r(a);\n      r.pop();\n  \
+    \    emplace_l(t);\n    }\n  }\n\n  void abs_x_minus_a(const T a) {\n    x_minus_a(a);\n\
+    \    a_minus_x(a);\n  }\n\n  void cumulative_min() {\n    while (!r.empty()) r.pop();\n\
+    \    added_r = 0;\n  }\n\n  void rcumulative_min() {\n    while (!l.empty()) l.pop();\n\
+    \    added_l = 0;\n  }\n\n  void translate(const T a) { sliding_window_minimum(a,\
+    \ a); }\n\n  void sliding_window_minimum(const T a, const T b) {\n    assert(a\
+    \ <= b);\n    added_l += a;\n    added_r += b;\n  }\n\n private:\n  T added_l,\
+    \ added_r, min_f;\n  std::priority_queue<T> l;\n  std::priority_queue<T, std::vector<T>,\
+    \ std::greater<T>> r;\n\n  void emplace_l(const T a) { l.emplace(a - added_l);\
+    \ }\n  void emplace_r(const T a) { r.emplace(a - added_r); }\n\n  T top_l() const\
+    \ { return l.empty() ? -inf : l.top() + added_l; }\n  T top_r() const { return\
+    \ r.empty() ? inf : r.top() + added_r; }\n};\n"
+  code: "#pragma once\n#include <cassert>\n#include <functional>\n#include <limits>\n\
+    #include <numeric>\n#include <queue>\n#include <utility>\n#include <vector>\n\n\
+    template <typename T>\nstruct SlopeTrick {\n  const T inf;\n\n  explicit SlopeTrick(\n\
+    \      const T min_f = 0, const T inf = std::numeric_limits<T>::max())\n     \
+    \ : added_l(0), added_r(0), min_f(min_f), inf(inf) {}\n\n  T min() const { return\
+    \ min_f; }\n  std::pair<T, T> argmin() const { return {top_l(), top_r()}; }\n\n\
+    \  template <typename U>\n  U f(const U x) {\n    U f_x = min_f;\n    std::vector<T>\
+    \ tmp;\n    for (; top_l() > x; l.pop()) {\n      const T t = top_l();\n     \
+    \ f_x += t - x;\n      tmp.emplace_back(t);\n    }\n    for (; !tmp.empty(); tmp.pop_back())\
+    \ {\n      emplace_l(tmp.back());\n    }\n    for (; top_r() < x; r.pop()) {\n\
+    \      const T t = top_r();\n      f_x += x - t;\n      tmp.emplace_back(t);\n\
+    \    }\n    for (; !tmp.empty(); tmp.pop_back()) {\n      emplace_r(tmp.back());\n\
+    \    }\n    return f_x;\n  }\n\n  void constant_function(const T c) { min_f +=\
+    \ c; }\n\n  void x_minus_a(const T a) {\n    const T t = top_l();\n    if (t <=\
+    \ a) {\n      emplace_r(a);\n    } else {\n      min_f += t - a;\n      emplace_l(a);\n\
+    \      l.pop();\n      emplace_r(t);\n    }\n  }\n\n  void a_minus_x(const T a)\
+    \ {\n    const T t = top_r();\n    if (a <= t) {\n      emplace_l(a);\n    } else\
+    \ {\n      min_f += a - t;\n      emplace_r(a);\n      r.pop();\n      emplace_l(t);\n\
+    \    }\n  }\n\n  void abs_x_minus_a(const T a) {\n    x_minus_a(a);\n    a_minus_x(a);\n\
+    \  }\n\n  void cumulative_min() {\n    while (!r.empty()) r.pop();\n    added_r\
+    \ = 0;\n  }\n\n  void rcumulative_min() {\n    while (!l.empty()) l.pop();\n \
+    \   added_l = 0;\n  }\n\n  void translate(const T a) { sliding_window_minimum(a,\
+    \ a); }\n\n  void sliding_window_minimum(const T a, const T b) {\n    assert(a\
+    \ <= b);\n    added_l += a;\n    added_r += b;\n  }\n\n private:\n  T added_l,\
+    \ added_r, min_f;\n  std::priority_queue<T> l;\n  std::priority_queue<T, std::vector<T>,\
+    \ std::greater<T>> r;\n\n  void emplace_l(const T a) { l.emplace(a - added_l);\
+    \ }\n  void emplace_r(const T a) { r.emplace(a - added_r); }\n\n  T top_l() const\
+    \ { return l.empty() ? -inf : l.top() + added_l; }\n  T top_r() const { return\
+    \ r.empty() ? inf : r.top() + added_r; }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/slope_trick.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/slope_trick.test.cpp

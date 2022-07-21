@@ -32,38 +32,37 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: union-find
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/union-find.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\r\n * @brief union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\nstruct\
-    \ UnionFind {\r\n  explicit UnionFind(const int n) : data(n, -1) {}\r\n\r\n  int\
-    \ root(const int ver) {\r\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\r\
-    \n  }\r\n\r\n  bool unite(int u, int v) {\r\n    u = root(u);\r\n    v = root(v);\r\
-    \n    if (u == v) return false;\r\n    if (data[u] > data[v]) std::swap(u, v);\r\
-    \n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\n  }\r\n\r\
-    \n  bool is_same(const int u, const int v) { return root(u) == root(v); }\r\n\r\
-    \n  int size(const int ver) { return -data[root(ver)]; }\r\n\r\n private:\r\n\
-    \  std::vector<int> data;\r\n};\r\n"
+  code: "/**\n * @brief union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
+    \ */\n\n#pragma once\n#include <utility>\n#include <vector>\n\nstruct UnionFind\
+    \ {\n  explicit UnionFind(const int n) : data(n, -1) {}\n\n  int root(const int\
+    \ ver) {\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\n  }\n\
+    \n  bool unite(int u, int v) {\n    u = root(u);\n    v = root(v);\n    if (u\
+    \ == v) return false;\n    if (data[u] > data[v]) std::swap(u, v);\n    data[u]\
+    \ += data[v];\n    data[v] = u;\n    return true;\n  }\n\n  bool is_same(const\
+    \ int u, const int v) { return root(u) == root(v); }\n\n  int size(const int ver)\
+    \ { return -data[root(ver)]; }\n\n private:\n  std::vector<int> data;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/union-find.hpp
   requiredBy:
   - graph/connencted_component_of_complement_graph.hpp
   - graph/kruskal.hpp
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/data_structure/union-find/union-find.test.cpp
   - test/graph/is_bipartite.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
-  - test/graph/kruskal.test.cpp
   - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/graph/kruskal.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/data_structure/union-find/union-find.test.cpp
 documentation_of: data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:

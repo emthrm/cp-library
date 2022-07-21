@@ -2,59 +2,57 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: string/aho-corasick.hpp
     title: "Aho\u2013Corasick algorithm"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/aho-corasick.test.cpp
     title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"string/trie.hpp\"\n#include <algorithm>\r\n#include <functional>\r\
-    \n#include <string>\r\n#include <vector>\r\n\r\ntemplate <size_t Sigma = 26>\r\
-    \nstruct Trie {\r\n  struct Node {\r\n    char c;\r\n    int nxt[Sigma];\r\n \
-    \   std::vector<int> tails;\r\n    explicit Node(const char c) : c(c) { std::fill(nxt,\
-    \ nxt + Sigma, -1); }\r\n  };\r\n\r\n  const std::function<int(const char)> convert;\r\
-    \n  std::vector<Node> nodes;\r\n\r\n  explicit Trie(const std::function<int(const\
-    \ char)> convert =\r\n                    [](const char c) -> int { return c -\
-    \ 'a'; })\r\n      : convert(convert) { nodes.emplace_back('$'); }\r\n\r\n  void\
-    \ add(const std::string& s, const int id = -1, int pos = 0) {\r\n    for (const\
-    \ char c : s) {\r\n      const int c_int = convert(c);\r\n      if (nodes[pos].nxt[c_int]\
-    \ == -1) {\r\n        const int nxt_pos = nodes.size();\r\n        nodes[pos].nxt[c_int]\
-    \ = nxt_pos;\r\n        nodes.emplace_back(c);\r\n        pos = nxt_pos;\r\n \
-    \     } else {\r\n        pos = nodes[pos].nxt[c_int];\r\n      }\r\n    }\r\n\
-    \    nodes[pos].tails.emplace_back(id);\r\n  }\r\n\r\n  int find(const std::string&\
-    \ t, int pos = 0) const {\r\n    for (const char c : t) {\r\n      const int c_int\
-    \ = convert(c);\r\n      if (nodes[pos].nxt[c_int] == -1) return -1;\r\n     \
-    \ pos = nodes[pos].nxt[c_int];\r\n    }\r\n    return pos;\r\n  }\r\n};\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <functional>\r\n#include\
-    \ <string>\r\n#include <vector>\r\n\r\ntemplate <size_t Sigma = 26>\r\nstruct\
-    \ Trie {\r\n  struct Node {\r\n    char c;\r\n    int nxt[Sigma];\r\n    std::vector<int>\
-    \ tails;\r\n    explicit Node(const char c) : c(c) { std::fill(nxt, nxt + Sigma,\
-    \ -1); }\r\n  };\r\n\r\n  const std::function<int(const char)> convert;\r\n  std::vector<Node>\
-    \ nodes;\r\n\r\n  explicit Trie(const std::function<int(const char)> convert =\r\
-    \n                    [](const char c) -> int { return c - 'a'; })\r\n      :\
-    \ convert(convert) { nodes.emplace_back('$'); }\r\n\r\n  void add(const std::string&\
-    \ s, const int id = -1, int pos = 0) {\r\n    for (const char c : s) {\r\n   \
-    \   const int c_int = convert(c);\r\n      if (nodes[pos].nxt[c_int] == -1) {\r\
-    \n        const int nxt_pos = nodes.size();\r\n        nodes[pos].nxt[c_int] =\
-    \ nxt_pos;\r\n        nodes.emplace_back(c);\r\n        pos = nxt_pos;\r\n   \
-    \   } else {\r\n        pos = nodes[pos].nxt[c_int];\r\n      }\r\n    }\r\n \
-    \   nodes[pos].tails.emplace_back(id);\r\n  }\r\n\r\n  int find(const std::string&\
-    \ t, int pos = 0) const {\r\n    for (const char c : t) {\r\n      const int c_int\
-    \ = convert(c);\r\n      if (nodes[pos].nxt[c_int] == -1) return -1;\r\n     \
-    \ pos = nodes[pos].nxt[c_int];\r\n    }\r\n    return pos;\r\n  }\r\n};\r\n"
+  bundledCode: "#line 2 \"string/trie.hpp\"\n#include <algorithm>\n#include <functional>\n\
+    #include <string>\n#include <vector>\n\ntemplate <size_t Sigma = 26>\nstruct Trie\
+    \ {\n  struct Node {\n    char c;\n    int nxt[Sigma];\n    std::vector<int> tails;\n\
+    \    explicit Node(const char c) : c(c) { std::fill(nxt, nxt + Sigma, -1); }\n\
+    \  };\n\n  const std::function<int(const char)> convert;\n  std::vector<Node>\
+    \ nodes;\n\n  explicit Trie(const std::function<int(const char)> convert =\n \
+    \                   [](const char c) -> int { return c - 'a'; })\n      : convert(convert)\
+    \ { nodes.emplace_back('$'); }\n\n  void add(const std::string& s, const int id\
+    \ = -1, int pos = 0) {\n    for (const char c : s) {\n      const int c_int =\
+    \ convert(c);\n      if (nodes[pos].nxt[c_int] == -1) {\n        const int nxt_pos\
+    \ = nodes.size();\n        nodes[pos].nxt[c_int] = nxt_pos;\n        nodes.emplace_back(c);\n\
+    \        pos = nxt_pos;\n      } else {\n        pos = nodes[pos].nxt[c_int];\n\
+    \      }\n    }\n    nodes[pos].tails.emplace_back(id);\n  }\n\n  int find(const\
+    \ std::string& t, int pos = 0) const {\n    for (const char c : t) {\n      const\
+    \ int c_int = convert(c);\n      if (nodes[pos].nxt[c_int] == -1) return -1;\n\
+    \      pos = nodes[pos].nxt[c_int];\n    }\n    return pos;\n  }\n};\n"
+  code: "#pragma once\n#include <algorithm>\n#include <functional>\n#include <string>\n\
+    #include <vector>\n\ntemplate <size_t Sigma = 26>\nstruct Trie {\n  struct Node\
+    \ {\n    char c;\n    int nxt[Sigma];\n    std::vector<int> tails;\n    explicit\
+    \ Node(const char c) : c(c) { std::fill(nxt, nxt + Sigma, -1); }\n  };\n\n  const\
+    \ std::function<int(const char)> convert;\n  std::vector<Node> nodes;\n\n  explicit\
+    \ Trie(const std::function<int(const char)> convert =\n                    [](const\
+    \ char c) -> int { return c - 'a'; })\n      : convert(convert) { nodes.emplace_back('$');\
+    \ }\n\n  void add(const std::string& s, const int id = -1, int pos = 0) {\n  \
+    \  for (const char c : s) {\n      const int c_int = convert(c);\n      if (nodes[pos].nxt[c_int]\
+    \ == -1) {\n        const int nxt_pos = nodes.size();\n        nodes[pos].nxt[c_int]\
+    \ = nxt_pos;\n        nodes.emplace_back(c);\n        pos = nxt_pos;\n      }\
+    \ else {\n        pos = nodes[pos].nxt[c_int];\n      }\n    }\n    nodes[pos].tails.emplace_back(id);\n\
+    \  }\n\n  int find(const std::string& t, int pos = 0) const {\n    for (const\
+    \ char c : t) {\n      const int c_int = convert(c);\n      if (nodes[pos].nxt[c_int]\
+    \ == -1) return -1;\n      pos = nodes[pos].nxt[c_int];\n    }\n    return pos;\n\
+    \  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: string/trie.hpp
   requiredBy:
   - string/aho-corasick.hpp
-  timestamp: '2022-02-08 18:47:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/aho-corasick.test.cpp
 documentation_of: string/trie.hpp

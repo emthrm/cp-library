@@ -6,40 +6,39 @@ data:
     title: Fenwick tree
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/fenwick_tree/fenwick_tree.hpp: line 6: #pragma once found in\
     \ a non-first line\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include <vector>\r\
-    \n\r\n#include \"../data_structure/fenwick_tree/fenwick_tree.hpp\"\r\n\r\ntemplate\
-    \ <typename T>\r\nlong long inversion_number(const std::vector<T>& a) {\r\n  const\
-    \ int n = a.size();\r\n  std::vector<T> b = a;\r\n  std::sort(b.begin(), b.end());\r\
-    \n  b.erase(std::unique(b.begin(), b.end()), b.end());\r\n  FenwickTree<int> bit(b.size());\r\
-    \n  long long res = 0;\r\n  for (int i = 0; i < n; ++i) {\r\n    const int idx\
-    \ = std::distance(\r\n        b.begin(), std::lower_bound(b.begin(), b.end(),\
-    \ a[i]));\r\n    res += i - bit.sum(idx + 1);\r\n    bit.add(idx, 1);\r\n  }\r\
-    \n  return res;\r\n}\r\n"
+  code: "#pragma once\n#include <algorithm>\n#include <iterator>\n#include <vector>\n\
+    \n#include \"../data_structure/fenwick_tree/fenwick_tree.hpp\"\n\ntemplate <typename\
+    \ T>\nlong long inversion_number(const std::vector<T>& a) {\n  const int n = a.size();\n\
+    \  std::vector<T> b = a;\n  std::sort(b.begin(), b.end());\n  b.erase(std::unique(b.begin(),\
+    \ b.end()), b.end());\n  FenwickTree<int> bit(b.size());\n  long long res = 0;\n\
+    \  for (int i = 0; i < n; ++i) {\n    const int idx = std::distance(\n       \
+    \ b.begin(), std::lower_bound(b.begin(), b.end(), a[i]));\n    res += i - bit.sum(idx\
+    \ + 1);\n    bit.add(idx, 1);\n  }\n  return res;\n}\n"
   dependsOn:
   - data_structure/fenwick_tree/fenwick_tree.hpp
   isVerificationFile: false
   path: misc/inversion_number.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/inversion_number.test.cpp
 documentation_of: misc/inversion_number.hpp

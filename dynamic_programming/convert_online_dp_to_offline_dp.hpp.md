@@ -13,25 +13,25 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
-    \n#include <functional>\r\n\r\nvoid convert_online_dp_to_offline_dp(\r\n    const\
-    \ int n, const std::function<void(int, int, int)> induce) {\r\n  const std::function<void(const\
-    \ int, const int)> solve =\r\n      [induce, &solve](const int l, const int r)\
-    \ -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l) <- dp(l) \uFF65\
-    \ b_l\r\n          return;\r\n        }\r\n        const int m = (l + r) >> 1;\r\
-    \n        solve(l, m);\r\n        induce(l, m, r);\r\n        solve(m, r);\r\n\
-    \      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
-  code: "#pragma once\r\n#include <functional>\r\n\r\nvoid convert_online_dp_to_offline_dp(\r\
-    \n    const int n, const std::function<void(int, int, int)> induce) {\r\n  const\
-    \ std::function<void(const int, const int)> solve =\r\n      [induce, &solve](const\
-    \ int l, const int r) -> void {\r\n        if (l + 1 == r) {\r\n          // dp(l)\
-    \ <- dp(l) \uFF65 b_l\r\n          return;\r\n        }\r\n        const int m\
-    \ = (l + r) >> 1;\r\n        solve(l, m);\r\n        induce(l, m, r);\r\n    \
-    \    solve(m, r);\r\n      };\r\n  if (n > 0) solve(0, n);\r\n}\r\n"
+    \n#include <functional>\n\nvoid convert_online_dp_to_offline_dp(\n    const int\
+    \ n, const std::function<void(int, int, int)> induce) {\n  const std::function<void(const\
+    \ int, const int)> solve =\n      [induce, &solve](const int l, const int r) ->\
+    \ void {\n        if (l + 1 == r) {\n          // dp(l) <- dp(l) \uFF65 b_l\n\
+    \          return;\n        }\n        const int m = (l + r) >> 1;\n        solve(l,\
+    \ m);\n        induce(l, m, r);\n        solve(m, r);\n      };\n  if (n > 0)\
+    \ solve(0, n);\n}\n"
+  code: "#pragma once\n#include <functional>\n\nvoid convert_online_dp_to_offline_dp(\n\
+    \    const int n, const std::function<void(int, int, int)> induce) {\n  const\
+    \ std::function<void(const int, const int)> solve =\n      [induce, &solve](const\
+    \ int l, const int r) -> void {\n        if (l + 1 == r) {\n          // dp(l)\
+    \ <- dp(l) \uFF65 b_l\n          return;\n        }\n        const int m = (l\
+    \ + r) >> 1;\n        solve(l, m);\n        induce(l, m, r);\n        solve(m,\
+    \ r);\n      };\n  if (n > 0) solve(0, n);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/convert_online_dp_to_offline_dp.hpp
   requiredBy: []
-  timestamp: '2022-02-19 19:36:06+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
@@ -50,11 +50,22 @@ e.g. [Stroll](https://atcoder.jp/contests/abc213/submissions/25161037)
 
 $i = 0$ のとき
 
-$$\mathrm{dp}(i) \mathrel{:=} \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} + \boldsymbol{0} \text{，}$$
+$$
+  \mathrm{dp}(i) \mathrel{:=}
+  \begin{pmatrix}
+    1 \\
+    0 \\
+    \vdots \\
+    0
+  \end{pmatrix}
+  + \boldsymbol{0} \text{，}
+$$
 
 $i = 1, 2, \ldots, T$ のとき
 
-$$\mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} \cdot p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} \cdot p_{m, i - j} \right) + 0$$
+$$
+  \mathrm{dp}(i)_n \mathrel{:=} 0 + \sum_{j = 0}^{i - 1} \left(\sum_{a_m = n} dp(j)_{b_m} \cdot p_{m, i - j} + \sum_{b_m = n} dp(j)_{a_m} \cdot p_{m, i - j} \right) + 0
+$$
 
 と表せる．
 

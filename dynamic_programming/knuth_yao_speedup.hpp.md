@@ -11,35 +11,33 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"dynamic_programming/knuth_yao_speedup.hpp\"\n#include <algorithm>\r\
-    \n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<std::vector<T>>\
-    \ knuth_yao_speedup(\r\n    const std::vector<std::vector<T>>& w, const T inf)\
-    \ {\r\n  const int n = w.size();\r\n  std::vector<std::vector<T>> dp(n, std::vector<T>(n,\
-    \ inf));\r\n  if (n == 0) return dp;\r\n  std::vector<std::vector<int>> argmin(n,\
-    \ std::vector<int>(n, -1));\r\n  for (int j = 0; j < n; ++j) {\r\n    dp[j][j]\
-    \ = 0;\r\n    argmin[j][j] = j;\r\n    for (int i = j - 1; i >= 0; --i) {\r\n\
-    \      const int right = std::min(j - 1, argmin[i + 1][j]);\r\n      for (int\
-    \ k = argmin[i][j - 1]; k <= right; ++k) {\r\n        const T tmp = dp[i][k] +\
-    \ dp[k + 1][j];\r\n        if (tmp < dp[i][j]) {\r\n          dp[i][j] = tmp;\r\
-    \n          argmin[i][j] = k;\r\n        }\r\n      }\r\n      dp[i][j] += w[i][j];\r\
-    \n    }\r\n  }\r\n  return dp;\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<std::vector<T>> knuth_yao_speedup(\r\n    const\
-    \ std::vector<std::vector<T>>& w, const T inf) {\r\n  const int n = w.size();\r\
-    \n  std::vector<std::vector<T>> dp(n, std::vector<T>(n, inf));\r\n  if (n == 0)\
-    \ return dp;\r\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n,\
-    \ -1));\r\n  for (int j = 0; j < n; ++j) {\r\n    dp[j][j] = 0;\r\n    argmin[j][j]\
-    \ = j;\r\n    for (int i = j - 1; i >= 0; --i) {\r\n      const int right = std::min(j\
-    \ - 1, argmin[i + 1][j]);\r\n      for (int k = argmin[i][j - 1]; k <= right;\
-    \ ++k) {\r\n        const T tmp = dp[i][k] + dp[k + 1][j];\r\n        if (tmp\
-    \ < dp[i][j]) {\r\n          dp[i][j] = tmp;\r\n          argmin[i][j] = k;\r\n\
-    \        }\r\n      }\r\n      dp[i][j] += w[i][j];\r\n    }\r\n  }\r\n  return\
-    \ dp;\r\n}\r\n"
+  bundledCode: "#line 2 \"dynamic_programming/knuth_yao_speedup.hpp\"\n#include <algorithm>\n\
+    #include <vector>\n\ntemplate <typename T>\nstd::vector<std::vector<T>> knuth_yao_speedup(\n\
+    \    const std::vector<std::vector<T>>& w, const T inf) {\n  const int n = w.size();\n\
+    \  std::vector<std::vector<T>> dp(n, std::vector<T>(n, inf));\n  if (n == 0) return\
+    \ dp;\n  std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));\n \
+    \ for (int j = 0; j < n; ++j) {\n    dp[j][j] = 0;\n    argmin[j][j] = j;\n  \
+    \  for (int i = j - 1; i >= 0; --i) {\n      const int right = std::min(j - 1,\
+    \ argmin[i + 1][j]);\n      for (int k = argmin[i][j - 1]; k <= right; ++k) {\n\
+    \        const T tmp = dp[i][k] + dp[k + 1][j];\n        if (tmp < dp[i][j]) {\n\
+    \          dp[i][j] = tmp;\n          argmin[i][j] = k;\n        }\n      }\n\
+    \      dp[i][j] += w[i][j];\n    }\n  }\n  return dp;\n}\n"
+  code: "#pragma once\n#include <algorithm>\n#include <vector>\n\ntemplate <typename\
+    \ T>\nstd::vector<std::vector<T>> knuth_yao_speedup(\n    const std::vector<std::vector<T>>&\
+    \ w, const T inf) {\n  const int n = w.size();\n  std::vector<std::vector<T>>\
+    \ dp(n, std::vector<T>(n, inf));\n  if (n == 0) return dp;\n  std::vector<std::vector<int>>\
+    \ argmin(n, std::vector<int>(n, -1));\n  for (int j = 0; j < n; ++j) {\n    dp[j][j]\
+    \ = 0;\n    argmin[j][j] = j;\n    for (int i = j - 1; i >= 0; --i) {\n      const\
+    \ int right = std::min(j - 1, argmin[i + 1][j]);\n      for (int k = argmin[i][j\
+    \ - 1]; k <= right; ++k) {\n        const T tmp = dp[i][k] + dp[k + 1][j];\n \
+    \       if (tmp < dp[i][j]) {\n          dp[i][j] = tmp;\n          argmin[i][j]\
+    \ = k;\n        }\n      }\n      dp[i][j] += w[i][j];\n    }\n  }\n  return dp;\n\
+    }\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/knuth_yao_speedup.hpp
   requiredBy: []
-  timestamp: '2022-03-23 02:29:55+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/knuth_yao_speedup.test.cpp
@@ -55,7 +53,13 @@ $i \leq j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ で定義さ�
 
 とき，
 
-$$c(i, j) \mathrel{:=} \begin{cases} 0 & (i = j), \\ \min_{i < k \leq j} \lbrace c(i, k - 1) + c(k, j) \rbrace + w(i, j) & (i < j) \end{cases}$$
+$$
+  c(i, j) \mathrel{:=}
+  \begin{cases}
+    0 & (i = j), \\
+    \min_{i < k \leq j} \lbrace c(i, k - 1) + c(k, j) \rbrace + w(i, j) & (i < j)
+  \end{cases}
+$$
 
 で定義される $c$ に対して $c(i, j)$ ($1 \leq i \leq j \leq n$) を $O(n^2)$ 時間・領域で計算できる．
 
@@ -84,7 +88,7 @@ Monge matrix は totally monotone である．逆は必ずしも成り立つと�
 
 ### monotone
 
-$m \times n$ 型行列 $A$ を考える．任意の $i \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \in \mathrm{argmin}_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ のとり方を一つ定める．$i < i^\prime$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \leq j_{i^\prime}$ が成り立つならば，$A$ は monotone であると呼ぶ．
+$m \times n$ 型行列 $A$ を考える．任意の $i \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ のとり方を一つ定める．$i < i^\prime$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \leq j_{i^\prime}$ が成り立つならば，$A$ は monotone であると呼ぶ．
 
 
 ### totally monotone
@@ -137,7 +141,9 @@ Monge property
   - https://twitter.com/noshi91/status/1436688971778519046
   - https://atcoder.jp/contests/arc129/tasks/arc129_e
   - https://twitter.com/noshi91/status/1462421876802977792
-- monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
+- anti-Monge matrix
+  - https://twitter.com/noshi91/status/1499821624266493952
+- monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
   - https://dic.kimiyuki.net/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
@@ -149,7 +155,7 @@ Monge property
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/speedup/Monotone-Minima~~
   - http://sigma425.hatenablog.com/entry/2015/12/01/162720
   - https://docs.google.com/presentation/d/1cgPtVG4j4Ima6Exf_Kw1IdYVfmfDJSGwaEgOMgPkWHg/
-- SMAWK algorithm: totally monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}_{j \in \lbrace 1, 2, \ldots, n \rbrace} A{\lbrack i, j \rbrack}$ ($i = 1, 2, \ldots, m$) を $O(m + n)$ 時間で求めるアルゴリズム
+- SMAWK algorithm: totally monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n)$ 時間で求めるアルゴリズム
   - https://en.wikipedia.org/wiki/SMAWK_algorithm
   - https://dic.kimiyuki.net/smawk-algorithm
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
@@ -179,7 +185,7 @@ Monge property
   - https://atcoder.jp/contests/abc228/tasks/abc228_h
   - https://twitter.com/noshi91/status/1462064752759230471
   - https://twitter.com/hotmanww/status/1462077828422246406
-- divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える．任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\mathrm{argmin}_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace \leq \mathrm{argmin}_{k \in \lbrace 1, 2, \ldots, j \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる．
+- divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える．任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j) \mid k \in \lbrace 1, 2, \ldots, j - 1 \rbrace \rbrace} \leq \mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace \mid k \in \lbrace 1, 2, \ldots, j \rbrace}$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる．
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://www.hamayanhamayan.com/entry/2017/03/20/234711
   - https://ei1333.github.io/algorithm/dynamic-programming.html

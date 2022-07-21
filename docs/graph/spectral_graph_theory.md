@@ -24,7 +24,9 @@ $N$ 頂点のラベル付きの木の個数は $N^{N - 2}$ である．
 
 このとき
 
-$$\det(M) = \sum_{(P_1, P_2, \ldots, P_n)} \mathrm{sgn}(\sigma) \prod_{i = 1}^n \omega(P_i)$$
+$$
+  \det(M) = \sum_{(P_1, P_2, \ldots, P_n)} \mathrm{sgn}(\sigma) \prod_{i = 1}^n \omega(P_i)
+$$
 
 が成り立つ．ただし $M$ は $m_{ij} \mathrel{:=} e(a_i, b_j)$ で定義される $n$ 次正方行列である．
 

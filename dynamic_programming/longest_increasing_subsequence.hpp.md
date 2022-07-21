@@ -13,33 +13,33 @@ data:
     _deprecated_at_docs: docs/dynamic_programming/longest_increasing_subsequence.md
     document_title: "\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ dynamic_programming/longest_increasing_subsequence.hpp: line 6: #pragma once\
     \ found in a non-first line\n"
-  code: "/**\r\n * @brief \u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\r\n * @docs docs/dynamic_programming/longest_increasing_subsequence.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
-    \ <limits>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ longest_increasing_subsequence(\r\n    const std::vector<T>& a, const bool is_strict\
-    \ = true) {\r\n  const T inf = std::numeric_limits<T>::max();\r\n  const int n\
-    \ = a.size();\r\n  std::vector<int> idx(n);\r\n  std::vector<T> tmp(n, inf);\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    if (is_strict) {\r\n      idx[i] = std::distance(tmp.begin(),\r\
-    \n                             std::lower_bound(tmp.begin(), tmp.end(), a[i]));\r\
-    \n    } else {\r\n      idx[i] = std::distance(tmp.begin(),\r\n              \
-    \               std::upper_bound(tmp.begin(), tmp.end(), a[i]));\r\n    }\r\n\
-    \    tmp[idx[i]] = a[i];\r\n  }\r\n  int res_size =\r\n      std::distance(tmp.begin(),\
-    \ std::lower_bound(tmp.begin(), tmp.end(), inf));\r\n  std::vector<T> res(res_size--);\r\
-    \n  for (int i = n - 1; res_size >= 0 && i >= 0; --i) {\r\n    if (idx[i] == res_size)\
-    \ res[res_size--] = a[i];\r\n  }\r\n  return res;\r\n}\r\n"
+  code: "/**\n * @brief \u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\n * @docs docs/dynamic_programming/longest_increasing_subsequence.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <iterator>\n#include <limits>\n\
+    #include <vector>\n\ntemplate <typename T>\nstd::vector<T> longest_increasing_subsequence(\n\
+    \    const std::vector<T>& a, const bool is_strict = true) {\n  const T inf =\
+    \ std::numeric_limits<T>::max();\n  const int n = a.size();\n  std::vector<int>\
+    \ idx(n);\n  std::vector<T> tmp(n, inf);\n  for (int i = 0; i < n; ++i) {\n  \
+    \  if (is_strict) {\n      idx[i] = std::distance(tmp.begin(),\n             \
+    \                std::lower_bound(tmp.begin(), tmp.end(), a[i]));\n    } else\
+    \ {\n      idx[i] = std::distance(tmp.begin(),\n                             std::upper_bound(tmp.begin(),\
+    \ tmp.end(), a[i]));\n    }\n    tmp[idx[i]] = a[i];\n  }\n  int res_size =\n\
+    \      std::distance(tmp.begin(), std::lower_bound(tmp.begin(), tmp.end(), inf));\n\
+    \  std::vector<T> res(res_size--);\n  for (int i = n - 1; res_size >= 0 && i >=\
+    \ 0; --i) {\n    if (idx[i] == res_size) res[res_size--] = a[i];\n  }\n  return\
+    \ res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/longest_increasing_subsequence.hpp
   requiredBy: []
-  timestamp: '2022-02-12 20:37:17+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/longest_increasing_subsequence.test.cpp

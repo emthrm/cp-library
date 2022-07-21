@@ -22,33 +22,32 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <queue>\r\n#include <vector>\r\n\r\n#include \"\
-    ./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<int> topological_sort(\r\
-    \n    const std::vector<std::vector<Edge<CostType>>>& graph) {\r\n  const int\
-    \ n = graph.size();\r\n  std::vector<int> deg(n, 0);\r\n  for (int i = 0; i <\
-    \ n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i]) ++deg[e.dst];\r\n\
-    \  }\r\n  std::queue<int> que;\r\n  for (int i = 0; i < n; ++i) {\r\n    if (deg[i]\
-    \ == 0) que.emplace(i);\r\n  }\r\n  std::vector<int> res;\r\n  res.reserve(n);\r\
-    \n  while (!que.empty()) {\r\n    const int ver = que.front();\r\n    que.pop();\r\
-    \n    res.emplace_back(ver);\r\n    for (const Edge<CostType>& e : graph[ver])\
-    \ {\r\n      if (--deg[e.dst] == 0) que.emplace(e.dst);\r\n    }\r\n  }\r\n  return\
-    \ res.size() == n ? res : std::vector<int>{};\r\n}\r\n"
+  code: "#pragma once\n#include <queue>\n#include <vector>\n\n#include \"./edge.hpp\"\
+    \n\ntemplate <typename CostType>\nstd::vector<int> topological_sort(\n    const\
+    \ std::vector<std::vector<Edge<CostType>>>& graph) {\n  const int n = graph.size();\n\
+    \  std::vector<int> deg(n, 0);\n  for (int i = 0; i < n; ++i) {\n    for (const\
+    \ Edge<CostType>& e : graph[i]) ++deg[e.dst];\n  }\n  std::queue<int> que;\n \
+    \ for (int i = 0; i < n; ++i) {\n    if (deg[i] == 0) que.emplace(i);\n  }\n \
+    \ std::vector<int> res;\n  res.reserve(n);\n  while (!que.empty()) {\n    const\
+    \ int ver = que.front();\n    que.pop();\n    res.emplace_back(ver);\n    for\
+    \ (const Edge<CostType>& e : graph[ver]) {\n      if (--deg[e.dst] == 0) que.emplace(e.dst);\n\
+    \    }\n  }\n  return res.size() == n ? res : std::vector<int>{};\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/topological_sort.hpp
   requiredBy:
   - graph/reachability_on_dag.hpp
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/reachability_on_dag.test.cpp

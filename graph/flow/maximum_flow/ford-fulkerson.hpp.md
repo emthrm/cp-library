@@ -14,40 +14,38 @@ data:
     _deprecated_at_docs: docs/graph/flow/maximum_flow/maximum_flow.md
     document_title: "Ford\u2013Fulkerson \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/maximum_flow/ford-fulkerson.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
-  code: "/**\r\n * @brief Ford\u2013Fulkerson \u6CD5\r\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <limits>\r\n#include\
-    \ <vector>\r\n\r\ntemplate <typename T>\r\nstruct FordFulkerson {\r\n  struct\
-    \ Edge {\r\n    int dst, rev;\r\n    T cap;\r\n    explicit Edge(const int dst,\
-    \ const T cap, const int rev)\r\n        : dst(dst), cap(cap), rev(rev) {}\r\n\
-    \  };\r\n\r\n  std::vector<std::vector<Edge>> graph;\r\n\r\n  explicit FordFulkerson(const\
-    \ int n)\r\n      : graph(n), timestamp(0), is_used(n, -1) {}\r\n\r\n  void add_edge(const\
-    \ int src, const int dst, const T cap) {\r\n    graph[src].emplace_back(dst, cap,\
-    \ graph[dst].size());\r\n    graph[dst].emplace_back(src, 0, graph[src].size()\
-    \ - 1);\r\n  }\r\n\r\n  T maximum_flow(const int s, const int t,\r\n         \
-    \        T limit = std::numeric_limits<T>::max()) {\r\n    T res = 0;\r\n    while\
-    \ (limit > 0) {\r\n      const T tmp = dfs(s, t, limit);\r\n      ++timestamp;\r\
-    \n      if (tmp == 0) break;\r\n      limit -= tmp;\r\n      res += tmp;\r\n \
-    \   }\r\n    return res;\r\n  }\r\n\r\n private:\r\n  int timestamp;\r\n  std::vector<int>\
-    \ is_used;\r\n\r\n  T dfs(const int ver, const int t, const T flow) {\r\n    if\
-    \ (ver == t) return flow;\r\n    is_used[ver] = timestamp;\r\n    for (Edge& e\
-    \ : graph[ver]) {\r\n      if (is_used[e.dst] < timestamp && e.cap > 0) {\r\n\
-    \        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\r\n        if (tmp\
-    \ > 0) {\r\n          e.cap -= tmp;\r\n          graph[e.dst][e.rev].cap += tmp;\r\
-    \n          return tmp;\r\n        }\r\n      }\r\n    }\r\n    return 0;\r\n\
-    \  }\r\n};\r\n"
+  code: "/**\n * @brief Ford\u2013Fulkerson \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <limits>\n#include <vector>\n\
+    \ntemplate <typename T>\nstruct FordFulkerson {\n  struct Edge {\n    int dst,\
+    \ rev;\n    T cap;\n    explicit Edge(const int dst, const T cap, const int rev)\n\
+    \        : dst(dst), cap(cap), rev(rev) {}\n  };\n\n  std::vector<std::vector<Edge>>\
+    \ graph;\n\n  explicit FordFulkerson(const int n)\n      : graph(n), timestamp(0),\
+    \ is_used(n, -1) {}\n\n  void add_edge(const int src, const int dst, const T cap)\
+    \ {\n    graph[src].emplace_back(dst, cap, graph[dst].size());\n    graph[dst].emplace_back(src,\
+    \ 0, graph[src].size() - 1);\n  }\n\n  T maximum_flow(const int s, const int t,\n\
+    \                 T limit = std::numeric_limits<T>::max()) {\n    T res = 0;\n\
+    \    while (limit > 0) {\n      const T tmp = dfs(s, t, limit);\n      ++timestamp;\n\
+    \      if (tmp == 0) break;\n      limit -= tmp;\n      res += tmp;\n    }\n \
+    \   return res;\n  }\n\n private:\n  int timestamp;\n  std::vector<int> is_used;\n\
+    \n  T dfs(const int ver, const int t, const T flow) {\n    if (ver == t) return\
+    \ flow;\n    is_used[ver] = timestamp;\n    for (Edge& e : graph[ver]) {\n   \
+    \   if (is_used[e.dst] < timestamp && e.cap > 0) {\n        const T tmp = dfs(e.dst,\
+    \ t, std::min(flow, e.cap));\n        if (tmp > 0) {\n          e.cap -= tmp;\n\
+    \          graph[e.dst][e.rev].cap += tmp;\n          return tmp;\n        }\n\
+    \      }\n    }\n    return 0;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/maximum_flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2022-02-27 15:05:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/ford-fulkerson.test.cpp

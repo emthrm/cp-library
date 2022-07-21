@@ -3,50 +3,48 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/manacher.test.cpp
     title: "\u6587\u5B57\u5217/Manacher"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"string/manacher.hpp\"\n#include <vector>\r\n\r\nstruct Manacher\
-    \ {\r\n  template <typename T>\r\n  explicit Manacher(const T& s) {\r\n    T str;\r\
-    \n    int n = s.size();\r\n    str.reserve(n * 2 + 1);\r\n    for (int i = 0;\
-    \ i < n; ++i) {\r\n      str.push_back(s[i]);\r\n      str.push_back('$');\r\n\
-    \    }\r\n    str.pop_back();\r\n    n = str.size();\r\n    radius.resize(n);\r\
-    \n    for (int i = 0, j = 1; i < n;) {\r\n      while (i - j >= 0 && i + j < n\
-    \ && str[i - j] == str[i + j]) ++j;\r\n      radius[i] = j;\r\n      int k = 1;\r\
-    \n      for (; i - k >= 0 && i + k < n && k + radius[i - k] < j; ++k) {\r\n  \
-    \      radius[i + k] = radius[i - k];\r\n      }\r\n      i += k;\r\n      j -=\
-    \ k;\r\n    }\r\n  }\r\n\r\n  int odd(const int idx) const { return (radius[idx\
-    \ * 2] + 1) / 2; }\r\n\r\n  int even(const int idx) const { return radius[idx\
-    \ * 2 + 1] / 2; }\r\n\r\n  bool is_palindrome(const int left, const int right)\
-    \ const {\r\n    const int mid = (left + right - 1) / 2;\r\n    return ((right\
-    \ - left) & 1 ? odd(mid) * 2 - 1 : even(mid) * 2)\r\n           >= right - left;\r\
-    \n  }\r\n\r\n private:\r\n  std::vector<int> radius;\r\n};\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\nstruct Manacher {\r\n  template\
-    \ <typename T>\r\n  explicit Manacher(const T& s) {\r\n    T str;\r\n    int n\
-    \ = s.size();\r\n    str.reserve(n * 2 + 1);\r\n    for (int i = 0; i < n; ++i)\
-    \ {\r\n      str.push_back(s[i]);\r\n      str.push_back('$');\r\n    }\r\n  \
-    \  str.pop_back();\r\n    n = str.size();\r\n    radius.resize(n);\r\n    for\
-    \ (int i = 0, j = 1; i < n;) {\r\n      while (i - j >= 0 && i + j < n && str[i\
-    \ - j] == str[i + j]) ++j;\r\n      radius[i] = j;\r\n      int k = 1;\r\n   \
-    \   for (; i - k >= 0 && i + k < n && k + radius[i - k] < j; ++k) {\r\n      \
-    \  radius[i + k] = radius[i - k];\r\n      }\r\n      i += k;\r\n      j -= k;\r\
-    \n    }\r\n  }\r\n\r\n  int odd(const int idx) const { return (radius[idx * 2]\
-    \ + 1) / 2; }\r\n\r\n  int even(const int idx) const { return radius[idx * 2 +\
-    \ 1] / 2; }\r\n\r\n  bool is_palindrome(const int left, const int right) const\
-    \ {\r\n    const int mid = (left + right - 1) / 2;\r\n    return ((right - left)\
-    \ & 1 ? odd(mid) * 2 - 1 : even(mid) * 2)\r\n           >= right - left;\r\n \
-    \ }\r\n\r\n private:\r\n  std::vector<int> radius;\r\n};\r\n"
+  bundledCode: "#line 2 \"string/manacher.hpp\"\n#include <vector>\n\nstruct Manacher\
+    \ {\n  template <typename T>\n  explicit Manacher(const T& s) {\n    T str;\n\
+    \    int n = s.size();\n    str.reserve(n * 2 + 1);\n    for (int i = 0; i < n;\
+    \ ++i) {\n      str.push_back(s[i]);\n      str.push_back('$');\n    }\n    str.pop_back();\n\
+    \    n = str.size();\n    radius.resize(n);\n    for (int i = 0, j = 1; i < n;)\
+    \ {\n      while (i - j >= 0 && i + j < n && str[i - j] == str[i + j]) ++j;\n\
+    \      radius[i] = j;\n      int k = 1;\n      for (; i - k >= 0 && i + k < n\
+    \ && k + radius[i - k] < j; ++k) {\n        radius[i + k] = radius[i - k];\n \
+    \     }\n      i += k;\n      j -= k;\n    }\n  }\n\n  int odd(const int idx)\
+    \ const { return (radius[idx * 2] + 1) / 2; }\n\n  int even(const int idx) const\
+    \ { return radius[idx * 2 + 1] / 2; }\n\n  bool is_palindrome(const int left,\
+    \ const int right) const {\n    const int mid = (left + right - 1) / 2;\n    return\
+    \ ((right - left) & 1 ? odd(mid) * 2 - 1 : even(mid) * 2)\n           >= right\
+    \ - left;\n  }\n\n private:\n  std::vector<int> radius;\n};\n"
+  code: "#pragma once\n#include <vector>\n\nstruct Manacher {\n  template <typename\
+    \ T>\n  explicit Manacher(const T& s) {\n    T str;\n    int n = s.size();\n \
+    \   str.reserve(n * 2 + 1);\n    for (int i = 0; i < n; ++i) {\n      str.push_back(s[i]);\n\
+    \      str.push_back('$');\n    }\n    str.pop_back();\n    n = str.size();\n\
+    \    radius.resize(n);\n    for (int i = 0, j = 1; i < n;) {\n      while (i -\
+    \ j >= 0 && i + j < n && str[i - j] == str[i + j]) ++j;\n      radius[i] = j;\n\
+    \      int k = 1;\n      for (; i - k >= 0 && i + k < n && k + radius[i - k] <\
+    \ j; ++k) {\n        radius[i + k] = radius[i - k];\n      }\n      i += k;\n\
+    \      j -= k;\n    }\n  }\n\n  int odd(const int idx) const { return (radius[idx\
+    \ * 2] + 1) / 2; }\n\n  int even(const int idx) const { return radius[idx * 2\
+    \ + 1] / 2; }\n\n  bool is_palindrome(const int left, const int right) const {\n\
+    \    const int mid = (left + right - 1) / 2;\n    return ((right - left) & 1 ?\
+    \ odd(mid) * 2 - 1 : even(mid) * 2)\n           >= right - left;\n  }\n\n private:\n\
+    \  std::vector<int> radius;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: string/manacher.hpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/manacher.test.cpp
 documentation_of: string/manacher.hpp

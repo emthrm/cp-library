@@ -14,32 +14,31 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <functional>\r\n#include <vector>\r\n\r\n#include\
-    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nbool is_bipartite(const\
-    \ std::vector<std::vector<Edge<CostType>>>& graph,\r\n                  std::vector<int>*\
-    \ color) {\r\n  const int n = graph.size();\r\n  color->assign(n, -1);\r\n  const\
-    \ std::function<bool(int, int)> dfs = [&graph, &color, &dfs](\r\n      const int\
-    \ ver, const int c) -> bool {\r\n    (*color)[ver] = c;\r\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\r\n      if ((*color)[e.dst] == c ||\r\n          ((*color)[e.dst]\
-    \ == -1 && !dfs(e.dst, c ^ 1))) {\r\n        return false;\r\n      }\r\n    }\r\
-    \n    return true;\r\n  };\r\n  for (int i = 0; i < n; ++i) {\r\n    if ((*color)[i]\
-    \ == -1 && !dfs(i, 0)) {\r\n      color->clear();\r\n      return false;\r\n \
-    \   }\r\n  }\r\n  return true;\r\n}\r\n"
+  code: "#pragma once\n#include <functional>\n#include <vector>\n\n#include \"./edge.hpp\"\
+    \n\ntemplate <typename CostType>\nbool is_bipartite(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n                  std::vector<int>* color) {\n  const int n = graph.size();\n\
+    \  color->assign(n, -1);\n  const std::function<bool(int, int)> dfs = [&graph,\
+    \ &color, &dfs](\n      const int ver, const int c) -> bool {\n    (*color)[ver]\
+    \ = c;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if ((*color)[e.dst]\
+    \ == c ||\n          ((*color)[e.dst] == -1 && !dfs(e.dst, c ^ 1))) {\n      \
+    \  return false;\n      }\n    }\n    return true;\n  };\n  for (int i = 0; i\
+    \ < n; ++i) {\n    if ((*color)[i] == -1 && !dfs(i, 0)) {\n      color->clear();\n\
+    \      return false;\n    }\n  }\n  return true;\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/is_bipartite.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/is_bipartite.test.cpp

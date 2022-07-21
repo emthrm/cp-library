@@ -14,18 +14,18 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"game/nim.hpp\"\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nbool nim(const std::vector<T>& a) {\r\n  long long x = 0;\r\n  for (const\
-    \ T e : a) x ^= e;\r\n  return x != 0;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nbool nim(const\
-    \ std::vector<T>& a) {\r\n  long long x = 0;\r\n  for (const T e : a) x ^= e;\r\
-    \n  return x != 0;\r\n}\r\n"
+  bundledCode: "#line 2 \"game/nim.hpp\"\n#include <vector>\n\ntemplate <typename\
+    \ T>\nbool nim(const std::vector<T>& a) {\n  long long x = 0;\n  for (const T\
+    \ e : a) x ^= e;\n  return x != 0;\n}\n"
+  code: "#pragma once\n#include <vector>\n\ntemplate <typename T>\nbool nim(const\
+    \ std::vector<T>& a) {\n  long long x = 0;\n  for (const T e : a) x ^= e;\n  return\
+    \ x != 0;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: game/nim.hpp
   requiredBy:
   - game/misere_nim.hpp
-  timestamp: '2022-02-09 12:27:12+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/game/nim.test.cpp

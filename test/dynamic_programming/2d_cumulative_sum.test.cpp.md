@@ -17,10 +17,10 @@ data:
     - https://atcoder.jp/contests/arc089/tasks/arc089_b
     - https://atcoder.jp/contests/arc089/tasks/arc089_d
   bundledCode: "#line 1 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\n\
-    /*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\
-    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_d\"\
-    \r\n// #define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\r\
-    \n\r\n#include <algorithm>\r\n#include <iostream>\r\n\r\n#line 3 \"dynamic_programming/2d_cumulative_sum.hpp\"\
+    /*\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\n\
+    \ */\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_d\"\n\
+    // #define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\n\n#include\
+    \ <algorithm>\n#include <iostream>\n\n#line 3 \"dynamic_programming/2d_cumulative_sum.hpp\"\
     \n#include <cassert>\n#include <iterator>\n#include <vector>\n\ntemplate <typename\
     \ T>\nstruct CumulativeSum2D {\n  explicit CumulativeSum2D(const int h, const\
     \ int w)\n      : CumulativeSum2D(std::vector<std::vector<T>>(h, std::vector<T>(w,\
@@ -38,65 +38,63 @@ data:
     \ > y2 || x1 > x2 ? 0 : data[y2 + 1][x2 + 1] - data[y2 + 1][x1]\n            \
     \                        - data[y1][x2 + 1] + data[y1][x1];\n  }\n\n private:\n\
     \  bool is_built;\n  const int h, w;\n  std::vector<std::vector<T>> data;\n};\n\
-    #line 11 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\n\r\nint main()\
-    \ {\r\n  int n, k;\r\n  std::cin >> n >> k;\r\n  CumulativeSum2D<int> black(k\
-    \ * 2, k * 2), white(k * 2, k * 2);\r\n  while (n--) {\r\n    int x, y;\r\n  \
-    \  char c;\r\n    std::cin >> x >> y >> c;\r\n    x %= k * 2;\r\n    y %= k *\
-    \ 2;\r\n    (c == 'B' ? black : white).add(y, x, 1);\r\n  }\r\n  black.build();\r\
-    \n  white.build();\r\n  int ans = 0;\r\n  for (int i = k - 1; i < k * 2; ++i)\
-    \ {\r\n    for (int j = k - 1; j < k * 2; ++j) {\r\n      const int b = black.query(i\
-    \ - k + 1, j - k + 1, i, j) +\r\n                    black.query(0, 0, i - k,\
-    \ j - k) +\r\n                    black.query(0, j + 1, i - k, k * 2 - 1) +\r\n\
-    \                    black.query(i + 1, 0, k * 2 - 1, j - k) +\r\n           \
-    \         black.query(i + 1, j + 1, k * 2 - 1, k * 2 - 1);\r\n      const int\
-    \ w = white.query(0, j - k + 1, i - k, j) +\r\n                    white.query(i\
-    \ - k + 1, 0, i, j - k) +\r\n                    white.query(i - k + 1, j + 1,\
-    \ i, k * 2 - 1) +\r\n                    white.query(i + 1, j - k + 1, k * 2 -\
-    \ 1, j);\r\n      ans = std::max(ans, b + w);\r\n    }\r\n  }\r\n  for (int i\
-    \ = k - 1; i < k * 2; ++i) {\r\n    for (int j = k - 1; j < k * 2; ++j) {\r\n\
-    \      const int b = black.query(0, j - k + 1, i - k, j) +\r\n               \
-    \     black.query(i - k + 1, 0, i, j - k) +\r\n                    black.query(i\
-    \ - k + 1, j + 1, i, k * 2 - 1) +\r\n                    black.query(i + 1, j\
-    \ - k + 1, k * 2 - 1, j);\r\n      const int w = white.query(i - k + 1, j - k\
-    \ + 1, i, j) +\r\n                    white.query(0, 0, i - k, j - k) +\r\n  \
-    \                  white.query(0, j + 1, i - k, k * 2 - 1) +\r\n             \
-    \       white.query(i + 1, 0, k * 2 - 1, j - k) +\r\n                    white.query(i\
-    \ + 1, j + 1, k * 2 - 1, k * 2 - 1);\r\n      ans = std::max(ans, b + w);\r\n\
-    \    }\r\n  }\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
-  code: "/*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\
-    \r\n */\r\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_d\"\
-    \r\n// #define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\r\
-    \n\r\n#include <algorithm>\r\n#include <iostream>\r\n\r\n#include \"../../dynamic_programming/2d_cumulative_sum.hpp\"\
-    \r\n\r\nint main() {\r\n  int n, k;\r\n  std::cin >> n >> k;\r\n  CumulativeSum2D<int>\
-    \ black(k * 2, k * 2), white(k * 2, k * 2);\r\n  while (n--) {\r\n    int x, y;\r\
-    \n    char c;\r\n    std::cin >> x >> y >> c;\r\n    x %= k * 2;\r\n    y %= k\
-    \ * 2;\r\n    (c == 'B' ? black : white).add(y, x, 1);\r\n  }\r\n  black.build();\r\
-    \n  white.build();\r\n  int ans = 0;\r\n  for (int i = k - 1; i < k * 2; ++i)\
-    \ {\r\n    for (int j = k - 1; j < k * 2; ++j) {\r\n      const int b = black.query(i\
-    \ - k + 1, j - k + 1, i, j) +\r\n                    black.query(0, 0, i - k,\
-    \ j - k) +\r\n                    black.query(0, j + 1, i - k, k * 2 - 1) +\r\n\
-    \                    black.query(i + 1, 0, k * 2 - 1, j - k) +\r\n           \
-    \         black.query(i + 1, j + 1, k * 2 - 1, k * 2 - 1);\r\n      const int\
-    \ w = white.query(0, j - k + 1, i - k, j) +\r\n                    white.query(i\
-    \ - k + 1, 0, i, j - k) +\r\n                    white.query(i - k + 1, j + 1,\
-    \ i, k * 2 - 1) +\r\n                    white.query(i + 1, j - k + 1, k * 2 -\
-    \ 1, j);\r\n      ans = std::max(ans, b + w);\r\n    }\r\n  }\r\n  for (int i\
-    \ = k - 1; i < k * 2; ++i) {\r\n    for (int j = k - 1; j < k * 2; ++j) {\r\n\
-    \      const int b = black.query(0, j - k + 1, i - k, j) +\r\n               \
-    \     black.query(i - k + 1, 0, i, j - k) +\r\n                    black.query(i\
-    \ - k + 1, j + 1, i, k * 2 - 1) +\r\n                    black.query(i + 1, j\
-    \ - k + 1, k * 2 - 1, j);\r\n      const int w = white.query(i - k + 1, j - k\
-    \ + 1, i, j) +\r\n                    white.query(0, 0, i - k, j - k) +\r\n  \
-    \                  white.query(0, j + 1, i - k, k * 2 - 1) +\r\n             \
-    \       white.query(i + 1, 0, k * 2 - 1, j - k) +\r\n                    white.query(i\
-    \ + 1, j + 1, k * 2 - 1, k * 2 - 1);\r\n      ans = std::max(ans, b + w);\r\n\
-    \    }\r\n  }\r\n  std::cout << ans << '\\n';\r\n  return 0;\r\n}\r\n"
+    #line 11 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\n\nint main()\
+    \ {\n  int n, k;\n  std::cin >> n >> k;\n  CumulativeSum2D<int> black(k * 2, k\
+    \ * 2), white(k * 2, k * 2);\n  while (n--) {\n    int x, y;\n    char c;\n  \
+    \  std::cin >> x >> y >> c;\n    x %= k * 2;\n    y %= k * 2;\n    (c == 'B' ?\
+    \ black : white).add(y, x, 1);\n  }\n  black.build();\n  white.build();\n  int\
+    \ ans = 0;\n  for (int i = k - 1; i < k * 2; ++i) {\n    for (int j = k - 1; j\
+    \ < k * 2; ++j) {\n      const int b = black.query(i - k + 1, j - k + 1, i, j)\
+    \ +\n                    black.query(0, 0, i - k, j - k) +\n                 \
+    \   black.query(0, j + 1, i - k, k * 2 - 1) +\n                    black.query(i\
+    \ + 1, 0, k * 2 - 1, j - k) +\n                    black.query(i + 1, j + 1, k\
+    \ * 2 - 1, k * 2 - 1);\n      const int w = white.query(0, j - k + 1, i - k, j)\
+    \ +\n                    white.query(i - k + 1, 0, i, j - k) +\n             \
+    \       white.query(i - k + 1, j + 1, i, k * 2 - 1) +\n                    white.query(i\
+    \ + 1, j - k + 1, k * 2 - 1, j);\n      ans = std::max(ans, b + w);\n    }\n \
+    \ }\n  for (int i = k - 1; i < k * 2; ++i) {\n    for (int j = k - 1; j < k *\
+    \ 2; ++j) {\n      const int b = black.query(0, j - k + 1, i - k, j) +\n     \
+    \               black.query(i - k + 1, 0, i, j - k) +\n                    black.query(i\
+    \ - k + 1, j + 1, i, k * 2 - 1) +\n                    black.query(i + 1, j -\
+    \ k + 1, k * 2 - 1, j);\n      const int w = white.query(i - k + 1, j - k + 1,\
+    \ i, j) +\n                    white.query(0, 0, i - k, j - k) +\n           \
+    \         white.query(0, j + 1, i - k, k * 2 - 1) +\n                    white.query(i\
+    \ + 1, 0, k * 2 - 1, j - k) +\n                    white.query(i + 1, j + 1, k\
+    \ * 2 - 1, k * 2 - 1);\n      ans = std::max(ans, b + w);\n    }\n  }\n  std::cout\
+    \ << ans << '\\n';\n  return 0;\n}\n"
+  code: "/*\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\
+    \n */\n#define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_d\"\n\
+    // #define PROBLEM \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\n\n#include\
+    \ <algorithm>\n#include <iostream>\n\n#include \"../../dynamic_programming/2d_cumulative_sum.hpp\"\
+    \n\nint main() {\n  int n, k;\n  std::cin >> n >> k;\n  CumulativeSum2D<int> black(k\
+    \ * 2, k * 2), white(k * 2, k * 2);\n  while (n--) {\n    int x, y;\n    char\
+    \ c;\n    std::cin >> x >> y >> c;\n    x %= k * 2;\n    y %= k * 2;\n    (c ==\
+    \ 'B' ? black : white).add(y, x, 1);\n  }\n  black.build();\n  white.build();\n\
+    \  int ans = 0;\n  for (int i = k - 1; i < k * 2; ++i) {\n    for (int j = k -\
+    \ 1; j < k * 2; ++j) {\n      const int b = black.query(i - k + 1, j - k + 1,\
+    \ i, j) +\n                    black.query(0, 0, i - k, j - k) +\n           \
+    \         black.query(0, j + 1, i - k, k * 2 - 1) +\n                    black.query(i\
+    \ + 1, 0, k * 2 - 1, j - k) +\n                    black.query(i + 1, j + 1, k\
+    \ * 2 - 1, k * 2 - 1);\n      const int w = white.query(0, j - k + 1, i - k, j)\
+    \ +\n                    white.query(i - k + 1, 0, i, j - k) +\n             \
+    \       white.query(i - k + 1, j + 1, i, k * 2 - 1) +\n                    white.query(i\
+    \ + 1, j - k + 1, k * 2 - 1, j);\n      ans = std::max(ans, b + w);\n    }\n \
+    \ }\n  for (int i = k - 1; i < k * 2; ++i) {\n    for (int j = k - 1; j < k *\
+    \ 2; ++j) {\n      const int b = black.query(0, j - k + 1, i - k, j) +\n     \
+    \               black.query(i - k + 1, 0, i, j - k) +\n                    black.query(i\
+    \ - k + 1, j + 1, i, k * 2 - 1) +\n                    black.query(i + 1, j -\
+    \ k + 1, k * 2 - 1, j);\n      const int w = white.query(i - k + 1, j - k + 1,\
+    \ i, j) +\n                    white.query(0, 0, i - k, j - k) +\n           \
+    \         white.query(0, j + 1, i - k, k * 2 - 1) +\n                    white.query(i\
+    \ + 1, 0, k * 2 - 1, j - k) +\n                    white.query(i + 1, j + 1, k\
+    \ * 2 - 1, k * 2 - 1);\n      ans = std::max(ans, b + w);\n    }\n  }\n  std::cout\
+    \ << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - dynamic_programming/2d_cumulative_sum.hpp
   isVerificationFile: true
   path: test/dynamic_programming/2d_cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/2d_cumulative_sum.test.cpp

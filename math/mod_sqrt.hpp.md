@@ -1,59 +1,58 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/quadratic_residue.md
     document_title: "\u5E73\u65B9\u5270\u4F59"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/mod_sqrt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u5E73\u65B9\u5270\u4F59\r\n * @docs docs/math/quadratic_residue.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include \"../util/xorshift.hpp\"\r\n#include \"\
-    ./mod_pow.hpp\"\r\n\r\nlong long mod_sqrt(long long a, const int p) {\r\n  if\
-    \ ((a %= p) < 0) a += p;\r\n  if (a == 0) return 0;\r\n  if (p == 2) return 1;\r\
-    \n  if (mod_pow(a, (p - 1) >> 1, p) == p - 1) return -1;\r\n  if (p % 4 == 3)\
-    \ return mod_pow(a, (p + 1) >> 2, p);\r\n  int s = 1, q = (p - 1) >> 1;\r\n  for\
-    \ (; !(q & 1); q >>= 1) {\r\n    ++s;\r\n  }\r\n  long long z;\r\n  do {\r\n \
-    \   z = xor128.rand(2, p);\r\n  } while (mod_pow(z, (p - 1) >> 1, p) == 1);\r\n\
-    \  int m = s;\r\n  long long c = mod_pow(z, q, p), r = mod_pow(a, (q - 1) >> 1,\
-    \ p);\r\n  long long t = a * r % p * r % p;\r\n  r = (r * a) % p;\r\n  while (t\
-    \ != 1) {\r\n    long long t2 = t * t % p;\r\n    for (int i = 1; i < m; ++i)\
-    \ {\r\n      if (t2 == 1) {\r\n        const long long b = mod_pow(c, 1 << (m\
-    \ - i - 1), p);\r\n        m = i;\r\n        r = (r * b) % p;\r\n        c = b\
-    \ * b % p;\r\n        t = (t * c) % p;\r\n        break;\r\n      }\r\n      t2\
-    \ = (t2 * t2) % p;\r\n    }\r\n  }\r\n  return r;\r\n}\r\n"
+  code: "/**\n * @brief \u5E73\u65B9\u5270\u4F59\n * @docs docs/math/quadratic_residue.md\n\
+    \ */\n\n#pragma once\n#include \"../util/xorshift.hpp\"\n#include \"./mod_pow.hpp\"\
+    \n\nlong long mod_sqrt(long long a, const int p) {\n  if ((a %= p) < 0) a += p;\n\
+    \  if (a == 0) return 0;\n  if (p == 2) return 1;\n  if (mod_pow(a, (p - 1) >>\
+    \ 1, p) == p - 1) return -1;\n  if (p % 4 == 3) return mod_pow(a, (p + 1) >> 2,\
+    \ p);\n  int s = 1, q = (p - 1) >> 1;\n  for (; !(q & 1); q >>= 1) {\n    ++s;\n\
+    \  }\n  long long z;\n  do {\n    z = xor128.rand(2, p);\n  } while (mod_pow(z,\
+    \ (p - 1) >> 1, p) == 1);\n  int m = s;\n  long long c = mod_pow(z, q, p), r =\
+    \ mod_pow(a, (q - 1) >> 1, p);\n  long long t = a * r % p * r % p;\n  r = (r *\
+    \ a) % p;\n  while (t != 1) {\n    long long t2 = t * t % p;\n    for (int i =\
+    \ 1; i < m; ++i) {\n      if (t2 == 1) {\n        const long long b = mod_pow(c,\
+    \ 1 << (m - i - 1), p);\n        m = i;\n        r = (r * b) % p;\n        c =\
+    \ b * b % p;\n        t = (t * c) % p;\n        break;\n      }\n      t2 = (t2\
+    \ * t2) % p;\n    }\n  }\n  return r;\n}\n"
   dependsOn:
   - util/xorshift.hpp
   - math/mod_pow.hpp
   isVerificationFile: false
   path: math/mod_sqrt.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mod_sqrt.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
@@ -73,7 +72,14 @@ $x^2 \equiv a \pmod{p}$ を満たす $x$ が存在すれば，$a \in \mathbb{Z}$
 
 整数 $a$，奇素数 $p$ に対して
 
-$$\left(\dfrac{a}{p} \right) \mathrel{:=} \begin{cases} 1 & (a \not\equiv 0 \pmod{p} \wedge a \text{ は法 } p \text{ の下で平方剰余}), \\ -1 & (a \text{ は法 } p \text{ の下で平方非剰余}), \\ 0 & (a \equiv 0 \pmod{p}) \end{cases}$$
+$$
+  \left(\dfrac{a}{p} \right) \mathrel{:=}
+   \begin{cases}
+     1 & (a \not\equiv 0 \pmod{p} \wedge a \text{ は法 } p \text{ の下で平方剰余}), \\
+     -1 & (a \text{ は法 } p \text{ の下で平方非剰余}), \\
+     0 & (a \equiv 0 \pmod{p})
+   \end{cases}
+$$
 
 と定義する．
 
@@ -82,7 +88,9 @@ $$\left(\dfrac{a}{p} \right) \mathrel{:=} \begin{cases} 1 & (a \not\equiv 0 \pmo
 
 整数 $a \neq 0$，奇素数 $p$ に対して $a \perp p$ ならば
 
-$$\left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p}$$
+$$
+  \left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p}
+$$
 
 が成り立つ．
 
@@ -138,7 +146,9 @@ $$\left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p}$$
 
 整数 $a$，正の奇数 $p$ に対して $p$ の素因数分解を $p = \prod_i p_i^{e_i}$ とすると
 
-$$\left(\dfrac{a}{p} \right) \mathrel{:=} \prod_i \left(\dfrac{a}{p_i} \right)^{e_i}$$
+$$
+  \left(\dfrac{a}{p} \right) \mathrel{:=} \prod_i \left(\dfrac{a}{p_i} \right)^{e_i}
+$$
 
 と定義される．
 

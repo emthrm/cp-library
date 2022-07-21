@@ -2,47 +2,46 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/game/nim.test.cpp
     title: "\u30B2\u30FC\u30E0/\u30CB\u30E0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/prime_factorization.test.cpp
     title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/prime_factorization.hpp\"\n#include <utility>\r\n#include\
-    \ <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<std::pair<T, int>> prime_factorization(T\
-    \ n) {\r\n  std::vector<std::pair<T, int>> res;\r\n  for (T i = 2; i * i <= n;\
-    \ ++i) {\r\n    if (n % i == 0) {\r\n      int exponent = 0;\r\n      for (; n\
-    \ % i == 0; n /= i) {\r\n        ++exponent;\r\n      }\r\n      res.emplace_back(i,\
-    \ exponent);\r\n    }\r\n  }\r\n  if (n > 1) res.emplace_back(n, 1);\r\n  return\
-    \ res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::vector<std::pair<T, int>> prime_factorization(T n) {\r\n  std::vector<std::pair<T,\
-    \ int>> res;\r\n  for (T i = 2; i * i <= n; ++i) {\r\n    if (n % i == 0) {\r\n\
-    \      int exponent = 0;\r\n      for (; n % i == 0; n /= i) {\r\n        ++exponent;\r\
-    \n      }\r\n      res.emplace_back(i, exponent);\r\n    }\r\n  }\r\n  if (n >\
-    \ 1) res.emplace_back(n, 1);\r\n  return res;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/prime_factorization.hpp\"\n#include <utility>\n#include\
+    \ <vector>\n\ntemplate <typename T>\nstd::vector<std::pair<T, int>> prime_factorization(T\
+    \ n) {\n  std::vector<std::pair<T, int>> res;\n  for (T i = 2; i * i <= n; ++i)\
+    \ {\n    if (n % i == 0) {\n      int exponent = 0;\n      for (; n % i == 0;\
+    \ n /= i) {\n        ++exponent;\n      }\n      res.emplace_back(i, exponent);\n\
+    \    }\n  }\n  if (n > 1) res.emplace_back(n, 1);\n  return res;\n}\n"
+  code: "#pragma once\n#include <utility>\n#include <vector>\n\ntemplate <typename\
+    \ T>\nstd::vector<std::pair<T, int>> prime_factorization(T n) {\n  std::vector<std::pair<T,\
+    \ int>> res;\n  for (T i = 2; i * i <= n; ++i) {\n    if (n % i == 0) {\n    \
+    \  int exponent = 0;\n      for (; n % i == 0; n /= i) {\n        ++exponent;\n\
+    \      }\n      res.emplace_back(i, exponent);\n    }\n  }\n  if (n > 1) res.emplace_back(n,\
+    \ 1);\n  return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/prime_factorization.hpp
   requiredBy:
   - math/is_primitive_root.hpp
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/prime_factorization.test.cpp
   - test/math/is_primitive_root.test.cpp
+  - test/math/prime_factorization.test.cpp
   - test/game/nim.test.cpp
 documentation_of: math/prime_factorization.hpp
 layout: document

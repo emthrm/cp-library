@@ -8,26 +8,26 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"dynamic_programming/aliens_dp.hpp\"\n\r\ntemplate <typename\
-    \ Real = double, typename F, typename T>\r\nReal aliens_dp(const F calc, const\
-    \ int d, const T& max_abs_c, int repeat) {\r\n  const auto l = [calc, d](const\
-    \ Real lambda) -> Real {\r\n    return -lambda * d + calc(lambda);\r\n  };\r\n\
-    \  Real ub = max_abs_c * 3, lb = -ub;\r\n  while (repeat--) {\r\n    const Real\
-    \ mid1 = (lb + lb + ub) / 3, mid2 = (lb + ub + ub) / 3;\r\n    if (l(mid1) > l(mid2))\
-    \ {\r\n      ub = mid2;\r\n    } else {\r\n      lb = mid1;\r\n    }\r\n  }\r\n\
-    \  return l(ub);\r\n}\r\n"
-  code: "#pragma once\r\n\r\ntemplate <typename Real = double, typename F, typename\
-    \ T>\r\nReal aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat)\
-    \ {\r\n  const auto l = [calc, d](const Real lambda) -> Real {\r\n    return -lambda\
-    \ * d + calc(lambda);\r\n  };\r\n  Real ub = max_abs_c * 3, lb = -ub;\r\n  while\
-    \ (repeat--) {\r\n    const Real mid1 = (lb + lb + ub) / 3, mid2 = (lb + ub +\
-    \ ub) / 3;\r\n    if (l(mid1) > l(mid2)) {\r\n      ub = mid2;\r\n    } else {\r\
-    \n      lb = mid1;\r\n    }\r\n  }\r\n  return l(ub);\r\n}\r\n"
+  bundledCode: "#line 2 \"dynamic_programming/aliens_dp.hpp\"\n\ntemplate <typename\
+    \ Real = double, typename F, typename T>\nReal aliens_dp(const F calc, const int\
+    \ d, const T& max_abs_c, int repeat) {\n  const auto l = [calc, d](const Real\
+    \ lambda) -> Real {\n    return -lambda * d + calc(lambda);\n  };\n  Real ub =\
+    \ max_abs_c * 3, lb = -ub;\n  while (repeat--) {\n    const Real mid1 = (lb +\
+    \ lb + ub) / 3, mid2 = (lb + ub + ub) / 3;\n    if (l(mid1) > l(mid2)) {\n   \
+    \   ub = mid2;\n    } else {\n      lb = mid1;\n    }\n  }\n  return l(ub);\n\
+    }\n"
+  code: "#pragma once\n\ntemplate <typename Real = double, typename F, typename T>\n\
+    Real aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat) {\n\
+    \  const auto l = [calc, d](const Real lambda) -> Real {\n    return -lambda *\
+    \ d + calc(lambda);\n  };\n  Real ub = max_abs_c * 3, lb = -ub;\n  while (repeat--)\
+    \ {\n    const Real mid1 = (lb + lb + ub) / 3, mid2 = (lb + ub + ub) / 3;\n  \
+    \  if (l(mid1) > l(mid2)) {\n      ub = mid2;\n    } else {\n      lb = mid1;\n\
+    \    }\n  }\n  return l(ub);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/aliens_dp.hpp
   requiredBy: []
-  timestamp: '2022-03-23 02:29:55+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: dynamic_programming/aliens_dp.hpp

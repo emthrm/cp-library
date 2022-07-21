@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -16,33 +16,32 @@ data:
     _deprecated_at_docs: docs/math/formal_power_series/eulerian_number.md
     document_title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/formal_power_series/eulerian_number_by_fps.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\
-    \r\n * @docs docs/math/formal_power_series/eulerian_number.md\r\n */\r\n\r\n#pragma\
-    \ once\r\n#include <vector>\r\n\r\n#include \"../modint.hpp\"\r\n#include \"./formal_power_series.hpp\"\
-    \r\n\r\ntemplate <int T>\r\nstd::vector<MInt<T>> eulerian_number_init_by_fps(const\
-    \ int n) {\r\n  using ModInt = MInt<T>;\r\n  if (n == 0) return {1};\r\n  ModInt::init(n\
-    \ + 1);\r\n  const int m = (n + 1) >> 1;\r\n  FormalPowerSeries<ModInt> a(m -\
-    \ 1), b(m - 1);\r\n  for (int i = 0; i < m; ++i) {\r\n    a[i] = ModInt(i + 1).pow(n);\r\
-    \n  }\r\n  for (int i = 0; i < m; ++i) {\r\n    b[i] = (i & 1 ? -ModInt::fact_inv(i)\
-    \ : ModInt::fact_inv(i))\r\n           * ModInt::fact_inv(n + 1 - i);\r\n  }\r\
-    \n  a *= b;\r\n  a.resize(n);\r\n  for (int i = 0; i < m; ++i) {\r\n    a[i] *=\
-    \ ModInt::fact(n + 1);\r\n    a[n - 1 - i] = a[i];\r\n  }\r\n  return a.coef;\r\
-    \n}\r\n"
+  code: "/**\n * @brief Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\
+    \n * @docs docs/math/formal_power_series/eulerian_number.md\n */\n\n#pragma once\n\
+    #include <vector>\n\n#include \"../modint.hpp\"\n#include \"./formal_power_series.hpp\"\
+    \n\ntemplate <int T>\nstd::vector<MInt<T>> eulerian_number_init_by_fps(const int\
+    \ n) {\n  using ModInt = MInt<T>;\n  if (n == 0) return {1};\n  ModInt::init(n\
+    \ + 1);\n  const int m = (n + 1) >> 1;\n  FormalPowerSeries<ModInt> a(m - 1),\
+    \ b(m - 1);\n  for (int i = 0; i < m; ++i) {\n    a[i] = ModInt(i + 1).pow(n);\n\
+    \  }\n  for (int i = 0; i < m; ++i) {\n    b[i] = (i & 1 ? -ModInt::fact_inv(i)\
+    \ : ModInt::fact_inv(i))\n           * ModInt::fact_inv(n + 1 - i);\n  }\n  a\
+    \ *= b;\n  a.resize(n);\n  for (int i = 0; i < m; ++i) {\n    a[i] *= ModInt::fact(n\
+    \ + 1);\n    a[n - 1 - i] = a[i];\n  }\n  return a.coef;\n}\n"
   dependsOn:
   - math/modint.hpp
   - math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: math/formal_power_series/eulerian_number_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-27 17:53:24+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/formal_power_series/eulerian_number_by_fps.hpp
@@ -54,21 +53,34 @@ title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
 ---
 # Eulerian number
 
-$$A_n(x) = \sum_{m = 0}^n A(n, m) x^m$$
+$$
+  A_n(x) = \sum_{m = 0}^n A(n, m) x^m
+$$
 
 で定義される $A(n, m)$ である．ただし $A_n(x)$ は
 
-$$\sum_{n = 0}^{\infty} A_n(x) \dfrac{t^n}{t!} = \dfrac{x - 1}{x - e^{(x - 1)t}}$$
+$$
+  \sum_{n = 0}^{\infty} A_n(x) \dfrac{t^n}{t!} = \dfrac{x - 1}{x - e^{(x - 1)t}}
+$$
 
 で定義される Eulerian polynomials である．
 
-$$A(n, m) = \begin{cases} 1 & (m = 0), \\ 0 & (n = m > 0), \\ (n - m) A(n - 1, m - 1) + (m + 1) A(n - 1, m) & (0 < m < n) \end{cases}$$
+$$
+  A(n, m) =
+  \begin{cases}
+    1 & (m = 0), \\
+    0 & (n = m > 0), \\
+    (n - m) A(n - 1, m - 1) + (m + 1) A(n - 1, m) & (0 < m < n)
+  \end{cases}
+$$
 
 という漸化式をもつ．
 
 一般項
 
-$$A(n, m) = \sum_{k = 0}^m (-1)^k \binom{n + 1}{k} (m + 1 - k)^n$$
+$$
+  A(n, m) = \sum_{k = 0}^m (-1)^k \binom{n + 1}{k} (m + 1 - k)^n
+$$
 
 である．
 

@@ -13,61 +13,57 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/flow/maximum_flow/project_selection_problem.hpp\"\n\
-    #include <cassert>\r\n#include <limits>\r\n#include <vector>\r\n\r\ntemplate <template\
-    \ <typename> class C, typename T>\r\nstruct ProjectSelectionProblem {\r\n  explicit\
-    \ ProjectSelectionProblem(const int n)\r\n      : inf(std::numeric_limits<T>::max()),\
-    \ n(n), res(0) {}\r\n\r\n  void add_neq(const int u, const int v, const T cost)\
-    \ {\r\n    assert(cost >= 0);\r\n    us.emplace_back(u);\r\n    vs.emplace_back(v);\r\
-    \n    costs.emplace_back(cost);\r\n  }\r\n\r\n  void add(const int v, bool group,\
-    \ T cost) {\r\n    if (cost < 0) {\r\n      cost = -cost;\r\n      res += cost;\r\
-    \n      group = !group;\r\n    }\r\n    if (group) {\r\n      add_neq(-2, v, cost);\
-    \  // -2 represents S.\r\n    } else {\r\n      add_neq(v, -1, cost);  // -1 represents\
-    \ T.\r\n    }\r\n  }\r\n\r\n  void add_or(const std::vector<int>& v, const bool\
-    \ group, const T cost) {\r\n    assert(cost >= 0);\r\n    add(n, group, cost);\r\
-    \n    if (group) {\r\n      for (const int e : v) add_neq(n, e, inf);\r\n    }\
-    \ else {\r\n      for (const int e : v) add_neq(e, n, inf);\r\n    }\r\n    ++n;\r\
-    \n  }\r\n\r\n  void add_or(const int u, const int v, const bool group, const T\
-    \ cost) {\r\n    add_or({u, v}, group, cost);\r\n  }\r\n\r\n  void add_eq(const\
-    \ std::vector<int>& v, const bool group, T cost) {\r\n    assert(cost <= 0);\r\
-    \n    cost = -cost;\r\n    res += cost;\r\n    add_or(v, !group, cost);\r\n  }\r\
-    \n\r\n  void add_eq(const int u, const int v, const bool group, const T cost)\
-    \ {\r\n    add_eq({u, v}, group, cost);\r\n  }\r\n\r\n  T solve() {\r\n    C<T>\
-    \ mf(n + 2);\r\n    const int neq_size = costs.size();\r\n    for (int i = 0;\
-    \ i < neq_size; ++i) {\r\n      mf.add_edge(us[i] < 0 ? us[i] + n + 2 : us[i],\r\
-    \n                  vs[i] < 0 ? vs[i] + n + 2 : vs[i], costs[i]);\r\n    }\r\n\
-    \    return mf.maximum_flow(n, n + 1, inf) - res;\r\n  }\r\n\r\n private:\r\n\
-    \  const T inf;\r\n  int n;\r\n  T res;\r\n  std::vector<int> us, vs;\r\n  std::vector<T>\
-    \ costs;\r\n};\r\n"
-  code: "#pragma once\r\n#include <cassert>\r\n#include <limits>\r\n#include <vector>\r\
-    \n\r\ntemplate <template <typename> class C, typename T>\r\nstruct ProjectSelectionProblem\
-    \ {\r\n  explicit ProjectSelectionProblem(const int n)\r\n      : inf(std::numeric_limits<T>::max()),\
-    \ n(n), res(0) {}\r\n\r\n  void add_neq(const int u, const int v, const T cost)\
-    \ {\r\n    assert(cost >= 0);\r\n    us.emplace_back(u);\r\n    vs.emplace_back(v);\r\
-    \n    costs.emplace_back(cost);\r\n  }\r\n\r\n  void add(const int v, bool group,\
-    \ T cost) {\r\n    if (cost < 0) {\r\n      cost = -cost;\r\n      res += cost;\r\
-    \n      group = !group;\r\n    }\r\n    if (group) {\r\n      add_neq(-2, v, cost);\
-    \  // -2 represents S.\r\n    } else {\r\n      add_neq(v, -1, cost);  // -1 represents\
-    \ T.\r\n    }\r\n  }\r\n\r\n  void add_or(const std::vector<int>& v, const bool\
-    \ group, const T cost) {\r\n    assert(cost >= 0);\r\n    add(n, group, cost);\r\
-    \n    if (group) {\r\n      for (const int e : v) add_neq(n, e, inf);\r\n    }\
-    \ else {\r\n      for (const int e : v) add_neq(e, n, inf);\r\n    }\r\n    ++n;\r\
-    \n  }\r\n\r\n  void add_or(const int u, const int v, const bool group, const T\
-    \ cost) {\r\n    add_or({u, v}, group, cost);\r\n  }\r\n\r\n  void add_eq(const\
-    \ std::vector<int>& v, const bool group, T cost) {\r\n    assert(cost <= 0);\r\
-    \n    cost = -cost;\r\n    res += cost;\r\n    add_or(v, !group, cost);\r\n  }\r\
-    \n\r\n  void add_eq(const int u, const int v, const bool group, const T cost)\
-    \ {\r\n    add_eq({u, v}, group, cost);\r\n  }\r\n\r\n  T solve() {\r\n    C<T>\
-    \ mf(n + 2);\r\n    const int neq_size = costs.size();\r\n    for (int i = 0;\
-    \ i < neq_size; ++i) {\r\n      mf.add_edge(us[i] < 0 ? us[i] + n + 2 : us[i],\r\
-    \n                  vs[i] < 0 ? vs[i] + n + 2 : vs[i], costs[i]);\r\n    }\r\n\
-    \    return mf.maximum_flow(n, n + 1, inf) - res;\r\n  }\r\n\r\n private:\r\n\
-    \  const T inf;\r\n  int n;\r\n  T res;\r\n  std::vector<int> us, vs;\r\n  std::vector<T>\
-    \ costs;\r\n};\r\n"
+    #include <cassert>\n#include <limits>\n#include <vector>\n\ntemplate <template\
+    \ <typename> class C, typename T>\nstruct ProjectSelectionProblem {\n  explicit\
+    \ ProjectSelectionProblem(const int n)\n      : inf(std::numeric_limits<T>::max()),\
+    \ n(n), res(0) {}\n\n  void add_neq(const int u, const int v, const T cost) {\n\
+    \    assert(cost >= 0);\n    us.emplace_back(u);\n    vs.emplace_back(v);\n  \
+    \  costs.emplace_back(cost);\n  }\n\n  void add(const int v, bool group, T cost)\
+    \ {\n    if (cost < 0) {\n      cost = -cost;\n      res += cost;\n      group\
+    \ = !group;\n    }\n    if (group) {\n      add_neq(-2, v, cost);  // -2 represents\
+    \ S.\n    } else {\n      add_neq(v, -1, cost);  // -1 represents T.\n    }\n\
+    \  }\n\n  void add_or(const std::vector<int>& v, const bool group, const T cost)\
+    \ {\n    assert(cost >= 0);\n    add(n, group, cost);\n    if (group) {\n    \
+    \  for (const int e : v) add_neq(n, e, inf);\n    } else {\n      for (const int\
+    \ e : v) add_neq(e, n, inf);\n    }\n    ++n;\n  }\n\n  void add_or(const int\
+    \ u, const int v, const bool group, const T cost) {\n    add_or({u, v}, group,\
+    \ cost);\n  }\n\n  void add_eq(const std::vector<int>& v, const bool group, T\
+    \ cost) {\n    assert(cost <= 0);\n    cost = -cost;\n    res += cost;\n    add_or(v,\
+    \ !group, cost);\n  }\n\n  void add_eq(const int u, const int v, const bool group,\
+    \ const T cost) {\n    add_eq({u, v}, group, cost);\n  }\n\n  T solve() {\n  \
+    \  C<T> mf(n + 2);\n    const int neq_size = costs.size();\n    for (int i = 0;\
+    \ i < neq_size; ++i) {\n      mf.add_edge(us[i] < 0 ? us[i] + n + 2 : us[i],\n\
+    \                  vs[i] < 0 ? vs[i] + n + 2 : vs[i], costs[i]);\n    }\n    return\
+    \ mf.maximum_flow(n, n + 1, inf) - res;\n  }\n\n private:\n  const T inf;\n  int\
+    \ n;\n  T res;\n  std::vector<int> us, vs;\n  std::vector<T> costs;\n};\n"
+  code: "#pragma once\n#include <cassert>\n#include <limits>\n#include <vector>\n\n\
+    template <template <typename> class C, typename T>\nstruct ProjectSelectionProblem\
+    \ {\n  explicit ProjectSelectionProblem(const int n)\n      : inf(std::numeric_limits<T>::max()),\
+    \ n(n), res(0) {}\n\n  void add_neq(const int u, const int v, const T cost) {\n\
+    \    assert(cost >= 0);\n    us.emplace_back(u);\n    vs.emplace_back(v);\n  \
+    \  costs.emplace_back(cost);\n  }\n\n  void add(const int v, bool group, T cost)\
+    \ {\n    if (cost < 0) {\n      cost = -cost;\n      res += cost;\n      group\
+    \ = !group;\n    }\n    if (group) {\n      add_neq(-2, v, cost);  // -2 represents\
+    \ S.\n    } else {\n      add_neq(v, -1, cost);  // -1 represents T.\n    }\n\
+    \  }\n\n  void add_or(const std::vector<int>& v, const bool group, const T cost)\
+    \ {\n    assert(cost >= 0);\n    add(n, group, cost);\n    if (group) {\n    \
+    \  for (const int e : v) add_neq(n, e, inf);\n    } else {\n      for (const int\
+    \ e : v) add_neq(e, n, inf);\n    }\n    ++n;\n  }\n\n  void add_or(const int\
+    \ u, const int v, const bool group, const T cost) {\n    add_or({u, v}, group,\
+    \ cost);\n  }\n\n  void add_eq(const std::vector<int>& v, const bool group, T\
+    \ cost) {\n    assert(cost <= 0);\n    cost = -cost;\n    res += cost;\n    add_or(v,\
+    \ !group, cost);\n  }\n\n  void add_eq(const int u, const int v, const bool group,\
+    \ const T cost) {\n    add_eq({u, v}, group, cost);\n  }\n\n  T solve() {\n  \
+    \  C<T> mf(n + 2);\n    const int neq_size = costs.size();\n    for (int i = 0;\
+    \ i < neq_size; ++i) {\n      mf.add_edge(us[i] < 0 ? us[i] + n + 2 : us[i],\n\
+    \                  vs[i] < 0 ? vs[i] + n + 2 : vs[i], costs[i]);\n    }\n    return\
+    \ mf.maximum_flow(n, n + 1, inf) - res;\n  }\n\n private:\n  const T inf;\n  int\
+    \ n;\n  T res;\n  std::vector<int> us, vs;\n  std::vector<T> costs;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/maximum_flow/project_selection_problem.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp

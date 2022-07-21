@@ -13,29 +13,28 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"dynamic_programming/levenshtein_distance.hpp\"\n#include\
-    \ <algorithm>\r\n#include <numeric>\r\n#include <vector>\r\n\r\ntemplate <typename\
-    \ T>\r\nint levenshtein_distance(const T& a, const T& b) {\r\n  const int n =\
-    \ a.size(), m = b.size();\r\n  std::vector<std::vector<int>> dp(n + 1, std::vector<int>(m\
-    \ + 1));\r\n  for (int i = n; i >= 1; --i) {\r\n    dp[i][0] = i;\r\n  }\r\n \
-    \ std::iota(dp[0].begin(), dp[0].end(), 0);\r\n  for (int i = 1; i <= n; ++i)\
-    \ {\r\n    for (int j = 1; j <= m; ++j) {\r\n      dp[i][j] = std::min({dp[i -\
-    \ 1][j] + 1,\r\n                           dp[i][j - 1] + 1,\r\n             \
-    \              dp[i - 1][j - 1] + (a[i - 1] != b[j - 1])});\r\n    }\r\n  }\r\n\
-    \  return dp[n][m];\r\n}\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <numeric>\r\n#include <vector>\r\
-    \n\r\ntemplate <typename T>\r\nint levenshtein_distance(const T& a, const T& b)\
-    \ {\r\n  const int n = a.size(), m = b.size();\r\n  std::vector<std::vector<int>>\
-    \ dp(n + 1, std::vector<int>(m + 1));\r\n  for (int i = n; i >= 1; --i) {\r\n\
-    \    dp[i][0] = i;\r\n  }\r\n  std::iota(dp[0].begin(), dp[0].end(), 0);\r\n \
-    \ for (int i = 1; i <= n; ++i) {\r\n    for (int j = 1; j <= m; ++j) {\r\n   \
-    \   dp[i][j] = std::min({dp[i - 1][j] + 1,\r\n                           dp[i][j\
-    \ - 1] + 1,\r\n                           dp[i - 1][j - 1] + (a[i - 1] != b[j\
-    \ - 1])});\r\n    }\r\n  }\r\n  return dp[n][m];\r\n}\r\n"
+    \ <algorithm>\n#include <numeric>\n#include <vector>\n\ntemplate <typename T>\n\
+    int levenshtein_distance(const T& a, const T& b) {\n  const int n = a.size(),\
+    \ m = b.size();\n  std::vector<std::vector<int>> dp(n + 1, std::vector<int>(m\
+    \ + 1));\n  for (int i = n; i >= 1; --i) {\n    dp[i][0] = i;\n  }\n  std::iota(dp[0].begin(),\
+    \ dp[0].end(), 0);\n  for (int i = 1; i <= n; ++i) {\n    for (int j = 1; j <=\
+    \ m; ++j) {\n      dp[i][j] = std::min({dp[i - 1][j] + 1,\n                  \
+    \         dp[i][j - 1] + 1,\n                           dp[i - 1][j - 1] + (a[i\
+    \ - 1] != b[j - 1])});\n    }\n  }\n  return dp[n][m];\n}\n"
+  code: "#pragma once\n#include <algorithm>\n#include <numeric>\n#include <vector>\n\
+    \ntemplate <typename T>\nint levenshtein_distance(const T& a, const T& b) {\n\
+    \  const int n = a.size(), m = b.size();\n  std::vector<std::vector<int>> dp(n\
+    \ + 1, std::vector<int>(m + 1));\n  for (int i = n; i >= 1; --i) {\n    dp[i][0]\
+    \ = i;\n  }\n  std::iota(dp[0].begin(), dp[0].end(), 0);\n  for (int i = 1; i\
+    \ <= n; ++i) {\n    for (int j = 1; j <= m; ++j) {\n      dp[i][j] = std::min({dp[i\
+    \ - 1][j] + 1,\n                           dp[i][j - 1] + 1,\n               \
+    \            dp[i - 1][j - 1] + (a[i - 1] != b[j - 1])});\n    }\n  }\n  return\
+    \ dp[n][m];\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: dynamic_programming/levenshtein_distance.hpp
   requiredBy: []
-  timestamp: '2022-02-12 20:37:17+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/levenshtein_distance.test.cpp

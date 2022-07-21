@@ -1,48 +1,48 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/formal_power_series/multipoint_evaluation.hpp
     title: multipoint evaluation
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/lagrange_interpolation.md
     document_title: "\u591A\u9805\u5F0F\u88DC\u9593"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/formal_power_series/polynomial_interpolation.hpp: line 6: #pragma once\
     \ found in a non-first line\n"
-  code: "/**\r\n * @brief \u591A\u9805\u5F0F\u88DC\u9593\r\n * @docs docs/math/lagrange_interpolation.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <functional>\r\n#include <vector>\r\n\r\n\
-    #include \"./multipoint_evaluation.hpp\"\r\n\r\ntemplate <template <typename>\
-    \ class C, typename T>\r\nC<T> polynomial_interpolation(const std::vector<T>&\
-    \ x,\r\n                              const std::vector<T>& y) {\r\n  MultipointEvaluation<C,\
-    \ T> m(x);\r\n  m.build(m.subproduct_tree[1].differential());\r\n  const int n\
-    \ = x.size();\r\n  const std::function<C<T>(int)> f = [&y, &m, n, &f](const int\
-    \ node) -> C<T> {\r\n    return node >= n ? C<T>{y[node - n] / m.f_x[node - n]}\
-    \ :\r\n                       f(node << 1) * m.subproduct_tree[(node << 1) + 1]\r\
-    \n                       + f((node << 1) + 1) * m.subproduct_tree[node << 1];\r\
-    \n  };\r\n  return f(1);\r\n}\r\n"
+  code: "/**\n * @brief \u591A\u9805\u5F0F\u88DC\u9593\n * @docs docs/math/lagrange_interpolation.md\n\
+    \ */\n\n#pragma once\n#include <functional>\n#include <vector>\n\n#include \"\
+    ./multipoint_evaluation.hpp\"\n\ntemplate <template <typename> class C, typename\
+    \ T>\nC<T> polynomial_interpolation(const std::vector<T>& x,\n               \
+    \               const std::vector<T>& y) {\n  MultipointEvaluation<C, T> m(x);\n\
+    \  m.build(m.subproduct_tree[1].differential());\n  const int n = x.size();\n\
+    \  const std::function<C<T>(int)> f = [&y, &m, n, &f](const int node) -> C<T>\
+    \ {\n    return node >= n ? C<T>{y[node - n] / m.f_x[node - n]} :\n          \
+    \             f(node << 1) * m.subproduct_tree[(node << 1) + 1]\n            \
+    \           + f((node << 1) + 1) * m.subproduct_tree[node << 1];\n  };\n  return\
+    \ f(1);\n}\n"
   dependsOn:
   - math/formal_power_series/multipoint_evaluation.hpp
   isVerificationFile: false
   path: math/formal_power_series/polynomial_interpolation.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
 documentation_of: math/formal_power_series/polynomial_interpolation.hpp
@@ -59,7 +59,9 @@ $1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x
 
 ### ラグランジュの補間多項式 (interpolation polynomial in the Lagrange form)
 
-$$f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \sum_{i = 1}^N \dfrac{f(x_i)}{g^{\prime}(x_i)} \prod_{j \neq i} (x - x_j) \text{ where } g(x) = \prod_{i = 1}^N (x - x_i). \\ \left( \because g^{\prime}(x) = \sum_{i = 1}^N \prod_{j \neq i} (x - x_j) \text{ より } g^{\prime}(x_i) = \prod_{j \neq i} (x_i - x_j)\text{．}\right)$$
+$$
+  f(x) = \sum_{i = 1}^N f(x_i) \prod_{j \neq i} \dfrac{x - x_j}{x_i - x_j} = \sum_{i = 1}^N \dfrac{f(x_i)}{g^{\prime}(x_i)} \prod_{j \neq i} (x - x_j) \text{ where } g(x) = \prod_{i = 1}^N (x - x_i).
+$$
 
 
 ## 時間計算量

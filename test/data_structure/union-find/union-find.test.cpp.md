@@ -15,30 +15,29 @@ data:
     document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/union-find"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/union-find.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/*\r\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find/union-find\r\n\
-    \ */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A\"\
-    \r\n\r\n#include <iostream>\r\n\r\n#include \"../../../data_structure/union-find/union-find.hpp\"\
-    \r\n\r\nint main() {\r\n  int n, q;\r\n  std::cin >> n >> q;\r\n  UnionFind union_find(n);\r\
-    \n  while (q--) {\r\n    int com, x, y;\r\n    std::cin >> com >> x >> y;\r\n\
-    \    if (com == 0) {\r\n      union_find.unite(x, y);\r\n    } else if (com ==\
-    \ 1) {\r\n      std::cout << union_find.is_same(x, y) << '\\n';\r\n    }\r\n \
-    \ }\r\n  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/union-find/union-find\n */\n\
+    #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A\"\
+    \n\n#include <iostream>\n\n#include \"../../../data_structure/union-find/union-find.hpp\"\
+    \n\nint main() {\n  int n, q;\n  std::cin >> n >> q;\n  UnionFind union_find(n);\n\
+    \  while (q--) {\n    int com, x, y;\n    std::cin >> com >> x >> y;\n    if (com\
+    \ == 0) {\n      union_find.unite(x, y);\n    } else if (com == 1) {\n      std::cout\
+    \ << union_find.is_same(x, y) << '\\n';\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - data_structure/union-find/union-find.hpp
   isVerificationFile: true
   path: test/data_structure/union-find/union-find.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/union-find/union-find.test.cpp

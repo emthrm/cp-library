@@ -18,43 +18,42 @@ data:
     document_title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\
       \u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/eulerian_trail_in_directed_graph.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
-  code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\
-    \u7248\r\n * @docs docs/graph/eulerian_trail.md\r\n */\r\n\r\n#pragma once\r\n\
-    #include <algorithm>\r\n#include <functional>\r\n#include <vector>\r\n\r\n#include\
-    \ \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstd::vector<Edge<CostType>>\
-    \ eulerian_trail_in_directed_graph(\r\n    std::vector<std::vector<Edge<CostType>>>\
-    \ graph, int s = -1) {\r\n  const int n = graph.size();\r\n  int edge_num = 0;\r\
-    \n  std::vector<int> deg(n, 0);\r\n  for (int i = 0; i < n; ++i) {\r\n    edge_num\
-    \ += graph[i].size();\r\n    deg[i] += graph[i].size();\r\n    for (const Edge<CostType>&\
-    \ e : graph[i]) --deg[e.dst];\r\n  }\r\n  if (edge_num == 0) return {};\r\n  const\
-    \ int not0 = n - std::count(deg.begin(), deg.end(), 0);\r\n  if (not0 == 0) {\r\
-    \n    if (s == -1) {\r\n      for (int i = 0; i < n; ++i) {\r\n        if (!graph[i].empty())\
-    \ {\r\n          s = i;\r\n          break;\r\n        }\r\n      }\r\n    }\r\
-    \n  } else if (not0 == 2) {\r\n    bool t_exists = false;\r\n    for (int i =\
-    \ 0; i < n; ++i) {\r\n      if (deg[i] == 0) continue;\r\n      if (deg[i] ==\
-    \ 1) {\r\n        if (s == -1) s = i;\r\n        if (s != i) return {};\r\n  \
-    \    } else if (deg[i] == -1) {\r\n        if (t_exists) return {};\r\n      \
-    \  t_exists = true;\r\n      } else {\r\n        return {};\r\n      }\r\n   \
-    \ }\r\n  } else {\r\n    return {};\r\n  }\r\n  std::vector<Edge<CostType>> res;\r\
-    \n  const std::function<void(int)> dfs = [&graph, &res, &dfs](const int ver) {\r\
-    \n    while (!graph[ver].empty()) {\r\n      const Edge<CostType> e = graph[ver].back();\r\
-    \n      graph[ver].pop_back();\r\n      dfs(e.dst);\r\n      res.emplace_back(e);\r\
-    \n    }\r\n  };\r\n  dfs(s);\r\n  if (res.size() == edge_num) {\r\n    std::reverse(res.begin(),\
-    \ res.end());\r\n    return res;\r\n  }\r\n  return {};\r\n}\r\n"
+  code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\
+    \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#pragma once\n#include <algorithm>\n\
+    #include <functional>\n#include <vector>\n\n#include \"./edge.hpp\"\n\ntemplate\
+    \ <typename CostType>\nstd::vector<Edge<CostType>> eulerian_trail_in_directed_graph(\n\
+    \    std::vector<std::vector<Edge<CostType>>> graph, int s = -1) {\n  const int\
+    \ n = graph.size();\n  int edge_num = 0;\n  std::vector<int> deg(n, 0);\n  for\
+    \ (int i = 0; i < n; ++i) {\n    edge_num += graph[i].size();\n    deg[i] += graph[i].size();\n\
+    \    for (const Edge<CostType>& e : graph[i]) --deg[e.dst];\n  }\n  if (edge_num\
+    \ == 0) return {};\n  const int not0 = n - std::count(deg.begin(), deg.end(),\
+    \ 0);\n  if (not0 == 0) {\n    if (s == -1) {\n      for (int i = 0; i < n; ++i)\
+    \ {\n        if (!graph[i].empty()) {\n          s = i;\n          break;\n  \
+    \      }\n      }\n    }\n  } else if (not0 == 2) {\n    bool t_exists = false;\n\
+    \    for (int i = 0; i < n; ++i) {\n      if (deg[i] == 0) continue;\n      if\
+    \ (deg[i] == 1) {\n        if (s == -1) s = i;\n        if (s != i) return {};\n\
+    \      } else if (deg[i] == -1) {\n        if (t_exists) return {};\n        t_exists\
+    \ = true;\n      } else {\n        return {};\n      }\n    }\n  } else {\n  \
+    \  return {};\n  }\n  std::vector<Edge<CostType>> res;\n  const std::function<void(int)>\
+    \ dfs = [&graph, &res, &dfs](const int ver) {\n    while (!graph[ver].empty())\
+    \ {\n      const Edge<CostType> e = graph[ver].back();\n      graph[ver].pop_back();\n\
+    \      dfs(e.dst);\n      res.emplace_back(e);\n    }\n  };\n  dfs(s);\n  if (res.size()\
+    \ == edge_num) {\n    std::reverse(res.begin(), res.end());\n    return res;\n\
+    \  }\n  return {};\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/eulerian_trail_in_directed_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/eulerian_trail_in_directed_graph.test.cpp

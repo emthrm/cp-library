@@ -11,24 +11,24 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"string/split.hpp\"\n#include <string>\r\n#include <vector>\r\
-    \n\r\nstd::vector<std::string> split(\r\n    const std::string& s, const std::string&\
-    \ delimiter) {\r\n  std::vector<std::string> res;\r\n  int pos = 0;\r\n  while\
-    \ (true) {\r\n    const int pos_to_del = s.find(delimiter, pos);\r\n    if (pos_to_del\
-    \ == s.npos) break;\r\n    res.emplace_back(s.substr(pos, pos_to_del - pos));\r\
-    \n    pos = pos_to_del + delimiter.length();\r\n  }\r\n  res.emplace_back(s.substr(pos));\r\
-    \n  return res;\r\n}\r\n"
-  code: "#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\nstd::vector<std::string>\
-    \ split(\r\n    const std::string& s, const std::string& delimiter) {\r\n  std::vector<std::string>\
-    \ res;\r\n  int pos = 0;\r\n  while (true) {\r\n    const int pos_to_del = s.find(delimiter,\
-    \ pos);\r\n    if (pos_to_del == s.npos) break;\r\n    res.emplace_back(s.substr(pos,\
-    \ pos_to_del - pos));\r\n    pos = pos_to_del + delimiter.length();\r\n  }\r\n\
-    \  res.emplace_back(s.substr(pos));\r\n  return res;\r\n}\r\n"
+  bundledCode: "#line 2 \"string/split.hpp\"\n#include <string>\n#include <vector>\n\
+    \nstd::vector<std::string> split(\n    const std::string& s, const std::string&\
+    \ delimiter) {\n  std::vector<std::string> res;\n  int pos = 0;\n  while (true)\
+    \ {\n    const int pos_to_del = s.find(delimiter, pos);\n    if (pos_to_del ==\
+    \ s.npos) break;\n    res.emplace_back(s.substr(pos, pos_to_del - pos));\n   \
+    \ pos = pos_to_del + delimiter.length();\n  }\n  res.emplace_back(s.substr(pos));\n\
+    \  return res;\n}\n"
+  code: "#pragma once\n#include <string>\n#include <vector>\n\nstd::vector<std::string>\
+    \ split(\n    const std::string& s, const std::string& delimiter) {\n  std::vector<std::string>\
+    \ res;\n  int pos = 0;\n  while (true) {\n    const int pos_to_del = s.find(delimiter,\
+    \ pos);\n    if (pos_to_del == s.npos) break;\n    res.emplace_back(s.substr(pos,\
+    \ pos_to_del - pos));\n    pos = pos_to_del + delimiter.length();\n  }\n  res.emplace_back(s.substr(pos));\n\
+    \  return res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: string/split.hpp
   requiredBy: []
-  timestamp: '2022-02-08 18:47:07+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/split.test.cpp

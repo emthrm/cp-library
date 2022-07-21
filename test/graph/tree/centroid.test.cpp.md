@@ -22,43 +22,41 @@ data:
     links:
     - https://atcoder.jp/contests/arc087/tasks/arc087_d
     - https://atcoder.jp/contests/arc087/tasks/arc087_f
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\r\n */\r\n#define\
-    \ PROBLEM \"https://atcoder.jp/contests/arc087/tasks/arc087_f\"\r\n// #define\
-    \ PROBLEM \"https://atcoder.jp/contests/arc087/tasks/arc087_d\"\r\n\r\n#include\
-    \ <functional>\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"\
-    ../../../graph/edge.hpp\"\r\n#include \"../../../graph/tree/centroid.hpp\"\r\n\
-    #include \"../../../math/modint.hpp\"\r\n\r\nint main() {\r\n  using ModInt =\
-    \ MInt<0>;\r\n  ModInt::set_mod(1000000007);\r\n  int n;\r\n  std::cin >> n;\r\
-    \n  std::vector<std::vector<Edge<bool>>> graph(n);\r\n  for (int i = 0; i < n\
-    \ - 1; ++i) {\r\n    int x, y;\r\n    std::cin >> x >> y;\r\n    --x; --y;\r\n\
-    \    graph[x].emplace_back(x, y);\r\n    graph[y].emplace_back(y, x);\r\n  }\r\
-    \n  const std::vector<int> centroids = centroid(graph);\r\n  if (centroids.size()\
-    \ == 2) {\r\n    std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\\\
-    n';\r\n  } else {\r\n    std::vector<int> subtree(n, 1);\r\n    const std::function<void(int,\
-    \ int)> dfs =\r\n        [&graph, &subtree, &dfs](const int par, const int ver)\
-    \ -> void {\r\n          for (const Edge<bool>& e : graph[ver]) {\r\n        \
-    \    if (e.dst != par) {\r\n              dfs(ver, e.dst);\r\n              subtree[ver]\
-    \ += subtree[e.dst];\r\n            }\r\n          }\r\n        };\r\n    dfs(-1,\
-    \ centroids.front());\r\n    std::vector<int> nums;\r\n    for (const Edge<bool>&\
-    \ e : graph[centroids.front()]) {\r\n      nums.emplace_back(subtree[e.dst]);\r\
-    \n    }\r\n    const int m = nums.size();\r\n    std::vector<std::vector<ModInt>>\
-    \ dp(m + 1, std::vector<ModInt>(n + 1, 0));\r\n    dp[0][0] = 1;\r\n    for (int\
-    \ i = 0; i < m; ++i) {\r\n      for (int j = 0; j <= n; ++j) {\r\n        for\
-    \ (int k = 0; k <= nums[i] && j + k <= n; ++k) {\r\n          dp[i + 1][j + k]\
-    \ += dp[i][j] * ModInt::nCk(nums[i], k)\r\n                              * ModInt::nCk(nums[i],\
-    \ k) * ModInt::fact(k);\r\n        }\r\n      }\r\n    }\r\n    ModInt ans = 0;\r\
-    \n    for (int j = 0; j <= n; ++j) {\r\n      ans += (j & 1 ? -dp[m][j] : dp[m][j])\
-    \ * ModInt::fact(n - j);\r\n    }\r\n    std::cout << ans << '\\n';\r\n  }\r\n\
-    \  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\n */\n#define PROBLEM\
+    \ \"https://atcoder.jp/contests/arc087/tasks/arc087_f\"\n// #define PROBLEM \"\
+    https://atcoder.jp/contests/arc087/tasks/arc087_d\"\n\n#include <functional>\n\
+    #include <iostream>\n#include <vector>\n\n#include \"../../../graph/edge.hpp\"\
+    \n#include \"../../../graph/tree/centroid.hpp\"\n#include \"../../../math/modint.hpp\"\
+    \n\nint main() {\n  using ModInt = MInt<0>;\n  ModInt::set_mod(1000000007);\n\
+    \  int n;\n  std::cin >> n;\n  std::vector<std::vector<Edge<bool>>> graph(n);\n\
+    \  for (int i = 0; i < n - 1; ++i) {\n    int x, y;\n    std::cin >> x >> y;\n\
+    \    --x; --y;\n    graph[x].emplace_back(x, y);\n    graph[y].emplace_back(y,\
+    \ x);\n  }\n  const std::vector<int> centroids = centroid(graph);\n  if (centroids.size()\
+    \ == 2) {\n    std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\\n';\n\
+    \  } else {\n    std::vector<int> subtree(n, 1);\n    const std::function<void(int,\
+    \ int)> dfs =\n        [&graph, &subtree, &dfs](const int par, const int ver)\
+    \ -> void {\n          for (const Edge<bool>& e : graph[ver]) {\n            if\
+    \ (e.dst != par) {\n              dfs(ver, e.dst);\n              subtree[ver]\
+    \ += subtree[e.dst];\n            }\n          }\n        };\n    dfs(-1, centroids.front());\n\
+    \    std::vector<int> nums;\n    for (const Edge<bool>& e : graph[centroids.front()])\
+    \ {\n      nums.emplace_back(subtree[e.dst]);\n    }\n    const int m = nums.size();\n\
+    \    std::vector<std::vector<ModInt>> dp(m + 1, std::vector<ModInt>(n + 1, 0));\n\
+    \    dp[0][0] = 1;\n    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j\
+    \ <= n; ++j) {\n        for (int k = 0; k <= nums[i] && j + k <= n; ++k) {\n \
+    \         dp[i + 1][j + k] += dp[i][j] * ModInt::nCk(nums[i], k)\n           \
+    \                   * ModInt::nCk(nums[i], k) * ModInt::fact(k);\n        }\n\
+    \      }\n    }\n    ModInt ans = 0;\n    for (int j = 0; j <= n; ++j) {\n   \
+    \   ans += (j & 1 ? -dp[m][j] : dp[m][j]) * ModInt::fact(n - j);\n    }\n    std::cout\
+    \ << ans << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - graph/edge.hpp
   - graph/tree/centroid.hpp
@@ -66,7 +64,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid.test.cpp

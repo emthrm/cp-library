@@ -11,34 +11,33 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/segmented_sieve.hpp\"\n#include <algorithm>\r\n#include\
-    \ <cmath>\r\n#include <iterator>\r\n#include <vector>\r\n\r\nstd::vector<bool>\
-    \ segmented_sieve(const long long low, const long long high) {\r\n  long long\
-    \ root = 1;\r\n  while ((root + 1) * (root + 1) < high) ++root;\r\n  std::vector<bool>\
-    \ is_prime(root + 1, true);\r\n  is_prime[0] = false;\r\n  is_prime[1] = false;\r\
-    \n  std::vector<bool> res(high - low, true);\r\n  if (low < 2) std::fill(res.begin(),\
-    \ std::next(res.begin(), 2 - low), false);\r\n  for (long long i = 2; i <= root;\
-    \ ++i) {\r\n    if (is_prime[i]) {\r\n      for (long long j = i * i; j <= root;\
-    \ j += i) {\r\n        is_prime[j] = false;\r\n      }\r\n      for (long long\
-    \ j = std::max((low + i - 1) / i, 2LL) * i; j < high;\r\n           j += i) {\r\
-    \n        res[j - low] = false;\r\n      }\r\n    }\r\n  }\r\n  return res;\r\n\
-    }\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <cmath>\r\n#include <iterator>\r\
-    \n#include <vector>\r\n\r\nstd::vector<bool> segmented_sieve(const long long low,\
-    \ const long long high) {\r\n  long long root = 1;\r\n  while ((root + 1) * (root\
-    \ + 1) < high) ++root;\r\n  std::vector<bool> is_prime(root + 1, true);\r\n  is_prime[0]\
-    \ = false;\r\n  is_prime[1] = false;\r\n  std::vector<bool> res(high - low, true);\r\
-    \n  if (low < 2) std::fill(res.begin(), std::next(res.begin(), 2 - low), false);\r\
-    \n  for (long long i = 2; i <= root; ++i) {\r\n    if (is_prime[i]) {\r\n    \
-    \  for (long long j = i * i; j <= root; j += i) {\r\n        is_prime[j] = false;\r\
-    \n      }\r\n      for (long long j = std::max((low + i - 1) / i, 2LL) * i; j\
-    \ < high;\r\n           j += i) {\r\n        res[j - low] = false;\r\n      }\r\
-    \n    }\r\n  }\r\n  return res;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/segmented_sieve.hpp\"\n#include <algorithm>\n#include\
+    \ <cmath>\n#include <iterator>\n#include <vector>\n\nstd::vector<bool> segmented_sieve(const\
+    \ long long low, const long long high) {\n  long long root = 1;\n  while ((root\
+    \ + 1) * (root + 1) < high) ++root;\n  std::vector<bool> is_prime(root + 1, true);\n\
+    \  is_prime[0] = false;\n  is_prime[1] = false;\n  std::vector<bool> res(high\
+    \ - low, true);\n  if (low < 2) std::fill(res.begin(), std::next(res.begin(),\
+    \ 2 - low), false);\n  for (long long i = 2; i <= root; ++i) {\n    if (is_prime[i])\
+    \ {\n      for (long long j = i * i; j <= root; j += i) {\n        is_prime[j]\
+    \ = false;\n      }\n      for (long long j = std::max((low + i - 1) / i, 2LL)\
+    \ * i; j < high;\n           j += i) {\n        res[j - low] = false;\n      }\n\
+    \    }\n  }\n  return res;\n}\n"
+  code: "#pragma once\n#include <algorithm>\n#include <cmath>\n#include <iterator>\n\
+    #include <vector>\n\nstd::vector<bool> segmented_sieve(const long long low, const\
+    \ long long high) {\n  long long root = 1;\n  while ((root + 1) * (root + 1) <\
+    \ high) ++root;\n  std::vector<bool> is_prime(root + 1, true);\n  is_prime[0]\
+    \ = false;\n  is_prime[1] = false;\n  std::vector<bool> res(high - low, true);\n\
+    \  if (low < 2) std::fill(res.begin(), std::next(res.begin(), 2 - low), false);\n\
+    \  for (long long i = 2; i <= root; ++i) {\n    if (is_prime[i]) {\n      for\
+    \ (long long j = i * i; j <= root; j += i) {\n        is_prime[j] = false;\n \
+    \     }\n      for (long long j = std::max((low + i - 1) / i, 2LL) * i; j < high;\n\
+    \           j += i) {\n        res[j - low] = false;\n      }\n    }\n  }\n  return\
+    \ res;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/segmented_sieve.hpp
   requiredBy: []
-  timestamp: '2022-02-24 04:47:48+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/segmented_sieve.test.cpp

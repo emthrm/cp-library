@@ -3,45 +3,44 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/convolution/xor_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 xor \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/xor_convolution.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\r\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\
-    \r\n * @docs docs/math/convolution/convolution.md\r\n */\r\n\r\n#pragma once\r\
-    \n#include <algorithm>\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ xor_convolution(std::vector<T> a, std::vector<T> b,\r\n                    \
-    \           const T id = 0) {\r\n  int n = std::max(a.size(), b.size()), p = 1;\r\
-    \n  while ((1 << p) < n) ++p;\r\n  n = 1 << p;\r\n  const auto fast_walsh_hadamard_transform\
-    \ = [n](std::vector<T>* v) -> void {\r\n    for (int i = 1; i < n; i <<= 1) {\r\
-    \n      for (int s = 0; s < n; ++s) {\r\n        if (s & i) continue;\r\n    \
-    \    const T tmp1 = (*v)[s], tmp2 = (*v)[s | i];\r\n        (*v)[s] = tmp1 + tmp2;\r\
-    \n        (*v)[s | i] = tmp1 - tmp2;\r\n      }\r\n    }\r\n  };\r\n  a.resize(n,\
-    \ id);\r\n  fast_walsh_hadamard_transform(&a);\r\n  b.resize(n, id);\r\n  fast_walsh_hadamard_transform(&b);\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    a[i] *= b[i];\r\n  }\r\n  fast_walsh_hadamard_transform(&a);\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    a[i] /= n;\r\n  }\r\n  return a;\r\n\
-    }\r\n"
+  code: "/**\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\
+    \n * @docs docs/math/convolution/convolution.md\n */\n\n#pragma once\n#include\
+    \ <algorithm>\n#include <vector>\n\ntemplate <typename T>\nstd::vector<T> xor_convolution(std::vector<T>\
+    \ a, std::vector<T> b,\n                               const T id = 0) {\n  int\
+    \ n = std::max(a.size(), b.size()), p = 1;\n  while ((1 << p) < n) ++p;\n  n =\
+    \ 1 << p;\n  const auto fast_walsh_hadamard_transform = [n](std::vector<T>* v)\
+    \ -> void {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s <\
+    \ n; ++s) {\n        if (s & i) continue;\n        const T tmp1 = (*v)[s], tmp2\
+    \ = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n        (*v)[s | i] = tmp1 -\
+    \ tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
+    \  b.resize(n, id);\n  fast_walsh_hadamard_transform(&b);\n  for (int i = 0; i\
+    \ < n; ++i) {\n    a[i] *= b[i];\n  }\n  fast_walsh_hadamard_transform(&a);\n\
+    \  for (int i = 0; i < n; ++i) {\n    a[i] /= n;\n  }\n  return a;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/convolution/xor_convolution.hpp
   requiredBy: []
-  timestamp: '2022-02-16 22:30:03+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/convolution/xor_convolution.test.cpp
 documentation_of: math/convolution/xor_convolution.hpp
@@ -53,23 +52,33 @@ title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
 - 添え字 and での畳み込み
 
-  $$C_k = \sum_{k = i \land j} A_i B_j$$
+  $$
+    C_k = \sum_{k = i \land j} A_i B_j
+  $$
 
 - 添え字 or での畳み込み
 
-  $$C_k = \sum_{k = i \lor j} A_i B_j$$
+  $$
+    C_k = \sum_{k = i \lor j} A_i B_j
+  $$
 
 - 添え字 xor での畳み込み
 
-  $$C_k = \sum_{k = i \oplus j} A_i B_j$$
+  $$
+    C_k = \sum_{k = i \oplus j} A_i B_j
+  $$
 
 - 添え字 gcd での畳み込み
 
-  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
+  $$
+    C_k = \sum_{k = \gcd(i, j)} A_i B_j
+  $$
 
 - 添え字 lcm での畳み込み
 
-  $$C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j$$
+  $$
+    C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j
+  $$
 
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
@@ -165,6 +174,7 @@ $O(N\log{N})$
   - https://atcoder.jp/contests/abc236/tasks/abc236_h
   - https://twitter.com/noshi91/status/1485246655419260939
   - https://yukicoder.me/problems/no/1901
+  - https://atcoder.jp/contests/abc253/editorial/4028
 - 凸性のある畳み込み
   - https://twitter.com/hotmanww/status/1482185138125832192
 - relaxed multiplication

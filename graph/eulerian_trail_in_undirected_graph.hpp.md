@@ -15,46 +15,44 @@ data:
     document_title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
       \u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/eulerian_trail_in_undirected_graph.hpp: line 6: #pragma once found in\
     \ a non-first line\n"
-  code: "/**\r\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
-    \u7248\r\n * @docs docs/graph/eulerian_trail.md\r\n */\r\n\r\n#pragma once\r\n\
-    #include <algorithm>\r\n#include <cassert>\r\n#include <vector>\r\n\r\nstruct\
-    \ EulerianTrailInUndirectedGraph {\r\n  std::vector<int> trail;\r\n\r\n  explicit\
-    \ EulerianTrailInUndirectedGraph(const int n)\r\n      : n(n), is_visited(n),\
-    \ graph(n) {}\r\n\r\n  void add_edge(const int u, const int v) {\r\n    graph[u].emplace_back(v,\
-    \ graph[v].size());\r\n    graph[v].emplace_back(u, graph[u].size() - 1);\r\n\
-    \  }\r\n\r\n  bool build(int s = -1) {\r\n    trail.clear();\r\n    int odd_deg\
-    \ = 0, edge_num = 0;\r\n    for (int i = 0; i < n; ++i) {\r\n      if (graph[i].size()\
-    \ & 1) {\r\n        ++odd_deg;\r\n        if (s == -1) s = i;\r\n      }\r\n \
-    \     edge_num += graph[i].size();\r\n    }\r\n    edge_num >>= 1;\r\n    if (edge_num\
-    \ == 0) {\r\n      trail = {s == -1 ? 0 : s};\r\n      return true;\r\n    }\r\
-    \n    if (odd_deg == 0) {\r\n      if (s == -1) {\r\n        for (int i = 0; i\
-    \ < n; ++i) {\r\n          if (!graph[i].empty()) {\r\n            s = i;\r\n\
-    \            break;\r\n          }\r\n        }\r\n      }\r\n    } else if (odd_deg\
-    \ != 2) {\r\n      return false;\r\n    }\r\n    for (int i = 0; i < n; ++i) {\r\
-    \n      is_visited[i].assign(graph[i].size(), false);\r\n    }\r\n    dfs(s);\r\
-    \n    if (trail.size() == edge_num + 1) {\r\n      std::reverse(trail.begin(),\
-    \ trail.end());\r\n      return true;\r\n    }\r\n    trail.clear();\r\n    return\
-    \ false;\r\n  }\r\n\r\n private:\r\n  struct Edge {\r\n    int dst, rev;\r\n \
-    \   explicit Edge(const int dst, const int rev) : dst(dst), rev(rev) {}\r\n  };\r\
-    \n\r\n  const int n;\r\n  std::vector<std::vector<bool>> is_visited;\r\n  std::vector<std::vector<Edge>>\
-    \ graph;\r\n\r\n  void dfs(const int ver) {\r\n    const int deg = graph[ver].size();\r\
-    \n    for (int i = 0; i < deg; ++i) {\r\n      if (!is_visited[ver][i]) {\r\n\
-    \        const int dst = graph[ver][i].dst;\r\n        is_visited[ver][i] = true;\r\
-    \n        is_visited[dst][graph[ver][i].rev] = true;\r\n        dfs(dst);\r\n\
-    \      }\r\n    }\r\n    trail.emplace_back(ver);\r\n  }\r\n};\r\n"
+  code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
+    \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#pragma once\n#include <algorithm>\n\
+    #include <cassert>\n#include <vector>\n\nstruct EulerianTrailInUndirectedGraph\
+    \ {\n  std::vector<int> trail;\n\n  explicit EulerianTrailInUndirectedGraph(const\
+    \ int n)\n      : n(n), is_visited(n), graph(n) {}\n\n  void add_edge(const int\
+    \ u, const int v) {\n    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
+    \ graph[u].size() - 1);\n  }\n\n  bool build(int s = -1) {\n    trail.clear();\n\
+    \    int odd_deg = 0, edge_num = 0;\n    for (int i = 0; i < n; ++i) {\n     \
+    \ if (graph[i].size() & 1) {\n        ++odd_deg;\n        if (s == -1) s = i;\n\
+    \      }\n      edge_num += graph[i].size();\n    }\n    edge_num >>= 1;\n   \
+    \ if (edge_num == 0) {\n      trail = {s == -1 ? 0 : s};\n      return true;\n\
+    \    }\n    if (odd_deg == 0) {\n      if (s == -1) {\n        for (int i = 0;\
+    \ i < n; ++i) {\n          if (!graph[i].empty()) {\n            s = i;\n    \
+    \        break;\n          }\n        }\n      }\n    } else if (odd_deg != 2)\
+    \ {\n      return false;\n    }\n    for (int i = 0; i < n; ++i) {\n      is_visited[i].assign(graph[i].size(),\
+    \ false);\n    }\n    dfs(s);\n    if (trail.size() == edge_num + 1) {\n     \
+    \ std::reverse(trail.begin(), trail.end());\n      return true;\n    }\n    trail.clear();\n\
+    \    return false;\n  }\n\n private:\n  struct Edge {\n    int dst, rev;\n   \
+    \ explicit Edge(const int dst, const int rev) : dst(dst), rev(rev) {}\n  };\n\n\
+    \  const int n;\n  std::vector<std::vector<bool>> is_visited;\n  std::vector<std::vector<Edge>>\
+    \ graph;\n\n  void dfs(const int ver) {\n    const int deg = graph[ver].size();\n\
+    \    for (int i = 0; i < deg; ++i) {\n      if (!is_visited[ver][i]) {\n     \
+    \   const int dst = graph[ver][i].dst;\n        is_visited[ver][i] = true;\n \
+    \       is_visited[dst][graph[ver][i].rev] = true;\n        dfs(dst);\n      }\n\
+    \    }\n    trail.emplace_back(ver);\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/eulerian_trail_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/eulerian_trail_in_undirected_graph.test.cpp

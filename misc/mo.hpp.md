@@ -3,50 +3,48 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"misc/mo.hpp\"\n#include <algorithm>\r\n#include <cmath>\r\
-    \n#include <numeric>\r\n#include <vector>\r\n\r\nstruct Mo {\r\n  explicit Mo(const\
-    \ std::vector<int>& ls, const std::vector<int>& rs)\r\n      : ls(ls), rs(rs),\
-    \ n(ls.size()), ptr(0), nl(0), nr(0) {\r\n    const int width = std::round(std::sqrt(n));\r\
-    \n    order.resize(n);\r\n    std::iota(order.begin(), order.end(), 0);\r\n  \
-    \  std::sort(order.begin(), order.end(),\r\n              [&ls, &rs, width](const\
-    \ int a, const int b) -> bool {\r\n                  if (ls[a] / width != ls[b]\
-    \ / width) return ls[a] < ls[b];\r\n                  return (ls[a] / width) &\
-    \ 1 ? rs[a] < rs[b] : rs[a] > rs[b];\r\n              });\r\n  }\r\n\r\n  int\
-    \ process() {\r\n    if (ptr == n) return -1;\r\n    const int id = order[ptr++];\r\
-    \n    while (ls[id] < nl) add(--nl);\r\n    while (nr < rs[id]) add(nr++);\r\n\
-    \    while (nl < ls[id]) del(nl++);\r\n    while (rs[id] < nr) del(--nr);\r\n\
-    \    return id;\r\n  }\r\n\r\n  void add(const int idx) const;\r\n\r\n  void del(const\
-    \ int idx) const;\r\n\r\n private:\r\n  const int n;\r\n  int ptr, nl, nr;\r\n\
-    \  std::vector<int> ls, rs, order;\r\n};\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <cmath>\r\n#include <numeric>\r\
-    \n#include <vector>\r\n\r\nstruct Mo {\r\n  explicit Mo(const std::vector<int>&\
-    \ ls, const std::vector<int>& rs)\r\n      : ls(ls), rs(rs), n(ls.size()), ptr(0),\
-    \ nl(0), nr(0) {\r\n    const int width = std::round(std::sqrt(n));\r\n    order.resize(n);\r\
-    \n    std::iota(order.begin(), order.end(), 0);\r\n    std::sort(order.begin(),\
-    \ order.end(),\r\n              [&ls, &rs, width](const int a, const int b) ->\
-    \ bool {\r\n                  if (ls[a] / width != ls[b] / width) return ls[a]\
-    \ < ls[b];\r\n                  return (ls[a] / width) & 1 ? rs[a] < rs[b] : rs[a]\
-    \ > rs[b];\r\n              });\r\n  }\r\n\r\n  int process() {\r\n    if (ptr\
-    \ == n) return -1;\r\n    const int id = order[ptr++];\r\n    while (ls[id] <\
-    \ nl) add(--nl);\r\n    while (nr < rs[id]) add(nr++);\r\n    while (nl < ls[id])\
-    \ del(nl++);\r\n    while (rs[id] < nr) del(--nr);\r\n    return id;\r\n  }\r\n\
-    \r\n  void add(const int idx) const;\r\n\r\n  void del(const int idx) const;\r\
-    \n\r\n private:\r\n  const int n;\r\n  int ptr, nl, nr;\r\n  std::vector<int>\
-    \ ls, rs, order;\r\n};\r\n"
+  bundledCode: "#line 2 \"misc/mo.hpp\"\n#include <algorithm>\n#include <cmath>\n\
+    #include <numeric>\n#include <vector>\n\nstruct Mo {\n  explicit Mo(const std::vector<int>&\
+    \ ls, const std::vector<int>& rs)\n      : ls(ls), rs(rs), n(ls.size()), ptr(0),\
+    \ nl(0), nr(0) {\n    const int width = std::round(std::sqrt(n));\n    order.resize(n);\n\
+    \    std::iota(order.begin(), order.end(), 0);\n    std::sort(order.begin(), order.end(),\n\
+    \              [&ls, &rs, width](const int a, const int b) -> bool {\n       \
+    \           if (ls[a] / width != ls[b] / width) return ls[a] < ls[b];\n      \
+    \            return (ls[a] / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n   \
+    \           });\n  }\n\n  int process() {\n    if (ptr == n) return -1;\n    const\
+    \ int id = order[ptr++];\n    while (ls[id] < nl) add(--nl);\n    while (nr <\
+    \ rs[id]) add(nr++);\n    while (nl < ls[id]) del(nl++);\n    while (rs[id] <\
+    \ nr) del(--nr);\n    return id;\n  }\n\n  void add(const int idx) const;\n\n\
+    \  void del(const int idx) const;\n\n private:\n  const int n;\n  int ptr, nl,\
+    \ nr;\n  std::vector<int> ls, rs, order;\n};\n"
+  code: "#pragma once\n#include <algorithm>\n#include <cmath>\n#include <numeric>\n\
+    #include <vector>\n\nstruct Mo {\n  explicit Mo(const std::vector<int>& ls, const\
+    \ std::vector<int>& rs)\n      : ls(ls), rs(rs), n(ls.size()), ptr(0), nl(0),\
+    \ nr(0) {\n    const int width = std::round(std::sqrt(n));\n    order.resize(n);\n\
+    \    std::iota(order.begin(), order.end(), 0);\n    std::sort(order.begin(), order.end(),\n\
+    \              [&ls, &rs, width](const int a, const int b) -> bool {\n       \
+    \           if (ls[a] / width != ls[b] / width) return ls[a] < ls[b];\n      \
+    \            return (ls[a] / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n   \
+    \           });\n  }\n\n  int process() {\n    if (ptr == n) return -1;\n    const\
+    \ int id = order[ptr++];\n    while (ls[id] < nl) add(--nl);\n    while (nr <\
+    \ rs[id]) add(nr++);\n    while (nl < ls[id]) del(nl++);\n    while (rs[id] <\
+    \ nr) del(--nr);\n    return id;\n  }\n\n  void add(const int idx) const;\n\n\
+    \  void del(const int idx) const;\n\n private:\n  const int n;\n  int ptr, nl,\
+    \ nr;\n  std::vector<int> ls, rs, order;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: misc/mo.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/mo.test.cpp
 documentation_of: misc/mo.hpp
@@ -92,8 +90,9 @@ title: Mo's algorithm
 - 木上の Mo's algorithm，時空間 Mo's algorithm
   - https://ei1333.hateblo.jp/entry/2017/09/11/211011
   - https://ei1333.github.io/algorithm/mo.html
-  - https://lumakernel.github.io/ecasdqina/algorithm/Mo
-  - https://lumakernel.github.io/ecasdqina/algorithm/Mo3D
+  - ~~https://lumakernel.github.io/ecasdqina/algorithm/Mo~~
+  - ~~https://lumakernel.github.io/ecasdqina/algorithm/Mo3D~~
+  - https://twitter.com/heno_code/status/1518799816876118016
   - https://codeforces.com/blog/entry/43230
   - https://codeforces.com/blog/entry/55574
   - https://codeforces.com/contest/1476/problem/G

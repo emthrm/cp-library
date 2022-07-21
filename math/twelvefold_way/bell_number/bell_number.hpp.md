@@ -6,40 +6,40 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/bell_number/bell_number.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/bell_number/bell_number.md
     document_title: "\u30D9\u30EB\u6570"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/bell_number/bell_number.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief \u30D9\u30EB\u6570\r\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include <vector>\r\n\r\n#include\
-    \ \"../../modint.hpp\"\r\n\r\ntemplate <int T>\r\nMInt<T> bell_number(const int\
-    \ n, int k) {\r\n  using ModInt = MInt<T>;\r\n  if (k > n) k = n;\r\n  ModInt::init(k);\r\
-    \n  std::vector<ModInt> tmp(k + 1);\r\n  for (int i = 0; i <= k; ++i) {\r\n  \
-    \  tmp[i] = (i & 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i));\r\n  }\r\n \
-    \ for (int i = 0; i < k; ++i) {\r\n    tmp[i + 1] += tmp[i];\r\n  }\r\n  ModInt\
-    \ bell = 0;\r\n  for (int i = 0; i <= k; ++i) {\r\n    bell += ModInt(i).pow(n)\
-    \ * ModInt::fact_inv(i) * tmp[k - i];\r\n  }\r\n  return bell;\r\n}\r\n"
+  code: "/**\n * @brief \u30D9\u30EB\u6570\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\n\
+    \ */\n\n#pragma once\n#include <cassert>\n#include <vector>\n\n#include \"../../modint.hpp\"\
+    \n\ntemplate <int T>\nMInt<T> bell_number(const int n, int k) {\n  using ModInt\
+    \ = MInt<T>;\n  if (k > n) k = n;\n  ModInt::init(k);\n  std::vector<ModInt> tmp(k\
+    \ + 1);\n  for (int i = 0; i <= k; ++i) {\n    tmp[i] = (i & 1 ? -ModInt::fact_inv(i)\
+    \ : ModInt::fact_inv(i));\n  }\n  for (int i = 0; i < k; ++i) {\n    tmp[i + 1]\
+    \ += tmp[i];\n  }\n  ModInt bell = 0;\n  for (int i = 0; i <= k; ++i) {\n    bell\
+    \ += ModInt(i).pow(n) * ModInt::fact_inv(i) * tmp[k - i];\n  }\n  return bell;\n\
+    }\n"
   dependsOn:
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/bell_number/bell_number.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp
 documentation_of: math/twelvefold_way/bell_number/bell_number.hpp
@@ -53,7 +53,9 @@ title: "\u30D9\u30EB\u6570"
 
 区別された $n$ 個を $k$ グループ以下に分割する場合の数を $B(n, k)$ とおくと
 
-$$B(n,k) = \sum_{j = 0}^k S(n, j) = \sum_{i = 0}^k \frac{i^n}{i!} \sum_{j = 0}^{k - i} \frac{(-1)^j}{j!}$$
+$$
+  B(n,k) = \sum_{j = 0}^k S(n, j) = \sum_{i = 0}^k \frac{i^n}{i!} \sum_{j = 0}^{k - i} \frac{(-1)^j}{j!}
+$$
 
 が成り立つ．ここで $S$ は[第2種スターリング数](../stirling_number/stirling_number.md)である．
 
@@ -61,11 +63,15 @@ $n = k$ を満たす $B(n, k)$ をベル数 $B_n$ と呼ぶ．
 
 漸化式は
 
-$$B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k$$
+$$
+  B_{n + 1} = \sum_{k = 0}^n \binom{n}{k} B_k
+$$
 
 であり，指数型母関数は
 
-$$\sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}$$
+$$
+  \sum_{n = 0}^\infty B_n \frac{x^n}{n!} = e^{e^x - 1}
+$$
 
 である．
 

@@ -3,40 +3,39 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu/mobius_mu_init.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u8868"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/mobius_mu/mobius_mu.md
     document_title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/mobius_mu/mobius_mu_init.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\r\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868\r\
-    \n * @docs docs/math/mobius_mu/mobius_mu.md\r\n */\r\n\r\n#pragma once\r\n#include\
-    \ <vector>\r\n\r\nstd::vector<int> mobius_mu_init(const int n) {\r\n  std::vector<bool>\
-    \ is_prime(n + 1, true);\r\n  is_prime[0] = false;\r\n  if (n >= 1) is_prime[1]\
-    \ = false;\r\n  std::vector<int> mu(n + 1, 1);\r\n  mu[0] = 0;\r\n  for (int i\
-    \ = 2; i <= n; ++i) {\r\n    if (is_prime[i]) {\r\n      mu[i] = -mu[i];\r\n \
-    \     for (int j = i * 2; j <= n; j += i) {\r\n        is_prime[j] = false;\r\n\
-    \        mu[j] = ((j / i) % i == 0 ? 0 : -mu[j]);\r\n      }\r\n    }\r\n  }\r\
-    \n  return mu;\r\n}\r\n"
+  code: "/**\n * @brief \u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868\n *\
+    \ @docs docs/math/mobius_mu/mobius_mu.md\n */\n\n#pragma once\n#include <vector>\n\
+    \nstd::vector<int> mobius_mu_init(const int n) {\n  std::vector<bool> is_prime(n\
+    \ + 1, true);\n  is_prime[0] = false;\n  if (n >= 1) is_prime[1] = false;\n  std::vector<int>\
+    \ mu(n + 1, 1);\n  mu[0] = 0;\n  for (int i = 2; i <= n; ++i) {\n    if (is_prime[i])\
+    \ {\n      mu[i] = -mu[i];\n      for (int j = i * 2; j <= n; j += i) {\n    \
+    \    is_prime[j] = false;\n        mu[j] = ((j / i) % i == 0 ? 0 : -mu[j]);\n\
+    \      }\n    }\n  }\n  return mu;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/mobius_mu/mobius_mu_init.hpp
   requiredBy: []
-  timestamp: '2022-02-17 00:01:08+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu/mobius_mu_init.test.cpp
 documentation_of: math/mobius_mu/mobius_mu_init.hpp
@@ -50,20 +49,36 @@ title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868"
 
 $n \in \mathbb{N}^+$ に対して
 
-$$\mu(n) \mathrel{:=} \begin{cases} 0 & (\exists p \in \mathbb{P},\ n \equiv 0 \pmod{p^2}), \\ (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise}) \end{cases}$$
+$$
+  \mu(n) \mathrel{:=}
+  \begin{cases}
+    0 & (\exists p \in \mathbb{P},\ n \equiv 0 \pmod{p^2}), \\
+    (-1)^{\# \lbrace \text{相異なる素因数} \rbrace} & (\text{otherwise})
+  \end{cases}
+$$
 
 で定義される $\mu(n)$ である．
 
-- $$\forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,$$
+- $$
+    \forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,
+  $$
 
-- $$\mu(mn) = \begin{cases} \mu(m) \mu(n) & (m \perp n), \\ 0 & (\text{otherwise}) \end{cases}$$
+- $$
+    \mu(mn) =
+    \begin{cases}
+      \mu(m) \mu(n) & (m \perp n), \\
+      0 & (\text{otherwise})
+    \end{cases}
+  $$
 
 が成り立つ．
 
 
 ### メビウスの反転公式 (Möbius inversion formula)
 
-$$f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right)$$
+$$
+  f(n) = \sum_{d \mid n} g(d) \implies g(n) = \sum_{d \mid n} \mu \left(\frac{n}{d} \right) f(d) = \sum_{d \mid n} \mu(d) f \left(\frac{n}{d} \right)
+$$
 
 
 ## 時間計算量

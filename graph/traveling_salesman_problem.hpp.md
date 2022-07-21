@@ -15,35 +15,35 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <limits>\r\n#include <numeric>\r\
-    \n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nCostType traveling_salesman_problem(\r\n    const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\r\n    const CostType inf = std::numeric_limits<CostType>::max()) {\r\
-    \n  const int n = graph.size();\r\n  if (n == 1) return 0;\r\n  std::vector<std::vector<CostType>>\
-    \ dp(1 << n, std::vector<CostType>(n, inf));\r\n  dp[1][0] = 0;\r\n  for (int\
-    \ i = 1; i < (1 << n); ++i) {\r\n    for (int j = 0; j < n; ++j) {\r\n      if\
-    \ (dp[i][j] == inf) continue;\r\n      for (const Edge<CostType>& e : graph[j])\
-    \ {\r\n        if (i >> e.dst & 1) continue;\r\n        dp[i | (1 << e.dst)][e.dst]\
-    \ =\r\n            std::min(dp[i | (1 << e.dst)][e.dst], dp[i][j] + e.cost);\r\
-    \n      }\r\n    }\r\n  }\r\n  CostType res = inf;\r\n  for (int j = 1; j < n;\
-    \ ++j) {\r\n    if (dp.back()[j] == inf) continue;\r\n    for (const Edge<CostType>&\
-    \ e : graph[j]) {\r\n      if (e.dst == 0) res = std::min(res, dp.back()[j] +\
-    \ e.cost);\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
+  code: "#pragma once\n#include <algorithm>\n#include <limits>\n#include <numeric>\n\
+    #include <vector>\n\n#include \"./edge.hpp\"\n\ntemplate <typename CostType>\n\
+    CostType traveling_salesman_problem(\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n    const CostType inf = std::numeric_limits<CostType>::max()) {\n \
+    \ const int n = graph.size();\n  if (n == 1) return 0;\n  std::vector<std::vector<CostType>>\
+    \ dp(1 << n, std::vector<CostType>(n, inf));\n  dp[1][0] = 0;\n  for (int i =\
+    \ 1; i < (1 << n); ++i) {\n    for (int j = 0; j < n; ++j) {\n      if (dp[i][j]\
+    \ == inf) continue;\n      for (const Edge<CostType>& e : graph[j]) {\n      \
+    \  if (i >> e.dst & 1) continue;\n        dp[i | (1 << e.dst)][e.dst] =\n    \
+    \        std::min(dp[i | (1 << e.dst)][e.dst], dp[i][j] + e.cost);\n      }\n\
+    \    }\n  }\n  CostType res = inf;\n  for (int j = 1; j < n; ++j) {\n    if (dp.back()[j]\
+    \ == inf) continue;\n    for (const Edge<CostType>& e : graph[j]) {\n      if\
+    \ (e.dst == 0) res = std::min(res, dp.back()[j] + e.cost);\n    }\n  }\n  return\
+    \ res;\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/traveling_salesman_problem.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/traveling_salesman_problem.test.cpp

@@ -19,30 +19,29 @@ data:
     _deprecated_at_docs: docs/graph/minimum_spanning_tree.md
     document_title: "Kruskal \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/kruskal.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief Kruskal \u6CD5\r\n * @docs docs/graph/minimum_spanning_tree.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n\
-    #include \"../data_structure/union-find/union-find.hpp\"\r\n#include \"./edge.hpp\"\
-    \r\n\r\ntemplate <typename CostType>\r\nCostType kruskal(const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph) {\r\n  const int n = graph.size();\r\n  std::vector<Edge<CostType>> edges;\r\
-    \n  for (int i = 0; i < n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i])\
-    \ edges.emplace_back(e);\r\n  }\r\n  std::sort(edges.begin(), edges.end());\r\n\
-    \  CostType res = 0;\r\n  UnionFind uf(n);\r\n  for (const Edge<CostType>& e :\
-    \ edges) {\r\n    if (uf.unite(e.src, e.dst)) res += e.cost;\r\n  }\r\n  return\
-    \ res;\r\n}\r\n"
+  code: "/**\n * @brief Kruskal \u6CD5\n * @docs docs/graph/minimum_spanning_tree.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <vector>\n\n#include \"../data_structure/union-find/union-find.hpp\"\
+    \n#include \"./edge.hpp\"\n\ntemplate <typename CostType>\nCostType kruskal(const\
+    \ std::vector<std::vector<Edge<CostType>>>& graph) {\n  const int n = graph.size();\n\
+    \  std::vector<Edge<CostType>> edges;\n  for (int i = 0; i < n; ++i) {\n    for\
+    \ (const Edge<CostType>& e : graph[i]) edges.emplace_back(e);\n  }\n  std::sort(edges.begin(),\
+    \ edges.end());\n  CostType res = 0;\n  UnionFind uf(n);\n  for (const Edge<CostType>&\
+    \ e : edges) {\n    if (uf.unite(e.src, e.dst)) res += e.cost;\n  }\n  return\
+    \ res;\n}\n"
   dependsOn:
   - data_structure/union-find/union-find.hpp
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/kruskal.test.cpp

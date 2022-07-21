@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':question:'
+  - icon: ':x:'
     path: math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'
@@ -22,26 +22,25 @@ data:
     _deprecated_at_docs: docs/graph/spectral_graph_theory.md
     document_title: "\u884C\u5217\u6728\u5B9A\u7406"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/matrix_tree_theorem.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u884C\u5217\u6728\u5B9A\u7406\r\n * @docs docs/graph/spectral_graph_theory.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <iterator>\r\n#include\
-    \ <vector>\r\n\r\n#include \"../math/matrix/determinant.hpp\"\r\n#include \"../math/matrix/matrix.hpp\"\
-    \r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename T, typename CostType>\r\n\
-    T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph,\r\
-    \n                      const T eps = 1e-8) {\r\n  const int n = graph.size();\r\
-    \n  if (n == 1) return 1;\r\n  Matrix<int> laplacian(n, n, 0);\r\n  for (int i\
-    \ = 0; i < n; ++i) {\r\n    for (const Edge<CostType>& e : graph[i]) {\r\n   \
-    \   ++laplacian[e.src][e.src];\r\n      --laplacian[e.src][e.dst];\r\n    }\r\n\
-    \  }\r\n  Matrix<int> cofactor(n - 1, n - 1);\r\n  for (int i = 0; i < n - 1;\
-    \ ++i) {\r\n    std::copy(std::next(laplacian[i + 1].begin()), laplacian[i + 1].end(),\r\
-    \n              cofactor[i].begin());\r\n  }\r\n  return det(cofactor, eps);\r\
-    \n}\r\n"
+  code: "/**\n * @brief \u884C\u5217\u6728\u5B9A\u7406\n * @docs docs/graph/spectral_graph_theory.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <iterator>\n#include <vector>\n\
+    \n#include \"../math/matrix/determinant.hpp\"\n#include \"../math/matrix/matrix.hpp\"\
+    \n#include \"./edge.hpp\"\n\ntemplate <typename T, typename CostType>\nT matrix_tree_theorem(const\
+    \ std::vector<std::vector<Edge<CostType>>>& graph,\n                      const\
+    \ T eps = 1e-8) {\n  const int n = graph.size();\n  if (n == 1) return 1;\n  Matrix<int>\
+    \ laplacian(n, n, 0);\n  for (int i = 0; i < n; ++i) {\n    for (const Edge<CostType>&\
+    \ e : graph[i]) {\n      ++laplacian[e.src][e.src];\n      --laplacian[e.src][e.dst];\n\
+    \    }\n  }\n  Matrix<int> cofactor(n - 1, n - 1);\n  for (int i = 0; i < n -\
+    \ 1; ++i) {\n    std::copy(std::next(laplacian[i + 1].begin()), laplacian[i +\
+    \ 1].end(),\n              cofactor[i].begin());\n  }\n  return det(cofactor,\
+    \ eps);\n}\n"
   dependsOn:
   - math/matrix/determinant.hpp
   - math/matrix/matrix.hpp
@@ -49,7 +48,7 @@ data:
   isVerificationFile: false
   path: graph/matrix_tree_theorem.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/matrix_tree_theorem.test.cpp
@@ -86,7 +85,9 @@ $N$ 頂点のラベル付きの木の個数は $N^{N - 2}$ である．
 
 このとき
 
-$$\det(M) = \sum_{(P_1, P_2, \ldots, P_n)} \mathrm{sgn}(\sigma) \prod_{i = 1}^n \omega(P_i)$$
+$$
+  \det(M) = \sum_{(P_1, P_2, \ldots, P_n)} \mathrm{sgn}(\sigma) \prod_{i = 1}^n \omega(P_i)
+$$
 
 が成り立つ．ただし $M$ は $m_{ij} \mathrel{:=} e(a_i, b_j)$ で定義される $n$ 次正方行列である．
 

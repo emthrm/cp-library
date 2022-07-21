@@ -3,106 +3,101 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/rational.test.cpp
     title: "\u6570\u5B66/\u6709\u7406\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/rational.hpp\"\n#include <algorithm>\r\n// #include\
-    \ <cassert>\r\n#include <limits>\r\n#include <ostream>\r\n\r\ntemplate <typename\
-    \ T = long long>\r\nstruct Rational {\r\n  T num, den;\r\n  Rational() : num(0),\
-    \ den(1) {}\r\n  Rational(const T num, const T den = 1) : num(num), den(den) {\r\
-    \n    // assert(den != 0);\r\n    reduce();\r\n  }\r\n  template <typename Real\
-    \ = long double>\r\n  Real to_real() const { return static_cast<Real>(num) / den;\
-    \ }\r\n  Rational& operator+=(const Rational& x) {\r\n    const T g = std::__gcd(den,\
-    \ x.den);\r\n    num = num * (x.den / g) + x.num * (den / g);\r\n    den *= x.den\
-    \ / g;\r\n    reduce();\r\n    return *this;\r\n  }\r\n  Rational& operator-=(const\
-    \ Rational& x) { return *this += -x; }\r\n  Rational& operator*=(const Rational&\
-    \ x) {\r\n    const T g1 = std::__gcd(num, x.den), g2 = std::__gcd(den, x.num);\r\
-    \n    num = (num / g1) * (x.num / g2);\r\n    den = (den / g2) * (x.den / g1);\r\
-    \n    reduce();\r\n    return *this;\r\n  }\r\n  Rational& operator/=(const Rational&\
-    \ x) {\r\n    return *this *= Rational(x.den, x.num);\r\n  }\r\n  bool operator==(const\
-    \ Rational& x) const {\r\n    return num == x.num && den == x.den;\r\n  }\r\n\
-    \  bool operator!=(const Rational& x) const { return !(*this == x); }\r\n  bool\
-    \ operator<(const Rational& x) const { return (x - *this).num > 0; }\r\n  bool\
-    \ operator<=(const Rational& x) const { return !(x < *this); }\r\n  bool operator>(const\
-    \ Rational& x) const { return x < *this; }\r\n  bool operator>=(const Rational&\
-    \ x) const { return !(*this < x); }\r\n  Rational& operator++() {\r\n    if ((num\
-    \ += den) == 0) den = 1;\r\n    return *this;\r\n  }\r\n  Rational operator++(int)\
-    \ {\r\n    const Rational res = *this;\r\n    ++*this;\r\n    return res;\r\n\
-    \  }\r\n  Rational& operator--() {\r\n    if ((num -= den) == 0) den = 1;\r\n\
-    \    return *this;\r\n  }\r\n  Rational operator--(int) {\r\n    const Rational\
-    \ res = *this;\r\n    --*this;\r\n    return res;\r\n  }\r\n  Rational operator+()\
-    \ const { return *this; }\r\n  Rational operator-() const { return Rational(-num,\
-    \ den); }\r\n  Rational operator+(const Rational& x) const { return Rational(*this)\
-    \ += x; }\r\n  Rational operator-(const Rational& x) const { return Rational(*this)\
-    \ -= x; }\r\n  Rational operator*(const Rational& x) const { return Rational(*this)\
-    \ *= x; }\r\n  Rational operator/(const Rational& x) const { return Rational(*this)\
-    \ /= x; }\r\n  friend std::ostream& operator<<(std::ostream& os, const Rational&\
-    \ x) {\r\n    if (x.den == 1) return os << x.num;\r\n    return os << x.num <<\
-    \ '/' << x.den;\r\n  }\r\n private:\r\n  void reduce() {\r\n    const T g = std::__gcd(num,\
-    \ den);\r\n    num /= g;\r\n    den /= g;\r\n    if (den < 0) {\r\n      num =\
-    \ -num;\r\n      den = -den;\r\n    }\r\n  }\r\n};\r\nnamespace std {\r\ntemplate\
-    \ <typename T>\r\nRational<T> abs(Rational<T> x) {\r\n  if (x.num < 0) x.num =\
-    \ -x.num;\r\n  return x;\r\n}\r\ntemplate <typename T>\r\nRational<T> max(const\
-    \ Rational<T>& a, const Rational<T>& b) {\r\n  return a < b ? b : a;\r\n}\r\n\
-    template <typename T>\r\nRational<T> min(const Rational<T>& a, const Rational<T>&\
-    \ b) {\r\n  return a < b ? a : b;\r\n}\r\ntemplate <typename T> struct numeric_limits<Rational<T>>\
-    \ {\r\n  static constexpr Rational<T> max() { return std::numeric_limits<T>::max();\
-    \ }\r\n  static constexpr Rational<T> lowest() {\r\n    return std::numeric_limits<T>::lowest();\r\
-    \n  }\r\n};\r\n}  // namespace std\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n// #include <cassert>\r\n#include\
-    \ <limits>\r\n#include <ostream>\r\n\r\ntemplate <typename T = long long>\r\n\
-    struct Rational {\r\n  T num, den;\r\n  Rational() : num(0), den(1) {}\r\n  Rational(const\
-    \ T num, const T den = 1) : num(num), den(den) {\r\n    // assert(den != 0);\r\
-    \n    reduce();\r\n  }\r\n  template <typename Real = long double>\r\n  Real to_real()\
-    \ const { return static_cast<Real>(num) / den; }\r\n  Rational& operator+=(const\
-    \ Rational& x) {\r\n    const T g = std::__gcd(den, x.den);\r\n    num = num *\
-    \ (x.den / g) + x.num * (den / g);\r\n    den *= x.den / g;\r\n    reduce();\r\
-    \n    return *this;\r\n  }\r\n  Rational& operator-=(const Rational& x) { return\
-    \ *this += -x; }\r\n  Rational& operator*=(const Rational& x) {\r\n    const T\
-    \ g1 = std::__gcd(num, x.den), g2 = std::__gcd(den, x.num);\r\n    num = (num\
-    \ / g1) * (x.num / g2);\r\n    den = (den / g2) * (x.den / g1);\r\n    reduce();\r\
-    \n    return *this;\r\n  }\r\n  Rational& operator/=(const Rational& x) {\r\n\
-    \    return *this *= Rational(x.den, x.num);\r\n  }\r\n  bool operator==(const\
-    \ Rational& x) const {\r\n    return num == x.num && den == x.den;\r\n  }\r\n\
-    \  bool operator!=(const Rational& x) const { return !(*this == x); }\r\n  bool\
-    \ operator<(const Rational& x) const { return (x - *this).num > 0; }\r\n  bool\
-    \ operator<=(const Rational& x) const { return !(x < *this); }\r\n  bool operator>(const\
-    \ Rational& x) const { return x < *this; }\r\n  bool operator>=(const Rational&\
-    \ x) const { return !(*this < x); }\r\n  Rational& operator++() {\r\n    if ((num\
-    \ += den) == 0) den = 1;\r\n    return *this;\r\n  }\r\n  Rational operator++(int)\
-    \ {\r\n    const Rational res = *this;\r\n    ++*this;\r\n    return res;\r\n\
-    \  }\r\n  Rational& operator--() {\r\n    if ((num -= den) == 0) den = 1;\r\n\
-    \    return *this;\r\n  }\r\n  Rational operator--(int) {\r\n    const Rational\
-    \ res = *this;\r\n    --*this;\r\n    return res;\r\n  }\r\n  Rational operator+()\
-    \ const { return *this; }\r\n  Rational operator-() const { return Rational(-num,\
-    \ den); }\r\n  Rational operator+(const Rational& x) const { return Rational(*this)\
-    \ += x; }\r\n  Rational operator-(const Rational& x) const { return Rational(*this)\
-    \ -= x; }\r\n  Rational operator*(const Rational& x) const { return Rational(*this)\
-    \ *= x; }\r\n  Rational operator/(const Rational& x) const { return Rational(*this)\
-    \ /= x; }\r\n  friend std::ostream& operator<<(std::ostream& os, const Rational&\
-    \ x) {\r\n    if (x.den == 1) return os << x.num;\r\n    return os << x.num <<\
-    \ '/' << x.den;\r\n  }\r\n private:\r\n  void reduce() {\r\n    const T g = std::__gcd(num,\
-    \ den);\r\n    num /= g;\r\n    den /= g;\r\n    if (den < 0) {\r\n      num =\
-    \ -num;\r\n      den = -den;\r\n    }\r\n  }\r\n};\r\nnamespace std {\r\ntemplate\
-    \ <typename T>\r\nRational<T> abs(Rational<T> x) {\r\n  if (x.num < 0) x.num =\
-    \ -x.num;\r\n  return x;\r\n}\r\ntemplate <typename T>\r\nRational<T> max(const\
-    \ Rational<T>& a, const Rational<T>& b) {\r\n  return a < b ? b : a;\r\n}\r\n\
-    template <typename T>\r\nRational<T> min(const Rational<T>& a, const Rational<T>&\
-    \ b) {\r\n  return a < b ? a : b;\r\n}\r\ntemplate <typename T> struct numeric_limits<Rational<T>>\
-    \ {\r\n  static constexpr Rational<T> max() { return std::numeric_limits<T>::max();\
-    \ }\r\n  static constexpr Rational<T> lowest() {\r\n    return std::numeric_limits<T>::lowest();\r\
-    \n  }\r\n};\r\n}  // namespace std\r\n"
+  bundledCode: "#line 2 \"math/rational.hpp\"\n#include <algorithm>\n// #include <cassert>\n\
+    #include <limits>\n#include <ostream>\n\ntemplate <typename T = long long>\nstruct\
+    \ Rational {\n  T num, den;\n  Rational() : num(0), den(1) {}\n  Rational(const\
+    \ T num, const T den = 1) : num(num), den(den) {\n    // assert(den != 0);\n \
+    \   reduce();\n  }\n  template <typename Real = long double>\n  Real to_real()\
+    \ const { return static_cast<Real>(num) / den; }\n  Rational& operator+=(const\
+    \ Rational& x) {\n    const T g = std::__gcd(den, x.den);\n    num = num * (x.den\
+    \ / g) + x.num * (den / g);\n    den *= x.den / g;\n    reduce();\n    return\
+    \ *this;\n  }\n  Rational& operator-=(const Rational& x) { return *this += -x;\
+    \ }\n  Rational& operator*=(const Rational& x) {\n    const T g1 = std::__gcd(num,\
+    \ x.den), g2 = std::__gcd(den, x.num);\n    num = (num / g1) * (x.num / g2);\n\
+    \    den = (den / g2) * (x.den / g1);\n    reduce();\n    return *this;\n  }\n\
+    \  Rational& operator/=(const Rational& x) {\n    return *this *= Rational(x.den,\
+    \ x.num);\n  }\n  bool operator==(const Rational& x) const {\n    return num ==\
+    \ x.num && den == x.den;\n  }\n  bool operator!=(const Rational& x) const { return\
+    \ !(*this == x); }\n  bool operator<(const Rational& x) const { return (x - *this).num\
+    \ > 0; }\n  bool operator<=(const Rational& x) const { return !(x < *this); }\n\
+    \  bool operator>(const Rational& x) const { return x < *this; }\n  bool operator>=(const\
+    \ Rational& x) const { return !(*this < x); }\n  Rational& operator++() {\n  \
+    \  if ((num += den) == 0) den = 1;\n    return *this;\n  }\n  Rational operator++(int)\
+    \ {\n    const Rational res = *this;\n    ++*this;\n    return res;\n  }\n  Rational&\
+    \ operator--() {\n    if ((num -= den) == 0) den = 1;\n    return *this;\n  }\n\
+    \  Rational operator--(int) {\n    const Rational res = *this;\n    --*this;\n\
+    \    return res;\n  }\n  Rational operator+() const { return *this; }\n  Rational\
+    \ operator-() const { return Rational(-num, den); }\n  Rational operator+(const\
+    \ Rational& x) const { return Rational(*this) += x; }\n  Rational operator-(const\
+    \ Rational& x) const { return Rational(*this) -= x; }\n  Rational operator*(const\
+    \ Rational& x) const { return Rational(*this) *= x; }\n  Rational operator/(const\
+    \ Rational& x) const { return Rational(*this) /= x; }\n  friend std::ostream&\
+    \ operator<<(std::ostream& os, const Rational& x) {\n    if (x.den == 1) return\
+    \ os << x.num;\n    return os << x.num << '/' << x.den;\n  }\n private:\n  void\
+    \ reduce() {\n    const T g = std::__gcd(num, den);\n    num /= g;\n    den /=\
+    \ g;\n    if (den < 0) {\n      num = -num;\n      den = -den;\n    }\n  }\n};\n\
+    namespace std {\ntemplate <typename T>\nRational<T> abs(Rational<T> x) {\n  if\
+    \ (x.num < 0) x.num = -x.num;\n  return x;\n}\ntemplate <typename T>\nRational<T>\
+    \ max(const Rational<T>& a, const Rational<T>& b) {\n  return a < b ? b : a;\n\
+    }\ntemplate <typename T>\nRational<T> min(const Rational<T>& a, const Rational<T>&\
+    \ b) {\n  return a < b ? a : b;\n}\ntemplate <typename T> struct numeric_limits<Rational<T>>\
+    \ {\n  static constexpr Rational<T> max() { return std::numeric_limits<T>::max();\
+    \ }\n  static constexpr Rational<T> lowest() {\n    return std::numeric_limits<T>::lowest();\n\
+    \  }\n};\n}  // namespace std\n"
+  code: "#pragma once\n#include <algorithm>\n// #include <cassert>\n#include <limits>\n\
+    #include <ostream>\n\ntemplate <typename T = long long>\nstruct Rational {\n \
+    \ T num, den;\n  Rational() : num(0), den(1) {}\n  Rational(const T num, const\
+    \ T den = 1) : num(num), den(den) {\n    // assert(den != 0);\n    reduce();\n\
+    \  }\n  template <typename Real = long double>\n  Real to_real() const { return\
+    \ static_cast<Real>(num) / den; }\n  Rational& operator+=(const Rational& x) {\n\
+    \    const T g = std::__gcd(den, x.den);\n    num = num * (x.den / g) + x.num\
+    \ * (den / g);\n    den *= x.den / g;\n    reduce();\n    return *this;\n  }\n\
+    \  Rational& operator-=(const Rational& x) { return *this += -x; }\n  Rational&\
+    \ operator*=(const Rational& x) {\n    const T g1 = std::__gcd(num, x.den), g2\
+    \ = std::__gcd(den, x.num);\n    num = (num / g1) * (x.num / g2);\n    den = (den\
+    \ / g2) * (x.den / g1);\n    reduce();\n    return *this;\n  }\n  Rational& operator/=(const\
+    \ Rational& x) {\n    return *this *= Rational(x.den, x.num);\n  }\n  bool operator==(const\
+    \ Rational& x) const {\n    return num == x.num && den == x.den;\n  }\n  bool\
+    \ operator!=(const Rational& x) const { return !(*this == x); }\n  bool operator<(const\
+    \ Rational& x) const { return (x - *this).num > 0; }\n  bool operator<=(const\
+    \ Rational& x) const { return !(x < *this); }\n  bool operator>(const Rational&\
+    \ x) const { return x < *this; }\n  bool operator>=(const Rational& x) const {\
+    \ return !(*this < x); }\n  Rational& operator++() {\n    if ((num += den) ==\
+    \ 0) den = 1;\n    return *this;\n  }\n  Rational operator++(int) {\n    const\
+    \ Rational res = *this;\n    ++*this;\n    return res;\n  }\n  Rational& operator--()\
+    \ {\n    if ((num -= den) == 0) den = 1;\n    return *this;\n  }\n  Rational operator--(int)\
+    \ {\n    const Rational res = *this;\n    --*this;\n    return res;\n  }\n  Rational\
+    \ operator+() const { return *this; }\n  Rational operator-() const { return Rational(-num,\
+    \ den); }\n  Rational operator+(const Rational& x) const { return Rational(*this)\
+    \ += x; }\n  Rational operator-(const Rational& x) const { return Rational(*this)\
+    \ -= x; }\n  Rational operator*(const Rational& x) const { return Rational(*this)\
+    \ *= x; }\n  Rational operator/(const Rational& x) const { return Rational(*this)\
+    \ /= x; }\n  friend std::ostream& operator<<(std::ostream& os, const Rational&\
+    \ x) {\n    if (x.den == 1) return os << x.num;\n    return os << x.num << '/'\
+    \ << x.den;\n  }\n private:\n  void reduce() {\n    const T g = std::__gcd(num,\
+    \ den);\n    num /= g;\n    den /= g;\n    if (den < 0) {\n      num = -num;\n\
+    \      den = -den;\n    }\n  }\n};\nnamespace std {\ntemplate <typename T>\nRational<T>\
+    \ abs(Rational<T> x) {\n  if (x.num < 0) x.num = -x.num;\n  return x;\n}\ntemplate\
+    \ <typename T>\nRational<T> max(const Rational<T>& a, const Rational<T>& b) {\n\
+    \  return a < b ? b : a;\n}\ntemplate <typename T>\nRational<T> min(const Rational<T>&\
+    \ a, const Rational<T>& b) {\n  return a < b ? a : b;\n}\ntemplate <typename T>\
+    \ struct numeric_limits<Rational<T>> {\n  static constexpr Rational<T> max() {\
+    \ return std::numeric_limits<T>::max(); }\n  static constexpr Rational<T> lowest()\
+    \ {\n    return std::numeric_limits<T>::lowest();\n  }\n};\n}  // namespace std\n"
   dependsOn: []
   isVerificationFile: false
   path: math/rational.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/rational.test.cpp
 documentation_of: math/rational.hpp

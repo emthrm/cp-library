@@ -3,7 +3,7 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/morris-pratt.1.test.cpp
     title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
   - icon: ':x:'
@@ -11,41 +11,40 @@ data:
     title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/string/knuth-morris-pratt.md
     document_title: "Morris\u2013Pratt algorithm"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief Morris\u2013Pratt algorithm\r\n * @docs docs/string/knuth-morris-pratt.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <string>\r\n#include <vector>\r\n\r\nstruct\
-    \ MorrisPratt {\r\n  std::string s;\r\n  std::vector<int> border;\r\n\r\n  explicit\
-    \ MorrisPratt(const std::string& s) : s(s), border({-1}), j(-1) {\r\n    const\
-    \ int n = s.length();\r\n    for (int i = 0; i < n; ++i) {\r\n      solve(i);\r\
-    \n    }\r\n  }\r\n\r\n  void add(const char c) {\r\n    s += c;\r\n    solve(s.length()\
-    \ - 1);\r\n  }\r\n\r\n  std::vector<int> match(const std::string& t) const {\r\
-    \n    const int n = s.length(), m = t.length();\r\n    std::vector<int> res;\r\
-    \n    for (int i = 0, k = 0; i < m; ++i) {\r\n      while (k >= 0 && t[i] != s[k])\
-    \ k = border[k];\r\n      if (++k == n) res.emplace_back(i - n + 1);\r\n    }\r\
-    \n    return res;\r\n  }\r\n\r\n  int period(const int idx) const { return idx\
-    \ - border[idx]; }\r\n\r\n private:\r\n  int j;\r\n\r\n  void solve(const int\
-    \ idx) {\r\n    while (j >= 0 && s[idx] != s[j]) j = border[j];\r\n    border.emplace_back(++j);\r\
-    \n  }\r\n};\r\n"
+  code: "/**\n * @brief Morris\u2013Pratt algorithm\n * @docs docs/string/knuth-morris-pratt.md\n\
+    \ */\n\n#pragma once\n#include <string>\n#include <vector>\n\nstruct MorrisPratt\
+    \ {\n  std::string s;\n  std::vector<int> border;\n\n  explicit MorrisPratt(const\
+    \ std::string& s) : s(s), border({-1}), j(-1) {\n    const int n = s.length();\n\
+    \    for (int i = 0; i < n; ++i) {\n      solve(i);\n    }\n  }\n\n  void add(const\
+    \ char c) {\n    s += c;\n    solve(s.length() - 1);\n  }\n\n  std::vector<int>\
+    \ match(const std::string& t) const {\n    const int n = s.length(), m = t.length();\n\
+    \    std::vector<int> res;\n    for (int i = 0, k = 0; i < m; ++i) {\n      while\
+    \ (k >= 0 && t[i] != s[k]) k = border[k];\n      if (++k == n) res.emplace_back(i\
+    \ - n + 1);\n    }\n    return res;\n  }\n\n  int period(const int idx) const\
+    \ { return idx - border[idx]; }\n\n private:\n  int j;\n\n  void solve(const int\
+    \ idx) {\n    while (j >= 0 && s[idx] != s[j]) j = border[j];\n    border.emplace_back(++j);\n\
+    \  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: string/morris-pratt.hpp
   requiredBy: []
-  timestamp: '2022-02-27 15:05:10+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/string/morris-pratt.1.test.cpp
   - test/string/morris-pratt.2.test.cpp
+  - test/string/morris-pratt.1.test.cpp
 documentation_of: string/morris-pratt.hpp
 layout: document
 redirect_from:
@@ -72,7 +71,9 @@ title: "Morris\u2013Pratt algorithm"
 
 - Knuth–Morris–Pratt algorithm
 
-$$\langle O(N), O(M) \rangle$$
+$$
+  \langle O(N), O(M) \rangle
+$$
 
 
 ## 使用法

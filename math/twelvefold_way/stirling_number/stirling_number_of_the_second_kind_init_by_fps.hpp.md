@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -9,45 +9,44 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/stirling_number/stirling_number.md
     document_title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
       \u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp:\
     \ line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
-    \u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\r\n * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\n#include \"../../formal_power_series/formal_power_series.hpp\"\
-    \r\n#include \"../../modint.hpp\"\r\n\r\ntemplate <int T>\r\nstd::vector<MInt<T>>\
-    \ stirling_number_of_the_second_kind_init_by_fps(\r\n    const int n) {\r\n  using\
-    \ ModInt = MInt<T>;\r\n  ModInt::init(n);\r\n  FormalPowerSeries<ModInt> a(n),\
-    \ b(n);\r\n  for (int i = 0; i <= n; ++i) {\r\n    a[i] = ModInt(i).pow(n) * ModInt::fact_inv(i);\r\
-    \n  }\r\n  for (int i = 0; i <= n; ++i) {\r\n    b[i] = (i & 1 ? -ModInt::fact_inv(i)\
-    \ : ModInt::fact_inv(i));\r\n  }\r\n  a *= b;\r\n  a.resize(n);\r\n  return a.coef;\r\
-    \n}\r\n"
+  code: "/**\n * @brief \u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
+    \u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\n * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md\n\
+    \ */\n\n#pragma once\n#include <vector>\n\n#include \"../../formal_power_series/formal_power_series.hpp\"\
+    \n#include \"../../modint.hpp\"\n\ntemplate <int T>\nstd::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(\n\
+    \    const int n) {\n  using ModInt = MInt<T>;\n  ModInt::init(n);\n  FormalPowerSeries<ModInt>\
+    \ a(n), b(n);\n  for (int i = 0; i <= n; ++i) {\n    a[i] = ModInt(i).pow(n) *\
+    \ ModInt::fact_inv(i);\n  }\n  for (int i = 0; i <= n; ++i) {\n    b[i] = (i &\
+    \ 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i));\n  }\n  a *= b;\n  a.resize(n);\n\
+    \  return a.coef;\n}\n"
   dependsOn:
   - math/formal_power_series/formal_power_series.hpp
   - math/modint.hpp
   isVerificationFile: false
   path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-02-27 17:53:24+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
 documentation_of: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
@@ -63,11 +62,22 @@ title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u886
 
 ## 第1種スターリング数 (Stirling number of the first kind)
 
-$$x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k$$
+$$
+  x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k
+$$
 
 で定義される $s$ である．
 
-$$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0), \\ s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
+$$
+  \begin{aligned}
+    s(n, k) =
+    \begin{cases}
+      1 & (n = k), \\
+      0 & (n \geq 1,\ k = 0), \\
+      s(n - 1, k - 1) + (n - 1)s(n - 1, k) & (1 \leq k < n)
+    \end{cases}
+  \end{aligned}
+$$
 
 という漸化式をもつ．
 
@@ -76,17 +86,30 @@ $$\begin{aligned} s(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0)
 
 ## 第2種スターリング数 (Stirling number of the second kind)
 
-$$x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}$$
+$$
+  x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}
+$$
 
 で定義される $S$ である．
 
-$$\begin{aligned} S(n, k) = \begin{cases} 1 & (n = k), \\ 0 & (n \geq 1,\ k = 0), \\ S(n-1, k-1) + k S(n - 1, k) & (1 \leq k < n) \end{cases} \end{aligned}$$
+$$
+  \begin{aligned}
+    S(n, k) =
+    \begin{cases}
+      1 & (n = k), \\
+      0 & (n \geq 1,\ k = 0), \\
+      S(n-1, k-1) + k S(n - 1, k) & (1 \leq k < n)
+    \end{cases}
+  \end{aligned}
+$$
 
 という漸化式をもつ．
 
 一般項は
 
-$$S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}$$
+$$
+  S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}
+$$
 
 である．
 

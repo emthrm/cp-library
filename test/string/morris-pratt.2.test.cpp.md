@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: string/morris-pratt.hpp
     title: "Morris\u2013Pratt algorithm"
   _extendedRequiredBy: []
@@ -17,33 +17,32 @@ data:
     document_title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
     links:
     - https://codeforces.com/problemset/problem/1138/D
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ string/morris-pratt.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))\r\
-    \n */\r\n#define IGNORE\r\n#define PROBLEM \"https://codeforces.com/problemset/problem/1138/D\"\
-    \r\n\r\n#include <algorithm>\r\n#include <cassert>\r\n#include <iostream>\r\n\
-    #include <string>\r\n\r\n#include \"../../string/morris-pratt.hpp\"\r\n\r\nint\
-    \ main() {\r\n  constexpr int SIGMA = 2;\r\n  std::string s, t;\r\n  std::cin\
-    \ >> s >> t;\r\n  int num[2];\r\n  for (int c = 0; c < SIGMA; ++c) {\r\n    num[c]\
-    \ = std::count(s.begin(), s.end(), '0' + c);\r\n  }\r\n  const MorrisPratt morris_pratt(t);\r\
-    \n  std::string ans = \"\";\r\n  const int period = morris_pratt.period(t.length());\r\
-    \n  for (int pos = 0; num[t[pos] - '0'] > 0; pos = (pos + 1) % period) {\r\n \
-    \   ans += t[pos];\r\n    --num[t[pos] - '0'];\r\n  }\r\n  for (int c = 0; c <\
-    \ SIGMA; ++c) {\r\n    ans += std::string(num[c], '0' + c);\r\n  }\r\n  std::cout\
-    \ << ans << '\\n';\r\n  return 0;\r\n}\r\n"
+  code: "/*\n * @brief \u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))\n\
+    \ */\n#define IGNORE\n#define PROBLEM \"https://codeforces.com/problemset/problem/1138/D\"\
+    \n\n#include <algorithm>\n#include <cassert>\n#include <iostream>\n#include <string>\n\
+    \n#include \"../../string/morris-pratt.hpp\"\n\nint main() {\n  constexpr int\
+    \ SIGMA = 2;\n  std::string s, t;\n  std::cin >> s >> t;\n  int num[2];\n  for\
+    \ (int c = 0; c < SIGMA; ++c) {\n    num[c] = std::count(s.begin(), s.end(), '0'\
+    \ + c);\n  }\n  const MorrisPratt morris_pratt(t);\n  std::string ans = \"\";\n\
+    \  const int period = morris_pratt.period(t.length());\n  for (int pos = 0; num[t[pos]\
+    \ - '0'] > 0; pos = (pos + 1) % period) {\n    ans += t[pos];\n    --num[t[pos]\
+    \ - '0'];\n  }\n  for (int c = 0; c < SIGMA; ++c) {\n    ans += std::string(num[c],\
+    \ '0' + c);\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - string/morris-pratt.hpp
   isVerificationFile: true
   path: test/string/morris-pratt.2.test.cpp
   requiredBy: []
-  timestamp: '2022-02-27 15:05:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/morris-pratt.2.test.cpp

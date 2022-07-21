@@ -3,37 +3,36 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/jacobi_symbol.test.cpp
     title: "\u6570\u5B66/\u30E4\u30B3\u30D3\u8A18\u53F7"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/quadratic_residue.md
     document_title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/jacobi_symbol.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u30E4\u30B3\u30D3\u8A18\u53F7\r\n * @docs docs/math/quadratic_residue.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <cassert>\r\n#include <utility>\r\n\r\n\
-    int jacobi_symbol(long long a, long long p) {\r\n  assert(p > 0 && p & 1);\r\n\
-    \  if (p == 1) return 1;\r\n  if ((a %= p) < 0) a += p;\r\n  if (a == 0) return\
-    \ 0;\r\n  int res = 1;\r\n  while (a > 0) {\r\n    const int p2 = __builtin_ctzll(a);\r\
-    \n    if ((p2 & 1) && ((p + 2) & 4)) res = -res;\r\n    a >>= p2;\r\n    if (a\
-    \ & p & 2) res = -res;\r\n    std::swap(a, p);\r\n    a %= p;\r\n  }\r\n  return\
-    \ p == 1 ? res : 0;\r\n}\r\n"
+  code: "/**\n * @brief \u30E4\u30B3\u30D3\u8A18\u53F7\n * @docs docs/math/quadratic_residue.md\n\
+    \ */\n\n#pragma once\n#include <cassert>\n#include <utility>\n\nint jacobi_symbol(long\
+    \ long a, long long p) {\n  assert(p > 0 && p & 1);\n  if (p == 1) return 1;\n\
+    \  if ((a %= p) < 0) a += p;\n  if (a == 0) return 0;\n  int res = 1;\n  while\
+    \ (a > 0) {\n    const int p2 = __builtin_ctzll(a);\n    if ((p2 & 1) && ((p +\
+    \ 2) & 4)) res = -res;\n    a >>= p2;\n    if (a & p & 2) res = -res;\n    std::swap(a,\
+    \ p);\n    a %= p;\n  }\n  return p == 1 ? res : 0;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/jacobi_symbol.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/jacobi_symbol.test.cpp
 documentation_of: math/jacobi_symbol.hpp
@@ -52,7 +51,14 @@ $x^2 \equiv a \pmod{p}$ を満たす $x$ が存在すれば，$a \in \mathbb{Z}$
 
 整数 $a$，奇素数 $p$ に対して
 
-$$\left(\dfrac{a}{p} \right) \mathrel{:=} \begin{cases} 1 & (a \not\equiv 0 \pmod{p} \wedge a \text{ は法 } p \text{ の下で平方剰余}), \\ -1 & (a \text{ は法 } p \text{ の下で平方非剰余}), \\ 0 & (a \equiv 0 \pmod{p}) \end{cases}$$
+$$
+  \left(\dfrac{a}{p} \right) \mathrel{:=}
+   \begin{cases}
+     1 & (a \not\equiv 0 \pmod{p} \wedge a \text{ は法 } p \text{ の下で平方剰余}), \\
+     -1 & (a \text{ は法 } p \text{ の下で平方非剰余}), \\
+     0 & (a \equiv 0 \pmod{p})
+   \end{cases}
+$$
 
 と定義する．
 
@@ -61,7 +67,9 @@ $$\left(\dfrac{a}{p} \right) \mathrel{:=} \begin{cases} 1 & (a \not\equiv 0 \pmo
 
 整数 $a \neq 0$，奇素数 $p$ に対して $a \perp p$ ならば
 
-$$\left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p}$$
+$$
+  \left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p}
+$$
 
 が成り立つ．
 
@@ -117,7 +125,9 @@ $$\left(\dfrac{a}{p} \right) \equiv a^{\frac{p - 1}{2}} \pmod{p}$$
 
 整数 $a$，正の奇数 $p$ に対して $p$ の素因数分解を $p = \prod_i p_i^{e_i}$ とすると
 
-$$\left(\dfrac{a}{p} \right) \mathrel{:=} \prod_i \left(\dfrac{a}{p_i} \right)^{e_i}$$
+$$
+  \left(\dfrac{a}{p} \right) \mathrel{:=} \prod_i \left(\dfrac{a}{p_i} \right)^{e_i}
+$$
 
 と定義される．
 

@@ -16,38 +16,36 @@ data:
       \u5C0F\u5024"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D
-  bundledCode: "#line 1 \"test/dynamic_programming/slide_min.test.cpp\"\n/*\r\n *\
-    \ @brief \u52D5\u7684\u8A08\u753B\u6CD5/\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024\
-    \r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#line 2 \"dynamic_programming/slide_min.hpp\"\
-    \n#include <deque>\r\n#line 4 \"dynamic_programming/slide_min.hpp\"\n\r\ntemplate\
-    \ <bool IS_MINIMIZED = true, typename T>\r\nstd::vector<T> slide_min(const std::vector<T>&\
-    \ a, const int len) {\r\n  const int n = a.size();\r\n  std::vector<T> res(n -\
-    \ len + 1);\r\n  std::deque<T> deq;\r\n  for (int i = 0; i < n; ++i) {\r\n   \
-    \ while (!deq.empty() &&\r\n           !(IS_MINIMIZED ? a[deq.back()] < a[i] :\
-    \ a[deq.back()] > a[i])) {\r\n      deq.pop_back();\r\n    }\r\n    deq.emplace_back(i);\r\
-    \n    if (i + 1 >= len) {\r\n      const int left = i + 1 - len;\r\n      res[left]\
-    \ = a[deq.front()];\r\n      if (deq.front() == left) deq.pop_front();\r\n   \
-    \ }\r\n  }\r\n  return res;\r\n}\r\n#line 10 \"test/dynamic_programming/slide_min.test.cpp\"\
-    \n\r\nint main() {\r\n  int n, l;\r\n  std::cin >> n >> l;\r\n  std::vector<int>\
-    \ a(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> a[i];\r\n  }\r\n\
-    \  const std::vector<int> ans = slide_min(a, l);\r\n  for (int i = 0; i + l <=\
-    \ n; ++i) {\r\n    std::cout << ans[i] << \" \\n\"[i + l == n];\r\n  }\r\n  return\
-    \ 0;\r\n}\r\n"
-  code: "/*\r\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/\u30B9\u30E9\u30A4\u30C9\u6700\
-    \u5C0F\u5024\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../dynamic_programming/slide_min.hpp\"\
-    \r\n\r\nint main() {\r\n  int n, l;\r\n  std::cin >> n >> l;\r\n  std::vector<int>\
-    \ a(n);\r\n  for (int i = 0; i < n; ++i) {\r\n    std::cin >> a[i];\r\n  }\r\n\
-    \  const std::vector<int> ans = slide_min(a, l);\r\n  for (int i = 0; i + l <=\
-    \ n; ++i) {\r\n    std::cout << ans[i] << \" \\n\"[i + l == n];\r\n  }\r\n  return\
-    \ 0;\r\n}\r\n"
+  bundledCode: "#line 1 \"test/dynamic_programming/slide_min.test.cpp\"\n/*\n * @brief\
+    \ \u52D5\u7684\u8A08\u753B\u6CD5/\u30B9\u30E9\u30A4\u30C9\u6700\u5C0F\u5024\n\
+    \ */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D\"\
+    \n\n#include <iostream>\n#include <vector>\n\n#line 2 \"dynamic_programming/slide_min.hpp\"\
+    \n#include <deque>\n#line 4 \"dynamic_programming/slide_min.hpp\"\n\ntemplate\
+    \ <bool IS_MINIMIZED = true, typename T>\nstd::vector<T> slide_min(const std::vector<T>&\
+    \ a, const int len) {\n  const int n = a.size();\n  std::vector<T> res(n - len\
+    \ + 1);\n  std::deque<T> deq;\n  for (int i = 0; i < n; ++i) {\n    while (!deq.empty()\
+    \ &&\n           !(IS_MINIMIZED ? a[deq.back()] < a[i] : a[deq.back()] > a[i]))\
+    \ {\n      deq.pop_back();\n    }\n    deq.emplace_back(i);\n    if (i + 1 >=\
+    \ len) {\n      const int left = i + 1 - len;\n      res[left] = a[deq.front()];\n\
+    \      if (deq.front() == left) deq.pop_front();\n    }\n  }\n  return res;\n\
+    }\n#line 10 \"test/dynamic_programming/slide_min.test.cpp\"\n\nint main() {\n\
+    \  int n, l;\n  std::cin >> n >> l;\n  std::vector<int> a(n);\n  for (int i =\
+    \ 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  const std::vector<int> ans =\
+    \ slide_min(a, l);\n  for (int i = 0; i + l <= n; ++i) {\n    std::cout << ans[i]\
+    \ << \" \\n\"[i + l == n];\n  }\n  return 0;\n}\n"
+  code: "/*\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/\u30B9\u30E9\u30A4\u30C9\u6700\
+    \u5C0F\u5024\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D\"\
+    \n\n#include <iostream>\n#include <vector>\n\n#include \"../../dynamic_programming/slide_min.hpp\"\
+    \n\nint main() {\n  int n, l;\n  std::cin >> n >> l;\n  std::vector<int> a(n);\n\
+    \  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  const std::vector<int>\
+    \ ans = slide_min(a, l);\n  for (int i = 0; i + l <= n; ++i) {\n    std::cout\
+    \ << ans[i] << \" \\n\"[i + l == n];\n  }\n  return 0;\n}\n"
   dependsOn:
   - dynamic_programming/slide_min.hpp
   isVerificationFile: true
   path: test/dynamic_programming/slide_min.test.cpp
   requiredBy: []
-  timestamp: '2022-02-14 14:47:00+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/slide_min.test.cpp

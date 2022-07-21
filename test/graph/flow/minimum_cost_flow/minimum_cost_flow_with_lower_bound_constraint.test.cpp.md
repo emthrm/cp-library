@@ -25,33 +25,32 @@ data:
       \u6D41"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2230
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
+  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
     \u6D41/\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528\
-    \u6D41\r\n */\r\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2230\"\
-    \r\n\r\n#include <algorithm>\r\n#include <iostream>\r\n#include <limits>\r\n#include\
-    \ <vector>\r\n\r\n#include \"../../../../graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp\"\
-    \r\n#include \"../../../../graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp\"\
-    \r\n#include \"../../../../graph/edge.hpp\"\r\n\r\nint main() {\r\n  constexpr\
-    \ int INF = std::numeric_limits<int>::max();\r\n  int n, m;\r\n  std::cin >> n\
-    \ >> m;\r\n  MinimumCostFlowWithLowerBoundConstraint<\r\n      MinimumCostBFlow,\
-    \ long long, long long> lower_bound_constraint(n, INF);\r\n  std::vector<std::vector<Edge<int>>>\
-    \ graph(n);\r\n  while (m--) {\r\n    int x, y, s;\r\n    std::cin >> x >> y >>\
-    \ s;\r\n    lower_bound_constraint.add_edge(y, x, 1, INF, -s);\r\n    graph[x].emplace_back(x,\
-    \ y, s);\r\n  }\r\n  std::vector<long long> dp(n, 0);\r\n  for (int i = n - 2;\
-    \ i >= 0; --i) {\r\n    for (const Edge<int>& e : graph[i]) {\r\n      dp[i] =\
-    \ std::max(dp[i], dp[e.dst] + e.cost);\r\n    }\r\n  }\r\n  lower_bound_constraint.add_edge(0,\
-    \ n - 1, 0, INF, dp[0]);\r\n  std::cout << lower_bound_constraint.solve(0, 0,\
-    \ 0) << '\\n';\r\n  return 0;\r\n}\r\n"
+    \u6D41\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2230\"\
+    \n\n#include <algorithm>\n#include <iostream>\n#include <limits>\n#include <vector>\n\
+    \n#include \"../../../../graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp\"\
+    \n#include \"../../../../graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp\"\
+    \n#include \"../../../../graph/edge.hpp\"\n\nint main() {\n  constexpr int INF\
+    \ = std::numeric_limits<int>::max();\n  int n, m;\n  std::cin >> n >> m;\n  MinimumCostFlowWithLowerBoundConstraint<\n\
+    \      MinimumCostBFlow, long long, long long> lower_bound_constraint(n, INF);\n\
+    \  std::vector<std::vector<Edge<int>>> graph(n);\n  while (m--) {\n    int x,\
+    \ y, s;\n    std::cin >> x >> y >> s;\n    lower_bound_constraint.add_edge(y,\
+    \ x, 1, INF, -s);\n    graph[x].emplace_back(x, y, s);\n  }\n  std::vector<long\
+    \ long> dp(n, 0);\n  for (int i = n - 2; i >= 0; --i) {\n    for (const Edge<int>&\
+    \ e : graph[i]) {\n      dp[i] = std::max(dp[i], dp[e.dst] + e.cost);\n    }\n\
+    \  }\n  lower_bound_constraint.add_edge(0, n - 1, 0, INF, dp[0]);\n  std::cout\
+    \ << lower_bound_constraint.solve(0, 0, 0) << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
   - graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp
@@ -59,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp

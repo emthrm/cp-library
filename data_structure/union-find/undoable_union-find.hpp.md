@@ -13,34 +13,33 @@ data:
     _deprecated_at_docs: docs/data_structure/union-find/union-find.md
     document_title: "undo \u53EF\u80FD union-find"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/union-find/undoable_union-find.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief undo \u53EF\u80FD union-find\r\n * @docs docs/data_structure/union-find/union-find.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <utility>\r\n#include <vector>\r\n\r\nstruct\
-    \ UndoableUnionFind {\r\n  explicit UndoableUnionFind(const int n) : data(n, -1)\
-    \ {}\r\n\r\n  int root(const int ver) const {\r\n    return data[ver] < 0 ? ver\
-    \ : root(data[ver]);\r\n  }\r\n\r\n  bool unite(int u, int v) {\r\n    u = root(u);\r\
-    \n    history.emplace_back(u, data[u]);\r\n    v = root(v);\r\n    history.emplace_back(v,\
-    \ data[v]);\r\n    if (u == v) return false;\r\n    if (data[u] > data[v]) std::swap(u,\
-    \ v);\r\n    data[u] += data[v];\r\n    data[v] = u;\r\n    return true;\r\n \
-    \ }\r\n\r\n  bool is_same(const int u, const int v) const { return root(u) ==\
-    \ root(v); }\r\n\r\n  int size(const int ver) const { return -data[root(ver)];\
-    \ }\r\n\r\n  void undo() {\r\n    for (int i = 0; i < 2; ++i) {\r\n      data[history.back().first]\
-    \ = history.back().second;\r\n      history.pop_back();\r\n    }\r\n  }\r\n\r\n\
-    \  void snapshot() { history.clear(); }\r\n\r\n  void rollback() {\r\n    while\
-    \ (!history.empty()) undo();\r\n  }\r\n\r\n private:\r\n  std::vector<int> data;\r\
-    \n  std::vector<std::pair<int, int>> history;\r\n};\r\n"
+  code: "/**\n * @brief undo \u53EF\u80FD union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
+    \ */\n\n#pragma once\n#include <utility>\n#include <vector>\n\nstruct UndoableUnionFind\
+    \ {\n  explicit UndoableUnionFind(const int n) : data(n, -1) {}\n\n  int root(const\
+    \ int ver) const {\n    return data[ver] < 0 ? ver : root(data[ver]);\n  }\n\n\
+    \  bool unite(int u, int v) {\n    u = root(u);\n    history.emplace_back(u, data[u]);\n\
+    \    v = root(v);\n    history.emplace_back(v, data[v]);\n    if (u == v) return\
+    \ false;\n    if (data[u] > data[v]) std::swap(u, v);\n    data[u] += data[v];\n\
+    \    data[v] = u;\n    return true;\n  }\n\n  bool is_same(const int u, const\
+    \ int v) const { return root(u) == root(v); }\n\n  int size(const int ver) const\
+    \ { return -data[root(ver)]; }\n\n  void undo() {\n    for (int i = 0; i < 2;\
+    \ ++i) {\n      data[history.back().first] = history.back().second;\n      history.pop_back();\n\
+    \    }\n  }\n\n  void snapshot() { history.clear(); }\n\n  void rollback() {\n\
+    \    while (!history.empty()) undo();\n  }\n\n private:\n  std::vector<int> data;\n\
+    \  std::vector<std::pair<int, int>> history;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/union-find/undoable_union-find.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/data_structure/union-find/undoable_union-find.test.cpp

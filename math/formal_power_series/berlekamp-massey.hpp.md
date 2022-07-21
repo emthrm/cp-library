@@ -3,48 +3,46 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/berlekamp-massey.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Berlekamp\u2013Massey\
       \ algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/formal_power_series/berlekamp-massey.hpp\"\n#include\
-    \ <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T> berlekamp_massey(const\
-    \ std::vector<T>& s) {\r\n  const int n = s.size();\r\n  std::vector<T> b{1},\
-    \ c{1};\r\n  b.reserve(n);\r\n  c.reserve(n + 1);\r\n  int m = b.size(), l = c.size(),\
-    \ f = -1;\r\n  T prv_delta = 1;\r\n  for (int i = 0; i < n; ++i) {\r\n    T delta\
-    \ = s[i];\r\n    for (int j = 1; j < l; ++j) {\r\n      delta += c[j] * s[i -\
-    \ j];\r\n    }\r\n    if (delta == 0) continue;\r\n    const T mul = -delta /\
-    \ prv_delta;\r\n    const int shift = i - f;\r\n    if (m + shift > l) {\r\n \
-    \     l = m + shift;\r\n      const std::vector<T> nxt_b = c;\r\n      c.resize(l,\
-    \ 0);\r\n      for (int j = 0; j < m; ++j) {\r\n        c[l - 1 - j] += mul *\
-    \ b[m - 1 - j];\r\n      }\r\n      b = nxt_b;\r\n      m = b.size();\r\n    \
-    \  f = i;\r\n      prv_delta = delta;\r\n    } else {\r\n      for (int j = 0;\
-    \ j < m; ++j) {\r\n        c[shift + j] += mul * b[j];\r\n      }\r\n    }\r\n\
-    \  }\r\n  return c;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ berlekamp_massey(const std::vector<T>& s) {\r\n  const int n = s.size();\r\n\
-    \  std::vector<T> b{1}, c{1};\r\n  b.reserve(n);\r\n  c.reserve(n + 1);\r\n  int\
-    \ m = b.size(), l = c.size(), f = -1;\r\n  T prv_delta = 1;\r\n  for (int i =\
-    \ 0; i < n; ++i) {\r\n    T delta = s[i];\r\n    for (int j = 1; j < l; ++j) {\r\
-    \n      delta += c[j] * s[i - j];\r\n    }\r\n    if (delta == 0) continue;\r\n\
-    \    const T mul = -delta / prv_delta;\r\n    const int shift = i - f;\r\n   \
-    \ if (m + shift > l) {\r\n      l = m + shift;\r\n      const std::vector<T> nxt_b\
-    \ = c;\r\n      c.resize(l, 0);\r\n      for (int j = 0; j < m; ++j) {\r\n   \
-    \     c[l - 1 - j] += mul * b[m - 1 - j];\r\n      }\r\n      b = nxt_b;\r\n \
-    \     m = b.size();\r\n      f = i;\r\n      prv_delta = delta;\r\n    } else\
-    \ {\r\n      for (int j = 0; j < m; ++j) {\r\n        c[shift + j] += mul * b[j];\r\
-    \n      }\r\n    }\r\n  }\r\n  return c;\r\n}\r\n"
+    \ <vector>\n\ntemplate <typename T>\nstd::vector<T> berlekamp_massey(const std::vector<T>&\
+    \ s) {\n  const int n = s.size();\n  std::vector<T> b{1}, c{1};\n  b.reserve(n);\n\
+    \  c.reserve(n + 1);\n  int m = b.size(), l = c.size(), f = -1;\n  T prv_delta\
+    \ = 1;\n  for (int i = 0; i < n; ++i) {\n    T delta = s[i];\n    for (int j =\
+    \ 1; j < l; ++j) {\n      delta += c[j] * s[i - j];\n    }\n    if (delta == 0)\
+    \ continue;\n    const T mul = -delta / prv_delta;\n    const int shift = i -\
+    \ f;\n    if (m + shift > l) {\n      l = m + shift;\n      const std::vector<T>\
+    \ nxt_b = c;\n      c.resize(l, 0);\n      for (int j = 0; j < m; ++j) {\n   \
+    \     c[l - 1 - j] += mul * b[m - 1 - j];\n      }\n      b = nxt_b;\n      m\
+    \ = b.size();\n      f = i;\n      prv_delta = delta;\n    } else {\n      for\
+    \ (int j = 0; j < m; ++j) {\n        c[shift + j] += mul * b[j];\n      }\n  \
+    \  }\n  }\n  return c;\n}\n"
+  code: "#pragma once\n#include <vector>\n\ntemplate <typename T>\nstd::vector<T>\
+    \ berlekamp_massey(const std::vector<T>& s) {\n  const int n = s.size();\n  std::vector<T>\
+    \ b{1}, c{1};\n  b.reserve(n);\n  c.reserve(n + 1);\n  int m = b.size(), l = c.size(),\
+    \ f = -1;\n  T prv_delta = 1;\n  for (int i = 0; i < n; ++i) {\n    T delta =\
+    \ s[i];\n    for (int j = 1; j < l; ++j) {\n      delta += c[j] * s[i - j];\n\
+    \    }\n    if (delta == 0) continue;\n    const T mul = -delta / prv_delta;\n\
+    \    const int shift = i - f;\n    if (m + shift > l) {\n      l = m + shift;\n\
+    \      const std::vector<T> nxt_b = c;\n      c.resize(l, 0);\n      for (int\
+    \ j = 0; j < m; ++j) {\n        c[l - 1 - j] += mul * b[m - 1 - j];\n      }\n\
+    \      b = nxt_b;\n      m = b.size();\n      f = i;\n      prv_delta = delta;\n\
+    \    } else {\n      for (int j = 0; j < m; ++j) {\n        c[shift + j] += mul\
+    \ * b[j];\n      }\n    }\n  }\n  return c;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/formal_power_series/berlekamp-massey.hpp
   requiredBy: []
-  timestamp: '2022-02-28 01:01:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/formal_power_series/berlekamp-massey.test.cpp
 documentation_of: math/formal_power_series/berlekamp-massey.hpp
@@ -71,7 +69,13 @@ $O(N^2)$
 
 入力を $S \mathrel{:=} (S_0, S_1, \ldots)$ とおく．数列 $C$ に対して
 
-$$C(i) \mathrel{:=} \begin{cases} \sum_{k = 0}^{\lvert C \rvert - 1} C_k S_{i - k} & (i \geq \lvert C \rvert - 1), \\ 0 & (\text{otherwise}) \end{cases}$$
+$$
+  C(i) \mathrel{:=}
+  \begin{cases}
+    \sum_{k = 0}^{\lvert C \rvert - 1} C_k S_{i - k} & (i \geq \lvert C \rvert - 1), \\
+    0 & (\text{otherwise})
+  \end{cases}
+$$
 
 とおく．任意の $i \in \mathbb{N}$ に対して $C(i) = 0$ が成り立つ $C$ を求めたい．
 
@@ -79,21 +83,53 @@ $$C(i) \mathrel{:=} \begin{cases} \sum_{k = 0}^{\lvert C \rvert - 1} C_k S_{i - 
 
 $\Delta_n \mathrel{:=} C(n)$ とおく．$\Delta_n \neq 0$ を仮定する．
 
-$$D(i) = \begin{cases} 0 & (i = 0, 1, \ldots, n - 1), \\ -\Delta_n & (i = n) \end{cases}$$
+$$
+  D(i) =
+  \begin{cases}
+    0 & (i = 0, 1, \ldots, n - 1), \\
+    -\Delta_n & (i = n)
+  \end{cases}
+$$
 
 を満たす $D$ を求めたい．
 
 $\Delta_f \neq 0$ を満たす $f < n$ を一つとる（$n = \min \lbrace i \in \mathbb{N} \mid S_i \neq 0 \rbrace$ のときは後述する）．$f$ 番目のイテレーションのときの $C$ を $B$ とおく．
 
-$$B(i) = \begin{cases} 0 & (i = 0, 1, \ldots, f - 1), \\ \Delta_f & (i = f) \end{cases}$$
+$$
+  B(i) =
+  \begin{cases}
+    0 & (i = 0, 1, \ldots, f - 1), \\
+    \Delta_f & (i = f)
+  \end{cases}
+$$
 
 が成り立つ．
 
-$$D_i \mathrel{:=} \begin{cases} 0 & (i = 0, 1, \ldots, n - f - 1), \\ -\frac{\Delta_n}{\Delta_f} B_{i - (n - f)} & (i = n - f, n - f + 1, \ldots, n - f + \lvert B \rvert - 1) \end{cases}$$
+$$
+  D_i \mathrel{:=}
+  \begin{cases}
+    0 & (i = 0, 1, \ldots, n - f - 1), \\
+    -\frac{\Delta_n}{\Delta_f} B_{i - (n - f)} & (i = n - f, n - f + 1, \ldots, n - f + \lvert B \rvert - 1)
+  \end{cases}
+$$
 
 とおくと
 
-$$\begin{split} D(i) &= \sum_{k = 0}^{n - f + \lvert B \rvert - 1} D_k C_{i - k} \\ &= \sum_{k = n - f}^{n - f + \lvert B \rvert - 1} D_k C_{i - k} \\ &= \sum_{k = 0}^{\lvert B \rvert - 1} -\frac{\Delta_n}{\Delta_f} B_k C_{i - (k + n - f)} \\ &= -\frac{\Delta_n}{\Delta_f} \sum_{k = 0}^{\lvert B \rvert - 1} B_k C_{(i - (n - f)) - k} \\ &= -\frac{\Delta_n}{\Delta_f} B(i - (n - f)) \\ &= \begin{cases} 0 & (i = 0, 1, \ldots, n - f - 1) \\ 0 & (i = n - f, n - f + 1, \ldots, n - 1) \\ -\frac{\Delta_n}{\Delta_f} \cdot \Delta_f = -\Delta_n & (i = n) \end{cases} \end{split}$$
+$$
+  \begin{split}
+    D(i)
+    &= \sum_{k = 0}^{n - f + \lvert B \rvert - 1} D_k C_{i - k} \\
+    &= \sum_{k = n - f}^{n - f + \lvert B \rvert - 1} D_k C_{i - k} \\
+    &= \sum_{k = 0}^{\lvert B \rvert - 1} -\frac{\Delta_n}{\Delta_f} B_k C_{i - (k + n - f)} \\
+    &= -\frac{\Delta_n}{\Delta_f} \sum_{k = 0}^{\lvert B \rvert - 1} B_k C_{(i - (n - f)) - k} \\
+    &= -\frac{\Delta_n}{\Delta_f} B(i - (n - f)) \\
+    &= \begin{cases}
+         0 & (i = 0, 1, \ldots, n - f - 1) \\
+         0 & (i = n - f, n - f + 1, \ldots, n - 1) \\
+         -\frac{\Delta_n}{\Delta_f} \cdot \Delta_f = -\Delta_n & (i = n)
+       \end{cases}
+  \end{split}
+$$
 
 となり，条件を満たす．
 

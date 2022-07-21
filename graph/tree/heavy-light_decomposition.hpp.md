@@ -18,71 +18,68 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <utility>\r\n#include <vector>\r\
-    \n\r\n#include \"../edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\nstruct HeavyLightDecomposition\
-    \ {\r\n  std::vector<int> parent, subtree, id, inv, head;\r\n  std::vector<CostType>\
-    \ cost;\r\n\r\n  explicit HeavyLightDecomposition(\r\n      const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\r\n      const int root = 0)\r\n      : graph(graph) {\r\n    const int\
-    \ n = graph.size();\r\n    parent.assign(n, -1);\r\n    subtree.assign(n, 1);\r\
-    \n    dfs1(root);\r\n    id.resize(n);\r\n    inv.resize(n);\r\n    head.assign(n,\
-    \ root);\r\n    int cur_id = 0;\r\n    dfs2(root, &cur_id);\r\n  }\r\n\r\n  template\
-    \ <typename Fn>\r\n  void update_v(int u, int v, const Fn f) const {\r\n    while\
-    \ (true) {\r\n      if (id[u] > id[v]) std::swap(u, v);\r\n      f(std::max(id[head[v]],\
-    \ id[u]), id[v] + 1);\r\n      if (head[u] == head[v]) break;\r\n      v = parent[head[v]];\r\
-    \n    }\r\n  }\r\n\r\n  template <typename F, typename G, typename T>\r\n  T query_v(int\
-    \ u, int v, const F f, const G g, const T id_t) const {\r\n    T left = id_t,\
-    \ right = id_t;\r\n    while (true) {\r\n      if (id_t[u] > id_t[v]) {\r\n  \
-    \      std::swap(u, v);\r\n        std::swap(left, right);\r\n      }\r\n    \
-    \  left = g(left, f(std::max(id_t[head[v]], id_t[u]), id_t[v] + 1));\r\n     \
-    \ if (head[u] == head[v]) break;\r\n      v = parent[head[v]];\r\n    }\r\n  \
-    \  return g(left, right);\r\n  }\r\n\r\n  template <typename Fn>\r\n  void update_subtree_v(const\
-    \ int ver, const Fn f) const {\r\n    f(id[ver], id[ver] + subtree[ver]);\r\n\
-    \  }\r\n\r\n  template <typename T, typename Fn>\r\n  T query_subtree_v(const\
-    \ int ver, const Fn f) const {\r\n    return f(id[ver], id[ver] + subtree[ver]);\r\
-    \n  }\r\n\r\n  template <typename Fn>\r\n  void update_e(int u, int v, const Fn\
-    \ f) const {\r\n    while (true) {\r\n      if (id[u] > id[v]) std::swap(u, v);\r\
-    \n      if (head[u] == head[v]) {\r\n        f(id[u], id[v]);\r\n        break;\r\
-    \n      } else {\r\n        f(id[head[v]] - 1, id[v]);\r\n        v = parent[head[v]];\r\
-    \n      }\r\n    }\r\n  }\r\n\r\n  template <typename F, typename G, typename\
-    \ T>\r\n  T query_e(int u, int v, const F f, const G g, const T id_t) const {\r\
-    \n    T left = id_t, right = id_t;\r\n    while (true) {\r\n      if (id[u] >\
-    \ id[v]) {\r\n        std::swap(u, v);\r\n        std::swap(left, right);\r\n\
-    \      }\r\n      if (head[u] == head[v]) {\r\n        left = g(left, f(id[u],\
-    \ id[v]));\r\n        break;\r\n      } else {\r\n        left = g(left, f(id[head[v]]\
-    \ - 1, id[v]));\r\n        v = parent[head[v]];\r\n      }\r\n    }\r\n    return\
-    \ g(left, right);\r\n  }\r\n\r\n  template <typename Fn>\r\n  void update_subtree_e(const\
-    \ int ver, const Fn f) const {\r\n    f(id[ver], id[ver] + subtree[ver] - 1);\r\
-    \n  }\r\n\r\n  template <typename T, typename Fn>\r\n  T query_subtree_e(const\
-    \ int ver, const Fn f) const {\r\n    return f(id[ver], id[ver] + subtree[ver]\
-    \ - 1);\r\n  }\r\n\r\n  int lowest_common_ancestor(int u, int v) const {\r\n \
-    \   while (true) {\r\n      if (id[u] > id[v]) std::swap(u, v);\r\n      if (head[u]\
-    \ == head[v]) break;\r\n      v = parent[head[v]];\r\n    }\r\n    return u;\r\
-    \n  }\r\n\r\n private:\r\n  std::vector<std::vector<Edge<CostType>>> graph;\r\n\
-    \r\n  void dfs1(const int ver) {\r\n    for (int i = 0; i < graph[ver].size();\
-    \ ++i) {\r\n      Edge<CostType>& e = graph[ver][i];\r\n      if (e.dst != parent[ver])\
-    \ {\r\n        parent[e.dst] = ver;\r\n        dfs1(e.dst);\r\n        subtree[ver]\
-    \ += subtree[e.dst];\r\n        if (subtree[e.dst] > subtree[graph[ver].front().dst])\
-    \ {\r\n          std::swap(e, graph[ver].front());\r\n        }\r\n      }\r\n\
-    \    }\r\n  }\r\n\r\n  void dfs2(const int ver, int* cur_id) {\r\n    id[ver]\
-    \ = (*cur_id)++;\r\n    inv[id[ver]] = ver;\r\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\r\n      if (e.dst != parent[ver]) {\r\n        head[e.dst]\
-    \ = (e.dst == graph[ver].front().dst ? head[ver] : e.dst);\r\n        cost.emplace_back(e.cost);\r\
-    \n        dfs2(e.dst, cur_id);\r\n      }\r\n    }\r\n  }\r\n};\r\n"
+  code: "#pragma once\n#include <algorithm>\n#include <utility>\n#include <vector>\n\
+    \n#include \"../edge.hpp\"\n\ntemplate <typename CostType>\nstruct HeavyLightDecomposition\
+    \ {\n  std::vector<int> parent, subtree, id, inv, head;\n  std::vector<CostType>\
+    \ cost;\n\n  explicit HeavyLightDecomposition(\n      const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n      const int root = 0)\n      : graph(graph) {\n    const int n =\
+    \ graph.size();\n    parent.assign(n, -1);\n    subtree.assign(n, 1);\n    dfs1(root);\n\
+    \    id.resize(n);\n    inv.resize(n);\n    head.assign(n, root);\n    int cur_id\
+    \ = 0;\n    dfs2(root, &cur_id);\n  }\n\n  template <typename Fn>\n  void update_v(int\
+    \ u, int v, const Fn f) const {\n    while (true) {\n      if (id[u] > id[v])\
+    \ std::swap(u, v);\n      f(std::max(id[head[v]], id[u]), id[v] + 1);\n      if\
+    \ (head[u] == head[v]) break;\n      v = parent[head[v]];\n    }\n  }\n\n  template\
+    \ <typename F, typename G, typename T>\n  T query_v(int u, int v, const F f, const\
+    \ G g, const T id_t) const {\n    T left = id_t, right = id_t;\n    while (true)\
+    \ {\n      if (id_t[u] > id_t[v]) {\n        std::swap(u, v);\n        std::swap(left,\
+    \ right);\n      }\n      left = g(left, f(std::max(id_t[head[v]], id_t[u]), id_t[v]\
+    \ + 1));\n      if (head[u] == head[v]) break;\n      v = parent[head[v]];\n \
+    \   }\n    return g(left, right);\n  }\n\n  template <typename Fn>\n  void update_subtree_v(const\
+    \ int ver, const Fn f) const {\n    f(id[ver], id[ver] + subtree[ver]);\n  }\n\
+    \n  template <typename T, typename Fn>\n  T query_subtree_v(const int ver, const\
+    \ Fn f) const {\n    return f(id[ver], id[ver] + subtree[ver]);\n  }\n\n  template\
+    \ <typename Fn>\n  void update_e(int u, int v, const Fn f) const {\n    while\
+    \ (true) {\n      if (id[u] > id[v]) std::swap(u, v);\n      if (head[u] == head[v])\
+    \ {\n        f(id[u], id[v]);\n        break;\n      } else {\n        f(id[head[v]]\
+    \ - 1, id[v]);\n        v = parent[head[v]];\n      }\n    }\n  }\n\n  template\
+    \ <typename F, typename G, typename T>\n  T query_e(int u, int v, const F f, const\
+    \ G g, const T id_t) const {\n    T left = id_t, right = id_t;\n    while (true)\
+    \ {\n      if (id[u] > id[v]) {\n        std::swap(u, v);\n        std::swap(left,\
+    \ right);\n      }\n      if (head[u] == head[v]) {\n        left = g(left, f(id[u],\
+    \ id[v]));\n        break;\n      } else {\n        left = g(left, f(id[head[v]]\
+    \ - 1, id[v]));\n        v = parent[head[v]];\n      }\n    }\n    return g(left,\
+    \ right);\n  }\n\n  template <typename Fn>\n  void update_subtree_e(const int\
+    \ ver, const Fn f) const {\n    f(id[ver], id[ver] + subtree[ver] - 1);\n  }\n\
+    \n  template <typename T, typename Fn>\n  T query_subtree_e(const int ver, const\
+    \ Fn f) const {\n    return f(id[ver], id[ver] + subtree[ver] - 1);\n  }\n\n \
+    \ int lowest_common_ancestor(int u, int v) const {\n    while (true) {\n     \
+    \ if (id[u] > id[v]) std::swap(u, v);\n      if (head[u] == head[v]) break;\n\
+    \      v = parent[head[v]];\n    }\n    return u;\n  }\n\n private:\n  std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n\n  void dfs1(const int ver) {\n    for (int i = 0; i < graph[ver].size();\
+    \ ++i) {\n      Edge<CostType>& e = graph[ver][i];\n      if (e.dst != parent[ver])\
+    \ {\n        parent[e.dst] = ver;\n        dfs1(e.dst);\n        subtree[ver]\
+    \ += subtree[e.dst];\n        if (subtree[e.dst] > subtree[graph[ver].front().dst])\
+    \ {\n          std::swap(e, graph[ver].front());\n        }\n      }\n    }\n\
+    \  }\n\n  void dfs2(const int ver, int* cur_id) {\n    id[ver] = (*cur_id)++;\n\
+    \    inv[id[ver]] = ver;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
+    \     if (e.dst != parent[ver]) {\n        head[e.dst] = (e.dst == graph[ver].front().dst\
+    \ ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n        dfs2(e.dst,\
+    \ cur_id);\n      }\n    }\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/tree/heavy-light_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/heavy-light_decomposition.2.test.cpp

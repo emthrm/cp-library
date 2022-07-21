@@ -16,33 +16,32 @@ data:
     _deprecated_at_docs: docs/graph/minimum_spanning_tree.md
     document_title: "Prim \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/prim.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief Prim \u6CD5\r\n * @docs docs/graph/minimum_spanning_tree.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <functional>\r\n#include <queue>\r\n#include\
-    \ <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\ntemplate <typename CostType>\r\
-    \nCostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,\r\n   \
-    \           const int root = 0) {\r\n  const int n = graph.size();\r\n  CostType\
-    \ res = 0;\r\n  std::vector<bool> is_visited(n, false);\r\n  is_visited[root]\
-    \ = true;\r\n  std::priority_queue<Edge<CostType>,\r\n                      std::vector<Edge<CostType>>,\r\
-    \n                      std::greater<Edge<CostType>>> que;\r\n  for (const Edge<CostType>&\
-    \ e : graph[root]) {\r\n    if (e.dst != root) que.emplace(e);\r\n  }\r\n  while\
-    \ (!que.empty()) {\r\n    const Edge<CostType> e1 = que.top();\r\n    que.pop();\r\
-    \n    if (is_visited[e1.dst]) continue;\r\n    is_visited[e1.dst] = true;\r\n\
-    \    res += e1.cost;\r\n    for (const Edge<CostType>& e2 : graph[e1.dst]) {\r\
-    \n      if (!is_visited[e2.dst]) que.emplace(e2);\r\n    }\r\n  }\r\n  return\
-    \ res;\r\n}\r\n"
+  code: "/**\n * @brief Prim \u6CD5\n * @docs docs/graph/minimum_spanning_tree.md\n\
+    \ */\n\n#pragma once\n#include <functional>\n#include <queue>\n#include <vector>\n\
+    \n#include \"./edge.hpp\"\n\ntemplate <typename CostType>\nCostType prim(const\
+    \ std::vector<std::vector<Edge<CostType>>>& graph,\n              const int root\
+    \ = 0) {\n  const int n = graph.size();\n  CostType res = 0;\n  std::vector<bool>\
+    \ is_visited(n, false);\n  is_visited[root] = true;\n  std::priority_queue<Edge<CostType>,\n\
+    \                      std::vector<Edge<CostType>>,\n                      std::greater<Edge<CostType>>>\
+    \ que;\n  for (const Edge<CostType>& e : graph[root]) {\n    if (e.dst != root)\
+    \ que.emplace(e);\n  }\n  while (!que.empty()) {\n    const Edge<CostType> e1\
+    \ = que.top();\n    que.pop();\n    if (is_visited[e1.dst]) continue;\n    is_visited[e1.dst]\
+    \ = true;\n    res += e1.cost;\n    for (const Edge<CostType>& e2 : graph[e1.dst])\
+    \ {\n      if (!is_visited[e2.dst]) que.emplace(e2);\n    }\n  }\n  return res;\n\
+    }\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/prim.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/prim.test.cpp

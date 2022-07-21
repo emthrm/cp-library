@@ -8,67 +8,69 @@ data:
     path: graph/lowlink.hpp
     title: lowlink
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/graph/biconnected_component.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
+      \u89E3"
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "#pragma once\r\n// #include <algorithm>\r\n#include <set>\r\n#include <utility>\r\
-    \n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n#include \"./lowlink.hpp\"\
-    \r\n\r\ntemplate <typename CostType>\r\nstruct BiconnectedComponent : Lowlink<CostType>\
-    \ {\r\n  std::vector<int> id;\r\n  std::vector<std::vector<int>> vertices, cutpoint;\r\
-    \n  std::vector<std::vector<std::pair<int, int>>> block;\r\n\r\n  explicit BiconnectedComponent(\r\
-    \n      const std::vector<std::vector<Edge<CostType>>>& graph,\r\n      const\
-    \ bool is_full_ver = false)\r\n      : Lowlink<CostType>(graph), is_full_ver(is_full_ver)\
-    \ {\r\n    const int n = graph.size();\r\n    id.assign(n, -2);\r\n    if (is_full_ver)\
-    \ {\r\n      cutpoint.resize(n);\r\n      is_articulation_point.assign(n, false);\r\
-    \n      for (const int articulation_point : this->articulation_points) {\r\n \
-    \       is_articulation_point[articulation_point] = true;\r\n      }\r\n    }\r\
-    \n    for (int i = 0; i < n; ++i) {\r\n      if (id[i] == -2) dfs(-1, i);\r\n\
-    \    }\r\n    // const int m = vertices.size();\r\n    // for (int i = 0; i <\
-    \ m; ++i) {\r\n    //   std::sort(block[i].begin(), block[i].end());\r\n    //\
-    \ }\r\n    // if (is_full_ver) {\r\n    //   for (int i = 0; i < m; ++i) {\r\n\
-    \    //     std::sort(vertices[i].begin(), vertices[i].end());\r\n    //   }\r\
-    \n    //   for (int i = 0; i < n; ++i) {\r\n    //     std::sort(cutpoint[i].begin(),\
-    \ cutpoint[i].end());\r\n    //   }\r\n    // }\r\n  }\r\n\r\n private:\r\n  const\
-    \ bool is_full_ver;\r\n  std::vector<bool> is_articulation_point;\r\n  std::vector<Edge<CostType>>\
-    \ tmp;\r\n\r\n  void dfs(const int par, const int ver) {\r\n    id[ver] = -1;\r\
-    \n    for (const Edge<CostType>& e : this->graph[ver]) {\r\n      if (e.dst ==\
-    \ par) continue;\r\n      int src = ver, dst = e.dst;\r\n      if (src > dst)\
-    \ std::swap(src, dst);\r\n      if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver])\
-    \ {\r\n        tmp.emplace_back(src, dst, e.cost);\r\n      }\r\n      if (id[e.dst]\
-    \ == -2) {\r\n        dfs(ver, e.dst);\r\n        if (this->lowlink[e.dst] >=\
-    \ this->order[ver]) {\r\n          const int idx = block.size();\r\n         \
-    \ block.emplace_back();\r\n          std::set<int> st;\r\n          while (true)\
-    \ {\r\n            const Edge<CostType> edge = tmp.back();\r\n            tmp.pop_back();\r\
-    \n            block.back().emplace_back(edge);\r\n            if (is_full_ver)\
-    \ {\r\n              st.emplace(edge.src);\r\n              st.emplace(edge.dst);\r\
-    \n            }\r\n            if (edge.src == src && edge.dst == dst) break;\r\
-    \n          }\r\n          if (is_full_ver) {\r\n            vertices.emplace_back();\r\
-    \n            for (const int el : st) {\r\n              vertices.back().emplace_back(el);\r\
-    \n              if (is_articulation_point[el]) {\r\n                cutpoint[el].emplace_back(idx);\r\
-    \n              } else {\r\n                id[el] = idx;\r\n              }\r\
-    \n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n};\r\
-    \n"
+  code: "#pragma once\n// #include <algorithm>\n#include <set>\n#include <utility>\n\
+    #include <vector>\n\n#include \"./edge.hpp\"\n#include \"./lowlink.hpp\"\n\ntemplate\
+    \ <typename CostType>\nstruct BiconnectedComponent : Lowlink<CostType> {\n  std::vector<int>\
+    \ id;\n  std::vector<std::vector<int>> vertices, cutpoint;\n  std::vector<std::vector<Edge<CostType>>>\
+    \ block;\n\n  explicit BiconnectedComponent(\n      const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n      const bool is_full_ver = false)\n      : Lowlink<CostType>(graph),\
+    \ is_full_ver(is_full_ver) {\n    const int n = graph.size();\n    id.assign(n,\
+    \ -2);\n    if (is_full_ver) {\n      cutpoint.resize(n);\n      is_articulation_point.assign(n,\
+    \ false);\n      for (const int articulation_point : this->articulation_points)\
+    \ {\n        is_articulation_point[articulation_point] = true;\n      }\n    }\n\
+    \    for (int i = 0; i < n; ++i) {\n      if (id[i] == -2) dfs(-1, i);\n    }\n\
+    \    // const int m = vertices.size();\n    // for (int i = 0; i < m; ++i) {\n\
+    \    //   std::sort(block[i].begin(), block[i].end());\n    // }\n    // if (is_full_ver)\
+    \ {\n    //   for (int i = 0; i < m; ++i) {\n    //     std::sort(vertices[i].begin(),\
+    \ vertices[i].end());\n    //   }\n    //   for (int i = 0; i < n; ++i) {\n  \
+    \  //     std::sort(cutpoint[i].begin(), cutpoint[i].end());\n    //   }\n   \
+    \ // }\n  }\n\n private:\n  const bool is_full_ver;\n  std::vector<bool> is_articulation_point;\n\
+    \  std::vector<Edge<CostType>> tmp;\n\n  void dfs(const int par, const int ver)\
+    \ {\n    id[ver] = -1;\n    for (const Edge<CostType>& e : this->graph[ver]) {\n\
+    \      if (e.dst == par) continue;\n      int src = ver, dst = e.dst;\n      if\
+    \ (src > dst) std::swap(src, dst);\n      if (id[e.dst] == -2 || this->order[e.dst]\
+    \ < this->order[ver]) {\n        tmp.emplace_back(src, dst, e.cost);\n      }\n\
+    \      if (id[e.dst] == -2) {\n        dfs(ver, e.dst);\n        if (this->lowlink[e.dst]\
+    \ >= this->order[ver]) {\n          const int idx = block.size();\n          block.emplace_back();\n\
+    \          std::set<int> st;\n          while (true) {\n            const Edge<CostType>\
+    \ edge = tmp.back();\n            tmp.pop_back();\n            block.back().emplace_back(edge);\n\
+    \            if (is_full_ver) {\n              st.emplace(edge.src);\n       \
+    \       st.emplace(edge.dst);\n            }\n            if (edge.src == src\
+    \ && edge.dst == dst) break;\n          }\n          if (is_full_ver) {\n    \
+    \        vertices.emplace_back();\n            for (const int el : st) {\n   \
+    \           vertices.back().emplace_back(el);\n              if (is_articulation_point[el])\
+    \ {\n                cutpoint[el].emplace_back(idx);\n              } else {\n\
+    \                id[el] = idx;\n              }\n            }\n          }\n\
+    \        }\n      }\n    }\n  }\n};\n"
   dependsOn:
   - graph/edge.hpp
   - graph/lowlink.hpp
   isVerificationFile: false
   path: graph/biconnected_component.hpp
   requiredBy: []
-  timestamp: '2022-02-20 14:54:32+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2022-05-23 03:48:15+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/graph/biconnected_component.test.cpp
 documentation_of: graph/biconnected_component.hpp
 layout: document
 title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component) \u5206\
@@ -129,4 +131,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Verified
 
-https://atcoder.jp/contests/arc045/submissions/9253901
+https://atcoder.jp/contests/nadafes2022_day2/submissions/31595927

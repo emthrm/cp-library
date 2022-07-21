@@ -25,27 +25,26 @@ data:
       \u30D5\u4E0A\u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A"
     links:
     - https://atcoder.jp/contests/typical90/tasks/typical90_bg
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/edge.hpp: line 5: #pragma once found in a non-first line\n"
-  code: "/*\r\n * @brief \u30B0\u30E9\u30D5/\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\
-    \u30D5\u4E0A\u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A\r\n */\r\n#define\
-    \ IGNORE\r\n#define PROBLEM \"https://atcoder.jp/contests/typical90/tasks/typical90_bg\"\
-    \r\n\r\n#include <iostream>\r\n#include <vector>\r\n\r\n#include \"../../graph/edge.hpp\"\
-    \r\n#include \"../../graph/reachability_on_dag.hpp\"\r\n\r\nint main() {\r\n \
-    \ int n, m, q;\r\n  std::cin >> n >> m >> q;\r\n  std::vector<std::vector<Edge<bool>>>\
-    \ graph(n);\r\n  while (m--) {\r\n    int x, y;\r\n    std::cin >> x >> y;\r\n\
-    \    --x; --y;\r\n    graph[x].emplace_back(x, y);\r\n  }\r\n  std::vector<int>\
-    \ a(q), b(q);\r\n  for (int i = 0; i < q; ++i) {\r\n    std::cin >> a[i] >> b[i];\r\
-    \n    --a[i]; --b[i];\r\n  }\r\n  for (const bool ans : reachability_on_dag(graph,\
-    \ a, b)) {\r\n    std::cout << (ans ? \"Yes\\n\" : \"No\\n\");\r\n  }\r\n  return\
-    \ 0;\r\n}\r\n"
+  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\
+    \u30D5\u4E0A\u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A\n */\n#define IGNORE\n\
+    #define PROBLEM \"https://atcoder.jp/contests/typical90/tasks/typical90_bg\"\n\
+    \n#include <iostream>\n#include <vector>\n\n#include \"../../graph/edge.hpp\"\n\
+    #include \"../../graph/reachability_on_dag.hpp\"\n\nint main() {\n  int n, m,\
+    \ q;\n  std::cin >> n >> m >> q;\n  std::vector<std::vector<Edge<bool>>> graph(n);\n\
+    \  while (m--) {\n    int x, y;\n    std::cin >> x >> y;\n    --x; --y;\n    graph[x].emplace_back(x,\
+    \ y);\n  }\n  std::vector<int> a(q), b(q);\n  for (int i = 0; i < q; ++i) {\n\
+    \    std::cin >> a[i] >> b[i];\n    --a[i]; --b[i];\n  }\n  for (const bool ans\
+    \ : reachability_on_dag(graph, a, b)) {\n    std::cout << (ans ? \"Yes\\n\" :\
+    \ \"No\\n\");\n  }\n  return 0;\n}\n"
   dependsOn:
   - graph/edge.hpp
   - graph/reachability_on_dag.hpp
@@ -53,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/graph/reachability_on_dag.test.cpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/reachability_on_dag.test.cpp

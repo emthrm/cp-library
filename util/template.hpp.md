@@ -9,39 +9,36 @@ data:
   attributes:
     document_title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
     links: []
-  bundledCode: "#line 1 \"util/template.hpp\"\n/**\r\n * @brief \u30C6\u30F3\u30D7\
-    \u30EC\u30FC\u30C8\r\n */\r\n\r\n#define _USE_MATH_DEFINES\r\n#include <bits/stdc++.h>\r\
-    \nusing namespace std;\r\n#define FOR(i,m,n) for(int i=(m);i<(n);++i)\r\n#define\
-    \ REP(i,n) FOR(i,0,n)\r\n#define ALL(v) (v).begin(),(v).end()\r\nusing ll = long\
-    \ long;\r\nconstexpr int INF = 0x3f3f3f3f;\r\nconstexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\r\
-    \nconstexpr double EPS = 1e-8;\r\nconstexpr int MOD = 1000000007;\r\n// constexpr\
-    \ int MOD = 998244353;\r\nconstexpr int DY4[]{1, 0, -1, 0}, DX4[]{0, -1, 0, 1};\r\
-    \nconstexpr int DY8[]{1, 1, 0, -1, -1, -1, 0, 1};\r\nconstexpr int DX8[]{0, -1,\
-    \ -1, -1, 0, 1, 1, 1};\r\ntemplate <typename T, typename U>\r\ninline bool chmax(T&\
-    \ a, U b) { return a < b ? (a = b, true) : false; }\r\ntemplate <typename T, typename\
-    \ U>\r\ninline bool chmin(T& a, U b) { return a > b ? (a = b, true) : false; }\r\
-    \nstruct IOSetup {\r\n  IOSetup() {\r\n    std::cin.tie(nullptr);\r\n    std::ios_base::sync_with_stdio(false);\r\
-    \n    std::cout << std::fixed << std::setprecision(20);\r\n  }\r\n} iosetup;\r\
-    \n"
-  code: "/**\r\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\r\n */\r\n\r\n#define\
-    \ _USE_MATH_DEFINES\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define\
-    \ FOR(i,m,n) for(int i=(m);i<(n);++i)\r\n#define REP(i,n) FOR(i,0,n)\r\n#define\
-    \ ALL(v) (v).begin(),(v).end()\r\nusing ll = long long;\r\nconstexpr int INF =\
-    \ 0x3f3f3f3f;\r\nconstexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\r\nconstexpr\
-    \ double EPS = 1e-8;\r\nconstexpr int MOD = 1000000007;\r\n// constexpr int MOD\
-    \ = 998244353;\r\nconstexpr int DY4[]{1, 0, -1, 0}, DX4[]{0, -1, 0, 1};\r\nconstexpr\
-    \ int DY8[]{1, 1, 0, -1, -1, -1, 0, 1};\r\nconstexpr int DX8[]{0, -1, -1, -1,\
-    \ 0, 1, 1, 1};\r\ntemplate <typename T, typename U>\r\ninline bool chmax(T& a,\
-    \ U b) { return a < b ? (a = b, true) : false; }\r\ntemplate <typename T, typename\
-    \ U>\r\ninline bool chmin(T& a, U b) { return a > b ? (a = b, true) : false; }\r\
-    \nstruct IOSetup {\r\n  IOSetup() {\r\n    std::cin.tie(nullptr);\r\n    std::ios_base::sync_with_stdio(false);\r\
-    \n    std::cout << std::fixed << std::setprecision(20);\r\n  }\r\n} iosetup;\r\
-    \n"
+  bundledCode: "#line 1 \"util/template.hpp\"\n/**\n * @brief \u30C6\u30F3\u30D7\u30EC\
+    \u30FC\u30C8\n */\n\n#define _USE_MATH_DEFINES\n#include <bits/stdc++.h>\nusing\
+    \ namespace std;\n#define FOR(i,m,n) for(int i=(m);i<(n);++i)\n#define REP(i,n)\
+    \ FOR(i,0,n)\n#define ALL(v) (v).begin(),(v).end()\nusing ll = long long;\nconstexpr\
+    \ int INF = 0x3f3f3f3f;\nconstexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\nconstexpr\
+    \ double EPS = 1e-8;\nconstexpr int MOD = 1000000007;\n// constexpr int MOD =\
+    \ 998244353;\nconstexpr int DY4[]{1, 0, -1, 0}, DX4[]{0, -1, 0, 1};\nconstexpr\
+    \ int DY8[]{1, 1, 0, -1, -1, -1, 0, 1};\nconstexpr int DX8[]{0, -1, -1, -1, 0,\
+    \ 1, 1, 1};\ntemplate <typename T, typename U>\ninline bool chmax(T& a, U b) {\
+    \ return a < b ? (a = b, true) : false; }\ntemplate <typename T, typename U>\n\
+    inline bool chmin(T& a, U b) { return a > b ? (a = b, true) : false; }\nstruct\
+    \ IOSetup {\n  IOSetup() {\n    std::cin.tie(nullptr);\n    std::ios_base::sync_with_stdio(false);\n\
+    \    std::cout << std::fixed << std::setprecision(20);\n  }\n} iosetup;\n"
+  code: "/**\n * @brief \u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\n */\n\n#define _USE_MATH_DEFINES\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n#define FOR(i,m,n) for(int i=(m);i<(n);++i)\n\
+    #define REP(i,n) FOR(i,0,n)\n#define ALL(v) (v).begin(),(v).end()\nusing ll =\
+    \ long long;\nconstexpr int INF = 0x3f3f3f3f;\nconstexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\n\
+    constexpr double EPS = 1e-8;\nconstexpr int MOD = 1000000007;\n// constexpr int\
+    \ MOD = 998244353;\nconstexpr int DY4[]{1, 0, -1, 0}, DX4[]{0, -1, 0, 1};\nconstexpr\
+    \ int DY8[]{1, 1, 0, -1, -1, -1, 0, 1};\nconstexpr int DX8[]{0, -1, -1, -1, 0,\
+    \ 1, 1, 1};\ntemplate <typename T, typename U>\ninline bool chmax(T& a, U b) {\
+    \ return a < b ? (a = b, true) : false; }\ntemplate <typename T, typename U>\n\
+    inline bool chmin(T& a, U b) { return a > b ? (a = b, true) : false; }\nstruct\
+    \ IOSetup {\n  IOSetup() {\n    std::cin.tie(nullptr);\n    std::ios_base::sync_with_stdio(false);\n\
+    \    std::cout << std::fixed << std::setprecision(20);\n  }\n} iosetup;\n"
   dependsOn: []
   isVerificationFile: false
   path: util/template.hpp
   requiredBy: []
-  timestamp: '2022-02-08 16:17:48+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: util/template.hpp

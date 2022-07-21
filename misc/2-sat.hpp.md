@@ -3,68 +3,66 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/2-sat.test.cpp
     title: "\u305D\u306E\u4ED6/2-SAT"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"misc/2-sat.hpp\"\n#include <algorithm>\r\n#include <vector>\r\
-    \n\r\nstruct TwoSat {\r\n  explicit TwoSat(const int n)\r\n      : n(n), graph(n\
-    \ << 1), rgraph(n << 1), is_visited(n << 1), ids(n << 1) {\r\n    order.reserve(n\
-    \ << 1);\r\n  }\r\n\r\n  int negate(const int x) const { return (n + x) % (n <<\
-    \ 1); }\r\n\r\n  void add_or(const int x, const int y) {\r\n    graph[negate(x)].emplace_back(y);\r\
-    \n    graph[negate(y)].emplace_back(x);\r\n    rgraph[y].emplace_back(negate(x));\r\
-    \n    rgraph[x].emplace_back(negate(y));\r\n  }\r\n\r\n  void add_if(const int\
-    \ x, const int y) { add_or(negate(x), y); }\r\n\r\n  void add_nand(const int x,\
-    \ const int y) { add_or(negate(x), negate(y)); }\r\n\r\n  void set_true(const\
-    \ int x) { add_or(x, x); }\r\n\r\n  void set_false(const int x) { set_true(negate(x));\
-    \ }\r\n\r\n  std::vector<bool> build() {\r\n    std::fill(is_visited.begin(),\
-    \ is_visited.end(), false);\r\n    std::fill(ids.begin(), ids.end(), -1);\r\n\
-    \    order.clear();\r\n    for (int i = 0; i < (n << 1); ++i) {\r\n      if (!is_visited[i])\
-    \ dfs(i);\r\n    }\r\n    for (int i = (n << 1) - 1, id = 0; i >= 0; --i) {\r\n\
-    \      if (ids[order[i]] == -1) rdfs(order[i], id++);\r\n    }\r\n    std::vector<bool>\
-    \ res(n);\r\n    for (int i = 0; i < n; ++i) {\r\n      if (ids[i] == ids[negate(i)])\
-    \ return {};\r\n      res[i] = ids[negate(i)] < ids[i];\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n\r\n private:\r\n  const int n;\r\n  std::vector<std::vector<int>>\
-    \ graph, rgraph;\r\n  std::vector<bool> is_visited;\r\n  std::vector<int> ids,\
-    \ order;\r\n\r\n  void dfs(const int ver) {\r\n    is_visited[ver] = true;\r\n\
-    \    for (const int dst : graph[ver]) {\r\n      if (!is_visited[dst]) dfs(dst);\r\
-    \n    }\r\n    order.emplace_back(ver);\r\n  }\r\n\r\n  void rdfs(const int ver,\
-    \ const int cur_id) {\r\n    ids[ver] = cur_id;\r\n    for (const int dst : rgraph[ver])\
-    \ {\r\n      if (ids[dst] == -1) rdfs(dst, cur_id);\r\n    }\r\n  }\r\n};\r\n"
-  code: "#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\nstruct TwoSat\
-    \ {\r\n  explicit TwoSat(const int n)\r\n      : n(n), graph(n << 1), rgraph(n\
-    \ << 1), is_visited(n << 1), ids(n << 1) {\r\n    order.reserve(n << 1);\r\n \
-    \ }\r\n\r\n  int negate(const int x) const { return (n + x) % (n << 1); }\r\n\r\
-    \n  void add_or(const int x, const int y) {\r\n    graph[negate(x)].emplace_back(y);\r\
-    \n    graph[negate(y)].emplace_back(x);\r\n    rgraph[y].emplace_back(negate(x));\r\
-    \n    rgraph[x].emplace_back(negate(y));\r\n  }\r\n\r\n  void add_if(const int\
-    \ x, const int y) { add_or(negate(x), y); }\r\n\r\n  void add_nand(const int x,\
-    \ const int y) { add_or(negate(x), negate(y)); }\r\n\r\n  void set_true(const\
-    \ int x) { add_or(x, x); }\r\n\r\n  void set_false(const int x) { set_true(negate(x));\
-    \ }\r\n\r\n  std::vector<bool> build() {\r\n    std::fill(is_visited.begin(),\
-    \ is_visited.end(), false);\r\n    std::fill(ids.begin(), ids.end(), -1);\r\n\
-    \    order.clear();\r\n    for (int i = 0; i < (n << 1); ++i) {\r\n      if (!is_visited[i])\
-    \ dfs(i);\r\n    }\r\n    for (int i = (n << 1) - 1, id = 0; i >= 0; --i) {\r\n\
-    \      if (ids[order[i]] == -1) rdfs(order[i], id++);\r\n    }\r\n    std::vector<bool>\
-    \ res(n);\r\n    for (int i = 0; i < n; ++i) {\r\n      if (ids[i] == ids[negate(i)])\
-    \ return {};\r\n      res[i] = ids[negate(i)] < ids[i];\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n\r\n private:\r\n  const int n;\r\n  std::vector<std::vector<int>>\
-    \ graph, rgraph;\r\n  std::vector<bool> is_visited;\r\n  std::vector<int> ids,\
-    \ order;\r\n\r\n  void dfs(const int ver) {\r\n    is_visited[ver] = true;\r\n\
-    \    for (const int dst : graph[ver]) {\r\n      if (!is_visited[dst]) dfs(dst);\r\
-    \n    }\r\n    order.emplace_back(ver);\r\n  }\r\n\r\n  void rdfs(const int ver,\
-    \ const int cur_id) {\r\n    ids[ver] = cur_id;\r\n    for (const int dst : rgraph[ver])\
-    \ {\r\n      if (ids[dst] == -1) rdfs(dst, cur_id);\r\n    }\r\n  }\r\n};\r\n"
+  bundledCode: "#line 2 \"misc/2-sat.hpp\"\n#include <algorithm>\n#include <vector>\n\
+    \nstruct TwoSat {\n  explicit TwoSat(const int n)\n      : n(n), graph(n << 1),\
+    \ rgraph(n << 1), is_visited(n << 1), ids(n << 1) {\n    order.reserve(n << 1);\n\
+    \  }\n\n  int negate(const int x) const { return (n + x) % (n << 1); }\n\n  void\
+    \ add_or(const int x, const int y) {\n    graph[negate(x)].emplace_back(y);\n\
+    \    graph[negate(y)].emplace_back(x);\n    rgraph[y].emplace_back(negate(x));\n\
+    \    rgraph[x].emplace_back(negate(y));\n  }\n\n  void add_if(const int x, const\
+    \ int y) { add_or(negate(x), y); }\n\n  void add_nand(const int x, const int y)\
+    \ { add_or(negate(x), negate(y)); }\n\n  void set_true(const int x) { add_or(x,\
+    \ x); }\n\n  void set_false(const int x) { set_true(negate(x)); }\n\n  std::vector<bool>\
+    \ build() {\n    std::fill(is_visited.begin(), is_visited.end(), false);\n   \
+    \ std::fill(ids.begin(), ids.end(), -1);\n    order.clear();\n    for (int i =\
+    \ 0; i < (n << 1); ++i) {\n      if (!is_visited[i]) dfs(i);\n    }\n    for (int\
+    \ i = (n << 1) - 1, id = 0; i >= 0; --i) {\n      if (ids[order[i]] == -1) rdfs(order[i],\
+    \ id++);\n    }\n    std::vector<bool> res(n);\n    for (int i = 0; i < n; ++i)\
+    \ {\n      if (ids[i] == ids[negate(i)]) return {};\n      res[i] = ids[negate(i)]\
+    \ < ids[i];\n    }\n    return res;\n  }\n\n private:\n  const int n;\n  std::vector<std::vector<int>>\
+    \ graph, rgraph;\n  std::vector<bool> is_visited;\n  std::vector<int> ids, order;\n\
+    \n  void dfs(const int ver) {\n    is_visited[ver] = true;\n    for (const int\
+    \ dst : graph[ver]) {\n      if (!is_visited[dst]) dfs(dst);\n    }\n    order.emplace_back(ver);\n\
+    \  }\n\n  void rdfs(const int ver, const int cur_id) {\n    ids[ver] = cur_id;\n\
+    \    for (const int dst : rgraph[ver]) {\n      if (ids[dst] == -1) rdfs(dst,\
+    \ cur_id);\n    }\n  }\n};\n"
+  code: "#pragma once\n#include <algorithm>\n#include <vector>\n\nstruct TwoSat {\n\
+    \  explicit TwoSat(const int n)\n      : n(n), graph(n << 1), rgraph(n << 1),\
+    \ is_visited(n << 1), ids(n << 1) {\n    order.reserve(n << 1);\n  }\n\n  int\
+    \ negate(const int x) const { return (n + x) % (n << 1); }\n\n  void add_or(const\
+    \ int x, const int y) {\n    graph[negate(x)].emplace_back(y);\n    graph[negate(y)].emplace_back(x);\n\
+    \    rgraph[y].emplace_back(negate(x));\n    rgraph[x].emplace_back(negate(y));\n\
+    \  }\n\n  void add_if(const int x, const int y) { add_or(negate(x), y); }\n\n\
+    \  void add_nand(const int x, const int y) { add_or(negate(x), negate(y)); }\n\
+    \n  void set_true(const int x) { add_or(x, x); }\n\n  void set_false(const int\
+    \ x) { set_true(negate(x)); }\n\n  std::vector<bool> build() {\n    std::fill(is_visited.begin(),\
+    \ is_visited.end(), false);\n    std::fill(ids.begin(), ids.end(), -1);\n    order.clear();\n\
+    \    for (int i = 0; i < (n << 1); ++i) {\n      if (!is_visited[i]) dfs(i);\n\
+    \    }\n    for (int i = (n << 1) - 1, id = 0; i >= 0; --i) {\n      if (ids[order[i]]\
+    \ == -1) rdfs(order[i], id++);\n    }\n    std::vector<bool> res(n);\n    for\
+    \ (int i = 0; i < n; ++i) {\n      if (ids[i] == ids[negate(i)]) return {};\n\
+    \      res[i] = ids[negate(i)] < ids[i];\n    }\n    return res;\n  }\n\n private:\n\
+    \  const int n;\n  std::vector<std::vector<int>> graph, rgraph;\n  std::vector<bool>\
+    \ is_visited;\n  std::vector<int> ids, order;\n\n  void dfs(const int ver) {\n\
+    \    is_visited[ver] = true;\n    for (const int dst : graph[ver]) {\n      if\
+    \ (!is_visited[dst]) dfs(dst);\n    }\n    order.emplace_back(ver);\n  }\n\n \
+    \ void rdfs(const int ver, const int cur_id) {\n    ids[ver] = cur_id;\n    for\
+    \ (const int dst : rgraph[ver]) {\n      if (ids[dst] == -1) rdfs(dst, cur_id);\n\
+    \    }\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: misc/2-sat.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/2-sat.test.cpp
 documentation_of: misc/2-sat.hpp

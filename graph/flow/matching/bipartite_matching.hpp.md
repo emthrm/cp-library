@@ -15,42 +15,40 @@ data:
     document_title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
       \u30F3\u30B0"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/bipartite_matching.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
-  code: "/**\r\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\
-    \u30C1\u30F3\u30B0\r\n * @docs docs/graph/flow/matching/matching.md\r\n */\r\n\
-    \r\n#pragma once\r\n#include <vector>\r\n\r\nstruct BipartiteMatching {\r\n  std::vector<int>\
-    \ match;\r\n\r\n  explicit BipartiteMatching(const int n)\r\n      : match(n,\
-    \ -1), n(n), t(0), is_alive(n, true), is_used(n, 0), graph(n) {}\r\n\r\n  void\
-    \ add_edge(const int u, const int v) {\r\n    graph[u].emplace_back(v);\r\n  \
-    \  graph[v].emplace_back(u);\r\n  }\r\n\r\n  int solve() {\r\n    int res = 0;\r\
-    \n    for (int i = 0; i < n; ++i) {\r\n      if (is_alive[i] && match[i] == -1)\
-    \ {\r\n        ++t;\r\n        res += dfs(i);\r\n      }\r\n    }\r\n    return\
-    \ res;\r\n  }\r\n\r\n  void fix(const int ver) {\r\n    is_alive[ver] = false;\r\
-    \n    if (match[ver] != -1) is_alive[match[ver]] = false;\r\n  }\r\n\r\n  int\
-    \ activate(const int ver) {\r\n    if (is_alive[ver]) return 0;\r\n    is_alive[ver]\
-    \ = true;\r\n    ++t;\r\n    return dfs(ver) ? 1 : 0;\r\n  }\r\n\r\n  int deactivate(const\
-    \ int ver) {\r\n    if (!is_alive[ver]) return 0;\r\n    is_alive[ver] = false;\r\
-    \n    const int m = match[ver];\r\n    if (m == -1) return 0;\r\n    match[ver]\
-    \ = match[m] = -1;\r\n    ++t;\r\n    return dfs(m) ? 0 : -1;\r\n  }\r\n\r\n private:\r\
-    \n  const int n;\r\n  int t;\r\n  std::vector<bool> is_alive;\r\n  std::vector<int>\
-    \ is_used;\r\n  std::vector<std::vector<int>> graph;\r\n\r\n  bool dfs(const int\
-    \ ver) {\r\n    is_used[ver] = t;\r\n    for (const int dst : graph[ver]) {\r\n\
-    \      if (!is_alive[dst]) continue;\r\n      const int m = match[dst];\r\n  \
-    \    if (m == -1 || (is_used[m] < t && dfs(m))) {\r\n        match[ver] = dst;\r\
-    \n        match[dst] = ver;\r\n        return true;\r\n      }\r\n    }\r\n  \
-    \  return false;\r\n  }\r\n};\r\n"
+  code: "/**\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\
+    \u30C1\u30F3\u30B0\n * @docs docs/graph/flow/matching/matching.md\n */\n\n#pragma\
+    \ once\n#include <vector>\n\nstruct BipartiteMatching {\n  std::vector<int> match;\n\
+    \n  explicit BipartiteMatching(const int n)\n      : match(n, -1), n(n), t(0),\
+    \ is_alive(n, true), is_used(n, 0), graph(n) {}\n\n  void add_edge(const int u,\
+    \ const int v) {\n    graph[u].emplace_back(v);\n    graph[v].emplace_back(u);\n\
+    \  }\n\n  int solve() {\n    int res = 0;\n    for (int i = 0; i < n; ++i) {\n\
+    \      if (is_alive[i] && match[i] == -1) {\n        ++t;\n        res += dfs(i);\n\
+    \      }\n    }\n    return res;\n  }\n\n  void fix(const int ver) {\n    is_alive[ver]\
+    \ = false;\n    if (match[ver] != -1) is_alive[match[ver]] = false;\n  }\n\n \
+    \ int activate(const int ver) {\n    if (is_alive[ver]) return 0;\n    is_alive[ver]\
+    \ = true;\n    ++t;\n    return dfs(ver) ? 1 : 0;\n  }\n\n  int deactivate(const\
+    \ int ver) {\n    if (!is_alive[ver]) return 0;\n    is_alive[ver] = false;\n\
+    \    const int m = match[ver];\n    if (m == -1) return 0;\n    match[ver] = match[m]\
+    \ = -1;\n    ++t;\n    return dfs(m) ? 0 : -1;\n  }\n\n private:\n  const int\
+    \ n;\n  int t;\n  std::vector<bool> is_alive;\n  std::vector<int> is_used;\n \
+    \ std::vector<std::vector<int>> graph;\n\n  bool dfs(const int ver) {\n    is_used[ver]\
+    \ = t;\n    for (const int dst : graph[ver]) {\n      if (!is_alive[dst]) continue;\n\
+    \      const int m = match[dst];\n      if (m == -1 || (is_used[m] < t && dfs(m)))\
+    \ {\n        match[ver] = dst;\n        match[dst] = ver;\n        return true;\n\
+    \      }\n    }\n    return false;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/matching/bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/bipartite_matching.test.cpp
@@ -113,7 +111,9 @@ title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3
 
 特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
 
-$$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
+$$
+  u \leq v \iff u \text{ から } v \text{ に到達可能である．}
+$$
 
 と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 

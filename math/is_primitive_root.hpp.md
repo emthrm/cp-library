@@ -1,49 +1,48 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/euler_phi/euler_phi.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: math/prime_factorization.hpp
     title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/primitive_root.md
     document_title: "\u539F\u59CB\u6839\u5224\u5B9A"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/is_primitive_root.hpp: line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u539F\u59CB\u6839\u5224\u5B9A\r\n * @docs docs/math/primitive_root.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <map>\r\n#include\
-    \ <utility>\r\n#include <vector>\r\n\r\n#include \"./euler_phi/euler_phi.hpp\"\
-    \r\n#include \"./mod_pow.hpp\"\r\n#include \"./prime_factorization.hpp\"\r\n\r\
-    \nbool is_primitive_root(long long root, const long long m) {\r\n  if ((root %=\
-    \ m) < 0) root += m;\r\n  if (std::__gcd(root, m) > 1) return false;\r\n  static\
-    \ std::map<long long, long long> phi;\r\n  if (!phi.count(m)) phi[m] = euler_phi(m);\r\
-    \n  const long long phi_m = phi[m];\r\n  static std::map<long long, std::vector<long\
-    \ long>> primes;\r\n  if (!primes.count(phi_m)) {\r\n    const std::vector<std::pair<long\
-    \ long, int>> prime_factors =\r\n        prime_factorization(phi_m);\r\n    std::vector<long\
-    \ long> tmp;\r\n    for (const std::pair<long long, int>& pr : prime_factors)\
-    \ {\r\n      tmp.emplace_back(pr.first);\r\n    }\r\n    primes[phi_m] = tmp;\r\
-    \n  }\r\n  for (const long long p : primes[phi_m]) {\r\n    if (mod_pow(root,\
-    \ phi_m / p, m) == 1) return false;\r\n  }\r\n  return true;\r\n}\r\n"
+  code: "/**\n * @brief \u539F\u59CB\u6839\u5224\u5B9A\n * @docs docs/math/primitive_root.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <map>\n#include <utility>\n\
+    #include <vector>\n\n#include \"./euler_phi/euler_phi.hpp\"\n#include \"./mod_pow.hpp\"\
+    \n#include \"./prime_factorization.hpp\"\n\nbool is_primitive_root(long long root,\
+    \ const long long m) {\n  if ((root %= m) < 0) root += m;\n  if (std::__gcd(root,\
+    \ m) > 1) return false;\n  static std::map<long long, long long> phi;\n  if (!phi.count(m))\
+    \ phi[m] = euler_phi(m);\n  const long long phi_m = phi[m];\n  static std::map<long\
+    \ long, std::vector<long long>> primes;\n  if (!primes.count(phi_m)) {\n    const\
+    \ std::vector<std::pair<long long, int>> prime_factors =\n        prime_factorization(phi_m);\n\
+    \    std::vector<long long> tmp;\n    for (const std::pair<long long, int>& pr\
+    \ : prime_factors) {\n      tmp.emplace_back(pr.first);\n    }\n    primes[phi_m]\
+    \ = tmp;\n  }\n  for (const long long p : primes[phi_m]) {\n    if (mod_pow(root,\
+    \ phi_m / p, m) == 1) return false;\n  }\n  return true;\n}\n"
   dependsOn:
   - math/euler_phi/euler_phi.hpp
   - math/mod_pow.hpp
@@ -51,8 +50,8 @@ data:
   isVerificationFile: false
   path: math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/is_primitive_root.test.cpp
 documentation_of: math/is_primitive_root.hpp

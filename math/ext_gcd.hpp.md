@@ -3,31 +3,30 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/ext_gcd.test.cpp
     title: "\u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/ext_gcd.hpp\"\n#include <tuple>\r\n#include <utility>\r\
-    \n\r\ntemplate <typename T>\r\nstd::pair<T, T> ext_gcd(T a, T b) {\r\n  T x =\
-    \ 1, y = 0;\r\n  for (T u = 0, v = 1; b;) {\r\n    const T q = a / b;\r\n    std::swap(a\
-    \ -= q * b, b);\r\n    std::swap(x -= q * u, u);\r\n    std::swap(y -= q * v,\
-    \ v);\r\n  }\r\n  return a < 0 ? std::make_pair(-x, -y) : std::make_pair(x, y);\r\
-    \n}\r\n"
-  code: "#pragma once\r\n#include <tuple>\r\n#include <utility>\r\n\r\ntemplate <typename\
-    \ T>\r\nstd::pair<T, T> ext_gcd(T a, T b) {\r\n  T x = 1, y = 0;\r\n  for (T u\
-    \ = 0, v = 1; b;) {\r\n    const T q = a / b;\r\n    std::swap(a -= q * b, b);\r\
-    \n    std::swap(x -= q * u, u);\r\n    std::swap(y -= q * v, v);\r\n  }\r\n  return\
-    \ a < 0 ? std::make_pair(-x, -y) : std::make_pair(x, y);\r\n}\r\n"
+  bundledCode: "#line 2 \"math/ext_gcd.hpp\"\n#include <tuple>\n#include <utility>\n\
+    \ntemplate <typename T>\nstd::pair<T, T> ext_gcd(T a, T b) {\n  T x = 1, y = 0;\n\
+    \  for (T u = 0, v = 1; b;) {\n    const T q = a / b;\n    std::swap(a -= q *\
+    \ b, b);\n    std::swap(x -= q * u, u);\n    std::swap(y -= q * v, v);\n  }\n\
+    \  return a < 0 ? std::make_pair(-x, -y) : std::make_pair(x, y);\n}\n"
+  code: "#pragma once\n#include <tuple>\n#include <utility>\n\ntemplate <typename\
+    \ T>\nstd::pair<T, T> ext_gcd(T a, T b) {\n  T x = 1, y = 0;\n  for (T u = 0,\
+    \ v = 1; b;) {\n    const T q = a / b;\n    std::swap(a -= q * b, b);\n    std::swap(x\
+    \ -= q * u, u);\n    std::swap(y -= q * v, v);\n  }\n  return a < 0 ? std::make_pair(-x,\
+    \ -y) : std::make_pair(x, y);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/ext_gcd.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/ext_gcd.test.cpp
 documentation_of: math/ext_gcd.hpp

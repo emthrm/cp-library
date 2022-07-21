@@ -8,25 +8,24 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"util/timer.hpp\"\n#include <chrono>\r\n\r\nstruct Timer\
-    \ {\r\n  Timer() { reset(); }\r\n  void reset() { bgn = std::chrono::high_resolution_clock::now();\
-    \ }\r\n  template <typename PeriodType = std::chrono::milliseconds>\r\n  long\
-    \ long elapsed() const {\r\n    std::chrono::high_resolution_clock::time_point\
-    \ end =\r\n        std::chrono::high_resolution_clock::now();\r\n    return std::chrono::duration_cast<PeriodType>(end\
-    \ - bgn).count();\r\n  }\r\n private:\r\n  std::chrono::high_resolution_clock::time_point\
-    \ bgn;\r\n} timer;\r\n"
-  code: "#pragma once\r\n#include <chrono>\r\n\r\nstruct Timer {\r\n  Timer() { reset();\
-    \ }\r\n  void reset() { bgn = std::chrono::high_resolution_clock::now(); }\r\n\
-    \  template <typename PeriodType = std::chrono::milliseconds>\r\n  long long elapsed()\
-    \ const {\r\n    std::chrono::high_resolution_clock::time_point end =\r\n    \
-    \    std::chrono::high_resolution_clock::now();\r\n    return std::chrono::duration_cast<PeriodType>(end\
-    \ - bgn).count();\r\n  }\r\n private:\r\n  std::chrono::high_resolution_clock::time_point\
-    \ bgn;\r\n} timer;\r\n"
+  bundledCode: "#line 2 \"util/timer.hpp\"\n#include <chrono>\n\nstruct Timer {\n\
+    \  Timer() { reset(); }\n  void reset() { bgn = std::chrono::high_resolution_clock::now();\
+    \ }\n  template <typename PeriodType = std::chrono::milliseconds>\n  long long\
+    \ elapsed() const {\n    std::chrono::high_resolution_clock::time_point end =\n\
+    \        std::chrono::high_resolution_clock::now();\n    return std::chrono::duration_cast<PeriodType>(end\
+    \ - bgn).count();\n  }\n private:\n  std::chrono::high_resolution_clock::time_point\
+    \ bgn;\n} timer;\n"
+  code: "#pragma once\n#include <chrono>\n\nstruct Timer {\n  Timer() { reset(); }\n\
+    \  void reset() { bgn = std::chrono::high_resolution_clock::now(); }\n  template\
+    \ <typename PeriodType = std::chrono::milliseconds>\n  long long elapsed() const\
+    \ {\n    std::chrono::high_resolution_clock::time_point end =\n        std::chrono::high_resolution_clock::now();\n\
+    \    return std::chrono::duration_cast<PeriodType>(end - bgn).count();\n  }\n\
+    \ private:\n  std::chrono::high_resolution_clock::time_point bgn;\n} timer;\n"
   dependsOn: []
   isVerificationFile: false
   path: util/timer.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: util/timer.hpp

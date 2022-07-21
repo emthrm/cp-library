@@ -16,51 +16,49 @@ data:
     _deprecated_at_docs: docs/graph/girth.md
     document_title: "\u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/girth_in_undirected_graph.hpp: line 6: #pragma once found in a non-first\
     \ line\n"
-  code: "/**\r\n * @brief \u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248\r\n *\
-    \ @docs docs/graph/girth.md\r\n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\
-    \n#include <functional>\r\n#include <limits>\r\n#include <queue>\r\n#include <tuple>\r\
-    \n#include <utility>\r\n#include <vector>\r\n\r\n#include \"./edge.hpp\"\r\n\r\
-    \ntemplate <typename CostType>\r\nCostType girth_in_undirected_graph(\r\n    const\
-    \ int n, const std::vector<Edge<CostType>>& edges,\r\n    const CostType inf =\
-    \ std::numeric_limits<CostType>::max()) {\r\n  const int m = edges.size();\r\n\
-    \  std::vector<std::vector<int>> graph(n);\r\n  for (int i = 0; i < m; ++i) {\r\
-    \n    graph[edges[i].src].emplace_back(i);\r\n    graph[edges[i].dst].emplace_back(i);\r\
-    \n  }\r\n  std::vector<bool> is_used(m, false);\r\n  std::vector<int> label(n),\
-    \ prev(n);\r\n  std::vector<CostType> dist(n);\r\n  std::priority_queue<std::pair<CostType,\
-    \ int>,\r\n                      std::vector<std::pair<CostType, int>>,\r\n  \
-    \                    std::greater<std::pair<CostType, int>>> que;\r\n  CostType\
-    \ res = inf;\r\n  for (int root = 0; root < n; ++root) {\r\n    std::fill(is_used.begin(),\
-    \ is_used.end(), false);\r\n    std::fill(label.begin(), label.end(), -2);\r\n\
-    \    label[root] = -1;\r\n    std::fill(prev.begin(), prev.end(), -1);\r\n   \
-    \ std::fill(dist.begin(), dist.end(), inf);\r\n    dist[root] = 0;\r\n    que.emplace(0,\
-    \ root);\r\n    while (!que.empty()) {\r\n      CostType d;\r\n      int ver;\r\
-    \n      std::tie(d, ver) = que.top();\r\n      que.pop();\r\n      if (d > dist[ver])\
-    \ continue;\r\n      for (const int id : graph[ver]) {\r\n        const int dst\
-    \ = (edges[id].src == ver ? edges[id].dst : edges[id].src);\r\n        const CostType\
-    \ nxt = dist[ver] + edges[id].cost;\r\n        if (nxt < dist[dst]) {\r\n    \
-    \      dist[dst] = nxt;\r\n          label[dst] = (label[ver] == -1 ? dst : label[ver]);\r\
-    \n          if (prev[dst] != -1) is_used[dst] = true;\r\n          is_used[id]\
-    \ = true;\r\n          que.emplace(nxt, dst);\r\n        }\r\n      }\r\n    }\r\
-    \n    for (int i = 0; i < m; ++i) {\r\n      const int src = edges[i].src, dst\
-    \ = edges[i].dst;\r\n      if (!is_used[i] && label[src] != -2 && label[dst] !=\
-    \ -2) {\r\n        if (label[src] != label[dst]) {\r\n          res = std::min(res,\
-    \ dist[src] + dist[dst] + edges[i].cost);\r\n        } else if (label[src] ==\
-    \ -1) {\r\n          res = std::min(res, edges[i].cost);\r\n        }\r\n    \
-    \  }\r\n    }\r\n  }\r\n  return res;\r\n}\r\n"
+  code: "/**\n * @brief \u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248\n * @docs\
+    \ docs/graph/girth.md\n */\n\n#pragma once\n#include <algorithm>\n#include <functional>\n\
+    #include <limits>\n#include <queue>\n#include <tuple>\n#include <utility>\n#include\
+    \ <vector>\n\n#include \"./edge.hpp\"\n\ntemplate <typename CostType>\nCostType\
+    \ girth_in_undirected_graph(\n    const int n, const std::vector<Edge<CostType>>&\
+    \ edges,\n    const CostType inf = std::numeric_limits<CostType>::max()) {\n \
+    \ const int m = edges.size();\n  std::vector<std::vector<int>> graph(n);\n  for\
+    \ (int i = 0; i < m; ++i) {\n    graph[edges[i].src].emplace_back(i);\n    graph[edges[i].dst].emplace_back(i);\n\
+    \  }\n  std::vector<bool> is_used(m, false);\n  std::vector<int> label(n), prev(n);\n\
+    \  std::vector<CostType> dist(n);\n  std::priority_queue<std::pair<CostType, int>,\n\
+    \                      std::vector<std::pair<CostType, int>>,\n              \
+    \        std::greater<std::pair<CostType, int>>> que;\n  CostType res = inf;\n\
+    \  for (int root = 0; root < n; ++root) {\n    std::fill(is_used.begin(), is_used.end(),\
+    \ false);\n    std::fill(label.begin(), label.end(), -2);\n    label[root] = -1;\n\
+    \    std::fill(prev.begin(), prev.end(), -1);\n    std::fill(dist.begin(), dist.end(),\
+    \ inf);\n    dist[root] = 0;\n    que.emplace(0, root);\n    while (!que.empty())\
+    \ {\n      CostType d;\n      int ver;\n      std::tie(d, ver) = que.top();\n\
+    \      que.pop();\n      if (d > dist[ver]) continue;\n      for (const int id\
+    \ : graph[ver]) {\n        const int dst = (edges[id].src == ver ? edges[id].dst\
+    \ : edges[id].src);\n        const CostType nxt = dist[ver] + edges[id].cost;\n\
+    \        if (nxt < dist[dst]) {\n          dist[dst] = nxt;\n          label[dst]\
+    \ = (label[ver] == -1 ? dst : label[ver]);\n          if (prev[dst] != -1) is_used[dst]\
+    \ = true;\n          is_used[id] = true;\n          que.emplace(nxt, dst);\n \
+    \       }\n      }\n    }\n    for (int i = 0; i < m; ++i) {\n      const int\
+    \ src = edges[i].src, dst = edges[i].dst;\n      if (!is_used[i] && label[src]\
+    \ != -2 && label[dst] != -2) {\n        if (label[src] != label[dst]) {\n    \
+    \      res = std::min(res, dist[src] + dist[dst] + edges[i].cost);\n        }\
+    \ else if (label[src] == -1) {\n          res = std::min(res, edges[i].cost);\n\
+    \        }\n      }\n    }\n  }\n  return res;\n}\n"
   dependsOn:
   - graph/edge.hpp
   isVerificationFile: false
   path: graph/girth_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2022-02-19 23:25:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/girth.test.cpp

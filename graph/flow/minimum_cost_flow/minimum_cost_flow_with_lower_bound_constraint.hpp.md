@@ -13,33 +13,32 @@ data:
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp\"\
-    \n#include <limits>\r\n\r\ntemplate <template <typename, typename> class C, typename\
-    \ T, typename U>\r\nstruct MinimumCostFlowWithLowerBoundConstraint {\r\n  const\
-    \ U uinf;\r\n\r\n  explicit MinimumCostFlowWithLowerBoundConstraint(\r\n     \
-    \ const int n, const U m, const U uinf = std::numeric_limits<U>::max())\r\n  \
-    \    : uinf(uinf), m(m), sum_lb(0), mcf(n, uinf) {}\r\n\r\n  void add_edge(const\
-    \ int src, const int dst, const T lb, const T ub,\r\n                const U cost)\
-    \ {\r\n    mcf.add_edge(src, dst, ub - lb, cost);\r\n    mcf.add_edge(src, dst,\
-    \ lb, cost - m);\r\n    sum_lb += lb;\r\n  }\r\n\r\n  U solve(const int s, const\
-    \ int t, const T flow) {\r\n    const U tmp = mcf.solve(s, t, flow);\r\n    return\
-    \ tmp == uinf ? uinf : tmp + m * sum_lb;\r\n  }\r\n\r\n private:\r\n  const U\
-    \ m;\r\n  T sum_lb;\r\n  C<T, U> mcf;\r\n};\r\n"
-  code: "#pragma once\r\n#include <limits>\r\n\r\ntemplate <template <typename, typename>\
-    \ class C, typename T, typename U>\r\nstruct MinimumCostFlowWithLowerBoundConstraint\
-    \ {\r\n  const U uinf;\r\n\r\n  explicit MinimumCostFlowWithLowerBoundConstraint(\r\
-    \n      const int n, const U m, const U uinf = std::numeric_limits<U>::max())\r\
-    \n      : uinf(uinf), m(m), sum_lb(0), mcf(n, uinf) {}\r\n\r\n  void add_edge(const\
-    \ int src, const int dst, const T lb, const T ub,\r\n                const U cost)\
-    \ {\r\n    mcf.add_edge(src, dst, ub - lb, cost);\r\n    mcf.add_edge(src, dst,\
-    \ lb, cost - m);\r\n    sum_lb += lb;\r\n  }\r\n\r\n  U solve(const int s, const\
-    \ int t, const T flow) {\r\n    const U tmp = mcf.solve(s, t, flow);\r\n    return\
-    \ tmp == uinf ? uinf : tmp + m * sum_lb;\r\n  }\r\n\r\n private:\r\n  const U\
-    \ m;\r\n  T sum_lb;\r\n  C<T, U> mcf;\r\n};\r\n"
+    \n#include <limits>\n\ntemplate <template <typename, typename> class C, typename\
+    \ T, typename U>\nstruct MinimumCostFlowWithLowerBoundConstraint {\n  const U\
+    \ uinf;\n\n  explicit MinimumCostFlowWithLowerBoundConstraint(\n      const int\
+    \ n, const U m, const U uinf = std::numeric_limits<U>::max())\n      : uinf(uinf),\
+    \ m(m), sum_lb(0), mcf(n, uinf) {}\n\n  void add_edge(const int src, const int\
+    \ dst, const T lb, const T ub,\n                const U cost) {\n    mcf.add_edge(src,\
+    \ dst, ub - lb, cost);\n    mcf.add_edge(src, dst, lb, cost - m);\n    sum_lb\
+    \ += lb;\n  }\n\n  U solve(const int s, const int t, const T flow) {\n    const\
+    \ U tmp = mcf.solve(s, t, flow);\n    return tmp == uinf ? uinf : tmp + m * sum_lb;\n\
+    \  }\n\n private:\n  const U m;\n  T sum_lb;\n  C<T, U> mcf;\n};\n"
+  code: "#pragma once\n#include <limits>\n\ntemplate <template <typename, typename>\
+    \ class C, typename T, typename U>\nstruct MinimumCostFlowWithLowerBoundConstraint\
+    \ {\n  const U uinf;\n\n  explicit MinimumCostFlowWithLowerBoundConstraint(\n\
+    \      const int n, const U m, const U uinf = std::numeric_limits<U>::max())\n\
+    \      : uinf(uinf), m(m), sum_lb(0), mcf(n, uinf) {}\n\n  void add_edge(const\
+    \ int src, const int dst, const T lb, const T ub,\n                const U cost)\
+    \ {\n    mcf.add_edge(src, dst, ub - lb, cost);\n    mcf.add_edge(src, dst, lb,\
+    \ cost - m);\n    sum_lb += lb;\n  }\n\n  U solve(const int s, const int t, const\
+    \ T flow) {\n    const U tmp = mcf.solve(s, t, flow);\n    return tmp == uinf\
+    \ ? uinf : tmp + m * sum_lb;\n  }\n\n private:\n  const U m;\n  T sum_lb;\n  C<T,\
+    \ U> mcf;\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp
   requiredBy: []
-  timestamp: '2022-02-16 15:47:44+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp

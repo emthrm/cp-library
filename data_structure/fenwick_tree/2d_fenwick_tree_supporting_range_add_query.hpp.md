@@ -15,57 +15,55 @@ data:
     document_title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\
       \u5143 Fenwick tree"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp:\
     \ line 6: #pragma once found in a non-first line\n"
-  code: "/**\r\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\
-    \u5143 Fenwick tree\r\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename Abelian>\r\
-    \nstruct FenwickTree2DSupportingRangeAddQuery {\r\n  explicit FenwickTree2DSupportingRangeAddQuery(\r\
-    \n      const int height_, const int width_, const Abelian ID = 0)\r\n      :\
-    \ height(height_ + 1), width(width_ + 1), ID(ID) {\r\n    data_const.assign(height,\
-    \ std::vector<Abelian>(width, ID));\r\n    data_linear[0].assign(height, std::vector<Abelian>(width,\
-    \ ID));\r\n    data_linear[1].assign(height, std::vector<Abelian>(width, ID));\r\
-    \n    data_quadratic.assign(height, std::vector<Abelian>(width, ID));\r\n  }\r\
-    \n\r\n  void add(int y1, int x1, int y2, int x2, const Abelian val) {\r\n    ++y1;\
-    \ ++x1; ++y2; ++x2;\r\n    for (int i = y1; i < height; i += i & -i) {\r\n   \
-    \   for (int j = x1; j < width; j += j & -j) {\r\n        data_const[i][j] +=\
-    \ val * (y1 - 1) * (x1 - 1);\r\n        data_linear[0][i][j] -= val * (x1 - 1);\r\
-    \n        data_linear[1][i][j] -= val * (y1 - 1);\r\n        data_quadratic[i][j]\
-    \ += val;\r\n      }\r\n    }\r\n    for (int i = y1; i < height; i += i & -i)\
-    \ {\r\n      for (int j = x2 + 1; j < width; j += j & -j) {\r\n        data_const[i][j]\
-    \ -= val * (y1 - 1) * x2;\r\n        data_linear[0][i][j] += val * x2;\r\n   \
-    \     data_linear[1][i][j] += val * (y1 - 1);\r\n        data_quadratic[i][j]\
-    \ -= val;\r\n      }\r\n    }\r\n    for (int i = y2 + 1; i < height; i += i &\
-    \ -i) {\r\n      for (int j = x1; j < width; j += j & -j) {\r\n        data_const[i][j]\
-    \ -= val * y2 * (x1 - 1);\r\n        data_linear[0][i][j] += val * (x1 - 1);\r\
-    \n        data_linear[1][i][j] += val * y2;\r\n        data_quadratic[i][j] -=\
-    \ val;\r\n      }\r\n    }\r\n    for (int i = y2 + 1; i < height; i += i & -i)\
-    \ {\r\n      for (int j = x2 + 1; j < width; j += j & -j) {\r\n        data_const[i][j]\
-    \ += val * y2 * x2;\r\n        data_linear[0][i][j] -= val * x2;\r\n        data_linear[1][i][j]\
-    \ -= val * y2;\r\n        data_quadratic[i][j] += val;\r\n      }\r\n    }\r\n\
-    \  }\r\n\r\n  Abelian sum(int y, int x) const {\r\n    ++y; ++x;\r\n    Abelian\
-    \ quad = ID, cons = ID, line[2]{ID, ID};\r\n    for (int i = y; i > 0; i -= i\
-    \ & -i) {\r\n      for (int j = x; j > 0; j -= j & -j) {\r\n        quad += data_quadratic[i][j];\r\
-    \n        line[0] += data_linear[0][i][j];\r\n        line[1] += data_linear[1][i][j];\r\
-    \n        cons += data_const[i][j];\r\n      }\r\n    }\r\n    return quad * y\
-    \ * x + line[0] * y + line[1] * x + cons;\r\n  }\r\n\r\n  Abelian sum(const int\
-    \ y1, const int x1, const int y2, const int x2) const {\r\n    return y1 > y2\
-    \ || x1 > x2 ? ID : sum(y2, x2) - sum(y2, x1 - 1)\r\n                        \
-    \             - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1);\r\n  }\r\n\r\n private:\r\
-    \n  const int height, width;\r\n  const Abelian ID;\r\n  std::vector<std::vector<Abelian>>\
-    \ data_const, data_quadratic;\r\n  std::vector<std::vector<Abelian>> data_linear[2];\r\
-    \n};\r\n"
+  code: "/**\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\
+    \u5143 Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
+    \ */\n\n#pragma once\n#include <vector>\n\ntemplate <typename Abelian>\nstruct\
+    \ FenwickTree2DSupportingRangeAddQuery {\n  explicit FenwickTree2DSupportingRangeAddQuery(\n\
+    \      const int height_, const int width_, const Abelian ID = 0)\n      : height(height_\
+    \ + 1), width(width_ + 1), ID(ID) {\n    data_const.assign(height, std::vector<Abelian>(width,\
+    \ ID));\n    data_linear[0].assign(height, std::vector<Abelian>(width, ID));\n\
+    \    data_linear[1].assign(height, std::vector<Abelian>(width, ID));\n    data_quadratic.assign(height,\
+    \ std::vector<Abelian>(width, ID));\n  }\n\n  void add(int y1, int x1, int y2,\
+    \ int x2, const Abelian val) {\n    ++y1; ++x1; ++y2; ++x2;\n    for (int i =\
+    \ y1; i < height; i += i & -i) {\n      for (int j = x1; j < width; j += j & -j)\
+    \ {\n        data_const[i][j] += val * (y1 - 1) * (x1 - 1);\n        data_linear[0][i][j]\
+    \ -= val * (x1 - 1);\n        data_linear[1][i][j] -= val * (y1 - 1);\n      \
+    \  data_quadratic[i][j] += val;\n      }\n    }\n    for (int i = y1; i < height;\
+    \ i += i & -i) {\n      for (int j = x2 + 1; j < width; j += j & -j) {\n     \
+    \   data_const[i][j] -= val * (y1 - 1) * x2;\n        data_linear[0][i][j] +=\
+    \ val * x2;\n        data_linear[1][i][j] += val * (y1 - 1);\n        data_quadratic[i][j]\
+    \ -= val;\n      }\n    }\n    for (int i = y2 + 1; i < height; i += i & -i) {\n\
+    \      for (int j = x1; j < width; j += j & -j) {\n        data_const[i][j] -=\
+    \ val * y2 * (x1 - 1);\n        data_linear[0][i][j] += val * (x1 - 1);\n    \
+    \    data_linear[1][i][j] += val * y2;\n        data_quadratic[i][j] -= val;\n\
+    \      }\n    }\n    for (int i = y2 + 1; i < height; i += i & -i) {\n      for\
+    \ (int j = x2 + 1; j < width; j += j & -j) {\n        data_const[i][j] += val\
+    \ * y2 * x2;\n        data_linear[0][i][j] -= val * x2;\n        data_linear[1][i][j]\
+    \ -= val * y2;\n        data_quadratic[i][j] += val;\n      }\n    }\n  }\n\n\
+    \  Abelian sum(int y, int x) const {\n    ++y; ++x;\n    Abelian quad = ID, cons\
+    \ = ID, line[2]{ID, ID};\n    for (int i = y; i > 0; i -= i & -i) {\n      for\
+    \ (int j = x; j > 0; j -= j & -j) {\n        quad += data_quadratic[i][j];\n \
+    \       line[0] += data_linear[0][i][j];\n        line[1] += data_linear[1][i][j];\n\
+    \        cons += data_const[i][j];\n      }\n    }\n    return quad * y * x +\
+    \ line[0] * y + line[1] * x + cons;\n  }\n\n  Abelian sum(const int y1, const\
+    \ int x1, const int y2, const int x2) const {\n    return y1 > y2 || x1 > x2 ?\
+    \ ID : sum(y2, x2) - sum(y2, x1 - 1)\n                                     - sum(y1\
+    \ - 1, x2) + sum(y1 - 1, x1 - 1);\n  }\n\n private:\n  const int height, width;\n\
+    \  const Abelian ID;\n  std::vector<std::vector<Abelian>> data_const, data_quadratic;\n\
+    \  std::vector<std::vector<Abelian>> data_linear[2];\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp
   requiredBy: []
-  timestamp: '2022-02-16 17:10:40+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.test.cpp
@@ -139,31 +137,56 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $
 
 - $y_1 \leq y \leq y_2,\ x_1 \leq x \leq x_2$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y - y_1 + 1)(x - x_1 + 1) \\ &= vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y - y_1 + 1)(x - x_1 + 1) \\
+                &= vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1)
+    \end{aligned}
+  $$
 
   が成り立つ．$S_1 \mathrel{:=} vyx - v(x_1 - 1)y - v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1)$ とおく．
 
 - $y_1 \leq y \leq y_2,\ x_2 < x$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y - y_1 + 1)(x_2 - x_1 + 1) \\ &= -v(x_1 - 1)y + v(y_1 - 1)(x_1 - 1) + vx_2y - v(y_1 - 1)x_2 \\ &= S_1 - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2 \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y - y_1 + 1)(x_2 - x_1 + 1) \\
+                &= -v(x_1 - 1)y + v(y_1 - 1)(x_1 - 1) + vx_2y - v(y_1 - 1)x_2 \\
+                &= S_1 - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2
+    \end{aligned}
+  $$
 
   が成り立つ．$S_2 \mathrel{:=} - vyx + v(y_1 - 1)x + vx_2y - v(y_1 - 1)x_2$ とおく．
 
 - $y_2 < y,\ x_1 \leq x \leq x_2$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y_2 - y_1 + 1)(x - x_1 + 1) \\ &= -v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) + vy_2x - vy_2(x_1 - 1) \\ &= S_1 - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1) \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y_2 - y_1 + 1)(x - x_1 + 1) \\
+                &= -v(y_1 - 1)x + v(y_1 - 1)(x_1 - 1) + vy_2x - vy_2(x_1 - 1) \\
+                &= S_1 - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1)
+    \end{aligned}
+  $$
 
   が成り立つ．$S_3 \mathrel{:=} - vyx + v(x_1 - 1)y + vy_2x - vy_2(x_1 - 1)$ とおく．
 
 - $y_2 < y,\ x_2 < x$ のとき
 
-  $$\begin{aligned} S_a - S_b &= v(y_2 - y_1 + 1)(x_2 - x_1 + 1) \\ &= v(y_1 - 1)(x_1 - 1) - v(y_1 - 1) x_2 - vy_2(x_1 - 1) + v y_2 x_2 \\ &= S_1 + S_2 + S_3 + vyx - vy_2x - vx_2y + vy_2x_2 \end{aligned}$$
+  $$
+    \begin{aligned}
+      S_a - S_b &= v(y_2 - y_1 + 1)(x_2 - x_1 + 1) \\
+                &= v(y_1 - 1)(x_1 - 1) - v(y_1 - 1) x_2 - vy_2(x_1 - 1) + v y_2 x_2 \\
+                &= S_1 + S_2 + S_3 + vyx - vy_2x - vx_2y + vy_2x_2
+    \end{aligned}
+  $$
 
   が成り立つ．
 
 - $\text{otherwise}$
 
-  $$S_a - S_b = 0$$
+  $$
+    S_a - S_b = 0
+  $$
 
   が成り立つ．
 

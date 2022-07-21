@@ -3,29 +3,29 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/montmort_number.test.cpp
     title: "\u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 2 \"math/montmort_number.hpp\"\n#include <vector>\r\n\r\ntemplate\
-    \ <typename T>\r\nstd::vector<T> montmort_number(const int n) {\r\n  std::vector<T>\
-    \ montmort(n + 1, 0);\r\n  montmort[0] = 1;\r\n  for (int i = 2; i <= n; ++i)\
-    \ {\r\n    montmort[i] = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\r\n  }\r\
-    \n  return montmort;\r\n}\r\n"
-  code: "#pragma once\r\n#include <vector>\r\n\r\ntemplate <typename T>\r\nstd::vector<T>\
-    \ montmort_number(const int n) {\r\n  std::vector<T> montmort(n + 1, 0);\r\n \
-    \ montmort[0] = 1;\r\n  for (int i = 2; i <= n; ++i) {\r\n    montmort[i] = (montmort[i\
-    \ - 1] + montmort[i - 2]) * (i - 1);\r\n  }\r\n  return montmort;\r\n}\r\n"
+  bundledCode: "#line 2 \"math/montmort_number.hpp\"\n#include <vector>\n\ntemplate\
+    \ <typename T>\nstd::vector<T> montmort_number(const int n) {\n  std::vector<T>\
+    \ montmort(n + 1, 0);\n  montmort[0] = 1;\n  for (int i = 2; i <= n; ++i) {\n\
+    \    montmort[i] = (montmort[i - 1] + montmort[i - 2]) * (i - 1);\n  }\n  return\
+    \ montmort;\n}\n"
+  code: "#pragma once\n#include <vector>\n\ntemplate <typename T>\nstd::vector<T>\
+    \ montmort_number(const int n) {\n  std::vector<T> montmort(n + 1, 0);\n  montmort[0]\
+    \ = 1;\n  for (int i = 2; i <= n; ++i) {\n    montmort[i] = (montmort[i - 1] +\
+    \ montmort[i - 2]) * (i - 1);\n  }\n  return montmort;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/montmort_number.hpp
   requiredBy: []
-  timestamp: '2022-02-19 03:53:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/montmort_number.test.cpp
 documentation_of: math/montmort_number.hpp
@@ -33,17 +33,28 @@ layout: document
 title: "\u30E2\u30F3\u30E2\u30FC\u30EB\u6570 (Montmort number)"
 ---
 
-$$!n = \begin{cases} 1 & (n = 0), \\ 0 & (n = 1), \\ (n - 1)(!(n - 1) + !(n - 2)) & (n \geq 2) \end{cases}$$
+$$
+  !n =
+  \begin{cases}
+    1 & (n = 0), \\
+    0 & (n = 1), \\
+    (n - 1)(!(n - 1) + !(n - 2)) & (n \geq 2)
+  \end{cases}
+$$
 
 という漸化式をもつ，完全順列の個数 $!n$ である．これを解くと
 
-$$!n = n! \sum_{k = 0}^n \dfrac{(-1)^k}{k!}$$
+$$
+  !n = n! \sum_{k = 0}^n \dfrac{(-1)^k}{k!}
+$$
 
 という一般項が得られる．
 
 指数型母関数は
 
-$$\sum_{n = 0}^\infty !n \frac{x^n}{n!} = \dfrac{e^{-x}}{1 - x} \text{．}$$
+$$
+  \sum_{n = 0}^\infty !n \frac{x^n}{n!} = \dfrac{e^{-x}}{1 - x}
+$$
 
 である．
 

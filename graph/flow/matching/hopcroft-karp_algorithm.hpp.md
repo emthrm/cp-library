@@ -14,44 +14,42 @@ data:
     _deprecated_at_docs: docs/graph/flow/matching/matching.md
     document_title: "Hopcroft\u2013Karp algorithm"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ graph/flow/matching/hopcroft-karp_algorithm.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/**\r\n * @brief Hopcroft\u2013Karp algorithm\r\n * @docs docs/graph/flow/matching/matching.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <queue>\r\n#include\
-    \ <vector>\r\n\r\nstruct HopcroftKarp {\r\n  std::vector<int> match;\r\n\r\n \
-    \ explicit HopcroftKarp(const int left, const int right)\r\n      : match(left\
-    \ + right, -1), left(left), t(0), level(left),\r\n        is_used(left, -1), graph(left)\
-    \ {}\r\n\r\n  void add_edge(const int u, const int v) {\r\n    graph[u].emplace_back(left\
-    \ + v);\r\n  }\r\n\r\n  int solve() {\r\n    int res = 0;\r\n    while (true)\
-    \ {\r\n      std::fill(level.begin(), level.end(), -1);\r\n      std::queue<int>\
-    \ que;\r\n      for (int i = 0; i < left; ++i) {\r\n        if (match[i] == -1)\
-    \ {\r\n          que.emplace(i);\r\n          level[i] = 0;\r\n        }\r\n \
-    \     }\r\n      while (!que.empty()) {\r\n        const int ver = que.front();\r\
-    \n        que.pop();\r\n        for (const int dst : graph[ver]) {\r\n       \
-    \   if (match[dst] != -1 && level[match[dst]] == -1) {\r\n            level[match[dst]]\
-    \ = level[ver] + 1;\r\n            que.emplace(match[dst]);\r\n          }\r\n\
-    \        }\r\n      }\r\n      int tmp = 0;\r\n      for (int i = 0; i < left;\
-    \ ++i) {\r\n        if (match[i] == -1) {\r\n          tmp += dfs(i);\r\n    \
-    \      ++t;\r\n        }\r\n      }\r\n      if (tmp == 0) break;\r\n      res\
-    \ += tmp;\r\n    }\r\n    return res;\r\n  }\r\n\r\n private:\r\n  const int left;\r\
-    \n  int t;\r\n  std::vector<int> level, is_used;\r\n  std::vector<std::vector<int>>\
-    \ graph;\r\n\r\n  bool dfs(const int ver) {\r\n    is_used[ver] = t;\r\n    for\
-    \ (const int dst : graph[ver]) {\r\n      const int m = match[dst];\r\n      if\
-    \ (m == -1 || (is_used[m] < t && level[m] == level[ver] + 1 && dfs(m))) {\r\n\
-    \        is_used[ver] = t;\r\n        match[ver] = dst;\r\n        match[dst]\
-    \ = ver;\r\n        return true;\r\n      }\r\n    }\r\n    return false;\r\n\
-    \  }\r\n};\r\n"
+  code: "/**\n * @brief Hopcroft\u2013Karp algorithm\n * @docs docs/graph/flow/matching/matching.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <queue>\n#include <vector>\n\
+    \nstruct HopcroftKarp {\n  std::vector<int> match;\n\n  explicit HopcroftKarp(const\
+    \ int left, const int right)\n      : match(left + right, -1), left(left), t(0),\
+    \ level(left),\n        is_used(left, -1), graph(left) {}\n\n  void add_edge(const\
+    \ int u, const int v) {\n    graph[u].emplace_back(left + v);\n  }\n\n  int solve()\
+    \ {\n    int res = 0;\n    while (true) {\n      std::fill(level.begin(), level.end(),\
+    \ -1);\n      std::queue<int> que;\n      for (int i = 0; i < left; ++i) {\n \
+    \       if (match[i] == -1) {\n          que.emplace(i);\n          level[i] =\
+    \ 0;\n        }\n      }\n      while (!que.empty()) {\n        const int ver\
+    \ = que.front();\n        que.pop();\n        for (const int dst : graph[ver])\
+    \ {\n          if (match[dst] != -1 && level[match[dst]] == -1) {\n          \
+    \  level[match[dst]] = level[ver] + 1;\n            que.emplace(match[dst]);\n\
+    \          }\n        }\n      }\n      int tmp = 0;\n      for (int i = 0; i\
+    \ < left; ++i) {\n        if (match[i] == -1) {\n          tmp += dfs(i);\n  \
+    \        ++t;\n        }\n      }\n      if (tmp == 0) break;\n      res += tmp;\n\
+    \    }\n    return res;\n  }\n\n private:\n  const int left;\n  int t;\n  std::vector<int>\
+    \ level, is_used;\n  std::vector<std::vector<int>> graph;\n\n  bool dfs(const\
+    \ int ver) {\n    is_used[ver] = t;\n    for (const int dst : graph[ver]) {\n\
+    \      const int m = match[dst];\n      if (m == -1 || (is_used[m] < t && level[m]\
+    \ == level[ver] + 1 && dfs(m))) {\n        is_used[ver] = t;\n        match[ver]\
+    \ = dst;\n        match[dst] = ver;\n        return true;\n      }\n    }\n  \
+    \  return false;\n  }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/flow/matching/hopcroft-karp_algorithm.hpp
   requiredBy: []
-  timestamp: '2022-02-27 15:05:10+09:00'
+  timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
@@ -114,7 +112,9 @@ title: "Hopcroft\u2013Karp algorithm"
 
 特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
 
-$$u \leq v \iff u \text{ から } v \text{ に到達可能である．}$$
+$$
+  u \leq v \iff u \text{ から } v \text{ に到達可能である．}
+$$
 
 と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
 

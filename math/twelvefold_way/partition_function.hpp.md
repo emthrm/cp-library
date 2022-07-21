@@ -3,38 +3,37 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/partition_function_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/partition_function.md
     document_title: "\u5206\u5272\u6570"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.4/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/twelvefold_way/partition_function.hpp: line 6: #pragma once found in a\
     \ non-first line\n"
-  code: "/**\r\n * @brief \u5206\u5272\u6570\r\n * @docs docs/math/twelvefold_way/partition_function.md\r\
-    \n */\r\n\r\n#pragma once\r\n#include <algorithm>\r\n#include <vector>\r\n\r\n\
-    template <typename T>\r\nstd::vector<std::vector<T>> partition_function(const\
-    \ int n, const int m) {\r\n  std::vector<std::vector<T>> p(n + 1, std::vector<T>(m\
-    \ + 1, 0));\r\n  p[0][0] = 1;\r\n  for (int i = 1; i <= n; ++i) {\r\n    std::copy(p[i\
-    \ - 1].begin(), p[i - 1].end(), p[i].begin());\r\n    for (int j = i; j <= m;\
-    \ ++j) {\r\n      p[i][j] += p[i][j - i];\r\n    }\r\n  }\r\n  return p;\r\n}\r\
-    \n"
+  code: "/**\n * @brief \u5206\u5272\u6570\n * @docs docs/math/twelvefold_way/partition_function.md\n\
+    \ */\n\n#pragma once\n#include <algorithm>\n#include <vector>\n\ntemplate <typename\
+    \ T>\nstd::vector<std::vector<T>> partition_function(const int n, const int m)\
+    \ {\n  std::vector<std::vector<T>> p(n + 1, std::vector<T>(m + 1, 0));\n  p[0][0]\
+    \ = 1;\n  for (int i = 1; i <= n; ++i) {\n    std::copy(p[i - 1].begin(), p[i\
+    \ - 1].end(), p[i].begin());\n    for (int j = i; j <= m; ++j) {\n      p[i][j]\
+    \ += p[i][j - i];\n    }\n  }\n  return p;\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: math/twelvefold_way/partition_function.hpp
   requiredBy: []
-  timestamp: '2021-09-24 03:41:13+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-04-18 04:59:03+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/partition_function_init.test.cpp
 documentation_of: math/twelvefold_way/partition_function.hpp
@@ -52,7 +51,9 @@ title: "\u5206\u5272\u6570"
 
 分割数 $p(n)$ の母関数は
 
-$$\sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}$$
+$$
+  \sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}
+$$
 
 である．
 

@@ -1,22 +1,32 @@
 - 添え字 and での畳み込み
 
-  $$C_k = \sum_{k = i \land j} A_i B_j$$
+  $$
+    C_k = \sum_{k = i \land j} A_i B_j
+  $$
 
 - 添え字 or での畳み込み
 
-  $$C_k = \sum_{k = i \lor j} A_i B_j$$
+  $$
+    C_k = \sum_{k = i \lor j} A_i B_j
+  $$
 
 - 添え字 xor での畳み込み
 
-  $$C_k = \sum_{k = i \oplus j} A_i B_j$$
+  $$
+    C_k = \sum_{k = i \oplus j} A_i B_j
+  $$
 
 - 添え字 gcd での畳み込み
 
-  $$C_k = \sum_{k = \gcd(i, j)} A_i B_j$$
+  $$
+    C_k = \sum_{k = \gcd(i, j)} A_i B_j
+  $$
 
 - 添え字 lcm での畳み込み
 
-  $$C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j$$
+  $$
+    C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j
+  $$
 
 添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
 
@@ -112,6 +122,7 @@ $O(N\log{N})$
   - https://atcoder.jp/contests/abc236/tasks/abc236_h
   - https://twitter.com/noshi91/status/1485246655419260939
   - https://yukicoder.me/problems/no/1901
+  - https://atcoder.jp/contests/abc253/editorial/4028
 - 凸性のある畳み込み
   - https://twitter.com/hotmanww/status/1482185138125832192
 - relaxed multiplication
