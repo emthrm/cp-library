@@ -10,7 +10,9 @@ $x \equiv i \pmod{n}$ かつ $0 \leq x \leq r$ を満たす整数 $x$ の個数�
 
 ---
 
-$A + B = (A \oplus B) + 2(A \wedge B)$
+$$
+  A + B = (A \oplus B) + 2(A \wedge B)
+$$
 
 > https://www.youtube.com/watch?v=lWETOlGiuaI
 
@@ -82,3 +84,11 @@ $$
 が成り立つ．
 
 > https://atcoder.jp/contests/abc239/editorial/3357
+
+---
+
+$$
+  \max \lbrace a, b, c \rbrace - \min \lbrace a, b, c \rbrace = \frac{\lvert a - b \rvert + \lvert b - c \rvert + \lvert c - a \rvert}{2}
+$$
+
+> https://math.stackexchange.com/questions/657855/a-bb-cc-a-2-max-a-b-c-min-a-b-c

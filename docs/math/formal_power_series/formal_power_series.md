@@ -40,6 +40,16 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
     \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
   $$
 
+- 係数の和
+
+  $n$ を素数，$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと，
+
+  $$
+    \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
+  $$
+
+  が成り立つ．
+
 
 ## 時間計算量
 
@@ -107,6 +117,9 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 - ~~http://sugarknri.hatenablog.com/entry/2019/10/08/001359~~
 - https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
 - https://yukicoder.me/wiki/polynomial_techniques
+
+係数の和
+- https://www.youtube.com/watch?v=bOXCLR3Wric
 
 
 ## ToDo
