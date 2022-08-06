@@ -34,6 +34,8 @@ $O(\sqrt{N})$
   - http://orolog.hatenablog.jp/entry/20100804/1280943541
   - https://qiita.com/gushwell/items/561afde2e00bf3380c98
   - https://github.com/ei1333/library/blob/master/math/fast-prime-factorization.cpp
+  - https://mugen1337.github.io/procon/Math/PollardRho.cpp
+  - https://sotanishy.github.io/cp-library-cpp/math/fast_prime.cpp
   - https://judge.yosupo.jp/problem/factorize
 
 

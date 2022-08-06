@@ -154,6 +154,7 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
   - https://mathlog.info/articles/607
   - https://mathworld.wolfram.com/LagrangeInversionTheorem.html
   - https://twitter.com/kobae964/status/1466770150108311555
+  - https://sotanishy.github.io/cp-library-cpp/misc/memo.hpp
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/kobae964/status/1446833320919064577
   - https://kmjp.hatenablog.jp/entry/2021/10/11/1030

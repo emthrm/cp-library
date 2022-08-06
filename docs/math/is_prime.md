@@ -31,6 +31,7 @@ $O(\sqrt{N})$
   - http://joisino.hatenablog.com/entry/2017/08/03/210000
   - http://www.prefield.com/algorithm/math/isprime.html
   - https://tubo28.me/compprog/algorithm/miller-rabin/
+  - https://sotanishy.github.io/cp-library-cpp/math/fast_prime.cpp
   - https://yukicoder.me/problems/1967
 - ガウス素数
   - https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A6%E3%82%B9%E6%95%B4%E6%95%B0

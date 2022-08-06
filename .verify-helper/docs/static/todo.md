@@ -11,6 +11,7 @@
 - https://en.wikipedia.org/wiki/Cartesian_tree
 - https://kmyk.github.io/blog/blog/2020/07/27/recursion-on-cartesian-tree/
 - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/cartesian_tree.cc
+- https://sotanishy.github.io/cp-library-cpp/tree/cartesian_tree.cpp
 - https://judge.yosupo.jp/problem/cartesian_tree
 
 
@@ -30,6 +31,7 @@
 - https://codeforces.com/blog/entry/22811
 - http://sigma425.hatenablog.com/entry/2015/12/25/224053
 - https://github.com/ei1333/library/blob/master/graph/others/dominator-tree.hpp
+- https://sotanishy.github.io/cp-library-cpp/graph/dominator_tree.cpp
 - https://judge.yosupo.jp/problem/dominatortree
 
 
@@ -38,6 +40,7 @@
 ## ToDo
 - https://en.wikipedia.org/wiki/Dulmage%E2%80%93Mendelsohn_decomposition
 - https://hitonanode.github.io/cplib-cpp/graph/dulmage_mendelsohn_decomposition.hpp
+- https://sotanishy.github.io/cp-library-cpp/flow/dm_decomposition.cpp
 - https://yukicoder.me/problems/no/1615
 - https://atcoder.jp/contests/abc223/tasks/abc223_g
 - https://icpc.iisf.or.jp/past-icpc/domestic2021/contest/all_ja.html#section_F
@@ -91,6 +94,9 @@
 - ~~https://lumakernel.github.io/ecasdqina/data-structure/misc/LinkCutTree~~
 - https://github.com/spaghetti-source/algorithm/blob/master/graph/link_cut_tree.cc
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!LinkCutTree.cpp~~
+- https://mugen1337.github.io/procon/Tree/LinkCutTree.cpp
+- https://mugen1337.github.io/procon/Tree/LazyLinkCutTree.cpp
+- https://sotanishy.github.io/cp-library-cpp/tree/link_cut_tree.cpp
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/Mi_Sawa/20140320.html
 - https://www.youtube.com/watch?v=sAN6hdpzhBE
 - https://judge.yosupo.jp/problem/vertex_set_path_composite
@@ -156,6 +162,8 @@
 ## ToDo
 - https://scrapbox.io/data-structures/Sliding_Window_Aggregation
 - https://github.com/ei1333/library/blob/master/structure/others/sliding-window-aggregation.cpp
+- https://mugen1337.github.io/procon/DataStructure/SlidingWindowAgregation.cpp
+- https://sotanishy.github.io/cp-library-cpp/data-structure/sliding_window_aggregation.cpp
 - https://judge.yosupo.jp/problem/queue_operate_all_composite
 
 
@@ -183,6 +191,7 @@
 
 ## ToDo
 - https://www.slideshare.net/catupper/trianguler
+- https://sotanishy.github.io/cp-library-cpp/graph/enumerate_triangles.cpp
 - https://github.com/yosupo06/library-checker-problems/issues/442
 
 
@@ -228,6 +237,7 @@
 - https://github.com/beet-aizu/library/blob/master/datastructure/waveletmatrix.cpp
 - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/wavelet_matrix.cc
 - https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletMatrix.cpp
+- https://sotanishy.github.io/cp-library-cpp/data-structure/wavelet_matrix.cpp
 - https://ferin-tech.hatenablog.com/entry/2019/11/09/yukicoder_No.924_%E7%B4%B2%E6%98%9F
 - https://wiki.kimiyuki.net/wavelet%20matrix
 - https://noshi91.hatenablog.com/entry/2021/06/02/165408
@@ -245,15 +255,21 @@
 - https://drive.google.com/file/d/1NQb6ZXrPZuWI0gNBhJUQAvONjGqFxgUX
 
 
-# 永続配列 (persistent array)
+# 永続データ構造 (persistent data structure)
 
 ## ToDo
 - https://www.slideshare.net/qnighy/re-15443018
 - https://trap.jp/post/663/
 - https://qiita.com/hotman78/items/9c643feae1de087e6fc5
-- https://37zigen.com/persistent-array/
-- https://ei1333.github.io/luzhiled/snippets/structure/persistent-array.html
-- https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_array.cc
+- 永続配列 (persistent array)
+  - https://37zigen.com/persistent-array/
+  - https://ei1333.github.io/luzhiled/snippets/structure/persistent-array.html
+  - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_array.cc
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/persistent_array.cpp
+- 永続キュー
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/persistent_queue.cpp
+- 永続スタック
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/persistent_stack.cpp
 
 
 # 階乗 (factorial)
@@ -287,6 +303,7 @@ $$
 - https://drive.google.com/file/d/167ZbJaMlaqsu5PxfrS2pqb7uOVLrqj5Z
 - https://atcoder.jp/contests/joi2015ho/submissions/27476606
 - https://twitter.com/noimi_kyopro/status/1462789725161287681
+- https://sotanishy.github.io/cp-library-cpp/data-structure/bit_vector.cpp
 
 
 # 木の同型判定
@@ -433,6 +450,9 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
     - https://scrapbox.io/data-structures/Leftist_Heap
     - ~~https://lumakernel.github.io/ecasdqina/data-structure/Heap/LeftistHeap~~
     - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/leftist_heap.cc
+    - https://mugen1337.github.io/procon/Heap/LeftistHeap.cpp
+    - https://mugen1337.github.io/procon/Heap/PersistentLeftistHeap.cpp
+    - https://sotanishy.github.io/cp-library-cpp/data-structure/leftist_heap.cpp
   - pairing heap
     - https://en.wikipedia.org/wiki/Pairing_heap
     - https://scrapbox.io/data-structures/Pairing_Heap
@@ -476,6 +496,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - https://github.com/primenumber/ProconLib/blob/master/Structure/RBST.cpp
   - https://tjkendev.github.io/procon-library/python/binary_search_tree/RBST.html
   - http://h0rnet.hatenablog.com/entry/2016/02/07/Randomized_binary_search_tree_2
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/bst/rbst.cpp
 - 赤黒木 (red-black tree)
   - https://ja.wikipedia.org/wiki/%E8%B5%A4%E9%BB%92%E6%9C%A8
   - http://wwwa.pikara.ne.jp/okojisan/rb-tree/index.html
@@ -487,6 +508,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - http://omochan.hatenablog.com/entry/2017/09/12/231111
   - http://shifth.hatenablog.com/entry/2015/05/10/103528
   - https://codeforces.com/contest/785/submission/25528555
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/bst/red_black_tree.cpp
 - treap
   - https://ja.wikipedia.org/wiki/Treap
   - https://xuzijian629.hatenablog.com/entry/2018/12/08/000452
@@ -499,6 +521,14 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - https://codeforces.com/contest/785/submission/25530899
   - https://algoogle.hadrori.jp/algorithm/treap.html
   - https://tjkendev.github.io/procon-library/python/binary_search_tree/treap.html
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/bst/treap.cpp
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/bst/lazy_treap.cpp
+  - implicit treap
+    - https://en.wikipedia.org/wiki/Treap#Implicit_treap
+    - https://xuzijian629.hatenablog.com/entry/2019/10/25/234938
+    - https://competitive12.blogspot.com/2019/03/implicit-treap.html
+    - https://mugen1337.github.io/procon/BinarySearchTree/ImplicitTreap.cpp
+    - https://mugen1337.github.io/procon/BinarySearchTree/ImplicitTreapWithLazy.cpp
 - AVL 木 (Adelson-Velskii and Landis' tree)
   - https://ja.wikipedia.org/wiki/AVL%E6%9C%A8
   - http://wwwa.pikara.ne.jp/okojisan/avl-tree/index.html
@@ -512,6 +542,9 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - ~~http://www.prefield.com/algorithm/container/splay_tree.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/splay_tree.cc
   - https://www.youtube.com/watch?v=M6LcINhgXeM
+  - https://mugen1337.github.io/procon/BinarySearchTree/SplayTree.cpp
+  - https://mugen1337.github.io/procon/BinarySearchTree/SplayTree_dev.cpp
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/bst/splay_tree.cpp
 - 永続平衡二分探索木
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23PersistentBinarySearchTree.cpp~~
   - 永続赤黒木

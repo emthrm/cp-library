@@ -29,6 +29,7 @@ $O(N)$
   - https://rsk0315.hatenablog.com/entry/2021/05/18/015511
   - https://rsk0315.github.io/slides/prime-counting.pdf
   - https://suu-0313.hatenablog.com/entry/2021/09/14/225759
+  - https://sotanishy.github.io/cp-library-cpp/math/prime_count.hpp
   - https://judge.yosupo.jp/problem/counting_primes
 
 

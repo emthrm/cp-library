@@ -39,6 +39,8 @@ $O(N \log{\mathrm{lcm}(m_1, m_2, \ldots, m_N)})$
   - http://kirika-comp.hatenablog.com/entry/2017/12/18/143923
   - ~~http://sugarknri.hatenablog.com/entry/2018/06/28/144407~~
   - ~~https://lumakernel.github.io/ecasdqina/math/number-theory/Garner~~
+  - https://mugen1337.github.io/procon/Math/Garner.cpp
+  - https://sotanishy.github.io/cp-library-cpp/math/garner.cpp
   - https://cp-algorithms.com/algebra/chinese-remainder-theorem.html
   - http://flex.phys.tohoku.ac.jp/~maru/implementations/garner.php
 

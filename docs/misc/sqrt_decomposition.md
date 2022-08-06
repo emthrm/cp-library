@@ -37,6 +37,7 @@ $\langle O(N), O(\sqrt{N}) \rangle$
   - https://dic.kimiyuki.net/auxiliary-tree
   - https://www.slideshare.net/iwiwi/2-12188845/7
   - http://drken1215.hatenablog.com/entry/2018/08/14/193500
+  - https://sotanishy.github.io/cp-library-cpp/tree/auxiliary_tree.cpp
   - https://atcoder.jp/contests/typical90/tasks/typical90_ai
 - 木の平方分割
   - http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376

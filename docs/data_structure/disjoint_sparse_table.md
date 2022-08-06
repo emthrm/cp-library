@@ -25,6 +25,16 @@ $\langle O(N\log{N}), O(1) \rangle$
 - https://github.com/drken1215/algorithm/blob/f65b8a3b2603f5efb10a8a912c2403b404c29813/DataStructure/disjoint_sparse_table.cpp
 
 
+## ToDo
+
+- sqrt-tree
+  - https://codeforces.com/blog/entry/57046
+  - https://qiita.com/sotanishy/items/89f4dd452bcddd332f24
+  - https://cp-algorithms.com/data_structures/sqrt-tree.html
+  - https://qiita.com/sotanishy/items/89f4dd452bcddd332f24
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/sqrt_tree.cpp
+
+
 ## Verified
 
 https://judge.yosupo.jp/submission/2718
