@@ -184,7 +184,7 @@ documentation_of: math/formal_power_series/formal_power_series.hpp
 - [指数](https://judge.yosupo.jp/submission/3788)
 - [逆元](https://judge.yosupo.jp/submission/3787)
 - [対数](https://judge.yosupo.jp/submission/3790)
-- [累乗](https://judge.yosupo.jp/submission/7464)
+- [累乗](https://judge.yosupo.jp/submission/99390)
 - [`mod_pow(exponent, md)`](https://atcoder.jp/contests/abc135/submissions/10197576)
 - [平方根](https://judge.yosupo.jp/submission/3786)
 - [`translate(c)`](https://judge.yosupo.jp/submission/8212)

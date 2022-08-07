@@ -19,7 +19,8 @@ int main() {
         static NumberTheoreticTransform<0> ntt;
         return ntt.convolution(a, b);
       });
-  int n, m;
+  int n;
+  long long m;
   std::cin >> n >> m;
   FormalPowerSeries<ModInt> a(n - 1);
   for (int i = 0; i < n; ++i) {

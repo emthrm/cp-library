@@ -199,10 +199,16 @@ struct FormalPowerSeries {
   FormalPowerSeries pow(long long exponent, int deg = -1) const {
     const int n = coef.size();
     if (deg == -1) deg = n - 1;
+    if (exponent == 0) {
+      FormalPowerSeries res(deg);
+      if (deg != -1) res[0] = 1;
+      return res;
+    }
+    assert(deg >= 0);
     for (int i = 0; i < n; ++i) {
       if (coef[i] == 0) continue;
+      if (i > deg / exponent) break;
       const long long shift = exponent * i;
-      if (shift > deg) break;
       T tmp = 1, base = coef[i];
       for (long long e = exponent; e > 0; e >>= 1) {
         if (e & 1) tmp *= base;
