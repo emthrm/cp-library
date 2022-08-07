@@ -395,7 +395,7 @@ data:
     - icon: ':question:'
       path: math/convolution/mod_convolution.hpp
       title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/convolution/number_theoretic_transform.hpp
       title: "\u6570\u8AD6\u5909\u63DB"
     - icon: ':warning:'
@@ -441,7 +441,7 @@ data:
       path: math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
       title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
         \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: math/formal_power_series/formal_power_series.hpp
       title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
     - icon: ':heavy_check_mark:'
@@ -1232,7 +1232,7 @@ data:
       path: test/math/formal_power_series/formal_power_series.3.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u5BFE\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.4.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u7D2F\u4E57)"

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy:
@@ -106,12 +106,14 @@ data:
     \ = deg; i > 0; --i) {\n      integrand[i] = integrand[i - 1] / i;\n    }\n  \
     \  integrand[0] = 0;\n    return integrand;\n  }\n\n  FormalPowerSeries pow(long\
     \ long exponent, int deg = -1) const {\n    const int n = coef.size();\n    if\
-    \ (deg == -1) deg = n - 1;\n    for (int i = 0; i < n; ++i) {\n      if (coef[i]\
-    \ == 0) continue;\n      const long long shift = exponent * i;\n      if (shift\
-    \ > deg) break;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent;\
-    \ e > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n\
-    \      }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg\
-    \ - shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
+    \ (deg == -1) deg = n - 1;\n    if (exponent == 0) {\n      FormalPowerSeries\
+    \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
+    \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
+    \      if (i > deg / exponent) break;\n      const long long shift = exponent\
+    \ * i;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent; e\
+    \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
+    \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
+    \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
     \    }\n    return FormalPowerSeries(deg);\n  }\n\n  FormalPowerSeries mod_pow(long\
     \ long exponent,\n                            const FormalPowerSeries& md) const\
     \ {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
@@ -177,7 +179,7 @@ data:
   path: math/formal_power_series/bernoulli_number.hpp
   requiredBy:
   - math/formal_power_series/faulhaber_by_fps.hpp
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-08-08 06:04:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp

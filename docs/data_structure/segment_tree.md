@@ -151,6 +151,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
+  - https://judge.yosupo.jp/problem/range_affine_point_get
 - 区間等差数列加算クエリ / 区間等差数列更新クエリ
   - https://null-mn.hatenablog.com/entry/2021/08/22/064325
   - https://twitter.com/yosupot/status/1104175527923986432

@@ -80,4 +80,4 @@ $O(N\log{N})$
 
 ## Verified
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_1_D/review/4082142/emthrm/C++14
+https://judge.yosupo.jp/submission/99391

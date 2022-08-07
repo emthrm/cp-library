@@ -58,7 +58,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u7D2F\u4E57)"
@@ -94,9 +94,9 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/formal_power_series/formal_power_series.hpp\"\n#include\
@@ -180,12 +180,14 @@ data:
     \ = deg; i > 0; --i) {\n      integrand[i] = integrand[i - 1] / i;\n    }\n  \
     \  integrand[0] = 0;\n    return integrand;\n  }\n\n  FormalPowerSeries pow(long\
     \ long exponent, int deg = -1) const {\n    const int n = coef.size();\n    if\
-    \ (deg == -1) deg = n - 1;\n    for (int i = 0; i < n; ++i) {\n      if (coef[i]\
-    \ == 0) continue;\n      const long long shift = exponent * i;\n      if (shift\
-    \ > deg) break;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent;\
-    \ e > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n\
-    \      }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg\
-    \ - shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
+    \ (deg == -1) deg = n - 1;\n    if (exponent == 0) {\n      FormalPowerSeries\
+    \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
+    \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
+    \      if (i > deg / exponent) break;\n      const long long shift = exponent\
+    \ * i;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent; e\
+    \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
+    \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
+    \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
     \    }\n    return FormalPowerSeries(deg);\n  }\n\n  FormalPowerSeries mod_pow(long\
     \ long exponent,\n                            const FormalPowerSeries& md) const\
     \ {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
@@ -314,12 +316,14 @@ data:
     \ = deg; i > 0; --i) {\n      integrand[i] = integrand[i - 1] / i;\n    }\n  \
     \  integrand[0] = 0;\n    return integrand;\n  }\n\n  FormalPowerSeries pow(long\
     \ long exponent, int deg = -1) const {\n    const int n = coef.size();\n    if\
-    \ (deg == -1) deg = n - 1;\n    for (int i = 0; i < n; ++i) {\n      if (coef[i]\
-    \ == 0) continue;\n      const long long shift = exponent * i;\n      if (shift\
-    \ > deg) break;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent;\
-    \ e > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n\
-    \      }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg\
-    \ - shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
+    \ (deg == -1) deg = n - 1;\n    if (exponent == 0) {\n      FormalPowerSeries\
+    \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
+    \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
+    \      if (i > deg / exponent) break;\n      const long long shift = exponent\
+    \ * i;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent; e\
+    \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
+    \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
+    \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
     \    }\n    return FormalPowerSeries(deg);\n  }\n\n  FormalPowerSeries mod_pow(long\
     \ long exponent,\n                            const FormalPowerSeries& md) const\
     \ {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
@@ -380,8 +384,8 @@ data:
   - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-08-08 06:04:36+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
   - test/math/formal_power_series/formal_power_series.2.test.cpp
@@ -585,7 +589,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 - [指数](https://judge.yosupo.jp/submission/3788)
 - [逆元](https://judge.yosupo.jp/submission/3787)
 - [対数](https://judge.yosupo.jp/submission/3790)
-- [累乗](https://judge.yosupo.jp/submission/7464)
+- [累乗](https://judge.yosupo.jp/submission/99390)
 - [`mod_pow(exponent, md)`](https://atcoder.jp/contests/abc135/submissions/10197576)
 - [平方根](https://judge.yosupo.jp/submission/3786)
 - [`translate(c)`](https://judge.yosupo.jp/submission/8212)

@@ -36,7 +36,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u7D2F\u4E57)"
@@ -68,9 +68,9 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/number_theoretic_transform.md
     document_title: "\u6570\u8AD6\u5909\u63DB"
@@ -138,7 +138,7 @@ data:
   path: math/convolution/number_theoretic_transform.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp

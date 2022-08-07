@@ -134,6 +134,7 @@ title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u724
   - https://twitter.com/GauravML/status/1415073033522319367
   - https://twitter.com/keijak/status/1510953079872663555
   - https://github.com/noshi91/n91lib_rs/blob/master/src/data_structure/level_ancestor.rs
+  - https://judge.yosupo.jp/problem/jump_on_tree
 
 
 ## Verified

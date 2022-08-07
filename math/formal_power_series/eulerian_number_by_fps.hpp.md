@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/eulerian_number_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-08-08 06:04:36+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/formal_power_series/eulerian_number_by_fps.hpp

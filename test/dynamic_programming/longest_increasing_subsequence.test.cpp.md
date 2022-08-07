@@ -11,11 +11,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D
+    PROBLEM: https://judge.yosupo.jp/problem/longest_increasing_subsequence
     document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5897\u52A0\u90E8\
       \u5206\u5217"
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D
+    - https://judge.yosupo.jp/problem/longest_increasing_subsequence
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.5/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -27,17 +27,20 @@ data:
     \ dynamic_programming/longest_increasing_subsequence.hpp: line 6: #pragma once\
     \ found in a non-first line\n"
   code: "/*\n * @brief \u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5897\u52A0\u90E8\
-    \u5206\u5217\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D\"\
+    \u5206\u5217\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/longest_increasing_subsequence\"\
     \n\n#include <iostream>\n#include <vector>\n\n#include \"../../dynamic_programming/longest_increasing_subsequence.hpp\"\
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a(n);\n  for\
-    \ (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  std::cout << longest_increasing_subsequence(a).size()\
-    \ << '\\n';\n  return 0;\n}\n"
+    \ (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  std::vector<int> ans;\n\
+    \  int i = 0;\n  for (const int lis_i : longest_increasing_subsequence(a)) {\n\
+    \    while (a[i] != lis_i) ++i;\n    ans.emplace_back(i++);\n  }\n  const int\
+    \ k = ans.size();\n  std::cout << k << '\\n';\n  for (int i = 0; i < k; ++i) {\n\
+    \    std::cout << ans[i] << \" \\n\"[i + 1 == k];\n  }\n  return 0;\n}\n"
   dependsOn:
   - dynamic_programming/longest_increasing_subsequence.hpp
   isVerificationFile: true
   path: test/dynamic_programming/longest_increasing_subsequence.test.cpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-08-08 06:23:21+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/longest_increasing_subsequence.test.cpp

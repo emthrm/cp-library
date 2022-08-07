@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: math/formal_power_series/bernoulli_number.hpp
     title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: math/formal_power_series/faulhaber_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-08-08 06:04:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp

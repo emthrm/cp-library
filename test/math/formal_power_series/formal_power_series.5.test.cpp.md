@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -63,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-08-08 06:04:36+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp
