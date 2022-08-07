@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
@@ -11,7 +11,7 @@ data:
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []
@@ -228,6 +228,9 @@ Hopcroft–Karp algorithm
   - https://ei1333.github.io/luzhiled/snippets/graph/maximum-independent-set.html
   - https://github.com/ei1333/library/blob/master/graph/others/maximum-independent-set.hpp
   - https://github.com/primenumber/ProconLib/blob/master/Graph/MaximumIndependentSet.cpp
+  - https://mugen1337.github.io/procon/Graph2/WeightedMaximumIndependentSet.cpp
+  - https://sotanishy.github.io/cp-library-cpp/graph/maximum_independent_set.cpp
+  - https://sotanishy.github.io/cp-library-cpp/graph/maximum_weight_independent_set.hpp
   - https://judge.yosupo.jp/problem/maximum_independent_set
 - 木上の独立集合
   - https://github.com/noshi91/blog/tree/master/codes/typical90/
@@ -252,9 +255,12 @@ Hopcroft–Karp algorithm
   - https://ja.wikipedia.org/wiki/%E5%AE%89%E5%AE%9A%E7%B5%90%E5%A9%9A%E5%95%8F%E9%A1%8C
   - https://mathtrain.jp/galeshapley
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!StableMatching.cpp~~
+  - https://sotanishy.github.io/cp-library-cpp/misc/stable_matching.hpp
 - FKT algorithm
   - https://en.wikipedia.org/wiki/FKT_algorithm
   - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf
+- クリークの列挙
+  - https://sotanishy.github.io/cp-library-cpp/graph/enumerate_cliques.cpp
 
 
 ## Verified

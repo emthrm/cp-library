@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/enumerate_quotients.hpp
     title: "\u5546\u306E\u5217\u6319"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc230/tasks/abc230_e
@@ -40,7 +40,7 @@ data:
   path: test/math/enumerate_quotients.test.cpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/enumerate_quotients.test.cpp
 layout: document

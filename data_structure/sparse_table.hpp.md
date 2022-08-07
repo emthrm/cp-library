@@ -6,7 +6,7 @@ data:
     path: graph/tree/lowest_common_ancestor_by_euler_tour.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/longest_common_prefix.hpp
     title: longest common prefix
   _extendedVerifiedWith:
@@ -17,12 +17,12 @@ data:
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/sparse_table.hpp\"\n#include <algorithm>\n\
@@ -62,7 +62,7 @@ data:
   - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - string/longest_common_prefix.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/string/longest_common_prefix.test.cpp

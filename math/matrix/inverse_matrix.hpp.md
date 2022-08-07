@@ -6,12 +6,12 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/matrix/inverse_matrix.hpp\"\n#include <algorithm>\n\
@@ -77,7 +77,7 @@ data:
   path: math/matrix/inverse_matrix.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/inverse_matrix.test.cpp
 documentation_of: math/matrix/inverse_matrix.hpp

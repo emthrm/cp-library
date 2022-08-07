@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_inv.hpp
     title: "\u9006\u5143 (inverse element)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/chinese_remainder_theorem.test.cpp
     title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/chinese_remainder_theorem.hpp\"\n#include <algorithm>\n\
@@ -46,7 +46,7 @@ data:
   path: math/chinese_remainder_theorem.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp
 documentation_of: math/chinese_remainder_theorem.hpp
@@ -90,6 +90,8 @@ $O(N \log{\mathrm{lcm}(m_1, m_2, \ldots, m_N)})$
   - http://kirika-comp.hatenablog.com/entry/2017/12/18/143923
   - ~~http://sugarknri.hatenablog.com/entry/2018/06/28/144407~~
   - ~~https://lumakernel.github.io/ecasdqina/math/number-theory/Garner~~
+  - https://mugen1337.github.io/procon/Math/Garner.cpp
+  - https://sotanishy.github.io/cp-library-cpp/math/garner.cpp
   - https://cp-algorithms.com/algebra/chinese-remainder-theorem.html
   - http://flex.phys.tohoku.ac.jp/~maru/implementations/garner.php
 

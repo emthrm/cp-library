@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/subsequence_dp.test.cpp
     title: "\u6587\u5B57\u5217/\u90E8\u5206\u5217 DP"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/subsequence_dp.hpp\"\n#include <algorithm>\n#include\
@@ -30,7 +30,7 @@ data:
   path: string/subsequence_dp.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/subsequence_dp.test.cpp
 documentation_of: string/subsequence_dp.hpp

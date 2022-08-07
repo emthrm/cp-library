@@ -13,26 +13,26 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/subset_sum_problem.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/number_theoretic_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u9006\u5143)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
@@ -40,30 +40,30 @@ data:
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u7D2F\u4E57)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (translate(c))"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
@@ -215,6 +215,7 @@ e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
 任意の法の下での畳み込み
 - ~~https://min-25.hatenablog.com/entry/2017/09/23/085053~~
 - https://ei1333.github.io/luzhiled/snippets/math/arbitrary-mod-convolution.html
+- https://sotanishy.github.io/cp-library-cpp/convolution/arbitrary_mod_convolution.hpp
 
 
 ## ToDo

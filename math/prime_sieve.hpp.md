@@ -5,43 +5,43 @@ data:
   - icon: ':warning:'
     path: math/carmichael_function_init.hpp
     title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/euler_phi/euler_phi_init2.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
       2"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mobius_mu/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/osa_k.hpp
     title: "osa_k \u6CD5"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/euler_phi/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/fast_divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/mobius_mu/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/osa_k.test.cpp
     title: "\u6570\u5B66/osa_k \u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/prime_sieve.test.cpp
     title: "\u6570\u5B66/prime sieve"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/prime_sieve.hpp\"\n#include <numeric>\n#include <vector>\n\
@@ -70,7 +70,7 @@ data:
   - math/enumerate_k-th_power.hpp
   - math/mobius_mu/mobius_mu_init2.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
   - test/math/fast_divisor.test.cpp
@@ -109,6 +109,7 @@ $O(N)$
   - https://rsk0315.hatenablog.com/entry/2021/05/18/015511
   - https://rsk0315.github.io/slides/prime-counting.pdf
   - https://suu-0313.hatenablog.com/entry/2021/09/14/225759
+  - https://sotanishy.github.io/cp-library-cpp/math/prime_count.hpp
   - https://judge.yosupo.jp/problem/counting_primes
 
 

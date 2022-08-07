@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/multipoint_evaluation.hpp
     title: multipoint evaluation
   - icon: ':question:'
@@ -15,9 +15,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/multipoint_evaluation
@@ -59,7 +59,7 @@ data:
   path: test/math/formal_power_series/multipoint_evaluation.test.cpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/multipoint_evaluation.test.cpp
 layout: document

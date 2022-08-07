@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/rational.test.cpp
     title: "\u6570\u5B66/\u6709\u7406\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/rational.hpp\"\n#include <algorithm>\n// #include <cassert>\n\
@@ -97,7 +97,7 @@ data:
   path: math/rational.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/rational.test.cpp
 documentation_of: math/rational.hpp
@@ -120,11 +120,13 @@ title: "\u6709\u7406\u6570 (rational number)"
   - http://blue-jam.hatenablog.com/entry/20110306/1299415086
   - http://www.prefield.com/algorithm/math/stern_brocot_tree.html
   - https://tjkendev.github.io/procon-library/python/math/stern-brocot-tree.html
+  - https://sotanishy.github.io/cp-library-cpp/math/stern_brocot_tree.hpp
   - https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184
 - ファレイ数列 (Farey sequence)
   - https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%AC%E3%82%A4%E6%95%B0%E5%88%97
   - https://mathtrain.jp/farey
   - http://kagamiz.hatenablog.com/entry/2012/12/01/225751
+  - https://sotanishy.github.io/cp-library-cpp/math/farey_sequence.hpp
 - 連分数 (continued fraction)
   - https://ja.wikipedia.org/wiki/%E9%80%A3%E5%88%86%E6%95%B0
   - https://mathtrain.jp/renbunsu

@@ -134,6 +134,9 @@ $xy$ 平面上の直線集合 $L$ を考える．
 - 直線を削除できる．
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/RemovableCHT~~
   - https://codeforces.com/blog/entry/60514
+  - オフライン版
+    - https://mugen1337.github.io/procon/DataStructure/DeletableLiChaoTreeOffline.cpp
+    - https://sotanishy.github.io/cp-library-cpp/data-structure/cht/offline_deletable_convex_hull_trick.cpp.html
 - 追加する直線の傾きに単調性が必要ない．
   - https://sune2.hatenadiary.org/entry/20140310/1394440369
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/CHT-Ex~~

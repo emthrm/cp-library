@@ -1,21 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/1409
@@ -66,7 +66,7 @@ data:
   path: test/math/enumerate_k-th_power.test.cpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/enumerate_k-th_power.test.cpp
 layout: document

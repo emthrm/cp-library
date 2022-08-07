@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
       \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/lagrange_interpolation2.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u72482"
   - icon: ':question:'
@@ -13,9 +13,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/665
@@ -50,7 +50,7 @@ data:
   path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
 layout: document

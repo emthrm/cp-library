@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (inversion number)"
   _extendedVerifiedWith:
@@ -12,10 +12,10 @@ data:
   - icon: ':x:'
     path: test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (lower_bound(val))"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
   _isVerificationFailed: true

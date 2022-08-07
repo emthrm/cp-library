@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
@@ -10,12 +10,12 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/matrix/linear_equation.hpp\"\n#include <algorithm>\n\
@@ -87,7 +87,7 @@ data:
   path: math/matrix/linear_equation.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
 documentation_of: math/matrix/linear_equation.hpp
@@ -110,6 +110,7 @@ $O(M^2 N)$
 
 ## ToDo
 
+- https://sotanishy.github.io/cp-library-cpp/math/system_of_linear_equations.cpp
 - https://judge.yosupo.jp/problem/system_of_linear_equations
 - LU 分解
   - https://ja.wikipedia.org/wiki/LU%E5%88%86%E8%A7%A3

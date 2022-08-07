@@ -131,6 +131,7 @@ Dijkstra 法
   - https://en.wikipedia.org/wiki/Yen%27s_algorithm
   - https://dic.kimiyuki.net/yen-algorithm
   - http://inarizuuuushi.hatenablog.com/entry/2018/08/30/222605
+  - https://mugen1337.github.io/procon/Graph2/Yen.cpp
   - https://yukicoder.me/problems/no/1069
 - k shortest walk (Eppstein's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing#Variations
@@ -139,6 +140,7 @@ Dijkstra 法
   - https://qiita.com/nariaki3551/items/0ab83541814f98eab322
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
+  - https://mugen1337.github.io/procon/Graph2/Eppstein.cpp
   - https://judge.yosupo.jp/problem/k_shortest_walk
 - $O(\sqrt{N}M\log{C})$
   - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/misc/sqrt_decomposition.test.cpp
     title: "\u305D\u306E\u4ED6/\u5E73\u65B9\u5206\u5272"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"misc/sqrt_decomposition.hpp\"\n#include <cmath>\n#include\
@@ -74,7 +74,7 @@ data:
   path: misc/sqrt_decomposition.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/misc/sqrt_decomposition.test.cpp
 documentation_of: misc/sqrt_decomposition.hpp
@@ -116,6 +116,7 @@ $\langle O(N), O(\sqrt{N}) \rangle$
   - https://dic.kimiyuki.net/auxiliary-tree
   - https://www.slideshare.net/iwiwi/2-12188845/7
   - http://drken1215.hatenablog.com/entry/2018/08/14/193500
+  - https://sotanishy.github.io/cp-library-cpp/tree/auxiliary_tree.cpp
   - https://atcoder.jp/contests/typical90/tasks/typical90_ai
 - 木の平方分割
   - http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376

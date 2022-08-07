@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/fast_mobius_transform.hpp
     title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/convolution/fast_zeta_transform.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
   _extendedRequiredBy: []
@@ -170,6 +170,7 @@ $O(N\log{N})$
   - https://twitter.com/_su1sen/status/1425871066916790281
   - https://atcoder.jp/contests/abc213/submissions/24925408
   - https://atcoder.jp/contests/abc213/submissions/24953805
+  - https://sotanishy.github.io/cp-library-cpp/convolution/subset_convolution.hpp
   - https://atcoder.jp/contests/abc236/tasks/abc236_h
   - https://twitter.com/noshi91/status/1485246655419260939
   - https://yukicoder.me/problems/no/1901

@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/longest_common_prefix.hpp
     title: longest common prefix
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/suffix_array.test.cpp
     title: "\u6587\u5B57\u5217/\u63A5\u5C3E\u8F9E\u914D\u5217"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/suffix_array.hpp\"\n#include <algorithm>\n#include\
@@ -82,7 +82,7 @@ data:
   requiredBy:
   - string/longest_common_prefix.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/longest_common_prefix.test.cpp
   - test/string/suffix_array.test.cpp

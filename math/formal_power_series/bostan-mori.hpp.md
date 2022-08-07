@@ -2,17 +2,17 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
     title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217\u306E\u7B2C $N$ \u9805"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/formal_power_series/bostan-mori.md
     document_title: "Bostan\u2013Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
@@ -45,7 +45,7 @@ data:
   requiredBy:
   - math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/bostan-mori.test.cpp
 documentation_of: math/formal_power_series/bostan-mori.hpp

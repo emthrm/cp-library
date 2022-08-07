@@ -6,34 +6,34 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.01.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.02.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u52A0\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.03.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6E1B\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.04.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.05.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u9664\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.06.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.07.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)"
   - icon: ':x:'
     path: test/math/bigint.08.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u51AA\u6F14\u7B97)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.09.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u548C)"
   - icon: ':x:'
     path: test/math/bigint.10.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/pascal.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\
       \u89D2\u5F62"

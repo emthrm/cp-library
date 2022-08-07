@@ -2,22 +2,22 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/chinese_remainder_theorem.hpp
     title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/simultaneous_linear_congruence.hpp
     title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/chinese_remainder_theorem.test.cpp
     title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/simultaneous_linear_congruence.test.cpp
     title: "\u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/mod_inv.hpp\"\n#include <algorithm>\n#include <utility>\n\
@@ -39,7 +39,7 @@ data:
   - math/chinese_remainder_theorem.hpp
   - math/simultaneous_linear_congruence.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp
   - test/math/simultaneous_linear_congruence.test.cpp

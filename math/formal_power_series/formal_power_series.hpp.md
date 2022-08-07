@@ -5,27 +5,27 @@ data:
   - icon: ':heavy_check_mark:'
     path: dynamic_programming/subset_sum_problem.hpp
     title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/bernoulli_number.hpp
     title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
   - icon: ':warning:'
     path: math/formal_power_series/eulerian_number_by_fps.hpp
     title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/faulhaber_by_fps.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
       \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':warning:'
     path: math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
     title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/partition_function_by_fps.hpp
     title: "\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
     title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
@@ -33,28 +33,28 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/subset_sum_problem.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u9006\u5143)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
@@ -62,34 +62,34 @@ data:
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u7D2F\u4E57)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow(exponend, md))"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (translate(c))"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
@@ -441,6 +441,16 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
     \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
   $$
 
+- 係数の和
+
+  $n$ を素数，$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと，
+
+  $$
+    \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
+  $$
+
+  が成り立つ．
+
 
 ## 時間計算量
 
@@ -509,6 +519,9 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 - https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
 - https://yukicoder.me/wiki/polynomial_techniques
 
+係数の和
+- https://www.youtube.com/watch?v=bOXCLR3Wric
+
 
 ## ToDo
 
@@ -542,6 +555,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://mathlog.info/articles/607
   - https://mathworld.wolfram.com/LagrangeInversionTheorem.html
   - https://twitter.com/kobae964/status/1466770150108311555
+  - https://sotanishy.github.io/cp-library-cpp/misc/memo.hpp
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/kobae964/status/1446833320919064577
   - https://kmjp.hatenablog.jp/entry/2021/10/11/1030

@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/berlekamp-massey.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Berlekamp\u2013Massey\
       \ algorithm"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/formal_power_series/berlekamp-massey.hpp\"\n#include\
@@ -42,7 +42,7 @@ data:
   path: math/formal_power_series/berlekamp-massey.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/berlekamp-massey.test.cpp
 documentation_of: math/formal_power_series/berlekamp-massey.hpp

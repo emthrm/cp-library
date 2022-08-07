@@ -12,12 +12,12 @@ data:
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/matrix/determinant.hpp\"\n#include <algorithm>\n#include\
@@ -76,7 +76,7 @@ data:
   requiredBy:
   - graph/matrix_tree_theorem.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/determinant.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp

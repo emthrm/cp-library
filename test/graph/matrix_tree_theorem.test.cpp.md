@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':question:'
     path: math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'

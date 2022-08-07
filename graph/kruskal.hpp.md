@@ -107,6 +107,7 @@ Kruskal 法
   - https://www.slideshare.net/wata_orz/ss-12131479
   - http://www.prefield.com/algorithm/dp/steiner_tree.html
   - http://monyone.github.io/teihen_library/#MinimumSteinerTree
+  - https://sotanishy.github.io/cp-library-cpp/graph/minimum_steiner_tree.hpp
 - 最小全域有向木
   - https://37zigen.com/gabow-galil-spencer-tarjan/
   - https://dic.kimiyuki.net/chu-liu-edmonds
@@ -124,6 +125,7 @@ Kruskal 法
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/arborescence2.cc
   - https://github.com/primenumber/ProconLib/blob/master/Graph/MinimumArborescence.cpp
   - https://gist.github.com/tjkendev/231897301fde67d4a81f51c3f0873936
+  - https://sotanishy.github.io/cp-library-cpp/graph/minimum_spanning_arborescence.cpp
   - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_B
   - https://judge.yosupo.jp/problem/directedmst
 - minimum diameter spanning tree

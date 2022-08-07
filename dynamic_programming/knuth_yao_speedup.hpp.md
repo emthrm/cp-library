@@ -132,6 +132,8 @@ Monge property
     - https://ei1333.github.io/luzhiled/snippets/dp/hu-tucker.html
     - https://github.com/beet-aizu/library/blob/master/algorithm/optimalbinarytree.cpp
     - ~~https://lumakernel.github.io/ecasdqina/algorithm/Hu-Tucker~~
+    - https://mugen1337.github.io/procon/Algorithm/hu_tucker.cpp
+    - https://sotanishy.github.io/cp-library-cpp/dp/hu_tucker.cpp
     - https://atcoder.jp/contests/kupc2012/submissions/29656
 - Monge property の確認
   - https://twitter.com/catupper/status/1379083352725024769
@@ -153,6 +155,7 @@ Monge property
   - https://github.com/beet-aizu/library/blob/master/algorithm/monotoneminima.cpp
   - ~~https://lumakernel.github.io/ecasdqina/math/Monge~~
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/speedup/Monotone-Minima~~
+  - https://sotanishy.github.io/cp-library-cpp/dp/monotone_minima.cpp
   - http://sigma425.hatenablog.com/entry/2015/12/01/162720
   - https://docs.google.com/presentation/d/1cgPtVG4j4Ima6Exf_Kw1IdYVfmfDJSGwaEgOMgPkWHg/
 - SMAWK algorithm: totally monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n)$ 時間で求めるアルゴリズム
@@ -161,6 +164,7 @@ Monge property
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://drive.google.com/drive/folders/1FMOglXlDlyg6FJiP5QTJ0iSMq7XA2mqy
   - https://noshi91.github.io/Library/algorithm/smawk.cpp
+  - https://sotanishy.github.io/cp-library-cpp/dp/smawk.cpp
   - https://yukicoder.me/problems/no/912
   - https://twitter.com/noshi91/status/1185199846061305861
   - 凸性のある $(\max, +)$-convolution

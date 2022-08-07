@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_prime.test.cpp
     title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"math/is_prime.hpp\"\n\nbool is_prime(const long long n)\
@@ -22,7 +22,7 @@ data:
   path: math/is_prime.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_prime.test.cpp
 documentation_of: math/is_prime.hpp
@@ -58,6 +58,7 @@ $O(\sqrt{N})$
   - http://joisino.hatenablog.com/entry/2017/08/03/210000
   - http://www.prefield.com/algorithm/math/isprime.html
   - https://tubo28.me/compprog/algorithm/miller-rabin/
+  - https://sotanishy.github.io/cp-library-cpp/math/fast_prime.cpp
   - https://yukicoder.me/problems/1967
 - ガウス素数
   - https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A6%E3%82%B9%E6%95%B4%E6%95%B0

@@ -146,6 +146,7 @@ undo 可能 union-find
   - https://ei1333.github.io/luzhiled/snippets/structure/union-find.html
   - https://github.com/primenumber/ProconLib/blob/master/Structure/UnionFindPersistent.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_union_find.cc
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/unionfind/persistent_union_find.cpp
   - https://judge.yosupo.jp/problem/persistent_unionfind
 - dynamic connectivity
   - https://en.wikipedia.org/wiki/Dynamic_connectivity
@@ -155,6 +156,8 @@ undo 可能 union-find
   - https://ei1333.github.io/luzhiled/snippets/other/offline-dynamic-connectivity.html
   - https://github.com/beet-aizu/library/blob/master/graph/dynamicconnectivity.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/union_find_undo.cc
+  - https://mugen1337.github.io/procon/UnionFind/DynamicConnectivityOffline.cpp
+  - https://sotanishy.github.io/cp-library-cpp/graph/offline_dynamic_connectivity.cpp
   - https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum
 
 

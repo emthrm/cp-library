@@ -7,24 +7,24 @@ data:
   - icon: ':question:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: util/xorshift.hpp
     title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
@@ -70,7 +70,7 @@ data:
   path: test/math/formal_power_series/formal_power_series.6.test.cpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.6.test.cpp
 layout: document

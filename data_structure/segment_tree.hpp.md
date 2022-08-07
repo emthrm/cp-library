@@ -171,6 +171,9 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://lorent-kyopro.hatenablog.com/entry/2021/03/12/025644
   - http://degwer.hatenablog.com/entry/20131211/1386757368
   - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
+  - https://mugen1337.github.io/procon/DataStructure/BinaryTrieMonoid.cpp
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_segment_tree.cpp
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_lazy_segment_tree.cpp
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140
   - https://twitter.com/noshi91/status/1338881669525172224
 - 2D セグメント木
@@ -197,7 +200,12 @@ $\langle O(N), O(\log{N}) \rangle$
   - range tree
     - https://en.wikipedia.org/wiki/Range_tree
     - https://kopricky.github.io/code/SegmentTrees/rangetree_pointupdate.html
+    - https://mugen1337.github.io/procon/DataStructure/RangeTree.cpp
+    - https://sotanishy.github.io/cp-library-cpp/data-structure/range_tree.cpp
     - https://yukicoder.me/problems/no/1625
+  - 四分木 (quadtree)
+    - https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8
+    - https://sotanishy.github.io/cp-library-cpp/data-structure/quadtree.cpp
 - 永続セグメント木
   - https://scrapbox.io/data-structures/Persistent_Segment_Tree
   - https://scrapbox.io/data-structures/Persistent_Lazy_Segment_Tree
@@ -209,7 +217,8 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
-- segment tree beats
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/persistent_segment_tree.cpp
+- segment tree Beats
   - https://rsm9.hatenablog.com/entry/2021/02/01/220408
   - https://twitter.com/fuppy_kyopro/status/1356599033439997952
   - https://codeforces.com/blog/entry/57319
@@ -220,12 +229,15 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://kmyk.github.io/competitive-programming-library/library/data_structure/segment_tree_beats.hpp.html
   - https://github.com/tjkendev/segment-tree-beats
   - https://tjkendev.github.io/procon-library/cpp/range_query/segment_tree_beats_1.html
+  - https://mugen1337.github.io/procon/SegmentTree/SegmentTreeBeats.cpp
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/segment_tree_beats.cpp
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
   - https://onlinejudge.u-aizu.ac.jp/problems/0427
   - https://atcoder.jp/contests/abc256/tasks/abc256_h
 - 双対セグメント木
   - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
 - 区間等差数列加算クエリ / 区間等差数列更新クエリ
   - https://null-mn.hatenablog.com/entry/2021/08/22/064325
   - https://twitter.com/yosupot/status/1104175527923986432

@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/manacher.test.cpp
     title: "\u6587\u5B57\u5217/Manacher"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"string/manacher.hpp\"\n#include <vector>\n\nstruct Manacher\
@@ -44,7 +44,7 @@ data:
   path: string/manacher.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/manacher.test.cpp
 documentation_of: string/manacher.hpp
@@ -85,6 +85,8 @@ $O(\lvert S \rvert)$
   - https://codeforces.com/blog/entry/13958
   - https://github.com/spaghetti-source/algorithm/blob/master/string/palindromic_tree.cc
   - https://github.com/beet-aizu/library/blob/master/datastructure/palindromictree.cpp
+  - https://mugen1337.github.io/procon/String/PalindromicTree.cpp
+  - https://sotanishy.github.io/cp-library-cpp/string/palindromic_tree.hpp
 - distinct な部分回文をすべて求める．
   - https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp
 

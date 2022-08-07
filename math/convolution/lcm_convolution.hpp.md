@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/lcm_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/convolution.md
     document_title: "\u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -38,7 +38,7 @@ data:
   path: math/convolution/lcm_convolution.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/lcm_convolution.test.cpp
 documentation_of: math/convolution/lcm_convolution.hpp
@@ -169,6 +169,7 @@ $O(N\log{N})$
   - https://twitter.com/_su1sen/status/1425871066916790281
   - https://atcoder.jp/contests/abc213/submissions/24925408
   - https://atcoder.jp/contests/abc213/submissions/24953805
+  - https://sotanishy.github.io/cp-library-cpp/convolution/subset_convolution.hpp
   - https://atcoder.jp/contests/abc236/tasks/abc236_h
   - https://twitter.com/noshi91/status/1485246655419260939
   - https://yukicoder.me/problems/no/1901

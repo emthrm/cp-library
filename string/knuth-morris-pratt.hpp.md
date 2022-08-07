@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/knuth-morris-pratt.test.cpp
     title: "\u6587\u5B57\u5217/Knuth\u2013Morris\u2013Pratt algorithm"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/string/knuth-morris-pratt.md
     document_title: "Knuth\u2013Morris\u2013Pratt algorithm"
@@ -36,7 +36,7 @@ data:
   path: string/knuth-morris-pratt.hpp
   requiredBy: []
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/knuth-morris-pratt.test.cpp
 documentation_of: string/knuth-morris-pratt.hpp

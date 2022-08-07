@@ -9,7 +9,7 @@ data:
     path: graph/flow/matching/maximum_matching.hpp
     title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   _extendedVerifiedWith:
@@ -20,19 +20,19 @@ data:
     path: test/graph/flow/matching/maximum_matching.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
       \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"util/xorshift.hpp\"\n#include <ctime>\n\nstruct Xor128 {\n\
@@ -65,7 +65,7 @@ data:
   - graph/flow/matching/maximum_matching.hpp
   - geometry/smallest_enclosing_circle.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_sqrt.test.cpp
   - test/math/is_primitive_root.test.cpp

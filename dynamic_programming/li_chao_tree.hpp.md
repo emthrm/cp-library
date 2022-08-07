@@ -129,6 +129,8 @@ title: Li Chao tree
 - https://twitter.com/hirakich1310354/status/1186193990841847810
 - 線分の追加クエリの高速化
   - https://smijake3.hatenablog.com/entry/2018/06/16/144548
+- 削除可能 Li Chao tree
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/cht/undoable_li_chao_tree.cpp
 - 動的 Li Chao tree
   - http://kazuma8128.hatenablog.com/entry/2018/02/28/102130
   - https://github.com/ei1333/library/blob/master/structure/dynamic-li-chao-tree.cpp
