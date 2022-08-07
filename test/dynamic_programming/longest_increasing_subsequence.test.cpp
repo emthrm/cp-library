@@ -1,7 +1,7 @@
 /*
  * @brief 動的計画法/最長増加部分列
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_D"
+#define PROBLEM "https://judge.yosupo.jp/problem/longest_increasing_subsequence"
 
 #include <iostream>
 #include <vector>
@@ -15,6 +15,16 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  std::cout << longest_increasing_subsequence(a).size() << '\n';
+  std::vector<int> ans;
+  int i = 0;
+  for (const int lis_i : longest_increasing_subsequence(a)) {
+    while (a[i] != lis_i) ++i;
+    ans.emplace_back(i++);
+  }
+  const int k = ans.size();
+  std::cout << k << '\n';
+  for (int i = 0; i < k; ++i) {
+    std::cout << ans[i] << " \n"[i + 1 == k];
+  }
   return 0;
 }
