@@ -33,10 +33,6 @@ data:
   - icon: ':x:'
     path: test/math/bigint.10.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-  - icon: ':heavy_check_mark:'
-    path: test/math/twelvefold_way/pascal.test.cpp
-    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\
-      \u89D2\u5F62"
   _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -344,7 +340,6 @@ data:
   - test/math/bigint.07.test.cpp
   - test/math/bigint.08.test.cpp
   - test/math/bigint.10.test.cpp
-  - test/math/twelvefold_way/pascal.test.cpp
   - test/math/bigint.01.test.cpp
 documentation_of: math/bigint.hpp
 layout: document

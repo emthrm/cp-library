@@ -851,6 +851,10 @@ data:
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5358\
         \u4F4D\u30D9\u30AF\u30C8\u30EB)"
     - icon: ':heavy_check_mark:'
+      path: test/geometry/geometry.24.test.cpp
+      title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\
+        \u306E\u56DE\u8EE2)"
+    - icon: ':heavy_check_mark:'
       path: test/geometry/smallest_enclosing_circle.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - name: test/graph

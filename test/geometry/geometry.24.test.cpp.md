@@ -11,25 +11,25 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    ERROR: '0.000001'
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I
+    ERROR: 1e-6
+    PROBLEM: https://atcoder.jp/contests/abc259/tasks/abc259_b
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-      \ (2\u5186\u306E\u5171\u901A\u90E8\u5206\u306E\u9762\u7A4D)"
+      \ (\u70B9\u306E\u56DE\u8EE2)"
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I
-  bundledCode: "#line 1 \"test/geometry/geometry.16.test.cpp\"\n/*\n * @brief \u8A08\
-    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u5186\u306E\u5171\u901A\
-    \u90E8\u5206\u306E\u9762\u7A4D)\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I\"\
-    \n#define ERROR \"0.000001\"\n\n#include <iomanip>\n#include <iostream>\n\n#line\
-    \ 2 \"geometry/geometry.hpp\"\n#include <algorithm>\n#include <cassert>\n#include\
-    \ <cmath>\n#include <functional>\n#line 7 \"geometry/geometry.hpp\"\n#include\
-    \ <iterator>\n#include <limits>\n#include <tuple>\n#include <utility>\n#include\
-    \ <vector>\n\nnamespace geometry {\n\nusing Real = double;\nconstexpr long double\
-    \ PI = 3.14159265358979323846;\n\nint sgn(const Real x) {\n  static constexpr\
-    \ Real EPS = 1e-8;\n  return x > EPS ? 1 : (x < -EPS ? -1 : 0);\n}\n\nReal degree_to_radian(const\
-    \ Real d) { return d * PI / 180; }\nReal radian_to_degree(const Real r) { return\
-    \ r * 180 / PI; }\n\nstruct Point {\n  Real x, y;\n  explicit Point(const Real\
-    \ x = 0, const Real y = 0) : x(x), y(y) {}\n  Real abs() const { return std::sqrt(norm());\
+    - https://atcoder.jp/contests/abc259/tasks/abc259_b
+  bundledCode: "#line 1 \"test/geometry/geometry.24.test.cpp\"\n/*\n * @brief \u8A08\
+    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\u306E\u56DE\u8EE2\
+    )\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc259/tasks/abc259_b\"\n\
+    #define ERROR \"1e-6\"\n\n#include <iomanip>\n#include <iostream>\n\n#line 2 \"\
+    geometry/geometry.hpp\"\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n\
+    #include <functional>\n#line 7 \"geometry/geometry.hpp\"\n#include <iterator>\n\
+    #include <limits>\n#include <tuple>\n#include <utility>\n#include <vector>\n\n\
+    namespace geometry {\n\nusing Real = double;\nconstexpr long double PI = 3.14159265358979323846;\n\
+    \nint sgn(const Real x) {\n  static constexpr Real EPS = 1e-8;\n  return x > EPS\
+    \ ? 1 : (x < -EPS ? -1 : 0);\n}\n\nReal degree_to_radian(const Real d) { return\
+    \ d * PI / 180; }\nReal radian_to_degree(const Real r) { return r * 180 / PI;\
+    \ }\n\nstruct Point {\n  Real x, y;\n  explicit Point(const Real x = 0, const\
+    \ Real y = 0) : x(x), y(y) {}\n  Real abs() const { return std::sqrt(norm());\
     \ }\n  Real arg() const {\n    const Real res = std::atan2(y, x);\n    return\
     \ res < 0 ? res + PI * 2 : res;\n  }\n  Real norm() const { return x * x + y *\
     \ y; }\n  Point rotate(const Real angle) const {\n    const Real cs = std::cos(angle),\
@@ -343,34 +343,30 @@ data:
     \ *i_or_j = 0;\n//     const Integer tmp = (a[j] - a[i]).norm();\n//     if (sgn(tmp\
     \ - max_norm) == 1) {\n//       max_norm = tmp;\n//       argmax_i = i; argmax_j\
     \ = j;\n//     }\n//   } while (i != high || j != low);\n//   return {a[argmax_i],\
-    \ a[argmax_j]};\n// }\n\n// }  // namespace geometry\n#line 11 \"test/geometry/geometry.16.test.cpp\"\
-    \n\nint main() {\n  geometry::Point c1_o, c2_o;\n  double c1r, c2r;\n  std::cin\
-    \ >> c1_o >> c1r >> c2_o >> c2r;\n  std::cout << std::fixed << std::setprecision(7)\n\
-    \            << geometry::intersection_area(geometry::Circle(c1_o, c1r),\n   \
-    \                                        geometry::Circle(c2_o, c2r))\n      \
-    \      << '\\n';\n  return 0;\n}\n"
+    \ a[argmax_j]};\n// }\n\n// }  // namespace geometry\n#line 11 \"test/geometry/geometry.24.test.cpp\"\
+    \n\nint main() {\n  geometry::Point p;\n  int d;\n  std::cin >> p >> d;\n  p =\
+    \ p.rotate(geometry::degree_to_radian(d));\n  std::cout << std::fixed << std::setprecision(7)\
+    \ << p.x << ' ' << p.y << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @brief \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (2\u5186\u306E\u5171\u901A\u90E8\u5206\u306E\u9762\u7A4D)\n */\n#define PROBLEM\
-    \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I\"\n#define\
-    \ ERROR \"0.000001\"\n\n#include <iomanip>\n#include <iostream>\n\n#include \"\
-    ../../geometry/geometry.hpp\"\n\nint main() {\n  geometry::Point c1_o, c2_o;\n\
-    \  double c1r, c2r;\n  std::cin >> c1_o >> c1r >> c2_o >> c2r;\n  std::cout <<\
-    \ std::fixed << std::setprecision(7)\n            << geometry::intersection_area(geometry::Circle(c1_o,\
-    \ c1r),\n                                           geometry::Circle(c2_o, c2r))\n\
-    \            << '\\n';\n  return 0;\n}\n"
+    \ (\u70B9\u306E\u56DE\u8EE2)\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc259/tasks/abc259_b\"\
+    \n#define ERROR \"1e-6\"\n\n#include <iomanip>\n#include <iostream>\n\n#include\
+    \ \"../../geometry/geometry.hpp\"\n\nint main() {\n  geometry::Point p;\n  int\
+    \ d;\n  std::cin >> p >> d;\n  p = p.rotate(geometry::degree_to_radian(d));\n\
+    \  std::cout << std::fixed << std::setprecision(7) << p.x << ' ' << p.y << '\\\
+    n';\n  return 0;\n}\n"
   dependsOn:
   - geometry/geometry.hpp
   isVerificationFile: true
-  path: test/geometry/geometry.16.test.cpp
+  path: test/geometry/geometry.24.test.cpp
   requiredBy: []
   timestamp: '2022-08-13 17:25:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/geometry/geometry.16.test.cpp
+documentation_of: test/geometry/geometry.24.test.cpp
 layout: document
 redirect_from:
-- /verify/test/geometry/geometry.16.test.cpp
-- /verify/test/geometry/geometry.16.test.cpp.html
-title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u5186\u306E\
-  \u5171\u901A\u90E8\u5206\u306E\u9762\u7A4D)"
+- /verify/test/geometry/geometry.24.test.cpp
+- /verify/test/geometry/geometry.24.test.cpp.html
+title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\u306E\
+  \u56DE\u8EE2)"
 ---

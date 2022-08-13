@@ -23,91 +23,92 @@ data:
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C\"\n\n#include\
     \ <iostream>\n\n#line 2 \"geometry/geometry.hpp\"\n#include <algorithm>\n#include\
     \ <cassert>\n#include <cmath>\n#include <functional>\n#line 7 \"geometry/geometry.hpp\"\
-    \n#include <iterator>\n#include <limits>\n#include <utility>\n#include <vector>\n\
-    \nnamespace geometry {\n\nusing Real = double;\nconstexpr long double PI = 3.14159265358979323846;\n\
-    \nint sgn(const Real x) {\n  static constexpr Real EPS = 1e-8;\n  return x > EPS\
-    \ ? 1 : (x < -EPS ? -1 : 0);\n}\n\nReal degree_to_radian(const Real d) { return\
-    \ d * PI / 180; }\nReal radian_to_degree(const Real r) { return r * 180 / PI;\
-    \ }\n\nstruct Point {\n  Real x, y;\n  explicit Point(const Real x = 0, const\
-    \ Real y = 0) : x(x), y(y) {}\n  Real abs() const { return std::sqrt(norm());\
+    \n#include <iterator>\n#include <limits>\n#include <tuple>\n#include <utility>\n\
+    #include <vector>\n\nnamespace geometry {\n\nusing Real = double;\nconstexpr long\
+    \ double PI = 3.14159265358979323846;\n\nint sgn(const Real x) {\n  static constexpr\
+    \ Real EPS = 1e-8;\n  return x > EPS ? 1 : (x < -EPS ? -1 : 0);\n}\n\nReal degree_to_radian(const\
+    \ Real d) { return d * PI / 180; }\nReal radian_to_degree(const Real r) { return\
+    \ r * 180 / PI; }\n\nstruct Point {\n  Real x, y;\n  explicit Point(const Real\
+    \ x = 0, const Real y = 0) : x(x), y(y) {}\n  Real abs() const { return std::sqrt(norm());\
     \ }\n  Real arg() const {\n    const Real res = std::atan2(y, x);\n    return\
     \ res < 0 ? res + PI * 2 : res;\n  }\n  Real norm() const { return x * x + y *\
     \ y; }\n  Point rotate(const Real angle) const {\n    const Real cs = std::cos(angle),\
     \ sn = std::sin(angle);\n    return Point(x * cs - y * sn, x * sn + y * cs);\n\
-    \  }\n  Point unit_vector() const {\n    const Real a = abs();\n    return Point(x\
-    \ / a, y / a);\n  }\n  std::pair<Point, Point> normal_unit_vector() const {\n\
-    \    const Point u = unit_vector();\n    return {Point(-u.y, u.x), Point(u.y,\
-    \ -u.x)};\n  }\n  Point& operator+=(const Point& p) {\n    x += p.x; y += p.y;\n\
-    \    return *this;\n  }\n  Point& operator-=(const Point& p) {\n    x -= p.x;\
-    \ y -= p.y;\n    return *this;\n  }\n  Point& operator*=(const Real k) {\n   \
-    \ x *= k; y *= k;\n    return *this;\n  }\n  Point& operator/=(const Real k) {\n\
-    \    x /= k; y /= k;\n    return *this;\n  }\n  bool operator<(const Point& p)\
-    \ const {\n    const int x_sgn = sgn(p.x - x);\n    return x_sgn != 0 ? x_sgn\
-    \ == 1 : sgn(p.y - y) == 1;\n  }\n  bool operator<=(const Point& p) const { return\
-    \ !(p < *this); }\n  bool operator>(const Point& p) const { return p < *this;\
-    \ }\n  bool operator>=(const Point& p) const { return !(*this < p); }\n  Point\
-    \ operator+() const { return *this; }\n  Point operator-() const { return Point(-x,\
-    \ -y); }\n  Point operator+(const Point& p) const { return Point(*this) += p;\
-    \ }\n  Point operator-(const Point& p) const { return Point(*this) -= p; }\n \
-    \ Point operator*(const Real k) const { return Point(*this) *= k; }\n  Point operator/(const\
-    \ Real k) const { return Point(*this) /= k; }\n  friend std::ostream& operator<<(std::ostream&\
-    \ os, const Point& p) {\n    return os << '(' << p.x << \", \" << p.y << ')';\n\
-    \  }\n  friend std::istream& operator>>(std::istream& is, Point& p) {\n    Real\
-    \ x, y; is >> x >> y;\n    p = Point(x, y);\n    return is;\n  }\n};\n\nstruct\
-    \ Segment {\n  Point s, t;\n  explicit Segment(const Point& s = Point(0, 0), const\
-    \ Point& t = Point(0, 0))\n      : s(s), t(t) {}\n};\nstruct Line : Segment {\n\
-    \  using Segment::Segment;\n  explicit Line(const Real a, const Real b, const\
-    \ Real c) {\n    if (sgn(a) == 0) {\n      s = Point(0, -c / b); t = Point(1,\
-    \ s.y);\n    } else if (sgn(b) == 0) {\n      s = Point(-c / a, 0); t = Point(s.x,\
-    \ 1);\n    } else if (sgn(c) == 0) {\n      s = Point(0, 0); t = Point(1, -a /\
-    \ b);\n    } else {\n      s = Point(0, -c / b); t = Point(-c / a, 0);\n    }\n\
-    \  }\n};\n\nstruct Circle {\n  Point p; Real r;\n  explicit Circle(const Point&\
-    \ p = Point(0, 0), const Real r = 0)\n      : p(p), r(r) {}\n};\n\nReal cross(const\
-    \ Point& a, const Point& b) { return a.x * b.y - a.y * b.x; }\nReal dot(const\
-    \ Point& a, const Point& b) { return a.x * b.x + a.y * b.y; }\n\nint ccw(const\
-    \ Point& a, const Point& b, const Point& c) {\n  const Point ab = b - a, ac =\
-    \ c - a;\n  const int sign = sgn(cross(ab, ac));\n  if (sign == 0) {\n    if (sgn(dot(ab,\
-    \ ac)) == -1) return 2;\n    if (sgn(ac.norm() - ab.norm()) == 1) return -2;\n\
-    \  }\n  return sign;\n}\n\nReal get_angle(const Point& a, const Point& b, const\
-    \ Point& c) {\n  Real ab = (a - b).arg(), bc = (c - b).arg();\n  if (ab > bc)\
-    \ std::swap(ab, bc);\n  return std::min(bc - ab, static_cast<Real>(PI * 2 - (bc\
-    \ - ab)));\n}\n\nReal closest_pair(std::vector<Point> ps) {\n  const int n = ps.size();\n\
-    \  assert(n >= 2);\n  std::sort(ps.begin(), ps.end());\n  const std::function<Real(int,\
-    \ int)> f =\n      [&ps, &f](const int left, const int right) -> Real {\n    \
-    \    const int mid = (left + right) >> 1;\n        Real x_mid = ps[mid].x, d =\
-    \ std::numeric_limits<Real>::max();\n        if (left + 1 < mid) d = std::min(d,\
-    \ f(left, mid));\n        if (mid + 1 < right) d = std::min(d, f(mid, right));\n\
-    \        std::inplace_merge(std::next(ps.begin(), left),\n                   \
-    \        std::next(ps.begin(), mid),\n                           std::next(ps.begin(),\
-    \ right),\n                           [](const Point& a, const Point& b) -> bool\
-    \ {\n                             return sgn(b.y - a.y) == 1;\n              \
-    \             });\n        std::vector<Point> tmp;\n        for (int i = left;\
-    \ i < right; ++i) {\n          if (sgn(std::abs(ps[i].x - x_mid) - d) == 1) continue;\n\
-    \          for (int j = static_cast<int>(tmp.size()) - 1; j >= 0; --j) {\n   \
-    \         const Point v = ps[i] - tmp[j];\n            if (sgn(v.y - d) == 1)\
-    \ break;\n            d = std::min(d, v.abs());\n          }\n          tmp.emplace_back(ps[i]);\n\
-    \        }\n        return d;\n      };\n  return f(0, n);\n}\n\nPoint projection(const\
-    \ Segment& a, const Point& b) {\n  return a.s + (a.t - a.s) * dot(a.t - a.s, b\
-    \ - a.s) / (a.t - a.s).norm();\n}\nPoint reflection(const Segment& a, const Point&\
-    \ b) {\n  return projection(a, b) * 2 - b;\n}\n\nbool is_parallel(const Segment&\
-    \ a, const Segment& b) {\n  return sgn(cross(a.t - a.s, b.t - b.s)) == 0;\n}\n\
-    bool is_orthogonal(const Segment& a, const Segment& b) {\n  return sgn(dot(a.t\
-    \ - a.s, b.t - b.s)) == 0;\n}\n\nReal distance(const Point&, const Point&);\n\
-    Real distance(const Segment&, const Point&);\nReal distance(const Line&, const\
-    \ Point&);\nint common_tangent_num(const Circle&, const Circle&);\nbool has_intersected(const\
-    \ Segment& a, const Point& b) {\n  return ccw(a.s, a.t, b) == 0;\n}\nbool has_intersected(const\
-    \ Segment& a, const Segment& b) {\n  return ccw(a.s, a.t, b.s) * ccw(a.s, a.t,\
-    \ b.t) <= 0 &&\n         ccw(b.s, b.t, a.s) * ccw(b.s, b.t, a.t) <= 0;\n}\nbool\
-    \ has_intersected(const Line& a, const Point& b) {\n  const int c = ccw(a.s, a.t,\
-    \ b);\n  return c != 1 && c != -1;\n}\nbool has_intersected(const Line& a, const\
-    \ Segment& b) {\n  return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) != 1;\n}\nbool\
-    \ has_intersected(const Line& a, const Line& b) {\n  return sgn(cross(a.t - a.s,\
-    \ b.t - b.s)) != 0 ||\n         sgn(cross(a.t - a.s, b.s - a.s)) == 0;\n}\nbool\
-    \ has_intersected(const Circle& a, const Point& b) {\n  return sgn(distance(a.p,\
-    \ b) - a.r) == 0;\n}\nbool has_intersected(const Circle& a, const Segment& b)\
-    \ {\n  return sgn(a.r - distance(b, a.p)) != -1 &&\n         sgn(std::max(distance(a.p,\
-    \ b.s), distance(a.p, b.t)) - a.r) != -1;\n}\nbool has_intersected(const Circle&\
-    \ a, const Line& b) {\n  return sgn(a.r - distance(b, a.p)) != -1;\n}\nbool has_intersected(const\
+    \  }\n  Point& operator+=(const Point& p) {\n    x += p.x; y += p.y;\n    return\
+    \ *this;\n  }\n  Point& operator-=(const Point& p) {\n    x -= p.x; y -= p.y;\n\
+    \    return *this;\n  }\n  Point& operator*=(const Real k) {\n    x *= k; y *=\
+    \ k;\n    return *this;\n  }\n  Point& operator/=(const Real k) {\n    x /= k;\
+    \ y /= k;\n    return *this;\n  }\n  bool operator<(const Point& p) const {\n\
+    \    const int x_sgn = sgn(p.x - x);\n    return x_sgn != 0 ? x_sgn == 1 : sgn(p.y\
+    \ - y) == 1;\n  }\n  bool operator<=(const Point& p) const { return !(p < *this);\
+    \ }\n  bool operator>(const Point& p) const { return p < *this; }\n  bool operator>=(const\
+    \ Point& p) const { return !(*this < p); }\n  Point operator+() const { return\
+    \ *this; }\n  Point operator-() const { return Point(-x, -y); }\n  Point operator+(const\
+    \ Point& p) const { return Point(*this) += p; }\n  Point operator-(const Point&\
+    \ p) const { return Point(*this) -= p; }\n  Point operator*(const Real k) const\
+    \ { return Point(*this) *= k; }\n  Point operator/(const Real k) const { return\
+    \ Point(*this) /= k; }\n  friend std::ostream& operator<<(std::ostream& os, const\
+    \ Point& p) {\n    return os << '(' << p.x << \", \" << p.y << ')';\n  }\n  friend\
+    \ std::istream& operator>>(std::istream& is, Point& p) {\n    Real x, y; is >>\
+    \ x >> y;\n    p = Point(x, y);\n    return is;\n  }\n};\n\nstruct Segment {\n\
+    \  Point s, t;\n  explicit Segment(const Point& s = Point(0, 0), const Point&\
+    \ t = Point(0, 0))\n      : s(s), t(t) {}\n};\nstruct Line : Segment {\n  using\
+    \ Segment::Segment;\n  explicit Line(const Real a, const Real b, const Real c)\
+    \ {\n    if (sgn(a) == 0) {\n      s = Point(0, -c / b); t = Point(1, s.y);\n\
+    \    } else if (sgn(b) == 0) {\n      s = Point(-c / a, 0); t = Point(s.x, 1);\n\
+    \    } else if (sgn(c) == 0) {\n      s = Point(0, 0); t = Point(1, -a / b);\n\
+    \    } else {\n      s = Point(0, -c / b); t = Point(-c / a, 0);\n    }\n  }\n\
+    };\n\nstruct Circle {\n  Point p; Real r;\n  explicit Circle(const Point& p =\
+    \ Point(0, 0), const Real r = 0)\n      : p(p), r(r) {}\n};\n\nPoint unit_vector(const\
+    \ Point& p) {\n  const Real a = p.abs();\n  return Point(p.x / a, p.y / a);\n\
+    }\nstd::tuple<Point, Point> normal_unit_vector(const Point& p) {\n  const Point\
+    \ u = unit_vector(p);\n  return {Point(-u.y, u.x), Point(u.y, -u.x)};\n}\n\nReal\
+    \ cross(const Point& a, const Point& b) { return a.x * b.y - a.y * b.x; }\nReal\
+    \ dot(const Point& a, const Point& b) { return a.x * b.x + a.y * b.y; }\n\nint\
+    \ ccw(const Point& a, const Point& b, const Point& c) {\n  const Point ab = b\
+    \ - a, ac = c - a;\n  const int sign = sgn(cross(ab, ac));\n  if (sign == 0) {\n\
+    \    if (sgn(dot(ab, ac)) == -1) return 2;\n    if (sgn(ac.norm() - ab.norm())\
+    \ == 1) return -2;\n  }\n  return sign;\n}\n\nReal get_angle(const Point& a, const\
+    \ Point& b, const Point& c) {\n  Real ab = (a - b).arg(), bc = (c - b).arg();\n\
+    \  if (ab > bc) std::swap(ab, bc);\n  return std::min(bc - ab, static_cast<Real>(PI\
+    \ * 2 - (bc - ab)));\n}\n\nReal closest_pair(std::vector<Point> ps) {\n  const\
+    \ int n = ps.size();\n  assert(n >= 2);\n  std::sort(ps.begin(), ps.end());\n\
+    \  const std::function<Real(int, int)> f =\n      [&ps, &f](const int left, const\
+    \ int right) -> Real {\n        const int mid = (left + right) >> 1;\n       \
+    \ Real x_mid = ps[mid].x, d = std::numeric_limits<Real>::max();\n        if (left\
+    \ + 1 < mid) d = std::min(d, f(left, mid));\n        if (mid + 1 < right) d =\
+    \ std::min(d, f(mid, right));\n        std::inplace_merge(std::next(ps.begin(),\
+    \ left),\n                           std::next(ps.begin(), mid),\n           \
+    \                std::next(ps.begin(), right),\n                           [](const\
+    \ Point& a, const Point& b) -> bool {\n                             return sgn(b.y\
+    \ - a.y) == 1;\n                           });\n        std::vector<Point> tmp;\n\
+    \        for (int i = left; i < right; ++i) {\n          if (sgn(std::abs(ps[i].x\
+    \ - x_mid) - d) == 1) continue;\n          for (int j = static_cast<int>(tmp.size())\
+    \ - 1; j >= 0; --j) {\n            const Point v = ps[i] - tmp[j];\n         \
+    \   if (sgn(v.y - d) == 1) break;\n            d = std::min(d, v.abs());\n   \
+    \       }\n          tmp.emplace_back(ps[i]);\n        }\n        return d;\n\
+    \      };\n  return f(0, n);\n}\n\nPoint projection(const Segment& a, const Point&\
+    \ b) {\n  return a.s + (a.t - a.s) * dot(a.t - a.s, b - a.s) / (a.t - a.s).norm();\n\
+    }\nPoint reflection(const Segment& a, const Point& b) {\n  return projection(a,\
+    \ b) * 2 - b;\n}\n\nbool is_parallel(const Segment& a, const Segment& b) {\n \
+    \ return sgn(cross(a.t - a.s, b.t - b.s)) == 0;\n}\nbool is_orthogonal(const Segment&\
+    \ a, const Segment& b) {\n  return sgn(dot(a.t - a.s, b.t - b.s)) == 0;\n}\n\n\
+    Real distance(const Point&, const Point&);\nReal distance(const Segment&, const\
+    \ Point&);\nReal distance(const Line&, const Point&);\nint common_tangent_num(const\
+    \ Circle&, const Circle&);\nbool has_intersected(const Segment& a, const Point&\
+    \ b) {\n  return ccw(a.s, a.t, b) == 0;\n}\nbool has_intersected(const Segment&\
+    \ a, const Segment& b) {\n  return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) <=\
+    \ 0 &&\n         ccw(b.s, b.t, a.s) * ccw(b.s, b.t, a.t) <= 0;\n}\nbool has_intersected(const\
+    \ Line& a, const Point& b) {\n  const int c = ccw(a.s, a.t, b);\n  return c !=\
+    \ 1 && c != -1;\n}\nbool has_intersected(const Line& a, const Segment& b) {\n\
+    \  return ccw(a.s, a.t, b.s) * ccw(a.s, a.t, b.t) != 1;\n}\nbool has_intersected(const\
+    \ Line& a, const Line& b) {\n  return sgn(cross(a.t - a.s, b.t - b.s)) != 0 ||\n\
+    \         sgn(cross(a.t - a.s, b.s - a.s)) == 0;\n}\nbool has_intersected(const\
+    \ Circle& a, const Point& b) {\n  return sgn(distance(a.p, b) - a.r) == 0;\n}\n\
+    bool has_intersected(const Circle& a, const Segment& b) {\n  return sgn(a.r -\
+    \ distance(b, a.p)) != -1 &&\n         sgn(std::max(distance(a.p, b.s), distance(a.p,\
+    \ b.t)) - a.r) != -1;\n}\nbool has_intersected(const Circle& a, const Line& b)\
+    \ {\n  return sgn(a.r - distance(b, a.p)) != -1;\n}\nbool has_intersected(const\
     \ Circle& a, const Circle& b) {\n  const int num = common_tangent_num(a, b);\n\
     \  return 1 <= num && num <= 3;\n}\n\nPoint intersection(const Line& a, const\
     \ Line& b) {\n  assert(has_intersected(a, b) && !is_parallel(a, b));\n  const\
@@ -126,7 +127,7 @@ data:
     \ Circle& a, const Line& b) {\n  const Point pro = projection(b, a.p);\n  const\
     \ Real nor = (a.p - pro).norm();\n  const int sign = sgn(a.r - std::sqrt(nor));\n\
     \  if (sign == -1) return {};\n  if (sign == 0) return {pro};\n  const Point tmp\
-    \ = (b.t - b.s).unit_vector() * std::sqrt(a.r * a.r - nor);\n  return {pro + tmp,\
+    \ = unit_vector(b.t - b.s) * std::sqrt(a.r * a.r - nor);\n  return {pro + tmp,\
     \ pro - tmp};\n}\nstd::vector<Point> intersection(const Circle& a, const Segment&\
     \ b) {\n  if (!has_intersected(a, b)) return {};\n  const std::vector<Point> res\
     \ = intersection(a, Line(b.s, b.t));\n  if (sgn(distance(a.p, b.s) - a.r) != -1\
@@ -170,41 +171,41 @@ data:
     \ + Point(a.r * cs, a.r * sn),\n                          b.p + Point(-b.r * cs,\
     \ -b.r * sn));\n  } else if (sign == 0) {\n    const Point s =\n        a.p +\
     \ Point(a.r * std::cos(argument), a.r * std::sin(argument));\n    tangents.emplace_back(s,\
-    \ s + (b.p - a.p).normal_unit_vector().first);\n  }\n  if (sgn(b.r - a.r) == -1)\
-    \ {\n    sign = sgn(a.r - b.r - dist);\n    if (sign == -1) {\n      const Real\
-    \ at = std::acos((a.r - b.r) / dist);\n      Real alpha = argument + at, cs =\
-    \ std::cos(alpha), sn = std::sin(alpha);\n      tangents.emplace_back(a.p + Point(a.r\
-    \ * cs, a.r * sn),\n                            b.p + Point(b.r * cs, b.r * sn));\n\
-    \      alpha = argument - at; cs = std::cos(alpha); sn = std::sin(alpha);\n  \
-    \    tangents.emplace_back(a.p + Point(a.r * cs, a.r * sn),\n                \
-    \            b.p + Point(b.r * cs, b.r * sn));\n    } else if (sign == 0) {\n\
+    \ s + std::get<0>(normal_unit_vector(b.p - a.p)));\n  }\n  if (sgn(b.r - a.r)\
+    \ == -1) {\n    sign = sgn(a.r - b.r - dist);\n    if (sign == -1) {\n      const\
+    \ Real at = std::acos((a.r - b.r) / dist);\n      Real alpha = argument + at,\
+    \ cs = std::cos(alpha), sn = std::sin(alpha);\n      tangents.emplace_back(a.p\
+    \ + Point(a.r * cs, a.r * sn),\n                            b.p + Point(b.r *\
+    \ cs, b.r * sn));\n      alpha = argument - at; cs = std::cos(alpha); sn = std::sin(alpha);\n\
+    \      tangents.emplace_back(a.p + Point(a.r * cs, a.r * sn),\n              \
+    \              b.p + Point(b.r * cs, b.r * sn));\n    } else if (sign == 0) {\n\
     \      const Point s =\n          a.p + Point(a.r * std::cos(argument), a.r *\
-    \ std::sin(argument));\n      tangents.emplace_back(s, s + (b.p - a.p).normal_unit_vector().first);\n\
-    \    }\n  } else {\n    sign = sgn(b.r - a.r - dist);\n    if (sign == -1) {\n\
-    \      const Real at = std::acos((b.r - a.r) / dist);\n      Real alpha = argument\
-    \ - at, cs = std::cos(alpha), sn = std::sin(alpha);\n      tangents.emplace_back(a.p\
+    \ std::sin(argument));\n      tangents.emplace_back(s, s + std::get<0>(normal_unit_vector(b.p\
+    \ - a.p)));\n    }\n  } else {\n    sign = sgn(b.r - a.r - dist);\n    if (sign\
+    \ == -1) {\n      const Real at = std::acos((b.r - a.r) / dist);\n      Real alpha\
+    \ = argument - at, cs = std::cos(alpha), sn = std::sin(alpha);\n      tangents.emplace_back(a.p\
     \ + Point(-a.r * cs, -a.r * sn),\n                            b.p + Point(-b.r\
     \ * cs, -b.r * sn));\n      alpha = argument + at; cs = std::cos(alpha); sn =\
     \ std::sin(alpha);\n      tangents.emplace_back(a.p + Point(-a.r * cs, -a.r *\
     \ sn),\n                            b.p + Point(-b.r * cs, -b.r * sn));\n    }\
     \ else if (sign == 0) {\n      const Point s =\n          b.p + Point(-b.r * std::cos(argument),\
-    \ -b.r * std::sin(argument));\n      tangents.emplace_back(s, s + (a.p - b.p).normal_unit_vector().first);\n\
-    \    }\n  }\n  return tangents;\n}\n\nReal intersection_area(const Circle& a,\
-    \ const Circle& b) {\n  const Real nor = (b.p - a.p).norm(), dist = std::sqrt(nor);\n\
-    \  if (sgn(a.r + b.r - dist) != 1) return 0;\n  if (sgn(std::abs(a.r - b.r) -\
-    \ dist) != -1) {\n    return std::min(a.r, b.r) * std::min(a.r, b.r) * PI;\n \
-    \ }\n  const Real alpha =\n      std::acos((nor + a.r * a.r - b.r * b.r) / (2\
-    \ * dist * a.r));\n  const Real beta = std::acos((nor + b.r * b.r - a.r * a.r)\
-    \ / (2 * dist * b.r));\n  return (alpha - std::sin(alpha + alpha) * 0.5) * a.r\
-    \ * a.r +\n         (beta - std::sin(beta + beta) * 0.5) * b.r * b.r;\n}\n\nusing\
-    \ Polygon = std::vector<Point>;\n\nReal area(Polygon a) {\n  const int n = a.size();\n\
-    \  a.resize(n + 1);\n  a.back() = a.front();\n  Real res = 0;\n  for (int i =\
-    \ 0; i < n; ++i) {\n    res += cross(a[i], a[i + 1]);\n  }\n  return res * 0.5;\n\
-    }\n\nPoint centroid(Polygon a) {\n  const int n = a.size();\n  a.resize(n + 1);\n\
-    \  a.back() = a.front();\n  Point res(0, 0);\n  Real den = 0;\n  for (int i =\
-    \ 0; i < n; ++i) {\n    const Real cro = cross(a[i], a[i + 1]);\n    res += (a[i]\
-    \ + a[i + 1]) / 3 * cro;\n    den += cro;\n  }\n  return res / den;\n}\n\nint\
-    \ contains(Polygon a, const Point &b) {\n  const int n = a.size();\n  a.resize(n\
+    \ -b.r * std::sin(argument));\n      tangents.emplace_back(s, s + std::get<0>(normal_unit_vector(a.p\
+    \ - b.p)));\n    }\n  }\n  return tangents;\n}\n\nReal intersection_area(const\
+    \ Circle& a, const Circle& b) {\n  const Real nor = (b.p - a.p).norm(), dist =\
+    \ std::sqrt(nor);\n  if (sgn(a.r + b.r - dist) != 1) return 0;\n  if (sgn(std::abs(a.r\
+    \ - b.r) - dist) != -1) {\n    return std::min(a.r, b.r) * std::min(a.r, b.r)\
+    \ * PI;\n  }\n  const Real alpha =\n      std::acos((nor + a.r * a.r - b.r * b.r)\
+    \ / (2 * dist * a.r));\n  const Real beta = std::acos((nor + b.r * b.r - a.r *\
+    \ a.r) / (2 * dist * b.r));\n  return (alpha - std::sin(alpha + alpha) * 0.5)\
+    \ * a.r * a.r +\n         (beta - std::sin(beta + beta) * 0.5) * b.r * b.r;\n\
+    }\n\nusing Polygon = std::vector<Point>;\n\nReal area(Polygon a) {\n  const int\
+    \ n = a.size();\n  a.resize(n + 1);\n  a.back() = a.front();\n  Real res = 0;\n\
+    \  for (int i = 0; i < n; ++i) {\n    res += cross(a[i], a[i + 1]);\n  }\n  return\
+    \ res * 0.5;\n}\n\nPoint centroid(Polygon a) {\n  const int n = a.size();\n  a.resize(n\
+    \ + 1);\n  a.back() = a.front();\n  Point res(0, 0);\n  Real den = 0;\n  for (int\
+    \ i = 0; i < n; ++i) {\n    const Real cro = cross(a[i], a[i + 1]);\n    res +=\
+    \ (a[i] + a[i + 1]) / 3 * cro;\n    den += cro;\n  }\n  return res / den;\n}\n\
+    \nint contains(Polygon a, const Point &b) {\n  const int n = a.size();\n  a.resize(n\
     \ + 1);\n  a.back() = a.front();\n  bool is_in = false;\n  for (int i = 0; i <\
     \ n; ++i) {\n    Point p = a[i] - b, q = a[i + 1] - b;\n    if (sgn(q.y - p.y)\
     \ == -1) std::swap(p, q);\n    const int sign = sgn(cross(p, q));\n    if (sign\
@@ -227,7 +228,7 @@ data:
     \ c = ccw(b.s, b.t, a[i]);\n    if (c != -1) res.emplace_back(a[i]);\n    if (c\
     \ * ccw(b.s, b.t, a[i + 1]) == -1) {\n      res.emplace_back(intersection(Line(a[i],\
     \ a[i + 1]), b));\n    }\n  }\n  return res.size() < 3 ? Polygon() : res;\n}\n\
-    \nstd::pair<Point, Point> rotating_calipers(Polygon a) {\n  const int n = a.size();\n\
+    \nstd::tuple<Point, Point> rotating_calipers(Polygon a) {\n  const int n = a.size();\n\
     \  if (n <= 2) {\n    assert(n == 2);\n    return {a[0], a[1]};\n  }\n  a.resize(n\
     \ + 1);\n  a.back() = a.front();\n  int high = 0, low = 0;\n  for (int i = 1;\
     \ i < n; ++i) {\n    if (a[i].y > a[high].y) high = i;\n    if (a[i].y < a[low].y)\
@@ -360,7 +361,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.18.test.cpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-08-13 17:25:30+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.18.test.cpp
