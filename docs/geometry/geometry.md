@@ -36,8 +36,6 @@ documentation_of: geometry/geometry.hpp
 |`arg()`|$\arg(x + iy)$|$[0, 2\pi)$|
 |`norm()`|${\lVert \boldsymbol{p} \rVert}^2$||
 |`rotate(angle)`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos(\mathrm{angle}) - y\sin(\mathrm{angle}) \\\\ y^{\prime} = x\sin(\mathrm{angle}) + y\cos(\mathrm{angle}) \end{cases}$|
-|`unit_vector()`|単位ベクトル||
-|`normal_unit_vector()`|単位法線ベクトル|
 
 - 線分
 
@@ -72,6 +70,8 @@ documentation_of: geometry/geometry.hpp
 
 ||説明|備考|
 |:--:|:--:|:--:|
+|`unit_vector(p)`|ベクトル $p$ の単位ベクトル||
+|`normal_unit_vector(p)`|ベクトル $p$ の単位法線ベクトル|
 |`cross(a, b)`|$\boldsymbol{a} \times \boldsymbol{b}$||
 |`dot(a, b)`|$\boldsymbol{a} \cdot \boldsymbol{b}$||
 |`ccw(a, b, c)`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C} \text{ の順で一直線上に並ぶ．}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある．}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ．}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある．}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ．}) \end{cases}$||
@@ -134,6 +134,8 @@ documentation_of: geometry/geometry.hpp
   - https://lumakernel.github.io/ecasdqina/geometory/geometory3D
   - https://github.com/drken1215/algorithm/blob/master/Geometry/basic_elements_3D.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Geometry/3DGeometry.cpp
+  - https://mugen1337.github.io/procon/Geometry3D/all.cpp
+  - https://sotanishy.github.io/cp-library-cpp/geometry/geometry3d.hpp
   - 3次元凸包
     - https://lumakernel.github.io/ecasdqina/geometory/ConvexHull3D
     - https://www.slideshare.net/abc3141/3-65377198
@@ -183,6 +185,7 @@ documentation_of: geometry/geometry.hpp
 - 直線から最も遠い凸多角形上の点
   - http://www.prefield.com/algorithm/geometry/convex_extreme.html
 - 二等分線
+  - https://sotanishy.github.io/cp-library-cpp/geometry/bisector.hpp
   - https://github.com/beet-aizu/library/blob/master/geometry/geometry.cpp
   - https://github.com/drken1215/algorithm/blob/master/Geometry/convex_cut.cpp
 - 点から凸多角形への接線
@@ -196,6 +199,7 @@ documentation_of: geometry/geometry.hpp
   - http://www.prefield.com/algorithm/geometry/misc.html
 - ピックの定理 (Pick's theorem)
   - https://ja.wikipedia.org/wiki/%E3%83%94%E3%83%83%E3%82%AF%E3%81%AE%E5%AE%9A%E7%90%86
+  - https://mugen1337.github.io/procon/GeometryInt/CountLattice.cpp
 - 線分の併合
   - http://www.prefield.com/algorithm/geometry/merge_segments.html
   - https://github.com/ei1333/library/blob/master/geometry/template.cpp
@@ -221,6 +225,7 @@ documentation_of: geometry/geometry.hpp
   - http://www.thothchildren.com/chapter/5bded85141f88f267247fdc6
   - http://hadashia.hatenablog.com/entry/2018/10/11/194602
   - http://www.prefield.com/algorithm/geometry/delaunay.html
+  - https://sotanishy.github.io/cp-library-cpp/geometry/delaunay_diagram.hpp
 - kd 木 (k-d tree)
   - https://ja.wikipedia.org/wiki/Kd%E6%9C%A8
   - https://www.slideshare.net/okuraofvegetable/ss-65377588
@@ -231,6 +236,8 @@ documentation_of: geometry/geometry.hpp
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/kd_tree.cc
   - http://www.prefield.com/algorithm/geometry/kdtree.html
   - https://tjkendev.github.io/procon-library/cpp/range_query/kd-tree.html
+  - https://mugen1337.github.io/procon/DataStructure/KDTree.cpp
+  - https://sotanishy.github.io/cp-library-cpp/data-structure/kd_tree.cpp
   - https://atcoder.jp/contests/abc234/tasks/abc234_h
   - https://atcoder.jp/contests/abc234/submissions/28417490
   - randomized k-d tree
@@ -272,6 +279,7 @@ documentation_of: geometry/geometry.hpp
 
 ## Verified
 
+- [点の回転](https://atcoder.jp/contests/abc259/submissions/33133157)
 - [単位ベクトル](https://atcoder.jp/contests/abc246/submissions/30680516)
 - [`ccw(a, b, c)`](https://onlinejudge.u-aizu.ac.jp/solutions/problem/CGL_1_C/review/4325588/emthrm/C++14)
 - ~~$\angle{\mathrm{ABC}}$~~

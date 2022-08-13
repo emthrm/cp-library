@@ -6,7 +6,7 @@
 
 #include <iomanip>
 #include <iostream>
-#include <utility>
+#include <tuple>
 
 #include "../../geometry/geometry.hpp"
 
@@ -17,8 +17,8 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> g[i];
   }
-  const std::pair<geometry::Point, geometry::Point> ans = rotating_calipers(g);
+  const std::tuple<geometry::Point, geometry::Point> ans = rotating_calipers(g);
   std::cout << std::fixed << std::setprecision(7)
-            << geometry::distance(ans.first, ans.second) << '\n';
+            << geometry::distance(std::get<0>(ans), std::get<1>(ans)) << '\n';
   return 0;
 }

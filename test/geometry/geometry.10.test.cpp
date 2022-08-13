@@ -22,7 +22,7 @@ int main() {
   geometry::Point wheel =
       geometry::intersection(
           geometry::Segment(geometry::Point(a, 0), geometry::Point(a, 200)), geometry::Segment(flo[0], flo[1]))
-      + (flo[1] - flo[0]).unit_vector();
+      + geometry::unit_vector(flo[1] - flo[0]);
   int ans = 0;
   for (int i = 0; i + 2 < n; ++i) {
     const double sta = std::atan2((flo[i + 1] - flo[i]).y,
@@ -80,7 +80,7 @@ int main() {
       }
       ans = (ans + std::max(type, 1)) % 4;
       if (type == 0) {
-        wheel += (flo[i + 1] - flo[i]).unit_vector();
+        wheel += geometry::unit_vector(flo[i + 1] - flo[i]);
       } else {
         wheel = p;
         i += must_skip;
@@ -89,7 +89,7 @@ int main() {
     }
   }
   while (wheel.x <= b) {
-    wheel += (flo[n - 1] - flo[n - 2]).unit_vector();
+    wheel += geometry::unit_vector(flo[n - 1] - flo[n - 2]);
     ans = (ans + 1) % 4;
   }
   std::cout << std::vector<std::string>{"Red", "Green", "Blue", "White"}[ans]

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <tuple>
 #include <utility>
 #include <vector>
 
@@ -34,14 +35,6 @@ struct Point {
   Point rotate(const Real angle) const {
     const Real cs = std::cos(angle), sn = std::sin(angle);
     return Point(x * cs - y * sn, x * sn + y * cs);
-  }
-  Point unit_vector() const {
-    const Real a = abs();
-    return Point(x / a, y / a);
-  }
-  std::pair<Point, Point> normal_unit_vector() const {
-    const Point u = unit_vector();
-    return {Point(-u.y, u.x), Point(u.y, -u.x)};
   }
   Point& operator+=(const Point& p) {
     x += p.x; y += p.y;
@@ -107,6 +100,15 @@ struct Circle {
   explicit Circle(const Point& p = Point(0, 0), const Real r = 0)
       : p(p), r(r) {}
 };
+
+Point unit_vector(const Point& p) {
+  const Real a = p.abs();
+  return Point(p.x / a, p.y / a);
+}
+std::tuple<Point, Point> normal_unit_vector(const Point& p) {
+  const Point u = unit_vector(p);
+  return {Point(-u.y, u.x), Point(u.y, -u.x)};
+}
 
 Real cross(const Point& a, const Point& b) { return a.x * b.y - a.y * b.x; }
 Real dot(const Point& a, const Point& b) { return a.x * b.x + a.y * b.y; }
@@ -246,7 +248,7 @@ std::vector<Point> intersection(const Circle& a, const Line& b) {
   const int sign = sgn(a.r - std::sqrt(nor));
   if (sign == -1) return {};
   if (sign == 0) return {pro};
-  const Point tmp = (b.t - b.s).unit_vector() * std::sqrt(a.r * a.r - nor);
+  const Point tmp = unit_vector(b.t - b.s) * std::sqrt(a.r * a.r - nor);
   return {pro + tmp, pro - tmp};
 }
 std::vector<Point> intersection(const Circle& a, const Segment& b) {
@@ -331,7 +333,7 @@ std::vector<Line> common_tangent(const Circle& a, const Circle& b) {
   } else if (sign == 0) {
     const Point s =
         a.p + Point(a.r * std::cos(argument), a.r * std::sin(argument));
-    tangents.emplace_back(s, s + (b.p - a.p).normal_unit_vector().first);
+    tangents.emplace_back(s, s + std::get<0>(normal_unit_vector(b.p - a.p)));
   }
   if (sgn(b.r - a.r) == -1) {
     sign = sgn(a.r - b.r - dist);
@@ -346,7 +348,7 @@ std::vector<Line> common_tangent(const Circle& a, const Circle& b) {
     } else if (sign == 0) {
       const Point s =
           a.p + Point(a.r * std::cos(argument), a.r * std::sin(argument));
-      tangents.emplace_back(s, s + (b.p - a.p).normal_unit_vector().first);
+      tangents.emplace_back(s, s + std::get<0>(normal_unit_vector(b.p - a.p)));
     }
   } else {
     sign = sgn(b.r - a.r - dist);
@@ -361,7 +363,7 @@ std::vector<Line> common_tangent(const Circle& a, const Circle& b) {
     } else if (sign == 0) {
       const Point s =
           b.p + Point(-b.r * std::cos(argument), -b.r * std::sin(argument));
-      tangents.emplace_back(s, s + (a.p - b.p).normal_unit_vector().first);
+      tangents.emplace_back(s, s + std::get<0>(normal_unit_vector(a.p - b.p)));
     }
   }
   return tangents;
@@ -471,7 +473,7 @@ Polygon cut_convex(Polygon a, const Line& b) {
   return res.size() < 3 ? Polygon() : res;
 }
 
-std::pair<Point, Point> rotating_calipers(Polygon a) {
+std::tuple<Point, Point> rotating_calipers(Polygon a) {
   const int n = a.size();
   if (n <= 2) {
     assert(n == 2);
