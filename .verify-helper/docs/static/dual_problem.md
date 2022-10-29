@@ -56,6 +56,28 @@ $$
   \end{cases}
 $$
 
+e.g. [Infinite Knapsack](https://atcoder.jp/contests/abc275/tasks/abc275_g)
+
+主問題
+
+$$
+  \max_{\boldsymbol{x} \in \mathbb{R}^N} \boldsymbol{c} \cdot \boldsymbol{x} \text{ s.t. }
+  \begin{cases}
+    (\boldsymbol{a} \ \boldsymbol{b}) \boldsymbol{x} \leq \boldsymbol{1} \\
+    \boldsymbol{x} \geq \boldsymbol{0}
+  \end{cases}
+$$
+
+双対問題
+
+$$
+  \max_{\boldsymbol{y} \in \mathbb{R}^2} \boldsymbol{1} \cdot \boldsymbol{y} \text{ s.t. }
+  \begin{cases}
+    (\boldsymbol{a} \ \boldsymbol{b}) \boldsymbol{y} \geq \boldsymbol{c} \\
+    \boldsymbol{y} \geq \boldsymbol{0}
+  \end{cases}
+$$
+
 
 ### 牛ゲー
 
@@ -636,6 +658,8 @@ $$
 - https://paper.dropbox.com/doc/YqGiA3I6bDbMWWWsUc1an
 - Security Camera 2
   - https://atcoder.jp/contests/abc224/editorial/2812
+- Infinite Knapsack
+  - https://atcoder.jp/contests/abc275/editorial/5148
 - 最大フロー最小カット定理
   - http://hos.ac/slides/20150319_flow.pdf
 - 123パズル
