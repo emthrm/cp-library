@@ -126,6 +126,8 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $
   - https://scrapbox.io/ecasdqina-cp/BIT_%E3%81%AE%E5%AE%9A%E6%95%B0%E5%80%8D%E9%AB%98%E9%80%9F%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6
 - 単調非減少な一点変更，区間最大値のクエリを処理できる Fenwick tree
   - http://hos.ac/slides/20140319_bit.pdf
+- $d$ 次元Fenwick tree
+  - https://suisen-kyopro.hatenablog.com/entry/2022/09/09/013334
 
 
 ## Verified

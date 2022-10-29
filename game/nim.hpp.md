@@ -62,6 +62,7 @@ $O(N)$
   - https://sotanishy.github.io/cp-library-cpp/math/nimber.hpp
   - https://judge.yosupo.jp/problem/nim_product_64
   - https://yukicoder.me/problems/no/1775
+  - https://atcoder.jp/contests/abc274/tasks/abc274_h
 
 
 ## Verified

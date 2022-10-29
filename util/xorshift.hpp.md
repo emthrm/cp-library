@@ -67,9 +67,9 @@ data:
   timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
   - test/math/is_primitive_root.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp
 documentation_of: util/xorshift.hpp

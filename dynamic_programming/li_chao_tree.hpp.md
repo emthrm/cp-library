@@ -87,8 +87,8 @@ data:
   timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dynamic_programming/li_chao_tree.2.test.cpp
   - test/dynamic_programming/li_chao_tree.1.test.cpp
+  - test/dynamic_programming/li_chao_tree.2.test.cpp
 documentation_of: dynamic_programming/li_chao_tree.hpp
 layout: document
 title: Li Chao tree

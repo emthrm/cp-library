@@ -29,6 +29,8 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## ToDo
 
+- 無向閉路の検出
+  - https://judge.yosupo.jp/problem/cycle_detection_undirected
 - 閉路の列挙
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/cycle_enumeration.cc
 

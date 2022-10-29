@@ -23,10 +23,10 @@ data:
     _deprecated_at_docs: docs/math/primitive_root.md
     document_title: "\u539F\u59CB\u6839\u5224\u5B9A"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.6/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.6/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.6/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.10.8/x64/lib/python3.10/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/is_primitive_root.hpp: line 6: #pragma once found in a non-first line\n"
@@ -34,15 +34,14 @@ data:
     \ */\n\n#pragma once\n#include <algorithm>\n#include <map>\n#include <utility>\n\
     #include <vector>\n\n#include \"./euler_phi/euler_phi.hpp\"\n#include \"./mod_pow.hpp\"\
     \n#include \"./prime_factorization.hpp\"\n\nbool is_primitive_root(long long root,\
-    \ const long long m) {\n  if ((root %= m) < 0) root += m;\n  if (std::__gcd(root,\
-    \ m) > 1) return false;\n  static std::map<long long, long long> phi;\n  if (!phi.count(m))\
-    \ phi[m] = euler_phi(m);\n  const long long phi_m = phi[m];\n  static std::map<long\
-    \ long, std::vector<long long>> primes;\n  if (!primes.count(phi_m)) {\n    const\
-    \ std::vector<std::pair<long long, int>> prime_factors =\n        prime_factorization(phi_m);\n\
-    \    std::vector<long long> tmp;\n    for (const std::pair<long long, int>& pr\
-    \ : prime_factors) {\n      tmp.emplace_back(pr.first);\n    }\n    primes[phi_m]\
-    \ = tmp;\n  }\n  for (const long long p : primes[phi_m]) {\n    if (mod_pow(root,\
-    \ phi_m / p, m) == 1) return false;\n  }\n  return true;\n}\n"
+    \ const int m) {\n  if ((root %= m) < 0) root += m;\n  if (std::__gcd(static_cast<int>(root),\
+    \ m) > 1) return false;\n  static std::map<int, int> phi;\n  if (!phi.count(m))\
+    \ phi[m] = euler_phi(m);\n  const int phi_m = phi[m];\n  static std::map<int,\
+    \ std::vector<int>> primes;\n  if (!primes.count(phi_m)) {\n    std::vector<int>\
+    \ tmp;\n    for (const std::pair<int, int>& pr : prime_factorization(phi_m)) {\n\
+    \      tmp.emplace_back(pr.first);\n    }\n    primes[phi_m] = tmp;\n  }\n  for\
+    \ (const int p : primes[phi_m]) {\n    if (mod_pow(root, phi_m / p, m) == 1) return\
+    \ false;\n  }\n  return true;\n}\n"
   dependsOn:
   - math/euler_phi/euler_phi.hpp
   - math/mod_pow.hpp
@@ -50,7 +49,7 @@ data:
   isVerificationFile: false
   path: math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-10-30 00:58:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_primitive_root.test.cpp
@@ -111,6 +110,7 @@ $n$ を法とする原始根を $g$ とすると，任意の $a \in \mathbb{Z}$ 
 - 原始根を求める．
   - https://github.com/atcoder/ac-library/blob/master/atcoder/internal_math.hpp#L142
   - https://github.com/drken1215/algorithm/blob/master/MathNumberTheory/primitive_root.cpp
+  - https://judge.yosupo.jp/problem/primitive_root
 - 位数
   - https://github.com/beet-aizu/library/blob/e480647072b3a5cb2016e9137c024ccc043a897f/mod/order.cpp
 

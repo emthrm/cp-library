@@ -124,6 +124,7 @@
 - https://twitter.com/hotmanww/status/1477928012629049347
 - https://github.com/noshi91/n91lib_rs/blob/master/src/algorithm/permutation_tree.rs
 - https://twitter.com/rsat__m/status/1452104874619904001
+- https://judge.yosupo.jp/problem/common_interval_decomposition_tree
 - https://yukicoder.me/problems/no/1720
 - https://atcoder.jp/contests/abc248/tasks/abc248_h
 
@@ -165,6 +166,7 @@
 - https://mugen1337.github.io/procon/DataStructure/SlidingWindowAgregation.cpp
 - https://sotanishy.github.io/cp-library-cpp/data-structure/sliding_window_aggregation.cpp
 - https://judge.yosupo.jp/problem/queue_operate_all_composite
+- https://judge.yosupo.jp/problem/deque_operate_all_composite
 
 
 # top tree
@@ -306,7 +308,7 @@ $$
 - https://sotanishy.github.io/cp-library-cpp/data-structure/bit_vector.cpp
 
 
-# 木の同型判定
+# 木の同型性判定
 
 ## ToDo
 - https://www.hamayanhamayan.com/entry/2017/02/06/233824
@@ -319,10 +321,11 @@ $$
 - https://github.com/spaghetti-source/algorithm/blob/master/graph/tree_isomorphism.cc
 - ~~https://lumakernel.github.io/ecasdqina/graph/is-same-tree~~
 - ~~https://lumakernel.github.io/ecasdqina/string/tree-to-string~~
-- https://kimiyuki.net/writeup/algo/etc/icpc-2016-domestic-f/
+- https://judge.yosupo.jp/problem/rooted_tree_isomorphism_classification
+- ~~https://kimiyuki.net/writeup/algo/etc/icpc-2016-domestic-f/~~
 
 
-# グラフの同型判定
+# グラフの同型性判定
 
 ## ToDo
 - https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E5%90%8C%E5%9E%8B
@@ -421,6 +424,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
   - https://tubo28.me/compprog/algorithm/hogloid-heap/
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!IntervalHeap.cpp~~
   - http://natsugiri.hatenablog.com/entry/2016/10/10/035445
+  - https://judge.yosupo.jp/problem/double_ended_priority_queue
   - min-max heap
     - https://en.wikipedia.org/wiki/Min-max_heap
     - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/minmax_heap.cc
