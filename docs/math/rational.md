@@ -20,6 +20,7 @@ documentation_of: math/rational.hpp
   - https://tjkendev.github.io/procon-library/python/math/stern-brocot-tree.html
   - https://sotanishy.github.io/cp-library-cpp/math/stern_brocot_tree.hpp
   - https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184
+  - https://atcoder.jp/contests/abc273/tasks/abc273_h
 - ファレイ数列 (Farey sequence)
   - https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%AC%E3%82%A4%E6%95%B0%E5%88%97
   - https://mathtrain.jp/farey

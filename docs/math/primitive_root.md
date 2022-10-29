@@ -48,6 +48,7 @@ $n$ を法とする原始根を $g$ とすると，任意の $a \in \mathbb{Z}$ 
 - 原始根を求める．
   - https://github.com/atcoder/ac-library/blob/master/atcoder/internal_math.hpp#L142
   - https://github.com/drken1215/algorithm/blob/master/MathNumberTheory/primitive_root.cpp
+  - https://judge.yosupo.jp/problem/primitive_root
 - 位数
   - https://github.com/beet-aizu/library/blob/e480647072b3a5cb2016e9137c024ccc043a897f/mod/order.cpp
 
