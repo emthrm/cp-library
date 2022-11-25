@@ -4,6 +4,7 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071"
 
 #include <iostream>
+#include <numeric>
 #include <vector>
 
 #include "../../../math/modint.hpp"
@@ -12,19 +13,11 @@
 int main() {
   using ModInt = MInt<0>;
   ModInt::set_mod(998244353);
-  long long m, n;
-  int k;
-  std::cin >> m >> n >> k;
-  ModInt ans = ModInt(m).pow(n);
-  std::vector<ModInt> c = large_nCk_init<0>(m, k - 1);
-  for (int i = 1; i < k; ++i) {
-    ModInt tmp = 0;
-    for (int j = 1; j <= i; ++j) {
-      tmp += ModInt::nCk(i, j)
-             * ((i - j) & 1 ? -ModInt(j).pow(n) : ModInt(j).pow(n));
-    }
-    ans -= tmp * c[i];
-  }
-  std::cout << ans << '\n';
+  long long n;
+  int m;
+  std::cin >> n >> m;
+  const std::vector<ModInt> c = large_nCk_init<0>(n, m - 1);
+  std::cout << ModInt(2).pow(n) - std::accumulate(c.begin(), c.end(), ModInt(0))
+            << '\n';
   return 0;
 }
