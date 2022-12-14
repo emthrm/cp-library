@@ -8,7 +8,7 @@
 #include <set>
 #include <vector>
 
-#include "../../math/fast_divisor.hpp"
+#include "emthrm/math/fast_divisor.hpp"
 
 int main() {
   int n;

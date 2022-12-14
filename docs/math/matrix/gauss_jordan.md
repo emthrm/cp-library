@@ -1,6 +1,6 @@
 ---
 title: ガウス・ジョルダンの消去法 (Gauss–Jordan elimination)
-documentation_of: math/matrix/gauss_jordan.hpp
+documentation_of: include/emthrm/math/matrix/gauss_jordan.hpp
 ---
 
 行基本変形を用いて行列を行階段形に変形するアルゴリズムである．

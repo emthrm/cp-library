@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../../data_structure/fenwick_tree/fenwick_tree.hpp"
+#include "emthrm/data_structure/fenwick_tree/fenwick_tree.hpp"
 
 int main() {
   int n, q;

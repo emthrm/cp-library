@@ -7,8 +7,8 @@
 #include <map>
 #include <string>
 
-#include "../../../math/modint.hpp"
-#include "../../../math/twelvefold_way/lucas.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/twelvefold_way/lucas.hpp"
 
 int main() {
   constexpr int C = 3;

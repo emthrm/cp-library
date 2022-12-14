@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/chromatic_number.hpp"
-#include "../../graph/edge.hpp"
+#include "emthrm/graph/chromatic_number.hpp"
+#include "emthrm/graph/edge.hpp"
 
 int main() {
   int n, m;

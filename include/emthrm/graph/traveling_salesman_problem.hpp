@@ -4,7 +4,7 @@
 #include <numeric>
 #include <vector>
 
-#include "./edge.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType>
 CostType traveling_salesman_problem(

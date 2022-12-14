@@ -6,10 +6,10 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/convolution/number_theoretic_transform.hpp"
-#include "../../../math/formal_power_series/bernoulli_number.hpp"
-#include "../../../math/formal_power_series/formal_power_series.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/convolution/number_theoretic_transform.hpp"
+#include "emthrm/math/formal_power_series/bernoulli_number.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

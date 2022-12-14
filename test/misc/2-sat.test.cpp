@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "../../misc/2-sat.hpp"
+#include "emthrm/misc/2-sat.hpp"
 
 int main() {
   std::string p, cnf;

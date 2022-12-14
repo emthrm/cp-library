@@ -1,6 +1,6 @@
 ---
 title: レーベンシュタイン距離 (Levenshtein distance) / 編集距離 (edit distance)
-documentation_of: dynamic_programming/levenshtein_distance.hpp
+documentation_of: include/emthrm/dynamic_programming/levenshtein_distance.hpp
 ---
 
 任意の文字を削除・挿入・置換することによって，二つの文字列を一致させるために必要な操作回数の最小値である．

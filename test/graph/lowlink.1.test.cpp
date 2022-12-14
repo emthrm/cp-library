@@ -7,8 +7,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/lowlink.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/lowlink.hpp"
 
 int main() {
   int v, e;

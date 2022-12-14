@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../math/is_prime.hpp"
+#include "emthrm/math/is_prime.hpp"
 
 int main() {
   int n;

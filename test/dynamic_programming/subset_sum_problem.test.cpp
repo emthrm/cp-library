@@ -6,10 +6,10 @@
 #include <iostream>
 #include <vector>
 
-#include "../../dynamic_programming/subset_sum_problem.hpp"
-#include "../../math/convolution/number_theoretic_transform.hpp"
-#include "../../math/formal_power_series/formal_power_series.hpp"
-#include "../../math/modint.hpp"
+#include "emthrm/dynamic_programming/subset_sum_problem.hpp"
+#include "emthrm/math/convolution/number_theoretic_transform.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

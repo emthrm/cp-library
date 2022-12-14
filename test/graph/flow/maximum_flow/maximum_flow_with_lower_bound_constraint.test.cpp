@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/flow/maximum_flow/dinic.hpp"
-#include "../../../../graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp"
+#include "emthrm/graph/flow/maximum_flow/dinic.hpp"
+#include "emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp"
 
 int main() {
   while (true) {

@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 
-#include "../data_structure/union-find/union-find.hpp"
-#include "./edge.hpp"
+#include "emthrm/data_structure/union-find/union-find.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType>
 UnionFind connencted_component_of_complement_graph(

@@ -4,8 +4,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/2-edge-connected_components_by_lowlink.hpp"
-#include "../../../graph/cost-free/tree/lowest_common_ancestor_by_doubling.hpp"
+#include "emthrm/graph/cost-free/2-edge-connected_components_by_lowlink.hpp"
+#include "emthrm/graph/cost-free/tree/lowest_common_ancestor_by_doubling.hpp"
 
 int main() {
   int n, m;

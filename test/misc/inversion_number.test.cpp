@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../misc/inversion_number.hpp"
+#include "emthrm/misc/inversion_number.hpp"
 
 int main() {
   int n;

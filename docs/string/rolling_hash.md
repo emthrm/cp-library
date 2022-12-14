@@ -1,6 +1,6 @@
 ---
 title: ローリングハッシュ (rolling hash)
-documentation_of: string/rolling_hash.hpp
+documentation_of: include/emthrm/string/rolling_hash.hpp
 ---
 
 

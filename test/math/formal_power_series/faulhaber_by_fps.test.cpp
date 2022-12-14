@@ -6,10 +6,10 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/convolution/mod_convolution.hpp"
-#include "../../../math/formal_power_series/faulhaber_by_fps.hpp"
-#include "../../../math/formal_power_series/formal_power_series.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/convolution/mod_convolution.hpp"
+#include "emthrm/math/formal_power_series/faulhaber_by_fps.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

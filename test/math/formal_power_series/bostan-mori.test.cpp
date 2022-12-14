@@ -5,10 +5,10 @@
 
 #include <iostream>
 
-#include "../../../math/convolution/number_theoretic_transform.hpp"
-#include "../../../math/formal_power_series/formal_power_series.hpp"
-#include "../../../math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/convolution/number_theoretic_transform.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

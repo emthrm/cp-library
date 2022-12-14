@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../data_structure/union-find/undoable_union-find.hpp"
+#include "emthrm/data_structure/union-find/undoable_union-find.hpp"
 
 int main() {
   int n, m, k;

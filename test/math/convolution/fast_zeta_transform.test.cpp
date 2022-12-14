@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../math/convolution/fast_zeta_transform.hpp"
+#include "emthrm/math/convolution/fast_zeta_transform.hpp"
 
 int main() {
   int n;

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../misc/sqrt_decomposition.hpp"
+#include "emthrm/misc/sqrt_decomposition.hpp"
 
 std::vector<long long> a, b, lazy;
 

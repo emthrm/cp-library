@@ -1,6 +1,6 @@
 ---
 title: タイマー (timer)
-documentation_of: util/timer.hpp
+documentation_of: include/emthrm/util/timer.hpp
 ---
 
 

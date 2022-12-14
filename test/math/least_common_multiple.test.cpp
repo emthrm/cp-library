@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "../../math/least_common_multiple.hpp"
+#include "emthrm/math/least_common_multiple.hpp"
 
 int main() {
   int n;

@@ -6,7 +6,7 @@
 #pragma once
 #include <cassert>
 
-#include "../../modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 MInt<T> stirling_number_of_the_second_kind(const int n, const int k) {

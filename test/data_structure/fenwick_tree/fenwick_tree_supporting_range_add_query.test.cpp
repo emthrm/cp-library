@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
+#include "emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
 
 int main() {
   int n, q;

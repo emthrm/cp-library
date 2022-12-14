@@ -7,8 +7,8 @@
 #include <tuple>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/double_sweep.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/double_sweep.hpp"
 
 int main() {
   int n;

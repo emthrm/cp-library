@@ -9,9 +9,9 @@
 #include <iterator>
 #include <vector>
 
-#include "../../dynamic_programming/convert_online_dp_to_offline_dp.hpp"
-#include "../../math/convolution/number_theoretic_transform.hpp"
-#include "../../math/modint.hpp"
+#include "emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp"
+#include "emthrm/math/convolution/number_theoretic_transform.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

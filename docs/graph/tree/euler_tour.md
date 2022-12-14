@@ -1,6 +1,6 @@
 ---
 title: オイラーツアー (Euler tour)
-documentation_of: graph/tree/euler_tour.hpp
+documentation_of: include/emthrm/graph/tree/euler_tour.hpp
 ---
 
 根付き木を列として表現するデータ構造である．

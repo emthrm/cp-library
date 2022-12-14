@@ -1,6 +1,6 @@
 ---
 title: misère Nim
-documentation_of: game/misere_nim.hpp
+documentation_of: include/emthrm/game/misere_nim.hpp
 ---
 
 [ニム](nim.md)のルールの内，操作できなくなった方を勝ちとするものである．

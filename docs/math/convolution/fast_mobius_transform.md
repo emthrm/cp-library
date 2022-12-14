@@ -1,6 +1,6 @@
 ---
 title: 高速メビウス変換 (fast Mobius transform)
-documentation_of: math/convolution/fast_mobius_transform.hpp
+documentation_of: include/emthrm/math/convolution/fast_mobius_transform.hpp
 ---
 
 $f(S) = \sum_{S \subseteq T} (-1)^{\lvert T \setminus S \rvert} g(T)$ または $f(S) = \sum_{T \subseteq S} (-1)^{\lvert S \setminus T \rvert} g(T)$ を高速に求める．

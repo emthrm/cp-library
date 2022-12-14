@@ -7,7 +7,7 @@
 #include <functional>
 #include <vector>
 
-#include "./multipoint_evaluation.hpp"
+#include "emthrm/math/formal_power_series/multipoint_evaluation.hpp"
 
 template <template <typename> class C, typename T>
 C<T> polynomial_interpolation(const std::vector<T>& x,

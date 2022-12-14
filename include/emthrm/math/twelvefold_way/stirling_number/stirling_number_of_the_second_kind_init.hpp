@@ -6,7 +6,7 @@
 #pragma once
 #include <vector>
 
-#include "../../modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <typename T>
 std::vector<std::vector<T>> stirling_number_of_the_second_kind_init(

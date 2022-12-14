@@ -1,6 +1,6 @@
 ---
 title: 計算幾何学 (computational geometry)
-documentation_of: geometry/geometry.hpp
+documentation_of: include/emthrm/geometry/geometry.hpp
 ---
 
 

@@ -3,8 +3,8 @@
 #include <iterator>
 #include <vector>
 
-#include "../../math/matrix/determinant.hpp"
-#include "../../math/matrix/matrix.hpp"
+#include "emthrm/math/matrix/determinant.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 
 template <typename T>
 T matrix_tree_theorem(const std::vector<std::vector<int>>& graph,

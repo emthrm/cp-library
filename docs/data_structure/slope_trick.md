@@ -1,6 +1,6 @@
 ---
 title: slope trick
-documentation_of: data_structure/slope_trick.hpp
+documentation_of: include/emthrm/data_structure/slope_trick.hpp
 ---
 
 各区分の傾きが整数な凸区分線形関数 (convex piecewise linear function) を管理するテクニック

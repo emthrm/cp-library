@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/reachability_on_dag.hpp"
+#include "emthrm/graph/cost-free/reachability_on_dag.hpp"
 
 int main() {
   int n, m, q;

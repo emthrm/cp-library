@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/cost-free/tree/heavy-light_decomposition.hpp"
+#include "emthrm/graph/cost-free/tree/heavy-light_decomposition.hpp"
 
 int main() {
   int n;

@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../graph/cost-free/biconnected_component.hpp"
+#include "emthrm/graph/cost-free/biconnected_component.hpp"
 
 int main() {
   int n, m;

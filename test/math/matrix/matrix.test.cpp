@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "../../../math/matrix/matrix.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

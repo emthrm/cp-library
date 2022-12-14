@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "../../string/subsequence_dp.hpp"
+#include "emthrm/string/subsequence_dp.hpp"
 
 int main() {
   constexpr int SIGMA = 26;

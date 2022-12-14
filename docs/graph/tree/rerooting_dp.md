@@ -1,6 +1,6 @@
 ---
 title: 全方位木 DP
-documentation_of: graph/tree/rerooting_dp.hpp
+documentation_of: include/emthrm/graph/tree/rerooting_dp.hpp
 ---
 
 

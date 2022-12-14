@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../graph/cost-free/lowlink.hpp"
+#include "emthrm/graph/cost-free/lowlink.hpp"
 
 int main() {
   int v, e;

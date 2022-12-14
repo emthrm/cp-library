@@ -6,9 +6,9 @@
 #include <iterator>
 #include <vector>
 
-#include "../../../data_structure/union-find/union-find.hpp"
-#include "../../../graph/cost-free/matrix_tree_theorem.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/data_structure/union-find/union-find.hpp"
+#include "emthrm/graph/cost-free/matrix_tree_theorem.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

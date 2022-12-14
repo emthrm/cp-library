@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../math/floor_sum.hpp"
+#include "emthrm/math/floor_sum.hpp"
 
 int main() {
   int t;

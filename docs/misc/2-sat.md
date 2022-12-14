@@ -1,6 +1,6 @@
 ---
 title: 2-SAT
-documentation_of: misc/2-sat.hpp
+documentation_of: include/emthrm/misc/2-sat.hpp
 ---
 
 節内のリテラル数が高々 $2$ である連言標準形の充足可能性を判定する問題である．

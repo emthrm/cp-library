@@ -6,10 +6,10 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../math/convolution/number_theoretic_transform.hpp"
-#include "../../../../math/formal_power_series/formal_power_series.hpp"
-#include "../../../../math/modint.hpp"
-#include "../../../../math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp"
+#include "emthrm/math/convolution/number_theoretic_transform.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp"
 
 int main() {
   using ModInt = MInt<0>;

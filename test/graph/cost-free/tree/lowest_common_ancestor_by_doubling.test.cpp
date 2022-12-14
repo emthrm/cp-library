@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/cost-free/tree/lowest_common_ancestor_by_doubling.hpp"
+#include "emthrm/graph/cost-free/tree/lowest_common_ancestor_by_doubling.hpp"
 
 int main() {
   int n;

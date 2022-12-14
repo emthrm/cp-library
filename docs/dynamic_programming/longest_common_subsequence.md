@@ -1,6 +1,6 @@
 ---
 title: 最長共通部分列 (longest common subsequence)
-documentation_of: dynamic_programming/longest_common_subsequence.hpp
+documentation_of: include/emthrm/dynamic_programming/longest_common_subsequence.hpp
 ---
 
 2列に対して双方に現れる部分列の内，最長のものである．

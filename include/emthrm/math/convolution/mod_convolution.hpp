@@ -7,8 +7,8 @@
 #include <cmath>
 #include <vector>
 
-#include "../modint.hpp"
-#include "./fast_fourier_transform.hpp"
+#include "emthrm/math/convolution/fast_fourier_transform.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,

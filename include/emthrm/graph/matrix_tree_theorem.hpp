@@ -8,9 +8,9 @@
 #include <iterator>
 #include <vector>
 
-#include "../math/matrix/determinant.hpp"
-#include "../math/matrix/matrix.hpp"
-#include "./edge.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/math/matrix/determinant.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 
 template <typename T, typename CostType>
 T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph,

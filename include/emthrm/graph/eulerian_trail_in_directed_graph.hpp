@@ -8,7 +8,7 @@
 #include <functional>
 #include <vector>
 
-#include "./edge.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType>
 std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(

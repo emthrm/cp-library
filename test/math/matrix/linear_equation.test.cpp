@@ -8,10 +8,10 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/shortest_path/dijkstra.hpp"
-#include "../../../math/matrix/linear_equation.hpp"
-#include "../../../math/matrix/matrix.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/shortest_path/dijkstra.hpp"
+#include "emthrm/math/matrix/linear_equation.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 
 int main() {
   while (true) {

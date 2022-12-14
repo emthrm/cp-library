@@ -1,6 +1,6 @@
 ---
 title: 文字列の置換
-documentation_of: string/replace.hpp
+documentation_of: include/emthrm/string/replace.hpp
 ---
 
 

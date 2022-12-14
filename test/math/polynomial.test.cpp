@@ -7,8 +7,8 @@
 #include <iostream>
 #include <tuple>
 
-#include "../../math/modint.hpp"
-#include "../../math/polynomial.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/polynomial.hpp"
 
 int main() {
   using ModInt = MInt<0>;

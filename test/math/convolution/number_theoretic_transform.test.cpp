@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/convolution/number_theoretic_transform.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/convolution/number_theoretic_transform.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

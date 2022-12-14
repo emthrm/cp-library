@@ -5,8 +5,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/cost-free/tree/centroid.hpp"
-#include "../../../../math/modint.hpp"
+#include "emthrm/graph/cost-free/tree/centroid.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

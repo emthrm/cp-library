@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/2-edge-connected_components_by_imos.hpp"
+#include "emthrm/graph/cost-free/2-edge-connected_components_by_imos.hpp"
 
 int main() {
   int n, m;

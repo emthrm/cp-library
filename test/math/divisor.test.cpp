@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../math/divisor.hpp"
+#include "emthrm/math/divisor.hpp"
 
 int main() {
   long long n;

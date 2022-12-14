@@ -4,8 +4,8 @@
  */
 
 #pragma once
-#include "../util/xorshift.hpp"
-#include "./mod_pow.hpp"
+#include "emthrm/math/mod_pow.hpp"
+#include "emthrm/util/xorshift.hpp"
 
 long long mod_sqrt(long long a, const int p) {
   if ((a %= p) < 0) a += p;

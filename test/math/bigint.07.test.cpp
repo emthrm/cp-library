@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "../../math/bigint.hpp"
+#include "emthrm/math/bigint.hpp"
 
 int main() {
   BigInt<> a, b;

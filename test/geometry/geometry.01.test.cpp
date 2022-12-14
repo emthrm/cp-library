@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../geometry/geometry.hpp"
+#include "emthrm/geometry/geometry.hpp"
 
 int main() {
   geometry::Point p0, p1;

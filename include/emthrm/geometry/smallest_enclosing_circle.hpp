@@ -2,8 +2,8 @@
 #include <utility>
 #include <vector>
 
-#include "../util/xorshift.hpp"
-#include "./geometry.hpp"
+#include "emthrm/geometry/geometry.hpp"
+#include "emthrm/util/xorshift.hpp"
 
 namespace geometry {
 

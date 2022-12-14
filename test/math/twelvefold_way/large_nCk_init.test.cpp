@@ -7,8 +7,8 @@
 #include <numeric>
 #include <vector>
 
-#include "../../../math/modint.hpp"
-#include "../../../math/twelvefold_way/large_nCk_init.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/twelvefold_way/large_nCk_init.hpp"
 
 int main() {
   using ModInt = MInt<0>;

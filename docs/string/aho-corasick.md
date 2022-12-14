@@ -1,6 +1,6 @@
 ---
 title: Aho–Corasick algorithm
-documentation_of: string/aho-corasick.hpp
+documentation_of: include/emthrm/string/aho-corasick.hpp
 ---
 
 トライ木を用いてパターンマッチングを行うアルゴリズムである．

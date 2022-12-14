@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../math/modint.hpp"
-#include "../../math/montmort_number.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/montmort_number.hpp"
 
 int main() {
   using ModInt = MInt<0>;

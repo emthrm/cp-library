@@ -1,6 +1,6 @@
 ---
 title: Aliens DP
-documentation_of: dynamic_programming/aliens_dp.hpp
+documentation_of: include/emthrm/dynamic_programming/aliens_dp.hpp
 ---
 
 $n$ 頂点有向非巡回グラフ $G = (V, E \mathrel{:=} \lbrace (i, j) \in \lbrace 0, 1, \ldots, n - 1 \rbrace \times \lbrace 0, 1, \ldots, n - 1 \rbrace \mid i < j \rbrace)$ を考える．辺 $(i, j) \in E$ の重みを $c(i, j)$ とおく．

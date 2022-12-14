@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "./modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 std::vector<MInt<T>> catalan_number(const int n) {

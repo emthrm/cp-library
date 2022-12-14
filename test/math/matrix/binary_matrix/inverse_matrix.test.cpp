@@ -6,9 +6,9 @@
 #include <bitset>
 #include <iostream>
 
-#include "../../../../math/matrix/binary_matrix/binary_matrix.hpp"
-#include "../../../../math/matrix/binary_matrix/gauss_jordan.hpp"
-#include "../../../../math/matrix/binary_matrix/inverse_matrix.hpp"
+#include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
+#include "emthrm/math/matrix/binary_matrix/gauss_jordan.hpp"
+#include "emthrm/math/matrix/binary_matrix/inverse_matrix.hpp"
 
 int main() {
   constexpr int N = 600;

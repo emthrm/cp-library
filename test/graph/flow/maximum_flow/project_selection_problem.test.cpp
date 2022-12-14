@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#include "../../../../graph/flow/maximum_flow/dinic.hpp"
-#include "../../../../graph/flow/maximum_flow/project_selection_problem.hpp"
+#include "emthrm/graph/flow/maximum_flow/dinic.hpp"
+#include "emthrm/graph/flow/maximum_flow/project_selection_problem.hpp"
 
 int main() {
   int r, c;

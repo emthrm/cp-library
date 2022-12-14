@@ -3,7 +3,7 @@
 #include <iterator>
 #include <utility>
 
-#include "./matrix.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 
 template <typename T, typename U = double>
 Matrix<U> inverse_matrix(const Matrix<T>& a, const U eps = 1e-8) {

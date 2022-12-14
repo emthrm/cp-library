@@ -7,8 +7,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/enumerate_bridges.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/enumerate_bridges.hpp"
 
 int main() {
   int v, e;

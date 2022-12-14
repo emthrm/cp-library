@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../graph/eulerian_trail_in_undirected_graph.hpp"
+#include "emthrm/graph/eulerian_trail_in_undirected_graph.hpp"
 
 int main() {
   int n, m;

@@ -7,7 +7,7 @@
 #include <cassert>
 #include <vector>
 
-#include "../minimum_cost_flow/minimum_cost_s-t-flow.hpp"
+#include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
 
 template <typename T>
 struct WeightedBipartiteMatching {

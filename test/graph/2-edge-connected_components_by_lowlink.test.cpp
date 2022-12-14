@@ -7,9 +7,9 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/2-edge-connected_components_by_lowlink.hpp"
-#include "../../graph/edge.hpp"
-#include "../../graph/tree/lowest_common_ancestor_by_doubling.hpp"
+#include "emthrm/graph/2-edge-connected_components_by_lowlink.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp"
 
 int main() {
   int n, m;

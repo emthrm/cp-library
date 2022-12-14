@@ -7,7 +7,7 @@
 #include <limits>
 #include <vector>
 
-#include "../../graph/traveling_salesman_problem.hpp"
+#include "emthrm/graph/traveling_salesman_problem.hpp"
 
 int main() {
   constexpr int INF = std::numeric_limits<int>::max();

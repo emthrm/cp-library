@@ -1,6 +1,6 @@
 ---
 title: 最小流量制約付き最大流
-documentation_of: graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
+documentation_of: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
 ---
 
 

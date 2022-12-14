@@ -1,6 +1,6 @@
 ---
 title: 繰り返し二乗法 / 二分累乗法 / バイナリ法
-documentation_of: math/mod_pow.hpp
+documentation_of: include/emthrm/math/mod_pow.hpp
 ---
 
 累乗を高速に求めるアルゴリズムである．

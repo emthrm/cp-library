@@ -8,7 +8,7 @@
 #include <numeric>
 #include <vector>
 
-#include "../../data_structure/interval_managed_by_set.hpp"
+#include "emthrm/data_structure/interval_managed_by_set.hpp"
 
 int main() {
   int n, m, q;

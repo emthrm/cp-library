@@ -8,9 +8,9 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/centroid_decomposition.hpp"
-#include "../../../math/convolution/fast_fourier_transform.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/centroid_decomposition.hpp"
+#include "emthrm/math/convolution/fast_fourier_transform.hpp"
 
 int main() {
   int n;

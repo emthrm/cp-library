@@ -8,8 +8,8 @@
 #include <iterator>
 #include <vector>
 
-#include "../../graph/detect_path.hpp"
-#include "../../graph/edge.hpp"
+#include "emthrm/graph/detect_path.hpp"
+#include "emthrm/graph/edge.hpp"
 
 int main() {
   int n, q;

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/suffix_array.hpp"
+#include "emthrm/string/suffix_array.hpp"
 
 int main() {
   std::string t, p;

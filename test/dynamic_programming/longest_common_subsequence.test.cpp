@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../dynamic_programming/longest_common_subsequence.hpp"
+#include "emthrm/dynamic_programming/longest_common_subsequence.hpp"
 
 int main() {
   int q;

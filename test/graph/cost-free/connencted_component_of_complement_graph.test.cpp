@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/connencted_component_of_complement_graph.hpp"
+#include "emthrm/graph/cost-free/connencted_component_of_complement_graph.hpp"
 
 int main() {
   int n, m;

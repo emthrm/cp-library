@@ -2,7 +2,7 @@
 #include <functional>
 #include <vector>
 
-#include "./edge.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType>
 bool is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph,

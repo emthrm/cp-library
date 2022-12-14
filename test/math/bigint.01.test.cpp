@@ -9,8 +9,8 @@
 #include <string>
 #include <vector>
 
-#include "../../graph/flow/matching/weighted_bipartite_matching.hpp"
-#include "../../math/bigint.hpp"
+#include "emthrm/graph/flow/matching/weighted_bipartite_matching.hpp"
+#include "emthrm/math/bigint.hpp"
 
 namespace std {
 

@@ -1,6 +1,6 @@
 ---
 title: binary trie
-documentation_of: data_structure/binary_trie.hpp
+documentation_of: include/emthrm/data_structure/binary_trie.hpp
 ---
 
 非負整数を管理する[トライ木](../string/trie.md)である．

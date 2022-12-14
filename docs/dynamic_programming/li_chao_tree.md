@@ -1,6 +1,6 @@
 ---
 title: Li Chao tree
-documentation_of: dynamic_programming/li_chao_tree.hpp
+documentation_of: include/emthrm/dynamic_programming/li_chao_tree.hpp
 ---
 
 [convex hull trick](cht.md) に対して，傾きに単調性のない直線または線分の追加を可能にするセグメント木である．

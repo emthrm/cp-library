@@ -3,7 +3,7 @@
 #include <iterator>
 #include <vector>
 
-#include "../data_structure/fenwick_tree/fenwick_tree.hpp"
+#include "emthrm/data_structure/fenwick_tree/fenwick_tree.hpp"
 
 template <typename T>
 long long inversion_number(const std::vector<T>& a) {

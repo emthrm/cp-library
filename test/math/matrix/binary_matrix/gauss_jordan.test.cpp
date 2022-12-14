@@ -6,8 +6,8 @@
 #include <bitset>
 #include <iostream>
 
-#include "../../../../math/matrix/binary_matrix/binary_matrix.hpp"
-#include "../../../../math/matrix/binary_matrix/gauss_jordan.hpp"
+#include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
+#include "emthrm/math/matrix/binary_matrix/gauss_jordan.hpp"
 
 int main() {
   constexpr int B = 61;

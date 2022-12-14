@@ -4,8 +4,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/inverse_matrix"
 
 #include <iostream>
-#include "../../../math/modint.hpp"
-#include "../../../math/matrix/inverse_matrix.hpp"
+
+#include "emthrm/math/matrix/inverse_matrix.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

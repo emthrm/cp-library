@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "../../../math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

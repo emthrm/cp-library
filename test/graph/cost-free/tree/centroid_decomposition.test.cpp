@@ -5,8 +5,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/cost-free/tree/centroid_decomposition.hpp"
-#include "../../../../math/convolution/fast_fourier_transform.hpp"
+#include "emthrm/graph/cost-free/tree/centroid_decomposition.hpp"
+#include "emthrm/math/convolution/fast_fourier_transform.hpp"
 
 int main() {
   int n;

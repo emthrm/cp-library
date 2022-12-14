@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../dynamic_programming/levenshtein_distance.hpp"
+#include "emthrm/dynamic_programming/levenshtein_distance.hpp"
 
 int main() {
   std::string s1, s2;

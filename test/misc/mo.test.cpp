@@ -8,8 +8,8 @@
 #include <iterator>
 #include <vector>
 
-#include "../../data_structure/fenwick_tree/fenwick_tree.hpp"
-#include "../../misc/mo.hpp"
+#include "emthrm/data_structure/fenwick_tree/fenwick_tree.hpp"
+#include "emthrm/misc/mo.hpp"
 
 std::vector<int> a;
 long long inv = 0;

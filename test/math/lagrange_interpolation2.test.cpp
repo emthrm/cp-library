@@ -7,8 +7,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../math/modint.hpp"
-#include "../../math/lagrange_interpolation2.hpp"
+#include "emthrm/math/lagrange_interpolation2.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

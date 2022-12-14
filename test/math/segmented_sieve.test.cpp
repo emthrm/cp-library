@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../math/segmented_sieve.hpp"
+#include "emthrm/math/segmented_sieve.hpp"
 
 int main() {
   long long l, r;

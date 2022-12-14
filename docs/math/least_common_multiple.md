@@ -1,6 +1,6 @@
 ---
 title: 最小公倍数 (least common multiple)
-documentation_of: math/least_common_multiple.hpp
+documentation_of: include/emthrm/math/least_common_multiple.hpp
 ---
 
 

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/twelvefold_way/pascal.hpp"
+#include "emthrm/math/twelvefold_way/pascal.hpp"
 
 int main() {
   int n;

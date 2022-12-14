@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "../../../math/modint.hpp"
-#include "../../../math/twelvefold_way/partition_function.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/twelvefold_way/partition_function.hpp"
 
 int main() {
   using ModInt = MInt<0>;

@@ -7,8 +7,8 @@
 #include <limits>
 #include <vector>
 
-#include "../../graph/girth_in_directed_graph.hpp"
-#include "../../graph/girth_in_undirected_graph.hpp"
+#include "emthrm/graph/girth_in_directed_graph.hpp"
+#include "emthrm/graph/girth_in_undirected_graph.hpp"
 
 int main() {
   constexpr long long LINF = std::numeric_limits<long long>::max();

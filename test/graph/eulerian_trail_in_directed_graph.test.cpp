@@ -8,8 +8,8 @@
 #include <string>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/eulerian_trail_in_directed_graph.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/eulerian_trail_in_directed_graph.hpp"
 
 int main() {
   constexpr int SIGMA = 26;

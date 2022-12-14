@@ -1,6 +1,6 @@
 ---
 title: 回転 (rotation)
-documentation_of: misc/rotate.hpp
+documentation_of: include/emthrm/misc/rotate.hpp
 ---
 
 点の回転は

@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../data_structure/segment_tree.hpp"
+#include "emthrm/data_structure/segment_tree.hpp"
 
 int main() {
   int n, q;

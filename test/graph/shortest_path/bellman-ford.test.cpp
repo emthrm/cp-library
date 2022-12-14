@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/shortest_path/bellman-ford.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/shortest_path/bellman-ford.hpp"
 
 int main() {
   int v, e, r;

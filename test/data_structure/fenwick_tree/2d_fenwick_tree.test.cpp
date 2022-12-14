@@ -7,7 +7,7 @@
 #include <tuple>
 #include <queue>
 
-#include "../../../data_structure/fenwick_tree/2d_fenwick_tree.hpp"
+#include "emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp"
 
 int main() {
   int h, w, t, q;

@@ -3,8 +3,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../../data_structure/sparse_table.hpp"
-#include "./euler_tour.hpp"
+#include "emthrm/data_structure/sparse_table.hpp"
+#include "emthrm/graph/cost-free/tree/euler_tour.hpp"
 
 struct LowestCommonAncestor : EulerTour {
   explicit LowestCommonAncestor(const std::vector<std::vector<int>>& graph,

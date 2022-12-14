@@ -9,8 +9,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/rerooting_dp.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/rerooting_dp.hpp"
 
 int main() {
   int n;

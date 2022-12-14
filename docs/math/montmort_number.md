@@ -1,6 +1,6 @@
 ---
 title: モンモール数 (Montmort number)
-documentation_of: math/montmort_number.hpp
+documentation_of: include/emthrm/math/montmort_number.hpp
 ---
 
 $$

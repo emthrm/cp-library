@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/mobius_mu/mobius_mu_init.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/mobius_mu/mobius_mu_init.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

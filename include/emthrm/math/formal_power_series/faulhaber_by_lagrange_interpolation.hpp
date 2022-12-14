@@ -6,8 +6,8 @@
 #pragma once
 #include <vector>
 
-#include "../lagrange_interpolation2.hpp"
-#include "../modint.hpp"
+#include "emthrm/math/lagrange_interpolation2.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k) {

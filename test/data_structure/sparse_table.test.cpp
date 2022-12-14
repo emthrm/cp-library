@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../data_structure/sparse_table.hpp"
+#include "emthrm/data_structure/sparse_table.hpp"
 
 int main() {
   int n, q;

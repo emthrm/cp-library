@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-#include "../../../data_structure/fenwick_tree/fenwick_tree.hpp"
+#include "emthrm/data_structure/fenwick_tree/fenwick_tree.hpp"
 
 int main() {
   constexpr int M = 200000;

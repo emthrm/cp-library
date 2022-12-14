@@ -9,8 +9,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/unicyclic_graph.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/unicyclic_graph.hpp"
 
 int main() {
   int n;

@@ -1,6 +1,6 @@
 ---
 title: 文字列の分割
-documentation_of: string/split.hpp
+documentation_of: include/emthrm/string/split.hpp
 ---
 
 

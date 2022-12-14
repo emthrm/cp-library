@@ -1,6 +1,6 @@
 ---
 title: 逆行列 (inverse matrix)
-documentation_of: math/matrix/inverse_matrix.hpp
+documentation_of: include/emthrm/math/matrix/inverse_matrix.hpp
 ---
 
 

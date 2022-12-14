@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/kruskal.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/kruskal.hpp"
 
 int main() {
   int v, e;

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "../math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
 
 template <typename T>
 std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d) {

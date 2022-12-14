@@ -7,7 +7,7 @@
 #include <numeric>
 #include <vector>
 
-#include "../prime_sieve.hpp"
+#include "emthrm/math/prime_sieve.hpp"
 
 std::vector<long long> euler_phi_init2(const long long low,
                                        const long long high) {

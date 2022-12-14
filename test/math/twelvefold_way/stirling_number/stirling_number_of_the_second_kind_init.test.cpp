@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "../../../../math/modint.hpp"
-#include "../../../../math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp"
 
 int main() {
   using ModInt = MInt<0>;

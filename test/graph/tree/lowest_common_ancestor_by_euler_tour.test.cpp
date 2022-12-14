@@ -6,9 +6,9 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../data_structure/lazy_segment_tree.hpp"
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/lowest_common_ancestor_by_euler_tour.hpp"
+#include "emthrm/data_structure/lazy_segment_tree.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp"
 
 int main() {
   int n, q;

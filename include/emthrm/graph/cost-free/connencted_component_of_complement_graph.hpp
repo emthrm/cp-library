@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "../../data_structure/union-find/union-find.hpp"
+#include "emthrm/data_structure/union-find/union-find.hpp"
 
 UnionFind connencted_component_of_complement_graph(
     const std::vector<std::vector<int>>& graph) {

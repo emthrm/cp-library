@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/prim.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/prim.hpp"
 
 int main() {
   int v, e;

@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-#include "./formal_power_series.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
 
 template <typename T>
 std::vector<T> bernoulli_number(const int n) {

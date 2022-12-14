@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/morris-pratt.hpp"
+#include "emthrm/string/morris-pratt.hpp"
 
 int main() {
   constexpr int SIGMA = 2;

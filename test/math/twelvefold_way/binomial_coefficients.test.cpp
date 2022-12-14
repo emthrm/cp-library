@@ -8,7 +8,7 @@
 #include <iterator>
 #include <string>
 
-#include "../../../math/modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

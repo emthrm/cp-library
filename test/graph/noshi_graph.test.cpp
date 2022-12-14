@@ -7,8 +7,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/noshi_graph.hpp"
-#include "../../graph/shortest_path/dijkstra.hpp"
+#include "emthrm/graph/noshi_graph.hpp"
+#include "emthrm/graph/shortest_path/dijkstra.hpp"
 
 int main() {
   int n, q, s;

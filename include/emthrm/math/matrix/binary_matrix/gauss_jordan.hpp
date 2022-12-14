@@ -6,7 +6,7 @@
 #pragma once
 #include <utility>
 
-#include "./binary_matrix.hpp"
+#include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
 
 template <int N>
 int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false) {

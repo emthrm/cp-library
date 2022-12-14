@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../data_structure/lazy_segment_tree.hpp"
-#include "../../../../graph/cost-free/tree/lowest_common_ancestor_by_euler_tour.hpp"
+#include "emthrm/data_structure/lazy_segment_tree.hpp"
+#include "emthrm/graph/cost-free/tree/lowest_common_ancestor_by_euler_tour.hpp"
 
 int main() {
   int n, q;

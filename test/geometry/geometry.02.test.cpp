@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../geometry/geometry.hpp"
+#include "emthrm/geometry/geometry.hpp"
 
 int main() {
   int n;

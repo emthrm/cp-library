@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "../../string/z_algorithm.hpp"
+#include "emthrm/string/z_algorithm.hpp"
 
 int main() {
   std::string s;

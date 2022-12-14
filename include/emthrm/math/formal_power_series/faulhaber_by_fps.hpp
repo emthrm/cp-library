@@ -7,8 +7,8 @@
 #include <cassert>
 #include <vector>
 
-#include "../modint.hpp"
-#include "./bernoulli_number.hpp"
+#include "emthrm/math/formal_power_series/bernoulli_number.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 MInt<T> faulhaber_by_fps(const long long n, const int k) {

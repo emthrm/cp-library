@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/shortest_path/warshall-floyd.hpp"
+#include "emthrm/graph/shortest_path/warshall-floyd.hpp"
 
 int main() {
   constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;

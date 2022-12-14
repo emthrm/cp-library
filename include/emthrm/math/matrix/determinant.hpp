@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <utility>
 
-#include "./matrix.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 
 template <typename T, typename U>
 U det(const Matrix<T>& a, const U eps) {

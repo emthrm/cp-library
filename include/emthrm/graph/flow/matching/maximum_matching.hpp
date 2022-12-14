@@ -6,10 +6,10 @@
 #pragma once
 #include <vector>
 
-#include "../../../math/modint.hpp"
-#include "../../../math/matrix/gauss_jordan.hpp"
-#include "../../../math/matrix/matrix.hpp"
-#include "../../../util/xorshift.hpp"
+#include "emthrm/math/matrix/gauss_jordan.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/util/xorshift.hpp"
 
 int maximum_matching(const std::vector<std::vector<int>>& graph) {
   constexpr int P = 1000000007;

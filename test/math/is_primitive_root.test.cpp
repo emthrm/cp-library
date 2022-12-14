@@ -7,9 +7,9 @@
 #include <iostream>
 #include <vector>
 
-#include "../../math/is_primitive_root.hpp"
-#include "../../math/mod_pow.hpp"
-#include "../../util/xorshift.hpp"
+#include "emthrm/math/is_primitive_root.hpp"
+#include "emthrm/math/mod_pow.hpp"
+#include "emthrm/util/xorshift.hpp"
 
 int main() {
   int t;

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/strongly_connected_components.hpp"
+#include "emthrm/graph/cost-free/strongly_connected_components.hpp"
 
 int main() {
   int n, m;

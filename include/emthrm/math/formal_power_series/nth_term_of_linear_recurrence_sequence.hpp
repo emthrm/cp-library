@@ -6,7 +6,7 @@
 #pragma once
 #include <cassert>
 
-#include "./bostan-mori.hpp"
+#include "emthrm/math/formal_power_series/bostan-mori.hpp"
 
 template <template <typename> class C, typename T>
 T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n) {

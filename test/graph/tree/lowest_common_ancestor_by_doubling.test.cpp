@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/lowest_common_ancestor_by_doubling.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp"
 
 int main() {
   int n;

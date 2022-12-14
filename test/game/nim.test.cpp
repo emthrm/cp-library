@@ -7,8 +7,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../game/nim.hpp"
-#include "../../math/prime_factorization.hpp"
+#include "emthrm/game/nim.hpp"
+#include "emthrm/math/prime_factorization.hpp"
 
 int main() {
   int n;

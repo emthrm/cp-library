@@ -23,9 +23,9 @@ $$
 |:--:|:--:|
 |`pascal<T>(n)`|$n$ 段のパスカルの三角形|
 
-- [二項係数](../../../math/modint.hpp)
+- [二項係数](../../../include/emthrm/math/modint.hpp)
 
-- [二項係数 巨大な $n$ 版](../../../math/modint.hpp)
+- [二項係数 巨大な $n$ 版](../../../include/emthrm/math/modint.hpp)
 
 - 二項係数の数表 巨大な $n$ 版
 

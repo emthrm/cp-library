@@ -7,7 +7,7 @@
 #include <numeric>
 #include <vector>
 
-#include "../prime_sieve.hpp"
+#include "emthrm/math/prime_sieve.hpp"
 
 std::vector<int> mobius_mu_init2(const long long low, const long long high) {
   std::vector<int> mu(high - low, 1);

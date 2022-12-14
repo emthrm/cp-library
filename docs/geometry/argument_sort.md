@@ -1,6 +1,6 @@
 ---
 title: 偏角ソート
-documentation_of: geometry/argument_sort.hpp
+documentation_of: include/emthrm/geometry/argument_sort.hpp
 ---
 
 

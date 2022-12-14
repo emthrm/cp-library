@@ -1,6 +1,6 @@
 ---
 title: 中国剰余定理 (Chinese remainder theorem)
-documentation_of: math/chinese_remainder_theorem.hpp
+documentation_of: include/emthrm/math/chinese_remainder_theorem.hpp
 ---
 
 連立合同式 $x \equiv b_i \pmod{m_i}$ ($i = 1, 2,\ldots, n$) が与えられる．

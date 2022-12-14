@@ -1,6 +1,6 @@
 ---
 title: 有理数 (rational number)
-documentation_of: math/rational.hpp
+documentation_of: include/emthrm/math/rational.hpp
 ---
 
 

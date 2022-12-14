@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/heavy-light_decomposition.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/heavy-light_decomposition.hpp"
 
 int main() {
   int n;

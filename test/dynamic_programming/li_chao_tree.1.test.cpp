@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../dynamic_programming/li_chao_tree.hpp"
+#include "emthrm/dynamic_programming/li_chao_tree.hpp"
 
 int main() {
   constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;

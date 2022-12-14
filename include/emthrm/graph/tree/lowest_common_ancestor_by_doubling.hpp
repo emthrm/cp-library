@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-#include "../edge.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType>
 struct LowestCommonAncestorByDoubling {

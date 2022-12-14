@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../math/enumerate_k-th_power.hpp"
+#include "emthrm/math/enumerate_k-th_power.hpp"
 
 int main() {
   int t;

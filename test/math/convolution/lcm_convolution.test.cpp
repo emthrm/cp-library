@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/convolution/lcm_convolution.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/convolution/lcm_convolution.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

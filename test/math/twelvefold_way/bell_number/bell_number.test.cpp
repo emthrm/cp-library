@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "../../../../math/modint.hpp"
-#include "../../../../math/twelvefold_way/bell_number/bell_number.hpp"
+#include "emthrm/math/modint.hpp"
+#include "emthrm/math/twelvefold_way/bell_number/bell_number.hpp"
 
 int main() {
   using ModInt = MInt<0>;

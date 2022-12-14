@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "../../string/split.hpp"
+#include "emthrm/string/split.hpp"
 
 int main() {
   std::string s;

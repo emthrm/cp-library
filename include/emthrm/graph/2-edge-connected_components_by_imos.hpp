@@ -10,8 +10,8 @@
 #include <utility>
 #include <vector>
 
-#include "./edge.hpp"
-#include "./enumerate_bridges.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/enumerate_bridges.hpp"
 
 template <typename CostType>
 struct TwoEdgeConnectedComponentsByImos {

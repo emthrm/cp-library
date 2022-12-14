@@ -1,6 +1,6 @@
 ---
 title: 部分列 DP
-documentation_of: string/subsequence_dp.hpp
+documentation_of: include/emthrm/string/subsequence_dp.hpp
 ---
 
 

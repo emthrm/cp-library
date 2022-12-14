@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/rolling_hash.hpp"
+#include "emthrm/string/rolling_hash.hpp"
 
 int main() {
   std::string t, p;

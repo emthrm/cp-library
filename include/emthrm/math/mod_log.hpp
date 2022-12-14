@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 
-#include "./mod_pow.hpp"
+#include "emthrm/math/mod_pow.hpp"
 
 int mod_log(long long g, long long y, const int m) {
   if (m == 1) return 0;

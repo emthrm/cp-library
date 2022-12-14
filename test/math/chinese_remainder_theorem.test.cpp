@@ -7,7 +7,7 @@
 #include <tuple>
 #include <vector>
 
-#include "../../math/chinese_remainder_theorem.hpp"
+#include "emthrm/math/chinese_remainder_theorem.hpp"
 
 int main() {
   constexpr int N = 3;

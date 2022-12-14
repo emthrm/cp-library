@@ -1,6 +1,6 @@
 ---
 title: 二部グラフ判定
-documentation_of: graph/is_bipartite.hpp
+documentation_of: include/emthrm/graph/is_bipartite.hpp
 ---
 
 

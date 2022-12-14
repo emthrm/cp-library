@@ -7,7 +7,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "../modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 std::vector<MInt<T>> large_nCk_init(long long n, const int k) {

@@ -5,8 +5,8 @@
 
 #include <iostream>
 
-#include "../../math/catalan_number.hpp"
-#include "../../math/modint.hpp"
+#include "emthrm/math/catalan_number.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

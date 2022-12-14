@@ -1,6 +1,6 @@
 ---
 title: prime sieve
-documentation_of: math/prime_sieve.hpp
+documentation_of: include/emthrm/math/prime_sieve.hpp
 ---
 
 

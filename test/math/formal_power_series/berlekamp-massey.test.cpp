@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/formal_power_series/berlekamp-massey.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/formal_power_series/berlekamp-massey.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

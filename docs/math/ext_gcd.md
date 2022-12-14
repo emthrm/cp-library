@@ -1,6 +1,6 @@
 ---
 title: 拡張 Euclid の互除法 (extended Euclidean algorithm)
-documentation_of: math/ext_gcd.hpp
+documentation_of: include/emthrm/math/ext_gcd.hpp
 ---
 
 $ax + by = \gcd(a, b)$ を満たす整数解 $(x, y)$ を求めるアルゴリズムである．

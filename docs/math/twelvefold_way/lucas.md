@@ -1,6 +1,6 @@
 ---
 title: Lucas の定理 (Lucas's theorem)
-documentation_of: math/twelvefold_way/lucas.hpp
+documentation_of: include/emthrm/math/twelvefold_way/lucas.hpp
 ---
 
 $p \in \mathbb{P},\ n, k \in \mathrm{N}$ に対して，

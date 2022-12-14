@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../math/matrix/binary_matrix/binary_matrix.hpp"
-#include "../../../../math/matrix/binary_matrix/linear_equation.hpp"
+#include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
+#include "emthrm/math/matrix/binary_matrix/linear_equation.hpp"
 
 int main() {
   constexpr int N = 50, B = 30;

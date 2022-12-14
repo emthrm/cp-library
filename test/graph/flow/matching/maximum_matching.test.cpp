@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/flow/matching/maximum_matching.hpp"
+#include "emthrm/graph/flow/matching/maximum_matching.hpp"
 
 int main() {
   int n, a, b;

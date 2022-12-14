@@ -7,7 +7,7 @@
 #include <tuple>
 #include <vector>
 
-#include "../../math/simultaneous_linear_congruence.hpp"
+#include "emthrm/math/simultaneous_linear_congruence.hpp"
 
 int main() {
   constexpr int N = 3;

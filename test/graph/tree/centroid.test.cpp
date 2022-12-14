@@ -8,9 +8,9 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/edge.hpp"
-#include "../../../graph/tree/centroid.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/centroid.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

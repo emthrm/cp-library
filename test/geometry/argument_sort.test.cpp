@@ -7,7 +7,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../geometry/argument_sort.hpp"
+#include "emthrm/geometry/argument_sort.hpp"
 
 int main() {
   int n;

@@ -1,6 +1,6 @@
 ---
 title: 有向非巡回グラフ上の到達可能性判定
-documentation_of: graph/reachability_on_dag.hpp
+documentation_of: include/emthrm/graph/reachability_on_dag.hpp
 ---
 
 

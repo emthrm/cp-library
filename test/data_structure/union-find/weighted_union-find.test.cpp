@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../../data_structure/union-find/weighted_union-find.hpp"
+#include "emthrm/data_structure/union-find/weighted_union-find.hpp"
 
 int main() {
   int n, q;

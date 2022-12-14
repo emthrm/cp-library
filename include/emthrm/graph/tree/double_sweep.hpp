@@ -5,7 +5,7 @@
 #include <utility>
 #include <vector>
 
-#include "../edge.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType>
 std::pair<CostType, std::vector<int>> double_sweep(

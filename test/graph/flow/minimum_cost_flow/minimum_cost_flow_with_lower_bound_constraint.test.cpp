@@ -8,9 +8,9 @@
 #include <limits>
 #include <vector>
 
-#include "../../../../graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp"
-#include "../../../../graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp"
-#include "../../../../graph/edge.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp"
+#include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp"
 
 int main() {
   constexpr int INF = std::numeric_limits<int>::max();

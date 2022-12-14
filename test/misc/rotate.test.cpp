@@ -8,7 +8,7 @@
 #include <set>
 #include <vector>
 
-#include "../../misc/rotate.hpp"
+#include "emthrm/misc/rotate.hpp"
 
 int main() {
   int h, w;

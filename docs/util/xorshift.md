@@ -1,6 +1,6 @@
 ---
 title: xorshift
-documentation_of: util/xorshift.hpp
+documentation_of: include/emthrm/util/xorshift.hpp
 ---
 
 疑似乱数列生成法の一種である．

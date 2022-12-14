@@ -1,6 +1,6 @@
 ---
 title: Warshall–Floyd 法
-documentation_of: graph/shortest_path/warshall-floyd.hpp
+documentation_of: include/emthrm/graph/shortest_path/warshall-floyd.hpp
 ---
 
 任意の2頂点間の最短路を求める全点対最短路問題を解けるアルゴリズムである．

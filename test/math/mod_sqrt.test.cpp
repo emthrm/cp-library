@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../math/mod_sqrt.hpp"
+#include "emthrm/math/mod_sqrt.hpp"
 
 int main() {
   int t;

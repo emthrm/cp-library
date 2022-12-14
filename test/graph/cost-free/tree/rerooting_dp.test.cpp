@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../graph/cost-free/tree/rerooting_dp.hpp"
-#include "../../../../math/modint.hpp"
+#include "emthrm/graph/cost-free/tree/rerooting_dp.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

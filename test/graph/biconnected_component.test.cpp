@@ -13,8 +13,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../graph/biconnected_component.hpp"
-#include "../../graph/edge.hpp"
+#include "emthrm/graph/biconnected_component.hpp"
+#include "emthrm/graph/edge.hpp"
 
 int main() {
   int n, m;

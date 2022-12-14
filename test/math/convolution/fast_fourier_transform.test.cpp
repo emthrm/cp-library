@@ -8,7 +8,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/convolution/fast_fourier_transform.hpp"
+#include "emthrm/math/convolution/fast_fourier_transform.hpp"
 
 int main() {
   int n;

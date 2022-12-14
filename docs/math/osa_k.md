@@ -1,6 +1,6 @@
 ---
 title: osa_k 法
-documentation_of: math/osa_k.hpp
+documentation_of: include/emthrm/math/osa_k.hpp
 ---
 
 [prime sieve](prime_sieve.md) を用いた[素因数分解](prime_factorization.md)である．

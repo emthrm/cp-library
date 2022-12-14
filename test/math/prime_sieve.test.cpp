@@ -7,7 +7,7 @@
 #include <set>
 #include <vector>
 
-#include "../../math/prime_sieve.hpp"
+#include "emthrm/math/prime_sieve.hpp"
 
 int main() {
   int n;

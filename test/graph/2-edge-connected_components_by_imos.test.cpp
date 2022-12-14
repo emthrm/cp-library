@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/2-edge-connected_components_by_imos.hpp"
-#include "../../graph/edge.hpp"
+#include "emthrm/graph/2-edge-connected_components_by_imos.hpp"
+#include "emthrm/graph/edge.hpp"
 
 int main() {
   int n, m;

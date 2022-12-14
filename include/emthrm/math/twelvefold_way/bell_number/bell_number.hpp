@@ -7,7 +7,7 @@
 #include <cassert>
 #include <vector>
 
-#include "../../modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 MInt<T> bell_number(const int n, int k) {

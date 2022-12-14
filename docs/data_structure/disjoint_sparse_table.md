@@ -1,6 +1,6 @@
 ---
 title: disjoint sparse table
-documentation_of: data_structure/disjoint_sparse_table.hpp
+documentation_of: include/emthrm/data_structure/disjoint_sparse_table.hpp
 ---
 
 [半群](../../.verify-helper/docs/static/algebraic_structure.md)であるデータを含んだ区間に対して高速に演算を行うデータ構造である．

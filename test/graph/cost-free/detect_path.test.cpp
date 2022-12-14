@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/detect_path.hpp"
+#include "emthrm/graph/cost-free/detect_path.hpp"
 
 int main() {
   int n, q;

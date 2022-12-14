@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../../../graph/flow/maximum_flow/ford-fulkerson.hpp"
+#include "emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp"
 
 int main() {
   int v, e;

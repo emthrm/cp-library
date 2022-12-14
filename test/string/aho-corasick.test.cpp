@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/aho-corasick.hpp"
+#include "emthrm/string/aho-corasick.hpp"
 
 int main() {
   std::string s;

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <tuple>
 
-#include "../../math/enumerate_quotients.hpp"
+#include "emthrm/math/enumerate_quotients.hpp"
 
 int main() {
   long long n;

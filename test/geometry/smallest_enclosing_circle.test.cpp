@@ -8,8 +8,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../geometry/geometry.hpp"
-#include "../../geometry/smallest_enclosing_circle.hpp"
+#include "emthrm/geometry/geometry.hpp"
+#include "emthrm/geometry/smallest_enclosing_circle.hpp"
 
 int main() {
   int n;

@@ -9,10 +9,10 @@
 #include <iterator>
 #include <vector>
 
-#include "../../data_structure/union-find/union-find.hpp"
-#include "../../graph/edge.hpp"
-#include "../../graph/matrix_tree_theorem.hpp"
-#include "../../math/modint.hpp"
+#include "emthrm/data_structure/union-find/union-find.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/matrix_tree_theorem.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

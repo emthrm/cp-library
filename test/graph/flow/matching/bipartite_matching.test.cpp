@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../../../graph/flow/matching/bipartite_matching.hpp"
+#include "emthrm/graph/flow/matching/bipartite_matching.hpp"
 
 int main() {
   int x, y, e;

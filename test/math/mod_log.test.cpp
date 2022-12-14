@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../math/mod_log.hpp"
+#include "emthrm/math/mod_log.hpp"
 
 int main() {
   int t;

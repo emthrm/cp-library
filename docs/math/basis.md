@@ -1,6 +1,6 @@
 ---
 title: 基底 (basis)
-documentation_of: math/basis.hpp
+documentation_of: include/emthrm/math/basis.hpp
 ---
 
 

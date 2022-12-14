@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../dynamic_programming/convex_hull_trick.hpp"
+#include "emthrm/dynamic_programming/convex_hull_trick.hpp"
 
 int main() {
   int n;

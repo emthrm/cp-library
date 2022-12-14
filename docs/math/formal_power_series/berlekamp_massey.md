@@ -1,6 +1,6 @@
 ---
 title: Berlekamp–Massey algorithm
-documentation_of: math/formal_power_series/berlekamp-massey.hpp
+documentation_of: include/emthrm/math/formal_power_series/berlekamp-massey.hpp
 ---
 
 任意の体上で線形回帰数列 (linear recurrence sequence) の特性多項式を求められるアルゴリズムである．

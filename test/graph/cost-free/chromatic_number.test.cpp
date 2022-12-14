@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../graph/cost-free/chromatic_number.hpp"
+#include "emthrm/graph/cost-free/chromatic_number.hpp"
 
 int main() {
   int n, m;

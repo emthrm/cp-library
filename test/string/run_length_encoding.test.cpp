@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/run_length_encoding.hpp"
+#include "emthrm/string/run_length_encoding.hpp"
 
 int main() {
   int n;

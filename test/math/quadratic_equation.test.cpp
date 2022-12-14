@@ -10,8 +10,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../geometry/geometry.hpp"
-#include "../../math/quadratic_equation.hpp"
+#include "emthrm/geometry/geometry.hpp"
+#include "emthrm/math/quadratic_equation.hpp"
 
 int main() {
   constexpr double EPS = 1e-8;

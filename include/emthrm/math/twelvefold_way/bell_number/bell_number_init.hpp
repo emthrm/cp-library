@@ -6,7 +6,7 @@
 #pragma once
 #include <vector>
 
-#include "../stirling_number/stirling_number_of_the_second_kind_init.hpp"
+#include "emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp"
 
 template <typename T>
 std::vector<std::vector<T>> bell_number_init(const int n, const int k) {

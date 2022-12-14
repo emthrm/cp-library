@@ -5,8 +5,8 @@
 #include <utility>
 #include <vector>
 
-#include "../data_structure/sparse_table.hpp"
-#include "./suffix_array.hpp"
+#include "emthrm/data_structure/sparse_table.hpp"
+#include "emthrm/string/suffix_array.hpp"
 
 template <typename T = std::string>
 struct LongestCommonPrefix : SuffixArray<T> {

@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "../../math/rational.hpp"
+#include "emthrm/math/rational.hpp"
 
 int main() {
   using rational = Rational<>;

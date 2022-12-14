@@ -7,8 +7,8 @@
 #include <map>
 #include <utility>
 
-#include "../../../math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
-#include "../../../math/modint.hpp"
+#include "emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

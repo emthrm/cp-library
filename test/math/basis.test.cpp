@@ -8,8 +8,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../math/basis.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/math/basis.hpp"
 
 int main() {
   constexpr int D = 60;

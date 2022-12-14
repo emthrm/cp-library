@@ -10,7 +10,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/convolution/fast_mobius_transform.hpp"
+#include "emthrm/math/convolution/fast_mobius_transform.hpp"
 
 int main() {
   int n;

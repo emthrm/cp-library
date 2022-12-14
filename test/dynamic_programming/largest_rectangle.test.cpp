@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../dynamic_programming/largest_rectangle.hpp"
+#include "emthrm/dynamic_programming/largest_rectangle.hpp"
 
 int main() {
   int n;

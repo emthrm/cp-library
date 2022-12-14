@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../math/jacobi_symbol.hpp"
+#include "emthrm/math/jacobi_symbol.hpp"
 
 int main() {
   int p, n;

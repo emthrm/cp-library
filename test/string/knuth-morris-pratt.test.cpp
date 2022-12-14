@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/knuth-morris-pratt.hpp"
+#include "emthrm/string/knuth-morris-pratt.hpp"
 
 int main() {
   std::string t, p;

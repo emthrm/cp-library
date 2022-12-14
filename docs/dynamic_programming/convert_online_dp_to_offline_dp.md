@@ -1,6 +1,6 @@
 ---
 title: オフライン・オンライン変換
-documentation_of: dynamic_programming/convert_online_dp_to_offline_dp.hpp
+documentation_of: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
 ---
 
 $i = 1, 2, \ldots, N$ に対して $\mathrm{dp}(i) = f_i(I)$ ($I \subseteq \lbrace 1, 2, \ldots, i - 1 \rbrace$) で表せるオンライン動的計画法を考える．

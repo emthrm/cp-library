@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../math/euler_phi/euler_phi.hpp"
-#include "../../../math/euler_phi/euler_phi_init2.hpp"
+#include "emthrm/math/euler_phi/euler_phi.hpp"
+#include "emthrm/math/euler_phi/euler_phi_init2.hpp"
 
 int main() {
   constexpr int L = 999000000, H = 1000000000;

@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../math/osa_k.hpp"
+#include "emthrm/math/osa_k.hpp"
 
 int main() {
   int n;

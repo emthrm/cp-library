@@ -7,8 +7,8 @@
 #include <utility>
 #include <vector>
 
-#include "../../data_structure/lazy_segment_tree.hpp"
-#include "../../math/modint.hpp"
+#include "emthrm/data_structure/lazy_segment_tree.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

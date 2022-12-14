@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 
-#include "./lowlink.hpp"
+#include "emthrm/graph/cost-free/lowlink.hpp"
 
 struct BiconnectedComponent : Lowlink {
   std::vector<int> id;

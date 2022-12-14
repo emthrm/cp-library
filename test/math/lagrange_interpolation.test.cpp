@@ -8,8 +8,8 @@
 #include <numeric>
 #include <vector>
 
-#include "../../math/lagrange_interpolation.hpp"
-#include "../../math/modint.hpp"
+#include "emthrm/math/lagrange_interpolation.hpp"
+#include "emthrm/math/modint.hpp"
 
 int main() {
   using ModInt = MInt<0>;

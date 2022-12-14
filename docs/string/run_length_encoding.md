@@ -1,6 +1,6 @@
 ---
 title: ランレングス圧縮 (run length encoding)
-documentation_of: string/run_length_encoding.hpp
+documentation_of: include/emthrm/string/run_length_encoding.hpp
 ---
 
 

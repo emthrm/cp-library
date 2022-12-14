@@ -9,7 +9,7 @@
 #include <string>
 #include <vector>
 
-#include "../../geometry/geometry.hpp"
+#include "emthrm/geometry/geometry.hpp"
 
 int main() {
   constexpr double EPS = 1e-8;

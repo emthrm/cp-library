@@ -11,9 +11,9 @@
 #include <utility>
 #include <vector>
 
-#include "../../data_structure/union-find/union-find.hpp"
-#include "../../graph/edge.hpp"
-#include "../../graph/is_bipartite.hpp"
+#include "emthrm/data_structure/union-find/union-find.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/is_bipartite.hpp"
 
 int main() {
   int n, m;

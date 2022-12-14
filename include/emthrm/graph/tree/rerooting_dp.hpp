@@ -3,7 +3,7 @@
 #include <functional>
 #include <vector>
 
-#include "../edge.hpp"
+#include "emthrm/graph/edge.hpp"
 
 template <typename CostType, typename CommutativeSemigroup,
           typename E, typename F, typename G>

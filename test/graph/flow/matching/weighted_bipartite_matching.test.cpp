@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 
-#include "../../../../graph/flow/matching/weighted_bipartite_matching.hpp"
+#include "emthrm/graph/flow/matching/weighted_bipartite_matching.hpp"
 
 int main() {
   int n;

@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "./trie.hpp"
+#include "emthrm/string/trie.hpp"
 
 template <size_t Sigma = 26>
 struct AhoCorasick : Trie<Sigma + 1> {

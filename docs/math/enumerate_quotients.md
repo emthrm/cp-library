@@ -1,6 +1,6 @@
 ---
 title: 商の列挙
-documentation_of: math/enumerate_quotients.hpp
+documentation_of: include/emthrm/math/enumerate_quotients.hpp
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: 最小流量制約付き最小費用流
-documentation_of: graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp
+documentation_of: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp
 ---
 
 

@@ -7,8 +7,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../graph/edge.hpp"
-#include "../../graph/reachability_on_dag.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/reachability_on_dag.hpp"
 
 int main() {
   int n, m, q;

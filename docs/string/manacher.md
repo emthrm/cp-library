@@ -1,6 +1,6 @@
 ---
 title: Manacher
-documentation_of: string/manacher.hpp
+documentation_of: include/emthrm/string/manacher.hpp
 ---
 
 文字列に対してそれぞれのインデックスを中心とした回文の最大半径を求めるアルゴリズムである．

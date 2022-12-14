@@ -7,7 +7,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../data_structure/slope_trick.hpp"
+#include "emthrm/data_structure/slope_trick.hpp"
 
 int main() {
   int n;

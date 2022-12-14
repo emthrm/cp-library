@@ -6,7 +6,7 @@
 #include <utility>
 #include <vector>
 
-#include "../../../graph/cost-free/unicyclic_graph.hpp"
+#include "emthrm/graph/cost-free/unicyclic_graph.hpp"
 
 int main() {
   int n;

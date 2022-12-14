@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../math/mod_pow.hpp"
+#include "emthrm/math/mod_pow.hpp"
 
 int main() {
   int m, n;

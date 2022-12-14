@@ -6,8 +6,8 @@
 #pragma once
 #include <vector>
 
-#include "../../formal_power_series/formal_power_series.hpp"
-#include "../../modint.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(

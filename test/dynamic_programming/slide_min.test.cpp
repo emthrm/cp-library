@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../dynamic_programming/slide_min.hpp"
+#include "emthrm/dynamic_programming/slide_min.hpp"
 
 int main() {
   int n, l;

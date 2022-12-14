@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "../../data_structure/binary_trie.hpp"
+#include "emthrm/data_structure/binary_trie.hpp"
 
 int main() {
   constexpr int B = 30;

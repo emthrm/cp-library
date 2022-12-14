@@ -1,6 +1,6 @@
 ---
 title: 重心分解 (centroid decompositon)
-documentation_of: graph/tree/centroid_decomposition.hpp
+documentation_of: include/emthrm/graph/tree/centroid_decomposition.hpp
 ---
 
 重心を基にした木の分解法の一つである．木上で分割統治法を行うときに有用である．

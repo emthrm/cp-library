@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 
-#include "../../../../data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
-#include "../../../../graph/cost-free/tree/heavy-light_decomposition.hpp"
+#include "emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp"
+#include "emthrm/graph/cost-free/tree/heavy-light_decomposition.hpp"
 
 int main() {
   int n, q;

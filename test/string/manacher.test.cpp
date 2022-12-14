@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#include "../../string/manacher.hpp"
+#include "emthrm/string/manacher.hpp"
 
 int main() {
   std::string s;

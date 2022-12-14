@@ -1,6 +1,6 @@
 ---
 title: スライド最小値
-documentation_of: dynamic_programming/slide_min.hpp
+documentation_of: include/emthrm/dynamic_programming/slide_min.hpp
 ---
 
 

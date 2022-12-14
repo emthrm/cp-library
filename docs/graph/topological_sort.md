@@ -1,6 +1,6 @@
 ---
 title: トポロジカルソート (topological sort)
-documentation_of: graph/topological_sort.hpp
+documentation_of: include/emthrm/graph/topological_sort.hpp
 ---
 
 有向非巡回グラフ (directed acyclic graph) のトポロジカル順序を求めるアルゴリズムである．

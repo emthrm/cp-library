@@ -7,8 +7,8 @@
 #include <numeric>
 #include <vector>
 
-#include "./least_common_multiple.hpp"
-#include "./prime_sieve.hpp"
+#include "emthrm/math/least_common_multiple.hpp"
+#include "emthrm/math/prime_sieve.hpp"
 
 std::vector<long long> carmichael_function_init(const long long low,
                                                 const long long high) {

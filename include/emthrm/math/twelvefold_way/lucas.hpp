@@ -1,5 +1,5 @@
 #pragma once
-#include "../modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int P>
 MInt<P> lucas(int n, int k) {

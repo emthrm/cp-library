@@ -8,7 +8,7 @@
 #include <iterator>
 #include <vector>
 
-#include "../../../../graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
+#include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
 
 int main() {
   int n;

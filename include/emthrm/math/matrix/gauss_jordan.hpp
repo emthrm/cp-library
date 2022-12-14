@@ -1,7 +1,7 @@
 #pragma once
 #include <utility>
 
-#include "./matrix.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 
 template <typename T>
 int gauss_jordan(Matrix<T>* a, const T eps = 1e-8,

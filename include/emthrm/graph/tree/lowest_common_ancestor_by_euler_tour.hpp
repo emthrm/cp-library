@@ -8,9 +8,9 @@
 #include <utility>
 #include <vector>
 
-#include "../../data_structure/sparse_table.hpp"
-#include "../edge.hpp"
-#include "./euler_tour.hpp"
+#include "emthrm/data_structure/sparse_table.hpp"
+#include "emthrm/graph/edge.hpp"
+#include "emthrm/graph/tree/euler_tour.hpp"
 
 template <typename CostType>
 struct LowestCommonAncestor : EulerTour<CostType> {

@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "../modint.hpp"
+#include "emthrm/math/modint.hpp"
 
 template <int T>
 struct NumberTheoreticTransform {
