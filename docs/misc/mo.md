@@ -31,7 +31,7 @@ documentation_of: include/emthrm/misc/mo.hpp
 - https://snuke.hatenablog.com/entry/2016/07/01/000000
 
 
-## ToDo
+## TODO
 
 - https://www.hamayanhamayan.com/entry/2017/04/18/012937
 - Rollback 平方分割

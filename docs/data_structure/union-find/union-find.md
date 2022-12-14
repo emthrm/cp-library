@@ -84,7 +84,7 @@ undo 可能 union-find
 - https://drken1215.hatenablog.com/entry/2020/11/02/201400
 
 
-## ToDo
+## TODO
 
 - https://noshi91.hatenablog.com/entry/2018/05/30/191943
 - 両端をもつ union-find

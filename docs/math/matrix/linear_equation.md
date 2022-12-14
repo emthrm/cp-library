@@ -16,7 +16,7 @@ $O(M^2 N)$
 |`linear_equation(a, b, ε = 1e-8)`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$|解なしのときは空配列となる．|
 
 
-## ToDo
+## TODO
 
 - https://sotanishy.github.io/cp-library-cpp/math/system_of_linear_equations.cpp
 - https://judge.yosupo.jp/problem/system_of_linear_equations

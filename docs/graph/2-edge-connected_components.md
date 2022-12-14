@@ -49,7 +49,7 @@ lowlink 版
 - https://ei1333.github.io/luzhiled/snippets/graph/two-edge-connected-components.html
 
 
-## ToDo
+## TODO
 
 - 三重辺連結成分分解
   - https://ja.wikipedia.org/wiki/%E9%80%A3%E7%B5%90%E3%82%B0%E3%83%A9%E3%83%95

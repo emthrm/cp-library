@@ -82,7 +82,7 @@ Dinic 法
 - https://misawa.github.io/others/flow/dinic_time_complexity.html
 
 
-## ToDo
+## TODO
 
 - エドモンズ・カープのアルゴリズム (Edmonds–Karp algorithm)
   - https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%89%E3%83%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0

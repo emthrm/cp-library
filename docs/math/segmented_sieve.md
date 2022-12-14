@@ -21,7 +21,7 @@ $O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?
 - http://www.prefield.com/algorithm/math/segment_sieve.html
 
 
-## ToDo
+## TODO
 
 - https://uwitenpen.hatenadiary.org/entries/2011/12/03
 

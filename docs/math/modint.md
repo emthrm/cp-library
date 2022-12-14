@@ -31,7 +31,7 @@ documentation_of: include/emthrm/math/modint.hpp
 - http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
 
-## ToDo
+## TODO
 
 - モンゴメリ乗算
   - https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%A1%E3%83%AA%E4%B9%97%E7%AE%97

@@ -24,7 +24,7 @@ $d$ 次多項式同士の乗算の算術計算量を $\mathsf{M}(d)$ とおく�
 - https://tsuchi.hateblo.jp/entry/2021/10/09/124804
 
 
-## ToDo
+## TODO
 
 - $x^N \bmod \Gamma(x)$
   - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b

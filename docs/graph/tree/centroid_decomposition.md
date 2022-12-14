@@ -27,7 +27,7 @@ $O(\lvert V \rvert \log{\lvert V \rvert})$
 - https://lumakernel.github.io/ecasdqina/graph/CentroidDecomposition
 
 
-## ToDo
+## TODO
 
 - https://twitter.com/beet_aizu/status/1142651943971540992
 

@@ -23,7 +23,7 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）
 
 
-## ToDo
+## TODO
 
 - 最短のハミルトン路
   - https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%9F%E3%83%AB%E3%83%88%E3%83%B3%E8%B7%AF

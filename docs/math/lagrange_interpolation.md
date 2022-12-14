@@ -50,7 +50,7 @@ $$
 - https://github.com/ei1333/library/blob/c5a89ad7cb3855ebb448da00a629504e26adce24/math/fps/polynomial-interpolation.cpp
 
 
-## ToDo
+## TODO
 
 - スプライン補間 (spline interpolation)
   - https://en.wikipedia.org/wiki/Spline_interpolation

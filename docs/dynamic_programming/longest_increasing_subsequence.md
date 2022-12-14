@@ -24,7 +24,7 @@ $O(N\log{N})$
 - http://noshi91.hatenablog.com/entry/2018/02/03/204950
 
 
-## ToDo
+## TODO
 
 - longest Zig-Zag subsequence
   - https://github.com/spaghetti-source/algorithm/blob/master/dynamic_programming/longest_zigzag_subsequence.cc

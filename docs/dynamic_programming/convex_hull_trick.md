@@ -37,7 +37,7 @@ $xy$ 平面上の直線集合 $L$ を考える．
 - https://ei1333.github.io/luzhiled/snippets/structure/convex-hull-trick-add-monotone.html
 
 
-## ToDo
+## TODO
 
 - 直線を削除できる．
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/RemovableCHT~~

@@ -58,7 +58,7 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
 - https://motsu-xe.hatenablog.com/entry/2020/10/13/195949
 
 
-## ToDo
+## TODO
 
 - [monotone 性](./knuth_yao_speedup.md)を用いた高速化
   - https://qiita.com/tmaehara/items/0687af2cfb807cde7860#%E5%86%92%E9%A0%AD%E3%81%AE%E5%95%8F%E9%A1%8C%E9%96%A2%E9%80%A3%E7%A0%94%E7%A9%B6

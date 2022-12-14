@@ -10,7 +10,7 @@ documentation_of: include/emthrm/math/rational.hpp
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!Ratio.cpp~~
 
 
-## ToDo
+## TODO
 
 - Stern–Brocot tree
   - https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree

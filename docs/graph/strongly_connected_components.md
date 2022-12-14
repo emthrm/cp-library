@@ -39,7 +39,7 @@ Kosaraju's algorithm
 - https://twitter.com/noshi91/status/1172798654450520064
 
 
-## ToDo
+## TODO
 
 - Tarjan's algorithm
   - http://www.prefield.com/algorithm/graph/strongly_connected_components.html

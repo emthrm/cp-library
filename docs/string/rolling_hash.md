@@ -27,7 +27,7 @@ $\langle O(\lvert S \rvert), O(1) \rangle$
 - https://github.com/drken1215/algorithm/blob/5f6710d0f5a92456528100ae7d8b8c4f70ed99e2/String/rolling_hash.cpp
 
 
-## ToDo
+## TODO
 
 - https://www.slideshare.net/nagisaeto/rolling-hash-149990902
 - https://qiita.com/keymoon/items/11fac5627672a6d6a9f6

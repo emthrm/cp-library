@@ -26,7 +26,7 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
 - https://github.com/spaghetti-source/algorithm/blob/b541e0b06aa4145592527b7de8e2caa8720bac22/graph/chromatic_number.cc
 
 
-## ToDo
+## TODO
 
 - 高速化
   - https://www.mathenachia.blog/chromatic-fast/

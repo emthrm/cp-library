@@ -8,4 +8,4 @@
 ### misc
 
 - [メモ](https://emthrm.github.io/cp-library/notes.html)
-- [ToDo](https://emthrm.github.io/cp-library/todo.html)
+- [TODO](https://emthrm.github.io/cp-library/todo.html)

@@ -23,7 +23,7 @@ $O(N)$
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.277-278，マイナビ出版（2012）
 
 
-## ToDo
+## TODO
 
 - nim product
   - https://drive.google.com/file/d/16g1tfSHUU4NXNTDgaD8FSA1WB4FtJCyV

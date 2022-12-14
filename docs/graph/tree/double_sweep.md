@@ -28,7 +28,7 @@ $O(\lvert V \rvert)$
 - http://www.prefield.com/algorithm/graph/tree_diameter.html
 
 
-## ToDo
+## TODO
 
 - 頂点の重みを基にした直径
   - https://github.com/beet-aizu/library/blob/master/tree/diameterforvertex.cpp

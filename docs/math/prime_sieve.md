@@ -22,7 +22,7 @@ $O(N)$
 - https://imulan.hatenablog.jp/entry/2019/09/29/212808
 
 
-## ToDo
+## TODO
 
 - $n$ 以下の素数の個数
   - ~~http://sugarknri.hatenablog.com/entry/2019/07/31/102422~~

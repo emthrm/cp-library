@@ -74,7 +74,7 @@ $\langle O(N), O(\log{N}) \rangle$
 - https://github.com/atcoder/ac-library/blob/0dd2c18e8bfc41f5f7a4a985b78c47aae945e9aa/atcoder/lazysegtree.hpp
 
 
-## ToDo
+## TODO
 
 - https://www.hamayanhamayan.com/entry/2017/07/08/173120
 - https://ei1333.hateblo.jp/entry/2017/12/14/000000

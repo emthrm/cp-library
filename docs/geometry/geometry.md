@@ -126,7 +126,7 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 - https://www.nttpc.co.jp/technology/number_algorithm.html
 
 
-## ToDo
+## TODO
 
 - https://github.com/spaghetti-source/algorithm/blob/master/geometry/_geom.cc
 - 3次元幾何学

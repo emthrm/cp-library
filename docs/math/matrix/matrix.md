@@ -34,7 +34,7 @@ documentation_of: include/emthrm/math/matrix/matrix.hpp
 - https://ei1333.github.io/luzhiled/snippets/math/matrix.html
 
 
-## ToDo
+## TODO
 
 - https://github.com/eandbsoftware/libraryCPP/blob/master/!Matrix.cpp
 - 疎行列 (sparse matrix)

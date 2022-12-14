@@ -33,7 +33,7 @@ documentation_of: include/emthrm/dynamic_programming/li_chao_tree.hpp
 - https://ei1333.github.io/luzhiled/snippets/structure/li-chao-tree.html
 
 
-## ToDo
+## TODO
 
 - https://twitter.com/hirakich1310354/status/1186193990841847810
 - 線分の追加クエリの高速化

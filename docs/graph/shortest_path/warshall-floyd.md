@@ -30,7 +30,7 @@ $O({\lvert V \rvert}^3)$
 - https://ei1333.github.io/luzhiled/snippets/graph/warshall-floyd.html
 
 
-## ToDo
+## TODO
 
 - Johnson's algorithm
   - http://www.prefield.com/algorithm/graph/johnson.html

@@ -30,7 +30,7 @@ $O(N \log{\mathrm{lcm}(m_1, m_2, \ldots, m_N)})$
 - https://mathtrain.jp/remainder
 
 
-## ToDo
+## TODO
 
 - Garner のアルゴリズム
   - https://qiita.com/drken/items/ae02240cd1f8edfc86fd

@@ -25,7 +25,7 @@ $\langle O(N\log{N}), O(1) \rangle$
 - https://github.com/drken1215/algorithm/blob/f65b8a3b2603f5efb10a8a912c2403b404c29813/DataStructure/disjoint_sparse_table.cpp
 
 
-## ToDo
+## TODO
 
 - sqrt-tree
   - https://codeforces.com/blog/entry/57046

@@ -21,7 +21,7 @@ $O(N)$
 - https://ei1333.github.io/luzhiled/snippets/dp/largest-rectangle.html
 
 
-## ToDo
+## TODO
 
 - http://algorithms.blog55.fc2.com/blog-entry-133.html
 - 最大正方形

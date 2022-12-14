@@ -39,7 +39,7 @@ $O(B)$
 - https://kazuma8128.hatenablog.com/entry/2018/05/06/022654
 
 
-## ToDo
+## TODO
 
 - 永続 binary trie
   - https://kazuma8128.hatenablog.com/entry/2018/02/17/224151

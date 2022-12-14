@@ -41,7 +41,7 @@ $\langle O(\lvert V \rvert), O(\log{\lvert V \rvert}) \rangle$
 - https://codeforces.com/blog/entry/53170
 
 
-## ToDo
+## TODO
 
 - 高速化
   - http://yosupo.hatenablog.com/entry/2015/10/02/233244

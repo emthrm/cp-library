@@ -24,7 +24,7 @@ Knuth's Algorithm D
 - http://yamatyuu.net/computer/program/long/div/index.html
 
 
-## ToDo
+## TODO
 
 - https://qiita.com/square1001/items/1aa12e04934b6e749962
 - http://xn--w6q13e505b.jp/method/

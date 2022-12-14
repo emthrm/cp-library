@@ -27,7 +27,7 @@ $O(\lvert S \rvert)$
 - https://github.com/beet-aizu/library/blob/2ecdc969043f5276c3782a7752592bd3fe856524/string/trie.cpp
 
 
-## ToDo
+## TODO
 
 - 永続 trie
   - https://ei1333.github.io/luzhiled/snippets/structure/binary-trie.html

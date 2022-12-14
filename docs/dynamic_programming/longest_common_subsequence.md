@@ -23,7 +23,7 @@ $O(NM)$
 - https://qiita.com/drken/items/03c7db44ccd27820ea0d
 
 
-## ToDo
+## TODO
 
 - https://judge.yosupo.jp/problem/prefix_substring_lcs
 - https://github.com/yosupo06/library-checker-problems/issues/732

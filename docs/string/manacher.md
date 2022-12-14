@@ -27,7 +27,7 @@ $O(\lvert S \rvert)$
 - https://github.com/drken1215/algorithm/blob/d4d987bfd9205655862986b3d27339381b1ffaf7/String/manacher.cpp
 
 
-## ToDo
+## TODO
 
 - palindromic tree (eertree)
   - https://math314.hateblo.jp/entry/2016/12/19/005919

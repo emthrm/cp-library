@@ -56,7 +56,7 @@ documentation_of: include/emthrm/math/polynomial.hpp
 - https://github.com/primenumber/ProconLib/blob/dc175741e461e88f69350532b47fa57527b38fa3/Math/Polynomial.cpp
 
 
-## ToDo
+## TODO
 
 - http://www.math.kobe-u.ac.jp/Asir/ca.pdf
 - 除算の高速化

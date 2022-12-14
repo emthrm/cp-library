@@ -125,7 +125,7 @@ $$
 - https://ei1333.github.io/luzhiled/snippets/math/fast-fourier-transform.html
 
 
-## ToDo
+## TODO
 
 - https://www.slideshare.net/chokudai/fft-49066791
 - four-step fast Fourier transform / six-step fast Fourier transform

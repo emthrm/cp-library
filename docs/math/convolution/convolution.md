@@ -91,7 +91,7 @@ $O(N\log{N})$
 - https://yukicoder.me/problems/no/1760
 
 
-## ToDo
+## TODO
 
 - https://noshi91.hatenablog.com/entry/2020/10/27/175112
 - 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する．

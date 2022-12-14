@@ -21,7 +21,7 @@ $O(\sqrt{N})$
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.110-111，マイナビ出版（2012）
 
 
-## ToDo
+## TODO
 
 - https://www.slideshare.net/DEGwer/ss-14119074
 - https://qiita.com/srtk86/items/609737d50c9ef5f5dc59

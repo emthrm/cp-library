@@ -50,7 +50,7 @@ documentation_of: include/emthrm/data_structure/slope_trick.hpp
 - https://github.com/ei1333/library/blob/6c2f9fa7ff07da182f3832f827c0c84d52e2e8d8/structure/others/slope-trick.cpp
 
 
-## ToDo
+## TODO
 
 - 一般化
   - https://github.com/ei1333/library/blob/af69da96544930d59e797c12ca977918df5e2a58/structure/others/generalized-slope-trick.cpp

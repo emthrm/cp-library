@@ -24,7 +24,7 @@ $O(\lvert S \rvert)$
 - https://sen-comp.hatenablog.com/entry/2020/01/16/174230
 
 
-## ToDo
+## TODO
 
 - 動的 Z algorithm
   - https://heno239.hatenablog.com/entry/2020/07/07/140651

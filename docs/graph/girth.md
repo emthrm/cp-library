@@ -29,7 +29,7 @@ $O(\lvert V \rvert (\lvert V \rvert + \lvert E \rvert) \log{\lvert V \rvert})$
 - https://algo-logic.info/minimum-weight-cycle/
 
 
-## ToDo
+## TODO
 
 - minimum mean-weight cycle
   - https://37zigen.com/%E6%9C%80%E5%B0%8F%E5%B9%B3%E5%9D%87%E9%95%B7%E9%96%89%E8%B7%AF%E5%95%8F%E9%A1%8C/

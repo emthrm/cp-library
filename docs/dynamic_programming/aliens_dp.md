@@ -29,7 +29,7 @@ $G$ 上で始点 $0$，終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 - https://twitter.com/noshi91/status/1436696351547412493
 
 
-## ToDo
+## TODO
 
 - 通る辺の本数を $\lbrack d - k, d \rbrack$ とするとき
   - https://noshi91.hatenablog.com/entry/2022/01/13/001217

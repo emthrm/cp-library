@@ -30,7 +30,7 @@ $\langle O(N), O(\sqrt{N}) \rangle$
 - https://twitter.com/chokudai/status/1125634200084729857
 
 
-## ToDo
+## TODO
 
 - https://www.hamayanhamayan.com/entry/2017/04/12/180257
 - 指定された頂点たちの最小共通祖先関係を保って木を圧縮してできる補助的な木

@@ -119,7 +119,7 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき，加算前の $
 - http://hos.ac/slides/20140319_bit.pdf
 
 
-## ToDo
+## TODO
 
 - https://www.hamayanhamayan.com/entry/2017/07/08/173120
 - 定数倍高速化

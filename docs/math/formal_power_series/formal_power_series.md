@@ -122,7 +122,7 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
 - https://www.youtube.com/watch?v=bOXCLR3Wric
 
 
-## ToDo
+## TODO
 
 - https://yukicoder.me/wiki/polynomial_techniques
 - https://37zigen.com/exponential-generating-function/

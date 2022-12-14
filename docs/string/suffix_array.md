@@ -28,7 +28,7 @@ documentation_of: include/emthrm/string/suffix_array.hpp
 - http://wk1080id.hatenablog.com/entry/2018/12/25/005926
 
 
-## ToDo
+## TODO
 
 - パターンマッチングを $O(M + \log{N})$ に高速化する．
   - http://www.prefield.com/algorithm/string/suffix_array.html
