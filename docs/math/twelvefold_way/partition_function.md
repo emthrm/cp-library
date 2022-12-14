@@ -43,6 +43,9 @@ $$
 
 ## ToDo
 
+- オイラーの五角数定理 (Euler's pentagonal number theorem)
+  - https://en.wikipedia.org/wiki/Pentagonal_number_theorem
+  - https://atcoder.jp/contests/abc279/tasks/abc279_h
 - $O(N\sqrt{N})$ で求める．
   - http://degwer.hatenablog.com/entries/2017/08/29
   - https://qiita.com/drken/items/f2ea4b58b0d21621bd51
