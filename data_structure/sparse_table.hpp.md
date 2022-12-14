@@ -59,14 +59,14 @@ data:
   isVerificationFile: false
   path: data_structure/sparse_table.hpp
   requiredBy:
-  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - string/longest_common_prefix.hpp
+  - graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/string/longest_common_prefix.test.cpp
   - test/data_structure/sparse_table.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/string/longest_common_prefix.test.cpp
 documentation_of: data_structure/sparse_table.hpp
 layout: document
 title: sparse table

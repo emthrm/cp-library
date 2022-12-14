@@ -53,8 +53,8 @@ data:
   timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/convolution/fast_zeta_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fast_zeta_transform.test.cpp
 documentation_of: math/convolution/fast_zeta_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"

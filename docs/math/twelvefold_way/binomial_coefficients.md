@@ -54,4 +54,4 @@ http://drken1215.hatenablog.com/entry/2018/06/08/210000
 - [パスカルの三角形](https://atcoder.jp/contests/abc254/submissions/32252670)
 - [二項係数](https://yukicoder.me/submissions/625071)
 - [二項係数 巨大な $n$ 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3071/review/5265683/emthrm/C++17)
-- [二項係数の数表 巨大な $n$ 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3071/review/5265694/emthrm/C++17)
+- [二項係数の数表 巨大な $n$ 版](https://yukicoder.me/submissions/820076)

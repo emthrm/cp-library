@@ -41,8 +41,8 @@ data:
   timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/simultaneous_linear_congruence.test.cpp
   - test/math/chinese_remainder_theorem.test.cpp
+  - test/math/simultaneous_linear_congruence.test.cpp
 documentation_of: math/mod_inv.hpp
 layout: document
 title: "\u9006\u5143 (inverse element)"

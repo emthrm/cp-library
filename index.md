@@ -453,6 +453,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/formal_power_series/polynomial_interpolation.hpp
       title: "\u591A\u9805\u5F0F\u88DC\u9593"
+    - icon: ':warning:'
+      path: math/formal_power_series/product_of_polynomial_sequence.hpp
+      title: "\u591A\u9805\u5F0F\u5217\u306E\u76F8\u4E57"
   - name: math/matrix/binary_matrix
     pages:
     - icon: ':heavy_check_mark:'
@@ -514,7 +517,7 @@ data:
       title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
   - name: math/twelvefold_way
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: math/twelvefold_way/large_nCk_init.hpp
       title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
     - icon: ':heavy_check_mark:'
@@ -606,6 +609,12 @@ data:
     - icon: ':heavy_check_mark:'
       path: string/z_algorithm.hpp
       title: Z algorithm
+  - name: test/math/formal_power_series
+    pages:
+    - icon: ':warning:'
+      path: test/math/formal_power_series/product_of_polynomial_sequence.cpp
+      title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\
+        \u5217\u306E\u76F8\u4E57"
   - name: util
     pages:
     - icon: ':warning:'
@@ -1324,7 +1333,7 @@ data:
       path: test/math/twelvefold_way/large_nCk.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570 \u5DE8\u5927\
         \u306A $n$ \u7248"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/twelvefold_way/large_nCk_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
         \u8868 \u5DE8\u5927\u306A $n$ \u7248"

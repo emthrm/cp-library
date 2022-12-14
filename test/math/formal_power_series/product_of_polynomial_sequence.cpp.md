@@ -5,14 +5,11 @@ data:
     path: math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':heavy_check_mark:'
-    path: math/formal_power_series/bostan-mori.hpp
-    title: "Bostan\u2013Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  - icon: ':heavy_check_mark:'
     path: math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
-  - icon: ':heavy_check_mark:'
-    path: math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
-    title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217\u306E\u7B2C $N$ \u9805"
+  - icon: ':warning:'
+    path: math/formal_power_series/product_of_polynomial_sequence.hpp
+    title: "\u591A\u9805\u5F0F\u5217\u306E\u76F8\u4E57"
   - icon: ':question:'
     path: math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
@@ -20,14 +17,12 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
-    document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013\
-      Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
+    document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\
+      \u5F0F\u5217\u306E\u76F8\u4E57"
     links:
-    - https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
+    - https://judge.yosupo.jp/problem/product_of_polynomial_sequence
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
@@ -40,37 +35,39 @@ data:
     \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ math/convolution/number_theoretic_transform.hpp: line 6: #pragma once found\
     \ in a non-first line\n"
-  code: "/*\n * @brief \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013\
-    Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence\"\
-    \n\n#include <iostream>\n\n#include \"../../../math/convolution/number_theoretic_transform.hpp\"\
-    \n#include \"../../../math/formal_power_series/formal_power_series.hpp\"\n#include\
-    \ \"../../../math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
+  code: "/*\n * @brief \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\
+    \u5F0F\u5217\u306E\u76F8\u4E57\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/product_of_polynomial_sequence\"\
+    \n\n#include <cassert>\n#include <iostream>\n#include <vector>\n\n#include \"\
+    ../../../math/convolution/number_theoretic_transform.hpp\"\n#include \"../../../math/formal_power_series/formal_power_series.hpp\"\
+    \n#include \"../../../math/formal_power_series/product_of_polynomial_sequence.hpp\"\
     \n#include \"../../../math/modint.hpp\"\n\nint main() {\n  using ModInt = MInt<0>;\n\
     \  ModInt::set_mod(998244353);\n  FormalPowerSeries<ModInt>::set_mult(\n     \
     \ [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)\n          ->\
     \ std::vector<ModInt> {\n        static NumberTheoreticTransform<0> ntt;\n   \
-    \     return ntt.convolution(a, b);\n      });\n  int d;\n  long long k;\n  std::cin\
-    \ >> d >> k;\n  FormalPowerSeries<ModInt> a(d - 1), c(d);\n  c[0] = 1;\n  for\
-    \ (int i = 0; i < d; ++i) {\n    std::cin >> a[i];\n  }\n  for (int i = 1; i <=\
-    \ d; ++i) {\n    std::cin >> c[i];\n    c[i] = -c[i];\n  }\n  std::cout << nth_term_of_linear_recurrence_sequence(a,\
-    \ c, k) << '\\n';\n  return 0;\n}\n"
+    \     return ntt.convolution(a, b);\n      });\n  int n;\n  std::cin >> n;\n \
+    \ int degree = 0;\n  std::vector<FormalPowerSeries<ModInt>> f(n);\n  for (int\
+    \ i = 0; i < n; ++i) {\n    int d;\n    std::cin >> d;\n    degree += d;\n   \
+    \ f[i].resize(d);\n    for (int j = 0; j <= d; ++j) {\n      std::cin >> f[i][j];\n\
+    \    }\n  }\n  FormalPowerSeries<ModInt> a = product_of_polynomial_sequence(f);\n\
+    \  assert(a.degree() <= degree);\n  a.resize(degree);\n  for (int i = 0; i <=\
+    \ degree; ++i) {\n    std::cout << a[i] << \" \\n\"[i == degree];\n  }\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - math/convolution/number_theoretic_transform.hpp
   - math/modint.hpp
   - math/formal_power_series/formal_power_series.hpp
-  - math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
-  - math/formal_power_series/bostan-mori.hpp
-  isVerificationFile: true
-  path: test/math/formal_power_series/bostan-mori.test.cpp
+  - math/formal_power_series/product_of_polynomial_sequence.hpp
+  isVerificationFile: false
+  path: test/math/formal_power_series/product_of_polynomial_sequence.cpp
   requiredBy: []
-  timestamp: '2022-08-08 06:04:36+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-11-18 19:47:54+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/math/formal_power_series/bostan-mori.test.cpp
+documentation_of: test/math/formal_power_series/product_of_polynomial_sequence.cpp
 layout: document
 redirect_from:
-- /verify/test/math/formal_power_series/bostan-mori.test.cpp
-- /verify/test/math/formal_power_series/bostan-mori.test.cpp.html
-title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\u30A2\
-  \u30EB\u30B4\u30EA\u30BA\u30E0"
+- /library/test/math/formal_power_series/product_of_polynomial_sequence.cpp
+- /library/test/math/formal_power_series/product_of_polynomial_sequence.cpp.html
+title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
+  \u306E\u76F8\u4E57"
 ---

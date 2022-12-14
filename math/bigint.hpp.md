@@ -331,16 +331,16 @@ data:
   timestamp: '2022-04-18 04:59:03+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/bigint.09.test.cpp
   - test/math/bigint.08.test.cpp
-  - test/math/bigint.06.test.cpp
-  - test/math/bigint.04.test.cpp
-  - test/math/bigint.05.test.cpp
-  - test/math/bigint.01.test.cpp
-  - test/math/bigint.03.test.cpp
   - test/math/bigint.10.test.cpp
+  - test/math/bigint.06.test.cpp
+  - test/math/bigint.05.test.cpp
+  - test/math/bigint.03.test.cpp
   - test/math/bigint.07.test.cpp
   - test/math/bigint.02.test.cpp
+  - test/math/bigint.01.test.cpp
+  - test/math/bigint.09.test.cpp
+  - test/math/bigint.04.test.cpp
 documentation_of: math/bigint.hpp
 layout: document
 title: "\u591A\u500D\u9577\u6574\u6570"

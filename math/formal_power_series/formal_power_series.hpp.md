@@ -29,6 +29,10 @@ data:
     path: math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+  - icon: ':warning:'
+    path: test/math/formal_power_series/product_of_polynomial_sequence.cpp
+    title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
+      \u306E\u76F8\u4E57"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/subset_sum_problem.test.cpp
@@ -377,32 +381,33 @@ data:
   path: math/formal_power_series/formal_power_series.hpp
   requiredBy:
   - dynamic_programming/subset_sum_problem.hpp
-  - math/formal_power_series/faulhaber_by_fps.hpp
   - math/formal_power_series/eulerian_number_by_fps.hpp
   - math/formal_power_series/bernoulli_number.hpp
+  - math/formal_power_series/faulhaber_by_fps.hpp
+  - math/twelvefold_way/partition_function_by_fps.hpp
+  - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-  - math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  - math/twelvefold_way/partition_function_by_fps.hpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.cpp
   timestamp: '2022-08-08 06:04:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
-  - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
 documentation_of: math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
