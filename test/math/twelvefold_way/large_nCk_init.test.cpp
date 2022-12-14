@@ -1,7 +1,7 @@
 /*
  * @brief 数学/写像12相/二項係数の数表 巨大な $n$ 版
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071"
+#define PROBLEM "https://yukicoder.me/problems/no/2130"
 
 #include <iostream>
 #include <numeric>
