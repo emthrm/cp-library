@@ -35,7 +35,8 @@ int main() {
       const int index =
           std::distance(biconnected_component.articulation_points.begin(),
                         std::lower_bound(
-                            biconnected_component.articulation_points.begin(), biconnected_component.articulation_points.end(),
+                            biconnected_component.articulation_points.begin(),
+                            biconnected_component.articulation_points.end(),
                             i));
       for (const int block : biconnected_component.cutpoint[i]) {
         block_cut_tree[index].emplace_back(block + x);
