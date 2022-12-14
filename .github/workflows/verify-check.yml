@@ -1,12 +1,10 @@
-name: verify
+name: verify-check
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 
 jobs:
-  verify:
+  verify-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +18,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip3 install -U online-judge-verify-helper
+        run: pip3 install -U git+https://github.com/luzhiled1333/verification-helper.git
 
       - name: Run tests
         env:
@@ -28,4 +26,4 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
-        run: oj-verify all --timeout 3600
+        run: oj-verify test --timeout 3600
