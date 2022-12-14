@@ -15,7 +15,7 @@ struct UnicyclicGraph {
   std::vector<std::vector<std::vector<Edge<CostType>>>> forest;
 
   explicit UnicyclicGraph(const int n)
-      : n(n), is_in_loop(n, false), belong(n, -1), mapping(n, -1), graph(n) {}
+      : is_in_loop(n, false), belong(n, -1), mapping(n, -1), n(n), graph(n) {}
 
   void add_edge(const int src, const int dst, const CostType cost = 0) {
     const int id = srcs.size();

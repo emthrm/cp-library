@@ -327,7 +327,7 @@ struct FormalPowerSeries {
     return mult;
   }
   static Sqrt& get_sqrt() {
-    static Sqrt sqrt = [](const T& a, T* res) -> bool { return false; };
+    static Sqrt sqrt = [](const T&, T*) -> bool { return false; };
     return sqrt;
   }
 };

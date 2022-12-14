@@ -21,7 +21,8 @@ int main() {
     ModInt ways = 0;
     for (int m = k / g; m >= 1; --m) {
       if (mu.count(m) == 0) {
-        for (const std::pair<int, int>& p : mobius_mu_focusing_on_divisor(m)) {
+        for (const std::pair<const int, int>& p
+             : mobius_mu_focusing_on_divisor(m)) {
           mu[p.first] = p.second;
         }
       }

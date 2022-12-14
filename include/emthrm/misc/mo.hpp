@@ -6,7 +6,7 @@
 
 struct Mo {
   explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs)
-      : ls(ls), rs(rs), n(ls.size()), ptr(0), nl(0), nr(0) {
+      : n(ls.size()), ptr(0), nl(0), nr(0), ls(ls), rs(rs) {
     const int width = std::round(std::sqrt(n));
     order.resize(n);
     std::iota(order.begin(), order.end(), 0);

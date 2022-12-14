@@ -21,7 +21,7 @@ struct MinimumCostBFlow {
     T cap;
     U cost;
     explicit Edge(const int dst, const T cap, const U cost, const int rev)
-        : dst(dst), cap(cap), cost(cost), rev(rev) {}
+        : dst(dst), rev(rev), cap(cap), cost(cost) {}
   };
 
   const U uinf;

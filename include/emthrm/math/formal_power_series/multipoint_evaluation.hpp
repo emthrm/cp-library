@@ -7,7 +7,7 @@ struct MultipointEvaluation {
   std::vector<C<T>> subproduct_tree;
 
   explicit MultipointEvaluation(const std::vector<T> &xs)
-      : n(xs.size()), f_x(xs.size()), subproduct_tree(xs.size() << 1) {
+      : f_x(xs.size()), subproduct_tree(xs.size() << 1), n(xs.size()) {
     for (int i = 0; i < n; ++i) {
       subproduct_tree[i + n] = C<T>{-xs[i], 1};
     }

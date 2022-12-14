@@ -14,7 +14,7 @@ struct FordFulkerson {
     int dst, rev;
     T cap;
     explicit Edge(const int dst, const T cap, const int rev)
-        : dst(dst), cap(cap), rev(rev) {}
+        : dst(dst), rev(rev), cap(cap) {}
   };
 
   std::vector<std::vector<Edge>> graph;

@@ -13,7 +13,7 @@ struct SlopeTrick {
 
   explicit SlopeTrick(
       const T min_f = 0, const T inf = std::numeric_limits<T>::max())
-      : added_l(0), added_r(0), min_f(min_f), inf(inf) {}
+      : inf(inf), added_l(0), added_r(0), min_f(min_f) {}
 
   T min() const { return min_f; }
   std::pair<T, T> argmin() const { return {top_l(), top_r()}; }

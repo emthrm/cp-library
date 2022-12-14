@@ -26,7 +26,7 @@ int main() {
              [](const ModInt& x, const int, const int) -> ModInt {
                return x + 1;
              },
-             [](const ModInt& x, const int ver) -> ModInt { return x; })) {
+             [](const ModInt& x, const int) -> ModInt { return x; })) {
     std::cout << ans << '\n';
   }
   return 0;

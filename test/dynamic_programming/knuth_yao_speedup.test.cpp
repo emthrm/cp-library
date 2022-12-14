@@ -4,7 +4,7 @@
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2415"
 
 #include <iostream>
-#include <numeric>
+#include <limits>
 #include <vector>
 
 #include "emthrm/dynamic_programming/knuth_yao_speedup.hpp"

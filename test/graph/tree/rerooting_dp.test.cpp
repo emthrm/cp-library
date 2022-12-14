@@ -32,7 +32,7 @@ int main() {
       },
       [](const std::pair<int, int>& x, const Edge<int>& e)
           -> std::pair<int, int> { return {x.first + e.cost, 0}; },
-      [](const std::pair<int, int>& x, const int ver) -> std::pair<int, int> {
+      [](const std::pair<int, int>& x, const int) -> std::pair<int, int> {
         return x;
       });
   int diameter = 0;

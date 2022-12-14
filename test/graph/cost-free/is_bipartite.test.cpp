@@ -45,7 +45,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     mp[union_find.root(i)] += color[i];
   }
-  for (const std::pair<int, int>& pr : mp) {
+  for (const std::pair<const int, int>& pr : mp) {
     int root, size;
     std::tie(root, size) = pr;
     for (int i = n; i >= 0; --i) {
