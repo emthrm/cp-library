@@ -36,9 +36,13 @@ int main() {
           const std::function<void(int, int, int)> dfs =
               [&graph, &is_visited, &nums, &nums_sub, &dfs](
                   const int par, const int ver, const int dist) -> void {
-                if (nums.size() <= dist) nums.resize(dist + 1, 0);
+                if (static_cast<int>(nums.size()) <= dist) {
+                  nums.resize(dist + 1, 0);
+                }
                 ++nums[dist];
-                if (nums_sub.size() <= dist) nums_sub.resize(dist + 1, 0);
+                if (static_cast<int>(nums_sub.size()) <= dist) {
+                  nums_sub.resize(dist + 1, 0);
+                }
                 ++nums_sub[dist];
                 for (const Edge<bool>& e : graph[ver]) {
                   if (!is_visited[e.dst] && e.dst != par) {
@@ -49,13 +53,13 @@ int main() {
           dfs(root, child.dst, 1);
           const std::vector<fast_fourier_transform::Real> fft =
               fast_fourier_transform::convolution(nums_sub, nums_sub);
-          for (int i = 0; i < fft.size() && i < n; ++i) {
+          for (int i = 0; i < static_cast<int>(fft.size()) && i < n; ++i) {
             x[i] -= std::round(fft[i]);
           }
         }
         const std::vector<fast_fourier_transform::Real> fft =
             fast_fourier_transform::convolution(nums, nums);
-        for (int i = 0; i < fft.size() && i < n; ++i) {
+        for (int i = 0; i < static_cast<int>(fft.size()) && i < n; ++i) {
           x[i] += std::round(fft[i]);
         }
         for (const int e : centroid_decomposition.g[root]) f(e);

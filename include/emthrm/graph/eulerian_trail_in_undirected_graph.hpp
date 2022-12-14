@@ -50,7 +50,7 @@ struct EulerianTrailInUndirectedGraph {
       is_visited[i].assign(graph[i].size(), false);
     }
     dfs(s);
-    if (trail.size() == edge_num + 1) {
+    if (static_cast<int>(trail.size()) == edge_num + 1) {
       std::reverse(trail.begin(), trail.end());
       return true;
     }

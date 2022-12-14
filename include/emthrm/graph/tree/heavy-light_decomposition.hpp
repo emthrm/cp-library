@@ -116,7 +116,7 @@ struct HeavyLightDecomposition {
   std::vector<std::vector<Edge<CostType>>> graph;
 
   void dfs1(const int ver) {
-    for (int i = 0; i < graph[ver].size(); ++i) {
+    for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
       Edge<CostType>& e = graph[ver][i];
       if (e.dst != parent[ver]) {
         parent[e.dst] = ver;

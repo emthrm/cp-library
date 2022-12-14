@@ -13,7 +13,7 @@ std::vector<bool> reachability_on_dag(
     const std::vector<std::vector<Edge<CostType>>>& graph,
     const std::vector<int>& ss, const std::vector<int>& ts) {
   const int n = graph.size(), q = ss.size();
-  assert(ts.size() == q);
+  assert(static_cast<int>(ts.size()) == q);
   const std::vector<int> order = topological_sort(graph);
   std::vector<bool> can_reach(q, false);
   std::vector<std::uint64_t> dp(n, 0);

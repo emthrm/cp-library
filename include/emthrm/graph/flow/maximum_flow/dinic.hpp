@@ -62,7 +62,7 @@ struct Dinic {
 
   T dfs(const int ver, const int t, const T flow) {
     if (ver == t) return flow;
-    for (; itr[ver] < graph[ver].size(); ++itr[ver]) {
+    for (; itr[ver] < static_cast<int>(graph[ver].size()); ++itr[ver]) {
       Edge& e = graph[ver][itr[ver]];
       if (level[ver] < level[e.dst] && e.cap > 0) {
         const T tmp = dfs(e.dst, t, std::min(flow, e.cap));

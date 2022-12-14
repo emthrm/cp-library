@@ -22,5 +22,5 @@ std::vector<int> topological_sort(const std::vector<std::vector<int>>& graph) {
       if (--deg[e] == 0) que.emplace(e);
     }
   }
-  return res.size() == n ? res : std::vector<int>{};
+  return static_cast<int>(res.size()) == n ? res : std::vector<int>{};
 }

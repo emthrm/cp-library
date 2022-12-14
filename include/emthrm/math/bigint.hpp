@@ -122,9 +122,9 @@ struct BigInt {
     if (sgn != x.sgn) return *this -= -x;
     if (data.size() < x.data.size()) data.resize(x.data.size(), 0);
     bool carry = false;
-    for (int i = 0; i < x.data.size() || carry; ++i) {
-      if (i == data.size()) data.emplace_back(0);
-      data[i] += (i < x.data.size() ? x.data[i] : 0) + carry;
+    for (int i = 0; i < static_cast<int>(x.data.size()) || carry; ++i) {
+      if (i == static_cast<int>(data.size())) data.emplace_back(0);
+      data[i] += (i < static_cast<int>(x.data.size()) ? x.data[i] : 0) + carry;
       if (data[i] >= B) {
         carry = true;
         data[i] -= B;
@@ -140,8 +140,8 @@ struct BigInt {
       return *this = -(x - *this);
     }
     bool carry = false;
-    for (int i = 0; i < data.size() || carry; ++i) {
-      data[i] -= (i < x.data.size() ? x.data[i] : 0) + carry;
+    for (int i = 0; i < static_cast<int>(data.size()) || carry; ++i) {
+      data[i] -= (i < static_cast<int>(x.data.size()) ? x.data[i] : 0) + carry;
       if (data[i] < 0) {
         carry = true;
         data[i] += B;
@@ -158,10 +158,10 @@ struct BigInt {
     std::vector<long long> x6 = x.convert_base(next_log_b, next_b);
     std::vector<long long> res = karatsuba(&this6, 0, this6.size(),
                                            &x6, 0, x6.size());
-    for (int i = 0; i < res.size(); ++i) {
+    for (int i = 0; i < static_cast<int>(res.size()); ++i) {
       const long long quo = res[i] / next_b;
       if (quo > 0) {
-        if (i + 1 == res.size()) {
+        if (i + 1 == static_cast<int>(res.size())) {
           res.emplace_back(quo);
         } else {
           res[i + 1] += quo;
@@ -272,12 +272,12 @@ struct BigInt {
         (*b)[i] -= (*b)[i + mid];
       }
       tmp = karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
-      for (int i = 0; i < tmp.size(); ++i) {
+      for (int i = 0; i < static_cast<int>(tmp.size()); ++i) {
         res[i] += tmp[i];
         res[mid + i] -= tmp[i];
       }
       tmp = karatsuba(a, a_l + mid, a_r, b, b_l + n, b_r);
-      for (int i = 0; i < tmp.size(); ++i) {
+      for (int i = 0; i < static_cast<int>(tmp.size()); ++i) {
         res[mid + i] -= tmp[i];
         res[(mid << 1) + i] += tmp[i];
       }
@@ -312,8 +312,9 @@ struct BigInt {
     for (int i = static_cast<int>(dividend.data.size()) - 1; i >= 0; --i) {
       rem.data.emplace(rem.data.begin(), dividend.data[i]);
       quo.data[i] =
-          ((n < rem.data.size() ? static_cast<long long>(rem.data[n]) * B : 0)
-           + (n - 1 < rem.data.size() ? rem.data[n - 1] : 0))
+          ((n < static_cast<int>(rem.data.size()) ?
+            static_cast<long long>(rem.data[n]) * B : 0)
+           + (n - 1 < static_cast<int>(rem.data.size()) ? rem.data[n - 1] : 0))
           / divisor.data.back();
       rem -= divisor * quo.data[i];
       while (rem.sgn == -1) {

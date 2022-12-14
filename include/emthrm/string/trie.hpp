@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-template <size_t Sigma = 26>
+template <int Sigma = 26>
 struct Trie {
   struct Node {
     char c;

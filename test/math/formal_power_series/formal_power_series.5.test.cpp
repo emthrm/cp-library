@@ -25,7 +25,7 @@ int main() {
   std::cin >> s;
   std::reverse(s.begin(), s.end());
   int q[D]{};
-  for (int i = 0; i < s.length(); ++i) {
+  for (int i = 0; i < static_cast<int>(s.length()); ++i) {
     if (s[i] == '?') ++q[i % D];
   }
   std::vector<FormalPowerSeries<ModInt>> f(D, FormalPowerSeries<ModInt>(M));
@@ -47,7 +47,7 @@ int main() {
   }
   f.front() %= md;
   int idx = D - 1, w = 1;
-  for (int i = 0; i < s.length(); ++i) {
+  for (int i = 0; i < static_cast<int>(s.length()); ++i) {
     if (s[i] != '?') {
       idx = (idx - w * (s[i] - '0')) % M;
       if (idx < 0) idx += M;

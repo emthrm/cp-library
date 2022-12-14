@@ -26,5 +26,5 @@ std::vector<int> topological_sort(
       if (--deg[e.dst] == 0) que.emplace(e.dst);
     }
   }
-  return res.size() == n ? res : std::vector<int>{};
+  return static_cast<int>(res.size()) == n ? res : std::vector<int>{};
 }

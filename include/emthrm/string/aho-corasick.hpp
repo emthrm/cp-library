@@ -9,7 +9,7 @@
 
 #include "emthrm/string/trie.hpp"
 
-template <size_t Sigma = 26>
+template <int Sigma = 26>
 struct AhoCorasick : Trie<Sigma + 1> {
   using Trie<Sigma + 1>::Trie;
 

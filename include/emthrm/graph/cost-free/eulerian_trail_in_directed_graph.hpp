@@ -50,7 +50,7 @@ std::vector<int> eulerian_trail_in_directed_graph(
     res.emplace_back(ver);
   };
   dfs(s);
-  if (res.size() == edge_num + 1) {
+  if (static_cast<int>(res.size()) == edge_num + 1) {
     std::reverse(res.begin(), res.end());
     return res;
   }

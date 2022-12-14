@@ -35,7 +35,7 @@ int main() {
     }
     std::reverse(dir.begin(), dir.end());
     rational ans = dir.front();
-    for (int i = 1; i < dir.size(); ++i) {
+    for (int i = 1; i < static_cast<int>(dir.size()); ++i) {
       ans += rational(90, p[i]) * (dir[i] == 0 ? -1 : 1);
     }
     std::cout << ans << '\n';
