@@ -12,11 +12,11 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point p, c_o;
+  emthrm::geometry::Point p, c_o;
   double r;
   std::cin >> p >> c_o >> r;
-  std::vector<geometry::Point> ans =
-      geometry::tangency(geometry::Circle(c_o, r), p);
+  std::vector<emthrm::geometry::Point> ans =
+      emthrm::geometry::tangency(emthrm::geometry::Circle(c_o, r), p);
   std::sort(ans.begin(), ans.end());
   for (int i = 0; i < 2; ++i) {
     std::cout << std::fixed << std::setprecision(6)

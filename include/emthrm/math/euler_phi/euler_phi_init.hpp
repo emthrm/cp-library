@@ -3,9 +3,13 @@
  * @docs docs/math/euler_phi/euler_phi.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT_HPP_
+#define EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT_HPP_
+
 #include <numeric>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> euler_phi_init(const int n) {
   std::vector<int> phi(n + 1);
@@ -19,3 +23,7 @@ std::vector<int> euler_phi_init(const int n) {
   }
   return phi;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT_HPP_

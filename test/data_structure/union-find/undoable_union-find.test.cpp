@@ -24,7 +24,7 @@ int main() {
     std::cin >> s[i];
     --s[i];
   }
-  UndoableUnionFind union_find(n);
+  emthrm::UndoableUnionFind union_find(n);
   std::map<std::pair<int, int>, std::vector<int>> edges;
   for (int i = 0; i < m; ++i) {
     if (s[u[i]] == s[v[i]]) {

@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TOPOLOGICAL_SORT_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TOPOLOGICAL_SORT_HPP_
+
 #include <queue>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> topological_sort(const std::vector<std::vector<int>>& graph) {
   const int n = graph.size();
@@ -24,3 +28,7 @@ std::vector<int> topological_sort(const std::vector<std::vector<int>>& graph) {
   }
   return static_cast<int>(res.size()) == n ? res : std::vector<int>{};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TOPOLOGICAL_SORT_HPP_

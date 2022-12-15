@@ -15,14 +15,14 @@
 int main() {
   int n;
   std::cin >> n;
-  std::vector<std::vector<Edge<int>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<int>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int s, t, w;
     std::cin >> s >> t >> w;
     graph[s].emplace_back(s, t, w);
     graph[t].emplace_back(t, s, w);
   }
-  const std::vector<std::pair<int, int>> ans = rerooting_dp(
+  const std::vector<std::pair<int, int>> ans = emthrm::rerooting_dp(
       graph, std::vector<std::pair<int, int>>(n, {0, 0}),
       [](const std::pair<int, int>& x, const std::pair<int, int>& y)
           -> std::pair<int, int> {
@@ -30,7 +30,7 @@ int main() {
         std::sort(tmp, tmp + 4, std::greater<int>());
         return {tmp[0], tmp[1]};
       },
-      [](const std::pair<int, int>& x, const Edge<int>& e)
+      [](const std::pair<int, int>& x, const emthrm::Edge<int>& e)
           -> std::pair<int, int> { return {x.first + e.cost, 0}; },
       [](const std::pair<int, int>& x, const int) -> std::pair<int, int> {
         return x;

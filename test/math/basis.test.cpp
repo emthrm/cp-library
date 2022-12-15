@@ -15,7 +15,7 @@ int main() {
   constexpr int D = 60;
   int n, m, q;
   std::cin >> n >> m >> q;
-  std::vector<std::vector<Edge<long long>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<long long>>> graph(n);
   while (m--) {
     int f, t;
     long long p;
@@ -25,10 +25,10 @@ int main() {
   }
   std::vector<long long> x(n, -1);
   x[0] = 0;
-  Basis<D> basis;
+  emthrm::Basis<D> basis;
   const std::function<void(int, int)> dfs = [&graph, &x, &basis, &dfs](
       const int par, const int ver) {
-    for (const Edge<long long>& e : graph[ver]) {
+    for (const emthrm::Edge<long long>& e : graph[ver]) {
       if (e.dst != par) {
         if (x[e.dst] == -1) {
           x[e.dst] = x[ver] ^ e.cost;

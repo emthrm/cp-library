@@ -1,4 +1,8 @@
-#pragma once
+#ifndef EMTHRM_MATH_MOD_POW_HPP_
+#define EMTHRM_MATH_MOD_POW_HPP_
+
+
+namespace emthrm {
 
 long long mod_pow(long long x, long long n, const int m) {
   if ((x %= m) < 0) x += m;
@@ -9,3 +13,7 @@ long long mod_pow(long long x, long long n, const int m) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MOD_POW_HPP_

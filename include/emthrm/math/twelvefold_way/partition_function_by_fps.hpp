@@ -3,10 +3,14 @@
  * @docs docs/math/twelvefold_way/partition_function.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_BY_FPS_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_BY_FPS_HPP_
+
 #include <vector>
 
 #include "emthrm/math/formal_power_series/formal_power_series.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> partition_function_by_fps(const int n) {
@@ -21,3 +25,7 @@ std::vector<T> partition_function_by_fps(const int n) {
   }
   return fps.inv(n).coef;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_BY_FPS_HPP_

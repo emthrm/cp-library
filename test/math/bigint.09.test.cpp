@@ -9,7 +9,7 @@
 
 int main() {
   while (true) {
-    BigInt<> x;
+    emthrm::BigInt<> x;
     std::cin >> x;
     if (x == 0) break;
     std::cout << x.digit_sum() << '\n';

@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_UTIL_TIMER_HPP_
+#define EMTHRM_UTIL_TIMER_HPP_
+
 #include <chrono>
+
+namespace emthrm {
 
 struct Timer {
   Timer() { reset(); }
@@ -13,3 +17,7 @@ struct Timer {
  private:
   std::chrono::high_resolution_clock::time_point bgn;
 } timer;
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_UTIL_TIMER_HPP_

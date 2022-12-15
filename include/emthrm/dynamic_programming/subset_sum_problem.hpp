@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_SUBSET_SUM_PROBLEM_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_SUBSET_SUM_PROBLEM_HPP_
+
 #include <vector>
 
 #include "emthrm/math/formal_power_series/formal_power_series.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d) {
@@ -22,3 +26,7 @@ std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d) {
   }
   return (fps.exp(d) * zero).coef;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_SUBSET_SUM_PROBLEM_HPP_

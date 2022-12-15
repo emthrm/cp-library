@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_STRING_MANACHER_HPP_
+#define EMTHRM_STRING_MANACHER_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 struct Manacher {
   template <typename T>
@@ -39,3 +43,7 @@ struct Manacher {
  private:
   std::vector<int> radius;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_MANACHER_HPP_

@@ -3,8 +3,12 @@
  * @docs docs/math/formal_power_series/eulerian_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> eulerian_number(const int n, const int m) {
@@ -18,3 +22,7 @@ std::vector<std::vector<T>> eulerian_number(const int n, const int m) {
   }
   return a;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_

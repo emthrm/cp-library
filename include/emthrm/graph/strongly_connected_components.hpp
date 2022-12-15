@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_
+#define EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_
+
 // #include <algorithm>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct StronglyConnectedComponents {
@@ -69,3 +73,7 @@ struct StronglyConnectedComponents {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_

@@ -3,9 +3,13 @@
  * @docs docs/string/knuth-morris-pratt.md
  */
 
-#pragma once
+#ifndef EMTHRM_STRING_MORRIS_PRATT_HPP_
+#define EMTHRM_STRING_MORRIS_PRATT_HPP_
+
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 struct MorrisPratt {
   std::string s;
@@ -43,3 +47,7 @@ struct MorrisPratt {
     border.emplace_back(++j);
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_MORRIS_PRATT_HPP_

@@ -13,14 +13,14 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  std::vector<std::vector<Edge<long long>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<long long>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int a, b;
     std::cin >> a >> b;
     graph[a].emplace_back(a, b, 0);
     graph[b].emplace_back(b, a, 0);
   }
-  LowestCommonAncestor<long long> lowest_common_ancestor(graph, 0);
+  emthrm::LowestCommonAncestor<long long> lowest_common_ancestor(graph, 0);
   struct M {
     using Monoid = struct { int num; long long sum; };
     using OperatorMonoid = int;
@@ -43,7 +43,7 @@ int main() {
     init[lowest_common_ancestor.down[i]].num = 1;
     init[lowest_common_ancestor.up[i]].num = -1;
   }
-  LazySegmentTree<M> seg(init);
+  emthrm::LazySegmentTree<M> seg(init);
   const auto fn = [&seg](const int a, const int b) -> long long {
     return seg.get(a, b).sum;
   };

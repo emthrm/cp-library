@@ -3,10 +3,14 @@
  * @docs docs/graph/flow/maximum_flow/maximum_flow.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_
+#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_
+
 #include <algorithm>
 #include <limits>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct FordFulkerson {
@@ -60,3 +64,7 @@ struct FordFulkerson {
     return 0;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_

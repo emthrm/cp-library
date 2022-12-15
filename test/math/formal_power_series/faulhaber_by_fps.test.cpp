@@ -12,16 +12,16 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
-  FormalPowerSeries<ModInt>::set_mult(
+  emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        return mod_convolution(a, b);
+        return emthrm::mod_convolution(a, b);
       });
   long long n;
   int k;
   std::cin >> n >> k;
-  std::cout << faulhaber_by_fps<0>(n + 1, k) << '\n';
+  std::cout << emthrm::faulhaber_by_fps<0>(n + 1, k) << '\n';
   return 0;
 }

@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_KNUTH_YAO_SPEEDUP_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_KNUTH_YAO_SPEEDUP_HPP_
+
 #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> knuth_yao_speedup(
@@ -26,3 +30,7 @@ std::vector<std::vector<T>> knuth_yao_speedup(
   }
   return dp;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_KNUTH_YAO_SPEEDUP_HPP_

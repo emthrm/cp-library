@@ -35,7 +35,7 @@ int main() {
                      times[i].end());
       num += times[i].size() * 2;
     }
-    MinimumCostSTFlow<int, long long> minimum_cost_flow(num + 2);
+    emthrm::MinimumCostSTFlow<int, long long> minimum_cost_flow(num + 2);
     const int s = num, t = num + 1;
     for (int i = 0; i < static_cast<int>(trains.front().size()); ++i) {
       minimum_cost_flow.add_edge(s, i, 1, 0);

@@ -16,7 +16,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  SlopeTrick<long long> slope_trick(0);
+  emthrm::SlopeTrick<long long> slope_trick(0);
   slope_trick.abs_x_minus_a(0);
   slope_trick.abs_x_minus_a(a.front());
   for (int i = 1; i < n; ++i) {

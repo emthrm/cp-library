@@ -9,7 +9,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;
@@ -17,7 +17,7 @@ int main() {
   for (int g = 1; g <= k; ++g) {
     ModInt ways = 0;
     for (int mul = 1; g * mul <= k; ++mul) {
-      ways += ModInt(k / (g * mul)).pow(n) * mobius_mu(mul);
+      ways += ModInt(k / (g * mul)).pow(n) * emthrm::mobius_mu(mul);
     }
     ans += ways * g;
   }

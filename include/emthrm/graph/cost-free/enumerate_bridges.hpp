@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_ENUMERATE_BRIDGES_HPP_
+#define EMTHRM_GRAPH_COST_FREE_ENUMERATE_BRIDGES_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<std::pair<int, int>> enumerate_bridges(
     const std::vector<std::vector<int>>& graph) {
@@ -34,3 +38,7 @@ std::vector<std::pair<int, int>> enumerate_bridges(
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_ENUMERATE_BRIDGES_HPP_

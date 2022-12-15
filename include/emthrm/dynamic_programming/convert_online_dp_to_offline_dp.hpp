@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_
+
 #include <functional>
+
+namespace emthrm {
 
 void convert_online_dp_to_offline_dp(
     const int n, const std::function<void(int, int, int)> induce) {
@@ -16,3 +20,7 @@ void convert_online_dp_to_offline_dp(
       };
   if (n > 0) solve(0, n);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_

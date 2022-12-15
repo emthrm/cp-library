@@ -3,9 +3,13 @@
  * @docs docs/math/twelvefold_way/partition_function.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_
+
 #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> partition_function(const int n, const int m) {
@@ -19,3 +23,7 @@ std::vector<std::vector<T>> partition_function(const int n, const int m) {
   }
   return p;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_

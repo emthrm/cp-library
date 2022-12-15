@@ -3,8 +3,12 @@
  * @docs docs/math/formal_power_series/bostan-mori.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_BOSTAN_MORI_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_BOSTAN_MORI_HPP_
+
 #include <cassert>
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 T bostan_mori(C<T> p, C<T> q, long long n) {
@@ -45,3 +49,7 @@ T bostan_mori(C<T> p, C<T> q, long long n) {
   }
   return res + p[0] / q[0];
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_BOSTAN_MORI_HPP_

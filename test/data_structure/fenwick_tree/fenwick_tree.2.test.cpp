@@ -10,7 +10,7 @@
 
 int main() {
   constexpr int M = 200000;
-  FenwickTree<int> bit(M + 1);
+  emthrm::FenwickTree<int> bit(M + 1);
   int q;
   std::cin >> q;
   while (q--) {

@@ -3,11 +3,15 @@
  * @docs docs/data_structure/segment_tree.md
  */
 
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_
+#define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_
+
 #include <algorithm>
 // #include <cassert>
 #include <limits>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct LazySegmentTree {
@@ -309,3 +313,7 @@ struct RangeSumAndAddQuery {
 };
 
 }  // namespace monoid
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_

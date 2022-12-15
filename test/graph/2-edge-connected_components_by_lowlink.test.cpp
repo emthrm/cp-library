@@ -14,7 +14,7 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  std::vector<std::vector<Edge<int>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<int>>> graph(n);
   while (m--) {
     int x, y;
     std::cin >> x >> y;
@@ -22,8 +22,10 @@ int main() {
     graph[x].emplace_back(x, y, 1);
     graph[y].emplace_back(y, x, 1);
   }
-  const TwoEdgeConnectedComponents<int> two_edge_connected_components(graph);
-  LowestCommonAncestorByDoubling<int> lca(two_edge_connected_components.g);
+  const emthrm::TwoEdgeConnectedComponents<int>
+      two_edge_connected_components(graph);
+  emthrm::LowestCommonAncestorByDoubling<int>
+      lca(two_edge_connected_components.g);
   lca.build();
   int q;
   std::cin >> q;

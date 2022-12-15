@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_UNICYCLIC_GRAPH_HPP_
+#define EMTHRM_GRAPH_COST_FREE_UNICYCLIC_GRAPH_HPP_
+
 #include <cassert>
 #include <iterator>
 #include <queue>
 #include <vector>
+
+namespace emthrm {
 
 struct UnicyclicGraph {
   std::vector<bool> is_in_loop;
@@ -90,3 +94,7 @@ struct UnicyclicGraph {
     return false;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_UNICYCLIC_GRAPH_HPP_

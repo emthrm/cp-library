@@ -11,18 +11,18 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
-  FormalPowerSeries<ModInt>::set_mult(
+  emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        static NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<0> ntt;
         return ntt.convolution(a, b);
       });
   int d;
   long long k;
   std::cin >> d >> k;
-  FormalPowerSeries<ModInt> a(d - 1), c(d);
+  emthrm::FormalPowerSeries<ModInt> a(d - 1), c(d);
   c[0] = 1;
   for (int i = 0; i < d; ++i) {
     std::cin >> a[i];
@@ -31,6 +31,6 @@ int main() {
     std::cin >> c[i];
     c[i] = -c[i];
   }
-  std::cout << nth_term_of_linear_recurrence_sequence(a, c, k) << '\n';
+  std::cout << emthrm::nth_term_of_linear_recurrence_sequence(a, c, k) << '\n';
   return 0;
 }

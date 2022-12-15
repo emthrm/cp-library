@@ -10,10 +10,10 @@
 int main() {
   int n;
   std::cin >> n;
-  geometry::Polygon g(n);
+  emthrm::geometry::Polygon g(n);
   for (int i = 0; i < n; ++i) {
     std::cin >> g[i];
   }
-  std::cout << geometry::is_convex(g) << '\n';
+  std::cout << emthrm::geometry::is_convex(g) << '\n';
   return 0;
 }

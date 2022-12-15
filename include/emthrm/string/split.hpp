@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_STRING_SPLIT_HPP_
+#define EMTHRM_STRING_SPLIT_HPP_
+
 #include <cstddef>
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<std::string> split(
     const std::string& s, const std::string& delimiter) {
@@ -16,3 +20,7 @@ std::vector<std::string> split(
   res.emplace_back(s.substr(pos));
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_SPLIT_HPP_

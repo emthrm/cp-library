@@ -15,19 +15,19 @@
 int main() {
   int n;
   std::cin >> n;
-  std::map<std::pair<int, int>, int> edge;
-  UnicyclicGraph<bool> namori(n);
+  std::map<std::pair<int, int>, int> edges;
+  emthrm::UnicyclicGraph<bool> namori(n);
   for (int i = 0; i < n; ++i) {
     int a, b;
     std::cin >> a >> b;
     --a; --b;
-    edge[std::minmax(a, b)] = i;
+    edges[std::minmax(a, b)] = i;
     namori.add_edge(a, b, false);
   }
   namori.build();
   std::vector<bool> bridge(n, false);
-  for (const Edge<bool>& e : namori.loop) {
-    bridge[edge[std::minmax(e.src, e.dst)]] = true;
+  for (const emthrm::Edge<bool>& e : namori.loop) {
+    bridge[edges[std::minmax(e.src, e.dst)]] = true;
   }
   std::vector<int> p;
   for (int i = 0; i < n; ++i) {

@@ -3,12 +3,16 @@
  * @docs docs/graph/tree/lowest_common_ancestor.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
+#define EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
+
 #include <cassert>
 #include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct LowestCommonAncestorByDoubling {
@@ -73,3 +77,7 @@ struct LowestCommonAncestorByDoubling {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_

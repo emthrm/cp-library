@@ -18,7 +18,7 @@ int main() {
     std::cin >> h[i];
   }
   std::reverse(h.begin(), h.end());
-  ConvexHullTrick<long long> convex_hull_trick;
+  emthrm::ConvexHullTrick<long long> convex_hull_trick;
   convex_hull_trick.add(-2 * h.front(),
                         static_cast<long long>(h.front()) * h.front());
   for (int i = 1; i < n; ++i) {

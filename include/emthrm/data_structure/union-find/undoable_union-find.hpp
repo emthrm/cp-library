@@ -3,9 +3,13 @@
  * @docs docs/data_structure/union-find/union-find.md
  */
 
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_
+#define EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_
+
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 struct UndoableUnionFind {
   explicit UndoableUnionFind(const int n) : data(n, -1) {}
@@ -47,3 +51,7 @@ struct UndoableUnionFind {
   std::vector<int> data;
   std::vector<std::pair<int, int>> history;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_

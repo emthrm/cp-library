@@ -10,7 +10,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  FenwickTreeSupportingRangeAddQuery<long long> bit(n);
+  emthrm::FenwickTreeSupportingRangeAddQuery<long long> bit(n);
   while (q--) {
     int kind, s, t;
     std::cin >> kind >> s >> t;

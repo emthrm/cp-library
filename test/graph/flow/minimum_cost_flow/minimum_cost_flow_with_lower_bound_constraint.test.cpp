@@ -16,9 +16,10 @@ int main() {
   constexpr int INF = std::numeric_limits<int>::max();
   int n, m;
   std::cin >> n >> m;
-  MinimumCostFlowWithLowerBoundConstraint<
-      MinimumCostBFlow, long long, long long> lower_bound_constraint(n, INF);
-  std::vector<std::vector<Edge<int>>> graph(n);
+  emthrm::MinimumCostFlowWithLowerBoundConstraint<
+      emthrm::MinimumCostBFlow, long long, long long>
+          lower_bound_constraint(n, INF);
+  std::vector<std::vector<emthrm::Edge<int>>> graph(n);
   while (m--) {
     int x, y, s;
     std::cin >> x >> y >> s;
@@ -27,7 +28,7 @@ int main() {
   }
   std::vector<long long> dp(n, 0);
   for (int i = n - 2; i >= 0; --i) {
-    for (const Edge<int>& e : graph[i]) {
+    for (const emthrm::Edge<int>& e : graph[i]) {
       dp[i] = std::max(dp[i], dp[e.dst] + e.cost);
     }
   }

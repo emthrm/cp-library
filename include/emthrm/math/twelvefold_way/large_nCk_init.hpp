@@ -3,11 +3,15 @@
  * @docs docs/math/twelvefold_way/binomial_coefficients.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_
+
 #include <algorithm>
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 std::vector<MInt<T>> large_nCk_init(long long n, const int k) {
@@ -21,3 +25,7 @@ std::vector<MInt<T>> large_nCk_init(long long n, const int k) {
   }
   return c;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_

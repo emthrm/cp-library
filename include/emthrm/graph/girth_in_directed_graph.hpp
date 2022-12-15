@@ -3,7 +3,9 @@
  * @docs docs/graph/girth.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_
+#define EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <limits>
@@ -13,6 +15,8 @@
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 CostType girth_in_directed_graph(
@@ -47,3 +51,7 @@ CostType girth_in_directed_graph(
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_

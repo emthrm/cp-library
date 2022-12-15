@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_DISJOINT_SPARSE_TABLE_HPP_
+#define EMTHRM_DATA_STRUCTURE_DISJOINT_SPARSE_TABLE_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <vector>
+
+namespace emthrm {
 
 template <typename Semigroup, typename Fn>
 struct DisjointSparseTable {
@@ -46,3 +50,7 @@ struct DisjointSparseTable {
   std::vector<int> lg;
   std::vector<std::vector<Semigroup>> data;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_DISJOINT_SPARSE_TABLE_HPP_

@@ -9,7 +9,7 @@
 #include "emthrm/math/bigint.hpp"
 
 int main() {
-  BigInt<> a, b;
+  emthrm::BigInt<> a, b;
   std::cin >> a >> b;
   if (a > b) {
     std::cout << "GREATER\n";

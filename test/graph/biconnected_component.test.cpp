@@ -19,7 +19,7 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   while (m--) {
     int a, b;
     std::cin >> a >> b;
@@ -27,7 +27,7 @@ int main() {
     graph[a].emplace_back(a, b);
     graph[b].emplace_back(b, a);
   }
-  BiconnectedComponent<bool> biconnected_component(graph, true);
+  emthrm::BiconnectedComponent<bool> biconnected_component(graph, true);
   const int x = biconnected_component.articulation_points.size();
   const int y = biconnected_component.vertices.size();
   std::sort(biconnected_component.articulation_points.begin(),
@@ -39,7 +39,8 @@ int main() {
       const int index =
           std::distance(biconnected_component.articulation_points.begin(),
                         std::lower_bound(
-                            biconnected_component.articulation_points.begin(), biconnected_component.articulation_points.end(),
+                            biconnected_component.articulation_points.begin(),
+                            biconnected_component.articulation_points.end(),
                             i));
       for (const int block : biconnected_component.cutpoint[i]) {
         block_cut_tree[index].emplace_back(block + x);

@@ -15,7 +15,7 @@ int main() {
   while (n--) {
     int a;
     std::cin >> a;
-    ans = __lcm(ans, a);
+    ans = emthrm::__lcm(ans, a);
   }
   std::cout << ans << '\n';
   return 0;

@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_STRING_Z_ALGORITHM_HPP_
+#define EMTHRM_STRING_Z_ALGORITHM_HPP_
+
 #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<int> z_algorithm(const T &s) {
@@ -18,3 +22,7 @@ std::vector<int> z_algorithm(const T &s) {
   res[0] = n;
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_Z_ALGORITHM_HPP_

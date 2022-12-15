@@ -10,11 +10,11 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;
-  const std::vector<int> mu = mobius_mu_init2(1, k + 1);
+  const std::vector<int> mu = emthrm::mobius_mu_init2(1, k + 1);
   ModInt ans = 0;
   for (int g = 1; g <= k; ++g) {
     ModInt ways = 0;

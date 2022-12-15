@@ -12,12 +12,12 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point c1_o, c2_o;
+  emthrm::geometry::Point c1_o, c2_o;
   double c1r, c2r;
   std::cin >> c1_o >> c1r >> c2_o >> c2r;
-  std::vector<geometry::Point> ans =
-      geometry::intersection(geometry::Circle(c1_o, c1r),
-                             geometry::Circle(c2_o, c2r));
+  std::vector<emthrm::geometry::Point> ans =
+      emthrm::geometry::intersection(emthrm::geometry::Circle(c1_o, c1r),
+                             emthrm::geometry::Circle(c2_o, c2r));
   std::sort(ans.begin(), ans.end());
   if (ans.size() == 1) {
     std::cout << std::fixed << std::setprecision(7)

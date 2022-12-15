@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_STRING_SUBSEQUENCE_DP_HPP_
+#define EMTHRM_STRING_SUBSEQUENCE_DP_HPP_
+
 #include <algorithm>
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<std::vector<int>> subsequence_dp(
     const std::string& s, const char basis = 'a', const int sigma = 26) {
@@ -14,3 +18,7 @@ std::vector<std::vector<int>> subsequence_dp(
   }
   return nx;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_SUBSEQUENCE_DP_HPP_

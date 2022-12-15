@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_PRODUCT_OF_POLYNOMIAL_SEQUENCE_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_PRODUCT_OF_POLYNOMIAL_SEQUENCE_HPP_
+
 #include <queue>
 #include <vector>
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 C<T> product_of_polynomial_sequence(std::vector<C<T>> a) {
@@ -29,3 +33,7 @@ C<T> product_of_polynomial_sequence(std::vector<C<T>> a) {
   }
   return a[que.top()];
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_PRODUCT_OF_POLYNOMIAL_SEQUENCE_HPP_

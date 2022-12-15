@@ -11,7 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n, q;
   std::cin >> n >> q;
@@ -35,7 +35,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i].first;
   }
-  LazySegmentTree<M> seg(a);
+  emthrm::LazySegmentTree<M> seg(a);
   while (q--) {
     int query, l, r;
     std::cin >> query >> l >> r;

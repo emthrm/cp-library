@@ -2,11 +2,15 @@
  * @brief 約数列挙
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FAST_DIVISOR_HPP_
+#define EMTHRM_MATH_FAST_DIVISOR_HPP_
+
 // #include <algorithm>
 #include <vector>
 
 #include "emthrm/math/prime_sieve.hpp"
+
+namespace emthrm {
 
 struct Divisor {
   const std::vector<int> smallest_prime_factor;
@@ -30,3 +34,7 @@ struct Divisor {
     return res;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FAST_DIVISOR_HPP_

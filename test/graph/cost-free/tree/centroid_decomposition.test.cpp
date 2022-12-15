@@ -18,7 +18,7 @@ int main() {
     graph[a].emplace_back(b);
     graph[b].emplace_back(a);
   }
-  CentroidDecomposition centroid_decomposition(graph);
+  emthrm::CentroidDecomposition centroid_decomposition(graph);
   std::vector<bool> is_visited(n, false);
   std::vector<long long> x(n, 0);
   std::function<void(int)> f =
@@ -43,14 +43,14 @@ int main() {
             }
           };
       dfs(root, child, 1);
-      const std::vector<fast_fourier_transform::Real> fft =
-          fast_fourier_transform::convolution(nums_sub, nums_sub);
+      const std::vector<emthrm::fast_fourier_transform::Real> fft =
+          emthrm::fast_fourier_transform::convolution(nums_sub, nums_sub);
       for (int i = 0; i < static_cast<int>(fft.size()) && i < n; ++i) {
         x[i] -= std::round(fft[i]);
       }
     }
-    const std::vector<fast_fourier_transform::Real> fft =
-        fast_fourier_transform::convolution(nums, nums);
+    const std::vector<emthrm::fast_fourier_transform::Real> fft =
+        emthrm::fast_fourier_transform::convolution(nums, nums);
     for (int i = 0; i < static_cast<int>(fft.size()) && i < n; ++i) {
       x[i] += std::round(fft[i]);
     }

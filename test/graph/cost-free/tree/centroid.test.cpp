@@ -9,7 +9,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;
@@ -21,7 +21,7 @@ int main() {
     graph[x].emplace_back(y);
     graph[y].emplace_back(x);
   }
-  const std::vector<int> centroids = centroid(graph);
+  const std::vector<int> centroids = emthrm::centroid(graph);
   if (centroids.size() == 2) {
     std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\n';
   } else {

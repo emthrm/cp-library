@@ -17,15 +17,15 @@ int main() {
     int n;
     std::cin >> n;
     if (n == 0) break;
-    std::vector<std::vector<Edge<bool>>> graph(SIGMA);
+    std::vector<std::vector<emthrm::Edge<bool>>> graph(SIGMA);
     while (n--) {
       std::string word;
       std::cin >> word;
       graph[word.front() - 'a'].emplace_back(word.front() - 'a',
                                              word.back() - 'a');
     }
-    const std::vector<Edge<bool>> trail =
-        eulerian_trail_in_directed_graph(graph);
+    const std::vector<emthrm::Edge<bool>> trail =
+        emthrm::eulerian_trail_in_directed_graph(graph);
     std::cout << (!trail.empty() && trail.front().src == trail.back().dst ?
                   "OK\n" : "NG\n");
   }

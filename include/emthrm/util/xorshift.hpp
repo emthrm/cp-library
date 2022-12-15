@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_UTIL_XORSHIFT_HPP_
+#define EMTHRM_UTIL_XORSHIFT_HPP_
+
 #include <ctime>
+
+namespace emthrm {
 
 struct Xor128 {
   Xor128() : x(123456789), y(362436069), z(521288629), w(std::time(nullptr)) {}
@@ -26,3 +30,7 @@ struct Xor128 {
  private:
   unsigned int x, y, z, w;
 } xor128;
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_UTIL_XORSHIFT_HPP_

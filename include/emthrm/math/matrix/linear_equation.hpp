@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_LINEAR_EQUATION_HPP_
+#define EMTHRM_MATH_MATRIX_LINEAR_EQUATION_HPP_
+
 #include <algorithm>
 #include <cmath>
 #include <vector>
 
 #include "emthrm/math/matrix/gauss_jordan.hpp"
 #include "emthrm/math/matrix/matrix.hpp"
+
+namespace emthrm {
 
 template <typename T, typename U = double>
 std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b,
@@ -28,3 +32,7 @@ std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b,
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_LINEAR_EQUATION_HPP_

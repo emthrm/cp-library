@@ -11,19 +11,19 @@
 std::vector<long long> a, b, lazy;
 
 template <typename T>
-void SqrtDecomposition::partial_update(const int idx, const T val) {
+void emthrm::SqrtDecomposition::partial_update(const int idx, const T val) {
   a[idx] += val;
   b[idx / block_size] += val;
 }
 
 template <typename T>
-void SqrtDecomposition::total_update(const int idx, const T val) {
+void emthrm::SqrtDecomposition::total_update(const int idx, const T val) {
   lazy[idx] += val;
   to_be_eval[idx] = true;
 }
 
 template <typename T>
-void SqrtDecomposition::partial_query(const int idx, T* val) {
+void emthrm::SqrtDecomposition::partial_query(const int idx, T* val) {
   const int block = idx / block_size;
   if (to_be_eval[block]) {
     for (int i = ls[block]; i < rs[block]; ++i) {
@@ -36,14 +36,14 @@ void SqrtDecomposition::partial_query(const int idx, T* val) {
 }
 
 template <typename T>
-void SqrtDecomposition::total_query(const int idx, T* val) {
+void emthrm::SqrtDecomposition::total_query(const int idx, T* val) {
   *val += b[idx] + lazy[idx] * (rs[idx] - ls[idx]);
 }
 
 int main() {
   int n, q;
   std::cin >> n >> q;
-  SqrtDecomposition sqrt_decomposition(n);
+  emthrm::SqrtDecomposition sqrt_decomposition(n);
   a.assign(n, 0);
   b.assign(sqrt_decomposition.n, 0);
   lazy.assign(sqrt_decomposition.n, 0);

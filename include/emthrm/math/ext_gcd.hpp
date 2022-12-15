@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_EXT_GCD_HPP_
+#define EMTHRM_MATH_EXT_GCD_HPP_
+
 #include <tuple>
 #include <utility>
+
+namespace emthrm {
 
 template <typename T>
 std::pair<T, T> ext_gcd(T a, T b) {
@@ -13,3 +17,7 @@ std::pair<T, T> ext_gcd(T a, T b) {
   }
   return a < 0 ? std::make_pair(-x, -y) : std::make_pair(x, y);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_EXT_GCD_HPP_

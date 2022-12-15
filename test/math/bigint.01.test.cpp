@@ -15,8 +15,8 @@
 namespace std {
 
 template <int LogB, int B>
-struct numeric_limits<BigInt<LogB, B>> {
-  static constexpr BigInt<LogB, B> max() {
+struct numeric_limits<emthrm::BigInt<LogB, B>> {
+  static constexpr emthrm::BigInt<LogB, B> max() {
     return static_cast<std::string>(
         "453152254949043485887196599220742984693877551020408163265306122448979591836734693877551");
   }
@@ -25,7 +25,7 @@ struct numeric_limits<BigInt<LogB, B>> {
 };  // namespace std
 
 int main() {
-  using bigint = BigInt<>;
+  using bigint = emthrm::BigInt<>;
   constexpr int SIGMA = 26;
   int n;
   std::cin >> n;
@@ -43,7 +43,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> c[i];
   }
-  WeightedBipartiteMatching<bigint> weighted_bipartite_matching(n, n);
+  emthrm::WeightedBipartiteMatching<bigint> weighted_bipartite_matching(n, n);
   for (int i = 0; i < n; ++i) {
     std::cin >> c[i];
     for (int j = 0; j < n; ++j) {

@@ -3,13 +3,17 @@
  * @docs docs/graph/flow/matching/matching.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MATCHING_MAXIMUM_MATCHING_HPP_
+#define EMTHRM_GRAPH_FLOW_MATCHING_MAXIMUM_MATCHING_HPP_
+
 #include <vector>
 
 #include "emthrm/math/matrix/gauss_jordan.hpp"
 #include "emthrm/math/matrix/matrix.hpp"
 #include "emthrm/math/modint.hpp"
 #include "emthrm/util/xorshift.hpp"
+
+namespace emthrm {
 
 int maximum_matching(const std::vector<std::vector<int>>& graph) {
   constexpr int P = 1000000007;
@@ -28,3 +32,7 @@ int maximum_matching(const std::vector<std::vector<int>>& graph) {
   }
   return gauss_jordan(&tutte_matrix, ModInt(0)) / 2;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MATCHING_MAXIMUM_MATCHING_HPP_

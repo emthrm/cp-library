@@ -3,12 +3,16 @@
  * @docs docs/math/formal_power_series/faulhaber.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_
+
 #include <cassert>
 #include <vector>
 
 #include "emthrm/math/formal_power_series/bernoulli_number.hpp"
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 MInt<T> faulhaber_by_fps(const long long n, const int k) {
@@ -24,3 +28,7 @@ MInt<T> faulhaber_by_fps(const long long n, const int k) {
   }
   return res / (k + 1);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_

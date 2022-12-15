@@ -12,7 +12,7 @@ int main() {
   std::string t, p;
   std::cin >> t >> p;
   const int t_size = t.length(), p_size = p.length();
-  RollingHash<> rolling_hash_t(t), rolling_hash_p(p);
+  emthrm::RollingHash<> rolling_hash_t(t), rolling_hash_p(p);
   for (int i = 0; i < t_size; ++i) {
     if (i + p_size <= t_size &&
         rolling_hash_t.get(i, i + p_size) == rolling_hash_p.get(0, p_size)) {

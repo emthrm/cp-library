@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_INVERSE_MATRIX_HPP_
+#define EMTHRM_MATH_MATRIX_INVERSE_MATRIX_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <utility>
 
 #include "emthrm/math/matrix/matrix.hpp"
+
+namespace emthrm {
 
 template <typename T, typename U = double>
 Matrix<U> inverse_matrix(const Matrix<T>& a, const U eps = 1e-8) {
@@ -44,3 +48,7 @@ Matrix<U> inverse_matrix(const Matrix<T>& a, const U eps = 1e-8) {
   }
   return inv;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_INVERSE_MATRIX_HPP_

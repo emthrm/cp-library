@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_
+#define EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_
+
 #include <utility>
 #include <vector>
 
 #include "emthrm/geometry/geometry.hpp"
 #include "emthrm/util/xorshift.hpp"
+
+namespace emthrm {
 
 namespace geometry {
 
@@ -41,3 +45,7 @@ Circle smallest_enclosing_circle(std::vector<Point> ps) {
 }
 
 }  // namespace geometry
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_

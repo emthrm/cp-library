@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_
+#define EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <cstdint>
@@ -7,6 +9,8 @@
 
 #include "emthrm/graph/edge.hpp"
 #include "emthrm/graph/topological_sort.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 std::vector<bool> reachability_on_dag(
@@ -33,3 +37,7 @@ std::vector<bool> reachability_on_dag(
   }
   return can_reach;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_

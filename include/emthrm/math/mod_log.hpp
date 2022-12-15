@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_MATH_MOD_LOG_HPP_
+#define EMTHRM_MATH_MOD_LOG_HPP_
+
 #include <map>
 
 #include "emthrm/math/mod_pow.hpp"
+
+namespace emthrm {
 
 int mod_log(long long g, long long y, const int m) {
   if (m == 1) return 0;
@@ -37,3 +41,7 @@ int mod_log(long long g, long long y, const int m) {
   }
   return -1;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MOD_LOG_HPP_

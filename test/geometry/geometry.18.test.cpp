@@ -10,16 +10,16 @@
 int main() {
   int n;
   std::cin >> n;
-  geometry::Polygon g(n);
+  emthrm::geometry::Polygon g(n);
   for (int i = 0; i < n; ++i) {
     std::cin >> g[i];
   }
   int q;
   std::cin >> q;
   while (q--) {
-    geometry::Point p;
+    emthrm::geometry::Point p;
     std::cin >> p;
-    std::cout << geometry::contains(g, p) << '\n';
+    std::cout << emthrm::geometry::contains(g, p) << '\n';
   }
   return 0;
 }

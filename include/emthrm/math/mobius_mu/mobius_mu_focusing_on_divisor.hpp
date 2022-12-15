@@ -3,9 +3,13 @@
  * @docs docs/math/mobius_mu/mobius_mu.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_
+#define EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_
+
 #include <map>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::map<T, int> mobius_mu_focusing_on_divisor(T n) {
@@ -28,3 +32,7 @@ std::map<T, int> mobius_mu_focusing_on_divisor(T n) {
   }
   return mu;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_

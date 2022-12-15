@@ -3,11 +3,15 @@
  * @docs docs/math/euler_phi/euler_phi.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT2_HPP_
+#define EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT2_HPP_
+
 #include <numeric>
 #include <vector>
 
 #include "emthrm/math/prime_sieve.hpp"
+
+namespace emthrm {
 
 std::vector<long long> euler_phi_init2(const long long low,
                                        const long long high) {
@@ -27,3 +31,7 @@ std::vector<long long> euler_phi_init2(const long long low,
   }
   return phi;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT2_HPP_

@@ -12,7 +12,7 @@ int main() {
   int n;
   std::cin >> n;
   std::map<std::pair<int, int>, int> edge;
-  UnicyclicGraph namori(n);
+  emthrm::UnicyclicGraph namori(n);
   for (int i = 0; i < n; ++i) {
     int a, b;
     std::cin >> a >> b;

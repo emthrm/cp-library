@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_
+#define EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_
+
 #include <algorithm>
 #include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct HeavyLightDecomposition {
@@ -141,3 +145,7 @@ struct HeavyLightDecomposition {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_

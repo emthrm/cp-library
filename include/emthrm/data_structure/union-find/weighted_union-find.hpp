@@ -3,9 +3,13 @@
  * @docs docs/data_structure/union-find/union-find.md
  */
 
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_WEIGHTED_UNION_FIND_HPP_
+#define EMTHRM_DATA_STRUCTURE_UNION_FIND_WEIGHTED_UNION_FIND_HPP_
+
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <typename Abelian>
 struct WeightedUnionFind {
@@ -51,3 +55,7 @@ struct WeightedUnionFind {
     return data[ver];
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_UNION_FIND_WEIGHTED_UNION_FIND_HPP_

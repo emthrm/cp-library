@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_CENTROID_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_CENTROID_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> centroid(const std::vector<std::vector<int>>& graph) {
   const int n = graph.size();
@@ -22,3 +26,7 @@ std::vector<int> centroid(const std::vector<std::vector<int>>& graph) {
   std::sort(res.begin(), res.end());
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_CENTROID_HPP_

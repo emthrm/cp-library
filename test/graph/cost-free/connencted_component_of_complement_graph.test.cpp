@@ -17,7 +17,8 @@ int main() {
     graph[a].emplace_back(b);
     graph[b].emplace_back(a);
   }
-  UnionFind union_find = connencted_component_of_complement_graph(graph);
+  emthrm::UnionFind union_find =
+      emthrm::connencted_component_of_complement_graph(graph);
   int ans = 0;
   for (int i = 0; i < n; ++i) {
     ans += union_find.root(i) == i;

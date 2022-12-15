@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_
+#define EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_
+
 #include <cassert>
 #include <functional>
 #include <tuple>
@@ -6,6 +8,8 @@
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 std::pair<CostType, std::vector<int>> double_sweep(
@@ -43,3 +47,7 @@ std::pair<CostType, std::vector<int>> double_sweep(
   assert(dfs2(-1, s));
   return {diameter, path};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_

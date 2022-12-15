@@ -1,4 +1,8 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_
+
+
+namespace emthrm {
 
 template <typename Real = double, typename F, typename T>
 Real aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat) {
@@ -16,3 +20,7 @@ Real aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat) {
   }
   return l(ub);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_

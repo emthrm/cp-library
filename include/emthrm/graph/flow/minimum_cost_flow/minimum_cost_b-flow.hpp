@@ -3,7 +3,9 @@
  * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_
+#define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <functional>
@@ -13,6 +15,8 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T, typename U>
 struct MinimumCostBFlow {
@@ -111,3 +115,7 @@ struct MinimumCostBFlow {
   U res;
   std::vector<T> b;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_

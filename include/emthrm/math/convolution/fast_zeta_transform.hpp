@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_
+#define EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_
+
 #include <functional>
 #include <vector>
+
+namespace emthrm {
 
 template <typename Ring>
 std::vector<Ring> fast_zeta_transform(
@@ -28,3 +32,7 @@ std::vector<Ring> fast_zeta_transform(
   }
   return a;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_

@@ -3,11 +3,15 @@
  * @docs docs/math/formal_power_series/eulerian_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_BY_FPS_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_BY_FPS_HPP_
+
 #include <vector>
 
 #include "emthrm/math/formal_power_series/formal_power_series.hpp"
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {
@@ -31,3 +35,7 @@ std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {
   }
   return a.coef;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_BY_FPS_HPP_

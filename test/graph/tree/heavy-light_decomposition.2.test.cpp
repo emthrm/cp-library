@@ -12,7 +12,7 @@
 int main() {
   int n;
   std::cin >> n;
-  std::vector<std::vector<Edge<int>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<int>>> graph(n);
   for (int i = 0; i < n; ++i) {
     int k;
     std::cin >> k;
@@ -23,7 +23,8 @@ int main() {
       graph[c].emplace_back(c, i, 1);
     }
   }
-  const HeavyLightDecomposition<int> heavy_light_decomposition(graph, 0);
+  const emthrm::HeavyLightDecomposition<int>
+      heavy_light_decomposition(graph, 0);
   int q;
   std::cin >> q;
   while (q--) {

@@ -15,6 +15,6 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> h[i];
   }
-  std::cout << largest_rectangle(h) << '\n';
+  std::cout << emthrm::largest_rectangle(h) << '\n';
   return 0;
 }

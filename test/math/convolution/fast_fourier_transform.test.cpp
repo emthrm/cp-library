@@ -17,8 +17,8 @@ int main() {
   for (int i = 1; i <= n; ++i) {
     std::cin >> a[i] >> b[i];
   }
-  const std::vector<fast_fourier_transform::Real> ans =
-      fast_fourier_transform::convolution(a, b);
+  const std::vector<emthrm::fast_fourier_transform::Real> ans =
+      emthrm::fast_fourier_transform::convolution(a, b);
   for (int i = 1; i <= n * 2; ++i) {
     std::cout << std::llround(ans[i]) << '\n';
   }

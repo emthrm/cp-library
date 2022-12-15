@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_SLOPE_TRICK_HPP_
+#define EMTHRM_DATA_STRUCTURE_SLOPE_TRICK_HPP_
+
 #include <cassert>
 #include <functional>
 #include <limits>
@@ -6,6 +8,8 @@
 #include <queue>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct SlopeTrick {
@@ -101,3 +105,7 @@ struct SlopeTrick {
   T top_l() const { return l.empty() ? -inf : l.top() + added_l; }
   T top_r() const { return r.empty() ? inf : r.top() + added_r; }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_SLOPE_TRICK_HPP_

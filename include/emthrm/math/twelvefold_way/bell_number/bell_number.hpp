@@ -3,11 +3,15 @@
  * @docs docs/math/twelvefold_way/bell_number/bell_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_
+
 #include <cassert>
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 MInt<T> bell_number(const int n, int k) {
@@ -27,3 +31,7 @@ MInt<T> bell_number(const int n, int k) {
   }
   return bell;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_

@@ -18,7 +18,7 @@ int main() {
     std::cin >> a[i];
   }
   const int max_a = *std::max_element(a.begin(), a.end());
-  const OsaK osa_k(max_a);
+  const emthrm::OsaK osa_k(max_a);
   std::vector<int> prime_factor(max_a + 1, 0);
   for (const int a_i : a) {
     for (const std::pair<int, int>& pr : osa_k.query(a_i)) {

@@ -3,7 +3,9 @@
  * @docs docs/math/primitive_root.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
+#define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
+
 #include <algorithm>
 #include <map>
 #include <utility>
@@ -12,6 +14,8 @@
 #include "emthrm/math/euler_phi/euler_phi.hpp"
 #include "emthrm/math/mod_pow.hpp"
 #include "emthrm/math/prime_factorization.hpp"
+
+namespace emthrm {
 
 bool is_primitive_root(long long root, const int m) {
   if ((root %= m) < 0) root += m;
@@ -32,3 +36,7 @@ bool is_primitive_root(long long root, const int m) {
   }
   return true;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_

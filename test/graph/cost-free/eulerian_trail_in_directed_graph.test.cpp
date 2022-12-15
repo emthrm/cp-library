@@ -19,7 +19,8 @@ int main() {
       std::cin >> word;
       graph[word.front() - 'a'].emplace_back(word.back() - 'a');
     }
-    const std::vector<int> trail = eulerian_trail_in_directed_graph(graph);
+    const std::vector<int> trail =
+        emthrm::eulerian_trail_in_directed_graph(graph);
     std::cout << (!trail.empty() && trail.front() == trail.back() ?
                   "OK\n" : "NG\n");
   }

@@ -20,9 +20,9 @@ int main() {
     const int p = v * x + 1;
     int root = 0;
     do {
-      root = xor128.rand(1, p);
-    } while (!is_primitive_root(root, p));
-    const long long xth_root = mod_pow(root, v, p);
+      root = emthrm::xor128.rand(1, p);
+    } while (!emthrm::is_primitive_root(root, p));
+    const long long xth_root = emthrm::mod_pow(root, v, p);
     std::vector<int> a(x, 1);
     for (int i = 1; i < x; ++i) {
       a[i] = a[i - 1] * xth_root % p;

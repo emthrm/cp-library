@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_
+#define EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType, typename CommutativeSemigroup,
           typename E, typename F, typename G>
@@ -67,3 +71,7 @@ std::vector<CommutativeSemigroup> rerooting_dp(
   dfs2(-1, 0, CommutativeSemigroup());
   return dp;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_

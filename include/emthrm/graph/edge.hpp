@@ -2,7 +2,11 @@
  * @brief 辺
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_EDGE_HPP_
+#define EMTHRM_GRAPH_EDGE_HPP_
+
+
+namespace emthrm {
 
 template <typename CostType>
 struct Edge {
@@ -18,3 +22,7 @@ struct Edge {
   inline bool operator>(const Edge& x) const { return x < *this; }
   inline bool operator>=(const Edge& x) const { return !(*this < x); }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_EDGE_HPP_

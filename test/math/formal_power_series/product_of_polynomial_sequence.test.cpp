@@ -13,18 +13,18 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
-  FormalPowerSeries<ModInt>::set_mult(
+  emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        static NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<0> ntt;
         return ntt.convolution(a, b);
       });
   int n;
   std::cin >> n;
   int degree = 0;
-  std::vector<FormalPowerSeries<ModInt>> f(n);
+  std::vector<emthrm::FormalPowerSeries<ModInt>> f(n);
   for (int i = 0; i < n; ++i) {
     int d;
     std::cin >> d;
@@ -34,7 +34,8 @@ int main() {
       std::cin >> f[i][j];
     }
   }
-  FormalPowerSeries<ModInt> a = product_of_polynomial_sequence(f);
+  emthrm::FormalPowerSeries<ModInt> a =
+      emthrm::product_of_polynomial_sequence(f);
   assert(a.degree() <= degree);
   a.resize(degree);
   for (int i = 0; i <= degree; ++i) {

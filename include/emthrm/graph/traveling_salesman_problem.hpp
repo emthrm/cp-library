@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TRAVELING_SALESMAN_PROBLEM_HPP_
+#define EMTHRM_GRAPH_TRAVELING_SALESMAN_PROBLEM_HPP_
+
 #include <algorithm>
 #include <limits>
 #include <numeric>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 CostType traveling_salesman_problem(
@@ -33,3 +37,7 @@ CostType traveling_salesman_problem(
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TRAVELING_SALESMAN_PROBLEM_HPP_

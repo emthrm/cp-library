@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_SHORTEST_PATH_WARSHALL_FLOYD_HPP_
+#define EMTHRM_GRAPH_SHORTEST_PATH_WARSHALL_FLOYD_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct WarshallFloyd {
@@ -90,3 +94,7 @@ struct WarshallFloyd {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_SHORTEST_PATH_WARSHALL_FLOYD_HPP_

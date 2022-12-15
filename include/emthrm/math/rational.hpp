@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MATH_RATIONAL_HPP_
+#define EMTHRM_MATH_RATIONAL_HPP_
+
 #include <algorithm>
 // #include <cassert>
 #include <limits>
 #include <ostream>
+
+namespace emthrm {
 
 template <typename T = long long>
 struct Rational {
@@ -79,24 +83,35 @@ struct Rational {
     }
   }
 };
+
+}  // namespace emthrm
+
 namespace std {
+
 template <typename T>
-Rational<T> abs(Rational<T> x) {
+emthrm::Rational<T> abs(emthrm::Rational<T> x) {
   if (x.num < 0) x.num = -x.num;
   return x;
 }
 template <typename T>
-Rational<T> max(const Rational<T>& a, const Rational<T>& b) {
+emthrm::Rational<T> max(const emthrm::Rational<T>& a,
+                        const emthrm::Rational<T>& b) {
   return a < b ? b : a;
 }
 template <typename T>
-Rational<T> min(const Rational<T>& a, const Rational<T>& b) {
+emthrm::Rational<T> min(const emthrm::Rational<T>& a,
+                        const emthrm::Rational<T>& b) {
   return a < b ? a : b;
 }
-template <typename T> struct numeric_limits<Rational<T>> {
-  static constexpr Rational<T> max() { return std::numeric_limits<T>::max(); }
-  static constexpr Rational<T> lowest() {
+template <typename T> struct numeric_limits<emthrm::Rational<T>> {
+  static constexpr emthrm::Rational<T> max() {
+    return std::numeric_limits<T>::max();
+  }
+  static constexpr emthrm::Rational<T> lowest() {
     return std::numeric_limits<T>::lowest();
   }
 };
+
 }  // namespace std
+
+#endif  // EMTHRM_MATH_RATIONAL_HPP_

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_MATH_BIGINT_HPP_
+#define EMTHRM_MATH_BIGINT_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -10,6 +12,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <int LogB = 9, int B = 1000000000>  // B = 10^{LogB}
 struct BigInt {
@@ -329,24 +333,37 @@ struct BigInt {
     return {quo, rem / k};
   }
 };
+
+}  // namespace emthrm
+
 namespace std {
+
 template <int LogB, int B>
-BigInt<LogB, B> __gcd(BigInt<LogB, B> a, BigInt<LogB, B> b) {
+emthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,
+                              emthrm::BigInt<LogB, B> b) {
   while (!b.data.empty()) std::swap(a %= b, b);
   return a;
 }
 template <int LogB, int B>
-BigInt<LogB, B> __lcm(const BigInt<LogB, B>& a, const BigInt<LogB, B>& b) {
+emthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,
+                              const emthrm::BigInt<LogB, B>& b) {
   return a / std::__gcd(a, b) * b;
 }
 template <int LogB, int B>
-BigInt<LogB, B> abs(const BigInt<LogB, B>& x) { return x.sgn == 1 ? x : -x; }
+emthrm::BigInt<LogB, B> abs(const emthrm::BigInt<LogB, B>& x) {
+  return x.sgn == 1 ? x : -x;
+}
 template <int LogB, int B>
-BigInt<LogB, B> max(const BigInt<LogB, B>& a, const BigInt<LogB, B>& b) {
+emthrm::BigInt<LogB, B> max(const emthrm::BigInt<LogB, B>& a,
+                            const emthrm::BigInt<LogB, B>& b) {
   return a < b ? b : a;
 }
 template <int LogB, int B>
-BigInt<LogB, B> min(const BigInt<LogB, B>& a, const BigInt<LogB, B>& b) {
+emthrm::BigInt<LogB, B> min(const emthrm::BigInt<LogB, B>& a,
+                            const emthrm::BigInt<LogB, B>& b) {
   return a < b ? a : b;
 }
+
 }  // namespace std
+
+#endif  // EMTHRM_MATH_BIGINT_HPP_

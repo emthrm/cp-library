@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_STRING_LONGEST_COMMON_PREFIX_HPP_
+#define EMTHRM_STRING_LONGEST_COMMON_PREFIX_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <string>
@@ -7,6 +9,8 @@
 
 #include "emthrm/data_structure/sparse_table.hpp"
 #include "emthrm/string/suffix_array.hpp"
+
+namespace emthrm {
 
 template <typename T = std::string>
 struct LongestCommonPrefix : SuffixArray<T> {
@@ -40,3 +44,7 @@ struct LongestCommonPrefix : SuffixArray<T> {
  private:
   SparseTable<int> st;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_LONGEST_COMMON_PREFIX_HPP_

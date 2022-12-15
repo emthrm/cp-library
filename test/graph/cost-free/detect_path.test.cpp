@@ -25,7 +25,8 @@ int main() {
         graph[v].emplace_back(u);
       }
     } else if (type == 2) {
-      std::cout << (detect_path(graph, u, v).empty() ? "No\n" : "Yes\n");
+      std::cout << (emthrm::detect_path(graph, u, v).empty() ?
+                    "No\n" : "Yes\n");
     }
   }
   return 0;

@@ -3,10 +3,14 @@
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_
+#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_
+
 #include <bitset>
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 template <int N>
 struct BinaryMatrix {
@@ -68,3 +72,7 @@ struct BinaryMatrix {
   int n;
   std::vector<std::bitset<N>> data;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_

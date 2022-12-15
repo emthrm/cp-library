@@ -11,7 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int t;
   std::cin >> t;

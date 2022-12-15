@@ -12,9 +12,9 @@ int main() {
   int t;
   std::cin >> t;
   while (t--) {
-    BigInt<> a, b;
+    emthrm::BigInt<> a, b;
     std::cin >> a >> b;
-    BigInt<> ans = a + b;
+    emthrm::BigInt<> ans = a + b;
     if (ans.length() > 80) {
       std::cout << "overflow\n";
     } else {

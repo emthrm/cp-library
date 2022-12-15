@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_EULER_TOUR_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_EULER_TOUR_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 struct EulerTour {
   std::vector<int> tour, depth, left, right, down, up;
@@ -60,3 +64,7 @@ struct EulerTour {
     right[ver] = tour.size() - 1;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_EULER_TOUR_HPP_

@@ -3,12 +3,16 @@
  * @docs docs/graph/minimum_spanning_tree.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_PRIM_HPP_
+#define EMTHRM_GRAPH_PRIM_HPP_
+
 #include <functional>
 #include <queue>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 CostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,
@@ -35,3 +39,7 @@ CostType prim(const std::vector<std::vector<Edge<CostType>>>& graph,
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_PRIM_HPP_

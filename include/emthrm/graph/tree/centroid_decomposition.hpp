@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_CENTROID_DECOMPOSITION_HPP_
+#define EMTHRM_GRAPH_TREE_CENTROID_DECOMPOSITION_HPP_
+
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct CentroidDecomposition {
@@ -57,3 +61,7 @@ struct CentroidDecomposition {
     return ver;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_CENTROID_DECOMPOSITION_HPP_

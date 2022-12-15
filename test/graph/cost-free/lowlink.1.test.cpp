@@ -18,7 +18,7 @@ int main() {
     graph[s].emplace_back(t);
     graph[t].emplace_back(s);
   }
-  Lowlink l(graph);
+  emthrm::Lowlink l(graph);
   std::sort(
       l.bridges.begin(), l.bridges.end(),
       [](const std::pair<int, int>& a, const std::pair<int, int>& b) -> bool {

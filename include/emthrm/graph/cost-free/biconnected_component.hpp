@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_BICONNECTED_COMPONENT_HPP_
+#define EMTHRM_GRAPH_COST_FREE_BICONNECTED_COMPONENT_HPP_
+
 // #include <algorithm>
 #include <set>
 #include <utility>
 #include <vector>
 
 #include "emthrm/graph/cost-free/lowlink.hpp"
+
+namespace emthrm {
 
 struct BiconnectedComponent : Lowlink {
   std::vector<int> id;
@@ -86,3 +90,7 @@ struct BiconnectedComponent : Lowlink {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_BICONNECTED_COMPONENT_HPP_

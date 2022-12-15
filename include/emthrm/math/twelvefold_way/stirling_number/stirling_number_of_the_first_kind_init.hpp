@@ -3,8 +3,12 @@
  * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(
@@ -18,3 +22,7 @@ std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(
   }
   return s;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_HPP_

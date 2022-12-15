@@ -17,7 +17,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  const Divisor divisor(*std::max_element(a.begin(), a.end()));
+  const emthrm::Divisor divisor(*std::max_element(a.begin(), a.end()));
   std::multiset<int> s(a.begin(), a.end());
   int ans = 0;
   for (int i = 0; i < n; ++i) {

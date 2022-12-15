@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_STRONGLY_CONNECTED_COMPONENTS_HPP_
+#define EMTHRM_GRAPH_COST_FREE_STRONGLY_CONNECTED_COMPONENTS_HPP_
+
 // #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 struct StronglyConnectedComponents {
   std::vector<int> id;
@@ -61,3 +65,7 @@ struct StronglyConnectedComponents {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_STRONGLY_CONNECTED_COMPONENTS_HPP_

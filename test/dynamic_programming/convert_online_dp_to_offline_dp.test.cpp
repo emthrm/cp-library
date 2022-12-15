@@ -14,7 +14,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n, m, t;
   std::cin >> n >> m >> t;
@@ -31,7 +31,7 @@ int main() {
   dp[0][0] = 1;
   const std::function<void(int, int, int)> induce =
       [m, &a, &b, &p, &dp](const int l, const int mid, const int r) -> void {
-        static NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<0> ntt;
         for (int id = 0; id < m; ++id) {
           std::vector<ModInt> dp_id(mid - l), p_id(r - l);
           std::copy(std::next(dp[a[id]].begin(), l),
@@ -50,7 +50,7 @@ int main() {
           }
         }
       };
-  convert_online_dp_to_offline_dp(t + 1, induce);
+  emthrm::convert_online_dp_to_offline_dp(t + 1, induce);
   std::cout << dp[0][t] << '\n';
   return 0;
 }

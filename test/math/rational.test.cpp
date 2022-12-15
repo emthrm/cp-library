@@ -11,7 +11,7 @@
 #include "emthrm/math/rational.hpp"
 
 int main() {
-  using rational = Rational<>;
+  using rational = emthrm::Rational<>;
   constexpr int OCCURRENCE = 20;
   int p[OCCURRENCE + 1]{};
   std::fill(p, p + (OCCURRENCE + 1), 1);

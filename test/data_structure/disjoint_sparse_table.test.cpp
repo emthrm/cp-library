@@ -19,7 +19,7 @@ int main() {
   const auto fn = [](const int a, const int b) -> int {
     return std::min(a, b);
   };
-  DisjointSparseTable<int, decltype(fn)> disjoint_sparse_table(a, fn);
+  emthrm::DisjointSparseTable<int, decltype(fn)> disjoint_sparse_table(a, fn);
   while (q--) {
     int l, r;
     std::cin >> l >> r;

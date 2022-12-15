@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
+
 #include <cassert>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 struct LowestCommonAncestorByDoubling {
   std::vector<int> depth, dist;
@@ -64,3 +68,7 @@ struct LowestCommonAncestorByDoubling {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_

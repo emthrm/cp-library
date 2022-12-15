@@ -12,7 +12,7 @@ int main() {
   std::string s;
   std::cin >> s;
   const int n = s.length();
-  Manacher manacher(s);
+  emthrm::Manacher manacher(s);
   for (int i = 0; i < n; ++i) {
     std::cout << (manacher.odd(i) - 1) * 2 + 1;
     if (i + 1 == n) {

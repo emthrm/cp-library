@@ -11,7 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000001);
   int n;
   std::cin >> n;
@@ -19,7 +19,7 @@ int main() {
   for (int i = 1; i <= n; ++i) {
     std::cin >> a[i] >> b[i];
   }
-  const std::vector<ModInt> ans = mod_convolution(a, b);
+  const std::vector<ModInt> ans = emthrm::mod_convolution(a, b);
   for (int i = 1; i <= n * 2; ++i) {
     std::cout << ans[i] << '\n';
   }

@@ -13,7 +13,7 @@
 int main() {
   int n, m, q;
   std::cin >> n >> m >> q;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   while (m--) {
     int x, y;
     std::cin >> x >> y;
@@ -25,7 +25,7 @@ int main() {
     std::cin >> a[i] >> b[i];
     --a[i]; --b[i];
   }
-  for (const bool ans : reachability_on_dag(graph, a, b)) {
+  for (const bool ans : emthrm::reachability_on_dag(graph, a, b)) {
     std::cout << (ans ? "Yes\n" : "No\n");
   }
   return 0;

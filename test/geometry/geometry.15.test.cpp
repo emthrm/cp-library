@@ -12,17 +12,17 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point c1_o, c2_o;
+  emthrm::geometry::Point c1_o, c2_o;
   double c1r, c2r;
   std::cin >> c1_o >> c1r >> c2_o >> c2r;
-  std::vector<geometry::Point> ans;
-  for (const geometry::Line& tangent :
-       geometry::common_tangent(geometry::Circle(c1_o, c1r),
-                                geometry::Circle(c2_o, c2r))) {
+  std::vector<emthrm::geometry::Point> ans;
+  for (const emthrm::geometry::Line& tangent :
+       emthrm::geometry::common_tangent(emthrm::geometry::Circle(c1_o, c1r),
+                                emthrm::geometry::Circle(c2_o, c2r))) {
     ans.emplace_back(tangent.s);
   }
   std::sort(ans.begin(), ans.end());
-  for (const geometry::Point& p : ans) {
+  for (const emthrm::geometry::Point& p : ans) {
     std::cout << std::fixed << std::setprecision(6)
               << p.x << ' ' << p.y << '\n';
   }

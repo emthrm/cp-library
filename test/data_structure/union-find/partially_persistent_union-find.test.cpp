@@ -10,7 +10,7 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  PartiallyPersistentUnionFind union_find(n);
+  emthrm::PartiallyPersistentUnionFind union_find(n);
   for (int i = 1; i <= m; ++i) {
     int a, b;
     std::cin >> a >> b;

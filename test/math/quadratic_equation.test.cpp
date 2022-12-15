@@ -20,25 +20,25 @@ int main() {
     int n, m;
     std::cin >> n >> m;
     if (n == 0 && m == 0) break;
-    std::vector<std::pair<geometry::Point, double>> dog;
+    std::vector<std::pair<emthrm::geometry::Point, double>> dog;
     for (int i = 0; i < n; ++i) {
-      geometry::Point d;
+      emthrm::geometry::Point d;
       double v;
       std::cin >> d >> v;
       dog.emplace_back(d, v);
     }
     std::vector<int> ans(n, 0);
     while (m--) {
-      geometry::Point fp, fv;
+      emthrm::geometry::Point fp, fv;
       std::cin >> fp >> fv;
       std::vector<double> t(n, INF);
       for (int i = 0; i < n; ++i) {
-        geometry::Point d;
+        emthrm::geometry::Point d;
         double v;
         std::tie(d, v) = dog[i];
         for (std::vector<double> ans =
-                 quadratic_equation(fv.norm() - v * v,
-                                    geometry::dot(fp - d, fv) * 2,
+                 emthrm::quadratic_equation(fv.norm() - v * v,
+                                    emthrm::geometry::dot(fp - d, fv) * 2,
                                     (fp - d).norm());
              !ans.empty(); ans.pop_back()) {
           if (ans.back() >= 0) t[i] = ans.back();
@@ -48,7 +48,7 @@ int main() {
       for (int i = 0; i < n; ++i) {
         if (std::abs(t[i] - INF) < EPS) continue;
         if (std::abs(frisbee - t[i]) < EPS) ++ans[i];
-        const geometry::Point cat = fp + fv * t[i];
+        const emthrm::geometry::Point cat = fp + fv * t[i];
         dog[i].first += (cat - dog[i].first) * frisbee / t[i];
       }
     }

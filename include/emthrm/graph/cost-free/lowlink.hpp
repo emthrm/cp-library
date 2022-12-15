@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_LOWLINK_HPP_
+#define EMTHRM_GRAPH_COST_FREE_LOWLINK_HPP_
+
 #include <algorithm>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 struct Lowlink {
   std::vector<int> order, lowlink, articulation_points;
@@ -44,3 +48,7 @@ struct Lowlink {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_LOWLINK_HPP_

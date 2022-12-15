@@ -12,7 +12,7 @@
 int main() {
   int h, w, t, q;
   std::cin >> h >> w >> t >> q;
-  FenwickTree2D<int> baked(h, w), unbaked(h, w);
+  emthrm::FenwickTree2D<int> baked(h, w), unbaked(h, w);
   std::queue<std::tuple<int, int, int>> que;
   while (q--) {
     int t_i, c, h_1, w_1;

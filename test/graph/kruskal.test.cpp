@@ -12,13 +12,13 @@
 int main() {
   int v, e;
   std::cin >> v >> e;
-  std::vector<std::vector<Edge<long long>>> edge(v);
+  std::vector<std::vector<emthrm::Edge<long long>>> edge(v);
   for (int i = 0; i < e; ++i) {
     int s, t, w;
     std::cin >> s >> t >> w;
     edge[s].emplace_back(s, t, w);
     edge[t].emplace_back(t, s, w);
   }
-  std::cout << kruskal(edge) << '\n';
+  std::cout << emthrm::kruskal(edge) << '\n';
   return 0;
 }

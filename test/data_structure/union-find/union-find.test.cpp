@@ -10,7 +10,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  UnionFind union_find(n);
+  emthrm::UnionFind union_find(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y;

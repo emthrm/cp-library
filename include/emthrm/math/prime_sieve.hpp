@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_PRIME_SIEVE_HPP_
+#define EMTHRM_MATH_PRIME_SIEVE_HPP_
+
 #include <numeric>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> prime_sieve(const int n, const bool get_only_prime) {
   std::vector<int> smallest_prime_factor(n + 1), prime;
@@ -14,3 +18,7 @@ std::vector<int> prime_sieve(const int n, const bool get_only_prime) {
   }
   return get_only_prime ? prime : smallest_prime_factor;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_PRIME_SIEVE_HPP_

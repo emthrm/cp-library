@@ -15,6 +15,6 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  std::cout << inversion_number(a) << '\n';
+  std::cout << emthrm::inversion_number(a) << '\n';
   return 0;
 }

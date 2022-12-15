@@ -33,7 +33,8 @@ int main() {
       if (f[i][j] == 'o') ans += e[i][j];
     }
   }
-  WeightedBipartiteMatching<long long> weighted_bipartite_matching(n, n);
+  emthrm::WeightedBipartiteMatching<long long>
+      weighted_bipartite_matching(n, n);
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       weighted_bipartite_matching.add_edge(i, j,

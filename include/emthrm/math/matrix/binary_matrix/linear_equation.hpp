@@ -3,11 +3,15 @@
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_LINEAR_EQUATION_HPP_
+#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_LINEAR_EQUATION_HPP_
+
 #include <vector>
 
 #include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
 #include "emthrm/math/matrix/binary_matrix/gauss_jordan.hpp"
+
+namespace emthrm {
 
 template <int N>
 std::vector<bool> linear_equation(const BinaryMatrix<N>& a,
@@ -31,3 +35,7 @@ std::vector<bool> linear_equation(const BinaryMatrix<N>& a,
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_BINARY_MATRIX_LINEAR_EQUATION_HPP_

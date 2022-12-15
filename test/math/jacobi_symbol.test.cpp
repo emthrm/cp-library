@@ -10,6 +10,6 @@
 int main() {
   int p, n;
   std::cin >> p >> n;
-  std::cout << (n > 1 && jacobi_symbol(n, p) == -1 ? 1 : 0) << '\n';
+  std::cout << (n > 1 && emthrm::jacobi_symbol(n, p) == -1 ? 1 : 0) << '\n';
   return 0;
 }

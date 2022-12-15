@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_STRING_ROLLING_HASH_HPP_
+#define EMTHRM_STRING_ROLLING_HASH_HPP_
+
 #include <algorithm>
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T = std::string>
 struct RollingHash {
@@ -61,3 +65,7 @@ struct RollingHash {
   const int base, mod;
   std::vector<long long> hash, power;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_ROLLING_HASH_HPP_

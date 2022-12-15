@@ -12,18 +12,19 @@
 int main() {
   int n;
   std::cin >> n;
-  geometry::Polygon g(n);
+  emthrm::geometry::Polygon g(n);
   for (int i = 0; i < n; ++i) {
     std::cin >> g[i];
   }
   int q;
   std::cin >> q;
   while (q--) {
-    geometry::Point p1, p2;
+    emthrm::geometry::Point p1, p2;
     std::cin >> p1 >> p2;
     std::cout << std::fixed << std::setprecision(6)
-              << geometry::area(
-                     geometry::cut_convex(g, geometry::Line(p1, p2)))
+              << emthrm::geometry::area(
+                     emthrm::geometry::cut_convex(
+                         g, emthrm::geometry::Line(p1, p2)))
               << '\n';
   }
   return 0;

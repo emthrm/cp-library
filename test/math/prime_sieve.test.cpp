@@ -12,7 +12,7 @@
 int main() {
   int n;
   std::cin >> n;
-  const std::vector<int> tmp = prime_sieve(n, true);
+  const std::vector<int> tmp = emthrm::prime_sieve(n, true);
   const std::set<int> prime(tmp.begin(), tmp.end());
   int ans = 0;
   for (const int p : prime) {

@@ -3,11 +3,15 @@
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_
+#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_
+
 #include <cassert>
 #include <utility>
 
 #include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
+
+namespace emthrm {
 
 template <int N>
 BinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a) {
@@ -41,3 +45,7 @@ BinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a) {
   }
   return inv;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_

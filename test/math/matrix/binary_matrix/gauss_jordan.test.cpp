@@ -13,12 +13,12 @@ int main() {
   constexpr int B = 61;
   int n;
   std::cin >> n;
-  BinaryMatrix<B> matrix(n);
+  emthrm::BinaryMatrix<B> matrix(n);
   for (int i = 0; i < n; ++i) {
     long long a;
     std::cin >> a;
     matrix[i] = std::bitset<B>(a);
   }
-  std::cout << (1LL << gauss_jordan(&matrix)) << '\n';
+  std::cout << (1LL << emthrm::gauss_jordan(&matrix)) << '\n';
   return 0;
 }

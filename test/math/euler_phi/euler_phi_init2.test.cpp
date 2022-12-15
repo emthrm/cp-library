@@ -11,9 +11,9 @@
 
 int main() {
   constexpr int L = 999000000, H = 1000000000;
-  const std::vector<long long> ans = euler_phi_init2(L, H + 1);
+  const std::vector<long long> ans = emthrm::euler_phi_init2(L, H + 1);
   int n;
   std::cin >> n;
-  std::cout << (n >= L ? ans[n - L] : euler_phi(n)) << '\n';
+  std::cout << (n >= L ? ans[n - L] : emthrm::euler_phi(n)) << '\n';
   return 0;
 }

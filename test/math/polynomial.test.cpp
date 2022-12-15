@@ -11,23 +11,23 @@
 #include "emthrm/math/polynomial.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n, m;
   std::cin >> n >> m;
-  Polynomial<ModInt> f(n - 1), g(m - 1);
+  emthrm::Polynomial<ModInt> f(n - 1), g(m - 1);
   for (int i = 0; i < n; ++i) {
     std::cin >> f[i];
   }
   for (int i = 0; i < m; ++i) {
     std::cin >> g[i];
   }
-  Polynomial<ModInt> q, r;
+  emthrm::Polynomial<ModInt> q, r;
   std::tie(q, r) = f.divide(g);
   q.shrink();
   r.shrink();
-  const int u = (q == Polynomial<ModInt>{0} ? 0 : q.degree() + 1);
-  const int v = (r == Polynomial<ModInt>{0} ? 0 : r.degree() + 1);
+  const int u = (q == emthrm::Polynomial<ModInt>{0} ? 0 : q.degree() + 1);
+  const int v = (r == emthrm::Polynomial<ModInt>{0} ? 0 : r.degree() + 1);
   std::cout << u << ' ' << v << '\n';
   for (int i = 0; i < u; ++i) {
     std::cout << q[i];

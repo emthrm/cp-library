@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_CENTROID_HPP_
+#define EMTHRM_GRAPH_TREE_CENTROID_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 std::vector<int> centroid(
@@ -26,3 +30,7 @@ std::vector<int> centroid(
   std::sort(res.begin(), res.end());
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_CENTROID_HPP_

@@ -23,7 +23,7 @@ int main() {
       w[i][j] = w.front()[j] - w.front()[i - 1];
     }
   }
-  std::cout << knuth_yao_speedup(
+  std::cout << emthrm::knuth_yao_speedup(
                    w, std::numeric_limits<long long>::max())[0][n - 1]
             << '\n';
   return 0;

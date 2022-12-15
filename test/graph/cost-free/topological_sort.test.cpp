@@ -15,6 +15,8 @@ int main() {
     std::cin >> s >> t;
     graph[s].emplace_back(t);
   }
-  for (const int ans : topological_sort(graph)) std::cout << ans << '\n';
+  for (const int ans : emthrm::topological_sort(graph)) {
+    std::cout << ans << '\n';
+  }
   return 0;
 }

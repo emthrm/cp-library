@@ -13,12 +13,12 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
-  FormalPowerSeries<ModInt>::set_mult(
+  emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        return mod_convolution(a, b);
+        return emthrm::mod_convolution(a, b);
       });
   constexpr int D = 6, M = 13;
   std::string s;
@@ -28,8 +28,9 @@ int main() {
   for (int i = 0; i < static_cast<int>(s.length()); ++i) {
     if (s[i] == '?') ++q[i % D];
   }
-  std::vector<FormalPowerSeries<ModInt>> f(D, FormalPowerSeries<ModInt>(M));
-  FormalPowerSeries<ModInt> md(M);
+  std::vector<emthrm::FormalPowerSeries<ModInt>> f(
+      D, emthrm::FormalPowerSeries<ModInt>(M));
+  emthrm::FormalPowerSeries<ModInt> md(M);
   md[0] = -1;
   md[M] = 1;
   for (int i = 0; i < D; ++i) {

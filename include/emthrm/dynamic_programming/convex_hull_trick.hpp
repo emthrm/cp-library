@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_CONVEX_HULL_TRICK_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_CONVEX_HULL_TRICK_HPP_
+
 // #include <cassert>
 #include <deque>
 #include <utility>
+
+namespace emthrm {
 
 template <typename T, bool IS_MINIMIZED = true>
 struct ConvexHullTrick {
@@ -81,3 +85,7 @@ struct ConvexHullTrick {
 
   T f(const Line& l, const T x) const { return l.first * x + l.second; }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_CONVEX_HULL_TRICK_HPP_

@@ -14,9 +14,9 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<int> a;
-  for (const std::pair<int, int>& p : prime_factorization(n)) {
+  for (const std::pair<int, int>& p : emthrm::prime_factorization(n)) {
     a.emplace_back(p.second);
   }
-  std::cout << (nim(a) ? "Alice\n" : "Bob\n");
+  std::cout << (emthrm::nim(a) ? "Alice\n" : "Bob\n");
   return 0;
 }

@@ -9,6 +9,6 @@
 int main() {
   int n;
   std::cin >> n;
-  std::cout << euler_phi(n) << '\n';
+  std::cout << emthrm::euler_phi(n) << '\n';
   return 0;
 }

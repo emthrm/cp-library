@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_STRING_AHO_CORASICK_HPP_
+#define EMTHRM_STRING_AHO_CORASICK_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <iterator>
@@ -8,6 +10,8 @@
 #include <vector>
 
 #include "emthrm/string/trie.hpp"
+
+namespace emthrm {
 
 template <int Sigma = 26>
 struct AhoCorasick : Trie<Sigma + 1> {
@@ -89,3 +93,7 @@ struct AhoCorasick : Trie<Sigma + 1> {
  private:
   bool is_full_ver = false;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_AHO_CORASICK_HPP_

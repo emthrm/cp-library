@@ -3,11 +3,15 @@
  * @docs docs/dynamic_programming/longest_increasing_subsequence.md
  */
 
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <limits>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> longest_increasing_subsequence(
@@ -34,3 +38,7 @@ std::vector<T> longest_increasing_subsequence(
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_

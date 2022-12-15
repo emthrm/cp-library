@@ -8,7 +8,7 @@
 #include "emthrm/math/bigint.hpp"
 
 int main() {
-  BigInt<> a, b;
+  emthrm::BigInt<> a, b;
   std::cin >> a >> b;
   std::cout << a / b << '\n';
   return 0;

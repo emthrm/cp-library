@@ -14,7 +14,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   while (q--) {
     int type, u, v;
     std::cin >> type >> u >> v;
@@ -42,7 +42,8 @@ int main() {
         graph[v].emplace_back(v, u);
       }
     } else if (type == 2) {
-      std::cout << (detect_path(graph, u, v).empty() ? "No\n" : "Yes\n");
+      std::cout << (emthrm::detect_path(graph, u, v).empty() ?
+                    "No\n" : "Yes\n");
     }
   }
   return 0;

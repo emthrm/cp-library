@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_MATRIX_TREE_THEOREM_HPP_
+#define EMTHRM_GRAPH_COST_FREE_MATRIX_TREE_THEOREM_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
 
 #include "emthrm/math/matrix/determinant.hpp"
 #include "emthrm/math/matrix/matrix.hpp"
+
+namespace emthrm {
 
 template <typename T>
 T matrix_tree_theorem(const std::vector<std::vector<int>>& graph,
@@ -25,3 +29,7 @@ T matrix_tree_theorem(const std::vector<std::vector<int>>& graph,
   }
   return det(cofactor, eps);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_MATRIX_TREE_THEOREM_HPP_

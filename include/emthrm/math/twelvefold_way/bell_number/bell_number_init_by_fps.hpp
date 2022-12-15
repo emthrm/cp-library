@@ -3,10 +3,14 @@
  * @docs docs/math/twelvefold_way/bell_number/bell_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_BY_FPS_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_BY_FPS_HPP_
+
 #include <vector>
 
 #include "emthrm/math/formal_power_series/formal_power_series.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> bell_number_init_by_fps(const int n) {
@@ -22,3 +26,7 @@ std::vector<T> bell_number_init_by_fps(const int n) {
   }
   return b.coef;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_BY_FPS_HPP_

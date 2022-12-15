@@ -11,7 +11,7 @@ int main() {
   int n;
   long long c;
   std::cin >> n >> c;
-  ConvexHullTrick<long long> convex_hull_trick;
+  emthrm::ConvexHullTrick<long long> convex_hull_trick;
   for (int i = 0; i < n; ++i) {
     int h;
     std::cin >> h;

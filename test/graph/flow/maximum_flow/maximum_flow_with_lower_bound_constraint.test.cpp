@@ -22,7 +22,7 @@ int main() {
     const int s = m + n, t = m + n + 1;
     const auto solve =
         [m, n, s, t, &u, &v](const int lb, const int ub) -> bool {
-          MaximumFlowWithLowerBoundConstraint<Dinic, int>
+          emthrm::MaximumFlowWithLowerBoundConstraint<emthrm::Dinic, int>
               lower_bound_constraint(m + n + 2);
           for (int i = 0; i < m; ++i) {
             lower_bound_constraint.add_edge(s, i, 1, 1);

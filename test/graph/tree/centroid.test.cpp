@@ -13,11 +13,11 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int x, y;
     std::cin >> x >> y;
@@ -25,14 +25,14 @@ int main() {
     graph[x].emplace_back(x, y);
     graph[y].emplace_back(y, x);
   }
-  const std::vector<int> centroids = centroid(graph);
+  const std::vector<int> centroids = emthrm::centroid(graph);
   if (centroids.size() == 2) {
     std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\n';
   } else {
     std::vector<int> subtree(n, 1);
     const std::function<void(int, int)> dfs =
         [&graph, &subtree, &dfs](const int par, const int ver) -> void {
-          for (const Edge<bool>& e : graph[ver]) {
+          for (const emthrm::Edge<bool>& e : graph[ver]) {
             if (e.dst != par) {
               dfs(ver, e.dst);
               subtree[ver] += subtree[e.dst];
@@ -41,7 +41,7 @@ int main() {
         };
     dfs(-1, centroids.front());
     std::vector<int> nums;
-    for (const Edge<bool>& e : graph[centroids.front()]) {
+    for (const emthrm::Edge<bool>& e : graph[centroids.front()]) {
       nums.emplace_back(subtree[e.dst]);
     }
     const int m = nums.size();

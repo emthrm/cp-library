@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_
+#define EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 std::vector<Edge<CostType>> enumerate_bridges(
@@ -38,3 +42,7 @@ std::vector<Edge<CostType>> enumerate_bridges(
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_

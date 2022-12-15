@@ -10,7 +10,7 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  EulerianTrailInUndirectedGraph eulerian_trail(n);
+  emthrm::EulerianTrailInUndirectedGraph eulerian_trail(n);
   while (m--) {
     int sa, sb;
     std::cin >> sa >> sb;

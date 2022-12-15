@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_DIVISOR_HPP_
+#define EMTHRM_MATH_DIVISOR_HPP_
+
 #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> divisor(const T n) {
@@ -16,3 +20,7 @@ std::vector<T> divisor(const T n) {
   std::sort(res.begin(), res.end());
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_DIVISOR_HPP_

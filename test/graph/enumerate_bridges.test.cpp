@@ -13,19 +13,20 @@
 int main() {
   int v, e;
   std::cin >> v >> e;
-  std::vector<std::vector<Edge<bool>>> graph(v);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(v);
   while (e--) {
     int s, t;
     std::cin >> s >> t;
     graph[s].emplace_back(s, t);
     graph[t].emplace_back(t, s);
   }
-  std::vector<Edge<bool>> bridges = enumerate_bridges(graph);
+  std::vector<emthrm::Edge<bool>> bridges = emthrm::enumerate_bridges(graph);
   std::sort(bridges.begin(), bridges.end(),
-            [](const Edge<bool>& a, const Edge<bool>& b) -> bool {
+            [](const emthrm::Edge<bool>& a,
+               const emthrm::Edge<bool>& b) -> bool {
               return a.src != b.src ? a.src < b.src : a.dst < b.dst;
             });
-  for (const Edge<bool>& bridge : bridges) {
+  for (const emthrm::Edge<bool>& bridge : bridges) {
     std::cout << bridge.src << ' ' << bridge.dst << '\n';
   }
   return 0;

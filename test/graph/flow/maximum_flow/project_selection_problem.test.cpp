@@ -24,7 +24,8 @@ int main() {
       if (s[i][j] == '#') id[i][j] = n++;
     }
   }
-  ProjectSelectionProblem<Dinic, int> project_selection_problem(n);
+  emthrm::ProjectSelectionProblem<emthrm::Dinic, int>
+      project_selection_problem(n);
   for (int i = 0; i < r; ++i) {
     for (int j = 0; j < c; ++j) {
       if (id[i][j] == -1) continue;

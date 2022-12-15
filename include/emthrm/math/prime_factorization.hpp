@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_PRIME_FACTORIZATION_HPP_
+#define EMTHRM_MATH_PRIME_FACTORIZATION_HPP_
+
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::pair<T, int>> prime_factorization(T n) {
@@ -17,3 +21,7 @@ std::vector<std::pair<T, int>> prime_factorization(T n) {
   if (n > 1) res.emplace_back(n, 1);
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_PRIME_FACTORIZATION_HPP_

@@ -3,8 +3,12 @@
  * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
  */
 
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_
+#define EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename Abelian>
 struct FenwickTreeSupportingRangeAddQuery {
@@ -50,3 +54,7 @@ struct FenwickTreeSupportingRangeAddQuery {
   const Abelian ID;
   std::vector<Abelian> data_const, data_linear;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_

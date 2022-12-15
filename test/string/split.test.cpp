@@ -14,7 +14,7 @@ int main() {
   std::string s;
   std::cin >> s;
   int ans = 0;
-  for (const std::string& terms : split(s, "+")) {
+  for (const std::string& terms : emthrm::split(s, "+")) {
     bool is_0 = false;
     for (int i = 0; i < static_cast<int>(terms.length()); i += 2) {
       is_0 |= terms[i] == '0';

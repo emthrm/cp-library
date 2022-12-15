@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
+#define EMTHRM_GRAPH_COST_FREE_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> eulerian_trail_in_directed_graph(
     std::vector<std::vector<int>> graph, int s = -1) {
@@ -56,3 +60,7 @@ std::vector<int> eulerian_trail_in_directed_graph(
   }
   return {};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_

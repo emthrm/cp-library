@@ -10,7 +10,7 @@
 int main() {
   int v, e, f;
   std::cin >> v >> e >> f;
-  MinimumCostSTFlow<int, int> minimum_cost_flow(v);
+  emthrm::MinimumCostSTFlow<int, int> minimum_cost_flow(v);
   while (e--) {
     int u, v, c, d;
     std::cin >> u >> v >> c >> d;

@@ -10,6 +10,6 @@
 int main() {
   int m, n;
   std::cin >> m >> n;
-  std::cout << mod_pow(m, n, 1000000007) << '\n';
+  std::cout << emthrm::mod_pow(m, n, 1000000007) << '\n';
   return 0;
 }

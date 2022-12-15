@@ -12,7 +12,7 @@
 int main() {
   int n, k;
   std::cin >> n >> k;
-  CumulativeSum2D<int> black(k * 2, k * 2), white(k * 2, k * 2);
+  emthrm::CumulativeSum2D<int> black(k * 2, k * 2), white(k * 2, k * 2);
   while (n--) {
     int x, y;
     char c;

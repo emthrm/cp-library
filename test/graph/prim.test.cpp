@@ -12,13 +12,13 @@
 int main() {
   int v, e;
   std::cin >> v >> e;
-  std::vector<std::vector<Edge<long long>>> edge(v);
+  std::vector<std::vector<emthrm::Edge<long long>>> edge(v);
   while (e--) {
     int s, t, w;
     std::cin >> s >> t >> w;
     edge[s].emplace_back(s, t, w);
     edge[t].emplace_back(t, s, w);
   }
-  std::cout << prim(edge) << '\n';
+  std::cout << emthrm::prim(edge) << '\n';
   return 0;
 }

@@ -3,7 +3,9 @@
  * @docs docs/graph/tree/lowest_common_ancestor.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_
+#define EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_
+
 #include <algorithm>
 #include <utility>
 #include <vector>
@@ -11,6 +13,8 @@
 #include "emthrm/data_structure/sparse_table.hpp"
 #include "emthrm/graph/edge.hpp"
 #include "emthrm/graph/tree/euler_tour.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct LowestCommonAncestor : EulerTour<CostType> {
@@ -41,3 +45,7 @@ struct LowestCommonAncestor : EulerTour<CostType> {
  private:
   SparseTable<std::pair<int, int>> sparse_table;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_

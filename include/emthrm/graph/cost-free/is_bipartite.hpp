@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_IS_BIPARTITE_HPP_
+#define EMTHRM_GRAPH_COST_FREE_IS_BIPARTITE_HPP_
+
 #include <functional>
 #include <vector>
+
+namespace emthrm {
 
 bool is_bipartite(const std::vector<std::vector<int>>& graph,
                   std::vector<int>* color) {
@@ -24,3 +28,7 @@ bool is_bipartite(const std::vector<std::vector<int>>& graph,
   }
   return true;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_IS_BIPARTITE_HPP_

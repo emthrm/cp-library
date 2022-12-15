@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_DETECT_PATH_HPP_
+#define EMTHRM_GRAPH_COST_FREE_DETECT_PATH_HPP_
+
 #include <functional>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> detect_path(const std::vector<std::vector<int>>& graph,
                              const int s, const int t) {
@@ -21,3 +25,7 @@ std::vector<int> detect_path(const std::vector<std::vector<int>>& graph,
       };
   return dfs(s) ? path : std::vector<int>{};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_DETECT_PATH_HPP_

@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_SLIDE_MIN_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_SLIDE_MIN_HPP_
+
 #include <deque>
 #include <vector>
+
+namespace emthrm {
 
 template <bool IS_MINIMIZED = true, typename T>
 std::vector<T> slide_min(const std::vector<T>& a, const int len) {
@@ -21,3 +25,7 @@ std::vector<T> slide_min(const std::vector<T>& a, const int len) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_SLIDE_MIN_HPP_

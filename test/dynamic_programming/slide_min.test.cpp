@@ -15,7 +15,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  const std::vector<int> ans = slide_min(a, l);
+  const std::vector<int> ans = emthrm::slide_min(a, l);
   for (int i = 0; i + l <= n; ++i) {
     std::cout << ans[i] << " \n"[i + l == n];
   }

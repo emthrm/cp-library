@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_MATH_POLYNOMIAL_HPP_
+#define EMTHRM_MATH_POLYNOMIAL_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <functional>
 #include <initializer_list>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct Polynomial {
@@ -197,3 +201,7 @@ struct Polynomial {
     return mult;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_POLYNOMIAL_HPP_

@@ -3,10 +3,14 @@
  * @docs docs/math/twelvefold_way/bell_number/bell_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_HPP_
+
 #include <vector>
 
 #include "emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> bell_number_init(const int n, const int k) {
@@ -21,3 +25,7 @@ std::vector<std::vector<T>> bell_number_init(const int n, const int k) {
   }
   return b;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_HPP_

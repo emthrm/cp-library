@@ -3,10 +3,14 @@
  * @docs docs/graph/flow/matching/matching.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_
+#define EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_
+
 #include <algorithm>
 #include <queue>
 #include <vector>
+
+namespace emthrm {
 
 struct HopcroftKarp {
   std::vector<int> match;
@@ -73,3 +77,7 @@ struct HopcroftKarp {
     return false;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_

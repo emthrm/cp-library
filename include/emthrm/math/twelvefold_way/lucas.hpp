@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_LUCAS_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_LUCAS_HPP_
+
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int P>
 MInt<P> lucas(int n, int k) {
@@ -12,3 +16,7 @@ MInt<P> lucas(int n, int k) {
   }
   return binom;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_LUCAS_HPP_

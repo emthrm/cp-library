@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_REACHABILITY_ON_DAG_HPP_
+#define EMTHRM_GRAPH_COST_FREE_REACHABILITY_ON_DAG_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <cstdint>
@@ -6,6 +8,8 @@
 #include <vector>
 
 #include "emthrm/graph/cost-free/topological_sort.hpp"
+
+namespace emthrm {
 
 std::vector<int> reachability_on_dag(
     const std::vector<std::vector<int>>& graph,
@@ -31,3 +35,7 @@ std::vector<int> reachability_on_dag(
   }
   return can_reach;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_REACHABILITY_ON_DAG_HPP_

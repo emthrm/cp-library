@@ -15,7 +15,8 @@ int main() {
   std::string a;
   std::cin >> a;
   const int n = a.length();
-  const std::vector<std::vector<int>> nxt = subsequence_dp(a, 'a', SIGMA);
+  const std::vector<std::vector<int>> nxt =
+      emthrm::subsequence_dp(a, 'a', SIGMA);
   std::vector<int> dp(n + 1, n + 1), next_char(n, -1);
   dp[n] = 1;
   for (int i = n - 1; i >= 0; --i) {

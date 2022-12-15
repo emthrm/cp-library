@@ -13,11 +13,11 @@ int main() {
   int q;
   std::cin >> q;
   while (q--) {
-    geometry::Point p0, p1, p2, p3;
+    emthrm::geometry::Point p0, p1, p2, p3;
     std::cin >> p0 >> p1 >> p2 >> p3;
-    const geometry::Point ans =
-        geometry::intersection(geometry::Segment(p0, p1),
-                               geometry::Segment(p2, p3));
+    const emthrm::geometry::Point ans =
+        emthrm::geometry::intersection(emthrm::geometry::Segment(p0, p1),
+                               emthrm::geometry::Segment(p2, p3));
     std::cout << std::fixed << std::setprecision(9)
               << ans.x << ' ' << ans.y << '\n';
   }

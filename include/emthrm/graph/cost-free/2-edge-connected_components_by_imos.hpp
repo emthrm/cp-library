@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_
+#define EMTHRM_GRAPH_COST_FREE_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_
+
 #include <algorithm>
 #include <set>
 #include <queue>
@@ -6,6 +8,8 @@
 #include <vector>
 
 #include "emthrm/graph/cost-free/enumerate_bridges.hpp"
+
+namespace emthrm {
 
 struct TwoEdgeConnectedComponentsByImos {
   std::vector<int> id;
@@ -49,3 +53,7 @@ struct TwoEdgeConnectedComponentsByImos {
     // }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_

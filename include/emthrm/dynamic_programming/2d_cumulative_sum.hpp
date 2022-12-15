@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_2D_CUMULATIVE_SUM_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_2D_CUMULATIVE_SUM_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <iterator>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct CumulativeSum2D {
@@ -49,3 +53,7 @@ struct CumulativeSum2D {
   const int h, w;
   std::vector<std::vector<T>> data;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_2D_CUMULATIVE_SUM_HPP_

@@ -12,14 +12,14 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   while (m--) {
     int a, b;
     std::cin >> a >> b;
     graph[a].emplace_back(a, b);
   }
   const std::vector<std::vector<int>> ans =
-      StronglyConnectedComponents<bool>(graph, true).vertices;
+      emthrm::StronglyConnectedComponents<bool>(graph, true).vertices;
   const int k = ans.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

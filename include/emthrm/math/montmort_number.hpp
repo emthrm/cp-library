@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_MONTMORT_NUMBER_HPP_
+#define EMTHRM_MATH_MONTMORT_NUMBER_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> montmort_number(const int n) {
@@ -10,3 +14,7 @@ std::vector<T> montmort_number(const int n) {
   }
   return montmort;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MONTMORT_NUMBER_HPP_

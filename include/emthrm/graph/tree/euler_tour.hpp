@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_
+#define EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_
+
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct EulerTour {
@@ -65,3 +69,7 @@ struct EulerTour {
     right[ver] = tour.size() - 1;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_

@@ -3,9 +3,13 @@
  * @docs docs/string/knuth-morris-pratt.md
  */
 
-#pragma once
+#ifndef EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_
+#define EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_
+
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T = std::string>
 struct KnuthMorrisPratt {
@@ -34,3 +38,7 @@ struct KnuthMorrisPratt {
  private:
   const T s;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_

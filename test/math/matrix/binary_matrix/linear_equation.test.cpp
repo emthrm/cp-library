@@ -27,13 +27,13 @@ int main() {
   }
   std::vector<int> x(n, 0);
   for (int bit = 0; bit < B; ++bit) {
-    BinaryMatrix<N> a(m, n, false);
+    emthrm::BinaryMatrix<N> a(m, n, false);
     std::vector<bool> v(m);
     for (int i = 0; i < m; ++i) {
       for (const int b_ij : b[i]) a[i].set(b_ij);
       v[i] = y[i] >> bit & 1;
     }
-    const std::vector<bool> ans = linear_equation(a, v);
+    const std::vector<bool> ans = emthrm::linear_equation(a, v);
     if (ans.empty()) {
       std::cout << "-1\n";
       return 0;

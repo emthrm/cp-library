@@ -10,7 +10,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  WeightedUnionFind<int> union_find(n);
+  emthrm::WeightedUnionFind<int> union_find(n);
   while (q--) {
     int query;
     std::cin >> query;

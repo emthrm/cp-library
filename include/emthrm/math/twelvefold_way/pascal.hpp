@@ -3,8 +3,12 @@
  * @docs docs/math/twelvefold_way/binomial_coefficients.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> pascal(const int n) {
@@ -17,3 +21,7 @@ std::vector<std::vector<T>> pascal(const int n) {
   }
   return c;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_

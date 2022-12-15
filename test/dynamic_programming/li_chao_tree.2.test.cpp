@@ -27,7 +27,7 @@ int main() {
     }
   }
   if (xs.empty()) return 0;
-  LiChaoTree<long long, false> li_chao_tree(xs, LINF);
+  emthrm::LiChaoTree<long long, false> li_chao_tree(xs, LINF);
   for (int i = 0; i < n; ++i) {
     li_chao_tree.add(-a[i], -b[i], l[i], r[i]);
   }

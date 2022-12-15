@@ -13,7 +13,7 @@ int main() {
   while (t--) {
     int n, m, a, b;
     std::cin >> n >> m >> a >> b;
-    std::cout << floor_sum(a, b, m, n) << '\n';
+    std::cout << emthrm::floor_sum(a, b, m, n) << '\n';
   }
   return 0;
 }

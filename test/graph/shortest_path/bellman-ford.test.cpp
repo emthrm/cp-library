@@ -12,13 +12,13 @@
 int main() {
   int v, e, r;
   std::cin >> v >> e >> r;
-  std::vector<std::vector<Edge<long long>>> graph(v);
+  std::vector<std::vector<emthrm::Edge<long long>>> graph(v);
   while (e--) {
     int s, t, d;
     std::cin >> s >> t >> d;
     graph[s].emplace_back(s, t, d);
   }
-  BellmanFord<long long> bellman_ford(graph);
+  emthrm::BellmanFord<long long> bellman_ford(graph);
   if (bellman_ford.has_negative_cycle(r)) {
     std::cout << "NEGATIVE CYCLE\n";
     return 0;

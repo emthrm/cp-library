@@ -7,7 +7,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   int n, m;
   std::cin >> n >> m;
   ModInt::set_mod(m);
@@ -20,7 +20,7 @@ int main() {
     graph[y].emplace_back(x);
   }
   for (const ModInt ans
-       : rerooting_dp(
+       : emthrm::rerooting_dp(
              graph, std::vector<ModInt>(n, 1),
              [](const ModInt& x, const ModInt& y) -> ModInt { return x * y; },
              [](const ModInt& x, const int, const int) -> ModInt {

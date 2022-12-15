@@ -13,7 +13,7 @@ int main() {
   std::string p, cnf;
   int n, m;
   std::cin >> p >> cnf >> n >> m;
-  TwoSat two_sat(n);
+  emthrm::TwoSat two_sat(n);
   while (m--) {
     int a, b, zero;
     std::cin >> a >> b >> zero;

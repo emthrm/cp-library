@@ -27,7 +27,7 @@ int main() {
     return t_a != t_b ? t_a < t_b : (a < m) < (b < m);
   });
   std::vector<bool> ans(q, false);
-  IntervalManagedBySet<int> intervals;
+  emthrm::IntervalManagedBySet<int> intervals;
   for (int i : order) {
     if (i < m) {
       intervals.insert(a[i], b[i] - 1);

@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GEOMETRY_ARGUMENT_SORT_HPP_
+#define EMTHRM_GEOMETRY_ARGUMENT_SORT_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 void argument_sort(std::vector<std::pair<int, int>>* ps) {
   using Point = std::pair<int, int>;
@@ -36,3 +40,7 @@ void argument_sort(std::vector<std::pair<int, int>>* ps) {
     std::copy(orthant[i].begin(), orthant[i].end(), std::back_inserter(*ps));
   }
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GEOMETRY_ARGUMENT_SORT_HPP_

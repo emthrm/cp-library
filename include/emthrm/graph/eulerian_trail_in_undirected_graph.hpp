@@ -3,10 +3,14 @@
  * @docs docs/graph/eulerian_trail.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_
+#define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <vector>
+
+namespace emthrm {
 
 struct EulerianTrailInUndirectedGraph {
   std::vector<int> trail;
@@ -81,3 +85,7 @@ struct EulerianTrailInUndirectedGraph {
     trail.emplace_back(ver);
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_

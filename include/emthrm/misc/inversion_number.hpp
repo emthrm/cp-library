@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_MISC_INVERSION_NUMBER_HPP_
+#define EMTHRM_MISC_INVERSION_NUMBER_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
 
 #include "emthrm/data_structure/fenwick_tree/fenwick_tree.hpp"
+
+namespace emthrm {
 
 template <typename T>
 long long inversion_number(const std::vector<T>& a) {
@@ -21,3 +25,7 @@ long long inversion_number(const std::vector<T>& a) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MISC_INVERSION_NUMBER_HPP_

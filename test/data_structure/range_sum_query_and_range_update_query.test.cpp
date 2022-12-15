@@ -10,8 +10,8 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  LazySegmentTree<monoid::RangeSumAndUpdateQuery<long long>>
-      rsq(monoid::RangeSumAndUpdateQuery<long long>::init(n));
+  emthrm::LazySegmentTree<emthrm::monoid::RangeSumAndUpdateQuery<long long>>
+      rsq(emthrm::monoid::RangeSumAndUpdateQuery<long long>::init(n));
   while (q--) {
     int query, s, t;
     std::cin >> query >> s >> t;

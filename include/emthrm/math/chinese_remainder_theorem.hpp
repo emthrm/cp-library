@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_
+#define EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_
+
 #include <algorithm>
 #include <utility>
 #include <vector>
 
 #include "emthrm/math/mod_inv.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {
@@ -28,3 +32,7 @@ std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {
   }
   return {x, md};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_

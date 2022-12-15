@@ -10,10 +10,10 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point p;
+  emthrm::geometry::Point p;
   int d;
   std::cin >> p >> d;
-  p = p.rotate(geometry::degree_to_radian(d));
+  p = p.rotate(emthrm::geometry::degree_to_radian(d));
   std::cout << std::fixed << std::setprecision(7) << p.x << ' ' << p.y << '\n';
   return 0;
 }

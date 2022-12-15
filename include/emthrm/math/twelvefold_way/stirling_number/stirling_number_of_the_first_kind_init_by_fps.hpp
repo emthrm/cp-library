@@ -3,10 +3,14 @@
  * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_
+#define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_
+
 #include <vector>
 
 #include "emthrm/math/formal_power_series/formal_power_series.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n) {
@@ -24,3 +28,7 @@ std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n) {
   }
   return s.coef;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_

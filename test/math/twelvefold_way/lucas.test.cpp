@@ -12,7 +12,7 @@
 
 int main() {
   constexpr int C = 3;
-  using ModInt = MInt<C>;
+  using ModInt = emthrm::MInt<C>;
   ModInt::set_mod(C);
   const std::string color = "BWR";
   std::map<char, int> mp;
@@ -25,7 +25,7 @@ int main() {
   std::cin >> c;
   ModInt ans = 0;
   for (int i = 0; i < n; ++i) {
-    ans += lucas<C>(n - 1, i) * mp[c[i]];
+    ans += emthrm::lucas<C>(n - 1, i) * mp[c[i]];
   }
   if (n % 2 == 0) ans = -ans;
   std::cout << color[ans.v] << '\n';

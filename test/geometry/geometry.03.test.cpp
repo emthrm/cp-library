@@ -10,14 +10,14 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point p1, p2;
+  emthrm::geometry::Point p1, p2;
   int q;
   std::cin >> p1 >> p2 >> q;
-  const geometry::Segment p1p2(p1, p2);
+  const emthrm::geometry::Segment p1p2(p1, p2);
   while (q--) {
-    geometry::Point p0;
+    emthrm::geometry::Point p0;
     std::cin >> p0;
-    const geometry::Point ans = projection(p1p2, p0);
+    const emthrm::geometry::Point ans = projection(p1p2, p0);
     std::cout << std::fixed << std::setprecision(9)
               << ans.x << ' ' << ans.y << '\n';
   }

@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_
+#define EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_
+
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph) {
@@ -36,3 +40,7 @@ int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_

@@ -23,7 +23,7 @@ int main() {
     is_adjacent[a][b] = true;
     is_adjacent[b][a] = true;
   }
-  UnionFind union_find(n);
+  emthrm::UnionFind union_find(n);
   std::vector<std::vector<int>> graph(n);
   for (int i = 0; i < n; ++i) {
     for (int j = i + 1; j < n; ++j) {
@@ -35,7 +35,7 @@ int main() {
     }
   }
   std::vector<int> color;
-  if (!is_bipartite(graph, &color)) {
+  if (!emthrm::is_bipartite(graph, &color)) {
     std::cout << "-1\n";
     return 0;
   }

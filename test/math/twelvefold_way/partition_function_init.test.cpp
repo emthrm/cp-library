@@ -9,13 +9,14 @@
 #include "emthrm/math/twelvefold_way/partition_function.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n, s, k;
   std::cin >> n >> s >> k;
   for (int i = 1; i < n; ++i) {
     s -= k * i;
   }
-  std::cout << (s >= 0 ? partition_function<ModInt>(n, s)[n][s] : 0) << '\n';
+  std::cout << (s >= 0 ? emthrm::partition_function<ModInt>(n, s)[n][s] : 0)
+            << '\n';
   return 0;
 }

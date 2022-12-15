@@ -16,7 +16,7 @@ int main() {
     std::cin >> x[i] >> y[i];
   }
   long long ans, mod;
-  std::tie(ans, mod) = chinese_remainder_theorem(x, y);
+  std::tie(ans, mod) = emthrm::chinese_remainder_theorem(x, y);
   if (mod == 0) {
     std::cout << "-1\n";
   } else {

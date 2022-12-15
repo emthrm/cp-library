@@ -11,10 +11,11 @@ int main() {
   int q;
   std::cin >> q;
   while (q--) {
-    geometry::Point p0, p1, p2, p3;
+    emthrm::geometry::Point p0, p1, p2, p3;
     std::cin >> p0 >> p1 >> p2 >> p3;
-    std::cout << geometry::has_intersected(geometry::Segment(p0, p1),
-                                           geometry::Segment(p2, p3))
+    std::cout << emthrm::geometry::has_intersected(
+                     emthrm::geometry::Segment(p0, p1),
+                     emthrm::geometry::Segment(p2, p3))
               << '\n';
   }
   return 0;

@@ -10,7 +10,7 @@
 int main() {
   int x, y, e;
   std::cin >> x >> y >> e;
-  BipartiteMatching bipartite_matching(x + y);
+  emthrm::BipartiteMatching bipartite_matching(x + y);
   while (e--) {
     int x_i, y_i;
     std::cin >> x_i >> y_i;

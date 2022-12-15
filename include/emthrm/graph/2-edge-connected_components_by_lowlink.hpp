@@ -3,12 +3,16 @@
  * @docs docs/graph/2-edge-connected_components.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
+#define EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
+
 // #include <algorithm>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
 #include "emthrm/graph/lowlink.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct TwoEdgeConnectedComponents : Lowlink<CostType> {
@@ -55,3 +59,7 @@ struct TwoEdgeConnectedComponents : Lowlink<CostType> {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_

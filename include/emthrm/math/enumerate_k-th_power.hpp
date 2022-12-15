@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_
+#define EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_
+
 #include <vector>
 
 #include "emthrm/math/mod_pow.hpp"
 #include "emthrm/math/prime_sieve.hpp"
+
+namespace emthrm {
 
 std::vector<int> enumerate_kth_power(const int n, const int k, const int m) {
   const std::vector<int> smallest_prime_factor = prime_sieve(n, false);
@@ -17,3 +21,7 @@ std::vector<int> enumerate_kth_power(const int n, const int k, const int m) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_

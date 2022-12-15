@@ -17,7 +17,7 @@ int main() {
   }
   std::vector<int> ans;
   int i = 0;
-  for (const int lis_i : longest_increasing_subsequence(a)) {
+  for (const int lis_i : emthrm::longest_increasing_subsequence(a)) {
     while (a[i] != lis_i) ++i;
     ans.emplace_back(i++);
   }

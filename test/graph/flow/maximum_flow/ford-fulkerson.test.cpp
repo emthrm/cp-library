@@ -10,7 +10,7 @@
 int main() {
   int v, e;
   std::cin >> v >> e;
-  FordFulkerson<long long> ford_fulkerson(v);
+  emthrm::FordFulkerson<long long> ford_fulkerson(v);
   while (e--) {
     int u_i, v_i, c_i;
     std::cin >> u_i >> v_i >> c_i;

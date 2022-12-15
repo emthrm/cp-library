@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_UNICYCLIC_GRAPH_HPP_
+#define EMTHRM_GRAPH_UNICYCLIC_GRAPH_HPP_
+
 #include <cassert>
 #include <iterator>
 #include <queue>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct UnicyclicGraph {
@@ -97,3 +101,7 @@ struct UnicyclicGraph {
     return false;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_UNICYCLIC_GRAPH_HPP_

@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_
+#define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_
+
 #include <limits>
+
+namespace emthrm {
 
 template <template <typename, typename> class C, typename T, typename U>
 struct MinimumCostFlowWithLowerBoundConstraint {
@@ -26,3 +30,7 @@ struct MinimumCostFlowWithLowerBoundConstraint {
   T sum_lb;
   C<T, U> mcf;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_

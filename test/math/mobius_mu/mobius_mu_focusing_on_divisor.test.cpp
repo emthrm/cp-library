@@ -11,7 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n, k;
   std::cin >> n >> k;
@@ -22,7 +22,7 @@ int main() {
     for (int m = k / g; m >= 1; --m) {
       if (mu.count(m) == 0) {
         for (const std::pair<const int, int>& p
-             : mobius_mu_focusing_on_divisor(m)) {
+             : emthrm::mobius_mu_focusing_on_divisor(m)) {
           mu[p.first] = p.second;
         }
       }

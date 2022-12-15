@@ -13,7 +13,7 @@
 int main() {
   int v, e;
   std::cin >> v >> e;
-  std::vector<std::vector<Edge<bool>>> graph(v);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(v);
   while (e--) {
     int s, t;
     std::cin >> s >> t;
@@ -21,7 +21,7 @@ int main() {
     graph[t].emplace_back(t, s);
   }
   std::vector<int> articulation_points =
-      Lowlink<bool>(graph).articulation_points;
+      emthrm::Lowlink<bool>(graph).articulation_points;
   std::sort(articulation_points.begin(), articulation_points.end());
   for (const int articulation_point : articulation_points) {
     std::cout << articulation_point << '\n';

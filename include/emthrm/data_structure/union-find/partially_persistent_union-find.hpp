@@ -3,11 +3,15 @@
  * @docs docs/data_structure/union-find/union-find.md
  */
 
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_
+#define EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 struct PartiallyPersistentUnionFind {
   explicit PartiallyPersistentUnionFind(const int n)
@@ -44,3 +48,7 @@ struct PartiallyPersistentUnionFind {
   std::vector<int> data, last;
   std::vector<std::vector<std::pair<int, int>>> history;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_

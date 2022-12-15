@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_BERLEKAMP_MASSEY_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_BERLEKAMP_MASSEY_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> berlekamp_massey(const std::vector<T>& s) {
@@ -36,3 +40,7 @@ std::vector<T> berlekamp_massey(const std::vector<T>& s) {
   }
   return c;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_BERLEKAMP_MASSEY_HPP_

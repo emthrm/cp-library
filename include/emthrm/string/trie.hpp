@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_STRING_TRIE_HPP_
+#define EMTHRM_STRING_TRIE_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 template <int Sigma = 26>
 struct Trie {
@@ -44,3 +48,7 @@ struct Trie {
     return pos;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_TRIE_HPP_

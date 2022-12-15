@@ -13,12 +13,14 @@
 int main() {
   int v, e;
   std::cin >> v >> e;
-  std::vector<std::vector<Edge<bool>>> graph(v);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(v);
   while (e--) {
     int s, t;
     std::cin >> s >> t;
     graph[s].emplace_back(s, t);
   }
-  for (const int ans : topological_sort(graph)) std::cout << ans << '\n';
+  for (const int ans : emthrm::topological_sort(graph)) {
+    std::cout << ans << '\n';
+  }
   return 0;
 }

@@ -12,7 +12,7 @@
 int main() {
   int n;
   std::cin >> n;
-  const std::vector<std::pair<int, int>> ans = prime_factorization(n);
+  const std::vector<std::pair<int, int>> ans = emthrm::prime_factorization(n);
   std::cout << n << ": ";
   for (int i = 0; i < static_cast<int>(ans.size()); ++i) {
     for (int j = 0; j < ans[i].second; ++j) {

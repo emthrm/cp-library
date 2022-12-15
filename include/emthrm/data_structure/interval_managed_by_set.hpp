@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_INTERVAL_MANAGED_BY_SET_HPP_
+#define EMTHRM_DATA_STRUCTURE_INTERVAL_MANAGED_BY_SET_HPP_
+
 #include <cassert>
 #include <iostream>
 #include <iterator>
@@ -6,6 +8,8 @@
 #include <set>
 #include <tuple>
 #include <utility>
+
+namespace emthrm {
 
 template <typename T>
 struct IntervalManagedBySet {
@@ -135,3 +139,7 @@ struct IntervalManagedBySet {
     return os;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_INTERVAL_MANAGED_BY_SET_HPP_

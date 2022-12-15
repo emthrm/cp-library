@@ -3,7 +3,9 @@
  * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_
+#define EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <functional>
@@ -14,6 +16,8 @@
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct Dijkstra {
@@ -65,3 +69,7 @@ struct Dijkstra {
   std::vector<int> prev;
   std::vector<std::vector<Edge<CostType>>> graph;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_

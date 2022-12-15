@@ -12,15 +12,15 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point c;
+  emthrm::geometry::Point c;
   int r, q;
   std::cin >> c >> r >> q;
-  geometry::Circle circle(c, r);
+  emthrm::geometry::Circle circle(c, r);
   while (q--) {
-    geometry::Point p1, p2;
+    emthrm::geometry::Point p1, p2;
     std::cin >> p1 >> p2;
-    std::vector<geometry::Point> ans =
-        geometry::intersection(circle, geometry::Line(p1, p2));
+    std::vector<emthrm::geometry::Point> ans =
+        emthrm::geometry::intersection(circle, emthrm::geometry::Line(p1, p2));
     std::sort(ans.begin(), ans.end());
     if (ans.size() == 1) {
       std::cout << std::fixed << std::setprecision(7)

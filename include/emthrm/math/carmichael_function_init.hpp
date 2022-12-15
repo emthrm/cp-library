@@ -3,12 +3,16 @@
  * @docs docs/math/carmichael_function.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_
+#define EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_
+
 #include <numeric>
 #include <vector>
 
 #include "emthrm/math/least_common_multiple.hpp"
 #include "emthrm/math/prime_sieve.hpp"
+
+namespace emthrm {
 
 std::vector<long long> carmichael_function_init(const long long low,
                                                 const long long high) {
@@ -36,3 +40,7 @@ std::vector<long long> carmichael_function_init(const long long low,
   }
   return lambda;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_

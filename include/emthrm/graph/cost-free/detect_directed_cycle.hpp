@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_DETECT_DIRECTED_CYCLE_HPP_
+#define EMTHRM_GRAPH_COST_FREE_DETECT_DIRECTED_CYCLE_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> detect_directed_cycle(
     const std::vector<std::vector<int>>& graph) {
@@ -31,3 +35,7 @@ std::vector<int> detect_directed_cycle(
   }
   return cycle;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_DETECT_DIRECTED_CYCLE_HPP_

@@ -3,8 +3,12 @@
  * @docs docs/math/carmichael_function.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_
+#define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_
+
 #include "emthrm/math/least_common_multiple.hpp"
+
+namespace emthrm {
 
 long long carmichael_function(long long n) {
   long long lambda = 1;
@@ -21,3 +25,7 @@ long long carmichael_function(long long n) {
   }
   return n > 1 ? __lcm(lambda, n - 1) : lambda;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_

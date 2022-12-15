@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_FORMAL_POWER_SERIES_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_FORMAL_POWER_SERIES_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <functional>
 #include <initializer_list>
 #include <iterator>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct FormalPowerSeries {
@@ -331,3 +335,7 @@ struct FormalPowerSeries {
     return sqrt;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_FORMAL_POWER_SERIES_HPP_

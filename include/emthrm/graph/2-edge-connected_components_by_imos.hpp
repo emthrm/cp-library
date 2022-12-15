@@ -3,7 +3,9 @@
  * @docs docs/graph/2-edge-connected_components.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_
+#define EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_
+
 #include <algorithm>
 #include <set>
 #include <queue>
@@ -12,6 +14,8 @@
 
 #include "emthrm/graph/edge.hpp"
 #include "emthrm/graph/enumerate_bridges.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct TwoEdgeConnectedComponentsByImos {
@@ -60,3 +64,7 @@ struct TwoEdgeConnectedComponentsByImos {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_

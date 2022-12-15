@@ -14,7 +14,7 @@ int main() {
   while (q--) {
     std::string s, t;
     std::cin >> s >> t;
-    std::cout << longest_common_subsequence(s, t).length() << '\n';
+    std::cout << emthrm::longest_common_subsequence(s, t).length() << '\n';
   }
   return 0;
 }

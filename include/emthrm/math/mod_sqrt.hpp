@@ -3,9 +3,13 @@
  * @docs docs/math/quadratic_residue.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MOD_SQRT_HPP_
+#define EMTHRM_MATH_MOD_SQRT_HPP_
+
 #include "emthrm/math/mod_pow.hpp"
 #include "emthrm/util/xorshift.hpp"
+
+namespace emthrm {
 
 long long mod_sqrt(long long a, const int p) {
   if ((a %= p) < 0) a += p;
@@ -41,3 +45,7 @@ long long mod_sqrt(long long a, const int p) {
   }
   return r;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MOD_SQRT_HPP_

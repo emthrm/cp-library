@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MATH_MOD_INV_HPP_
+#define EMTHRM_MATH_MOD_INV_HPP_
+
 #include <algorithm>
 #include <utility>
+
+namespace emthrm {
 
 long long mod_inv(long long a, const int m) {
   if ((a %= m) < 0) a += m;
@@ -14,3 +18,7 @@ long long mod_inv(long long a, const int m) {
   x %= m;
   return x < 0 ? x + m : x;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MOD_INV_HPP_

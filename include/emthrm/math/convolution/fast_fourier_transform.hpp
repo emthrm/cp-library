@@ -1,10 +1,14 @@
-#pragma once
+#ifndef EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_
+#define EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <iterator>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 namespace fast_fourier_transform {
 
@@ -146,3 +150,7 @@ std::vector<Real> convolution(const std::vector<T>& a,
 }
 
 }  // namespace fast_fourier_transform
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_

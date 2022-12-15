@@ -3,7 +3,9 @@
  * @docs docs/graph/girth.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_
+#define EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <limits>
@@ -13,6 +15,8 @@
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 CostType girth_in_undirected_graph(
@@ -70,3 +74,7 @@ CostType girth_in_undirected_graph(
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_

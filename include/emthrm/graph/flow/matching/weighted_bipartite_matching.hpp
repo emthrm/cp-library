@@ -3,11 +3,15 @@
  * @docs docs/graph/flow/matching/matching.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MATCHING_WEIGHTED_BIPARTITE_MATCHING_HPP_
+#define EMTHRM_GRAPH_FLOW_MATCHING_WEIGHTED_BIPARTITE_MATCHING_HPP_
+
 #include <cassert>
 #include <vector>
 
 #include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
+
+namespace emthrm {
 
 template <typename T>
 struct WeightedBipartiteMatching {
@@ -50,3 +54,7 @@ struct WeightedBipartiteMatching {
   const int left, right;
   MinimumCostSTFlow<int, T> mcf;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MATCHING_WEIGHTED_BIPARTITE_MATCHING_HPP_

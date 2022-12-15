@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_
+#define EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <functional>
 #include <vector>
+
+namespace emthrm {
 
 template <typename Band>
 struct SparseTable {
@@ -40,3 +44,7 @@ struct SparseTable {
   std::vector<int> lg;
   std::vector<std::vector<Band>> data;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_

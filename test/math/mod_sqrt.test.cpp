@@ -13,7 +13,7 @@ int main() {
   while (t--) {
     int y, p;
     std::cin >> y >> p;
-    std::cout << mod_sqrt(y, p) << '\n';
+    std::cout << emthrm::mod_sqrt(y, p) << '\n';
   }
   return 0;
 }

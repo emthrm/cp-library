@@ -3,7 +3,9 @@
  * @docs docs/math/convolution/number_theoretic_transform.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
+#define EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <iterator>
@@ -11,6 +13,8 @@
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 struct NumberTheoreticTransform {
@@ -140,3 +144,7 @@ struct NumberTheoreticTransform {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_

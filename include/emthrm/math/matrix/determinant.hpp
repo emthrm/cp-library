@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_DETERMINANT_HPP_
+#define EMTHRM_MATH_MATRIX_DETERMINANT_HPP_
+
 #include <algorithm>
 #include <utility>
 
 #include "emthrm/math/matrix/matrix.hpp"
+
+namespace emthrm {
 
 template <typename T, typename U>
 U det(const Matrix<T>& a, const U eps) {
@@ -39,3 +43,7 @@ U det(const Matrix<T>& a, const U eps) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_DETERMINANT_HPP_

@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MISC_MO_HPP_
+#define EMTHRM_MISC_MO_HPP_
+
 #include <algorithm>
 #include <cmath>
 #include <numeric>
 #include <vector>
+
+namespace emthrm {
 
 struct Mo {
   explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs)
@@ -36,3 +40,7 @@ struct Mo {
   int ptr, nl, nr;
   std::vector<int> ls, rs, order;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MISC_MO_HPP_

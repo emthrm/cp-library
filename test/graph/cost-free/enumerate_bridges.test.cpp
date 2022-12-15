@@ -18,7 +18,7 @@ int main() {
     graph[s].emplace_back(t);
     graph[t].emplace_back(s);
   }
-  std::vector<std::pair<int, int>> bridges = enumerate_bridges(graph);
+  std::vector<std::pair<int, int>> bridges = emthrm::enumerate_bridges(graph);
   std::sort(
       bridges.begin(), bridges.end(),
       [](const std::pair<int, int>& a, const std::pair<int, int>& b) -> bool {

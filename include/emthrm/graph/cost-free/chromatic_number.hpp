@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_CHROMATIC_NUMBER_HPP_
+#define EMTHRM_GRAPH_COST_FREE_CHROMATIC_NUMBER_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 int chromatic_number(const std::vector<std::vector<int>>& graph) {
   const int n = graph.size();
@@ -33,3 +37,7 @@ int chromatic_number(const std::vector<std::vector<int>>& graph) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_CHROMATIC_NUMBER_HPP_

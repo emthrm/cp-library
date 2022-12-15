@@ -15,6 +15,6 @@ int main() {
     graph[u].emplace_back(v);
     graph[v].emplace_back(u);
   }
-  std::cout << chromatic_number(graph) << '\n';
+  std::cout << emthrm::chromatic_number(graph) << '\n';
   return 0;
 }

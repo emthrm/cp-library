@@ -13,7 +13,7 @@
 int main() {
   long long l, r;
   std::cin >> l >> r;
-  const std::vector<bool> is_prime = segmented_sieve(l, r + 1);
+  const std::vector<bool> is_prime = emthrm::segmented_sieve(l, r + 1);
   std::cout << std::count(is_prime.begin(), is_prime.end(), true) << '\n';
   return 0;
 }

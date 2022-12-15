@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_
+#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_
+
 #include <cassert>
 #include <limits>
 #include <vector>
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 struct ProjectSelectionProblem {
@@ -71,3 +75,7 @@ struct ProjectSelectionProblem {
   std::vector<int> us, vs;
   std::vector<T> costs;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_

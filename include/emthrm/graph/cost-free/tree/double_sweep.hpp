@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_DOUBLE_SWEEP_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_DOUBLE_SWEEP_HPP_
+
 #include <cassert>
 #include <functional>
 #include <tuple>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 std::pair<int, std::vector<int>> double_sweep(
     const std::vector<std::vector<int>>& graph) {
@@ -38,3 +42,7 @@ std::pair<int, std::vector<int>> double_sweep(
   assert(dfs2(-1, s));
   return {diameter, path};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_DOUBLE_SWEEP_HPP_

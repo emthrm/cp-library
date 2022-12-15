@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_
+
 #include <algorithm>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 struct HeavyLightDecomposition {
   std::vector<int> parent, subtree, id, inv, head;
@@ -134,3 +138,7 @@ struct HeavyLightDecomposition {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_

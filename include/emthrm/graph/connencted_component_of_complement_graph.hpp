@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_
+#define EMTHRM_GRAPH_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_
+
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 UnionFind connencted_component_of_complement_graph(
@@ -24,3 +28,7 @@ UnionFind connencted_component_of_complement_graph(
   for (const Edge<CostType>& e : graph[argmin_deg]) check(e.dst);
   return union_find;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_

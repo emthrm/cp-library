@@ -18,8 +18,8 @@ int main() {
     graph[x].emplace_back(y);
     graph[y].emplace_back(x);
   }
-  const TwoEdgeConnectedComponents two_edge_connected_components(graph);
-  LowestCommonAncestorByDoubling lca(two_edge_connected_components.g);
+  const emthrm::TwoEdgeConnectedComponents two_edge_connected_components(graph);
+  emthrm::LowestCommonAncestorByDoubling lca(two_edge_connected_components.g);
   lca.build();
   int q;
   std::cin >> q;

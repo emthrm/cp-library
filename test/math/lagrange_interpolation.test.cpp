@@ -12,7 +12,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;
@@ -24,6 +24,6 @@ int main() {
   }
   ModInt t;
   std::cin >> t;
-  std::cout << lagrange_interpolation(x, a, t) << '\n';
+  std::cout << emthrm::lagrange_interpolation(x, a, t) << '\n';
   return 0;
 }

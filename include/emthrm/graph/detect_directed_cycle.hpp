@@ -3,12 +3,16 @@
  * @docs docs/graph/detect_walk.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_
+#define EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 std::vector<Edge<CostType>> detect_directed_cycle(
@@ -42,3 +46,7 @@ std::vector<Edge<CostType>> detect_directed_cycle(
   }
   return cycle;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_

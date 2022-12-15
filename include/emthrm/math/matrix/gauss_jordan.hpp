@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_
+#define EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_
+
 #include <utility>
 
 #include "emthrm/math/matrix/matrix.hpp"
+
+namespace emthrm {
 
 template <typename T>
 int gauss_jordan(Matrix<T>* a, const T eps = 1e-8,
@@ -37,3 +41,7 @@ int gauss_jordan(Matrix<T>* a, const T eps = 1e-8,
   }
   return rank;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_

@@ -23,7 +23,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
       std::cin >> q[i];
     }
-    std::vector<std::vector<Edge<int>>> graph(n);
+    std::vector<std::vector<emthrm::Edge<int>>> graph(n);
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j < n; ++j) {
         int a;
@@ -31,35 +31,35 @@ int main() {
         if (a > 0) graph[i].emplace_back(i, j, a);
       }
     }
-    Dijkstra<int> dijkstra(graph);
+    emthrm::Dijkstra<int> dijkstra(graph);
     const std::vector<int> dist = dijkstra.build(t);
     if (dist[s] == dijkstra.inf) {
       std::cout << "impossible\n";
       continue;
     }
-    Matrix<int> a(n, n, 0);
+    emthrm::Matrix<int> a(n, n, 0);
     std::vector<int> b(n, 0);
     for (int i = 0; i < n; ++i) {
       if (i == t) {
         a[i][i] = 1;
       } else {
-        std::vector<Edge<int>> edges;
+        std::vector<emthrm::Edge<int>> edges;
         if (q[i] == 0) {
           edges = graph[i];
         } else if (q[i] == 1) {
-          for (const Edge<int>& e : graph[i]) {
+          for (const emthrm::Edge<int>& e : graph[i]) {
             if (dist[e.dst] + e.cost == dist[i]) edges.emplace_back(e);
           }
         }
         a[i][i] = -edges.size();
-        for (const Edge<int>& e : edges) {
+        for (const emthrm::Edge<int>& e : edges) {
           ++a[i][e.dst];
           b[i] -= e.cost;
         }
       }
     }
     std::cout << std::fixed << std::setprecision(8)
-              << linear_equation(a, b)[s] << '\n';
+              << emthrm::linear_equation(a, b)[s] << '\n';
   }
   return 0;
 }

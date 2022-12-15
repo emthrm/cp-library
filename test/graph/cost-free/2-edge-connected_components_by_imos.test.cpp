@@ -16,7 +16,7 @@ int main() {
     graph[b].emplace_back(a);
   }
   const std::vector<std::vector<int>> ans =
-      TwoEdgeConnectedComponentsByImos(graph, true).vertices;
+      emthrm::TwoEdgeConnectedComponentsByImos(graph, true).vertices;
   const int k = ans.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

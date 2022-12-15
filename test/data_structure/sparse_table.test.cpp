@@ -16,7 +16,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  SparseTable<int> dst(
+  emthrm::SparseTable<int> dst(
       a, [](const int a, const int b) -> int { return std::min(a, b); });
   while (q--) {
     int l, r;

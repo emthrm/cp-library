@@ -9,11 +9,11 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n, m, k;
   std::cin >> n >> m >> k;
-  Matrix<ModInt> a(n, m), b(m, k);
+  emthrm::Matrix<ModInt> a(n, m), b(m, k);
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < m; ++j) {
       std::cin >> a[i][j];
@@ -24,7 +24,7 @@ int main() {
       std::cin >> b[i][j];
     }
   }
-  const Matrix<ModInt> c = a * b;
+  const emthrm::Matrix<ModInt> c = a * b;
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < k; ++j) {
       std::cout << c[i][j] << " \n"[j + 1 == k];

@@ -16,8 +16,8 @@ int main() {
     graph[a].emplace_back(b);
     graph[b].emplace_back(a);
   }
-  HeavyLightDecomposition heavy_light_decomposition(graph, 0);
-  FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
+  emthrm::HeavyLightDecomposition heavy_light_decomposition(graph, 0);
+  emthrm::FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
   const auto f = [&bit](const int l, const int r) -> long long {
     return bit.sum(l, r);
   };

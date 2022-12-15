@@ -13,7 +13,7 @@
 int main() {
   int n;
   std::cin >> n;
-  std::vector<std::vector<Edge<long long>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<long long>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int a, b, c;
     std::cin >> a >> b >> c;
@@ -22,7 +22,7 @@ int main() {
   }
   long long x;
   std::vector<int> u;
-  std::tie(x, u) = double_sweep(graph);
+  std::tie(x, u) = emthrm::double_sweep(graph);
   const int y = u.size();
   std::cout << x << ' ' << y << '\n';
   for (int i = 0; i < y; ++i) {

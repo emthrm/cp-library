@@ -3,8 +3,12 @@
  * @docs docs/math/convolution/convolution.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_
+#define EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, int n = -1) {
@@ -30,3 +34,7 @@ std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, int n = -1) {
   }
   return a;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_

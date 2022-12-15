@@ -3,12 +3,16 @@
  * @docs docs/graph/eulerian_trail.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
+#define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
+
 #include <algorithm>
 #include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
@@ -65,3 +69,7 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
   }
   return {};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_

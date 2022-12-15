@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MATH_BASIS_HPP_
+#define EMTHRM_MATH_BASIS_HPP_
+
 #include <algorithm>
 #include <bitset>
 #include <iterator>
 #include <vector>
+
+namespace emthrm {
 
 template <int D>
 struct Basis {
@@ -55,3 +59,7 @@ struct Basis {
     return false;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_BASIS_HPP_

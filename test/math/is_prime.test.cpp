@@ -14,7 +14,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     int num;
     std::cin >> num;
-    if (is_prime(num)) ++ans;
+    if (emthrm::is_prime(num)) ++ans;
   }
   std::cout << ans << '\n';
   return 0;

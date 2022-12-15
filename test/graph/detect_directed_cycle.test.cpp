@@ -12,14 +12,14 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  std::vector<std::vector<Edge<int>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<int>>> graph(n);
   for (int i = 0; i < m; ++i) {
     int u, v;
     std::cin >> u >> v;
     graph[u].emplace_back(u, v, i);
   }
   std::vector<int> e;
-  for (const Edge<int>& edge : detect_directed_cycle(graph)) {
+  for (const emthrm::Edge<int>& edge : emthrm::detect_directed_cycle(graph)) {
     e.emplace_back(edge.cost);
   }
   if (e.empty()) {

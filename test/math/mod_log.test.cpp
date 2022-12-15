@@ -13,7 +13,7 @@ int main() {
   while (t--) {
     int x, y, m;
     std::cin >> x >> y >> m;
-    std::cout << mod_log(x, y, m) << '\n';
+    std::cout << emthrm::mod_log(x, y, m) << '\n';
   }
   return 0;
 }

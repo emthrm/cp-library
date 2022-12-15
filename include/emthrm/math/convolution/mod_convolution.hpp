@@ -3,12 +3,16 @@
  * @docs docs/math/convolution/number_theoretic_transform.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
+#define EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
+
 #include <cmath>
 #include <vector>
 
 #include "emthrm/math/convolution/fast_fourier_transform.hpp"
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
@@ -76,3 +80,7 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_

@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_IS_BIPARTITE_HPP_
+#define EMTHRM_GRAPH_IS_BIPARTITE_HPP_
+
 #include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 bool is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph,
@@ -28,3 +32,7 @@ bool is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph,
   }
   return true;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_IS_BIPARTITE_HPP_

@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MATH_SEGMENTED_SIEVE_HPP_
+#define EMTHRM_MATH_SEGMENTED_SIEVE_HPP_
+
 #include <algorithm>
 #include <cmath>
 #include <iterator>
 #include <vector>
+
+namespace emthrm {
 
 std::vector<bool> segmented_sieve(const long long low, const long long high) {
   long long root = 1;
@@ -25,3 +29,7 @@ std::vector<bool> segmented_sieve(const long long low, const long long high) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_SEGMENTED_SIEVE_HPP_

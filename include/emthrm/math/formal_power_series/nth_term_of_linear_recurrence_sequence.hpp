@@ -3,10 +3,14 @@
  * @docs docs/math/formal_power_series/bostan-mori.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_
+
 #include <cassert>
 
 #include "emthrm/math/formal_power_series/bostan-mori.hpp"
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n) {
@@ -20,3 +24,7 @@ T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n) {
   a.resize(d - 1);
   return bostan_mori(a, q, n);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_

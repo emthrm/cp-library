@@ -3,11 +3,15 @@
  * @docs docs/graph/flow/maximum_flow/maximum_flow.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_
+#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_
+
 #include <algorithm>
 #include <limits>
 #include <queue>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct Dinic {
@@ -76,3 +80,7 @@ struct Dinic {
     return 0;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_

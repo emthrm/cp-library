@@ -15,7 +15,7 @@ int main() {
     int v, x;
     std::cin >> v >> x;
     const int p = x * v + 1;
-    const std::vector<int> ps = enumerate_kth_power(p - 1, x, p);
+    const std::vector<int> ps = emthrm::enumerate_kth_power(p - 1, x, p);
     std::vector<int> a;
     a.reserve(x);
     for (int i = 1; i < p; ++i) {

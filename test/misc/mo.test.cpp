@@ -15,9 +15,9 @@ std::vector<int> a;
 long long inv = 0;
 int l = 0, r = 0, m;
 constexpr int M = 100000;
-FenwickTree<int> bit(M);
+emthrm::FenwickTree<int> bit(M);
 
-void Mo::add(const int idx) const {
+void emthrm::Mo::add(const int idx) const {
   if (idx + 1 == l) {
     inv += bit.sum(0, a[idx]);
     --l;
@@ -28,7 +28,7 @@ void Mo::add(const int idx) const {
   bit.add(a[idx], 1);
 }
 
-void Mo::del(const int idx) const {
+void emthrm::Mo::del(const int idx) const {
   if (idx == l) {
     inv -= bit.sum(0, a[idx]);
     ++l;
@@ -58,7 +58,7 @@ int main() {
   for (int i = 0; i < q; ++i) {
     std::cin >> ls[i] >> rs[i];
   }
-  Mo mo(ls, rs);
+  emthrm::Mo mo(ls, rs);
   std::vector<long long> ans(q);
   for (int i = 0; i < q; ++i) {
     const int idx = mo.process();

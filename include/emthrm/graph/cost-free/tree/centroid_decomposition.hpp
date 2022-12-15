@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_CENTROID_DECOMPOSITION_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_CENTROID_DECOMPOSITION_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 struct CentroidDecomposition {
   int root;
@@ -51,3 +55,7 @@ struct CentroidDecomposition {
     return ver;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_CENTROID_DECOMPOSITION_HPP_

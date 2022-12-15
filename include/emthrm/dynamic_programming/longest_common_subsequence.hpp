@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_HPP_
+
 #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 T longest_common_subsequence(const T& a, const T& b) {
@@ -26,3 +30,7 @@ T longest_common_subsequence(const T& a, const T& b) {
   std::reverse(res.begin(), res.end());
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_COMMON_SUBSEQUENCE_HPP_

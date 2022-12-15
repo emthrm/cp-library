@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <iterator>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T, bool IS_MINIMIZED = true>
 struct LiChaoTree {
@@ -91,3 +95,7 @@ struct LiChaoTree {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_

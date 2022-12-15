@@ -37,7 +37,7 @@ int main() {
         }
       }
     }
-    ans += maximum_matching(graph);
+    ans += emthrm::maximum_matching(graph);
   }
   std::cout << ans << '\n';
   return 0;

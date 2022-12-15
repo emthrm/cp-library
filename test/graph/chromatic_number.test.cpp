@@ -12,13 +12,13 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   while (m--) {
     int u, v;
     std::cin >> u >> v;
     graph[u].emplace_back(u, v);
     graph[v].emplace_back(v, u);
   }
-  std::cout << chromatic_number(graph) << '\n';
+  std::cout << emthrm::chromatic_number(graph) << '\n';
   return 0;
 }

@@ -10,7 +10,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  SegmentTree<monoid::RangeSumQuery<long long>> seg(n);
+  emthrm::SegmentTree<emthrm::monoid::RangeSumQuery<long long>> seg(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y; --x;

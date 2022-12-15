@@ -9,7 +9,7 @@
 
 int main() {
   constexpr int B = 30;
-  BinaryTrie<B> binary_trie;
+  emthrm::BinaryTrie<B> binary_trie;
   int q;
   std::cin >> q;
   while (q--) {

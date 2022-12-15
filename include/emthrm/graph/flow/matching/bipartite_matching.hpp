@@ -3,8 +3,12 @@
  * @docs docs/graph/flow/matching/matching.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_
+#define EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 struct BipartiteMatching {
   std::vector<int> match;
@@ -71,3 +75,7 @@ struct BipartiteMatching {
     return false;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_

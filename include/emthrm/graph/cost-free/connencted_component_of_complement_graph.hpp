@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_
+#define EMTHRM_GRAPH_COST_FREE_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_
+
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
+
+namespace emthrm {
 
 UnionFind connencted_component_of_complement_graph(
     const std::vector<std::vector<int>>& graph) {
@@ -22,3 +26,7 @@ UnionFind connencted_component_of_complement_graph(
   for (const int e : graph[argmin_deg]) check(e);
   return union_find;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_

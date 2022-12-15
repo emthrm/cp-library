@@ -11,7 +11,7 @@
 int main() {
   long long n;
   std::cin >> n;
-  std::vector<long long> d = divisor(n);
+  std::vector<long long> d = emthrm::divisor(n);
   d.pop_back();
   int ans1 = 0;
   const int ans2 = d.size();

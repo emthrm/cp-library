@@ -11,6 +11,6 @@
 int main() {
   std::string s1, s2;
   std::cin >> s1 >> s2;
-  std::cout << levenshtein_distance(s1, s2) << '\n';
+  std::cout << emthrm::levenshtein_distance(s1, s2) << '\n';
   return 0;
 }

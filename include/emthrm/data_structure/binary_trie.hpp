@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_
+#define EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_
+
 #include <cassert>
 #include <cstdint>
 #include <memory>
 #include <utility>
+
+namespace emthrm {
 
 template <int B = 32, typename T = std::uint32_t>
 struct BinaryTrie {
@@ -134,3 +138,7 @@ struct BinaryTrie {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_

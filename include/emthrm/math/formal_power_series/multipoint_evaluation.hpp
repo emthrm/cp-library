@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 struct MultipointEvaluation {
@@ -32,3 +36,7 @@ struct MultipointEvaluation {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_

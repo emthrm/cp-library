@@ -3,10 +3,14 @@
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_GAUSS_JORDAN_HPP_
+#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_GAUSS_JORDAN_HPP_
+
 #include <utility>
 
 #include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
+
+namespace emthrm {
 
 template <int N>
 int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false) {
@@ -29,3 +33,7 @@ int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false) {
   }
   return rank;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_BINARY_MATRIX_GAUSS_JORDAN_HPP_

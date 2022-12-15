@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_FLOOR_SUM_HPP_
+#define EMTHRM_MATH_FLOOR_SUM_HPP_
+
 #include <utility>
+
+namespace emthrm {
 
 long long floor_sum(long long a, long long b, long long m, long long n) {
   long long res = 0;
@@ -32,3 +36,7 @@ long long floor_sum(long long a, long long b, long long m, long long n) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FLOOR_SUM_HPP_

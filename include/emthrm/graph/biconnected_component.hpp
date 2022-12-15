@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_BICONNECTED_COMPONENT_HPP_
+#define EMTHRM_GRAPH_BICONNECTED_COMPONENT_HPP_
+
 // #include <algorithm>
 #include <set>
 #include <utility>
@@ -6,6 +8,8 @@
 
 #include "emthrm/graph/edge.hpp"
 #include "emthrm/graph/lowlink.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 struct BiconnectedComponent : Lowlink<CostType> {
@@ -89,3 +93,7 @@ struct BiconnectedComponent : Lowlink<CostType> {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_BICONNECTED_COMPONENT_HPP_

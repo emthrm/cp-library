@@ -19,7 +19,7 @@ int main() {
   for (int c = 0; c < SIGMA; ++c) {
     num[c] = std::count(s.begin(), s.end(), '0' + c);
   }
-  const MorrisPratt morris_pratt(t);
+  const emthrm::MorrisPratt morris_pratt(t);
   std::string ans = "";
   const int period = morris_pratt.period(t.length());
   for (int pos = 0; num[t[pos] - '0'] > 0; pos = (pos + 1) % period) {

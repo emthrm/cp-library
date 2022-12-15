@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_MATRIX_MATRIX_HPP_
+#define EMTHRM_MATH_MATRIX_MATRIX_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 struct Matrix {
@@ -68,3 +72,7 @@ struct Matrix {
  private:
   std::vector<std::vector<T>> data;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MATRIX_MATRIX_HPP_

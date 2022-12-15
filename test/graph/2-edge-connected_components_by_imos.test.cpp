@@ -12,7 +12,7 @@
 int main() {
   int n, m;
   std::cin >> n >> m;
-  std::vector<std::vector<Edge<bool>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
   while (m--) {
     int a, b;
     std::cin >> a >> b;
@@ -20,7 +20,7 @@ int main() {
     graph[b].emplace_back(b, a);
   }
   const std::vector<std::vector<int>> ans =
-      TwoEdgeConnectedComponentsByImos<bool>(graph, true).vertices;
+      emthrm::TwoEdgeConnectedComponentsByImos<bool>(graph, true).vertices;
   const int k = ans.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

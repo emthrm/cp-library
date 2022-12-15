@@ -3,9 +3,13 @@
  * @docs docs/math/quadratic_residue.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_
+#define EMTHRM_MATH_JACOBI_SYMBOL_HPP_
+
 #include <cassert>
 #include <utility>
+
+namespace emthrm {
 
 int jacobi_symbol(long long a, long long p) {
   assert(p > 0 && p & 1);
@@ -23,3 +27,7 @@ int jacobi_symbol(long long a, long long p) {
   }
   return p == 1 ? res : 0;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_JACOBI_SYMBOL_HPP_

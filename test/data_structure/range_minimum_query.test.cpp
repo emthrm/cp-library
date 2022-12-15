@@ -10,7 +10,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  SegmentTree<monoid::RangeMinimumQuery<int>> rmq(n);
+  emthrm::SegmentTree<emthrm::monoid::RangeMinimumQuery<int>> rmq(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y;

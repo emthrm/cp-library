@@ -19,7 +19,7 @@ int main() {
     for (int i = 0; i < n; ++i) {
       graph[i][i] = 0;
     }
-    WarshallFloyd<long long> warshall_floyd(graph, LINF);
+    emthrm::WarshallFloyd<long long> warshall_floyd(graph, LINF);
     while (k--) {
       int type;
       std::cin >> type;

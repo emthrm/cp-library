@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MISC_ROTATE_HPP_
+#define EMTHRM_MISC_ROTATE_HPP_
+
 #include <cassert>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,
@@ -26,3 +30,7 @@ std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,
   }
   return rotated_grid;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MISC_ROTATE_HPP_

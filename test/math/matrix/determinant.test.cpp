@@ -10,16 +10,16 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n;
   std::cin >> n;
-  Matrix<int> a(n, n);
+  emthrm::Matrix<int> a(n, n);
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       std::cin >> a[i][j];
     }
   }
-  std::cout << det(a, ModInt(0)) << '\n';
+  std::cout << emthrm::det(a, ModInt(0)) << '\n';
   return 0;
 }

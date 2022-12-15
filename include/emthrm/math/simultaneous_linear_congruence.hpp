@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_
+#define EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_
+
 #include <algorithm>
 #include <utility>
 #include <vector>
 
 #include "emthrm/math/mod_inv.hpp"
+
+namespace emthrm {
 
 template <typename T>
 std::pair<T, T> simultaneous_linear_congruence(const std::vector<T>& a,
@@ -20,3 +24,7 @@ std::pair<T, T> simultaneous_linear_congruence(const std::vector<T>& a,
   }
   return {x < 0 ? x + md : x, md};
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_

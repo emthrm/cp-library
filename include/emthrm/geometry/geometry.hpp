@@ -1,4 +1,6 @@
-#pragma once
+#ifndef EMTHRM_GEOMETRY_GEOMETRY_HPP_
+#define EMTHRM_GEOMETRY_GEOMETRY_HPP_
+
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -9,6 +11,8 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 namespace geometry {
 
@@ -748,3 +752,7 @@ std::tuple<Point, Point> rotating_calipers(Polygon a) {
 // }
 
 // }  // namespace geometry
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GEOMETRY_GEOMETRY_HPP_

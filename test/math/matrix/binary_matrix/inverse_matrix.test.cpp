@@ -12,7 +12,7 @@
 
 int main() {
   constexpr int N = 600;
-  using binary_matrix = BinaryMatrix<N>;
+  using binary_matrix = emthrm::BinaryMatrix<N>;
   int n;
   std::cin >> n;
   binary_matrix a(n, n), v(n, 1);
@@ -30,7 +30,7 @@ int main() {
   }
   int t;
   std::cin >> t;
-  binary_matrix inv = inverse_matrix(a);
+  binary_matrix inv = emthrm::inverse_matrix(a);
   if (inv.nrow() == 0) {
     a = a.pow(t);
     binary_matrix av(n, n + 1);
@@ -40,7 +40,7 @@ int main() {
       }
       av[i][n] = v[i][0];
     }
-    std::cout << (gauss_jordan(&a) == gauss_jordan(&av) ?
+    std::cout << (emthrm::gauss_jordan(&a) == emthrm::gauss_jordan(&av) ?
                   "ambiguous\n" : "none\n");
   } else {
     inv = inv.pow(t) * v;

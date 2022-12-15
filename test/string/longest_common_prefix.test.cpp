@@ -13,7 +13,7 @@ int main() {
   std::cin >> s;
   const int n = s.length();
   long long ans = static_cast<long long>(n) * (n + 1) / 2;
-  for (const int e : LongestCommonPrefix<>(s).lcp_array) ans -= e;
+  for (const int e : emthrm::LongestCommonPrefix<>(s).lcp_array) ans -= e;
   std::cout << ans << '\n';
   return 0;
 }

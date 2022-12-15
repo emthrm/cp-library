@@ -1,5 +1,9 @@
-#pragma once
+#ifndef EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_
+#define EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 std::vector<T> fast_mobius_transform(std::vector<T> a,
@@ -25,3 +29,7 @@ std::vector<T> fast_mobius_transform(std::vector<T> a,
   }
   return a;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_

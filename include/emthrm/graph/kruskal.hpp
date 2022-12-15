@@ -3,12 +3,16 @@
  * @docs docs/graph/minimum_spanning_tree.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_KRUSKAL_HPP_
+#define EMTHRM_GRAPH_KRUSKAL_HPP_
+
 #include <algorithm>
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
 #include "emthrm/graph/edge.hpp"
+
+namespace emthrm {
 
 template <typename CostType>
 CostType kruskal(const std::vector<std::vector<Edge<CostType>>>& graph) {
@@ -25,3 +29,7 @@ CostType kruskal(const std::vector<std::vector<Edge<CostType>>>& graph) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_KRUSKAL_HPP_

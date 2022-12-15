@@ -26,7 +26,7 @@ int main() {
     a[i] = std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), a[i]));
     b[i] = std::distance(v.begin(), std::lower_bound(v.begin(), v.end(), b[i]));
   }
-  MinimumCostSTFlow<int, long long> minimum_cost_flow(n + m + 2);
+  emthrm::MinimumCostSTFlow<int, long long> minimum_cost_flow(n + m + 2);
   const int s = n + m, t = n + m + 1;
   for (int i = 0; i < n; ++i) {
     minimum_cost_flow.add_edge(s, i, 1, 0);

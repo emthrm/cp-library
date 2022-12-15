@@ -12,17 +12,17 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
-  FormalPowerSeries<ModInt>::set_mult(
+  emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        static NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<0> ntt;
         return ntt.convolution(a, b);
       });
   int n, m;
   std::cin >> n >> m;
-  FormalPowerSeries<ModInt> c(n - 1);
+  emthrm::FormalPowerSeries<ModInt> c(n - 1);
   for (int i = 0; i < n; ++i) {
     std::cin >> c[i];
   }
@@ -30,7 +30,8 @@ int main() {
   for (int i = 0; i < m; ++i) {
     std::cin >> p[i];
   }
-  MultipointEvaluation<FormalPowerSeries, ModInt> multipoint_evaluation(p);
+  emthrm::MultipointEvaluation<emthrm::FormalPowerSeries, ModInt>
+      multipoint_evaluation(p);
   multipoint_evaluation.build(c);
   for (int i = 0; i < m; ++i) {
     std::cout << multipoint_evaluation.f_x[i] << " \n"[i + 1 == m];

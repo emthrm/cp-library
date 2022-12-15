@@ -10,7 +10,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  FenwickTree<long long> bit(n);
+  emthrm::FenwickTree<long long> bit(n);
   while (q--) {
     int com, x, y;
     std::cin >> com >> x >> y;

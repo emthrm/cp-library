@@ -3,11 +3,15 @@
  * @docs docs/math/lagrange_interpolation.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_
+#define EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_
+
 #include <functional>
 #include <vector>
 
 #include "emthrm/math/formal_power_series/multipoint_evaluation.hpp"
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 C<T> polynomial_interpolation(const std::vector<T>& x,
@@ -22,3 +26,7 @@ C<T> polynomial_interpolation(const std::vector<T>& x,
   };
   return f(1);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_

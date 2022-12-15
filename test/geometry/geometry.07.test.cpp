@@ -17,39 +17,39 @@
 int main() {
   int n, k;
   std::cin >> n >> k;
-  std::vector<geometry::Circle> people(n);
+  std::vector<emthrm::geometry::Circle> people(n);
   for (int i = 0; i < n; ++i) {
-    geometry::Point p;
+    emthrm::geometry::Point p;
     double r;
     std::cin >> p >> r;
-    people[i] = geometry::Circle(p, r);
+    people[i] = emthrm::geometry::Circle(p, r);
   }
   std::vector<double> l(n), r(n), comp;
   for (int i = 0; i < n; ++i) {
-    const std::vector<geometry::Point> t =
-        geometry::tangency(people[i], geometry::Point(0, 0));
+    const std::vector<emthrm::geometry::Point> t =
+        emthrm::geometry::tangency(people[i], emthrm::geometry::Point(0, 0));
     l[i] = t[0].arg();
     r[i] = t[1].arg();
     if (l[i] > r[i]) std::swap(l[i], r[i]);
-    if (r[i] > geometry::PI &&
-        geometry::has_intersected(
+    if (r[i] > emthrm::geometry::PI &&
+        emthrm::geometry::has_intersected(
             people[i],
-            geometry::Segment(geometry::Point(0, 0),
-                              geometry::Point(2415, 0)))) {
+            emthrm::geometry::Segment(emthrm::geometry::Point(0, 0),
+                              emthrm::geometry::Point(2415, 0)))) {
       std::swap(l[i], r[i]);
       l[i] = 0;
     } else {
       if (l[i] < 0) l[i] = 0;
-      if (r[i] > geometry::PI) r[i] = geometry::PI;
+      if (r[i] > emthrm::geometry::PI) r[i] = emthrm::geometry::PI;
     }
-    if (l[i] < geometry::PI) {
+    if (l[i] < emthrm::geometry::PI) {
       comp.emplace_back(l[i]);
       comp.emplace_back(r[i]);
     }
   }
   std::vector<bool> is_used(n, true);
   for (int i = 0; i < n; ++i) {
-    if (l[i] >= geometry::PI) is_used[i] = false;
+    if (l[i] >= emthrm::geometry::PI) is_used[i] = false;
     if (!is_used[i]) continue;
     for (int j = 0; j < n; ++j) {
       if (j != i && l[i] <= l[j] && r[j] <= r[i]) is_used[j] = false;
@@ -96,6 +96,7 @@ int main() {
       if (dp[n - 1][y][z] > ans) ans = dp[n - 1][y][z];
     }
   }
-  std::cout << std::fixed << std::setprecision(7) << ans / geometry::PI << '\n';
+  std::cout << std::fixed << std::setprecision(7)
+            << ans / emthrm::geometry::PI << '\n';
   return 0;
 }

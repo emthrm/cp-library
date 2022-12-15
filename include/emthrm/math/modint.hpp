@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_MATH_MODINT_HPP_
+#define EMTHRM_MATH_MODINT_HPP_
+
 // #include <algorithm>
 // #include <cassert>
 #include <iostream>
 #include <utility>
 #include <vector>
+
+namespace emthrm {
 
 // template <int M>
 // struct MInt {
@@ -287,3 +291,7 @@ struct MInt {
     return divisor;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MODINT_HPP_

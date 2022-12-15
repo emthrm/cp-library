@@ -3,10 +3,14 @@
  * @docs docs/math/lagrange_interpolation.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_
+#define EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y,
@@ -27,3 +31,7 @@ T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y,
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_

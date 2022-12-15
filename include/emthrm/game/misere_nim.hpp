@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_GAME_MISERE_NIM_HPP_
+#define EMTHRM_GAME_MISERE_NIM_HPP_
+
 #include <algorithm>
 #include <vector>
 
 #include "emthrm/game/nim.hpp"
+
+namespace emthrm {
 
 template <typename T>
 bool misere_nim(const std::vector<T>& a) {
@@ -15,3 +19,7 @@ bool misere_nim(const std::vector<T>& a) {
   return *std::max_element(positive.begin(), positive.end()) == 1 ?
          positive.size() % 2 == 0 : nim(positive);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GAME_MISERE_NIM_HPP_

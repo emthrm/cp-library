@@ -14,7 +14,7 @@ int main() {
   int n, q, s;
   std::cin >> n >> q >> s;
   --s;
-  NoshiGraph<long long> graph(n);
+  emthrm::NoshiGraph<long long> graph(n);
   while (q--) {
     int t, v;
     std::cin >> t >> v;
@@ -35,7 +35,7 @@ int main() {
       }
     }
   }
-  Dijkstra<long long> dijkstra(graph.graph);
+  emthrm::Dijkstra<long long> dijkstra(graph.graph);
   const std::vector<long long> ans = dijkstra.build(s);
   for (int i = 0; i < n; ++i) {
     std::cout << (ans[i] == dijkstra.inf ? -1 : ans[i]) << " \n"[i + 1 == n];

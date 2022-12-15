@@ -12,7 +12,7 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  LazySegmentTree<monoid::RangeMinimumAndAddQuery<
+  emthrm::LazySegmentTree<emthrm::monoid::RangeMinimumAndAddQuery<
       long long, std::numeric_limits<long long>::max()>> rmq(
           std::vector<long long>(n, 0));
   while (q--) {

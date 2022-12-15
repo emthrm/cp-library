@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_MATH_CATALAN_NUMBER_HPP_
+#define EMTHRM_MATH_CATALAN_NUMBER_HPP_
+
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
+
+namespace emthrm {
 
 template <int T>
 std::vector<MInt<T>> catalan_number(const int n) {
@@ -14,3 +18,7 @@ std::vector<MInt<T>> catalan_number(const int n) {
   }
   return c;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_CATALAN_NUMBER_HPP_

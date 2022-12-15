@@ -3,7 +3,9 @@
  * @docs docs/graph/spectral_graph_theory.md
  */
 
-#pragma once
+#ifndef EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_
+#define EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
@@ -11,6 +13,8 @@
 #include "emthrm/graph/edge.hpp"
 #include "emthrm/math/matrix/determinant.hpp"
 #include "emthrm/math/matrix/matrix.hpp"
+
+namespace emthrm {
 
 template <typename T, typename CostType>
 T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph,
@@ -31,3 +35,7 @@ T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph,
   }
   return det(cofactor, eps);
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_

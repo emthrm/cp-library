@@ -13,15 +13,16 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  std::vector<std::vector<Edge<long long>>> graph(n);
+  std::vector<std::vector<emthrm::Edge<long long>>> graph(n);
   for (int i = 0; i < n - 1; ++i) {
     int a, b;
     std::cin >> a >> b;
     graph[a].emplace_back(a, b, 0);
     graph[b].emplace_back(b, a, 0);
   }
-  HeavyLightDecomposition<long long> heavy_light_decomposition(graph, 0);
-  FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
+  emthrm::HeavyLightDecomposition<long long>
+      heavy_light_decomposition(graph, 0);
+  emthrm::FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
   const auto f = [&bit](const int l, const int r) -> long long {
     return bit.sum(l, r);
   };

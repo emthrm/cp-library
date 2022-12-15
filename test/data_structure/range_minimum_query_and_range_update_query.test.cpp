@@ -10,7 +10,8 @@
 int main() {
   int n, q;
   std::cin >> n >> q;
-  LazySegmentTree<monoid::RangeMinimumAndUpdateQuery<int>> rmq(n);
+  emthrm::LazySegmentTree<emthrm::monoid::RangeMinimumAndUpdateQuery<int>>
+      rmq(n);
   while (q--) {
     int query, s, t;
     std::cin >> query >> s >> t;

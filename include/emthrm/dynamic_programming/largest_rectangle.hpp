@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LARGEST_RECTANGLE_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_LARGEST_RECTANGLE_HPP_
+
 #include <algorithm>
 #include <stack>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 long long largest_rectangle(const std::vector<T>& height) {
@@ -25,3 +29,7 @@ long long largest_rectangle(const std::vector<T>& height) {
   }
   return res;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LARGEST_RECTANGLE_HPP_

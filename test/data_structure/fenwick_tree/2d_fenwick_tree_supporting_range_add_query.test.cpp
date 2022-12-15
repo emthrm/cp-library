@@ -18,7 +18,7 @@ int main() {
     --t[i]; --u[i];
     --l[i]; --r[i];
   }
-  FenwickTree2DSupportingRangeAddQuery<long long> bit(h, w);
+  emthrm::FenwickTree2DSupportingRangeAddQuery<long long> bit(h, w);
   while (m--) {
     int x, y, b, c;
     std::cin >> x >> y >> b >> c;

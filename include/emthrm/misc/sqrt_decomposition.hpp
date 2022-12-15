@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_
+#define EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_
+
 #include <cmath>
 #include <vector>
+
+namespace emthrm {
 
 struct SqrtDecomposition {
   const int block_size, n;
@@ -86,3 +90,7 @@ struct SqrtDecomposition {
     return res;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_

@@ -8,11 +8,12 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point c1_o, c2_o;
+  emthrm::geometry::Point c1_o, c2_o;
   double c1r, c2r;
   std::cin >> c1_o >> c1r >> c2_o >> c2r;
-  std::cout << geometry::common_tangent_num(geometry::Circle(c1_o, c1r),
-                                            geometry::Circle(c2_o, c2r))
+  std::cout << emthrm::geometry::common_tangent_num(
+                   emthrm::geometry::Circle(c1_o, c1r),
+                   emthrm::geometry::Circle(c2_o, c2r))
             << '\n';
   return 0;
 }

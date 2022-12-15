@@ -1,9 +1,13 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_COST_FREE_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
+#define EMTHRM_GRAPH_COST_FREE_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
+
 // #include <algorithm>
 #include <utility>
 #include <vector>
 
 #include "emthrm/graph/cost-free/lowlink.hpp"
+
+namespace emthrm {
 
 struct TwoEdgeConnectedComponents : Lowlink {
   std::vector<int> id;
@@ -47,3 +51,7 @@ struct TwoEdgeConnectedComponents : Lowlink {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_COST_FREE_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_

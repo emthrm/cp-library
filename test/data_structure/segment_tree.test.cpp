@@ -11,7 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n, q;
   std::cin >> n >> q;
@@ -26,7 +26,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> f[i].first >> f[i].second;
   }
-  SegmentTree<M> seg(f);
+  emthrm::SegmentTree<M> seg(f);
   while (q--) {
     int query;
     std::cin >> query;

@@ -3,8 +3,12 @@
  * @docs docs/math/mobius_mu/mobius_mu.md
  */
 
-#pragma once
+#ifndef EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_INIT_HPP_
+#define EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_INIT_HPP_
+
 #include <vector>
+
+namespace emthrm {
 
 std::vector<int> mobius_mu_init(const int n) {
   std::vector<bool> is_prime(n + 1, true);
@@ -23,3 +27,7 @@ std::vector<int> mobius_mu_init(const int n) {
   }
   return mu;
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_INIT_HPP_

@@ -1,4 +1,8 @@
-#pragma once
+#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_
+#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_
+
+
+namespace emthrm {
 
 template <template <typename> class C, typename T>
 struct MaximumFlowWithLowerBoundConstraint {
@@ -25,3 +29,7 @@ struct MaximumFlowWithLowerBoundConstraint {
   T sum_lb;
   C<T> mf;
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_

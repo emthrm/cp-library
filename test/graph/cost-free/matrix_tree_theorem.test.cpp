@@ -11,7 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(1000000007);
   int n;
   std::cin >> n;
@@ -21,7 +21,7 @@ int main() {
       std::cin >> a[i][j];
     }
   }
-  UnionFind union_find(n);
+  emthrm::UnionFind union_find(n);
   for (int i = 0; i < n; ++i) {
     for (int j = i + 1; j < n; ++j) {
       if (a[i][j] == 1 && !union_find.unite(i, j)) {
@@ -50,6 +50,6 @@ int main() {
       }
     }
   }
-  std::cout << matrix_tree_theorem(graph, ModInt(0)) << '\n';
+  std::cout << emthrm::matrix_tree_theorem(graph, ModInt(0)) << '\n';
   return 0;
 }

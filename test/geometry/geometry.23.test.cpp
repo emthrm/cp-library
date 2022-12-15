@@ -10,9 +10,9 @@
 #include "emthrm/geometry/geometry.hpp"
 
 int main() {
-  geometry::Point p;
+  emthrm::geometry::Point p;
   std::cin >> p;
-  const geometry::Point ans = geometry::unit_vector(p);
+  const emthrm::geometry::Point ans = emthrm::geometry::unit_vector(p);
   std::cout << std::fixed << std::setprecision(7)
             << ans.x << ' ' << ans.y << '\n';
   return 0;

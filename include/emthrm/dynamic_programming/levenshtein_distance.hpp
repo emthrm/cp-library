@@ -1,7 +1,11 @@
-#pragma once
+#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LEVENSHTEIN_DISTANCE_HPP_
+#define EMTHRM_DYNAMIC_PROGRAMMING_LEVENSHTEIN_DISTANCE_HPP_
+
 #include <algorithm>
 #include <numeric>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T>
 int levenshtein_distance(const T& a, const T& b) {
@@ -20,3 +24,7 @@ int levenshtein_distance(const T& a, const T& b) {
   }
   return dp[n][m];
 }
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LEVENSHTEIN_DISTANCE_HPP_

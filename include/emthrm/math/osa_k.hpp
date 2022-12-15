@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_MATH_OSA_K_HPP_
+#define EMTHRM_MATH_OSA_K_HPP_
+
 #include <utility>
 #include <vector>
 
 #include "emthrm/math/prime_sieve.hpp"
+
+namespace emthrm {
 
 struct OsaK {
   const std::vector<int> smallest_prime_factor;
@@ -22,3 +26,7 @@ struct OsaK {
     return res;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MATH_OSA_K_HPP_

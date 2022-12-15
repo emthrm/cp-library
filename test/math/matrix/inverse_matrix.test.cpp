@@ -6,20 +6,21 @@
 #include <iostream>
 
 #include "emthrm/math/matrix/inverse_matrix.hpp"
+#include "emthrm/math/matrix/matrix.hpp"
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
   int n;
   std::cin >> n;
-  Matrix<ModInt> a(n, n);
+  emthrm::Matrix<ModInt> a(n, n);
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       std::cin >> a[i][j];
     }
   }
-  const Matrix<ModInt> b = inverse_matrix(a, ModInt(0));
+  const emthrm::Matrix<ModInt> b = emthrm::inverse_matrix(a, ModInt(0));
   if (b.nrow() == 0) {
     std::cout << "-1\n";
   } else {

@@ -1,6 +1,10 @@
-#pragma once
+#ifndef EMTHRM_MISC_2_SAT_HPP_
+#define EMTHRM_MISC_2_SAT_HPP_
+
 #include <algorithm>
 #include <vector>
+
+namespace emthrm {
 
 struct TwoSat {
   explicit TwoSat(const int n)
@@ -64,3 +68,7 @@ struct TwoSat {
     }
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_MISC_2_SAT_HPP_

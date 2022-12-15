@@ -19,7 +19,7 @@ int main() {
       graph[c].emplace_back(i);
     }
   }
-  LowestCommonAncestorByDoubling lowest_common_ancestor(graph);
+  emthrm::LowestCommonAncestorByDoubling lowest_common_ancestor(graph);
   lowest_common_ancestor.build(0);
   int q;
   std::cin >> q;

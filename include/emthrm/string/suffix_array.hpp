@@ -1,8 +1,12 @@
-#pragma once
+#ifndef EMTHRM_STRING_SUFFIX_ARRAY_HPP_
+#define EMTHRM_STRING_SUFFIX_ARRAY_HPP_
+
 #include <algorithm>
 #include <numeric>
 #include <string>
 #include <vector>
+
+namespace emthrm {
 
 template <typename T = std::string>
 struct SuffixArray {
@@ -78,3 +82,7 @@ struct SuffixArray {
     return ub;
   }
 };
+
+}  // namespace emthrm
+
+#endif  // EMTHRM_STRING_SUFFIX_ARRAY_HPP_

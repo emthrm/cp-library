@@ -12,17 +12,17 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = MInt<0>;
+  using ModInt = emthrm::MInt<0>;
   ModInt::set_mod(998244353);
-  FormalPowerSeries<ModInt>::set_mult(
+  emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        static NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<0> ntt;
         return ntt.convolution(a, b);
       });
   int n;
   std::cin >> n;
-  const std::vector<ModInt> b = bernoulli_number<ModInt>(n);
+  const std::vector<ModInt> b = emthrm::bernoulli_number<ModInt>(n);
   for (int i = 0; i <= n; ++i) {
     std::cout << b[i] << " \n"[i == n];
   }

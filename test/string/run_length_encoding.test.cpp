@@ -13,6 +13,6 @@ int main() {
   std::cin >> n;
   std::string s;
   std::cin >> s;
-  std::cout << run_length_encoding(s).size() << '\n';
+  std::cout << emthrm::run_length_encoding(s).size() << '\n';
   return 0;
 }

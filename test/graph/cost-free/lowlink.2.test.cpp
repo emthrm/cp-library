@@ -17,7 +17,7 @@ int main() {
     graph[t].emplace_back(s);
   }
   std::vector<int> articulation_points =
-      Lowlink(graph).articulation_points;
+      emthrm::Lowlink(graph).articulation_points;
   std::sort(articulation_points.begin(), articulation_points.end());
   for (const int articulation_point : articulation_points) {
     std::cout << articulation_point << '\n';
