@@ -12,7 +12,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/data_structure/interval_managed_by_set.hpp
       title: "\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/data_structure/lazy_segment_tree.hpp
       title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     - icon: ':heavy_check_mark:'
@@ -36,7 +36,7 @@ data:
     - icon: ':question:'
       path: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
       title: Fenwick tree
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
       title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
   - name: include/emthrm/data_structure/union-find
@@ -178,7 +178,7 @@ data:
       path: include/emthrm/graph/reachability_on_dag.hpp
       title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054\
         \u53EF\u80FD\u6027\u5224\u5B9A"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/strongly_connected_components.hpp
       title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\
         \u89E3"
@@ -186,11 +186,11 @@ data:
       path: include/emthrm/graph/topological_sort.hpp
       title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological\
         \ sort)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/traveling_salesman_problem.hpp
       title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
         \ salesman problem)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/unicyclic_graph.hpp
       title: unicyclic graph / 1-tree
   - name: include/emthrm/graph/flow/matching
@@ -206,7 +206,7 @@ data:
       path: include/emthrm/graph/flow/matching/maximum_matching.hpp
       title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
         \u30B0"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
       title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\
         \u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -246,42 +246,42 @@ data:
     - icon: ':question:'
       path: include/emthrm/graph/shortest_path/dijkstra.hpp
       title: "Dijkstra \u6CD5"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/shortest_path/warshall-floyd.hpp
       title: "Warshall\u2013Floyd \u6CD5"
   - name: include/emthrm/graph/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/centroid.hpp
       title: "\u91CD\u5FC3 (centroid)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/centroid_decomposition.hpp
       title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/double_sweep.hpp
       title: double sweep
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/euler_tour.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC (Euler tour)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
       title: "HL \u5206\u89E3 (heavy-light decomposition)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
       title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
         \u30FC\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/tree/rerooting_dp.hpp
       title: "\u5168\u65B9\u4F4D\u6728 DP"
   - name: include/emthrm/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/basis.hpp
       title: "\u57FA\u5E95 (basis)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/bigint.hpp
       title: "\u591A\u500D\u9577\u6574\u6570"
     - icon: ':warning:'
@@ -290,25 +290,25 @@ data:
     - icon: ':warning:'
       path: include/emthrm/math/carmichael_function_init.hpp
       title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/catalan_number.hpp
       title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/chinese_remainder_theorem.hpp
       title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/enumerate_k-th_power.hpp
       title: $i^k \bmod m$ ($0 \leq i \leq n$)
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/enumerate_quotients.hpp
       title: "\u5546\u306E\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/ext_gcd.hpp
       title: "\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5 (extended Euclidean algorithm)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/floor_sum.hpp
       title: sum of floor of linear
     - icon: ':x:'
@@ -323,19 +323,19 @@ data:
     - icon: ':x:'
       path: include/emthrm/math/lagrange_interpolation.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u7248"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/lagrange_interpolation2.hpp
       title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u72482"
     - icon: ':x:'
       path: include/emthrm/math/least_common_multiple.hpp
       title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/mod_inv.hpp
       title: "\u9006\u5143 (inverse element)"
     - icon: ':x:'
       path: include/emthrm/math/mod_log.hpp
       title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/mod_pow.hpp
       title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\
         \u6CD5 / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -357,7 +357,7 @@ data:
     - icon: ':question:'
       path: include/emthrm/math/prime_factorization.hpp
       title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/prime_sieve.hpp
       title: prime sieve
     - icon: ':x:'
@@ -374,25 +374,25 @@ data:
       title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   - name: include/emthrm/math/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/and_convolution.hpp
       title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':question:'
       path: include/emthrm/math/convolution/fast_fourier_transform.hpp
       title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/fast_mobius_transform.hpp
       title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/fast_zeta_transform.hpp
       title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/gcd_convolution.hpp
       title: "\u6DFB\u3048\u5B57 gcd \u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/lcm_convolution.hpp
       title: "\u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/convolution/mod_convolution.hpp
       title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
     - icon: ':question:'
@@ -401,27 +401,27 @@ data:
     - icon: ':warning:'
       path: include/emthrm/math/convolution/or_convolution.hpp
       title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/xor_convolution.hpp
       title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
   - name: include/emthrm/math/euler_phi
     pages:
-    - icon: ':x:'
+    - icon: ':question:'
       path: include/emthrm/math/euler_phi/euler_phi.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/euler_phi/euler_phi_init.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/euler_phi/euler_phi_init2.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
         2"
   - name: include/emthrm/math/formal_power_series
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/formal_power_series/berlekamp-massey.hpp
       title: "Berlekamp\u2013Massey algorithm"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/formal_power_series/bernoulli_number.hpp
       title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
     - icon: ':x:'
@@ -433,11 +433,11 @@ data:
     - icon: ':warning:'
       path: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
       title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
       title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
         \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
       title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
         \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
@@ -926,17 +926,17 @@ data:
       path: test/graph/reachability_on_dag.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\
         \u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/strongly_connected_components.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
     - icon: ':x:'
       path: test/graph/topological_sort.test.cpp
       title: "\u30B0\u30E9\u30D5/\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/traveling_salesman_problem.test.cpp
       title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
         \u984C"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/unicyclic_graph.test.cpp
       title: "\u30B0\u30E9\u30D5/unicyclic graph"
   - name: test/graph/flow/matching
@@ -1002,98 +1002,98 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/shortest_path/dijkstra.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/shortest_path/warshall-floyd.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Warshall\u2013Floyd\
         \ \u6CD5"
   - name: test/graph/tree
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/centroid.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/centroid_decomposition.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/double_sweep.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/double sweep"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/heavy-light_decomposition.1.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/heavy-light_decomposition.2.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\u901A\u7956\
         \u5148)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\
         \u30D6\u30EA\u30F3\u30B0\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\
         \u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/tree/rerooting_dp.test.cpp
       title: "\u30B0\u30E9\u30D5/\u6728/\u5168\u65B9\u4F4D\u6728 DP"
   - name: test/math
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/basis.test.cpp
       title: "\u6570\u5B66/\u57FA\u5E95"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.01.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.02.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u52A0\u7B97)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.03.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6E1B\u7B97)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.04.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.05.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u9664\u7B97)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.06.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\u7B97\
         )"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.07.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03\
         )"
     - icon: ':x:'
       path: test/math/bigint.08.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u51AA\u6F14\u7B97)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/bigint.09.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u548C)"
     - icon: ':x:'
       path: test/math/bigint.10.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/catalan_number.test.cpp
       title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/chinese_remainder_theorem.test.cpp
       title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/divisor.test.cpp
       title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/enumerate_k-th_power.test.cpp
       title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/enumerate_quotients.test.cpp
       title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/ext_gcd.test.cpp
       title: "\u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/fast_divisor.test.cpp
       title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/floor_sum.test.cpp
       title: "\u6570\u5B66/sum of floor of linear"
     - icon: ':x:'
@@ -1154,7 +1154,7 @@ data:
       title: "\u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F"
   - name: test/math/convolution
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/and_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
@@ -1162,19 +1162,19 @@ data:
       path: test/math/convolution/fast_fourier_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30D5\u30FC\u30EA\
         \u30A8\u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/fast_mobius_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30E1\u30D3\u30A6\
         \u30B9\u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/fast_zeta_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30BC\u30FC\u30BF\
         \u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/gcd_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/lcm_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
@@ -1182,34 +1182,34 @@ data:
       path: test/math/convolution/mod_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\
         \u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/number_theoretic_transform.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/convolution/xor_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 xor \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
   - name: test/math/euler_phi
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/euler_phi/euler_phi.test.cpp
       title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
         /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/euler_phi/euler_phi_init.test.cpp
       title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
         /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/euler_phi/euler_phi_init2.test.cpp
       title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
         /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
   - name: test/math/formal_power_series
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/berlekamp-massey.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Berlekamp\u2013Massey\
         \ algorithm"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/bernoulli_number.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\
         \u30FC\u30A4\u6570"
@@ -1217,29 +1217,29 @@ data:
       path: test/math/formal_power_series/bostan-mori.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
         \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
         \u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\
         \u6570\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\
         \u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\
         \u30E5\u88DC\u9593\u7248"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.1.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u6307\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.2.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u9006\u5143)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.3.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u5BFE\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/formal_power_series/formal_power_series.4.test.cpp
       title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\
         \u51AA\u7D1A\u6570 (\u7D2F\u4E57)"

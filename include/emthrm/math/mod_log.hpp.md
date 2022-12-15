@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -43,7 +43,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/mod_log.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mod_log.test.cpp

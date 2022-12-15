@@ -10,13 +10,13 @@ data:
     path: test/graph/2-edge-connected_components_by_lowlink.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
       \ lowlink \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/graph/tree/lowest_common_ancestor.md
     document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
@@ -62,8 +62,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-16 05:33:31+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp

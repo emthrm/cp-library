@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
     title: "HL \u5206\u89E3 (heavy-light decomposition)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C
@@ -45,8 +45,8 @@ data:
   isVerificationFile: true
   path: test/graph/tree/heavy-light_decomposition.2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-16 05:33:31+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/heavy-light_decomposition.2.test.cpp
 layout: document

@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/double_sweep.hpp
     title: double sweep
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/tree_diameter
@@ -44,8 +44,8 @@ data:
   isVerificationFile: true
   path: test/graph/tree/double_sweep.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-16 05:33:31+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/double_sweep.test.cpp
 layout: document

@@ -7,12 +7,12 @@ data:
     path: test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/\u533A\u9593\u52A0\u7B97\u30AF\
       \u30A8\u30EA\u5BFE\u5FDC Fenwick tree"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.1.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/fenwick_tree/fenwick_tree.md
     document_title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick\
@@ -64,7 +64,7 @@ data:
   path: include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp

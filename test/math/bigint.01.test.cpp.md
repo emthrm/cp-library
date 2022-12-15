@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\
       \u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -9,14 +9,14 @@ data:
     path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
     title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
       \u53CD\u5FA9\u6CD5\u7248"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/bigint.hpp
     title: "\u591A\u500D\u9577\u6574\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679
@@ -61,7 +61,7 @@ data:
   path: test/math/bigint.01.test.cpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.01.test.cpp
 layout: document

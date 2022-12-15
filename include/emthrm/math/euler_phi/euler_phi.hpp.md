@@ -6,15 +6,15 @@ data:
     path: include/emthrm/math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/euler_phi/euler_phi.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/euler_phi/euler_phi_init.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/euler_phi/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
@@ -23,7 +23,7 @@ data:
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/euler_phi/euler_phi.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
@@ -49,7 +49,7 @@ data:
   requiredBy:
   - include/emthrm/math/is_primitive_root.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/is_primitive_root.test.cpp
   - test/math/euler_phi/euler_phi_init.test.cpp

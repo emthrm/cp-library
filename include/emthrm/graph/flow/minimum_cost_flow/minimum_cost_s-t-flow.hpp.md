@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\
       \u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -27,7 +27,7 @@ data:
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
       \u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/bigint.01.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
   _isVerificationFailed: true

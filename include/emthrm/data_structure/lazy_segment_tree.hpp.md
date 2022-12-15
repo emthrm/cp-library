@@ -23,13 +23,13 @@ data:
     path: test/data_structure/range_sum_query_and_range_update_query.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
       \u30F3\u30C8\u6728 (range sum query and range update query)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/data_structure/segment_tree.md
     document_title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
@@ -274,7 +274,7 @@ data:
   path: include/emthrm/data_structure/lazy_segment_tree.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/data_structure/range_minimum_query_and_range_update_query.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_inv.hpp
     title: "\u9006\u5143 (inverse element)"
   _extendedRequiredBy: []

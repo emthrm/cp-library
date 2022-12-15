@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/rerooting_dp.hpp
     title: "\u5168\u65B9\u4F4D\u6728 DP"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A
@@ -52,8 +52,8 @@ data:
   isVerificationFile: true
   path: test/graph/tree/rerooting_dp.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-12-16 05:33:31+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/rerooting_dp.test.cpp
 layout: document

@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp

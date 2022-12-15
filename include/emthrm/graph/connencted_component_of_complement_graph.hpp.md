@@ -46,7 +46,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/connencted_component_of_complement_graph.test.cpp

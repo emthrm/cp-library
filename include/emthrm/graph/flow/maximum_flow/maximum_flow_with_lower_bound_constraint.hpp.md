@@ -13,7 +13,7 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp\"\
-    \n\n\n\n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename\
+    \n\n\n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename\
     \ T>\nstruct MaximumFlowWithLowerBoundConstraint {\n  explicit MaximumFlowWithLowerBoundConstraint(const\
     \ int n)\n      : n(n), sum_lb(0), mf(n + 2) {}\n\n  void add_edge(const int src,\
     \ const int dst, const T lb, const T ub) {\n    mf.add_edge(src, dst, ub - lb);\n\
@@ -25,8 +25,8 @@ data:
     };\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
-    \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
-    struct MaximumFlowWithLowerBoundConstraint {\n  explicit MaximumFlowWithLowerBoundConstraint(const\
+    \nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\nstruct\
+    \ MaximumFlowWithLowerBoundConstraint {\n  explicit MaximumFlowWithLowerBoundConstraint(const\
     \ int n)\n      : n(n), sum_lb(0), mf(n + 2) {}\n\n  void add_edge(const int src,\
     \ const int dst, const T lb, const T ub) {\n    mf.add_edge(src, dst, ub - lb);\n\
     \    mf.add_edge(n, dst, lb);\n    mf.add_edge(src, n + 1, lb);\n    sum_lb +=\
@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp

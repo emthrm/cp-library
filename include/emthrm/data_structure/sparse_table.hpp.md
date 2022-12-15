@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
@@ -13,7 +13,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/sparse_table.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"

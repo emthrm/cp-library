@@ -9,7 +9,7 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/aliens_dp.hpp\"\n\n\n\
-    \n\nnamespace emthrm {\n\ntemplate <typename Real = double, typename F, typename\
+    \nnamespace emthrm {\n\ntemplate <typename Real = double, typename F, typename\
     \ T>\nReal aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat)\
     \ {\n  const auto l = [calc, d](const Real lambda) -> Real {\n    return -lambda\
     \ * d + calc(lambda);\n  };\n  Real ub = max_abs_c * 3, lb = -ub;\n  while (repeat--)\
@@ -17,7 +17,7 @@ data:
     \  if (l(mid1) > l(mid2)) {\n      ub = mid2;\n    } else {\n      lb = mid1;\n\
     \    }\n  }\n  return l(ub);\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_\n#define EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_\n\
-    \n\nnamespace emthrm {\n\ntemplate <typename Real = double, typename F, typename\
+    \nnamespace emthrm {\n\ntemplate <typename Real = double, typename F, typename\
     \ T>\nReal aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat)\
     \ {\n  const auto l = [calc, d](const Real lambda) -> Real {\n    return -lambda\
     \ * d + calc(lambda);\n  };\n  Real ub = max_abs_c * 3, lb = -ub;\n  while (repeat--)\
@@ -28,7 +28,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/aliens_dp.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/dynamic_programming/aliens_dp.hpp

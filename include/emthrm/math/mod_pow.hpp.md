@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
   - icon: ':x:'
@@ -15,7 +15,7 @@ data:
     path: include/emthrm/math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
   - icon: ':x:'
@@ -36,19 +36,19 @@ data:
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/mod_pow.hpp\"\n\n\n\n\nnamespace emthrm\
+  bundledCode: "#line 1 \"include/emthrm/math/mod_pow.hpp\"\n\n\n\nnamespace emthrm\
     \ {\n\nlong long mod_pow(long long x, long long n, const int m) {\n  if ((x %=\
     \ m) < 0) x += m;\n  long long res = 1;\n  for (; n > 0; n >>= 1) {\n    if (n\
     \ & 1) res = (res * x) % m;\n    x = (x * x) % m;\n  }\n  return res;\n}\n\n}\
     \  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_MATH_MOD_POW_HPP_\n#define EMTHRM_MATH_MOD_POW_HPP_\n\n\n\
-    namespace emthrm {\n\nlong long mod_pow(long long x, long long n, const int m)\
-    \ {\n  if ((x %= m) < 0) x += m;\n  long long res = 1;\n  for (; n > 0; n >>=\
-    \ 1) {\n    if (n & 1) res = (res * x) % m;\n    x = (x * x) % m;\n  }\n  return\
-    \ res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MOD_POW_HPP_\n"
+  code: "#ifndef EMTHRM_MATH_MOD_POW_HPP_\n#define EMTHRM_MATH_MOD_POW_HPP_\n\nnamespace\
+    \ emthrm {\n\nlong long mod_pow(long long x, long long n, const int m) {\n  if\
+    \ ((x %= m) < 0) x += m;\n  long long res = 1;\n  for (; n > 0; n >>= 1) {\n \
+    \   if (n & 1) res = (res * x) % m;\n    x = (x * x) % m;\n  }\n  return res;\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MOD_POW_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/mod_pow.hpp
@@ -57,8 +57,8 @@ data:
   - include/emthrm/math/mod_log.hpp
   - include/emthrm/math/enumerate_k-th_power.hpp
   - include/emthrm/math/is_primitive_root.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-16 05:33:31+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/is_primitive_root.test.cpp
   - test/math/mod_sqrt.test.cpp

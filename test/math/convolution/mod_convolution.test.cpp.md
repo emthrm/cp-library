@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/convolution/fast_fourier_transform.hpp
     title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':question:'

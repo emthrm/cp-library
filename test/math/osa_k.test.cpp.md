@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: include/emthrm/math/osa_k.hpp
     title: "osa_k \u6CD5"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []

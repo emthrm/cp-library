@@ -11,11 +11,11 @@ data:
   _verificationStatusIcon: ':x:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/is_prime.hpp\"\n\n\n\n\nnamespace emthrm\
+  bundledCode: "#line 1 \"include/emthrm/math/is_prime.hpp\"\n\n\n\nnamespace emthrm\
     \ {\n\nbool is_prime(const long long n) {\n  if (n <= 1) return false;\n  for\
     \ (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return false;\n  }\n\
     \  return true;\n}\n\n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_MATH_IS_PRIME_HPP_\n#define EMTHRM_MATH_IS_PRIME_HPP_\n\n\n\
+  code: "#ifndef EMTHRM_MATH_IS_PRIME_HPP_\n#define EMTHRM_MATH_IS_PRIME_HPP_\n\n\
     namespace emthrm {\n\nbool is_prime(const long long n) {\n  if (n <= 1) return\
     \ false;\n  for (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return\
     \ false;\n  }\n  return true;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_IS_PRIME_HPP_\n"
@@ -23,7 +23,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/is_prime.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/is_prime.test.cpp

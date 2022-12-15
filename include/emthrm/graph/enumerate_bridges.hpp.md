@@ -53,7 +53,7 @@ data:
   path: include/emthrm/graph/enumerate_bridges.hpp
   requiredBy:
   - include/emthrm/graph/2-edge-connected_components_by_imos.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/enumerate_bridges.test.cpp

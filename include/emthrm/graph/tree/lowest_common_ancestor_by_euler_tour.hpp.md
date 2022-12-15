@@ -7,18 +7,18 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/euler_tour.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC (Euler tour)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/tree/lowest_common_ancestor.md
     document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\
@@ -57,8 +57,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-12-16 05:33:31+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp

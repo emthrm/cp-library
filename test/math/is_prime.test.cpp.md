@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/math/is_prime.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/is_prime.test.cpp

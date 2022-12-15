@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []

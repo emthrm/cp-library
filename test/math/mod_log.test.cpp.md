@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: include/emthrm/math/mod_log.hpp
     title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: test/math/mod_log.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mod_log.test.cpp

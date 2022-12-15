@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []

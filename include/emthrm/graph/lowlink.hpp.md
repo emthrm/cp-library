@@ -68,7 +68,7 @@ data:
   requiredBy:
   - include/emthrm/graph/biconnected_component.hpp
   - include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/lowlink.1.test.cpp

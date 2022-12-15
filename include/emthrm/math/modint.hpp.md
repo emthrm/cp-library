@@ -6,10 +6,10 @@ data:
     path: include/emthrm/graph/flow/matching/maximum_matching.hpp
     title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/catalan_number.hpp
     title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':question:'
@@ -18,11 +18,11 @@ data:
   - icon: ':warning:'
     path: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
     title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
       \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
       \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
@@ -70,21 +70,21 @@ data:
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/catalan_number.test.cpp
     title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/and_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/gcd_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/lcm_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
@@ -92,18 +92,18 @@ data:
     path: test/math/convolution/mod_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\
       \u3067\u306E\u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/number_theoretic_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/xor_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 xor \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/berlekamp-massey.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Berlekamp\u2013Massey\
       \ algorithm"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
@@ -111,29 +111,29 @@ data:
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\
       \u88DC\u9593\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u6307\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u9006\u5143)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5BFE\u6570)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u7D2F\u4E57)"

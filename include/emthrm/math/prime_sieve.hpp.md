@@ -5,10 +5,10 @@ data:
   - icon: ':warning:'
     path: include/emthrm/math/carmichael_function_init.hpp
     title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/euler_phi/euler_phi_init2.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
       2"
@@ -19,14 +19,14 @@ data:
     path: include/emthrm/math/osa_k.hpp
     title: "osa_k \u6CD5"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/euler_phi/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/fast_divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
   - icon: ':x:'
@@ -41,7 +41,7 @@ data:
     title: "\u6570\u5B66/prime sieve"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/prime_sieve.hpp\"\n\n\n\n#include <numeric>\n\
@@ -72,7 +72,7 @@ data:
   - include/emthrm/math/osa_k.hpp
   - include/emthrm/math/enumerate_k-th_power.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/euler_phi/euler_phi_init2.test.cpp
   - test/math/mobius_mu/mobius_mu_init2.test.cpp

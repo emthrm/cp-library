@@ -10,7 +10,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/lowlink.hpp
     title: lowlink
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
   _extendedRequiredBy: []
@@ -58,7 +58,7 @@ data:
   isVerificationFile: true
   path: test/graph/2-edge-connected_components_by_lowlink.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/2-edge-connected_components_by_lowlink.test.cpp

@@ -4,7 +4,7 @@ data:
   - icon: ':x:'
     path: include/emthrm/math/least_common_multiple.hpp
     title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []

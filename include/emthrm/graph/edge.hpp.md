@@ -65,42 +65,42 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/shortest_path/dijkstra.hpp
     title: "Dijkstra \u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/strongly_connected_components.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\u89E3"
   - icon: ':x:'
     path: include/emthrm/graph/topological_sort.hpp
     title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological sort)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/traveling_salesman_problem.hpp
     title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
       \ salesman problem)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/centroid_decomposition.hpp
     title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/double_sweep.hpp
     title: double sweep
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/euler_tour.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC (Euler tour)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
     title: "HL \u5206\u89E3 (heavy-light decomposition)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/rerooting_dp.hpp
     title: "\u5168\u65B9\u4F4D\u6728 DP"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/unicyclic_graph.hpp
     title: unicyclic graph / 1-tree
   _extendedVerifiedWith:
@@ -174,47 +174,47 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/shortest_path/dijkstra.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6700\u77ED\u8DEF\u554F\u984C/Dijkstra \u6CD5"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/strongly_connected_components.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':x:'
     path: test/graph/topological_sort.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/double_sweep.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/double sweep"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.1.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.2.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\u901A\u7956\
       \u5148)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/tree/rerooting_dp.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u5168\u65B9\u4F4D\u6728 DP"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/unicyclic_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/unicyclic graph"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/basis.test.cpp
     title: "\u6570\u5B66/\u57FA\u5E95"
   - icon: ':x:'
@@ -227,7 +227,7 @@ data:
     document_title: "\u8FBA"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @brief \u8FBA\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n\nnamespace\
+    \ */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\nnamespace\
     \ emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  int src, dst;\n \
     \ CostType cost;\n  explicit Edge(const int src, const int dst, const CostType\
     \ cost = 0)\n      : src(src), dst(dst), cost(cost) {}\n  inline bool operator<(const\
@@ -237,7 +237,7 @@ data:
     \ x) const { return x < *this; }\n  inline bool operator>=(const Edge& x) const\
     \ { return !(*this < x); }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n"
   code: "/**\n * @brief \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  int src,\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  int src,\
     \ dst;\n  CostType cost;\n  explicit Edge(const int src, const int dst, const\
     \ CostType cost = 0)\n      : src(src), dst(dst), cost(cost) {}\n  inline bool\
     \ operator<(const Edge& x) const {\n    if (cost != x.cost) return cost < x.cost;\n\
@@ -281,7 +281,7 @@ data:
   - include/emthrm/graph/eulerian_trail_in_directed_graph.hpp
   - include/emthrm/graph/detect_path.hpp
   - include/emthrm/graph/girth_in_directed_graph.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/detect_directed_cycle.test.cpp

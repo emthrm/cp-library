@@ -47,7 +47,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/detect_directed_cycle.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/detect_directed_cycle.test.cpp
