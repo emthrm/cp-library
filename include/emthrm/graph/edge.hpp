@@ -5,7 +5,6 @@
 #ifndef EMTHRM_GRAPH_EDGE_HPP_
 #define EMTHRM_GRAPH_EDGE_HPP_
 
-
 namespace emthrm {
 
 template <typename CostType>

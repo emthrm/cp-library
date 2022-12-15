@@ -1,7 +1,6 @@
 #ifndef EMTHRM_MATH_MOD_POW_HPP_
 #define EMTHRM_MATH_MOD_POW_HPP_
 
-
 namespace emthrm {
 
 long long mod_pow(long long x, long long n, const int m) {

@@ -1,7 +1,6 @@
 #ifndef EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_
 #define EMTHRM_DYNAMIC_PROGRAMMING_ALIENS_DP_HPP_
 
-
 namespace emthrm {
 
 template <typename Real = double, typename F, typename T>
