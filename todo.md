@@ -1,13 +1,13 @@
 # Burrows–Wheeler 変換 (Burrows–Wheeler transform)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%82%BD%E3%83%BC%E3%83%88
 - https://docs.google.com/presentation/d/1Sx_d4Mu2dO39cF7xWyEGU7Uqby996dll5Ef9VfnfZYU
 
 
 # Cartesian tree
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Cartesian_tree
 - https://kmyk.github.io/blog/blog/2020/07/27/recursion-on-cartesian-tree/
 - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/cartesian_tree.cc
@@ -17,14 +17,14 @@
 
 # color-coding
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Color-coding
 - https://tech.preferred.jp/ja/blog/color-coding/
 
 
 # dominator tree
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Dominator_(graph_theory)
 - https://drive.google.com/drive/folders/1haW6Bv6LYmJQlZxMPcEbJP5HXW2A-Kbf
 - https://knshnb.github.io/competitive_library/library/src/Graph/DominatorTree.hpp.html
@@ -37,7 +37,7 @@
 
 # Dulmage–Mendelsohn decomposition
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Dulmage%E2%80%93Mendelsohn_decomposition
 - https://hitonanode.github.io/cplib-cpp/graph/dulmage_mendelsohn_decomposition.hpp
 - https://sotanishy.github.io/cp-library-cpp/flow/dm_decomposition.cpp
@@ -50,7 +50,7 @@
 
 # Hackenbush
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Hackenbush
 - https://www.link.cs.cmu.edu/15859-s11/notes/Hackenbush.pdf
 - https://klein.mit.edu/~rstan/transparencies/games.pdf
@@ -61,14 +61,14 @@
 
 # Lenstra–Lenstra–Lovász lattice basis reduction algorithm
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Lenstra%E2%80%93Lenstra%E2%80%93Lov%C3%A1sz_lattice_basis_reduction_algorithm
 - https://yukicoder.me/problems/no/3014
 
 
 # lexicographic breadth-first search
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Lexicographic_breadth-first_search
 - https://chocobaby-aporo.hatenablog.com/entry/2018/12/25/011447
 - https://www.jaist.ac.jp/~uehara/etc/la/02/index.html
@@ -76,7 +76,7 @@
 
 # link-cut tree
 
-## ToDo
+## TODO
 - https://www.hamayanhamayan.com/entry/2018/07/13/093346
 - https://www.slideshare.net/iwiwi/2-12188845
 - ~~https://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376~~
@@ -110,7 +110,7 @@
 
 # Menger's theorem
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%B3%E3%82%AC%E3%83%BC%E3%81%AE%E5%AE%9A%E7%90%86
 - https://37zigen.com/menger-theorem/
 - https://atcoder.jp/contests/utpc2021/editorial/3577
@@ -118,7 +118,7 @@
 
 # permutation tree
 
-## ToDo
+## TODO
 - https://codeforces.com/blog/entry/78898
 - https://twitter.com/noshi91/status/1477934158911782915
 - https://twitter.com/hotmanww/status/1477928012629049347
@@ -131,7 +131,7 @@
 
 # policy based data structures
 
-## ToDo
+## TODO
 - https://xuzijian629.hatenablog.com/entry/2018/12/01/000010
 - http://hogloid.hatenablog.com/entry/2014/09/23/132440
 - https://codeforces.com/blog/entry/11080
@@ -140,7 +140,7 @@
 
 # rope
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Rope_(data_structure)
 - 永続ロープ
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_rope.cc
@@ -148,7 +148,7 @@
 
 # sack (DSU on tree)
 
-## ToDo
+## TODO
 - https://dic.kimiyuki.net/dsu-on-tree
 - https://codeforces.com/blog/entry/44351
 - https://camypaper.bitbucket.io/2016/12/18/adc2016/
@@ -160,7 +160,7 @@
 
 # sliding-window aggregation
 
-## ToDo
+## TODO
 - https://scrapbox.io/data-structures/Sliding_Window_Aggregation
 - https://github.com/ei1333/library/blob/master/structure/others/sliding-window-aggregation.cpp
 - https://mugen1337.github.io/procon/DataStructure/SlidingWindowAgregation.cpp
@@ -171,7 +171,7 @@
 
 # top tree
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Top_tree
 - https://scrapbox.io/data-structures/Top_Tree
 - https://niuez.hatenablog.com/entry/2019/08/04/191420
@@ -191,7 +191,7 @@
 
 # triangle enumeration
 
-## ToDo
+## TODO
 - https://www.slideshare.net/catupper/trianguler
 - https://sotanishy.github.io/cp-library-cpp/graph/enumerate_triangles.cpp
 - https://github.com/yosupo06/library-checker-problems/issues/442
@@ -199,7 +199,7 @@
 
 # van Emde Boas tree
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Van_Emde_Boas_tree
 - https://twitter.com/hcpc_hokudai/status/1377524137321582594
 - https://kopricky.github.io/code/Academic/van_emde_boas_tree.html
@@ -212,7 +212,7 @@
 
 # y-fast trie
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Y-fast_trie
 - https://qiita.com/goonew/items/6ffac4b5e48dc05ca884
 - https://shibh308.hatenablog.com/entry/2020/04/14/232852
@@ -222,7 +222,7 @@
 
 # ウェーブレット行列 (wavelet matrix)
 
-## ToDo
+## TODO
 - https://www.hamayanhamayan.com/entry/2017/06/13/103352
 - https://takeda25.hatenablog.jp/entry/20130303/1362301095
 - http://miti-7.hatenablog.com/entry/2018/04/28/152259
@@ -248,7 +248,7 @@
 
 # ウェーブレット木 (wavelet tree)
 
-## ToDo
+## TODO
 - https://www.slideshare.net/pfi/ss-15916040
 - https://takeda25.hatenablog.jp/entry/20120804/1344066875
 - https://echizen-tm.hatenadiary.org/entry/20100822/1282489619
@@ -259,7 +259,7 @@
 
 # 永続データ構造 (persistent data structure)
 
-## ToDo
+## TODO
 - https://www.slideshare.net/qnighy/re-15443018
 - https://trap.jp/post/663/
 - https://qiita.com/hotman78/items/9c643feae1de087e6fc5
@@ -286,7 +286,7 @@ $$
   (m - 1)! \equiv -1 \pmod{m}
 $$
 
-## ToDo
+## TODO
 - https://github.com/beet-aizu/library/blob/master/mod/factorial.cpp
 - $O(\sqrt{M} \log{M})$ に高速化する．
   - ~~https://min-25.hatenablog.com/entry/2017/04/10/215046~~
@@ -299,7 +299,7 @@ $$
 
 # 簡潔ビットベクトル (succinct indexable dictionaries)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E7%B0%A1%E6%BD%94%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0
 - https://misteer.hatenablog.com/entry/bit-vector
 - https://drive.google.com/file/d/167ZbJaMlaqsu5PxfrS2pqb7uOVLrqj5Z
@@ -310,7 +310,7 @@ $$
 
 # 木の同型性判定
 
-## ToDo
+## TODO
 - https://www.hamayanhamayan.com/entry/2017/02/06/233824
 - https://github.com/imulan/procon/issues/5
 - http://chocobaby-aporo.hatenablog.com/entry/2017/12/05/233027
@@ -327,7 +327,7 @@ $$
 
 # グラフの同型性判定
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E3%82%B0%E3%83%A9%E3%83%95%E5%90%8C%E5%9E%8B
 - ~~http://www.prefield.com/algorithm/graph/isomorphism.html~~
 - https://github.com/spaghetti-source/algorithm/blob/master/graph/isomorphism.cc
@@ -335,7 +335,7 @@ $$
 
 # 構文解析 (parse)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E6%A7%8B%E6%96%87%E8%A7%A3%E6%9E%90
 - https://gist.github.com/draftcode/1357281
 - https://www.hamayanhamayan.com/entry/2018/07/13/085956
@@ -348,7 +348,7 @@ $$
 
 # ゴモリ・フー木 (Gomory–Hu tree)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E3%82%B4%E3%83%A2%E3%83%AA%E3%83%BB%E3%83%95%E3%83%BC%E6%9C%A8
 - ~~http://www.prefield.com/algorithm/graph/gomory_hu.html~~
 - https://github.com/spaghetti-source/algorithm/blob/master/graph/gomory_hu_tree.cc
@@ -356,7 +356,7 @@ $$
 
 # 順序木
 
-## ToDo
+## TODO
 - https://drive.google.com/file/d/1s6x_07yD54QVXrIgyUfF4Wu5qzmt1I4U
 
 
@@ -367,7 +367,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 ## 参考
 - https://ja.wikipedia.org/wiki/%E4%B9%97%E6%B3%95%E7%9A%84%E9%96%A2%E6%95%B0
 
-## ToDo
+## TODO
 - https://nyaannyaan.github.io/library/multiplicative-function/sum-of-multiplicative-function.hpp.html
 - https://rsk0315.github.io/slides/prime-counting.pdf
 - https://atcoder.jp/contests/abc239/tasks/abc239_h
@@ -375,7 +375,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 線形マトロイドパリティ問題
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Matroid_parity_problem
 - https://bigdata.nii.ac.jp/eratokansyasai4/wp-content/uploads/2017/09/f744cb6c19b28f67eacbc10721e1b526.pdf
 - https://yukicoder.me/problems/no/1773
@@ -384,7 +384,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 中国人郵便配達問題 (Chinese postman problem)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E9%83%B5%E4%BE%BF%E9%85%8D%E9%81%94%E5%95%8F%E9%A1%8C
 - ~~http://www.prefield.com/algorithm/graph/undirected_chinese_postman.html~~
 - https://tubo28.me/compprog/algorithm/cpp/
@@ -392,7 +392,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # テトレーション (tetration)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E3%83%86%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
 - https://yukicoder.me/problems/no/181/editorial
 - https://github.com/ei1333/library/blob/master/math/combinatorics/mod-tetration.cpp
@@ -402,7 +402,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # ヒープ (heap)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%97
 - http://hos.ac/blog/#blog0001
 - https://github.com/ei1333/library/tree/master/structure/heap
@@ -469,7 +469,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 非不偏ゲーム (partisan game)
 
-## ToDo
+## TODO
 - https://en.wikipedia.org/wiki/Partisan_game
 - http://www.ivis.co.jp/text/20111102.pdf
 - hot game / cold game
@@ -480,7 +480,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 平衡二分探索木 (self-balancing binary search tree)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8
 - https://www.slideshare.net/iwiwi/2-12188757
 - https://scrapbox.io/data-structures/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%81%A8%E3%81%AF
@@ -558,7 +558,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 平面グラフ (plane graph)
 
-## ToDo
+## TODO
 - https://ja.wikipedia.org/wiki/%E5%B9%B3%E9%9D%A2%E3%82%B0%E3%83%A9%E3%83%95
 - https://xuzijian629.hatenablog.com/entry/2019/12/14/163726
 - https://yukicoder.me/problems/no/1777
@@ -566,7 +566,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，
 
 # 文字列の検索
 
-## ToDo
+## TODO
 - https://www.slideshare.net/kazumamikami1/ss-16964389
 - https://speakerdeck.com/shibh308/wen-zi-lie-suo-yin-towen-zi-lie-ya-suo
 - shift-and アルゴリズム
@@ -596,5 +596,5 @@ $$
 ## 参考
 - https://ja.wikipedia.org/wiki/%E7%B4%84%E6%95%B0%E9%96%A2%E6%95%B0
 
-## ToDo
+## TODO
 - https://github.com/spaghetti-source/algorithm/blob/master/number_theory/divisor_sigma.cc

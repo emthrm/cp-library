@@ -1,46 +1,43 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/enumerate_quotients.hpp
+  - icon: ':x:'
+    path: include/emthrm/math/enumerate_quotients.hpp
     title: "\u5546\u306E\u5217\u6319"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc230/tasks/abc230_e
     document_title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
     links:
     - https://atcoder.jp/contests/abc230/tasks/abc230_e
-  bundledCode: "#line 1 \"test/math/enumerate_quotients.test.cpp\"\n/*\n * @brief\
-    \ \u6570\u5B66/\u5546\u306E\u5217\u6319\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc230/tasks/abc230_e\"\
-    \n\n#include <iostream>\n#include <tuple>\n\n#line 3 \"math/enumerate_quotients.hpp\"\
-    \n#include <vector>\n\ntemplate <typename T>\nstd::vector<std::tuple<T, T, T>>\
-    \ enumerate_quotients(const T n) {\n  std::vector<std::tuple<T, T, T>> quotients;\n\
-    \  for (T l = 1; l <= n;) {\n    const T quotient = n / l, r = n / quotient +\
-    \ 1;\n    quotients.emplace_back(l, r, quotient);\n    l = r;\n  }\n  return quotients;\n\
-    }\n#line 10 \"test/math/enumerate_quotients.test.cpp\"\n\nint main() {\n  long\
-    \ long n;\n  std::cin >> n;\n  long long ans = 0;\n  for (const std::tuple<long\
-    \ long, long long, long long>& lrq\n       : enumerate_quotients(n)) {\n    long\
-    \ long l, r, q;\n    std::tie(l, r, q) = lrq;\n    ans += q * (r - l);\n  }\n\
-    \  std::cout << ans << '\\n';\n  return 0;\n}\n"
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/enumerate_quotients.hpp:\
+    \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u5546\u306E\u5217\u6319\n */\n#define PROBLEM\
     \ \"https://atcoder.jp/contests/abc230/tasks/abc230_e\"\n\n#include <iostream>\n\
-    #include <tuple>\n\n#include \"../../math/enumerate_quotients.hpp\"\n\nint main()\
+    #include <tuple>\n\n#include \"emthrm/math/enumerate_quotients.hpp\"\n\nint main()\
     \ {\n  long long n;\n  std::cin >> n;\n  long long ans = 0;\n  for (const std::tuple<long\
-    \ long, long long, long long>& lrq\n       : enumerate_quotients(n)) {\n    long\
-    \ long l, r, q;\n    std::tie(l, r, q) = lrq;\n    ans += q * (r - l);\n  }\n\
-    \  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \ long, long long, long long>& lrq\n       : emthrm::enumerate_quotients(n)) {\n\
+    \    long long l, r, q;\n    std::tie(l, r, q) = lrq;\n    ans += q * (r - l);\n\
+    \  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
-  - math/enumerate_quotients.hpp
+  - include/emthrm/math/enumerate_quotients.hpp
   isVerificationFile: true
   path: test/math/enumerate_quotients.test.cpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-15 22:18:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/enumerate_quotients.test.cpp
 layout: document

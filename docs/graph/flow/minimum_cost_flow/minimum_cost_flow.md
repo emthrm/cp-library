@@ -54,7 +54,7 @@
 - https://snuke.hatenablog.com/entry/2017/06/07/115821
 
 
-## ToDo
+## TODO
 
 - 容量スケーリング
   - https://misawa.github.io/others/flow/lets_use_capacity_scaling.html

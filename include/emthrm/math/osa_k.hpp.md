@@ -1,0 +1,73 @@
+---
+data:
+  _extendedDependsOn:
+  - icon: ':x:'
+    path: include/emthrm/math/prime_sieve.hpp
+    title: prime sieve
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/math/osa_k.test.cpp
+    title: "\u6570\u5B66/osa_k \u6CD5"
+  _isVerificationFailed: true
+  _pathExtension: hpp
+  _verificationStatusIcon: ':x:'
+  attributes:
+    links: []
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/prime_sieve.hpp:\
+    \ line -1: no such header\n"
+  code: "#ifndef EMTHRM_MATH_OSA_K_HPP_\n#define EMTHRM_MATH_OSA_K_HPP_\n\n#include\
+    \ <utility>\n#include <vector>\n\n#include \"emthrm/math/prime_sieve.hpp\"\n\n\
+    namespace emthrm {\n\nstruct OsaK {\n  const std::vector<int> smallest_prime_factor;\n\
+    \n  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false))\
+    \ {}\n\n  std::vector<std::pair<int, int>> query(int n) const {\n    std::vector<std::pair<int,\
+    \ int>> res;\n    while (n > 1) {\n      const int prime = smallest_prime_factor[n];\n\
+    \      int exponent = 0;\n      for (; smallest_prime_factor[n] == prime; n /=\
+    \ prime) {\n        ++exponent;\n      }\n      res.emplace_back(prime, exponent);\n\
+    \    }\n    return res;\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_OSA_K_HPP_\n"
+  dependsOn:
+  - include/emthrm/math/prime_sieve.hpp
+  isVerificationFile: false
+  path: include/emthrm/math/osa_k.hpp
+  requiredBy: []
+  timestamp: '2022-12-15 22:18:37+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/math/osa_k.test.cpp
+documentation_of: include/emthrm/math/osa_k.hpp
+layout: document
+title: "osa_k \u6CD5"
+---
+
+[prime sieve](prime_sieve.md) を用いた[素因数分解](prime_factorization.md)である．
+
+
+## 時間計算量
+
+$\langle O(N), O(\log{N}) \rangle$
+
+
+## 使用法
+
+||説明|
+|:--:|:--:|
+|`smallest_prime_factor[i]`|$i$ の最小素因数|
+|`OsaK(n)`|$n$ 以下における osa_k 法を考える．|
+|`query(n)`|$n$ の素因数分解|
+
+
+## 参考
+
+- http://www.osak.jp/diary/diary_201310.html#20131017
+
+
+## Verified
+
+https://atcoder.jp/contests/abc177/submissions/20504644

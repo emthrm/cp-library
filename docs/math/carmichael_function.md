@@ -44,6 +44,6 @@ $$
 - https://github.com/spaghetti-source/algorithm/blob/8af3698b8a7583035857280ab324c8ae75c70374/number_theory/carmichael_lambda.cc
 
 
-## ToDo
+## TODO
 
 - https://onlinejudge.u-aizu.ac.jp/problems/2720

@@ -124,7 +124,7 @@ $$
 - https://judge.yosupo.jp/submission/300
 
 
-## ToDo
+## TODO
 
 - $x^k \equiv a \pmod{p}$ ($a, k \in \mathbb{Z},\ k \geq 0,\ p \in \mathbb{P}$) を満たす $x$ を求める．
   - https://yukicoder.me/problems/3866

@@ -53,7 +53,7 @@ e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
 - https://sotanishy.github.io/cp-library-cpp/convolution/arbitrary_mod_convolution.hpp
 
 
-## ToDo
+## TODO
 
 - 数論変換を用いた任意の法の下での畳み込み
   - https://math314.hateblo.jp/entry/2015/05/07/014908

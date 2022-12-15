@@ -43,7 +43,7 @@
 - https://github.com/drken1215/algorithm/blob/efb8cf052b095e49e70135a6fb628308d06f49b2/DataStructureOnTree/euler_tour_on_nodes.cpp
 
 
-## ToDo
+## TODO
 
 - Tarjan's off-line lowest common ancestors algorithm
   - http://www.prefield.com/algorithm/graph/least_common_ancestor.html

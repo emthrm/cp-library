@@ -1,7 +1,9 @@
-# library
+# cp-library
 
-[![Actions Status](https://github.com/emthrm/library/workflows/Verify/badge.svg)](https://github.com/emthrm/library/actions)
-[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://emthrm.github.io/library/)
+[![Actions Status](https://github.com/emthrm/cp-library/workflows/Verify/badge.svg)](https://github.com/emthrm/cp-library/actions)
+[![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://emthrm.github.io/cp-library/)
+
+Library for competitive programming
 
 
 ## Attention
@@ -10,12 +12,12 @@
 - The author is not responsible for any damage arising from this library.
 - It is highly recommended to refer to the links.
 - This library requires C++11 and GCC built-in functions.
-- See [here](https://github.com/emthrm/library/issues/2) for my style.
+- See [here](https://github.com/emthrm/cp-library/issues/2) for my style.
 
 
 ## Thanks
 
-[Online Judge Verify Helper](https://github.com/kmyk/online-judge-verify-helper)
+[online-judge-tools/verification-helper](https://github.com/kmyk/online-judge-verify-helper)
 
 
 ## License

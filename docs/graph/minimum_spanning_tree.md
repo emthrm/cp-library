@@ -30,7 +30,7 @@ Kruskal 法
 - https://github.com/spaghetti-source/algorithm/blob/64d34fb9b940a3e933cf36c4dd26b7457b42f50b/graph/kruskal.cc
 
 
-## ToDo
+## TODO
 
 - https://www.slideshare.net/tmaehara/ss-17402143
 - https://twitter.com/noshi91/status/1482583425421029376

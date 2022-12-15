@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: graph/flow/matching/bipartite_matching.hpp
+    path: include/emthrm/graph/flow/matching/bipartite_matching.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
   _extendedRequiredBy: []
@@ -18,32 +18,29 @@ data:
       \u30B0"
     links:
     - https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
-    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ graph/flow/matching/bipartite_matching.hpp: line 6: #pragma once found in a\
-    \ non-first line\n"
+    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/flow/matching/bipartite_matching.hpp:\
+    \ line -1: no such header\n"
   code: "/*\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\
     \u30B0/\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
     \u30B0\n */\n#define PROBLEM \"https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A\"\
-    \n\n#include <iostream>\n\n#include \"../../../../graph/flow/matching/bipartite_matching.hpp\"\
-    \n\nint main() {\n  int x, y, e;\n  std::cin >> x >> y >> e;\n  BipartiteMatching\
+    \n\n#include <iostream>\n\n#include \"emthrm/graph/flow/matching/bipartite_matching.hpp\"\
+    \n\nint main() {\n  int x, y, e;\n  std::cin >> x >> y >> e;\n  emthrm::BipartiteMatching\
     \ bipartite_matching(x + y);\n  while (e--) {\n    int x_i, y_i;\n    std::cin\
     \ >> x_i >> y_i;\n    bipartite_matching.add_edge(x_i, y_i + x);\n  }\n  std::cout\
     \ << bipartite_matching.solve() << '\\n';\n  return 0;\n}\n"
   dependsOn:
-  - graph/flow/matching/bipartite_matching.hpp
+  - include/emthrm/graph/flow/matching/bipartite_matching.hpp
   isVerificationFile: true
   path: test/graph/flow/matching/bipartite_matching.test.cpp
   requiredBy: []
-  timestamp: '2022-04-18 04:59:03+09:00'
+  timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/matching/bipartite_matching.test.cpp

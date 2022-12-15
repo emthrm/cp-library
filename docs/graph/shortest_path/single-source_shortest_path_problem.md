@@ -42,7 +42,7 @@ Dijkstra 法
 - https://github.com/spaghetti-source/algorithm/blob/af9a22a92953e903c474e98e79107103adbd0a53/graph/dijkstra.cc
 
 
-## ToDo
+## TODO
 
 - shortest path faster algorithm
   - https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm

@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: math/convolution/number_theoretic_transform.hpp
+  - icon: ':question:'
+    path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
-  - icon: ':heavy_check_mark:'
-    path: math/formal_power_series/formal_power_series.hpp
+  - icon: ':question:'
+    path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
-    path: math/modint.hpp
+    path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
-    path: math/twelvefold_way/partition_function_by_fps.hpp
+  - icon: ':x:'
+    path: include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
     title: "\u5206\u5272\u6570 $n = m$ \u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/partition_function
@@ -25,40 +25,37 @@ data:
       \ \u7248"
     links:
     - https://judge.yosupo.jp/problem/partition_function
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.11.0/x64/lib/python3.11/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 312, in update\n    raise BundleErrorAt(path, i + 1, \"#pragma once found\
-    \ in a non-first line\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ math/convolution/number_theoretic_transform.hpp: line 6: #pragma once found\
-    \ in a non-first line\n"
+    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/convolution/number_theoretic_transform.hpp:\
+    \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$\
     \ \u7248\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/partition_function\"\
-    \n\n#include <iostream>\n#include <vector>\n\n#include \"../../../math/convolution/number_theoretic_transform.hpp\"\
-    \n#include \"../../../math/formal_power_series/formal_power_series.hpp\"\n#include\
-    \ \"../../../math/modint.hpp\"\n#include \"../../../math/twelvefold_way/partition_function_by_fps.hpp\"\
-    \n\nint main() {\n  using ModInt = MInt<0>;\n  ModInt::set_mod(998244353);\n \
-    \ FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>& a,\
-    \ const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n        static\
-    \ NumberTheoreticTransform<0> ntt;\n        return ntt.convolution(a, b);\n  \
-    \    });\n  int n;\n  std::cin >> n;\n  const std::vector<ModInt> p = partition_function_by_fps<ModInt>(n);\n\
-    \  for (int i = 0; i <= n; ++i) {\n    std::cout << p[i] << \" \\n\"[i == n];\n\
-    \  }\n  return 0;\n}\n"
+    \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
+    \ \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/partition_function_by_fps.hpp\"\
+    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n\
+    \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
+    \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
+    \   static emthrm::NumberTheoreticTransform<0> ntt;\n        return ntt.convolution(a,\
+    \ b);\n      });\n  int n;\n  std::cin >> n;\n  const std::vector<ModInt> p =\
+    \ emthrm::partition_function_by_fps<ModInt>(n);\n  for (int i = 0; i <= n; ++i)\
+    \ {\n    std::cout << p[i] << \" \\n\"[i == n];\n  }\n  return 0;\n}\n"
   dependsOn:
-  - math/convolution/number_theoretic_transform.hpp
-  - math/modint.hpp
-  - math/formal_power_series/formal_power_series.hpp
-  - math/twelvefold_way/partition_function_by_fps.hpp
+  - include/emthrm/math/convolution/number_theoretic_transform.hpp
+  - include/emthrm/math/modint.hpp
+  - include/emthrm/math/formal_power_series/formal_power_series.hpp
+  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
   requiredBy: []
-  timestamp: '2022-08-08 06:04:36+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-12-15 22:18:37+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/partition_function_by_fps.test.cpp
 layout: document

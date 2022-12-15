@@ -41,7 +41,7 @@ $n$ を法とする原始根を $g$ とすると，任意の $a \in \mathbb{Z}$ 
   - https://hackmd.io/@qLethon/SJV41ERNL
 
 
-## ToDo
+## TODO
 
 - 高速化
   - https://twitter.com/noshi91/status/1317022141599002624

@@ -41,7 +41,7 @@ $$
 - https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%A4%E3%83%A9%E3%83%BC%E3%81%AE%E4%BA%94%E8%A7%92%E6%95%B0%E5%AE%9A%E7%90%86
 
 
-## ToDo
+## TODO
 
 - オイラーの五角数定理 (Euler's pentagonal number theorem)
   - https://en.wikipedia.org/wiki/Pentagonal_number_theorem
