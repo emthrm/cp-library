@@ -9,12 +9,12 @@ data:
     path: include/emthrm/math/carmichael_function_init.hpp
     title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/least_common_multiple.test.cpp
     title: "\u6570\u5B66/\u6700\u5C0F\u516C\u500D\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/least_common_multiple.hpp\"\n\n\n\n\
@@ -32,7 +32,7 @@ data:
   - include/emthrm/math/carmichael_function_init.hpp
   - include/emthrm/math/carmichael_function.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/least_common_multiple.test.cpp
 documentation_of: include/emthrm/math/least_common_multiple.hpp

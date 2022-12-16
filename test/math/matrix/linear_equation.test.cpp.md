@@ -7,11 +7,11 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/shortest_path/dijkstra.hpp
     title: "Dijkstra \u6CD5"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation)"
   - icon: ':question:'
@@ -19,9 +19,9 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: 1e-8
@@ -72,7 +72,7 @@ data:
   path: test/math/matrix/linear_equation.test.cpp
   requiredBy: []
   timestamp: '2022-12-16 05:33:31+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/matrix/linear_equation.test.cpp
 layout: document

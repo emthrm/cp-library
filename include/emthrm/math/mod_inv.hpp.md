@@ -5,19 +5,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/chinese_remainder_theorem.hpp
     title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/simultaneous_linear_congruence.hpp
     title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/chinese_remainder_theorem.test.cpp
     title: "\u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/simultaneous_linear_congruence.test.cpp
     title: "\u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/mod_inv.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -41,7 +41,7 @@ data:
   - include/emthrm/math/chinese_remainder_theorem.hpp
   - include/emthrm/math/simultaneous_linear_congruence.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/simultaneous_linear_congruence.test.cpp
   - test/math/chinese_remainder_theorem.test.cpp

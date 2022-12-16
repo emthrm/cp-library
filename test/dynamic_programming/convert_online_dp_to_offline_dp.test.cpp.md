@@ -5,7 +5,7 @@ data:
     path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
       \u63DB"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':question:'

@@ -5,21 +5,21 @@ data:
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
     title: "\u30D9\u30EB\u6570\u306E\u6570\u8868"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
       \u306E\u6570\u8868"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/stirling_number/stirling_number.md
     document_title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
@@ -51,7 +51,7 @@ data:
   requiredBy:
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp

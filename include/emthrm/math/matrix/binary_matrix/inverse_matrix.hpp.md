@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
     title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9006\u884C\
       \u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
@@ -47,7 +47,7 @@ data:
   path: include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp

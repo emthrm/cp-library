@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
     title: Fenwick tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/misc/mo.hpp
     title: Mo's algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_inversions_query
@@ -54,7 +54,7 @@ data:
   path: test/misc/mo.test.cpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/misc/mo.test.cpp
 layout: document

@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/chinese_remainder_theorem.hpp
     title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_inv.hpp
     title: "\u9006\u5143 (inverse element)"
   _extendedRequiredBy: []

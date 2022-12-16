@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
     title: Fenwick tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (inversion number)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
@@ -40,7 +40,7 @@ data:
   path: test/misc/inversion_number.test.cpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/misc/inversion_number.test.cpp
 layout: document

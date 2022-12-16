@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_prime.test.cpp
     title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/is_prime.hpp\"\n\n\n\nnamespace emthrm\
@@ -24,7 +24,7 @@ data:
   path: include/emthrm/math/is_prime.hpp
   requiredBy: []
   timestamp: '2022-12-16 05:33:31+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_prime.test.cpp
 documentation_of: include/emthrm/math/is_prime.hpp

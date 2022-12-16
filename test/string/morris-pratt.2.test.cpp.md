@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/string/morris-pratt.hpp
     title: "Morris\u2013Pratt algorithm"
   _extendedRequiredBy: []
