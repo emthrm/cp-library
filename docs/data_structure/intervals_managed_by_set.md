@@ -1,6 +1,6 @@
 ---
 title: 区間を std::set で管理するやつ
-documentation_of: include/emthrm/data_structure/interval_managed_by_set.hpp
+documentation_of: include/emthrm/data_structure/intervals_managed_by_set.hpp
 ---
 
 閉区間を `std::set` によって管理するデータ構造である．
@@ -15,7 +15,7 @@ amortized $O(\log{N})$ ?
 
 ||説明|備考|
 |:--:|:--:|:--:|
-|`IntervalManagedBySet<T>`|区間を std::set で管理するやつ||
+|`IntervalsManagedBySet<T>`|区間を std::set で管理するやつ||
 |`intervals`|閉区間の集合||
 |`contains(x)`|$x$ は集合に含まれるか．||
 |`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか．||
