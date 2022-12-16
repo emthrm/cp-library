@@ -21,6 +21,8 @@ amortized $O(\log{N})$ ?
 |`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか．||
 |`erase(x)`|集合から $x$ を削除する．|返り値は削除された要素の次を指すイテレータと実際に削除したかである．|
 |`erase(left, right)`|集合から $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を削除する．|返り値は削除された要素の次を指すイテレータと削除した要素数である．|
+|`find(x)`|$x$ を含む区間へのイテレータ|存在しないときは `intervals.end()` となる．|
+|`find(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ を含む区間へのイテレータ|存在しないときは `intervals.end()` となる．|
 |`insert(x)`|集合に $x$ を挿入する．|返り値は要素へのイテレータと挿入されたかどうかである．|
 |`insert(left, right)`|集合に $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を挿入する．|返り値は要素へのイテレータと挿入した要素数である．|
 |`mex(x = 0)`|mex||

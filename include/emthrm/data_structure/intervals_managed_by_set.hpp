@@ -23,10 +23,7 @@ struct IntervalsManagedBySet {
   bool contains(const T x) const { return contains(x, x); }
 
   bool contains(const T left, const T right) const {
-    typename IntervalsType::const_iterator it =
-        intervals.lower_bound({left, left});
-    if (left < it->first) it = std::prev(it);
-    return it->first <= left && right <= it->second;
+    return find(left, right) != intervals.end();
   }
 
   std::pair<typename IntervalsType::const_iterator, bool> erase(const T x) {
@@ -76,6 +73,18 @@ struct IntervalsManagedBySet {
       it = std::next(intervals.emplace(l, left - 1).first);
     }
     return {it, res};
+  }
+
+  typename IntervalsType::const_iterator find(const T x) const {
+    return find(x, x);
+  }
+
+  typename IntervalsType::const_iterator find(
+      const T left, const T right) const {
+    typename IntervalsType::const_iterator it =
+        intervals.lower_bound({left, left});
+    if (left < it->first) it = std::prev(it);
+    return it->first <= left && right <= it->second ? it : intervals.end();
   }
 
   std::pair<typename IntervalsType::const_iterator, bool> insert(const T x) {
