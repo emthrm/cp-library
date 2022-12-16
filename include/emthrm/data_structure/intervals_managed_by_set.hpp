@@ -1,5 +1,5 @@
-#ifndef EMTHRM_DATA_STRUCTURE_INTERVAL_MANAGED_BY_SET_HPP_
-#define EMTHRM_DATA_STRUCTURE_INTERVAL_MANAGED_BY_SET_HPP_
+#ifndef EMTHRM_DATA_STRUCTURE_INTERVALS_MANAGED_BY_SET_HPP_
+#define EMTHRM_DATA_STRUCTURE_INTERVALS_MANAGED_BY_SET_HPP_
 
 #include <cassert>
 #include <iostream>
@@ -12,25 +12,22 @@
 namespace emthrm {
 
 template <typename T>
-struct IntervalManagedBySet {
-  using IntervalType = std::set<std::pair<T, T>>;
-  IntervalType intervals{
+struct IntervalsManagedBySet {
+  using IntervalsType = std::set<std::pair<T, T>>;
+  IntervalsType intervals{
       {std::numeric_limits<T>::lowest(), std::numeric_limits<T>::lowest()},
       {std::numeric_limits<T>::max(), std::numeric_limits<T>::max()}};
 
-  IntervalManagedBySet() = default;
+  IntervalsManagedBySet() = default;
 
   bool contains(const T x) const { return contains(x, x); }
 
   bool contains(const T left, const T right) const {
-    typename IntervalType::const_iterator it =
-        intervals.lower_bound({left, left});
-    if (left < it->first) it = std::prev(it);
-    return it->first <= left && right <= it->second;
+    return find(left, right) != intervals.end();
   }
 
-  std::pair<typename IntervalType::const_iterator, bool> erase(const T x) {
-    typename IntervalType::const_iterator it = intervals.lower_bound({x, x});
+  std::pair<typename IntervalsType::const_iterator, bool> erase(const T x) {
+    typename IntervalsType::const_iterator it = intervals.lower_bound({x, x});
     if (it->first == x) {
       const T right = it->second;
       it = intervals.erase(it);
@@ -47,10 +44,10 @@ struct IntervalManagedBySet {
     return {it, true};
   }
 
-  std::pair<typename IntervalType::const_iterator, T> erase(
+  std::pair<typename IntervalsType::const_iterator, T> erase(
       const T left, const T right) {
     assert(left <= right);
-    typename IntervalType::const_iterator it =
+    typename IntervalsType::const_iterator it =
         intervals.lower_bound({left, left});
     T res = 0;
     for (; it->second <= right; it = intervals.erase(it)) {
@@ -62,18 +59,36 @@ struct IntervalManagedBySet {
       intervals.erase(it);
       it = intervals.emplace(right + 1, r).first;
     }
-    if (left < std::prev(it)->second) {
+    if (left <= std::prev(it)->second) {
       it = std::prev(it);
-      res += it->second - left + 1;
-      const T l = it->first;
+      T l, r;
+      std::tie(l, r) = *it;
       intervals.erase(it);
+      if (right < r) {
+        res += right - left + 1;
+        intervals.emplace(right + 1, r);
+      } else {
+        res += r - left + 1;
+      }
       it = std::next(intervals.emplace(l, left - 1).first);
     }
     return {it, res};
   }
 
-  std::pair<typename IntervalType::const_iterator, bool> insert(const T x) {
-    typename IntervalType::const_iterator it = intervals.lower_bound({x, x});
+  typename IntervalsType::const_iterator find(const T x) const {
+    return find(x, x);
+  }
+
+  typename IntervalsType::const_iterator find(
+      const T left, const T right) const {
+    typename IntervalsType::const_iterator it =
+        intervals.lower_bound({left, left});
+    if (left < it->first) it = std::prev(it);
+    return it->first <= left && right <= it->second ? it : intervals.end();
+  }
+
+  std::pair<typename IntervalsType::const_iterator, bool> insert(const T x) {
+    typename IntervalsType::const_iterator it = intervals.lower_bound({x, x});
     if (it->first == x) return {it, false};
     if (x <= std::prev(it)->second) return {std::prev(it), false};
     T left = x, right = x;
@@ -89,9 +104,9 @@ struct IntervalManagedBySet {
     return {intervals.emplace(left, right).first, true};
   }
 
-  std::pair<typename IntervalType::const_iterator, T> insert(T left, T right) {
+  std::pair<typename IntervalsType::const_iterator, T> insert(T left, T right) {
     assert(left <= right);
-    typename IntervalType::const_iterator it =
+    typename IntervalsType::const_iterator it =
         intervals.lower_bound({left, left});
     if (left <= std::prev(it)->second) {
       it = std::prev(it);
@@ -127,7 +142,7 @@ struct IntervalManagedBySet {
   }
 
   friend std::ostream &operator<<(std::ostream &os,
-                                  const IntervalManagedBySet& x) {
+                                  const IntervalsManagedBySet& x) {
     if (x.intervals.size() == 2) return os;
     auto it = next(x.intervals.begin());
     while (true) {
@@ -142,4 +157,4 @@ struct IntervalManagedBySet {
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_DATA_STRUCTURE_INTERVAL_MANAGED_BY_SET_HPP_
+#endif  // EMTHRM_DATA_STRUCTURE_INTERVALS_MANAGED_BY_SET_HPP_

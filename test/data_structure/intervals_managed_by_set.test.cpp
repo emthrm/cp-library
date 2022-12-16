@@ -8,7 +8,7 @@
 #include <numeric>
 #include <vector>
 
-#include "emthrm/data_structure/interval_managed_by_set.hpp"
+#include "emthrm/data_structure/intervals_managed_by_set.hpp"
 
 int main() {
   int n, m, q;
@@ -27,7 +27,7 @@ int main() {
     return t_a != t_b ? t_a < t_b : (a < m) < (b < m);
   });
   std::vector<bool> ans(q, false);
-  emthrm::IntervalManagedBySet<int> intervals;
+  emthrm::IntervalsManagedBySet<int> intervals;
   for (int i : order) {
     if (i < m) {
       intervals.insert(a[i], b[i] - 1);
