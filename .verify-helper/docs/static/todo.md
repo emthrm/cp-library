@@ -13,6 +13,7 @@
 - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/cartesian_tree.cc
 - https://sotanishy.github.io/cp-library-cpp/tree/cartesian_tree.cpp
 - https://judge.yosupo.jp/problem/cartesian_tree
+- https://atcoder.jp/contests/abc282/tasks/abc282_h
 
 
 # color-coding

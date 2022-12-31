@@ -62,6 +62,7 @@ documentation_of: include/emthrm/math/polynomial.hpp
 - 除算の高速化
   - https://github.com/spaghetti-source/algorithm/blob/master/math/polynomial_int.cc
   - http://people.csail.mit.edu/madhu/ST12/scribe/lect06.pdf
+  - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc10
   - https://judge.yosupo.jp/problem/division_of_polynomials
 - DKA 法 (Durand–Kerner–Aberth method)
   - https://drive.google.com/file/d/1Fb5TPXzEQVKzYDwhNN2XZpWZWa49aCIY
