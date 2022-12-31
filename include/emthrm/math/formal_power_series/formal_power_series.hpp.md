@@ -537,9 +537,12 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 ## TODO
 
 - https://yukicoder.me/wiki/polynomial_techniques
+- https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae
 - https://37zigen.com/exponential-generating-function/
 - https://drive.google.com/drive/folders/1CI4P9TUWcK_sGLkUBsA4ORNilIcNjB-N
 - 疎な形式的冪級数
+  - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc7
+  - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc42
   - https://github.com/yosupo06/library-checker-problems/issues/767
   - https://judge.yosupo.jp/problem/exp_of_formal_power_series_sparse
   - https://judge.yosupo.jp/problem/inv_of_formal_power_series_sparse
@@ -549,7 +552,10 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 - $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める．
   - http://www.eecs.harvard.edu/~htk/publication/1978-jacm-brent-kung.pdf
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#7-fgx
+  - https://nyaannyaan.github.io/library/fps/fps-composition.hpp
   - https://judge.yosupo.jp/problem/composition_of_formal_power_series
+  - 逆関数
+    - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc9
 - $\arcsin{f}$
   - https://codeforces.com/blog/entry/56422?#comment-401173
   - https://codeforces.com/blog/entry/56422?#comment-401217
@@ -570,6 +576,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
   - https://twitter.com/kobae964/status/1446833320919064577
   - https://kmjp.hatenablog.jp/entry/2021/10/11/1030
+  - https://atcoder.jp/contests/xmascon22/tasks/xmascon22_d
 - 記号的 Newton 法
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#1%E8%A8%98%E5%8F%B7%E7%9A%84%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95
   - https://atcoder.jp/contests/abc222/tasks/abc222_h

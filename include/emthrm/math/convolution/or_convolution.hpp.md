@@ -183,6 +183,7 @@ $O(N\log{N})$
 - relaxed multiplication
   - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
   - https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c
+  - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc38
   - https://atcoder.jp/contests/abc230/tasks/abc230_h
   - https://atcoder.jp/contests/abc230/editorial/3036
   - https://twitter.com/noshi91/status/1466764432961585166

@@ -296,6 +296,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/chinese_remainder_theorem.hpp
       title: "\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406 (Chinese remainder theorem)"
+    - icon: ':warning:'
+      path: include/emthrm/math/division.hpp
+      title: "\u5207\u308A\u6368\u3066\u9664\u7B97 (floor division)\u30FB\u5207\u308A\
+        \u4E0A\u3052\u9664\u7B97"
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/divisor.hpp
       title: "\u7D04\u6570\u5217\u6319"

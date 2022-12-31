@@ -97,8 +97,16 @@ title: xorshift
 周期は $2^{128} - 1$ である．
 
 
+## 備考
+
+[Zobrist hashing](https://en.wikipedia.org/wiki/Zobrist_hashing) に用いるのは危険である。
+
+
 ## 参考
 
 - https://ja.wikipedia.org/wiki/Xorshift
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp~~
 - https://nodchip.hatenadiary.org/entry/20090111/1231667839
+
+備考
+- https://twitter.com/noshi91/status/1515709212122390537

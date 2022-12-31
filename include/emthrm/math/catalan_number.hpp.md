@@ -82,8 +82,9 @@ $O(N)$
 ## 参考
 
 - https://mathtrain.jp/catalan
+- https://noshi91.hatenablog.com/entry/2021/07/10/170943
+- https://ei1333.hateblo.jp/entry/2021/12/10/175837
 - https://drive.google.com/file/d/1WC7Y2Ni-8elttUgorfbix9tO1fvYN3g3/view
-- https://tubo28.me/compprog/algorithm/catalan-number/
 
 
 ## Verified
