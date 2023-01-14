@@ -11,7 +11,7 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
     \sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}
   $$
 
-  となる．
+  となる。
 
 - [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
 
@@ -42,19 +42,19 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
 
 - 係数の和
 
-  $n$ を素数，$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと，
+  $n$ を素数、$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと、
 
   $$
     \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
   $$
 
-  が成り立つ．
+  が成り立つ。
 
 
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |加減算|$O(N)$|
 |スカラー倍|$O(N)$|
 |乗算|$O(N\log{N})$|
@@ -67,34 +67,34 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
 |対数|$O(N\log{N})$|
 |累乗|$O(N\log{N} + \log{M})$|
 |`mod_pow(exponent, md)`|$O((N + M)\log(N + M)\log{E})$ ?|
-|平方根|数 $M$ の平方根を求めるときの計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$．|
+|平方根|数 $M$ の平方根を求めるときの計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$。|
 |`translate(c)`|$O(N\log{N})$|
 
 
-## 使用法
+## 仕様
 
-||説明|条件|備考|
-|:--:|:--:|:--:|:--:|
+|名前|効果・戻り値|要件|備考|
+|:--|:--|:--|:--|
 |`FormalPowerSeries<T>(deg = 0)`|$\mathrm{deg}$ 次まで考える形式的冪級数|||
 |`FormalPowerSeries<T>(coef)`|係数列を $\mathrm{coef}$ とする形式的冪級数|||
 |`coef`|係数列|||
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
-|`set_mult(mult)`|乗算を定義する．|||
-|`set_sqrt(sqrt)`|平方根の計算を定義する．|||
-|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
-|`shrink()`|正規化を行う．|||
+|`set_mult(mult)`|乗算を定義する。|||
+|`set_sqrt(sqrt)`|平方根の計算を定義する。|||
+|`resize(deg)`|$\mathrm{deg}$ 次までを考える。|||
+|`shrink()`|正規化を行う。|||
 |`degree()`|現在考えている次数|||
-|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．|||
-|`operator=(x)`|形式的冪級数 $x$ を代入する．|||
+|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する。|||
+|`operator=(x)`|形式的冪級数 $x$ を代入する。|||
 |`operator+=(x)`<br>`operator+(x)`|加算|||
 |`operator-=(x)`<br>`operator-(x)`|減算|||
 |`operator*=(x)`<br>`operator*(x)`|乗算|||
 |`operator/=(x)`<br>`operator/(x)`|除算|||
 |`operator%=(x)`<br>`operator%(x)`|剰余演算|||
 |`operator<<=(n)`<br>`operator<<(n)`|$x^n f$|||
-|`operator>>=(n)`<br>`operator>>(n)`|$x^{-n} f$||$\mathrm{deg}(f) < n$ のとき $0$ となる．|
-|`operator==(x)`|$f = x$ であるか．|||
-|`operator!=(x)`|$f \neq x$ であるか．|||
+|`operator>>=(n)`<br>`operator>>(n)`|$x^{-n} f$||$\mathrm{deg}(f) < n$ のとき $0$ となる。|
+|`operator==(x)`|$f = x$ であるか。|||
+|`operator!=(x)`|$f \neq x$ であるか。|||
 |`operator+()`|$+{f}$|||
 |`operator-()`|$-{f}$|||
 |`horner(x)`|$f(x)$|||
@@ -104,11 +104,11 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
 |`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$||
 |`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$|||
 |`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|||
-|`sqrt(deg = n)`|$\sqrt{f}$||存在しないときは空列となる．|
+|`sqrt(deg = n)`|$\sqrt{f}$||存在しないときは空列となる。|
 |`translate(c)`|$f(x + c)$|||
 
 
-## 参考
+## 参考文献
 
 - ~~http://lattemalta.hatenablog.jp/entry/2019/09/29/231332~~
 - https://maspypy.com/category/%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0%e8%a7%a3%e8%aa%ac
@@ -118,7 +118,7 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
 - https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
 - https://yukicoder.me/wiki/polynomial_techniques
 
-係数の和
+#### 係数の和
 - https://www.youtube.com/watch?v=bOXCLR3Wric
 
 
@@ -137,7 +137,7 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
   - https://judge.yosupo.jp/problem/log_of_formal_power_series_sparse
   - https://judge.yosupo.jp/problem/pow_of_formal_power_series_sparse
   - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series_sparse
-- $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める．
+- $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める。
   - http://www.eecs.harvard.edu/~htk/publication/1978-jacm-brent-kung.pdf
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#7-fgx
   - https://nyaannyaan.github.io/library/fps/fps-composition.hpp
@@ -186,7 +186,7 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
   - https://qiita.com/ryuhe1/items/185e1a283f13ac638a53
 
 
-## Verified
+## Submissons
 
 - [指数](https://judge.yosupo.jp/submission/3788)
 - [逆元](https://judge.yosupo.jp/submission/3787)

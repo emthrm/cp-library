@@ -8,33 +8,33 @@ $$
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |パスカルの三角形|$O(N^2)$|
 |二項係数|$\langle O(N + \log{M}), O(1) \rangle$|
 |二項係数 巨大な $n$ 版|$O(K + \log{M})$|
 |二項係数の数表 巨大な $n$ 版|$O(K)$|
 
 
-## 使用法
+## 仕様
 
-- パスカルの三角形
+### パスカルの三角形
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`pascal<T>(n)`|$n$ 段のパスカルの三角形|
 
-- [二項係数](../../../include/emthrm/math/modint.hpp)
+### [二項係数](../../../include/emthrm/math/modint.hpp)
 
-- [二項係数 巨大な $n$ 版](../../../include/emthrm/math/modint.hpp)
+### [二項係数 巨大な $n$ 版](../../../include/emthrm/math/modint.hpp)
 
-- 二項係数の数表 巨大な $n$ 版
+### 二項係数の数表 巨大な $n$ 版
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`large_nCk_init<T>(n, k)`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
 
 
-## 参考
+## 参考文献
 
 http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
@@ -49,7 +49,7 @@ http://drken1215.hatenablog.com/entry/2018/06/08/210000
   - https://atcoder.jp/contests/abc235/tasks/abc235_g
 
 
-## Verified
+## Submissons
 
 - [パスカルの三角形](https://atcoder.jp/contests/abc254/submissions/32252670)
 - [二項係数](https://yukicoder.me/submissions/625071)

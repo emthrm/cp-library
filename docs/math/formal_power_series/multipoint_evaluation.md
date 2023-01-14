@@ -3,7 +3,7 @@ title: multipoint evaluation
 documentation_of: include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
 ---
 
-複数の $x$ に対して $f(x)$ を求めるアルゴリズムである．
+複数の $x$ に対して $f(x)$ を求めるアルゴリズムである。
 
 
 ## 時間計算量
@@ -11,17 +11,17 @@ documentation_of: include/emthrm/math/formal_power_series/multipoint_evaluation.
 $\langle O(N(\log{N})^2), O(N(\log{N})^2) \rangle$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`MultipointEvaluation<多項式, T>(xs)`|multipoint evaluation を考える．|
+|名前|効果・戻り値|
+|:--|:--|
+|`MultipointEvaluation<多項式, T>(xs)`|multipoint evaluation を考える。|
 |`f_x`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
 |`subproduct_tree`|subproduct tree|
-|`build(f)`|多項式 $f$ に対して `f_x` を構築する．|
+|`build(f)`|多項式 $f$ に対して `f_x` を構築する。|
 
 
-## 参考
+## 参考文献
 
 - https://www.sci.kanagawa-u.ac.jp/info/matsuo/pub/pdf/IKM09.pdf
 - https://judge.yosupo.jp/submission/3271
@@ -33,6 +33,6 @@ $\langle O(N(\log{N})^2), O(N(\log{N})^2) \rangle$
 - https://drive.google.com/drive/folders/1gszRctvUfme7ST-K3DsrH7FIU64kHcsD
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/3793

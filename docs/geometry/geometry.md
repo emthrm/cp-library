@@ -7,7 +7,7 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |最近点対|$O(N\log{N})$|
 |多角形の面積|$O(N)$|
 |多角形の重心|$O(N)$|
@@ -18,18 +18,18 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 |キャリパー法 (rotating calipers)|$O(N)$|
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`sgn(x)`|$\begin{cases} 1 & (x > \varepsilon) \\\\ -1 & (x < -\varepsilon) \\\\ 0 & (\text{otherwise}) \end{cases}$|
 |`degree_to_radian(d)`|$\frac{\pi d}{180}\,\mathrm{rad}$|
 |`radian_to_degree(r)`|$(\frac{180r}{\pi})^\circ$|
 
-- 点
+### 点
 
-||説明|備考|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
 |`Point(x = 0, y = 0)`|点 $(x, y)$||
 |`x`, `y`|$(x, y)$||
 |`abs()`|$\lVert \boldsymbol{p} \rVert$||
@@ -37,92 +37,92 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 |`norm()`|${\lVert \boldsymbol{p} \rVert}^2$||
 |`rotate(angle)`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos(\mathrm{angle}) - y\sin(\mathrm{angle}) \\\\ y^{\prime} = x\sin(\mathrm{angle}) + y\cos(\mathrm{angle}) \end{cases}$|
 
-- 線分
+### 線分
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`Segment(s = (0, 0), t = (0, 0))`|始点 $s$, 終点 $t$ の線分|
 |`s`|始点|
 |`t`|終点|
 
-- 直線
+### 直線
 
-||説明|備考|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
 |`Line(s = (0, 0), t = (0, 0))`|始点 $s$, 終点 $t$ の線分||
-|`Line(a, b, c)`|$ax + by + c = 0$ で表される直線|`s`, `t` には代表する2点を格納する．|
+|`Line(a, b, c)`|$ax + by + c = 0$ で表される直線|`s`, `t` には代表する2点を格納する。|
 |`s`|始点|
 |`t`|終点|
 
-- 円
+### 円
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`Circle(p = (0, 0), r = 0)`|中心 $\mathrm{P}$, 半径 $r$ の円|
 |`p`|中心|
 |`r`|半径|
 
-- 多角形
+### 多角形
 
-頂点は反時計回りに並ぶ．
+頂点は反時計回りに並ぶ。
 
-- ライブラリ
+### ライブラリ
 
-||説明|備考|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
 |`unit_vector(p)`|ベクトル $p$ の単位ベクトル||
 |`normal_unit_vector(p)`|ベクトル $p$ の単位法線ベクトル|
 |`cross(a, b)`|$\boldsymbol{a} \times \boldsymbol{b}$||
 |`dot(a, b)`|$\boldsymbol{a} \cdot \boldsymbol{b}$||
-|`ccw(a, b, c)`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C} \text{ の順で一直線上に並ぶ．}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある．}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ．}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある．}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ．}) \end{cases}$||
+|`ccw(a, b, c)`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C} \text{ の順で一直線上に並ぶ。}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある。}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ。}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある。}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ。}) \end{cases}$||
 |`get_angle(a, b, c)`|$\angle{\mathrm{ABC}}$||
 |`closest_pair(ps)`|点集合 $\mathrm{ps}$ の最近点対間距離||
 |`projection(a, b)`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の射影||
 |`reflection(a, b)`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の鏡映||
 |`is_parallel(a, b)`|$\boldsymbol{a} \parallel \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \times \boldsymbol{b} = 0$|
 |`is_orthogonal(a, b)`|$\boldsymbol{a} \perp \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \cdot \boldsymbol{b} = 0$|
-|`has_intersected(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ は交差しているか．||
+|`has_intersected(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ は交差しているか。||
 |`intersection(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ の交点||
 |`distance(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ の距離||
-|`tangency(a, b)`|点 $\mathrm{B}$ から円 $\mathrm{A}$ に引いた接線の接点|円 $(x - a)^2 + (y - b)^2 = r^2$ 上の点 $(x_0, y_0)$ における接線の方程式は $(x_0 - a)(x - a) + (y_0 - b)(y - b) = r^2$ である．|
+|`tangency(a, b)`|点 $\mathrm{B}$ から円 $\mathrm{A}$ に引いた接線の接点|円 $(x - a)^2 + (y - b)^2 = r^2$ 上の点 $(x_0, y_0)$ における接線の方程式は $(x_0 - a)(x - a) + (y_0 - b)(y - b) = r^2$ である。|
 |`common_tangent_num(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線の本数||
-|`common_tangent(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線|2円が接していないとき，`s` は円 $\mathrm{A}$ における接点，`t` は円 $\mathrm{B}$ における接点が格納される．|
+|`common_tangent(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線|2円が接していないとき、`s` は円 $\mathrm{A}$ における接点、`t` は円 $\mathrm{B}$ における接点が格納される。|
 |`intersection_area(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通部分の面積||
 |`area(a)`|多角形 $\mathrm{A}$ の面積||
 |`centroid(a)`|多角形 $\mathrm{A}$ の重心||
-|`contains(a, b)`|点 $\mathrm{B}$ は多角形 $\mathrm{A}$ の内部に存在するか．||
-|`is_convex(a)`|多角形 $\mathrm{A}$ は凸性を満たすか．||
-|`monotone_chain(ps, 凸包の辺上にある点を含まないか = true)`|点集合 $\mathrm{ps}$ の凸包|座標幅 $w$ のとき，頂点数は $O(\sqrt{w})$ 個である．|
+|`contains(a, b)`|点 $\mathrm{B}$ は多角形 $\mathrm{A}$ の内部に存在するか。||
+|`is_convex(a)`|多角形 $\mathrm{A}$ は凸性を満たすか。||
+|`monotone_chain(ps, 凸包の辺上にある点を含まないか = true)`|点集合 $\mathrm{ps}$ の凸包|座標幅 $w$ のとき、頂点数は $O(\sqrt{w})$ 個である。|
 |`cut_convex(a, b)`|直線 $\mathrm{B}$ で凸多角形 $\mathrm{A}$ を切断したときの左側の凸多角形||
 |`rotating_calipers(a)`|凸多角形 $\mathrm{A}$ の直径||
 
 
-## 参考
+## 参考文献
 
 - https://www.ioi-jp.org/camp/2017/2017-sp_camp-hide.pdf
 - https://sen-comp.hatenablog.com/archive/category/%E3%80%8C%E5%9F%BA%E7%A4%8E%E7%9A%84%E8%A8%88%E7%AE%97%E5%B9%BE%E4%BD%95%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9%E3%80%8D
 - http://www.deqnotes.net/acmicpc/2d_geometry/
 - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
 
-最近点対
+#### 最近点対
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.324-326，マイナビ出版（2012）
 
-接点
+#### 接点
 - https://mathtrain.jp/ennosessen
 
-2円の共通接線の本数
+#### 2円の共通接線の本数
 - http://www.e-learning-jp.net/teach_math/mathA/text_1/6/11/001a.htm
 
-2円の共通接線
+#### 2円の共通接線
 - http://nutsu.com/blog/2007/102601_as_circletest6.html
 
-多角形の面積
+#### 多角形の面積
 - https://blog.goo.ne.jp/m4g/e/82eb68689c322dc43d52ce16b29a9a74
 
-2円の共通部分の面積
+#### 2円の共通部分の面積
 - https://drken1215.hatenablog.com/entry/2020/02/02/005800
 
-点の多角形に対する内外判定
+#### 点の多角形に対する内外判定
 - https://www.nttpc.co.jp/technology/number_algorithm.html
 
 
@@ -277,7 +277,7 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 - 三角形の外心 / 内心 / 垂心
 
 
-## Verified
+## Submissons
 
 - [点の回転](https://atcoder.jp/contests/abc259/submissions/33133157)
 - [単位ベクトル](https://atcoder.jp/contests/abc246/submissions/30680516)

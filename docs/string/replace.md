@@ -4,8 +4,8 @@ documentation_of: include/emthrm/string/replace.hpp
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`split(s, before, after)`|$\mathrm{before}$ を $\mathrm{after}$ に置換した文字列 $S$|

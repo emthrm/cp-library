@@ -1,6 +1,6 @@
 # 内周 (girth)
 
-グラフに対する最小閉路長である．
+グラフに対する最小閉路長である。
 
 
 ## 時間計算量
@@ -8,22 +8,22 @@
 $O(\lvert V \rvert (\lvert V \rvert + \lvert E \rvert) \log{\lvert V \rvert})$
 
 
-## 使用法
+## 仕様
 
-- 有向グラフ版
+### 有向グラフ版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`girth_in_directed_graph(graph, ∞)`|有向グラフ $\mathrm{graph}$ の内周|辺の重みは自然数でなければならない．<br>存在しないときは $\infty$ となる．|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`girth_in_directed_graph(graph, ∞)`|有向グラフ $\mathrm{graph}$ の内周|辺の重みは自然数でなければならない。<br>存在しないときは $\infty$ となる。|
 
-- 無向グラフ版
+### 無向グラフ版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`girth_in_undirected_graph(n, edges, ∞)`|頂点数 $n$，辺集合 $\mathrm{edges}$ である無向グラフの内周|辺の重みは自然数でなければならない．<br>存在しないときは $\infty$ となる．|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`girth_in_undirected_graph(n, edges, ∞)`|頂点数 $n$、辺集合 $\mathrm{edges}$ である無向グラフの内周|辺の重みは自然数でなければならない。<br>存在しないときは $\infty$ となる。|
 
 
-## 参考
+## 参考文献
 
 - https://yukicoder.me/problems/no/1320/editorial
 - https://algo-logic.info/minimum-weight-cycle/
@@ -36,6 +36,6 @@ $O(\lvert V \rvert (\lvert V \rvert + \lvert E \rvert) \log{\lvert V \rvert})$
   - https://kopricky.github.io/code/Graph/directed_minimum_mean_weight_cycle_memo.html
 
 
-## Verified
+## Submissons
 
 https://yukicoder.me/submissions/595363

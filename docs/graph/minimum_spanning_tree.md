@@ -6,27 +6,27 @@
 $O(\lvert E \rvert \log{\lvert V \rvert})$
 
 
-## 使用法
+## 仕様
 
-- Prim 法
+### Prim 法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には双方向の辺の情報が必要である．|
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ は双方向の辺の情報をもつ。|
 
-- Kruskal 法
+### Kruskal 法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`kruskal(graph)`|グラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には単方向の辺の情報のみでよい．|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`kruskal(graph)`|グラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には単方向の辺の情報のみでよい。|
 
 
-## 参考
+## 参考文献
 
-Prim 法
+#### Prim 法
 - http://www.prefield.com/algorithm/graph/prim.html
 
-Kruskal 法
+#### Kruskal 法
 - https://github.com/spaghetti-source/algorithm/blob/64d34fb9b940a3e933cf36c4dd26b7457b42f50b/graph/kruskal.cc
 
 
@@ -79,7 +79,7 @@ Kruskal 法
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/kariv_hakimi.cc
 
 
-## Verified
+## Submissons
 
 - [Prim 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_2_A/review/4083632/emthrm/C++14)
 - [Kruskal 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_2_A/review/4083639/emthrm/C++14)

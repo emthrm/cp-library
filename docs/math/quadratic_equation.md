@@ -13,14 +13,14 @@ $$
 $O(1)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`quadratic_equation(a, b, c, ε = 1e-8)`|$ax^2 + bx + c = 0$ を満たす $x$|$a, b, c$ のいずれかは非零でなければならない．|
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`quadratic_equation(a, b, c, ε = 1e-8)`|$ax^2 + bx + c = 0$ を満たす $x$|$a, b, c$ のいずれかは非零である。|
 
 
-## 参考
+## 参考文献
 
 - https://yukicoder.me/problems/no/955/editorial
 
@@ -33,6 +33,6 @@ $O(1)$
   - https://cafecoder.top/contests/test003/tasks/test003_b
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/1039/review/4338571/emthrm/C++14

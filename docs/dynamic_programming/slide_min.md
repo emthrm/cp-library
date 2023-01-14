@@ -9,19 +9,19 @@ documentation_of: include/emthrm/dynamic_programming/slide_min.hpp
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`slide_min<IS_MINIMIZED = true>(a, len)`|$A$ に対する長さ $\mathrm{len}$ のスライド最小値|
 
 
-## 参考
+## 参考文献
 
 - https://satanic0258.github.io/snippets/data-structure/SlideMinimum.html
 - https://ei1333.github.io/luzhiled/snippets/dp/slide-min.html
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_3_D/review/4967096/emthrm/C++17

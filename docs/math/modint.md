@@ -8,26 +8,26 @@ documentation_of: include/emthrm/math/modint.hpp
 
 - 順列 (permutation)
 
-  $n$ 個から $k$ 個を選んで並べたものの総数は ${}_n \mathrm{P}_k = \dfrac{n!}{(n - k)!}$ である．
+  $n$ 個から $k$ 個を選んで並べたものの総数は ${}_n \mathrm{P}_k = \dfrac{n!}{(n - k)!}$ である。
 
 - 重複組合せ (repeated combination)
 
-  $n$ 種類から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ である．
+  $n$ 種類から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ である。
 
 
-## 参考
+## 参考文献
 
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!ModInt.cpp~~
 - https://noshi91.hatenablog.com/entry/2019/03/31/174006
 - https://ei1333.github.io/algorithm/combination.html
 
-順列
+#### 順列
 - https://mathtrain.jp/permucombi
 
-重複組合せ
+#### 重複組合せ
 - https://mathtrain.jp/tyohukuc
 
-逆元の数表
+#### 逆元の数表
 - http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
 

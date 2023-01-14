@@ -3,30 +3,30 @@ title: Li Chao tree
 documentation_of: include/emthrm/dynamic_programming/li_chao_tree.hpp
 ---
 
-[convex hull trick](cht.md) に対して，傾きに単調性のない直線または線分の追加を可能にするセグメント木である．
+[convex hull trick](cht.md) に対して、傾きに単調性のない直線または線分の追加を可能にするセグメント木である。
 
 
 ## 時間計算量
 
-|処理|時間計算量|
-|:--:|:--:|
+||時間計算量|
+|:--|:--|
 |初期化|$O(N \log{N})$|
 |直線の追加クエリ|$O(\log{N})$|
 |線分の追加クエリ|$O((\log{N})^2)$|
 |解答クエリ|$O(\log{N})$|
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
 |`LiChaoTree<T, IS_MINIMIZED = true>(xs, ∞)`|解答クエリの $x$ 座標の集合が $\mathrm{xs}$ である Li Chao tree||
-|`add(a, b)`|直線 $f(x) = ax + b$ を追加する．||
-|`add(a, b, left, right)`|線分 $f(x) = ax + b$ ($\mathrm{left} \leq x < \mathrm{right}$) を追加する．||
+|`add(a, b)`|直線 $f(x) = ax + b$ を追加する。||
+|`add(a, b, left, right)`|線分 $f(x) = ax + b$ ($\mathrm{left} \leq x < \mathrm{right}$) を追加する。||
 |`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$|オフライン|
 
 
-## 参考
+## 参考文献
 
 - https://smijake3.hatenablog.com/entry/2018/06/16/144548
 - https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/LiChaoTree
@@ -54,7 +54,7 @@ documentation_of: include/emthrm/dynamic_programming/li_chao_tree.hpp
   - https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/DynamicPersistentLiChaoTree
 
 
-## Verified
+## Submissons
 
 - [最小値](https://judge.yosupo.jp/submission/3848)
 - [最大値](https://judge.yosupo.jp/submission/3849)

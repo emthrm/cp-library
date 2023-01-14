@@ -9,14 +9,14 @@ documentation_of: include/emthrm/dynamic_programming/largest_rectangle.hpp
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`largest_rectangle(height)`|高さ $\mathrm{height}$ で表されるヒストグラム中の長方形の最大面積|
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/dp/largest-rectangle.html
 
@@ -30,6 +30,6 @@ $O(N)$
   - https://onlinejudge.u-aizu.ac.jp/problems/DPL_3_B
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_3_C/review/4082202/emthrm/C++14

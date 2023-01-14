@@ -9,13 +9,13 @@ documentation_of: include/emthrm/math/least_common_multiple.hpp
 $O(\log{\max \lbrace A, B \rbrace})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`__lcm(a, b)`|$a$ と $b$ の最小公倍数|
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_C/review/4967150/emthrm/C++14

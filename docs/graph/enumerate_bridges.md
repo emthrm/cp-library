@@ -9,18 +9,18 @@ documentation_of: include/emthrm/graph/enumerate_bridges.hpp
 $O(\lvert V \rvert + \lvert E \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`enumerate_bridges(graph)`|無向グラフ $\mathrm{graph}$ の橋|
 
 
-## 参考
+## 参考文献
 
 - https://www.slideshare.net/chokudai/arc039
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_3_B/review/4082847/emthrm/C++14

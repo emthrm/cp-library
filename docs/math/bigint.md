@@ -7,20 +7,20 @@ documentation_of: include/emthrm/math/bigint.hpp
 ## 時間計算量
 
 |アルゴリズム|時間計算量|
-|:--:|:--:|
+|:--|:--|
 |カラツバ法 (Karatsuba algorithm)|$O(N^{\log 3}) \sim O(N^{1.585})$|
 |Knuth's Algorithm D|$O(N^2)$|
 
 
-## 参考
+## 参考文献
 
 - https://lumakernel.github.io/ecasdqina/misc/BigInteger
 - https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
 
-カラツバ法
+#### カラツバ法
 - http://xn--w6q13e505b.jp/method/karatsuba.html
 
-Knuth's Algorithm D
+#### Knuth's Algorithm D
 - http://yamatyuu.net/computer/program/long/div/index.html
 
 
@@ -58,7 +58,7 @@ Knuth's Algorithm D
   - http://www.prefield.com/algorithm/math/bignum.html
 
 
-## Verified
+## Submissons
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/2679/review/4092735/emthrm/C++14
 - [加算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_A/review/4092738/emthrm/C++14)

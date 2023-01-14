@@ -9,14 +9,14 @@ documentation_of: include/emthrm/math/prime_factorization.hpp
 $O(\sqrt{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`prime_factorization(n)`|$n$ の素因数分解|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.111，マイナビ出版（2012）
 
@@ -39,6 +39,6 @@ $O(\sqrt{N})$
   - https://judge.yosupo.jp/problem/factorize
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_A/review/4088167/emthrm/C++14

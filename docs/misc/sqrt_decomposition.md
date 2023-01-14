@@ -9,23 +9,23 @@ documentation_of: include/emthrm/misc/sqrt_decomposition.hpp
 $\langle O(N), O(\sqrt{N}) \rangle$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`SqrtDecomposition(n)`|サイズ $N$ の平方分割を考える．||
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`SqrtDecomposition(n)`|サイズ $N$ の平方分割を考える。||
 |`block_size`|ブロックのサイズ||
 |`n`|ブロックの数||
 |[`ls[i]`, `rs[i]`)|ブロック $i$ に対応する列のインデックス||
-|`partial_update(idx, val)`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する．|関数プロトタイプ|
-|`total_update(idx, val)`|$\mathrm{val}$ を基に $B_{\mathrm{idx}}$ を更新する．|関数プロトタイプ|
-|`update(l, r, val)`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する．||
-|`partial_query(idx, &val)`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
-|`total_query(idx, &val)`|$B_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
+|`partial_update(idx, val)`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する。|関数プロトタイプ|
+|`total_update(idx, val)`|$\mathrm{val}$ を基に $B_{\mathrm{idx}}$ を更新する。|関数プロトタイプ|
+|`update(l, r, val)`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する。||
+|`partial_query(idx, &val)`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
+|`total_query(idx, &val)`|$B_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
 |`query(l, r, 単位元)`|$\lbrack l, r)$ に対するクエリの解||
 
 
-## 参考
+## 参考文献
 
 - https://twitter.com/chokudai/status/1125634200084729857
 
@@ -45,6 +45,6 @@ $\langle O(N), O(\sqrt{N}) \rangle$
   - http://noshi91.hatenablog.com/entry/2019/12/07/140433
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_G/review/4087985/emthrm/C++14

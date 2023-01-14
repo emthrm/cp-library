@@ -3,35 +3,35 @@ title: convex hull trick
 documentation_of: include/emthrm/dynamic_programming/convex_hull_trick.hpp
 ---
 
-$xy$ 平面上の直線集合 $L$ を考える．
+$xy$ 平面上の直線集合 $L$ を考える。
 
-- $L$ に直線 $f(x) = ax + b$ を追加する．
-- ある $x$ に対して $\min \lbrace f(x) \mid f \in L \rbrace$ を答える．
+- $L$ に直線 $f(x) = ax + b$ を追加する。
+- ある $x$ に対して $\min \lbrace f(x) \mid f \in L \rbrace$ を答える。
 
-上のクエリを高速に処理できるテクニックである．
+上のクエリを高速に処理できるテクニックである。
 
 
 ## 時間計算量
 
-|処理|時間計算量|
-|:--:|:--:|
+|クエリ|時間計算量|
+|:--|:--|
 |追加クエリ|amortized $O(1)$|
 |解答クエリ|$O(\log{N})$|
 |$x$ に単調性のある解答クエリ|amortized $O(1)$|
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
 |`ConvexHullTrick<T, IS_MINIMIZED>()`|convex hull trick||
-|`add(a, b)`|直線 $f(x) = ax + b$ を追加する．|傾きには単調性が必要である．|
+|`add(a, b)`|直線 $f(x) = ax + b$ を追加する。|傾きには単調性がある。|
 |`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$||
-|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加しなければならない．|
-|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少しなければならない．|
+|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加する。|
+|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少する。|
 
 
-## 参考
+## 参考文献
 
 - http://satanic0258.hatenablog.com/entry/2016/08/16/181331
 - https://ei1333.github.io/luzhiled/snippets/structure/convex-hull-trick-add-monotone.html
@@ -39,13 +39,13 @@ $xy$ 平面上の直線集合 $L$ を考える．
 
 ## TODO
 
-- 直線を削除できる．
+- 直線を削除できる。
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/RemovableCHT~~
   - https://codeforces.com/blog/entry/60514
   - オフライン版
     - https://mugen1337.github.io/procon/DataStructure/DeletableLiChaoTreeOffline.cpp
     - https://sotanishy.github.io/cp-library-cpp/data-structure/cht/offline_deletable_convex_hull_trick.cpp.html
-- 追加する直線の傾きに単調性が必要ない．
+- 追加する直線の傾きに単調性が必要ない。
   - https://sune2.hatenadiary.org/entry/20140310/1394440369
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/CHT-Ex~~
 - $x \in \mathbb{Z}$
@@ -59,7 +59,7 @@ $xy$ 平面上の直線集合 $L$ を考える．
   - https://atcoder.jp/contests/abc244/tasks/abc244_h
 
 
-## Verified
+## Submissons
 
 - [`query(x)`](https://atcoder.jp/contests/dp/submissions/26064258)
 - [`monotonically_increasing_query(x)`](https://atcoder.jp/contests/dp/submissions/26064281)

@@ -9,14 +9,14 @@ documentation_of: include/emthrm/math/prime_sieve.hpp
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`prime_sieve(n, 素数のみ取得するか?)`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数||
+|名前|効果・戻り値|
+|:--|:--|
+|`prime_sieve(n, 素数のみ取得するか?)`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数|
 
 
-## 参考
+## 参考文献
 
 - https://37zigen.com/linear-sieve/
 - https://imulan.hatenablog.jp/entry/2019/09/29/212808
@@ -33,6 +33,6 @@ $O(N)$
   - https://judge.yosupo.jp/problem/counting_primes
 
 
-## Verified
+## Submissons
 
 https://yukicoder.me/submissions/623330

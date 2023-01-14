@@ -1,85 +1,85 @@
 # 素集合データ構造 (disjoint-set data structure)
 
-|データ構造|説明|
-|:--:|:--:|
+|名前|概要|
+|:--|:--|
 |union-find|互いに素な集合族を管理するデータ構造|
 |重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)上の重みを考慮した union-find|
-|部分永続 union-find|ある時刻における状態を保存する union-find である．最新版のみ変更できる．|
+|部分永続 union-find|ある時刻における状態を保存する union-find である。最新版のみ変更できる。|
 |undo 可能 union-find|巻き戻し可能な union-find|
 
 
 ## 時間計算量
 
-|データ構造|時間計算量|
-|:--:|:--:|
+|名前|時間計算量|
+|:--|:--|
 |union-find|$\langle O(N), \text{amortized } O(\alpha(N)) \rangle$|
 |重みつき union-find|$\langle O(N), \text{amortized } O(\alpha(N)) \rangle$|
 |部分永続 union-find|$\langle O(N), O(\log{N}) \rangle$|
 |undo 可能 union-find|$\langle O(N), O(\log{N}) \rangle$|
 
 
-## 使用法
+## 仕様
 
-- union-find
+### union-find
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`UnionFind(n)`|頂点数 $N$ の union-find||
-|`root(ver)`|$\mathrm{ver}$ の根||
-|`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
+|名前|効果・戻り値|
+|:--|:--|
+|`UnionFind(n)`|頂点数 $N$ の union-find|
+|`root(ver)`|$\mathrm{ver}$ の根|
+|`unite(u, v)`|$u$ と $v$ を併合したのち、実際に $u$ と $v$ を併合したかを返す。|
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか。|
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ|
 
-- 重みつき union-find
+### 重みつき union-find
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
-|`root(ver)`|$\mathrm{ver}$ の根||
-|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
-|`diff(u, v)`|$w(v) - w(u)$||
+|名前|効果・戻り値|
+|:--|:--|
+|`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find|
+|`root(ver)`|$\mathrm{ver}$ の根|
+|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加えたのち、実際に $u$ と $v$ を併合したかを返す。|
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか。|
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ|
+|`diff(u, v)`|$w(v) - w(u)$|
 
-- 部分永続 union-find
+### 部分永続 union-find
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
-|`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
-|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか．||
-|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
+|名前|効果・戻り値|
+|:--|:--|
+|`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find|
+|`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根|
+|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合したのち、実際に $u$ と $v$ を併合したかを返す。|
+|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか。|
+|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ|
 
-- undo 可能 union-find
+### undo 可能 union-find
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find||
-|`root(ver)`|$\mathrm{ver}$ の根||
-|`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
-|`undo()`|`unite()` を一度だけ巻き戻す．||
-|`snap()`|スナップショット||
-|`rollback()`|`snap()` 時点まで巻き戻す．||
+|名前|効果・戻り値|
+|:--|:--|
+|`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find|
+|`root(ver)`|$\mathrm{ver}$ の根|
+|`unite(u, v)`|$u$ と $v$ を併合したのち、実際に $u$ と $v$ を併合したかを返す。|
+|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか。|
+|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ|
+|`undo()`|`unite()` を一度だけ巻き戻す。|
+|`snap()`|スナップショット|
+|`rollback()`|`snap()` 時点まで巻き戻す。|
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/algorithm/union-find.html
 
-union-find
+#### union-find
 - https://github.com/spaghetti-source/algorithm/blob/6c4a86dea5a487dbdd5fe96b3589d950e42c370d/data_structure/union_find.cc
 
-重みつき union-find
+#### 重みつき union-find
 - https://qiita.com/drken/items/cce6fc5c579051e64fab
 
-部分永続 union-find
+#### 部分永続 union-find
 - https://camypaper.bitbucket.io/2016/12/18/adc2016/
 - https://github.com/drken1215/algorithm/blob/86a29ca7b6c24132e8ba6b002c4ddd2ab201d4e7/DataStructure/partially_persistent_union_find_tree.cpp
 
-undo 可能 union-find
+#### undo 可能 union-find
 - https://snuke.hatenablog.com/entry/2016/07/01/000000
 - https://drken1215.hatenablog.com/entry/2020/11/02/201400
 
@@ -109,7 +109,7 @@ undo 可能 union-find
   - https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum
 
 
-## Verified
+## Submissons
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
 - [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)

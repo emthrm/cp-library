@@ -9,9 +9,9 @@ $$
   F(t) = \sum_{x = 0}^{N - 1} f(x) \zeta_N^{-tx} = \sum_{x = 0}^{N - 1} f(x) \exp\left(-i \frac{2 \pi tx}{N} \right)
 $$
 
-を高速に行うアルゴリズムである．
+を高速に行うアルゴリズムである。
 
-畳み込み (convolution) $C_k = \sum_{i = 0}^k A_i B_{k - i}$ の計算にしばしば用いられる．
+畳み込み (convolution) $C_k = \sum_{i = 0}^k A_i B_{k - i}$ の計算にしばしば用いられる。
 
 
 
@@ -20,28 +20,28 @@ $$
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-- Cooley–Tukey algorithm
+### Cooley–Tukey algorithm
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`butterfly`|バタフライ演算用の配列|
 |`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$|
-|`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う．|
-|`dft(&a)`|複素数列 $A$ に対して離散フーリエ変換を行う．|
+|`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う。|
+|`dft(&a)`|複素数列 $A$ に対して離散フーリエ変換を行う。|
 |`real_dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
-|`idft(&a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．|
+|`idft(&a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う。|
 |`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み|
 
 
 ## 実装
 
-実数列 $a$ と $b$ の畳み込み $c$ を考える．
+実数列 $a$ と $b$ の畳み込み $c$ を考える。
 
-複素数列 $p_i = a_i + b_i \sqrt{-1}$ ($0 \leq i < N = 2^e,\ e \in \mathbb{N}$) に離散フーリエ変換を行うと，対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に対して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる．
+複素数列 $p_i = a_i + b_i \sqrt{-1}$ ($0 \leq i < N = 2^e,\ e \in \mathbb{N}$) に離散フーリエ変換を行うと、対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に対して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる。
 
-$\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ．すなわち
+$\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ。すなわち
 
 $$
   \overline{P_i} =
@@ -51,7 +51,7 @@ $$
   \end{cases}
 $$
 
-が成り立つ．$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}}$ ($1 \leq i < N$) より
+が成り立つ。$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}}$ ($1 \leq i < N$) より
 
 $$
   \begin{split}
@@ -68,7 +68,7 @@ $$
   \end{split}
 $$
 
-となる．$C_i = A_i B_i$ より
+となる。$C_i = A_i B_i$ より
 
 $$
   C_i =
@@ -78,7 +78,7 @@ $$
   \end{cases}
 $$
 
-と変形できる．ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うと
+と変形できる。ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うと
 
 $$
   \begin{split}
@@ -95,7 +95,7 @@ $$
   \end{split}
 $$
 
-となる．変形すると
+となる。変形すると
 
 - $i = 0$ に対して
 
@@ -112,10 +112,10 @@ $$
   \end{split}
 $$
 
-となる．$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい．
+となる。$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい。
 
 
-## 参考
+## 参考文献
 
 - https://www.slideshare.net/chokudai/fft-49066791
 - ~~https://lumakernel.github.io/ecasdqina/math/FFT/introduction~~
@@ -155,6 +155,6 @@ $$
   - https://hackmd.io/@koboshi/rJpHiXa-O
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/atc001/submissions/25081106

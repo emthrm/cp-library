@@ -9,14 +9,14 @@ documentation_of: include/emthrm/math/matrix/determinant.hpp
 $O(N^3)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`det(a, ε)`|$\lvert A \rvert$|
 
 
-## 参考
+## 参考文献
 
 - https://github.com/beet-aizu/library/blob/ebcad58b8480962339b18e316b826e56752b90c8/matrix/matrix.cpp
 
@@ -33,6 +33,6 @@ $O(N^3)$
   - https://github.com/yosupo06/library-checker-problems/issues/750
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/2714

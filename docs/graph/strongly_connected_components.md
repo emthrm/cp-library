@@ -3,7 +3,7 @@ title: 強連結成分 (strongly connected components) 分解
 documentation_of: include/emthrm/graph/strongly_connected_components.hpp
 ---
 
-有向グラフを共通部分の存在しない強連結成分に分解することである．
+有向グラフを共通部分の存在しない強連結成分に分解することである。
 
 
 ## 時間計算量
@@ -11,15 +11,15 @@ documentation_of: include/emthrm/graph/strongly_connected_components.hpp
 $O(\lvert V \rvert + \lvert E \rvert)$
 
 
-## 使用法
+## 仕様
 
-- Kosaraju's algorithm
+### Kosaraju's algorithm
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`SCC<CostType>(graph, 完全版であるか = false)`|有向グラフ $\mathrm{graph}$ の強連結成分分解を考える．||
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`SCC<CostType>(graph, 完全版であるか = false)`|有向グラフ $\mathrm{graph}$ の強連結成分分解を考える。||
 |`id[i]`|元のグラフの頂点 $i$ を含む頂点||
-|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版のみ|
+|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版|
 |`g`|強連結成分を一つの頂点に縮約したグラフ||
 
 
@@ -27,15 +27,15 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 無向グラフの辺に向きをつけることで強連結成分分解できる $\Leftrightarrow$ グラフが2辺連結である
 
-構築方法としては深さ優先探索木で後退辺を逆辺とすればよい．
+構築方法としては深さ優先探索木で後退辺を逆辺とすればよい。
 
 
-## 参考
+## 参考文献
 
-Kosaraju's algorithm
+#### Kosaraju's algorithm
 - https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 
-備考
+#### 備考
 - https://twitter.com/noshi91/status/1172798654450520064
 
 
@@ -49,6 +49,6 @@ Kosaraju's algorithm
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/strongly_connected_component_gabow.cc
 
 
-## Verified
+## Submissons
 
 - [Kosaraju's algorithm](https://judge.yosupo.jp/submission/4441)

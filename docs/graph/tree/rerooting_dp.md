@@ -4,10 +4,10 @@ documentation_of: include/emthrm/graph/tree/rerooting_dp.hpp
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`rerooting_dp(graph, def, merge, f, g)`|木 $\mathrm{graph}$ に対する全方位木 DP|
 
 
@@ -26,7 +26,7 @@ documentation_of: include/emthrm/graph/tree/rerooting_dp.hpp
 - [Vertex Deletion](https://atcoder.jp/contests/abc223/submissions/29989873)
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.hateblo.jp/entry/2017/04/10/224413
 - https://qiita.com/keymoon/items/2a52f1b0fb7ef67fb89e

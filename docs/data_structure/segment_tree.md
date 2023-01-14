@@ -1,6 +1,6 @@
 # セグメント木 (segment tree)
 
-[モノイド](../../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である．
+[モノイド](../../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。
 
 
 ## 時間計算量
@@ -8,32 +8,32 @@
 $\langle O(N), O(\log{N}) \rangle$
 
 
-## 使用法
+## 仕様
 
-- セグメント木
+### セグメント木
 
-||説明|備考|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
 |`SegmentTree<T>(n)`|要素数 $N$ のセグメント木||
 |`SegmentTree<T>(a)`|$A$ のセグメント木||
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$||
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ||
 |`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しないときは $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しないときは $-1$ となる．|
+|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しないときは $n$ となる。|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しないときは $-1$ となる。|
 
-`T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
+`T` はモノイドを表す構造体であり、以下の型エイリアスと静的メンバ関数を必要とする。
 
-||説明|
-|:--:|:--:|
+|名前|概要|
+|:--|:--|
 |`T::Monoid`|モノイド|
 |`T::id()`|単位元|
 |`T::merge(a, b)`||
 
-- 遅延伝播セグメント木
+### 遅延伝播セグメント木
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`LazySegmentTree<T>(n)`|要素数 $N$ の遅延伝播セグメント木|
 |`LazySegmentTree<T>(a)`|$A$ の遅延伝播セグメント木|
 |`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$|
@@ -41,13 +41,13 @@ $\langle O(N), O(\log{N}) \rangle$
 |`apply(left, right, val)`|$[\mathrm{left}, \mathrm{right})$ における変更クエリ|
 |`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ|
 |`operator()[idx]`|$A_{\mathrm{idx}}$|
-|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
+|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる。|
+|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる。|
 
-`T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
+`T` はモノイドを表す構造体であり、以下の型エイリアスと静的メンバ関数を必要とする。
 
-||説明|
-|:--:|:--:|
+|名前|概要|
+|:--|:--|
 |`T::Monoid`|モノイド|
 |`T::OperatorMonoid`|作用素モノイド|
 |`T::m_id()`|モノイドの単位元|
@@ -57,17 +57,17 @@ $\langle O(N), O(\log{N}) \rangle$
 |`T::apply(a, b)`||
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
 - https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 - http://kagamiz.hatenablog.com/entry/2012/12/18/220849
 
-セグメント木
+#### セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/29/204841
 - https://github.com/atcoder/ac-library/blob/8de49c6f150d2e5af851cbbd074aee552bf2bec9/atcoder/segtree.hpp
 
-遅延伝播セグメント木
+#### 遅延伝播セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/30/224339
 - https://kazuma8128.hatenablog.com/entry/2017/12/29/081929
 - https://smijake3.hatenablog.com/entry/2018/11/03/100133
@@ -165,7 +165,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 
 
-## Verified
+## Submissons
 
 - [セグメント木](https://judge.yosupo.jp/submission/25800)
   - [range minimum query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_A/review/4890699/emthrm/C++17)

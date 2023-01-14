@@ -74,34 +74,34 @@ e.g. $(\mathbb{N}, \oplus, \land, 0, \text{0xFFFF...})$
 を満たす $(S, \cdot)$ である．
 
 
-## 参考
+## 参考文献
 
-アーベル群
+#### アーベル群
 - https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%83%99%E3%83%AB%E7%BE%A4
 
-帯
+#### 帯
 - https://en.wikipedia.org/wiki/Band_(algebra)
 
-可換環
+#### 可換環
 - https://ja.wikipedia.org/wiki/%E5%8F%AF%E6%8F%9B%E7%92%B0
 
-交わり半束
+#### 交わり半束
 - http://koba-e964.hatenablog.com/entry/2016/12/14/214132
 - https://en.wikipedia.org/wiki/Semilattice
 
-単位的半群
+#### 単位的半群
 - http://koba-e964.hatenablog.com/entry/2016/12/14/214132
 - https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8E%E3%82%A4%E3%83%89
 - http://beet-aizu.hatenablog.com/entry/2017/09/10/132258
 
-半環
+#### 半環
 - https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%92%B0
 - https://www.slideshare.net/chokudai/abc009
 
-半群
+#### 半群
 - https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%BE%A4
 
-群
+#### 群
 - https://hackmd.io/@koboshi/H1li1wPlF
 
 

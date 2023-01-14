@@ -3,7 +3,7 @@ title: 彩色数 (chromatic number)
 documentation_of: include/emthrm/graph/chromatic_number.hpp
 ---
 
-隣接頂点間で色が異なるような頂点彩色に必要な最小の色の数である．
+隣接頂点間で色が異なるような頂点彩色に必要な最小の色の数である。
 
 
 ## 時間計算量
@@ -11,14 +11,14 @@ documentation_of: include/emthrm/graph/chromatic_number.hpp
 $O(2^{\lvert V \rvert} \lvert V \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`chromatic_number(graph)`|無向グラフ $\mathrm{graph}$ の彩色数|
 
 
-## 参考
+## 参考文献
 
 - https://www.slideshare.net/wata_orz/ss-12131479
 - http://drken1215.hatenablog.com/entry/2019/01/16/030000
@@ -45,6 +45,6 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
   - https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/40942

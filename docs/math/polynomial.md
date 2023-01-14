@@ -7,7 +7,7 @@ documentation_of: include/emthrm/math/polynomial.hpp
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |加減算|$O(N)$|
 |スカラー倍|$O(N)$|
 |乗算|$O(N\log{N})$|
@@ -19,20 +19,20 @@ documentation_of: include/emthrm/math/polynomial.hpp
 |`translate(c)`|$O(N\log{N})$|
 
 
-## 使用法
+## 仕様
 
-||説明|条件|
-|:--:|:--:|:--:|
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
 |`Polynomial<T>(deg = 0)`|次数 $\mathrm{deg}$ の多項式||
 |`Polynomial<T>(coef)`|係数列を $\mathrm{coef}$ とする多項式||
 |`coef`|係数列||
 |`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
-|`set_mul(mul)`|乗算を定義する．||
-|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
-|`shrink()`|正規化を行う．||
+|`set_mul(mul)`|乗算を定義する。||
+|`resize(deg)`|$\mathrm{deg}$ 次までを考える。|||
+|`shrink()`|正規化を行う。||
 |`degree()`|次数||
-|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．||
-|`operator=(x)`|多項式 $x$ を代入する．||
+|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する。||
+|`operator=(x)`|多項式 $x$ を代入する。||
 |`operator+=(x)`<br>`operator+(x)`|加算||
 |`operator-=(x)`<br>`operator-(x)`|減算||
 |`operator*=(x)`<br>`operator*(x)`|乗算||
@@ -40,8 +40,8 @@ documentation_of: include/emthrm/math/polynomial.hpp
 |`operator/=(x)`<br>`operator/(x)`|除算||
 |`operator%=(x)`<br>`operator%(x)`|剰余演算||
 |`operator<<=(n)`<br>`operator<<(n)`|$x^n f$||
-|`operator==(x)`|$f = x$ であるか．||
-|`operator!=(x)`|$f \neq x$ であるか．||
+|`operator==(x)`|$f = x$ であるか。||
+|`operator!=(x)`|$f \neq x$ であるか。||
 |`operator+()`|$+{f}$||
 |`operator-()`|$-{f}$||
 |`horner(x)`|$f(x)$||
@@ -50,7 +50,7 @@ documentation_of: include/emthrm/math/polynomial.hpp
 |`translate(c)`|$f(x + c)$||
 
 
-## 参考
+## 参考文献
 
 - https://github.com/beet-aizu/library/blob/29e15f77befa18d06b1f61221c509b5a58f4cb4c/polynomial/polynomial.cpp
 - https://github.com/primenumber/ProconLib/blob/dc175741e461e88f69350532b47fa57527b38fa3/Math/Polynomial.cpp

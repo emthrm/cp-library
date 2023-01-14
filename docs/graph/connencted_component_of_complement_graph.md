@@ -9,18 +9,18 @@ documentation_of: include/emthrm/graph/connencted_component_of_complement_graph.
 $O(\lvert V \rvert + \lvert E \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`connencted_component_of_complement_graph(graph)`|無向グラフ $\mathrm{graph}$ の補グラフの連結成分分解|
 
 
-## 参考
+## 参考文献
 
 - https://betrue12.hateblo.jp/entry/2020/02/24/165627
 
 
-## Verified
+## Submissons
 
 https://codeforces.com/contest/1242/submission/113385795

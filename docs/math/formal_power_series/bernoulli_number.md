@@ -7,7 +7,7 @@ $$
   \dfrac{x}{e^x - 1} = \sum_{n = 0}^{\infty} B_n \frac{x^n}{n!}
 $$
 
-で定義される $B_n$ である．
+で定義される $B_n$ である。
 
 $$
   \begin{cases}
@@ -16,7 +16,7 @@ $$
   \end{cases}
 $$
 
-という漸化式をもつ．
+という漸化式をもつ。
 
 
 ## 時間計算量
@@ -24,18 +24,18 @@ $$
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`bernoulli_number<T>(n)`|ベルヌーイ数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
-## 参考
+## 参考文献
 
 - https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AB%E3%83%8C%E3%83%BC%E3%82%A4%E6%95%B0
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/3792

@@ -1,44 +1,44 @@
 # 単一始点最短路問題 (single-source shortest path problem)
 
-始点から他の任意の頂点までの最短路を求める問題である．
+始点から他の任意の頂点までの最短路を求める問題である。
 
 
 ## 時間計算量
 
 |アルゴリズム|時間計算量|
-|:--:|:--:|
+|:--|:--|
 |Bellman–Ford 法|$O(\lvert V \rvert \lvert E \rvert)$|
 |Dijkstra 法|$O(\lvert E \rvert \log{\lvert V \rvert})$|
 
 
-## 使用法
+## 仕様
 
-- Bellman–Ford 法
+### Bellman–Ford 法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える。||
 |`inf`|$\infty$||
-|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達できなければ $\infty$ となる．|
-|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
-|`build_path(t)`|終点 $t$ の最短路|到達できなければ空配列となる．|
+|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達できなければ $\infty$ となる。|
+|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する。|戻り値はグラフが負の閉路をもつか。|
+|`build_path(t)`|終点 $t$ の最短路|到達できなければ空配列となる。|
 
-- Dijkstra 法
+### Dijkstra 法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える。||
 |`inf`|$\infty$||
-|`build(s)`|始点 $s$ の単一始点最短路|到達できなければ $\infty$ となる．|
-|`build_path(t)`|終点 $t$ の最短路|到達できならば空配列となる．|
+|`build(s)`|始点 $s$ の単一始点最短路|到達できなければ $\infty$ となる。|
+|`build_path(t)`|終点 $t$ の最短路|到達できならば空配列となる。|
 
 
-## 参考
+## 参考文献
 
-Bellman–Ford 法
+#### Bellman–Ford 法
 - http://www.prefield.com/algorithm/graph/bellman_ford.html
 
-Dijkstra 法
+#### Dijkstra 法
 - https://github.com/spaghetti-source/algorithm/blob/af9a22a92953e903c474e98e79107103adbd0a53/graph/dijkstra.cc
 
 
@@ -94,7 +94,7 @@ Dijkstra 法
   - https://yukicoder.me/problems/no/1602
 
 
-## Verified
+## Submissons
 
 - [Bellman–Ford 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_1_B/review/4082583/emthrm/C++14)
 - [Dijkstra 法](https://judge.yosupo.jp/submission/8211)

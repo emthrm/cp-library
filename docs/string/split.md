@@ -4,13 +4,13 @@ documentation_of: include/emthrm/string/split.hpp
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`split(s, delimiter)`|$\mathrm{delimiter}$ で分割した文字列 $S$|
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/abc033/submissions/9292173

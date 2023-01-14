@@ -3,12 +3,12 @@ title: Knuth–Yao speedup
 documentation_of: include/emthrm/dynamic_programming/knuth_yao_speedup.hpp
 ---
 
-$i \leq j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ で定義される二変数関数 $w(i, j)$ を考える．
+$i \leq j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ で定義される二変数関数 $w(i, j)$ を考える。
 
-- $w$ が concave quadrangle inequality を満たし，
+- $w$ が concave quadrangle inequality を満たし、
 - $\lbrack i, j \rbrack \subseteq \lbrack i^\prime, j^\prime \rbrack$ ならば $w(i, j) \leq w(i^\prime, j^\prime)$ が成り立つ
 
-とき，
+とき、
 
 $$
   c(i, j) \mathrel{:=}
@@ -18,43 +18,43 @@ $$
   \end{cases}
 $$
 
-で定義される $c$ に対して $c(i, j)$ ($1 \leq i \leq j \leq n$) を $O(n^2)$ 時間・領域で計算できる．
+で定義される $c$ に対して $c(i, j)$ ($1 \leq i \leq j \leq n$) を $O(n^2)$ 時間・領域で計算できる。
 
 
 ### convex quadrangle inequality
 
-$i \leq j$ を満たす $i, j$ で定義される二変数関数 $f(i, j)$ を考える．$i \leq i^\prime \leq j \leq j^\prime$ を満たす任意の $i, i^\prime, j, j^\prime$ に対して $f(i, j) + f(i^\prime, j^\prime) \geq f(i^\prime, j) + f(i, j^\prime)$ が成り立つならば，$f$ は convex quadrangle inequality を満たすと呼ぶ．
+$i \leq j$ を満たす $i, j$ で定義される二変数関数 $f(i, j)$ を考える。$i \leq i^\prime \leq j \leq j^\prime$ を満たす任意の $i, i^\prime, j, j^\prime$ に対して $f(i, j) + f(i^\prime, j^\prime) \geq f(i^\prime, j) + f(i, j^\prime)$ が成り立つならば、$f$ は convex quadrangle inequality を満たすと呼ぶ。
 
 
 ### concave quadrangle inequality
 
-$i \leq j$ を満たす $i, j$ で定義される二変数関数 $f(i, j)$ を考える．$i \leq i^\prime \leq j \leq j^\prime$ を満たす任意の $i, i^\prime, j, j^\prime$ に対して $f(i, j) + f(i^\prime, j^\prime) \leq f(i^\prime, j) + f(i, j^\prime)$ が成り立つならば，$f$ は concave quadrangle inequality を満たすと呼ぶ．
+$i \leq j$ を満たす $i, j$ で定義される二変数関数 $f(i, j)$ を考える。$i \leq i^\prime \leq j \leq j^\prime$ を満たす任意の $i, i^\prime, j, j^\prime$ に対して $f(i, j) + f(i^\prime, j^\prime) \leq f(i^\prime, j) + f(i, j^\prime)$ が成り立つならば、$f$ は concave quadrangle inequality を満たすと呼ぶ。
 
 
 ### Monge property
 
-$m \times n$ 型行列 $A$ を考える．$1 \leq i < i^\prime \leq m,\ 1 \leq j < j^\prime \leq n$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace,\ j, j^\prime \in \lbrace 1, 2, \ldots, n \rbrace$ に対して $A{\lbrack i, j^\prime \rbrack} + A{\lbrack i^\prime, j \rbrack} \geq A{\lbrack i, j \rbrack} + A{\lbrack i^\prime, j^\prime \rbrack}$ が成り立つという性質を Monge property と呼ぶ．Monge property を満たす $A$ は Monge matrix である．
+$m \times n$ 型行列 $A$ を考える。$1 \leq i < i^\prime \leq m,\ 1 \leq j < j^\prime \leq n$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace,\ j, j^\prime \in \lbrace 1, 2, \ldots, n \rbrace$ に対して $A{\lbrack i, j^\prime \rbrack} + A{\lbrack i^\prime, j \rbrack} \geq A{\lbrack i, j \rbrack} + A{\lbrack i^\prime, j^\prime \rbrack}$ が成り立つという性質を Monge property と呼ぶ。Monge property を満たす $A$ は Monge matrix である。
 
-ここで $m \times n$ 型行列 $A$ に対して，以下の二つは同値である．
+ここで $m \times n$ 型行列 $A$ に対して、以下の二つは同値である。
 
-- $A$ は Monge matrix である．
-- 任意の $i \in \lbrace 1, 2, \ldots, m - 1 \rbrace,\ j \in \lbrace 1, 2, \ldots, n - 1 \rbrace$ に対して $A{\lbrack i, j + 1 \rbrack} + A{\lbrack i + 1, j \rbrack} \geq A{\lbrack i, j \rbrack} + A{\lbrack i + 1, j + 1 \rbrack}$ が成り立つ．
+- $A$ は Monge matrix である。
+- 任意の $i \in \lbrace 1, 2, \ldots, m - 1 \rbrace,\ j \in \lbrace 1, 2, \ldots, n - 1 \rbrace$ に対して $A{\lbrack i, j + 1 \rbrack} + A{\lbrack i + 1, j \rbrack} \geq A{\lbrack i, j \rbrack} + A{\lbrack i + 1, j + 1 \rbrack}$ が成り立つ。
 
-Monge matrix は totally monotone である．逆は必ずしも成り立つとは限らない．
+Monge matrix は totally monotone である。逆は必ずしも成り立つとは限らない。
 
 
 ### monotone
 
-$m \times n$ 型行列 $A$ を考える．任意の $i \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ のとり方を一つ定める．$i < i^\prime$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \leq j_{i^\prime}$ が成り立つならば，$A$ は monotone であると呼ぶ．
+$m \times n$ 型行列 $A$ を考える。任意の $i \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ のとり方を一つ定める。$i < i^\prime$ を満たす任意の $i, i^\prime \in \lbrace 1, 2, \ldots, m \rbrace$ に対して $j_i \leq j_{i^\prime}$ が成り立つならば、$A$ は monotone であると呼ぶ。
 
 
 ### totally monotone
 
-$m \times n$ 型行列 $A$ に対して，以下の三つは同値である．
+$m \times n$ 型行列 $A$ に対して、以下の三つは同値である。
 
-- $A$ は totally monotone である．
-- $A$ の任意の部分行列は monotone である．
-- $A$ の任意の $2 \times 2$ 型部分行列は monotone である．
+- $A$ は totally monotone である。
+- $A$ の任意の部分行列は monotone である。
+- $A$ の任意の $2 \times 2$ 型部分行列は monotone である。
 
 
 ## 時間計算量
@@ -62,21 +62,21 @@ $m \times n$ 型行列 $A$ に対して，以下の三つは同値である．
 $O(N^2)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`knuth_yao_speedup(w, ∞)`|二変数関数 $w$ に対して上で定義した $f$|
 
 
-## 参考
+## 参考文献
 
 - Yao, F. F.: Speed-Up in Dynamic Programming, SIAM Journal on Algebraic Discrete Methods, Vol. 3, No. 4, pp. 532–540 (1982).
 - Bein, W., Golin, M. J., Larmore, L. L. and Zhang, Y.: The Knuth-Yao Quadrangle-Inequality Speedup is a Consequence of Total Monotonicity, ACM Trans. Algorithms, Vol. 6, No. 1 (2010).
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120915/1347668163.html
 - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/math/Monge.md
 
-Monge property
+#### Monge property
 - https://noshi91.hatenablog.com/entry/2021/04/06/004409
 
 
@@ -146,7 +146,7 @@ Monge property
   - https://atcoder.jp/contests/abc228/tasks/abc228_h
   - https://twitter.com/noshi91/status/1462064752759230471
   - https://twitter.com/hotmanww/status/1462077828422246406
-- divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える．任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j) \mid k \in \lbrace 1, 2, \ldots, j - 1 \rbrace \rbrace} \leq \mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace \mid k \in \lbrace 1, 2, \ldots, j \rbrace}$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる．
+- divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える。任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j) \mid k \in \lbrace 1, 2, \ldots, j - 1 \rbrace \rbrace} \leq \mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace \mid k \in \lbrace 1, 2, \ldots, j \rbrace}$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる。
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://www.hamayanhamayan.com/entry/2017/03/20/234711
   - https://ei1333.github.io/algorithm/dynamic-programming.html
@@ -154,6 +154,6 @@ Monge property
   - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/speedup/Divide-and-Conquer-Optimization~~
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/kupc2012/submissions/30174381

@@ -9,13 +9,13 @@ documentation_of: include/emthrm/string/run_length_encoding.hpp
 $O(\lvert S \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
+|名前|効果・戻り値|
+|:--|:--|
 |`run_length_encoding<T = char>(s)`|$S$ のランレングス圧縮|
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/abc143/submissions/9291464

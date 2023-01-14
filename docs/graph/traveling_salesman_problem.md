@@ -3,7 +3,7 @@ title: 巡回セールスマン問題 (traveling salesman problem)
 documentation_of: include/emthrm/graph/traveling_salesman_problem.hpp
 ---
 
-重み付き有向グラフに対してコスト最小のハミルトン閉路を求める問題である．
+重み付き有向グラフに対してコスト最小のハミルトン閉路を求める問題である。
 
 
 ## 時間計算量
@@ -11,14 +11,14 @@ documentation_of: include/emthrm/graph/traveling_salesman_problem.hpp
 $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト|解が存在しないときは $\infty$ となる．|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト|解が存在しないときは $\infty$ となる。|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）
 
@@ -33,6 +33,6 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/hamilton_cycle_ore.cc
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/5219970/emthrm/C++17
