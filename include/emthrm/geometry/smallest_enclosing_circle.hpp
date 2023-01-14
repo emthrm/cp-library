@@ -1,11 +1,12 @@
 #ifndef EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_
 #define EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_
 
+#include <algorithm>
+#include <random>
 #include <utility>
 #include <vector>
 
 #include "emthrm/geometry/geometry.hpp"
-#include "emthrm/util/xorshift.hpp"
 
 namespace emthrm {
 
@@ -14,9 +15,7 @@ namespace geometry {
 Circle smallest_enclosing_circle(std::vector<Point> ps) {
   const int n = ps.size();
   if (n == 1) return Circle(ps.front(), 0);
-  for (int i = 0; i < n; ++i) {
-    std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);
-  }
+  std::shuffle(ps.begin(), ps.end(), std::mt19937_64(std::random_device{}()));
   const auto get_circle = [](const Point& p1, const Point& p2) -> Circle {
     return Circle((p1 + p2) * 0.5, distance(p1, p2) * 0.5);
   };

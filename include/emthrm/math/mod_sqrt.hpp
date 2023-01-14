@@ -6,8 +6,9 @@
 #ifndef EMTHRM_MATH_MOD_SQRT_HPP_
 #define EMTHRM_MATH_MOD_SQRT_HPP_
 
+#include <random>
+
 #include "emthrm/math/mod_pow.hpp"
-#include "emthrm/util/xorshift.hpp"
 
 namespace emthrm {
 
@@ -21,9 +22,11 @@ long long mod_sqrt(long long a, const int p) {
   for (; !(q & 1); q >>= 1) {
     ++s;
   }
+  std::mt19937_64 engine(std::random_device{}());
+  std::uniform_int_distribution<> dist(2, p + 1);
   long long z;
   do {
-    z = xor128.rand(2, p);
+    z = dist(engine);
   } while (mod_pow(z, (p - 1) >> 1, p) == 1);
   int m = s;
   long long c = mod_pow(z, q, p), r = mod_pow(a, (q - 1) >> 1, p);
