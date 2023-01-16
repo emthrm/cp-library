@@ -158,10 +158,9 @@ struct FormalPowerSeries {
     return res;
   }
 
-  FormalPowerSeries exp(int deg = -1) const {
+  FormalPowerSeries exp(const int deg) const {
     assert(coef[0] == 0);
     const int n = coef.size();
-    if (deg == -1) deg = n - 1;
     const FormalPowerSeries one{1};
     FormalPowerSeries res = one;
     for (int i = 1; i <= deg; i <<= 1) {
@@ -173,11 +172,11 @@ struct FormalPowerSeries {
     res.resize(deg);
     return res;
   }
+  FormalPowerSeries exp() const { return exp(degree()); }
 
-  FormalPowerSeries inv(int deg = -1) const {
+  FormalPowerSeries inv(const int deg) const {
     assert(coef[0] != 0);
     const int n = coef.size();
-    if (deg == -1) deg = n - 1;
     FormalPowerSeries res{static_cast<T>(1) / coef[0]};
     for (int i = 1; i <= deg; i <<= 1) {
       res = res + res - res * res * FormalPowerSeries(
@@ -187,10 +186,10 @@ struct FormalPowerSeries {
     res.resize(deg);
     return res;
   }
+  FormalPowerSeries inv() const { return inv(degree()); }
 
-  FormalPowerSeries log(int deg = -1) const {
+  FormalPowerSeries log(const int deg) const {
     assert(coef[0] == 1);
-    if (deg == -1) deg = degree();
     FormalPowerSeries integrand = differential() * inv(deg - 1);
     integrand.resize(deg);
     for (int i = deg; i > 0; --i) {
@@ -199,10 +198,10 @@ struct FormalPowerSeries {
     integrand[0] = 0;
     return integrand;
   }
+  FormalPowerSeries log() const { return log(degree()); }
 
-  FormalPowerSeries pow(long long exponent, int deg = -1) const {
+  FormalPowerSeries pow(long long exponent, const int deg) const {
     const int n = coef.size();
-    if (deg == -1) deg = n - 1;
     if (exponent == 0) {
       FormalPowerSeries res(deg);
       if (deg != -1) res[0] = 1;
@@ -222,6 +221,9 @@ struct FormalPowerSeries {
       return ((res * exponent).exp(deg - shift) * tmp) << shift;
     }
     return FormalPowerSeries(deg);
+  }
+  FormalPowerSeries pow(const long long exponent) const {
+    return pow(exponent, degree());
   }
 
   FormalPowerSeries mod_pow(long long exponent,
@@ -257,9 +259,8 @@ struct FormalPowerSeries {
     return res;
   }
 
-  FormalPowerSeries sqrt(int deg = -1) const {
+  FormalPowerSeries sqrt(const int deg) const {
     const int n = coef.size();
-    if (deg == -1) deg = n - 1;
     if (coef[0] == 0) {
       for (int i = 1; i < n; ++i) {
         if (coef[i] == 0) continue;
@@ -286,6 +287,7 @@ struct FormalPowerSeries {
     res.resize(deg);
     return res;
   }
+  FormalPowerSeries sqrt() const { return sqrt(degree()); }
 
   FormalPowerSeries translate(const T c) const {
     const int n = coef.size();

@@ -3,52 +3,52 @@ title: 形式的冪級数 (formal power series)
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 ---
 
-- [重複組み合わせ](../modint.md)
+#### [重複組み合わせ](../modint.md)
 
-  $K$ 種類存在するとき
+$K$ 種類存在するとき
 
-  $$
-    \sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}
-  $$
+$$
+  \sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}
+$$
 
-  となる。
+となる。
 
-- [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
+#### [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
 
-  $$
-    \begin{split}
-      (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\
-      (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n
-    \end{split}
-  $$
+$$
+  \begin{split}
+    (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\
+    (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n
+  \end{split}
+$$
 
-- 累積和
+#### 累積和
 
-  $$
-    (1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}
-  $$
+$$
+  (1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}
+$$
 
-- 階差数列
+#### 階差数列
 
-  $$
-    \sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f
-  $$
+$$
+  \sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f
+$$
 
-- [部分和問題](../../dynamic_programming/subset_sum_problem.md)
+#### [部分和問題](../../dynamic_programming/subset_sum_problem.md)
 
-  $$
-    \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
-  $$
+$$
+  \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
+$$
 
-- 係数の和
+#### 係数の和
 
-  $n$ を素数、$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと、
+$n$ を素数、$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと、
 
-  $$
-    \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
-  $$
+$$
+  \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
+$$
 
-  が成り立つ。
+が成り立つ。
 
 
 ## 時間計算量
@@ -66,46 +66,72 @@ documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hp
 |逆元|$O(N\log{N})$|
 |対数|$O(N\log{N})$|
 |累乗|$O(N\log{N} + \log{M})$|
-|`mod_pow(exponent, md)`|$O((N + M)\log(N + M)\log{E})$ ?|
-|平方根|数 $M$ の平方根を求めるときの計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$。|
-|`translate(c)`|$O(N\log{N})$|
+|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|$O((N + M)\log(N + M)\log{E})$ ?|
+|平方根|数 $M$ の平方根を求めるときの時間計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$|
+|$f(x + c)$|$O(N\log{N})$|
 
 
 ## 仕様
 
-|名前|効果・戻り値|要件|備考|
-|:--|:--|:--|:--|
-|`FormalPowerSeries<T>(deg = 0)`|$\mathrm{deg}$ 次まで考える形式的冪級数|||
-|`FormalPowerSeries<T>(coef)`|係数列を $\mathrm{coef}$ とする形式的冪級数|||
-|`coef`|係数列|||
-|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
-|`set_mult(mult)`|乗算を定義する。|||
-|`set_sqrt(sqrt)`|平方根の計算を定義する。|||
-|`resize(deg)`|$\mathrm{deg}$ 次までを考える。|||
-|`shrink()`|正規化を行う。|||
-|`degree()`|現在考えている次数|||
-|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する。|||
-|`operator=(x)`|形式的冪級数 $x$ を代入する。|||
-|`operator+=(x)`<br>`operator+(x)`|加算|||
-|`operator-=(x)`<br>`operator-(x)`|減算|||
-|`operator*=(x)`<br>`operator*(x)`|乗算|||
-|`operator/=(x)`<br>`operator/(x)`|除算|||
-|`operator%=(x)`<br>`operator%(x)`|剰余演算|||
-|`operator<<=(n)`<br>`operator<<(n)`|$x^n f$|||
-|`operator>>=(n)`<br>`operator>>(n)`|$x^{-n} f$||$\mathrm{deg}(f) < n$ のとき $0$ となる。|
-|`operator==(x)`|$f = x$ であるか。|||
-|`operator!=(x)`|$f \neq x$ であるか。|||
-|`operator+()`|$+{f}$|||
-|`operator-()`|$-{f}$|||
-|`horner(x)`|$f(x)$|||
-|`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$||
-|`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$||
-|`inv(deg = n)`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$||
-|`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$||
-|`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$|||
-|`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|||
-|`sqrt(deg = n)`|$\sqrt{f}$||存在しないときは空列となる。|
-|`translate(c)`|$f(x + c)$|||
+```cpp
+template <typename T>
+struct FormalPowerSeries;
+```
+
+- `T`：係数の要素型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<T> coef;`|係数列|
+
+#### メンバ関数
+
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`explicit FormalPowerSeries(const int deg = 0);`|$\mathrm{deg}$ 次まで係数列をもつオブジェクトを構築する。||
+|`explicit FormalPowerSeries(const std::vector<T>& coef);`|係数列を $\mathrm{coef}$ とするオブジェクトを構築する。||
+|`FormalPowerSeries(const std::initializer_list<T> init);`|初期化子リストを受け取るコンストラクタ||
+|`template <typename InputIter> explicit FormalPowerSeries(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ||
+|`inline const T& operator[](const int term) const;`<br>`inline T& operator[](const int term);`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
+|`void resize(const int deg);`|$\mathrm{deg}$ 次まで係数列をもつ。||
+|`void shrink();`|正規化を行う。||
+|`int degree() const;`|現在の次数||
+|`FormalPowerSeries& operator=(const std::vector<T>& coef_);`<br>`FormalPowerSeries& operator=(const FormalPowerSeries& x);`|代入演算子||
+|`FormalPowerSeries& operator+=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator+(const FormalPowerSeries& x) const;`|加算||
+|`FormalPowerSeries& operator-=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator-(const FormalPowerSeries& x) const;`|減算||
+|`FormalPowerSeries& operator*=(const T x);`<br>`FormalPowerSeries& operator*=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator*(const T x) const;`<br>`FormalPowerSeries operator*(const FormalPowerSeries& x) const;`|乗算||
+|`FormalPowerSeries& operator/=(const T x);`<br>`FormalPowerSeries& operator/=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator/(const T x) const;`<br>`FormalPowerSeries operator/(const FormalPowerSeries& x) const;`|除算||
+|`FormalPowerSeries& operator%=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator%(const FormalPowerSeries& x) const;`|剰余演算||
+|`FormalPowerSeries& operator<<=(const int n);`<br>`FormalPowerSeries operator<<(const int n) const;`|$x^n f$||
+|`FormalPowerSeries& operator>>=(const int n);`<br>`FormalPowerSeries operator>>(const int n) const;`|$x^{-n} f$。ただし $\mathrm{deg}(f) < n$ のとき $0$ を返す。|
+|`bool operator==(FormalPowerSeries x) const;`<br>`bool operator!=(const FormalPowerSeries& x) const;`|比較演算子||
+|`FormalPowerSeries operator+() const;`|$+{f}$||
+|`FormalPowerSeries operator-() const;`|$-{f}$||
+|`T horner(const T x) const;`|$f(x)$||
+|`FormalPowerSeries differential() const;`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
+|`FormalPowerSeries exp(const int deg) const;`<br>`FormalPowerSeries exp() const;`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$|
+|`FormalPowerSeries inv(const int deg) const`<br>`FormalPowerSeries inv() const`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$|
+|`FormalPowerSeries log(const int deg) const`<br>`FormalPowerSeries log() const`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
+|`FormalPowerSeries pow(long long exponent, const int deg) const`<br>`FormalPowerSeries pow(const long long exponent) const`|$f^{\mathrm{exponent}}$||
+|`FormalPowerSeries mod_pow(long long exponent, const FormalPowerSeries& md) const`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
+|`FormalPowerSeries sqrt(const int deg) const`<br>`FormalPowerSeries sqrt() const`|$\sqrt{f}$。ただし存在しないときは空列を返す。|
+|`FormalPowerSeries translate(const T c) const`|$f(x + c)$||
+
+#### 静的メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`static void set_mult(const Mult mult);`|乗算を定義する。|
+|`static void set_sqrt(const Sqrt sqrt);`|平方根の計算を定義する。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Mult`|`std::function<std::vector<T>(const std::vector<T>&, const std::vector<T>&)>`|
+|`Sqrt`|`std::function<bool(const T&, T*)>`|
 
 
 ## 参考文献
