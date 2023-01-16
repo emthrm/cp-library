@@ -46,7 +46,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 - https://ei1333.github.io/luzhiled/snippets/graph/bi-connected-components.html
 - https://codeforces.com/blog/entry/14832
 
-#### カクタスグラフ
+カクタスグラフ
 - https://pekempey.hatenablog.com/entry/2017/03/28/203856
 
 

@@ -53,14 +53,14 @@ $$
 
 - https://www.slideshare.net/irrrrr/ss-25911553
 
-#### 行列木定理
+行列木定理
 - https://mizuwater0.hatenablog.com/entry/2018/11/25/233547
 - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf
 
-#### ケイリーの公式
+ケイリーの公式
 - http://joisino.hatenablog.com/entry/2017/08/20/200000
 
-#### Lindström–Gessel–Viennot lemma
+Lindström–Gessel–Viennot lemma
 - https://en.wikipedia.org/wiki/Lindstr%C3%B6m%E2%80%93Gessel%E2%80%93Viennot_lemma
 - https://suikaba.hatenablog.com/entry/2018/12/19/025636
 - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf

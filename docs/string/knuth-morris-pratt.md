@@ -46,17 +46,17 @@ $$
 
 ## 参考文献
 
-#### Morris–Pratt algorithm
+Morris–Pratt algorithm
 - https://snuke.hatenablog.com/entry/2014/12/01/235807
 
-#### Knuth–Morris–Pratt algorithm
+Knuth–Morris–Pratt algorithm
 - https://snuke.hatenablog.com/entry/2017/07/18/101026
 - http://potetisensei.hatenablog.com/entry/2017/07/10/174908
 
-#### 周期性判定
+周期性判定
 - https://snuke.hatenablog.com/entry/2015/04/05/184819
 
-#### パターンマッチング
+パターンマッチング
 - https://github.com/drken1215/algorithm/blob/d41481f5011e8b129128050627faddebe2add91a/String/knuth_morris_pratt.cpp
 
 

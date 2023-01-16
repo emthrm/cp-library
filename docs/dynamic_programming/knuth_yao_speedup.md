@@ -76,7 +76,7 @@ $O(N^2)$
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120915/1347668163.html
 - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/math/Monge.md
 
-#### Monge property
+Monge property
 - https://noshi91.hatenablog.com/entry/2021/04/06/004409
 
 

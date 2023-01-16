@@ -45,7 +45,7 @@
 - https://en.wikipedia.org/wiki/Bridge_(graph_theory)
 - https://www.slideshare.net/chokudai/arc039
 
-#### lowlink 版
+lowlink 版
 - https://ei1333.github.io/luzhiled/snippets/graph/two-edge-connected-components.html
 
 

@@ -17,10 +17,10 @@ documentation_of: include/emthrm/math/bigint.hpp
 - https://lumakernel.github.io/ecasdqina/misc/BigInteger
 - https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
 
-#### カラツバ法
+カラツバ法
 - http://xn--w6q13e505b.jp/method/karatsuba.html
 
-#### Knuth's Algorithm D
+Knuth's Algorithm D
 - http://yamatyuu.net/computer/program/long/div/index.html
 
 

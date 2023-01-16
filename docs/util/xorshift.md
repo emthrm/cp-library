@@ -31,5 +31,5 @@ documentation_of: include/emthrm/util/xorshift.hpp
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp~~
 - https://nodchip.hatenadiary.org/entry/20090111/1231667839
 
-#### 備考
+備考
 - https://twitter.com/noshi91/status/1515709212122390537

@@ -63,11 +63,11 @@ $\langle O(N), O(\log{N}) \rangle$
 - https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 - http://kagamiz.hatenablog.com/entry/2012/12/18/220849
 
-#### セグメント木
+セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/29/204841
 - https://github.com/atcoder/ac-library/blob/8de49c6f150d2e5af851cbbd074aee552bf2bec9/atcoder/segtree.hpp
 
-#### 遅延伝播セグメント木
+遅延伝播セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/30/224339
 - https://kazuma8128.hatenablog.com/entry/2017/12/29/081929
 - https://smijake3.hatenablog.com/entry/2018/11/03/100133

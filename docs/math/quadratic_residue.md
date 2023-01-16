@@ -113,13 +113,13 @@ $$
 
 ## 参考文献
 
-#### 平方剰余
+平方剰余
 - https://lumakernel.github.io/ecasdqina/math/number-theory/Tonelli-Shanks
 - https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm
 - http://sugarknri.hatenablog.com/entry/2018/02/16/115740
 - https://github.com/ei1333/library/blob/e24eaf375ae60018ba6af9079f690db319719e09/math/combinatorics/mod-sqrt.cpp
 
-#### ヤコビ記号
+ヤコビ記号
 - https://en.wikipedia.org/wiki/Jacobi_symbol
 - https://judge.yosupo.jp/submission/300
 

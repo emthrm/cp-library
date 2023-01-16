@@ -47,7 +47,7 @@ e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$。
 - http://xn--w6q13e505b.jp/method/fft/modular.html
 - http://www.cs.t-kougei.ac.jp/nsim/method/fmtbase.htm
 
-#### 任意の法の下での畳み込み
+任意の法の下での畳み込み
 - ~~https://min-25.hatenablog.com/entry/2017/09/23/085053~~
 - https://ei1333.github.io/luzhiled/snippets/math/arbitrary-mod-convolution.html
 - https://sotanishy.github.io/cp-library-cpp/convolution/arbitrary_mod_convolution.hpp

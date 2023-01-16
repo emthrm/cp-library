@@ -76,10 +76,10 @@
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.188-195，マイナビ出版（2012）
 - https://twitter.com/kotatsugame_t/status/1192092085479858176
 
-#### Ford–Fulkerson 法
+Ford–Fulkerson 法
 - https://ei1333.github.io/luzhiled/snippets/graph/ford-fulkerson.html
 
-#### Dinic 法
+Dinic 法
 - https://misawa.github.io/others/flow/dinic_time_complexity.html
 
 

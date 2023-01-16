@@ -42,11 +42,11 @@ $$
 
 ## 参考文献
 
-#### ラグランジュ補間
+ラグランジュ補間
 - https://mathtrain.jp/hokan
 - https://tubo28.me/compprog/algorithm/lagrange_interpolation/
 
-#### 多項式補間
+多項式補間
 - https://github.com/ei1333/library/blob/c5a89ad7cb3855ebb448da00a629504e26adce24/math/fps/polynomial-interpolation.cpp
 
 

@@ -39,7 +39,7 @@
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.292-295，マイナビ出版（2012）
 - https://yukicoder.me/wiki/lowest_common_ancestor
 
-#### オイラーツアー版
+オイラーツアー版
 - https://github.com/drken1215/algorithm/blob/efb8cf052b095e49e70135a6fb628308d06f49b2/DataStructureOnTree/euler_tour_on_nodes.cpp
 
 

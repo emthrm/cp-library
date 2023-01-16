@@ -52,7 +52,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 - https://ei1333.github.io/algorithm/euler-phi.html
 
-#### 数表2
+数表2
 - https://github.com/spaghetti-source/algorithm/blob/87f5b3e4a3c10d8b85048f4fc4e4842ad11e9670/number_theory/euler_phi.cc
 
 

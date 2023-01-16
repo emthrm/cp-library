@@ -23,7 +23,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 参考文献
 
-#### 有向閉路の検出
+有向閉路の検出
 - https://qiita.com/drken/items/a803d4fc4a727e02f7ba#4-6-%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E6%A4%9C%E5%87%BA
 
 

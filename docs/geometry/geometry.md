@@ -104,25 +104,25 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 - http://www.deqnotes.net/acmicpc/2d_geometry/
 - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
 
-#### 最近点対
+最近点対
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.324-326，マイナビ出版（2012）
 
-#### 接点
+接点
 - https://mathtrain.jp/ennosessen
 
-#### 2円の共通接線の本数
+2円の共通接線の本数
 - http://www.e-learning-jp.net/teach_math/mathA/text_1/6/11/001a.htm
 
-#### 2円の共通接線
+2円の共通接線
 - http://nutsu.com/blog/2007/102601_as_circletest6.html
 
-#### 多角形の面積
+多角形の面積
 - https://blog.goo.ne.jp/m4g/e/82eb68689c322dc43d52ce16b29a9a74
 
-#### 2円の共通部分の面積
+2円の共通部分の面積
 - https://drken1215.hatenablog.com/entry/2020/02/02/005800
 
-#### 点の多角形に対する内外判定
+点の多角形に対する内外判定
 - https://www.nttpc.co.jp/technology/number_algorithm.html
 
 

@@ -21,13 +21,13 @@ documentation_of: include/emthrm/math/modint.hpp
 - https://noshi91.hatenablog.com/entry/2019/03/31/174006
 - https://ei1333.github.io/algorithm/combination.html
 
-#### 順列
+順列
 - https://mathtrain.jp/permucombi
 
-#### 重複組合せ
+重複組合せ
 - https://mathtrain.jp/tyohukuc
 
-#### 逆元の数表
+逆元の数表
 - http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
 

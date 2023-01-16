@@ -110,28 +110,28 @@ $$
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）
 
-#### 性質3
+性質3
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605
 
-#### 性質5・Dilworth's theorem
+性質5・Dilworth's theorem
 - https://en.wikipedia.org/wiki/Dilworth%27s_theorem
 - ~~https://lumakernel.github.io/ecasdqina/math/dilworth-theorem~~
 - https://anta1.hatenadiary.org/entry/20120816/1345046832
 
-#### Hall's theorem
+Hall's theorem
 - https://mathtrain.jp/hall
 
-#### 二部グラフの最大マッチング
+二部グラフの最大マッチング
 - https://ei1333.github.io/algorithm/bipartite-matching.html
 
-#### Hopcroft–Karp algorithm
+Hopcroft–Karp algorithm
 - https://misteer.hatenablog.com/entry/hopcroft-karp
 - https://ei1333.github.io/luzhiled/snippets/graph/hopcroft-karp.html
 
-#### 二部グラフの重み付き最大マッチング
+二部グラフの重み付き最大マッチング
 - https://qiita.com/drken/items/e805e3f514acceb87602
 
-#### 一般グラフの最大マッチング
+一般グラフの最大マッチング
 - https://kopricky.github.io/code/Academic/maximum_matching_memo.html
 
 

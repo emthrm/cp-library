@@ -48,10 +48,10 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 - https://kokiymgch.hatenablog.com/entry/2017/12/07/193238
 
-#### オイラー路 有向グラフ版
+オイラー路 有向グラフ版
 - http://www.prefield.com/algorithm/graph/directed_euler_path.html
 
-#### オイラー路 無向グラフ版
+オイラー路 無向グラフ版
 - https://github.com/spaghetti-source/algorithm/blob/2c70d7af4d132513fa699a5de5b2aaf21aaf7890/graph/eulerian_path_undirected.cc
 
 

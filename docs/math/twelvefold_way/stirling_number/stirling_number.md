@@ -105,11 +105,11 @@ $$
 
 - https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E6%95%B0
 
-#### 第2種スターリング数
+第2種スターリング数
 - https://mathtrain.jp/stnum
 - https://mathtrain.jp/zensya
 
-#### 形式的冪級数版
+形式的冪級数版
 - https://min-25.hatenablog.com/entry/2015/04/07/160154
 
 

@@ -28,10 +28,10 @@ $O(\sqrt{N})$
 
 - https://twitter.com/noshi91/status/1278227768333852672
 
-#### 備考1
+備考1
 - https://twitter.com/heno_code/status/1495040694527741954
 
-#### 備考2
+備考2
 - https://twitter.com/maspy_stars/status/1495039893172412421
 
 

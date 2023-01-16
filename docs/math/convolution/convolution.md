@@ -76,17 +76,17 @@ $O(N\log{N})$
 - http://kazuma8128.hatenablog.com/entry/2018/05/31/144519
 - https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
 
-#### 高速ウォルシュ・アダマール変換
+高速ウォルシュ・アダマール変換
 - https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 - https://cympfh.cc/aiura/hadamard-xor-convolution
 - https://pctprobability.hatenadiary.com/entry/2022/01/10/185418
 - https://twitter.com/maspy_stars/status/1350467886775603200
 
-#### 添え字 gcd での畳み込み
+添え字 gcd での畳み込み
 - https://noshi91.hatenablog.com/entry/2019/09/23/002445
 - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 
-#### 添え字 lcm での畳み込み
+添え字 lcm での畳み込み
 - https://aprilganmo.hatenablog.com/entry/2020/07/24/190816
 - https://yukicoder.me/problems/no/1760
 
