@@ -13,9 +13,9 @@ $O(NM)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`longest_common_subsequence(a, b)`|$A$ と $B$ の最長共通部分列|
+|`template <typename T> T longest_common_subsequence(const T& a, const T& b);`|$A$ と $B$ の最長共通部分列|
 
 
 ## 参考文献

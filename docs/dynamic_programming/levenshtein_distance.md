@@ -13,9 +13,9 @@ $O(NM)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`levenshtein_distance(a, b)`|$A$ と $B$ のレーベンシュタイン距離|
+|`template <typename T> int levenshtein_distance(const T& a, const T& b);`|$A$ と $B$ のレーベンシュタイン距離|
 
 
 ## 参考文献

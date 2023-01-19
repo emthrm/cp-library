@@ -11,9 +11,9 @@ $O(N)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`prime_sieve(n, 素数のみ取得するか?)`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数|
+|`std::vector<int> prime_sieve(const int n, const bool get_only_prime);`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数|
 
 
 ## 参考文献

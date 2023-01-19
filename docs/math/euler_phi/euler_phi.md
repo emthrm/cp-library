@@ -31,21 +31,21 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`euler_phi(n)`|$\varphi(n)$|
+|`long long euler_phi(long long n);`|$\varphi(n)$|
 
 ### 数表
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`euler_phi_init(n)`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
+|`std::vector<int> euler_phi_init(const int n);`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
 
 ### 数表2
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`euler_phi_init2(low, high)`|$\varphi(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
+|`std::vector<long long> euler_phi_init2(const long long low, const long long high);`|$\varphi(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
 
 
 ## 参考文献

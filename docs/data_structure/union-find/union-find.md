@@ -10,7 +10,7 @@
 
 ## 時間計算量
 
-|名前|時間計算量|
+||時間計算量|
 |:--|:--|
 |union-find|$\langle O(N), \text{amortized } O(\alpha(N)) \rangle$|
 |重みつき union-find|$\langle O(N), \text{amortized } O(\alpha(N)) \rangle$|
@@ -22,47 +22,77 @@
 
 ### union-find
 
+```cpp
+struct UnionFind;
+```
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`UnionFind(n)`|頂点数 $N$ の union-find|
-|`root(ver)`|$\mathrm{ver}$ の根|
-|`unite(u, v)`|$u$ と $v$ を併合したのち、実際に $u$ と $v$ を併合したかを返す。|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか。|
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ|
+|`explicit UnionFind(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`int root(const int ver);`|$\mathrm{ver}$ の根|
+|`bool unite(int u, int v);`|$u$ と $v$ を併合したのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int u, const int v);`|$u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int ver);`|$\mathrm{ver}$ を含む集合のサイズ|
+
 
 ### 重みつき union-find
 
+```cpp
+template <typename Abelian>
+struct WeightedUnionFind;
+```
+
+- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find|
-|`root(ver)`|$\mathrm{ver}$ の根|
-|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加えたのち、実際に $u$ と $v$ を併合したかを返す。|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか。|
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ|
-|`diff(u, v)`|$w(v) - w(u)$|
+|`explicit WeightedUnionFind(const int n, const Abelian ID = 0);`|頂点数 $N$、単位元 $\mathrm{id}$ のオブジェクトを構築する。|
+|`int root(const int ver);`|$\mathrm{ver}$ の根|
+|`bool unite(int u, int v, Abelian wt);`|$w(u) + \mathrm{wt} = w(v)$ の情報を加えたのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int u, const int v);`|$u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int ver);`|$\mathrm{ver}$ を含む集合のサイズ|
+|`Abelian diff(const int u, const int v);`|$w(v) - w(u)$|
+
 
 ### 部分永続 union-find
 
+```cpp
+struct PartiallyPersistentUnionFind;
+```
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find|
-|`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根|
-|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合したのち、実際に $u$ と $v$ を併合したかを返す。|
-|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか。|
-|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ|
+|`explicit PartiallyPersistentUnionFind(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`int root(const int t, const int ver) const;`|時刻 $t$ における $\mathrm{ver}$ の根|
+|`bool unite(const int t, int u, int v);`|時刻 $t$ に $u$ と $v$ を併合したのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int t, const int u, const int v) const;`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int t, int ver) const;`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ|
+
 
 ### undo 可能 union-find
 
+```cpp
+struct UndoableUnionFind;
+```
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find|
-|`root(ver)`|$\mathrm{ver}$ の根|
-|`unite(u, v)`|$u$ と $v$ を併合したのち、実際に $u$ と $v$ を併合したかを返す。|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか。|
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ|
-|`undo()`|`unite()` を一度だけ巻き戻す。|
-|`snap()`|スナップショット|
-|`rollback()`|`snap()` 時点まで巻き戻す。|
+|`explicit UndoableUnionFind(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`int root(const int ver) const;`|$\mathrm{ver}$ の根|
+|`bool unite(int u, int v);`|$u$ と $v$ を併合したのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int u, const int v) const;`|$u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int ver) const;`|$\mathrm{ver}$ を含む集合のサイズ|
+|`void undo();`|`unite` を一度だけ巻き戻す。|
+|`void snapshot();`|スナップショット|
+|`void rollback();`|`snapshot` 時点まで巻き戻す。|
 
 
 ## 参考文献

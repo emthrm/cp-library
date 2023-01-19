@@ -13,11 +13,22 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ## 仕様
 
+```cpp
+struct OsaK;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const std::vector<int> smallest_prime_factor`|$i$ の最小素因数|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`smallest_prime_factor[i]`|$i$ の最小素因数|
-|`OsaK(n)`|$n$ 以下における osa_k 法を考える。|
-|`query(n)`|$n$ の素因数分解|
+|`explicit OsaK(const int n);`|$n$ 以下に対するオブジェクトを構築する。|
+|`std::vector<std::pair<int, int>> query(int n) const;`|$n$ の素因数分解|
 
 
 ## 参考文献

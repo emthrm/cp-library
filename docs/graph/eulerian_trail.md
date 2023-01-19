@@ -30,18 +30,30 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ### オイラー路 有向グラフ版
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`eulerian_trail_in_directed_graph(graph, s = -1)`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路|存在しないときは空配列となる。|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(std::vector<std::vector<Edge<CostType>>> graph, int s = -1);`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路。ただし存在しないときは空配列を返す。|
+
 
 ### オイラー路 無向グラフ版
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`EulerianTrailInUndirectedGraph(n)`|頂点数 $N$ の無向グラフにおけるオイラー路を考える。||
-|`trail`|オイラー路|存在しないときは空配列となる。|
-|`add_edge(u, v)`|辺 $(u, v)$ を加える。||
-|`build(s = -1)`|始点 $s$ のオイラー路を構築できたか。||
+```cpp
+struct EulerianTrailInUndirectedGraph;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> trail`|オイラー路。ただし存在しないときは空配列となる。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit EulerianTrailInUndirectedGraph(const int n);`|頂点数 $N$ の無向グラフのオブジェクトを構築する。|
+|`void add_edge(const int u, const int v);`|辺 $(u, v)$ を加える。|
+|`bool build(int s = -1);`|始点 $s$ のオイラー路を構築できたか。|
 
 
 ## 参考文献

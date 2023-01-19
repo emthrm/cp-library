@@ -19,19 +19,22 @@ $$
 
 ### パスカルの三角形
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`pascal<T>(n)`|$n$ 段のパスカルの三角形|
+|`template <typename T> std::vector<std::vector<T>> pascal(const int n);`|$n$ 段のパスカルの三角形|
+
 
 ### [二項係数](../../../include/emthrm/math/modint.hpp)
 
+
 ### [二項係数 巨大な $n$ 版](../../../include/emthrm/math/modint.hpp)
+
 
 ### 二項係数の数表 巨大な $n$ 版
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`large_nCk_init<T>(n, k)`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
+|`template <int T> std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
 
 
 ## 参考文献

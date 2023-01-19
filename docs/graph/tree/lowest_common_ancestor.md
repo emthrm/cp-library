@@ -15,21 +15,46 @@
 
 ### ダブリング版
 
+```cpp
+template <typename CostType>
+struct LowestCommonAncestorByDoubling;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> depth`|`depth[i]` は頂点 $i$ の深さを表す。|
+|`std::vector<CostType> dist`|`dist[i]` は根と頂点 $i$ の間の距離を表す。|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`LowestCommonAncestorByDoubling<CostType>(graph)`|木 $\mathrm{graph}$ の最小共通祖先を考える。|
-|`depth[i]`|頂点 $i$ の深さ|
-|`dist[i]`|根と頂点 $i$ の間の距離|
-|`build(root = 0)`|根を $\mathrm{root}$ として構築する。|
-|`query(u, v)`|頂点 $u, v$ の最小共通祖先|
-|`distance(u, v)`|頂点 $u, v$ 間の距離|
+|`explicit LowestCommonAncestorByDoubling(const std::vector<std::vector<Edge<CostType>>>& graph);`|木 $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`void build(const int root = 0);`|根を $\mathrm{root}$ として構築する。|
+|`int query(int u, int v) const;`|頂点 $u, v$ の最小共通祖先|
+|`CostType distance(const int u, const int v) const;`|頂点 $u, v$ 間の距離|
+
 
 ### [オイラーツアー](euler_tour.md)版
 
+```cpp
+template <typename CostType>
+struct LowestCommonAncestor : EulerTour<CostType>;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`LowestCommonAncestor<CostType>(graph, root = 0)`|根を $\mathrm{root}$ とする木 $\mathrm{graph}$ の最小共通祖先を構築する。|
-|`query(u, v)`|頂点 $u, v$ の最小共通祖先|
+|`explicit LowestCommonAncestor(const std::vector<std::vector<Edge<CostType>>>& graph, const int root = 0);`|根を $\mathrm{root}$ とする木 $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`int query(int u, int v) const;`|頂点 $u, v$ の最小共通祖先|
+
 
 ### [HL 分解版](heavy-light_decomposition.md)
 

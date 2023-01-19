@@ -24,15 +24,38 @@ $O(N\log{N})$
 
 ### Cooley–Tukey algorithm
 
+|名前|説明・効果・戻り値|
+|:--|:--|
+|`Real`|`double`|
+|`Complex`|複素数を表す構造体|
+|`std::vector<int> butterfly`|バタフライ演算用の配列|
+|`std::vector<std::vector<Complex>> zeta`|`zeta[i][j]` は $1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$ を表す。|
+|`void init(const int n);`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う。|
+|`void dft(std::vector<Complex>* a);`|複素数列 $A$ に対して離散フーリエ変換を行う。|
+|`template <typename T> std::vector<Complex> real_dft(const std::vector<T>& a);`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
+|`void idft(std::vector<Complex>* a);`|複素数列 $A$ に対して逆離散フーリエ変換を行う。|
+|`template <typename T> std::vector<Real> convolution(const std::vector<T>& a, const std::vector<T>& b);`|実数列 $A$ と $B$ の畳み込み|
+
+```cpp
+struct Complex;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`Real re`|実部|
+|`Real im`|虚部|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`butterfly`|バタフライ演算用の配列|
-|`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$|
-|`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う。|
-|`dft(&a)`|複素数列 $A$ に対して離散フーリエ変換を行う。|
-|`real_dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
-|`idft(&a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う。|
-|`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み|
+|`explicit Complex(const Real re = 0, const Real im = 0);`|コンストラクタ|
+|`inline Complex operator+(const Complex& x) const;`<br>`inline Complex operator-(const Complex& x) const;`<br>`inline Complex operator*(const Complex& x) const;`||
+|`inline Complex mul_real(const Real r) const;`|実数 $r$ をかける|
+|`inline Complex mul_pin(const Real r) const;`|虚数 $ir$ をかける|
+|`inline Complex conj() const;`|共役複素数|
 
 
 ## 実装

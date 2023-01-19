@@ -3,7 +3,7 @@
 
 ## 時間計算量
 
-|名前|時間計算量|
+||時間計算量|
 |:--|:--|
 |Fenwick tree|$\langle O(N), O(\log{N}) \rangle$|
 |2次元 Fenwick tree|$\langle O(HW), O((\log{H})(\log{W})) \rangle$|
@@ -13,43 +13,82 @@
 
 ### Fenwick tree
 
+```cpp
+template <typename Abelian>
+struct FenwickTree;
+```
+
+- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+
+#### メンバ関数
+
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`FenwickTree<Abelian>(n, 単位元 = 0)`|要素数 $N$ の Fenwick tree||
-|`add(idx, val)`|$A_{\mathrm{idx}} \gets A_{\mathrm{idx}} + \mathrm{val}$||
-|`sum(idx)`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$||
-|`sum(left, right)`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$||
-|`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`lower_bound(val)`|$\min \lbrace\,k \mid \sum_{i = 0}^k A_i \geq \mathrm{val} \rbrace$|$A_i \geq (\text{単位元})$ ($i = 0,\ldots, N - 1$)|
+|`explicit FenwickTree(const int n, const Abelian ID = 0);`|要素数 $N$、単位元 $\mathrm{id}$ のオブジェクトを構築する。||
+|`void add(int idx, const Abelian val);`|$A_{\mathrm{idx}} \gets A_{\mathrm{idx}} + \mathrm{val}$||
+|`Abelian sum(int idx) const;`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$||
+|`Abelian sum(const int left, const int right) const;`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$||
+|`Abelian operator[](const int idx) const;`|$A_{\mathrm{idx}}$||
+|`int lower_bound(Abelian val) const;`|$\min \lbrace\,k \mid \sum_{i = 0}^k A_i \geq \mathrm{val} \rbrace$|$A_i \geq (\text{単位元})$ ($i = 0,\ldots, N - 1$)|
+
 
 ### 区間加算クエリ対応 Fenwick tree
 
+```cpp
+template <typename Abelian>
+struct FenwickTreeSupportingRangeAddQuery;
+```
+
+- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`FenwickTreeSupportingRangeAddQuery<Abelian>(n, 単位元 = 0)`|要素数 $N$ の区間加算クエリ対応 Fenwick tree|
-|`add(left, right, val)`|$A_i \gets A_i + \mathrm{val}$ ($i = \mathrm{left},\ldots, \mathrm{right} - 1$)|
-|`sum(idx)`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$|
-|`sum(left, right)`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$|
-|`operator()[idx]`|$A_{\mathrm{idx}}$|
+|`explicit FenwickTreeSupportingRangeAddQuery(const int n_, const Abelian ID = 0);`|要素数 $N$、単位元 $\mathrm{id}$ のオブジェクトを構築する。|
+|`void add(int left, const int right, const Abelian val);`|$A_i \gets A_i + \mathrm{val}$ ($i = \mathrm{left},\ldots, \mathrm{right} - 1$)|
+|`Abelian sum(const int idx) const;`|$\sum_{i = 0}^{\mathrm{idx} - 1} A_i$|
+|`Abelian sum(const int left, const int right) const;`|$\sum_{i = \mathrm{left}}^{\mathrm{right} - 1} A_i$|
+|`Abelian operator[](const int idx) const;`|$A_{\mathrm{idx}}$|
+
 
 ### 2次元 Fenwick tree
 
+```cpp
+template <typename Abelian>
+struct FenwickTreeSupportingRangeAddQuery;
+```
+
+- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`FenwickTree2D<Abelian>(height, width, 単位元 = 0)`|要素数 $\mathrm{height} \times \mathrm{width}$ の2次元 Fenwick tree|
-|`add(y, x, val)`|$A_{yx} \gets A_{yx} + \mathrm{val}$|
-|`sum(y, x)`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
-|`sum(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
-|`get(y, x)`|$A_{yx}$|
+|`explicit FenwickTree2D(const int height_, const int width_, const Abelian ID = 0);`|要素数 $\mathrm{height} \times \mathrm{width}$、単位元 $\mathrm{id}$ のオブジェクトを構築する。|
+|`void add(int y, int x, const Abelian val);`|$A_{yx} \gets A_{yx} + \mathrm{val}$|
+|`Abelian sum(int y, int x) const;`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
+|`Abelian sum(const int y1, const int x1, const int y2, const int x2) const;`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
+|`Abelian get(const int y, const int x) const;`|$A_{yx}$|
+
 
 ### 区間加算クエリ対応2次元 Fenwick tree
 
+```cpp
+template <typename Abelian>
+struct FenwickTree2DSupportingRangeAddQuery;
+```
+
+- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`FenwickTree2DSupportingRangeAddQuery<Abelian>(height, width, 単位元 = 0)`|要素数 $\mathrm{height} \times \mathrm{width}$ の区間加算クエリ対応2次元 Fenwick tree|
-|`add(y1, x1, y2, x2, val)`|$A_{ij} \gets A_{ij} + \mathrm{val}$ ($y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2$)|
-|`sum(y, x)`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
-|`sum(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
+|`explicit FenwickTree2DSupportingRangeAddQuery(const int height_, const int width_, const Abelian ID = 0);`|要素数 $\mathrm{height} \times \mathrm{width}$、単位元 $\mathrm{id}$ のオブジェクトを構築する。|
+|`void add(int y1, int x1, int y2, int x2, const Abelian val);`|$A_{ij} \gets A_{ij} + \mathrm{val}$ ($y_1 \leq i \leq y_2,\ x_1 \leq j \leq x_2$)|
+|`Abelian sum(int y, int x) const;`|$\sum_{i = 0}^y \sum_{j = 0}^x A_{ij}$|
+|`Abelian sum(const int y1, const int x1, const int y2, const int x2) const;`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
 
 
 ## 区間加算クエリ対応2次元 Fenwick tree の実装

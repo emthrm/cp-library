@@ -18,9 +18,9 @@ $O(\lvert V \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`double_sweep(graph)`|グラフ $\mathrm{graph}$ の直径とその経路|
+|`template <typename CostType> std::pair<CostType, std::vector<int>> double_sweep(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ の直径とその経路|
 
 
 ## 参考文献

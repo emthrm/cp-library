@@ -13,9 +13,9 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`chromatic_number(graph)`|無向グラフ $\mathrm{graph}$ の彩色数|
+|`template <typename CostType> int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の彩色数|
 
 
 ## 参考文献

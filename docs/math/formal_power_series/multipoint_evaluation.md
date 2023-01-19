@@ -13,12 +13,27 @@ $\langle O(N(\log{N})^2), O(N(\log{N})^2) \rangle$
 
 ## 仕様
 
-|名前|効果・戻り値|
+```cpp
+template <template <typename> class C, typename T>
+struct MultipointEvaluation;
+```
+
+- `C`：冪級数を表す構造体
+- `T`：係数を表す要素型
+
+#### メンバ変数
+
+|名前|説明|
 |:--|:--|
-|`MultipointEvaluation<多項式, T>(xs)`|multipoint evaluation を考える。|
-|`f_x`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
-|`subproduct_tree`|subproduct tree|
-|`build(f)`|多項式 $f$ に対して `f_x` を構築する。|
+|`std::vector<T> f_x`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
+|`std::vector<C<T>> subproduct_tree`|subproduct tree|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit MultipointEvaluation(const std::vector<T> &xs);`|multipoint evaluation を考える。|
+|`void build(const C<T>& f);`|多項式 $f$ に対して `f_x` を構築する。|
 
 
 ## 参考文献

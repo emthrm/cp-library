@@ -11,9 +11,9 @@ $O(\sqrt{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`prime_factorization(n)`|$n$ の素因数分解|
+|`template <typename T> std::vector<std::pair<T, int>> prime_factorization(T n);`|$n$ の素因数分解|
 
 
 ## 参考文献

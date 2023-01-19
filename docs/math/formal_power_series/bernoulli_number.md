@@ -26,9 +26,9 @@ $O(N\log{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`bernoulli_number<T>(n)`|ベルヌーイ数 $B_i$ ($0 \leq i \leq n$) の数表|
+|`template <typename T> std::vector<T> bernoulli_number(const int n);`|ベルヌーイ数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

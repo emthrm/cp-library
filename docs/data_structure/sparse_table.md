@@ -13,12 +13,27 @@ $\langle O(N\log{N}), O(1) \rangle$
 
 ## 仕様
 
+```cpp
+template <typename Band>
+struct SparseTable
+```
+
+- `Band`：帯である要素型
+
+#### メンバ変数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`SparseTable<帯>()`|sparse table|
-|`SparseTable<帯>(a, 二項演算)`|$A$ の sparse table|
-|`init(a, 二項演算)`|$A$ の sparse table を構築する。|
-|`query(left, right)`|$[\mathrm{left}, \mathrm{right})$ における演算を行った解|
+|`SparseTable()`|デフォルトコンストラクタ|
+|`explicit SparseTable(const std::vector<Band>& a, const Fn fn)`|$A$ に対して二項演算 $\mathrm{fn}$ のオブジェクトを構築する。|
+|`void init(const std::vector<Band>& a, const Fn fn_);`|$A$ によって初期化する。|
+|`Band query(const int left, const int right) const;`|$[\mathrm{left}, \mathrm{right})$ における演算を行った解|
+
+#### メンバ型
+
+|名前|効果・戻り値|
+|:--|:--|
+|`Fn`|`std::function<Band(Band, Band)>`|
 
 
 ## 参考文献

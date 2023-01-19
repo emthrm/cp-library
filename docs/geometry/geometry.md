@@ -20,81 +20,134 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|
-|:--|:--|
-|`sgn(x)`|$\begin{cases} 1 & (x > \varepsilon) \\\\ -1 & (x < -\varepsilon) \\\\ 0 & (\text{otherwise}) \end{cases}$|
-|`degree_to_radian(d)`|$\frac{\pi d}{180}\,\mathrm{rad}$|
-|`radian_to_degree(r)`|$(\frac{180r}{\pi})^\circ$|
+|名前|説明・戻り値|備考|
+|:--|:--|:--|
+|`Real`|`double`||
+|`constexpr long double PI`|$\pi$||
+|`int sgn(const Real x);`|$\begin{cases} 1 & (x > \varepsilon) \\\\ -1 & (x < -\varepsilon) \\\\ 0 & (\text{otherwise}) \end{cases}$|$\varepsilon = 10^{-8}$|
+|`Real degree_to_radian(const Real d);`|$\frac{\pi d}{180}\,\mathrm{rad}$||
+|`Real radian_to_degree(const Real r);`|$(\frac{180r}{\pi})^\circ$||
+
 
 ### 点
 
+```cpp
+struct Point;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`Real x`|$x$ 座標|
+|`Real y`|$y$ 座標|
+
+#### メンバ変数
+
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`Point(x = 0, y = 0)`|点 $(x, y)$||
-|`x`, `y`|$(x, y)$||
-|`abs()`|$\lVert \boldsymbol{p} \rVert$||
-|`arg()`|$\arg(x + iy)$|$[0, 2\pi)$|
-|`norm()`|${\lVert \boldsymbol{p} \rVert}^2$||
-|`rotate(angle)`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos(\mathrm{angle}) - y\sin(\mathrm{angle}) \\\\ y^{\prime} = x\sin(\mathrm{angle}) + y\cos(\mathrm{angle}) \end{cases}$|
+|`explicit Point(const Real x = 0, const Real y = 0);`|点 $(x, y)$ を表すオブジェクトを構築する。||
+|`Real abs() const;`|$\lVert \boldsymbol{p} \rVert$||
+|`Real arg() const;`|$\arg(x + iy)$|$[0, 2\pi)$|
+|`Real norm() const;`|${\lVert \boldsymbol{p} \rVert}^2$||
+|`Point rotate(const Real angle) const;`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos(\mathrm{angle}) - y\sin(\mathrm{angle}) \\\\ y^{\prime} = x\sin(\mathrm{angle}) + y\cos(\mathrm{angle}) \end{cases}$|
+|`Point& operator+=(const Point& p);`<br>`Point& operator-=(const Point& p);`<br>`Point& operator*=(const Real k);`<br>`Point& operator/=(const Real k)`<br>`Point operator+(const Point& p);`<br>`Point operator-(const Point& p);`<br>`Point operator*(const Real k);`<br>`Point operator/(const Real k);`||
+|`bool operator<(const Point& p) const;`<br>`bool operator<=(const Point& p);`<br>`bool operator>(const Point& p);`<br>`bool operator>=(const Point& p);`|比較演算子|
+|`Point operator+() const;`|$(x, y)$|
+|`Point operator-() const;`|$(-x, -y)$|
+|`friend std::ostream& operator<<(std::ostream& os, const Point& p);`||
+|`friend std::istream& operator>>(std::istream& is, Point& p);`||
+
 
 ### 線分
 
-|名前|効果・戻り値|
+```cpp
+struct Segment;
+```
+
+#### メンバ変数
+
+|名前|説明|
 |:--|:--|
-|`Segment(s = (0, 0), t = (0, 0))`|始点 $s$, 終点 $t$ の線分|
-|`s`|始点|
-|`t`|終点|
+|`Point s`<br>`Point t`|端点|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Segment(const Point& s = Point(0, 0), const Point& t = Point(0, 0));`|端点 $s, t$ の線分を表すオブジェクトを構築する。|
+
 
 ### 直線
 
-|名前|効果・戻り値|備考|
+```cpp
+struct Line : Segment;
+```
+
+#### メンバ関数
+
+|名前|効果|備考|
 |:--|:--|:--|
-|`Line(s = (0, 0), t = (0, 0))`|始点 $s$, 終点 $t$ の線分||
-|`Line(a, b, c)`|$ax + by + c = 0$ で表される直線|`s`, `t` には代表する2点を格納する。|
-|`s`|始点|
-|`t`|終点|
+||継承コンストラクタ||
+|`explicit Line(const Real a, const Real b, const Real c);`|直線 $ax + by + c = 0$ を表すオブジェクトを構築する。|`s`, `t` には代表する2点を格納する。|
+
 
 ### 円
 
-|名前|効果・戻り値|
+```cpp
+struct Circle;
+```
+
+#### メンバ変数
+
+|名前|説明|
 |:--|:--|
-|`Circle(p = (0, 0), r = 0)`|中心 $\mathrm{P}$, 半径 $r$ の円|
-|`p`|中心|
-|`r`|半径|
+|`Point p`|中心|
+|`Real r`|半径|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Circle(const Point& p = Point(0, 0), const Real r = 0);`|コンストラクタ|
+
 
 ### 多角形
 
-頂点は反時計回りに並ぶ。
+|名前|説明|要件|
+|:--|:--|:--|
+|`Polygon`|`std::vector<Point>`|頂点は反時計回りに並ぶ。|
+
 
 ### ライブラリ
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|備考|
 |:--|:--|:--|
-|`unit_vector(p)`|ベクトル $p$ の単位ベクトル||
-|`normal_unit_vector(p)`|ベクトル $p$ の単位法線ベクトル|
-|`cross(a, b)`|$\boldsymbol{a} \times \boldsymbol{b}$||
-|`dot(a, b)`|$\boldsymbol{a} \cdot \boldsymbol{b}$||
-|`ccw(a, b, c)`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C} \text{ の順で一直線上に並ぶ。}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある。}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ。}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある。}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ。}) \end{cases}$||
-|`get_angle(a, b, c)`|$\angle{\mathrm{ABC}}$||
-|`closest_pair(ps)`|点集合 $\mathrm{ps}$ の最近点対間距離||
-|`projection(a, b)`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の射影||
-|`reflection(a, b)`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の鏡映||
-|`is_parallel(a, b)`|$\boldsymbol{a} \parallel \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \times \boldsymbol{b} = 0$|
-|`is_orthogonal(a, b)`|$\boldsymbol{a} \perp \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \cdot \boldsymbol{b} = 0$|
-|`has_intersected(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ は交差しているか。||
-|`intersection(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ の交点||
-|`distance(a, b)`|点 $\mathrm{A}$ と点 $\mathrm{B}$ の距離||
-|`tangency(a, b)`|点 $\mathrm{B}$ から円 $\mathrm{A}$ に引いた接線の接点|円 $(x - a)^2 + (y - b)^2 = r^2$ 上の点 $(x_0, y_0)$ における接線の方程式は $(x_0 - a)(x - a) + (y_0 - b)(y - b) = r^2$ である。|
-|`common_tangent_num(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線の本数||
-|`common_tangent(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線|2円が接していないとき、`s` は円 $\mathrm{A}$ における接点、`t` は円 $\mathrm{B}$ における接点が格納される。|
-|`intersection_area(a, b)`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通部分の面積||
-|`area(a)`|多角形 $\mathrm{A}$ の面積||
-|`centroid(a)`|多角形 $\mathrm{A}$ の重心||
-|`contains(a, b)`|点 $\mathrm{B}$ は多角形 $\mathrm{A}$ の内部に存在するか。||
-|`is_convex(a)`|多角形 $\mathrm{A}$ は凸性を満たすか。||
-|`monotone_chain(ps, 凸包の辺上にある点を含まないか = true)`|点集合 $\mathrm{ps}$ の凸包|座標幅 $w$ のとき、頂点数は $O(\sqrt{w})$ 個である。|
-|`cut_convex(a, b)`|直線 $\mathrm{B}$ で凸多角形 $\mathrm{A}$ を切断したときの左側の凸多角形||
-|`rotating_calipers(a)`|凸多角形 $\mathrm{A}$ の直径||
+|`Point unit_vector(const Point& p);`|ベクトル $p$ の単位ベクトル||
+|`std::tuple<Point, Point> normal_unit_vector(const Point& p);`|ベクトル $p$ の単位法線ベクトル|
+|`Real cross(const Point& a, const Point& b);`|$\boldsymbol{a} \times \boldsymbol{b}$||
+|`Real dot(const Point& a, const Point& b);`|$\boldsymbol{a} \cdot \boldsymbol{b}$||
+|`int ccw(const Point& a, const Point& b, const Point& c);`|$\begin{cases} -2 & (\mathrm{A}, \mathrm{B}, \mathrm{C} \text{ の順で一直線上に並ぶ。}) \\\\ -1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は右側にある。}) \\\\ 0 & (\mathrm{A}, \mathrm{C}, \mathrm{B} \text{ の順で一直線上に並ぶ。}) \\\\ 1 & (\mathrm{AB} \text{ から見て } \mathrm{C} \text{ は左側にある。}) \\\\ 2 & (\mathrm{C}, \mathrm{A}, \mathrm{B} \text{ の順で一直線上に並ぶ。}) \end{cases}$||
+|`Real get_angle(const Point& a, const Point& b, const Point& c);`|$\angle{\mathrm{ABC}}$||
+|`Real closest_pair(std::vector<Point> ps);`|点集合 $\mathrm{ps}$ の最近点対間距離||
+|`Point projection(const Segment& a, const Point& b);`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の射影||
+|`Point reflection(const Segment& a, const Point& b);`|点 $\mathrm{A}$ に対する点 $\mathrm{B}$ の鏡映||
+|`bool is_parallel(const Segment& a, const Segment& b);`|$\boldsymbol{a} \parallel \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \times \boldsymbol{b} = 0$|
+|`bool is_orthogonal(const Segment& a, const Segment& b);`|$\boldsymbol{a} \perp \boldsymbol{b}$|$\Leftrightarrow \boldsymbol{a} \cdot \boldsymbol{b} = 0$|
+|`bool has_intersected(const Segment& a, const Point& b);`<br>`bool has_intersected(const Segment& a, const Segment& b);`<br>`bool has_intersected(const Line& a, const Point& b);`<br>`bool has_intersected(const Line& a, const Segment& b);`<br>`bool has_intersected(const Line& a, const Line& b);`<br>`bool has_intersected(const Circle& a, const Point& b);`<br>`bool has_intersected(const Circle& a, const Segment& b);`<br>`bool has_intersected(const Circle& a, const Line& b);`<br>`bool has_intersected(const Circle& a, const Circle& b);`|$\mathrm{A}$ と $\mathrm{B}$ は交差しているか。||
+|`Point intersection(const Line& a, const Line& b);`<br>`Point intersection(const Segment& a, const Segment& b);`<br>`Point intersection(const Line& a, const Segment& b);`<br>`std::vector<Point> intersection(const Circle& a, const Line& b);`<br>`std::vector<Point> intersection(const Circle& a, const Segment& b);`<br>`std::vector<Point> intersection(const Circle& a, const Circle& b);`|$\mathrm{A}$ と $\mathrm{B}$ の交点||
+|`Real distance(const Point& a, const Point& b);`<br>`Real distance(const Segment& a, const Point& b);`<br>`Real distance(const Segment& a, const Segment& b);`<br>`Real distance(const Line& a, const Point& b);`<br>`Real distance(const Line& a, const Segment& b);`<br>`Real distance(const Line& a, const Line& b);`|$\mathrm{A}$ と $\mathrm{B}$ の距離||
+|`std::vector<Point> tangency(const Circle& a, const Point& b);`|点 $\mathrm{B}$ から円 $\mathrm{A}$ に引いた接線の接点|円 $(x - a)^2 + (y - b)^2 = r^2$ 上の点 $(x_0, y_0)$ における接線の方程式は $(x_0 - a)(x - a) + (y_0 - b)(y - b) = r^2$ である。|
+|`int common_tangent_num(const Circle& a, const Circle& b);`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線の本数||
+|`std::vector<Line> common_tangent(const Circle& a, const Circle& b);`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通接線|2円が接していないとき、`s` は円 $\mathrm{A}$ における接点、`t` は円 $\mathrm{B}$ における接点が格納される。|
+|`Real intersection_area(const Circle& a, const Circle& b);`|円 $\mathrm{A}$ と円 $\mathrm{B}$ の共通部分の面積||
+|`Real area(Polygon a);`|多角形 $\mathrm{A}$ の面積||
+|`Point centroid(Polygon a);`|多角形 $\mathrm{A}$ の重心||
+|`int contains(Polygon a, const Point &b);`|点 $\mathrm{B}$ は多角形 $\mathrm{A}$ の内部に存在するか。|`0` は外部、`1` は線上、`2` は内部を表す。|
+|`bool is_convex(Polygon a);`|多角形 $\mathrm{A}$ は凸性を満たすか。||
+|`Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true);`|点集合 $\mathrm{ps}$ の凸包|`is_tight` は凸包の辺上にある点を含まないかを表す。<br>座標幅 $w$ のとき、頂点数は $O(\sqrt{w})$ 個である。|
+|`Polygon cut_convex(Polygon a, const Line& b);`|直線 $\mathrm{B}$ で凸多角形 $\mathrm{A}$ を切断したときの左側の凸多角形||
+|`std::tuple<Point, Point> rotating_calipers(Polygon a);`|凸多角形 $\mathrm{A}$ の直径||
 
 
 ## 参考文献

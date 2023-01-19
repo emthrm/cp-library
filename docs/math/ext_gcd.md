@@ -15,9 +15,9 @@ $O(\log{\max \lbrace A, B \rbrace})$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|備考|
 |:--|:--|:--|
-|`ext_gcd(a, b)`|$ax + by = \gcd(a, b)$ を満たす整数解 $(x, y)$|$a \neq 0,\ b \neq 0$ のとき $\lvert x \rvert \leq \left\lvert \frac{b}{\mathrm{gcd}(a, b)} \right\rvert,\ \lvert y \rvert \leq \left\lvert \frac{a}{\mathrm{gcd}(a, b)} \right\rvert$ が成り立つ。|
+|`template <typename T> std::pair<T, T> ext_gcd(T a, T b);`|$ax + by = \gcd(a, b)$ を満たす整数解 $(x, y)$|$a \neq 0,\ b \neq 0$ のとき $\lvert x \rvert \leq \left\lvert \frac{b}{\mathrm{gcd}(a, b)} \right\rvert,\ \lvert y \rvert \leq \left\lvert \frac{a}{\mathrm{gcd}(a, b)} \right\rvert$ が成り立つ。|
 
 
 ## 参考文献

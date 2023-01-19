@@ -15,9 +15,9 @@ $O(\sqrt{P} \log{P})$
 
 ### baby-step giant-step
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`mod_log(g, y, m)`|$g^x \equiv y \pmod{m}$ を満たす最小の非負整数 $x$|存在しないときは $-1$ となる。|
+|名前|戻り値|
+|:--|:--|
+|`int mod_log(long long g, long long y, const int m);`|$g^x \equiv y \pmod{m}$ を満たす最小の非負整数 $x$。ただし存在しないときは $-1$ を返す。|
 
 
 ## 参考文献

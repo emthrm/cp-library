@@ -23,14 +23,28 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`Lowlink<CostType>(graph)`|無向グラフ $\mathrm{graph}$ の lowlink を考える。||
-|`order[i]`|頂点 $i$ の訪問時刻||
-|`lowlink`|lowlink||
-|`articulation_points`|関節点の集合||
-|`bridges`|橋の集合|多重辺に対応していない。|
-|`graph`|無向グラフ||
+```cpp
+template <typename CostType>
+struct Lowlink;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> order`|`order[i]` は頂点 $i$ の訪問時刻を表す。||
+|`std::vector<int> lowlink`|lowlink||
+|`std::vector<int> articulation_points`|関節点の集合||
+|`std::vector<Edge<CostType>> bridges`|橋の集合|多重辺に対応していない。|
+|`const std::vector<std::vector<Edge<CostType>>> graph`|無向グラフ||
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Lowlink(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

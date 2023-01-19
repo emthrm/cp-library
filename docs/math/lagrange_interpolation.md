@@ -23,21 +23,17 @@ $$
 
 ### 評価版
 
-|名前|効果・戻り値|要件|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`lagrange_interpolation(x, y, t)`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる。|
+|`template <typename T> T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y, const T t);`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる。|
+|`template <typename T> T lagrange_interpolation(const std::vector<T>& y, const T t);`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
 
-### 評価版2
-
-|名前|効果・戻り値|要件|
-|:--|:--|:--|
-|`lagrange_interpolation(y, t)`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
 
 ### 多項式補間
 
-|名前|効果・戻り値|
-|:--|:--|
-|`polynomial_interpolation<多項式>(x, y)`|$f(x_i) = y_i$ を満たす $f$|
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <template <typename> class C, typename T> C<T> polynomial_interpolation(const std::vector<T>& x, const std::vector<T>& y);`|$f(x_i) = y_i$ を満たす $f$|`C` は冪級数を表す構造体である。|
 
 
 ## 参考文献

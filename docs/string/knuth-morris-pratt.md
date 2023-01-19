@@ -26,22 +26,46 @@ $$
 
 ### Morris–Pratt algorithm
 
+```cpp
+struct MorrisPratt;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::string s`|文字列 $S$|
+|`std::vector<int> border`|$\mathrm{border}_i$ は `S[0:i]` の最長 border 長を表す。|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`MorrisPratt(s)`|文字列 $S$ の Morris–Pratt algorithm を考える。|
-|`str`|文字列 $S$|
-|`border[i]`|`S[0:i]` の最長 border 長|
-|`add(c)`|$S$ に文字 $c$ を追加する。|
-|`match(t)`|$S$ が出現する文字列 $T$ 中の位置|
-|`period(idx)`|`S[0:idx]` の最小周期|
+|`explicit MorrisPratt(const std::string& s);`|文字列 $S$ に対してオブジェクトを構築する。|
+|`void add(const char c);`|$S$ の末尾に文字 $c$ を追加する。|
+|`std::vector<int> match(const std::string& t) const;`|$S$ が出現する文字列 $T$ 中の位置|
+|`int period(const int idx) const;`|`S[0:idx]` の最小周期|
+
 
 ### Knuth–Morris–Pratt algorithm
 
+```cpp
+template <typename T = std::string>
+struct KnuthMorrisPratt;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> border`|`border[i]` は `S[0:i]` の最長 tagged border 長を表す。|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`KnuthMorrisPratt<T = string>(s)`|$S$ の Knuth–Morris–Pratt algorithm を考える。|
-|`border[i]`|`S[0:i]` の最長 tagged border 長|
-|`match(t)`|$S$ が出現する $T$ 中の位置|
+|`explicit KnuthMorrisPratt(const T& s)`|文字列 $S$ に対してオブジェクトを構築する。|
+|`std::vector<int> match(const T& t) const`|$S$ が出現する $T$ 中の位置|
 
 
 ## 参考文献

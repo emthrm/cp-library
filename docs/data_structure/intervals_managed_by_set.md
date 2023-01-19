@@ -13,19 +13,40 @@ amortized $O(\log{N})$ ?
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+```cpp
+template <typename T>
+struct IntervalsManagedBySet;
+```
+
+- `T`：要素型
+
+#### メンバ変数
+
+|名前|説明|備考|
 |:--|:--|:--|
-|`IntervalsManagedBySet<T>`|区間を std::set で管理するやつ||
-|`intervals`|閉区間の集合||
-|`contains(x)`|$x$ は集合に含まれるか。||
-|`contains(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ は集合に含まれるか。||
-|`erase(x)`|集合から $x$ を削除する。|戻り値は削除された要素の次を指すイテレータと実際に削除したかである。|
-|`erase(left, right)`|集合から $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を削除する。|戻り値は削除された要素の次を指すイテレータと削除した要素数である。|
-|`find(x)`|$x$ を含む区間へのイテレータ|存在しないときは `intervals.end()` となる。|
-|`find(left, right)`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ を含む区間へのイテレータ|存在しないときは `intervals.end()` となる。|
-|`insert(x)`|集合に $x$ を挿入する。|戻り値は要素へのイテレータと挿入されたかどうかである。|
-|`insert(left, right)`|集合に $x \in \lbrack \mathrm{left}, \mathrm{right} \rbrack$ を挿入する。|戻り値は要素へのイテレータと挿入した要素数である。|
-|`mex(x = 0)`|mex||
+|`IntervalsType intervals`|区間の集合|番兵 $\lbrack -\infty, -\infty \rbrack, \lbrack \infty, \infty \rbrack$ を含む。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`IntervalsManagedBySet();`|デフォルトコンストラクタ。集合 $S \mathrel{:=} \emptyset$ を表すオブジェクトを構築する。|
+|`bool contains(const T x) const;`|$x \in S$ を満たすか。|
+|`bool contains(const T left, const T right) const;`|任意の $x \in \lbrace \mathrm{left}, \ldots, \mathrm{right} \rbrace$ に対して $x \in S$ を満たすか。|
+|`std::pair<IntervalsType::const_iterator, bool> erase(const T x);`|$S \gets S \setminus \lbrace x \rbrace$ の操作後、削除された要素の次を指すイテレータと実際に削除したかを返す。|
+|`std::pair<IntervalsType::const_iterator, T> erase(const T left, const T right);`|$S \gets S \setminus \lbrace \mathrm{left}, \ldots, \mathrm{right} \rbrace$ の操作後、削除された要素の次を指すイテレータと削除した要素数を返す。|
+|`IntervalsType::const_iterator find(const T x) const;`|$x$ を含む区間へのイテレータ。ただし $x \notin S$ を満たすときは `intervals.end()` を返す。|
+|`IntervalsType::const_iterator find(const T left, const T right) const;`|$\lbrack \mathrm{left}, \mathrm{right} \rbrack$ を含む区間へのイテレータ。ただし $x \notin S$ を満たす $x \in \lbrace \mathrm{left}, \ldots, \mathrm{right} \rbrace$ が存在するときは `intervals.end()` を返す。|
+|`std::pair<IntervalsType::const_iterator, bool> insert(const T x);`|$S \gets S \cup \lbrace x \rbrace$ の操作後、要素へのイテレータと実際に挿入されたかどうかを返す。|
+|`std::pair<IntervalsType::const_iterator, T> insert(T left, T right);`|$S \gets S \cup \lbrace \mathrm{left}, \ldots, \mathrm{right} \rbrace$ の操作後、要素へのイテレータと実際に挿入した要素数を返す。|
+|`T mex(const T x = 0) const;`|$\mathrm{mex}(S)$|
+|`friend std::ostream& operator<<(std::ostream& os, const IntervalsManagedBySet& x)`||
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`IntervalsType`|`std::set<std::pair<T, T>>`|
 
 
 ## 参考文献

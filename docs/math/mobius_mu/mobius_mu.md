@@ -46,22 +46,24 @@ $$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`mobius_mu(n)`|$\mu(n)$|
+|`int mobius_mu(long long n);`|$\mu(n)$|
+
 
 ### 約数版
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|備考|
 |:--|:--|:--|
-|`mobius_mu_focusing_on_divisor(n)`|$\lbrace n \text{ の約数 } d, \mu(d) \rbrace$|キーとして存在しないときは値 $0$ である。|
+|`template <typename T> std::map<T, int> mobius_mu_focusing_on_divisor(T n);`|$\lbrace n \text{ の約数 } d, \mu(d) \rbrace$|キーとして存在しないときは値 $0$ である。|
+
 
 ### 数表
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`mobius_mu_init(n)`|メビウス関数 $\mu(i)$ ($1 \leq i \leq n$) の数表|
-|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
+|`std::vector<int> mobius_mu_init(const int n);`|メビウス関数 $\mu(i)$ ($1 \leq i \leq n$) の数表|
+|`std::vector<int> mobius_mu_init2(const long long low, const long long high);`|メビウス関数 $\mu(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
 
 
 ## 参考文献

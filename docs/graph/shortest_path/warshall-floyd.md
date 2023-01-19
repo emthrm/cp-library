@@ -13,15 +13,29 @@ $O({\lvert V \rvert}^3)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+```cpp
+template <typename T>
+struct WarshallFloyd;
+```
+
+- `T`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<std::vector<T>> graph`|`graph[s][t]` は始点 $s$, 終点 $t$ を結ぶ辺の最小コストを表す。ただし辺が存在しないときは $\infty$ となる。|
+|`std::vector<std::vector<T>> dist`|`dist[s][t]` は始点 $s$ から終点 $t$ までの最短距離を表す。ただし到達できないときは $\infty$ となる。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`WarshallFloyd<T>(graph, ∞)`|グラフ $\mathrm{graph}$ の全点対最短路を考える。|隣接行列は $\infty$ で初期化しておかなければならない。|
-|`graph[s][t]`|始点 $s$, 終点 $t$ を結ぶ辺の最小コスト|存在しなければ $\infty$ となる。|
-|`dist[s][t]`|始点 $s$ から終点 $t$ までの最短距離|到達できなければ $\infty$ となる。|
-|`add(src, dst, cost)`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、重み $\mathrm{cost}$ の辺をグラフに加える。|
-|`calc()`|辺をグラフに追加した後, 全点対最短路を構築する。||
-|`has_negative_cycle()`|グラフが負の閉路をもつか。||
-|`build_path(s, t)`|始点 $s$ から終点 $t$ までの最短路||
+|`WarshallFloyd(const std::vector<std::vector<T>>& graph, const T inf);`|隣接行列 $\mathrm{graph}$ に対してオブジェクトを構築する。|隣接行列は $\infty$ で初期化している。|
+|`void add(const int src, const int dst, const T cost);`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ をグラフに加える。||
+|`void calc();`|辺をグラフに追加した後、全点対最短路を構築する。||
+|`bool has_negative_cycle() const;`|グラフが負の閉路をもつか。||
+|`std::vector<int> build_path(const int s, const int t) const;`|始点 $s$ から終点 $t$ までの最短路。ただし到達できないときは空配列を返す。||
 
 
 ## 参考文献

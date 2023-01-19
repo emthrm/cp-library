@@ -13,12 +13,26 @@ $O(\lvert V \rvert \log{\lvert V \rvert})$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`CentroidDecomposition<CostType>(graph)`|木 $\mathrm{graph}$ の重心分解を考える。||
-|`root`|重心分解した木の根||
-|`parent[i]`|`g` における頂点 $i$ の親|存在しないときは $-1$ となる。|
-|`g`|重心分解を行った木||
+```cpp
+template <typename CostType>
+struct CentroidDecomposition;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`int root`|重心分解した木の根|
+|`std::vector<int> parent`|`parent[i]` は `g` における頂点 $i$ の親を表す。ただし存在しないときは $-1$ となる。|
+|`std::vector<std::vector<int>> g`|重心分解を行った木|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit CentroidDecomposition(const std::vector<std::vector<Edge<CostType>>>& graph);`|木 $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

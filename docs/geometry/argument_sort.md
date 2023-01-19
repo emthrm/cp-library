@@ -11,9 +11,9 @@ $O(N\log{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+|名前|効果|備考|
 |:--|:--|:--|
-|`argument_sort(&ps)`|点集合 $\mathrm{ps}$ に対して偏角ソートを行う。|$\arg(x) = \pi$ ($x < 0$), $\arg(0) = 0$ とする。|
+|`void argument_sort(std::vector<std::pair<int, int>>* ps);`|点集合 $\mathrm{ps}$ に対して偏角ソートを行う。|$\arg(x) = \pi$ ($x < 0$), $\arg(0) = 0$ とする。|
 
 
 ## 参考文献

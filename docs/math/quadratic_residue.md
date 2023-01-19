@@ -100,15 +100,16 @@ $$
 
 ### 平方剰余
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`mod_sqrt(a, p)`|$x^2 \equiv a \pmod{p}$ を満たす $x$|$p \in \mathbb{P}$<br>存在しないときは $-1$ となる。|
+|`long long mod_sqrt(long long a, const int p);`|$x^2 \equiv a \pmod{p}$ を満たす $x$。ただし存在しないときは $-1$ を返す。|$p \in \mathbb{P}$|
+
 
 ### ヤコビ記号
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`jacobi_symbol(a, p)`|$\left(\dfrac{a}{p} \right)$|
+|`int jacobi_symbol(long long a, long long p);`|$\left(\dfrac{a}{p} \right)$|
 
 
 ## 参考文献

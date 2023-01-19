@@ -12,17 +12,23 @@ documentation_of: include/emthrm/misc/mo.hpp
 
 ## 時間計算量
 
-一回の伸縮あたり $O(\alpha)$ 時間かかるとおくと $O(Q\log{Q} + \alpha N\sqrt{Q})$。
+一回の伸縮あたり $O(\alpha)$ 時間かかるとおくと $O(Q\log{Q} + \alpha N\sqrt{Q})$
 
 
 ## 仕様
 
+```cpp
+struct Mo;
+```
+
+#### メンバ関数
+
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`Mo(ls, rs)`|クエリ $\lbrace \lbrack \mathrm{ls}, \mathrm{rs}) \rbrace$ の Mo's algorithm を考える。||
-|`process()`|現在のクエリのインデックス|存在しない場合は $-1$ となる。|
-|`add(idx)`|$A_{\mathrm{idx}}$ をクエリの範囲に追加する。|関数プロトタイプ|
-|`del(idx)`|$A_{\mathrm{idx}}$ をクエリの範囲から削除する。|関数プロトタイプ|
+|`explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs);`|クエリ集合 $\lbrace \lbrack \mathrm{ls}_i, \mathrm{rs}_i) \rbrace$ のオブジェクトを構築する。||
+|`int process();`|現在のクエリのインデックス。ただし存在しないときは $-1$ を返す。|
+|`void add(const int idx) const;`|$A_{\mathrm{idx}}$ をクエリの範囲に追加する。|関数プロトタイプ|
+|`void del(const int idx) const;`|$A_{\mathrm{idx}}$ をクエリの範囲から削除する。|関数プロトタイプ|
 
 
 ## 参考文献

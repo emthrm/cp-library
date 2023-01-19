@@ -15,9 +15,9 @@ $O(N\log{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|
-|:--|:--|
-|`fast_mobius_transform(a, 上位集合に対するメビウス変換か?, 単位元 = 0)`|$A$ に高速メビウス変換を行ったもの|
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <typename T> std::vector<T> fast_mobius_transform(std::vector<T> a, const bool adds_superset, const T id = 0);`|$A$ に高速メビウス変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
 
 
 ## 参考文献

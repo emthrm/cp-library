@@ -17,9 +17,9 @@ $O(N \log{\mathrm{lcm}(m_1, m_2, \ldots, m_N)})$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`chinese_remainder_theorem(b, m)`|$x \equiv b_i \pmod{m_i}$ を満たす $x$ と $\mathrm{lcm}(m_1, m_2,..., m_n)$ の組|$0 \leq x < \mathrm{lcm}(m_1, m_2,..., m_n)$<br>存在しないときは $(0, 0)$ となる。|
+|`template <typename T> std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m);`|$x \equiv b_i \pmod{m_i}$ を満たす $x$ と $\mathrm{lcm}(m_1, m_2,..., m_n)$ の組。ただし存在しないときは $(0, 0)$ を返す。|$0 \leq x < \mathrm{lcm}(m_1, m_2,..., m_n)$|
 
 
 ## 参考文献

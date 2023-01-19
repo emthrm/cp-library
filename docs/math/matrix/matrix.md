@@ -16,17 +16,24 @@ documentation_of: include/emthrm/math/matrix/matrix.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+```cpp
+template <typename T>
+struct Matrix;
+```
+
+#### メンバ関数
+
+|名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`Matrix<T>(m, n, def = 0)`|初期値 $\mathrm{def}$ の $M \times N$ 型行列||
-|`nrow()`|$M$||
-|`ncol()`|$N$||
-|`pow(exponent)`|$A^\mathrm{exponent}$|半環上で成立する。|
-|`operator[](i)`|$A$ の $i$ 行目||
-|`operator=(x)`|代入||
-|`operator+=(x)`<br>`operator+(x)`|加算||
-|`operator-=(x)`<br>`operator-(x)`|減算||
-|`operator*=(x)`<br>`operator*(x)`|乗算|半環上で成立する。|
+|`explicit Matrix(const int m, const int n, const T def = 0);`|初期値 $\mathrm{def}$ の $M \times N$ 型行列を表すオブジェクトを構築する。||
+|`int nrow() const;`|$M$||
+|`int ncol() const;`|$N$||
+|`Matrix pow(long long exponent) const;`|$A^\mathrm{exponent}$|半環上で成立する。|
+|`inline const std::vector<T>& operator[](const int i) const;`<br>`inline std::vector<T>& operator[](const int i);`|$A$ の $i$ 行目||
+|`Matrix& operator=(const Matrix& x);`|代入演算子||
+|`Matrix& operator+=(const Matrix& x);`<br>`Matrix operator+(const Matrix& x) const;`|加算||
+|``Matrix& operator-=(const Matrix& x);``<br>`Matrix operator-(const Matrix& x) const;`|減算||
+|`Matrix& operator*=(const Matrix& x);`<br>`Matrix operator*(const Matrix& x) const;`|乗算|半環上で成立する。|
 
 
 ## 参考文献

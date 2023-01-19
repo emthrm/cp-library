@@ -15,9 +15,9 @@ $O(\lvert V \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`centroid(graph)`|木 $\mathrm{graph}$ の重心|
+|`template <typename CostType> std::vector<int> centroid(const std::vector<std::vector<Edge<CostType>>>& graph);`|木 $\mathrm{graph}$ の重心|
 
 
 ## 参考文献

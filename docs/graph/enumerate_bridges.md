@@ -11,9 +11,9 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`enumerate_bridges(graph)`|無向グラフ $\mathrm{graph}$ の橋|
+|`template <typename CostType> std::vector<Edge<CostType>> enumerate_bridges(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の橋|
 
 
 ## 参考文献

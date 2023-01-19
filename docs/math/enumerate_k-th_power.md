@@ -11,9 +11,9 @@ $O(N)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`enumerate_kth_power(n, k, m)`|$i^k \bmod m$ ($0 \leq i \leq n$)|
+|`std::vector<int> enumerate_kth_power(const int n, const int k, const int m);`|$i^k \bmod m$ ($0 \leq i \leq n$)|
 
 
 ## 参考文献

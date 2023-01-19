@@ -40,33 +40,33 @@ $O(N\log{N})$
 
 ### 添え字 and での畳み込み
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`and_convolution(a, b, 単位元 = 0)`|$A, B$ に対する添え字 and での畳み込み|
+|`template <typename T> std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 and での畳み込み|
 
 ### 添え字 or での畳み込み
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`or_convolution(a, b, 単位元 = 0)`|$A, B$ に対する添え字 or での畳み込み|
+|`template <typename T> std::vector<T> or_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 or での畳み込み|
 
 ### 添え字 xor での畳み込み
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`xor_convolution(a, b, 単位元 = 0)`|$A, B$ に対する添え字 xor での畳み込み|
+|`template <typename T> std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 xor での畳み込み|
 
 ### 添え字 gcd での畳み込み
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`gcd_convolution(a, b)`|$A, B$ に対する添え字 gcd での畳み込み|
+|`template <typename T> std::vector<T> gcd_convolution(std::vector<T> a, std::vector<T> b);`|$A, B$ に対する添え字 gcd での畳み込み|
 
 ### 添え字 lcm での畳み込み
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`lcm_convolution(a, b, n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
+|`template <typename T> std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, const int n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
 
 
 ## 参考文献

@@ -31,13 +31,27 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+```cpp
+template <typename CostType>
+struct BiconnectedComponent : Lowlink<CostType>;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|要件|
 |:--|:--|:--|
-|`BiconnectedComponent(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える。||
-|`id[i]`|元のグラフの頂点 $i$ を含むブロック|関節点のときは $-1$ である。<br>完全版のみ|
-|`vertices[i]`|縮約後のグラフのブロック $i$ に含まれる頂点|完全版のみ|
-|`cutpoint[i]`|元のグラフの関節点 $i$ を含むブロック|完全版のみ|
-|`block[i]`|縮約後のグラフのブロック $i$ に含まれる辺||
+|`std::vector<int> id`|`id[i]` は元のグラフの頂点 $i$ を含むブロックを表す。ただし関節点のときは $-1$ である。|完全版|
+|`std::vector<std::vector<int>> vertices`|`vertices[i]` は縮約後のグラフのブロック $i$ に含まれる頂点を表す。|完全版|
+|`std::vector<std::vector<int>> cutpoint`|`cutpoint[i]` は元のグラフの関節点 $i$ を含むブロックを表す。|完全版|
+|`std::vector<std::vector<Edge<CostType>>> block`|`block[i]` は縮約後のグラフのブロック $i$ に含まれる辺を表す。||
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit BiconnectedComponent(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

@@ -15,22 +15,51 @@
 
 ### Bellman–Ford 法
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える。||
-|`inf`|$\infty$||
-|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達できなければ $\infty$ となる。|
-|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する。|戻り値はグラフが負の閉路をもつか。|
-|`build_path(t)`|終点 $t$ の最短路|到達できなければ空配列となる。|
+```cpp
+template <typename CostType>
+struct BellmanFord;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const CostType inf`|$\infty$|
+|`std::vector<CostType> dist`|`dist[ver]` は始点から頂点 $\mathrm{ver}$ までの最短距離を表す。ただし到達できないときは $\infty$ となる。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`BellmanFord(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`bool has_negative_cycle(const int s);`|始点 $s$ の単一始点最短路を構築し、グラフが負の閉路をもつかを返す。|
+|`std::vector<int> build_path(int t) const;`|終点 $t$ の最短路。ただし到達できないときは空配列を返す。|
+
 
 ### Dijkstra 法
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える。||
-|`inf`|$\infty$||
-|`build(s)`|始点 $s$ の単一始点最短路|到達できなければ $\infty$ となる。|
-|`build_path(t)`|終点 $t$ の最短路|到達できならば空配列となる。|
+```cpp
+template <typename CostType>
+struct Dijkstra
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const CostType inf`|$\infty$|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`Dijkstra(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`std::vector<CostType> build(const int s);`|始点 $s$ の単一始点最短路。ただし到達できない頂点には $\infty$ を格納する。|
+|`std::vector<int> build_path(int t) const;`|終点 $t$ の最短路。ただし到達できないときは空配列を返す。|
 
 
 ## 参考文献

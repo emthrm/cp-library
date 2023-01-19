@@ -11,9 +11,9 @@ $O(\sigma \lvert S \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`subsequence_dp(s, 基準 = 'a', σ = 26)`|$S$ の $i$ 文字目以降 (inclusive) で最初に文字 $c$ が現れるインデックス|
+|`std::vector<std::vector<int>> subsequence_dp(const std::string& s, const char basis = 'a', const int sigma = 26);`|$S$ の $i$ 文字目以降 (inclusive) で最初に文字 $c$ が現れるインデックス|
 
 
 ## 参考文献

@@ -27,21 +27,33 @@ documentation_of: include/emthrm/data_structure/slope_trick.hpp
 
 ## 仕様
 
+```cpp
+template <typename T>
+struct SegmentTree;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const T inf`|$\infty$|
+
+#### メンバ関数
+
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`inf`|$\infty$||
-|`SlopeTrick<T>(min_f = 0, ∞)`|$f(x) = \mathrm{min\_f}$ を管理する。||
-|`min()`|$\min_x f(x)$||
-|`argmin()`|$\mathrm{argmin}_x f(x)$||
-|`f(x)`|$f(x)$|
-|`constant_function(c)`|$f(x) \gets f(x) + c$||
-|`x_minus_a(a)`|$f(x) \gets f(x) + (x - a)^+$||
-|`a_minus_x(a)`|$f(x) \gets f(x) + (a - x)^+$||
-|`abs_x_minus_a(a)`|$f(x) \gets f(x) + \lvert x - a \rvert$||
-|`cumulative_min()`|$f(x) \gets \min_{y \leq x} f(y)$||
-|`rumulative_min()`|$f(x) \gets \min_{y \geq x} f(y)$||
-|`translate(a)`|$f(x) \gets f(x - a)$||
-|`sliding_window_minimum(a, b)`|$f(x) \gets \min_{y \in \lbrack x - b, x - a \rbrack} f(y)$|$a \leq b$|
+|`explicit SlopeTrick(const T min_f = 0, const T inf = std::numeric_limits<T>::max());`|$f(x) = \mathrm{min\_f}$ を管理する。||
+|`T min() const;`|$\min_x f(x)$||
+|`std::pair<T, T> argmin() const;`|$\mathrm{argmin}_x f(x)$||
+|`template <typename U> U f(const U x);`|$f(x)$|
+|`void constant_function(const T c);`|$f(x) \gets f(x) + c$||
+|`void x_minus_a(const T a);`|$f(x) \gets f(x) + (x - a)^+$||
+|`void a_minus_x(const T a);`|$f(x) \gets f(x) + (a - x)^+$||
+|`void abs_x_minus_a(const T a);`|$f(x) \gets f(x) + \lvert x - a \rvert$||
+|`void cumulative_min();`|$f(x) \gets \min \lbrace f(y) \mid y \leq x \rbrace$||
+|`void rcumulative_min();`|$f(x) \gets \min \lbrace f(y) \mid y \geq x \rbrace$||
+|`void translate(const T a);`|$f(x) \gets f(x - a)$||
+|`void sliding_window_minimum(const T a, const T b);`|$f(x) \gets \min \lbrace f(y) \mid y \in \lbrack x - b, x - a \rbrack \rbrace$|$a \leq b$|
 
 
 ## 参考文献

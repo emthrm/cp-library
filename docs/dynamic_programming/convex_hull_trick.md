@@ -22,13 +22,23 @@ $xy$ 平面上の直線集合 $L$ を考える。
 
 ## 仕様
 
+```cpp
+template <typename T, bool IS_MINIMIZED = true>
+struct ConvexHullTrick
+```
+
+- `T`
+- `IS_MINIMIZED`：最小化するかを表す変数
+
+#### メンバ関数
+
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`ConvexHullTrick<T, IS_MINIMIZED>()`|convex hull trick||
-|`add(a, b)`|直線 $f(x) = ax + b$ を追加する。|傾きには単調性がある。|
-|`query(x)`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$||
-|`monotonically_increasing_query(x)`|`query(x)`|$x$ は単調増加する。|
-|`monotonically_decreasing_query(x)`|`query(x)`|$x$ は単調減少する。|
+|`ConvexHullTrick();`|デフォルトコンストラクタ||
+|`void add(T a, T b);`|直線 $f(x) = ax + b$ を追加する。|傾きには単調性がある。|
+|`T query(const T x) const;`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$||
+|`T monotonically_increasing_query(const T x);`|`query(x)`|$x$ は単調増加する。|
+|`T monotonically_decreasing_query(const T x);`|`query(x)`|$x$ は単調減少する。|
 
 
 ## 参考文献

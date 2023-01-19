@@ -11,9 +11,9 @@ $O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`segmented_sieve(low, high)`|$i$ ($\mathrm{low} \leq i < \mathrm{high}$) が素数であるか。|
+|`std::vector<bool> segmented_sieve(const long long low, const long long high);`|$i$ ($\mathrm{low} \leq i < \mathrm{high}$) が素数であるか。|
 
 
 ## 参考文献

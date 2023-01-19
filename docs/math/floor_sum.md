@@ -15,9 +15,9 @@ $O(\log{M})$
 
 ## 仕様
 
-|名前|効果・戻り値|要件|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`floor_sum(a, b, m, n)`|$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor$|$M \in \mathbb{N}^+$|
+|`long long floor_sum(long long a, long long b, long long m, long long n);`|$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor$|$M \in \mathbb{N}^+$|
 
 
 ## 参考文献

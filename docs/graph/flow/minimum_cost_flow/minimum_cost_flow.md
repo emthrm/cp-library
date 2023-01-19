@@ -15,27 +15,108 @@
 
 ### 最小費用 $s$-$t$-フロー 最短路反復法版
 
+```cpp
+template <typename T, typename U>
+struct MinimumCostSTFlow;
+```
+
+- `T`：容量を表す型
+- `U`：コストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const U uinf`|$\infty$|
+|`std::vector<std::vector<Edge>> graph`|残余グラフ|
+
+#### メンバ関数
+
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`MinimumCostSTFlow<フロー, コスト>(n, ∞)`|頂点数 $N$ の最小費用 $s$-$t$-フローを考える。||
-|`uinf`|$\infty$|型はコストと等しい。|
-|`graph`|残余グラフ||
-|`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を加える。||
-|`solve(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときの最小コスト|流せないときは $\infty$ となる。|
-|`solve(s, t)`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときの最小コスト|流量は $\mathrm{tinf} - \mathrm{flow}$ である。|
-|`minimum_cost_maximum_flow(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ 以下のフローを流すときの最小費用最大流|戻り値は最大流と最小費用である。|
+|`explicit MinimumCostSTFlow(const int n, const U uinf = std::numeric_limits<U>::max());`|頂点数 $N$ のオブジェクトを構築する。||
+|`void add_edge(const int src, const int dst, const T cap, const U cost);`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、容量 $\mathrm{cap}$、コスト $\mathrm{cost}$ の辺を加える。||
+|`U solve(const int s, const int t, T flow);`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときの最小コスト。ただし流せないときは `uinf` を返す。|
+|`U solve(const int s, const int t);`|始点 $s$ から終点 $t$ まで流量任意のフローを流すときの最小コスト|流量は $\mathrm{tinf} - \mathrm{flow}$ である。|
+|`std::pair<T, U> minimum_cost_maximum_flow(const int s, const int t, const T flow);`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ 以下のフローを流すときの最小費用最大流。最大流と最小費用の組を返す。||
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Edge`|辺を表す構造体|
+
+```cpp
+struct Edge;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`int dst`|終点|
+|`int rev`|頂点 $\mathrm{dst}$ における逆辺のインデックス|
+|`T cap`|残りの容量|
+|`U cost`|流量 $1$ のフローを流すときのコスト|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Edge(const int dst, const T cap, const U cost, const int rev);`|コンストラクタ|
+
 
 ### 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`MinimumCostBFlow<フロー, コスト>(n, ∞)`|頂点数 $N$ の最小費用 $\boldsymbol{b}$-フローを考える。||
-|`uinf`|$\infty$|型はコストと等しい。|
-|`graph`|残余グラフ||
-|`add_edge(src, dst, cap, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$, コスト $\mathrm{cost}$ の辺を加える。||
-|`supply_or_demand(ver, amount)`|$b_{\mathrm{ver}} \gets b_{\mathrm{ver}} + \mathrm{amount}$||
-|`solve()`|最小費用循環流|流せないときは $\infty$ となる。|
-|`solve(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときの最小コスト|流せないときは $\infty$ となる。|
+```cpp
+template <typename T, typename U>
+struct MinimumCostBFlow;
+```
+
+- `T`：容量を表す型
+- `U`：コストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const U uinf`|$\infty$|
+|`std::vector<std::vector<Edge>> graph`|残余グラフ|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit MinimumCostBFlow(const int n, const U uinf = std::numeric_limits<U>::max());`|頂点数 $N$ のオブジェクトを構築する。|
+|`void add_edge(int src, int dst, const T cap, U cost);`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、容量 $\mathrm{cap}$、コスト $\mathrm{cost}$ の辺を加える。|
+|`void supply_or_demand(const int ver, const T amount);`|$b_{\mathrm{ver}} \gets b_{\mathrm{ver}} + \mathrm{amount}$|
+|`U solve();`|最小費用循環流。ただし流せないときは `uinf` を返す。|
+|`U solve(const int s, const int t, const T flow);`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときの最小コスト。ただし流せないときは `uinf` を返す。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Edge`|辺を表す構造体|
+
+```cpp
+struct Edge;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`int dst`|終点|
+|`int rev`|頂点 $\mathrm{dst}$ における逆辺のインデックス|
+|`T cap`|残りの容量|
+|`U cost`|流量 $1$ のフローを流すときのコスト|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Edge(const int dst, const T cap, const U cost, const int rev);`|コンストラクタ|
 
 
 ## 注意

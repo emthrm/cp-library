@@ -10,9 +10,9 @@ $$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`simultaneous_linear_congruence(a, b, m)`|$A_i x \equiv B_i \pmod{M_i}$ を満たす $mk + x$ ($k \in \mathbb{Z},\ 0 \leq x < m$)|存在しないときは $(0, -1)$ となる。|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::pair<T, T> simultaneous_linear_congruence(const std::vector<T>& a, const std::vector<T>& b, const std::vector<T>& m);`|$A_i x \equiv B_i \pmod{M_i}$ を満たす $mk + x$ ($k \in \mathbb{Z},\ 0 \leq x < m$)。ただし存在しないときは $(0, -1)$ を返す。|
 
 
 ## 参考文献

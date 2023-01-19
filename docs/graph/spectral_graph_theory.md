@@ -44,9 +44,9 @@ $$
 
 ### 行列木定理
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`matrix_tree_theorem(graph, ε = 1e-8)`|無向グラフ $\mathrm{graph}$ の全域木の個数|
+|`template <typename T, typename CostType> T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph, const T eps = 1e-8);`|無向グラフ $\mathrm{graph}$ の全域木の個数|
 
 
 ## 参考文献

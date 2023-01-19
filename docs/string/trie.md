@@ -13,13 +13,51 @@ $O(\lvert S \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`Trie<σ = 26>(convert)`|トライ木||
-|`convert(c)`|数に変換した文字 $c$||
-|`nodes`|トライ木の頂点||
-|`add(s, id = -1, pos = 0)`|$\mathrm{pos}$ 番目のノードから ID $\mathrm{id}$ の文字列 $S$ を追加する。||
-|`find(t, pos = 0)`|$\mathrm{pos}$ 番目のノードを起点としたときに文字列 $T$ と対応するノードのインデックス|存在しないときは $-1$ となる。|
+```cpp
+template <int Sigma = 26>
+struct Trie;
+```
+
+- `Sigma`：アルファベットサイズ
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const std::function<int(const char)> convert`|文字を数に変換する関数|
+|`std::vector<Node> nodes`|トライ木の頂点|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit Trie(const std::function<int(const char)> convert = [](const char c) -> int { return c - 'a'; });`|コンストラクタ||
+|`void add(const std::string& s, const int id = -1, int pos = 0);`|$\mathrm{pos}$ 番目のノードから ID $\mathrm{id}$ の文字列 $S$ を追加する。||
+|`int find(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードから見たとき、文字列 $T$ に対応するノードのインデックス。ただし存在しないときは $-1$ を返す。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Node`|ノードを表す構造体|
+
+```cpp
+struct Node
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`char c`|そのノードが表す文字|
+|`int nxt[Sigma]`|子のインデックス|
+|`std::vector<int> tails`|そのノードを末尾とする文字列の ID 集合|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Node(const char c)`|コンストラクタ|
 
 
 ## 参考文献

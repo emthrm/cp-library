@@ -11,9 +11,9 @@ $O(N^3)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`det(a, ε)`|$\lvert A \rvert$|
+|`template <typename T, typename U> U det(const Matrix<T>& a, const U eps);`|$\lvert A \rvert$|
 
 
 ## 参考文献

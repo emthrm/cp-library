@@ -13,9 +13,9 @@ expected $O(N)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`smallest_enclosing_circle(ps)`|点集合 $\mathrm{ps}$ の最小包含円|
+|`geometry::Circle geometry::smallest_enclosing_circle(std::vector<Point> ps)`|点集合 $\mathrm{ps}$ の最小包含円|
 
 
 ## 参考文献

@@ -8,16 +8,22 @@ documentation_of: include/emthrm/util/xorshift.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`xor128.rand()`|`int` 型の乱数||
-|`xor128.rand(ub)`|`int` 型の乱数|$[0, \mathrm{ub})$|
-|`xor128.rand(lb, ub)`|`int` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
-|`xor128.randll()`|`long long` 型の乱数||
-|`xor128.randll(ub)`|`long long` 型の乱数|$[0, \mathrm{ub})$|
-|`xor128.randll(lb, ub)`|`long long` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
+```cpp
+struct Xor128;
+```
 
 周期は $2^{128} - 1$ である。
+
+#### メンバ関数
+
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`int rand();`|`int` 型の乱数||
+|`int rand(const int ub);`|`int` 型の乱数|$[0, \mathrm{ub})$|
+|`int rand(const int lb, const int ub);`|`int` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
+|`long long randll();`|`long long` 型の乱数||
+|`long long randll(const long long ub);`|`long long` 型の乱数|$[0, \mathrm{ub})$|
+|`long long randll(const long long lb, const long long ub);`|`long long` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
 
 
 ## 備考

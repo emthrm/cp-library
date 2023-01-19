@@ -11,16 +11,30 @@ documentation_of: include/emthrm/string/longest_common_prefix.hpp
 
 ## 時間計算量
 
-テキスト長を $N$ とおくと $\langle O(N\log{N}), O(1) \rangle$。
+テキスト長を $N$ とおくと $\langle O(N\log{N}), O(1) \rangle$
 
 
 ## 仕様
 
+```cpp
+template <typename T = std::string>
+struct LongestCommonPrefix : SuffixArray<T>;
+```
+
+- `T`：$S$ の要素型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> lcp_array`|高さ配列|
+
+#### メンバ関数
+
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`LongestCommonPrefix<T = string>(s)`|$S$ の longest common prefix を考える。||
-|`lcp_array`|高さ配列||
-|`query(i, j)`|位置 $i, j$ を一文字目とする接尾辞の最長共通接頭辞長|$i \neq j$|
+|`explicit LongestCommonPrefix(const T& s)`|$S$ に対してオブジェクトを構築する。||
+|`int query(int i, int j) const;`|位置 $i, j$ を一文字目とする接尾辞の最長共通接頭辞長|$i \neq j$|
 
 
 ## 参考文献

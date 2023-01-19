@@ -23,15 +23,16 @@ $$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`partition_function<T>(n, m)`|分割数の数表|
+|`template <typename T> std::vector<std::vector<T>> partition_function(const int n, const int m);`|分割数の数表|
+
 
 ### $n = m$ 版
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`partition_function_by_fps<T>(n)`|$n = m$ のときの分割数の数表|
+|`template <typename T> std::vector<T> partition_function_by_fps(const int n);`|$n = m$ のときの分割数の数表|
 
 
 ## 参考文献

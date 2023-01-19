@@ -13,9 +13,9 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`traveling_salesman_problem(graph, ∞)`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト|解が存在しないときは $\infty$ となる。|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> CostType traveling_salesman_problem(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト。ただし解が存在しないときは $\infty$ を返す。|
 
 
 ## 参考文献

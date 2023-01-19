@@ -6,14 +6,28 @@ documentation_of: include/emthrm/math/basis.hpp
 
 ## 仕様
 
+```cpp
+template <int D>
+struct Basis;
+```
+
+- `D`：ビット幅
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<std::bitset<D>> v`|ベクトル空間|
+|`std::vector<int> msb`|$i$ 番目のベクトルの最上位ビット|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`Basis<D>()`|長さ $D$ の基底を考える。|
-|`v`|ベクトル空間|
-|`msb[i]`|$i$ 番目のベクトルの最上位ビット|
-|`add(val)`|ベクトル $\mathrm{val}$ を加えたのち、要素数が増えたかを返す。|
-|`rank()`|要素数|
-|`operator<(x)`||
+|`Basis();`|デフォルトコンストラクタ|
+|`bool add(std::bitset<D> val);`|ベクトル $\mathrm{val}$ を加えたのち、実際に要素数が増えたかを返す。|
+|`int rank() const;`|要素数|
+|`inline bool operator<(const Basis& x) const;`||
 
 
 ## 参考文献

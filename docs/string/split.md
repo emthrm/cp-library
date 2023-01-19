@@ -6,9 +6,9 @@ documentation_of: include/emthrm/string/split.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`split(s, delimiter)`|$\mathrm{delimiter}$ で分割した文字列 $S$|
+|`std::vector<std::string> split(const std::string& s, const std::string& delimiter);`|$\mathrm{delimiter}$ で分割した文字列 $S$|
 
 
 ## Submissons

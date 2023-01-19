@@ -26,15 +26,16 @@ $$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`carmichael_function(n)`|カーマイケル関数 $\lambda(n)$|
+|`long long carmichael_function(long long n);`|カーマイケル関数 $\lambda(n)$|
+
 
 ### 数表
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`carmichael_function_init(low, high)`|カーマイケル関数 $\lambda(n)$ ($\mathrm{low} \leq n \leq \mathrm{high}$) の数表|
+|`std::vector<long long> carmichael_function_init(const long long low, const long long high);`|カーマイケル関数 $\lambda(n)$ ($\mathrm{low} \leq n \leq \mathrm{high}$) の数表|
 
 
 ## 参考文献

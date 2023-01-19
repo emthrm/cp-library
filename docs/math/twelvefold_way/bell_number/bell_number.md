@@ -36,21 +36,23 @@ $$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`bell_number<T>(n, k)`|$B(n, k)$|
+|`template <int T> MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
+
 
 ### 数表
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`bell_number_init<T>(n, k)`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+|`template <typename T> std::vector<std::vector<T>> bell_number_init(const int n, const int k);`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+
 
 ### 数表 $n = k$ 版
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`bell_number_init_by_fps<T>(n)`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
+|`template <typename T> std::vector<T> bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

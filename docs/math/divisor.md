@@ -11,9 +11,9 @@ $O(\sqrt{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`divisor(n)`|$n$ の約数|
+|`template <typename T> std::vector<T> divisor(const T n);`|$n$ の約数|
 
 
 ## 参考文献

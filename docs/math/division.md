@@ -6,10 +6,10 @@ documentation_of: include/emthrm/math/division.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`floor_div(a, b)`|$\left\lfloor \frac{A}{B} \right\rfloor$|
-|`ceil_div(a, b)`|$\left\lceil \frac{A}{B} \right\rceil$|
+|`template <typename T, typename U> std::common_type_t<T, U> floor_div(const T a, const U b);`|$\left\lfloor \frac{A}{B} \right\rfloor$|
+|`template <typename T, typename U> std::common_type_t<T, U> ceil_div(const T a, const U b);`|$\left\lceil \frac{A}{B} \right\rceil$|
 
 
 ## 参考文献

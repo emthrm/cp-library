@@ -13,17 +13,31 @@ $O(\lvert V \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`UnicyclicGraph<CostType>(n)`|頂点数 $N$ の unicyclic graph を考える。||
-|`is_in_loop[i]`|頂点 $i$ は閉路に含まれるか。||
-|`belong[i]`|頂点 $i$ を含む木の番号|存在しないときは $-1$ となる。|
-|`mapping[i]`|頂点 $i$ に対応する木の頂点番号|存在しないときは $-1$ となる。|
-|`loop`|閉路||
-|`invs[i][j]`|木 $i$ の頂点 $j$ に対応する元のグラフの頂点番号||
-|`forests`|閉路を除いた森||
-|`add_edge(src, dst, cost = 0)`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、コスト $\mathrm{cost}$ の辺を加える。|||
-|`build()`|構築する。||
+```cpp
+template <typename CostType>
+struct UnicyclicGraph;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<bool> is_in_loop`|`is_in_loop[i]` は頂点 $i$ が閉路に含まれるかを表す。|
+|`std::vector<int> belong`|`belong[i]` は頂点 $i$ を含む木の番号。ただし存在しないときは $-1$ となる。|
+|`std::vector<int> mapping`|`mapping[i]` は頂点 $i$ に対応する木の頂点番号。ただし存在しないときは $-1$ となる。|
+|`std::vector<Edge<CostType>> loop`|閉路|
+|`std::vector<std::vector<int>> invs`|`invs[i][j]` は木 $i$ の頂点 $j$ に対応する元のグラフの頂点番号を表す。|
+|`std::vector<std::vector<std::vector<Edge<CostType>>>> forest`|閉路を除いた森|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit UnicyclicGraph(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`void add_edge(const int src, const int dst, const CostType cost = 0);`|コスト $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える。|
+|`void build();`|構築する。|
 
 
 ## 参考文献

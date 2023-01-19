@@ -25,15 +25,16 @@ $$
 
 ### 形式的冪級数版
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`faulhaber_by_fps<T>(n, k)`|$S_k(n)$|
+|`template <int T> MInt<T> faulhaber_by_fps(const long long n, const int k);`|$S_k(n)$|
+
 
 ### ラグランジュ補間版
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`faulhaber_by_lagrange_interpolation<T>(n, k)`|$S_k(n)$|
+|`template <int T> MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k);`|$S_k(n)$|
 
 
 ## 参考文献

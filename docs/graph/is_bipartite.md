@@ -20,9 +20,9 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|備考|
 |:--|:--|:--|
-|`is_bipartite(graph, &color)`|グラフ $\mathrm{graph}$ は二部グラフであるか。|$\mathrm{color} \in {\lbrace 0, 1 \rbrace}^N$ は各頂点の色を表す。|
+|`template <typename CostType> bool is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph, std::vector<int>* color);`|グラフ $\mathrm{graph}$ は二部グラフであるか。|$\mathrm{color} \in {\lbrace 0, 1 \rbrace}^{\lvert V \rvert}$ は各頂点の色を表す。|
 
 
 ## 参考文献

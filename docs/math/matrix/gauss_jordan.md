@@ -13,9 +13,9 @@ $O(M^2 N)$
 
 ## 仕様
 
-|名前|効果・戻り値|要件|備考|
+|名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`gauss_jordan(&a, ε = 1e-8, 拡大係数行列か? = false)`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|$A$ は行階段形に変形される。|
+|`template <typename T> int gauss_jordan(Matrix<T>* a, const T eps = 1e-8, const bool is_extended = false);`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
 ## 参考文献

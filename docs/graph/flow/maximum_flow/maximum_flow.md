@@ -9,29 +9,106 @@
 
 |アルゴリズム|時間計算量|
 |:--|:--|
-|Ford–Fulkerson 法|最大流を $F$ とおくと $O(F \lvert E \rvert)$。|
-|Dinic 法|最大流を $F$ とおくと $O\left(\min \left\lbrace {\lvert V \rvert}^2 \lvert E \rvert,\ F \lvert E \rvert,\ {\lvert E \rvert}^{3/2} \max_{e \in E} C_e,\ \sqrt{\lvert V \rvert} \lvert E \rvert \max_{v \in V} \min \left\lbrace \sum_{e \in \delta^-(v) \subset E} C_e, \sum_{e \in \delta^+(v) \subset E} C_e \right\rbrace \right\rbrace\right)$。|
+|Ford–Fulkerson 法|最大流を $F$ とおくと $O(F \lvert E \rvert)$|
+|Dinic 法|最大流を $F$ とおくと $O\left(\min \left\lbrace {\lvert V \rvert}^2 \lvert E \rvert,\ F \lvert E \rvert,\ {\lvert E \rvert}^{3/2} \max_{e \in E} C_e,\ \sqrt{\lvert V \rvert} \lvert E \rvert \max_{v \in V} \min \left\lbrace \sum_{e \in \delta^-(v) \subset E} C_e, \sum_{e \in \delta^+(v) \subset E} C_e \right\rbrace \right\rbrace\right)$|
 
 
 ## 仕様
 
 ### Ford–Fulkerson 法
 
+```cpp
+template <typename T>
+struct FordFulkerson;
+```
+
+- `T`：容量を表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<std::vector<Edge>> graph`|残余グラフ|
+
+#### メンバ関数
+
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`FordFulkerson<T>(n)`|頂点数 $N$ の Ford–Fulkerson 法を考える。||
-|`graph`|残余グラフ||
-|`add_edge(src, dst, cap)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$ の辺を追加する。||
-|`maximum_flow(s, t, limit = ∞)`|上限を $\mathrm{limit}$ とした始点 $s$ から終点 $t$ までの最大流|容量が整数でなければ、停止しないときがある。|
+|`explicit FordFulkerson(const int n);`|頂点数 $N$ のオブジェクトを構築する。||
+|`void add_edge(const int src, const int dst, const T cap);`|容量 $\mathrm{cap}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を追加する。||
+|`T maximum_flow(const int s, const int t, T limit = std::numeric_limits<T>::max());`|上限を $\mathrm{limit}$ とした始点 $s$ から終点 $t$ までの最大流|容量が整数でなければ、停止しないときがある。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Edge`|辺を表す構造体|
+
+```cpp
+struct Edge;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`int dst`|終点|
+|`int rev`|頂点 $\mathrm{dst}$ における逆辺のインデックス|
+|`T cap`|残りの容量|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Edge(const int dst, const T cap, const int rev);`|コンストラクタ|
+
 
 ### Dinic 法
 
+```cpp
+template <typename T>
+struct Dinic;
+```
+
+- `T`：容量を表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<std::vector<Edge>> graph`|残余グラフ|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`Dinic<T>(n)`|頂点数 $N$ の Dinic 法|
-|`graph`|残余グラフ|
-|`add_edge(src, dst, cap)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 容量 $\mathrm{cap}$ の辺を追加する。|
-|`maximum_flow(s, t, limit = ∞)`|上限を $\mathrm{limit}$ とした始点 $s$ から終点 $t$ までの最大流|
+|`explicit Dinic(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`void add_edge(const int src, const int dst, const T cap);`|容量 $\mathrm{cap}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を追加する。|
+|`T maximum_flow(const int s, const int t, T limit = std::numeric_limits<T>::max());`|上限を $\mathrm{limit}$ とした始点 $s$ から終点 $t$ までの最大流|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Edge`|辺を表す構造体|
+
+```cpp
+struct Edge;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`int dst`|終点|
+|`int rev`|頂点 $\mathrm{dst}$ における逆辺のインデックス|
+|`T cap`|残りの容量|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit Edge(const int dst, const T cap, const int rev);`|コンストラクタ|
 
 
 ## 特殊ケース

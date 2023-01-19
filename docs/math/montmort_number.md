@@ -41,9 +41,9 @@ $O(N)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`montmort_number<T>(n)`|モンモール数 $!i$ ($1 \leq i \leq n$) の数表|
+|`template <typename T> std::vector<T> montmort_number(const int n);`|モンモール数 $!i$ ($1 \leq i \leq n$) の数表|
 
 
 ## 参考文献

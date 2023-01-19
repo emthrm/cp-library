@@ -13,9 +13,9 @@ $O(N^2)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`berlekamp-massey(s)`|$S(x) = \frac{P(x)}{Q(x)} \bmod{x^n}$ を満たす最小次数の $Q(x)$？|${\lbrack x^0 \rbrack}Q = 1$<br>$\mathrm{deg}(P) < \mathrm{deg}(Q) = d$ を満たす $\frac{P(x)}{Q(x)}$ を想定するならば $n \geq 2d$ でなければならない。|
+|`template <typename T> std::vector<T> berlekamp_massey(const std::vector<T>& s);`|$S(x) = \frac{P(x)}{Q(x)} \bmod{x^n}$ を満たす最小次数の $Q(x)$？|${\lbrack x^0 \rbrack}Q = 1$<br>$\mathrm{deg}(P) < \mathrm{deg}(Q) = d$ を満たす $\frac{P(x)}{Q(x)}$ を想定するならば $n \geq 2d$ を満たす。|
 
 
 ## 実装

@@ -8,17 +8,31 @@ documentation_of: include/emthrm/string/suffix_array.hpp
 
 ## 時間計算量
 
-テキスト長を $N$、パターン長を $M$ とおくと $\langle O(N\log{N}), O(M\log{N}) \rangle$。
+テキスト長を $N$、パターン長を $M$ とおくと $\langle O(N\log{N}), O(M\log{N}) \rangle$
 
 
 ## 仕様
 
+```cpp
+template <typename T = std::string>
+struct SuffixArray;
+```
+
+- `T`：$S$ の要素型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> sa`|接尾辞配列|
+|`std::vector<int> rank`|$\mathrm{rank}_i$ は `S[i:]` の接尾辞配列中での位置を表す。|
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`SuffixArray<T = std::string, U = char>(s, sentinel = 0)`|$S$ の接尾辞配列を考える。|
-|`sa`|接尾辞配列|
-|`rank[i]`|`S[i:]` の接尾辞配列中での位置|
-|`match(&t)`|$T$ が出現する文字列 $S$ 中の位置|
+|`template <typename U = char> explicit SuffixArray(const T& s_, const U sentinel = 0);`|$S$ に対してオブジェクトを構築する。|
+|`std::vector<int> match(T* t) const;`|$T$ が出現する文字列 $S$ 中の位置|
 
 
 ## 参考文献

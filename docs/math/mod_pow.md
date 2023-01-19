@@ -13,9 +13,9 @@ $O(\log{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`mod_pow(x, n, m)`|$x^n \bmod{m}$|
+|`long long mod_pow(long long x, long long n, const int m);`|$x^n \bmod{m}$|
 
 
 ## 参考文献

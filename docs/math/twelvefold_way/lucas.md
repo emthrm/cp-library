@@ -19,9 +19,9 @@ $O(P + \log_P{N})$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`lucas<P>(n, k)`|$\binom{n}{k} \bmod{p}$|
+|`template <int P> MInt<P> lucas(int n, int k);`|$\binom{n}{k} \bmod{p}$|
 
 
 ## 参考文献

@@ -22,22 +22,51 @@
 
 ### lowlink 版
 
-|名前|効果・戻り値|要件|
+```cpp
+template <typename CostType>
+struct TwoEdgeConnectedComponents : Lowlink<CostType>;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|要件|
 |:--|:--|:--|
-|`TwoEdgeConnectedComponents<CostType>(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重辺連結成分分解を考える。|
-|`id[i]`|元のグラフの頂点 $i$ を含む頂点||
-|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版|
-|`g`|二重辺連結成分を一つの頂点に縮約したグラフ||
+|`std::vector<int> id`|`id[i]` は元のグラフの頂点 $i$ を含む頂点を表す。||
+|`std::vector<std::vector<int>> vertices`|`vertices[i]` は縮約後のグラフの頂点 $i$ に含まれる頂点を表す。|完全版|
+|`std::vector<std::vector<Edge<CostType>>> g`|二重辺連結成分を一つの頂点に縮約したグラフ||
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit TwoEdgeConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+
 
 ### いもす法版
 
-|名前|効果・戻り値|要件|
+```cpp
+template <typename CostType>
+struct TwoEdgeConnectedComponentsByImos;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|要件|
 |:--|:--|:--|
-|`TwoEdgeConnectedComponentsByImos<CostType>(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重辺連結成分分解を考える。||
-|`id[i]`|元のグラフの頂点 $i$ を含む頂点||
-|`bridge`|橋||
-|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版|
-|`g`|二重辺連結成分を一つの頂点に縮約したグラフ||
+|`std::vector<int> id`|`id[i]` は元のグラフの頂点 $i$ を含む頂点を表す。||
+|`std::vector<Edge<CostType>> bridge`|橋||
+|`std::vector<std::vector<int>> vertices`|`vertices[i]` は縮約後のグラフの頂点 $i$ に含まれる頂点を表す。|完全版|
+|`std::vector<std::vector<Edge<CostType>>> g`|二重辺連結成分を一つの頂点に縮約したグラフ||
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit TwoEdgeConnectedComponentsByImos(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

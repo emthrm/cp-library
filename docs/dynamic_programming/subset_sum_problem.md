@@ -17,9 +17,9 @@ $O(N + D\log{D})$
 
 ## 仕様
 
-|名前|効果・戻り値|要件|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`subset_sum_problem(a, d)`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
+|`template <typename T> std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d);`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
 
 
 ## 参考文献

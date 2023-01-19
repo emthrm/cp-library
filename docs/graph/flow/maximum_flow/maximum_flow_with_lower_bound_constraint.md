@@ -11,11 +11,21 @@ documentation_of: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`MaximumFlowWithLowerBoundConstraint<最大流, T>(n)`|頂点数 $N$ の最小流量制約付き最大流を考える。||
-|`add_edge(src, dst, lb, ub)`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、容量の下限 $\mathrm{lb}$、上限 $\mathrm{ub}$ の辺を加える。||
-|`solve(s, t)`|始点 $s$ から終点 $t$ までの最大流|存在しないときは $-1$ となる。|
+```cpp
+template <template <typename> class C, typename T>
+struct MaximumFlowWithLowerBoundConstraint;
+```
+
+- `C`：最大流を表す構造体
+- `T`：容量を表す型
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit MaximumFlowWithLowerBoundConstraint(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`void add_edge(const int src, const int dst, const T lb, const T ub);`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、容量の下限 $\mathrm{lb}$、上限 $\mathrm{ub}$ の辺を加える。|
+|`T solve(const int s, const int t);`|始点 $s$ から終点 $t$ までの最大流。ただし存在しないときは $-1$ を返す。|
 
 
 ## 参考文献

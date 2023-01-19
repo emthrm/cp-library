@@ -15,12 +15,26 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ### Kosaraju's algorithm
 
-|名前|効果・戻り値|要件|
+```cpp
+template <typename CostType>
+struct StronglyConnectedComponents;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|要件|
 |:--|:--|:--|
-|`SCC<CostType>(graph, 完全版であるか = false)`|有向グラフ $\mathrm{graph}$ の強連結成分分解を考える。||
-|`id[i]`|元のグラフの頂点 $i$ を含む頂点||
-|`vertices[i]`|縮約後のグラフの頂点 $i$ に含まれる頂点|完全版|
-|`g`|強連結成分を一つの頂点に縮約したグラフ||
+|`std::vector<int> id`|`id[i]` は元のグラフの頂点 $i$ を含む頂点を表す。||
+|`std::vector<std::vector<int>> vertices`|`vertices[i]` は縮約後のグラフの頂点 $i$ に含まれる頂点を表す。|完全版|
+|`std::vector<std::vector<Edge<CostType>>> g`|強連結成分を一つの頂点に縮約したグラフ||
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit StronglyConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|有向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 備考

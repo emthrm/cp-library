@@ -6,6 +6,6 @@ documentation_of: include/emthrm/string/replace.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`split(s, before, after)`|$\mathrm{before}$ を $\mathrm{after}$ に置換した文字列 $S$|
+|`std::string replace(const std::string& s, const std::string& before, const std::string& after);`|$\mathrm{before}$ を $\mathrm{after}$ に置換した文字列 $S$|

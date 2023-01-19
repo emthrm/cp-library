@@ -26,9 +26,9 @@ $n$ を法とする原始根を $g$ とすると、任意の $a \in \mathbb{Z}$ 
 
 ### 原始根判定
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`is_primitive_root(root, m)`|$\mathrm{root}$ は $m$ を法とする原始根であるか|
+|`bool is_primitive_root(long long root, const int m);`|$\mathrm{root}$ は $m$ を法とする原始根であるか。|
 
 
 ## 参考文献

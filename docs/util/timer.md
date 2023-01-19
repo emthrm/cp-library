@@ -6,10 +6,17 @@ documentation_of: include/emthrm/util/timer.hpp
 
 ## 仕様
 
+```cpp
+struct Timer;
+```
+
+#### メンバ変数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`timer.reset()`|リセット|
-|`timer.elapsed<PeriodType = std::chrono::milliseconds>()`|計測時間|
+|`Timer();`|コンストラクタ|
+|`void reset();`|リセットする。|
+|`template <typename PeriodType = std::chrono::milliseconds> long long elapsed() const;`|経過時間|
 
 
 ## 参考文献

@@ -6,9 +6,9 @@ documentation_of: include/emthrm/graph/tree/rerooting_dp.hpp
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`rerooting_dp(graph, def, merge, f, g)`|木 $\mathrm{graph}$ に対する全方位木 DP|
+|`template <typename CostType, typename CommutativeSemigroup, typename E, typename F, typename G> std::vector<CommutativeSemigroup> rerooting_dp(const std::vector<std::vector<Edge<CostType>>>& graph, const std::vector<CommutativeSemigroup>& def, const E merge, const F f, const G g);`|木 $\mathrm{graph}$ に対する全方位木 DP|
 
 
 ## 例

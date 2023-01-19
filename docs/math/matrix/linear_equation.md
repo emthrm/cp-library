@@ -11,9 +11,9 @@ $O(M^2 N)$
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`linear_equation(a, b, ε = 1e-8)`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$|解なしのときは空配列となる。|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T, typename U = double> std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b, const U eps = 1e-8);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
 
 
 ## TODO

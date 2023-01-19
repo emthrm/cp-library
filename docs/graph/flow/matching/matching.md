@@ -71,39 +71,73 @@ $$
 
 ### 二部グラフの最大マッチング
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`BipartiteMatching(n)`|頂点数 $N$ の二部グラフの最大マッチングを考える。||
-|`match`|マッチした相手|存在しないときは $-1$ となる。|
-|`add_edge(u, v)`|辺 $(u, v)$ を加える。||
-|`solve()`|最大マッチングのサイズ||
-|`fix(ver)`|頂点 $\mathrm{ver}$ に対するマッチングを固定する。||
-|`activate(ver)`|頂点 $\mathrm{ver}$ を有効にする。|戻り値は最大マッチングのサイズの変化量である。|
-|`deactivate(ver)`|頂点 $\mathrm{ver}$ を無効にする。|戻り値は最大マッチングのサイズの変化量である。|
+```cpp
+struct BipartiteMatching;
+```
 
-### Hopcroft–Karp algorithm
+#### メンバ変数
 
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft–Karp algorithm を考える。|
-|`match`|マッチした相手|存在しないときは $-1$ となる。|
-|`add_edge(u, v)`|辺 $(u, v)$ を加える。||
-|`solve()`|最大マッチングのサイズ||
+|名前|説明|
+|:--|:--|
+|`std::vector<int> match`|マッチした相手。ただし存在しないときは $-1$ となる。|
 
-### 二部グラフの重み付き最大マッチング
-
-|名前|効果・戻り値|備考|
-|:--|:--|:--|
-|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチングを考える。||
-|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える。||
-|`solve()`|重み付き最大マッチングの重み||
-|`matching()`|マッチした相手|存在しないときは $-1$ となる。|
-
-### 一般グラフの最大マッチング
+#### メンバ関数
 
 |名前|効果・戻り値|
 |:--|:--|
-|`maximum_matching(graph)`|無向グラフ $\mathrm{graph}$ の最大マッチングのサイズ|
+|`explicit BipartiteMatching(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`void add_edge(const int u, const int v);`|辺 $(u, v)$ を加える。|
+|`int solve();`|最大マッチングのサイズ|
+|`void fix(const int ver);`|頂点 $\mathrm{ver}$ に対するマッチングを固定する。|
+|`int activate(const int ver);`|頂点 $\mathrm{ver}$ を有効にしたのち、最大マッチングのサイズの変化量を返す。|
+|`int deactivate(const int ver);`|頂点 $\mathrm{ver}$ を無効にしたのち、最大マッチングのサイズの変化量を返す。|
+
+
+### Hopcroft–Karp algorithm
+
+```cpp
+struct HopcroftKarp;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> match`|マッチした相手。ただし存在しないときは $-1$ となる。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit HopcroftKarp(const int left, const int right);`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフに対してオブジェクトを構築する。|
+|`void add_edge(const int u, const int v);`|辺 $(u, v)$ を加える。|
+|`int solve();`|最大マッチングのサイズ|
+
+
+### 二部グラフの重み付き最大マッチング
+
+```cpp
+template <typename T>
+struct WeightedBipartiteMatching;
+```
+
+- `T`：重みを表す型
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit WeightedBipartiteMatching(const int left, const int right);`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフに対してオブジェクトを構築する。|
+|`void add_edge(const int src, const int dst, const T cost);`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える。||
+|`T solve();`|重み付き最大マッチングの重み||
+|`std::vector<int> matching() const;`|マッチした相手。ただし存在しないときは $-1$ が格納される。|
+
+
+### 一般グラフの最大マッチング
+
+|名前|戻り値|
+|:--|:--|
+|`int maximum_matching(const std::vector<std::vector<int>>& graph);`|無向グラフ $\mathrm{graph}$ の最大マッチングのサイズ|
 
 
 ## 参考文献

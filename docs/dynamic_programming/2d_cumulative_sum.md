@@ -11,13 +11,22 @@ $O(HW)$
 
 ## 仕様
 
+```cpp
+template <typename T>
+struct CumulativeSum2D;
+```
+
+- `T`：要素型
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`CumulativeSum2D<T>(h, w)`|高さ $H$, 幅 $W$ の2次元累積和を考える。|
-|`CumulativeSum2D<T>(a)`|$A$ の2次元累積和を考える。|
-|`add(y, x, val)`|$A_{yx} \gets A_{yx} + \mathrm{val}$|
-|`build()`|構築する。|
-|`query(y1, x1, y2, x2)`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
+|`explicit CumulativeSum2D(const int h, const int w);`|高さ $H$、幅 $W$ のオブジェクトを構築する。|
+|`template <typename U> explicit CumulativeSum2D(const std::vector<std::vector<U>>& a);`|$A$ に対してオブジェクトを構築する。|
+|`void add(const int y, const int x, const T val);`|$A_{yx} \gets A_{yx} + \mathrm{val}$|
+|`void build();`|構築する。|
+|`T query(const int y1, const int x1, const int y2, const int x2) const;`|$\sum_{i = y_1}^{y_2} \sum_{j = x_1}^{x_2} A_{ij}$|
 
 
 ## Submissons

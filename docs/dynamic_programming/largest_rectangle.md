@@ -11,9 +11,9 @@ $O(N)$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`largest_rectangle(height)`|高さ $\mathrm{height}$ で表されるヒストグラム中の長方形の最大面積|
+|`template <typename T> long long largest_rectangle(const std::vector<T>& height);`|高さ $\mathrm{height}$ で表されるヒストグラム中の長方形の最大面積|
 
 
 ## 参考文献

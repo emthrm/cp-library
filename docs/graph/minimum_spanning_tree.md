@@ -10,15 +10,16 @@ $O(\lvert E \rvert \log{\lvert V \rvert})$
 
 ### Prim 法
 
-|名前|効果・戻り値|要件|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`prim(graph, root = 0)`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ は双方向の辺の情報をもつ。|
+|`template <typename CostType> CostType prim(const std::vector<std::vector<Edge<CostType>>>& graph, const int root = 0);`|根を $\mathrm{root}$ とするグラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ は双方向の辺の情報をもつ。|
+
 
 ### Kruskal 法
 
-|名前|効果・戻り値|備考|
+|名前|戻り値|備考|
 |:--|:--|:--|
-|`kruskal(graph)`|グラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には単方向の辺の情報のみでよい。|
+|`template <typename CostType> CostType kruskal(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ の最小全域木のコスト|$\mathrm{graph}$ には単方向の辺の情報のみでよい。|
 
 
 ## 参考文献

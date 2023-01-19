@@ -13,12 +13,18 @@ $O(\lvert S \rvert)$
 
 ## 仕様
 
+```cpp
+struct Manacher;
+```
+
+#### メンバ関数
+
 |名前|効果・戻り値|
 |:--|:--|
-|`Manacher(s)`|$S$ の Manacher を考える。|
-|`odd(idx)`|位置 $\mathrm{idx}$ を中心とした回文の最大半径|
-|`even(idx)`|位置 $\mathrm{idx} + 0.5$ を中心とした回文の最大半径|
-|`is_palindrome(left, right)`|$\lbrack \mathrm{left}, \mathrm{right})$ は回文であるか。|
+|`template <typename T> explicit Manacher(const T& s);`|$S$ に対してオブジェクトを構築する。|
+|`int odd(const int idx) const;`|位置 $\mathrm{idx}$ を中心とした回文の最大半径|
+|`int even(const int idx) const;`|位置 $\mathrm{idx} + 0.5$ を中心とした回文の最大半径|
+|`bool is_palindrome(const int left, const int right) const;`|`S[left:right]` は回文であるか。|
 
 
 ## 参考文献

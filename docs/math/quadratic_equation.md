@@ -15,9 +15,9 @@ $O(1)$
 
 ## 仕様
 
-|名前|効果・戻り値|要件|
+|名前|戻り値|要件|
 |:--|:--|:--|
-|`quadratic_equation(a, b, c, ε = 1e-8)`|$ax^2 + bx + c = 0$ を満たす $x$|$a, b, c$ のいずれかは非零である。|
+|`std::vector<double> quadratic_equation(double a, double b, double c, const double eps = 1e-8);`|$ax^2 + bx + c = 0$ を満たす $x$|$a, b, c$ のいずれかは非零である。|
 
 
 ## 参考文献

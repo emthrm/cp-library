@@ -11,9 +11,9 @@ $O(\log{\max \lbrace A, B \rbrace})$
 
 ## 仕様
 
-|名前|効果・戻り値|
+|名前|戻り値|
 |:--|:--|
-|`__lcm(a, b)`|$a$ と $b$ の最小公倍数|
+|`long long __lcm(const long long a, const long long b);`|$a$ と $b$ の最小公倍数|
 
 
 ## Submissons

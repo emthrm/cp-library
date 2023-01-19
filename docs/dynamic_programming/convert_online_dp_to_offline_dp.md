@@ -42,14 +42,14 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
 
 ## 時間計算量
 
-変換したオフライン動的計画法の時間計算量を $O(M(N))$ とおくと $O(M(N)\log{N})$。
+変換したオフライン動的計画法の時間計算量を $O(M(N))$ とおくと $O(M(N)\log{N})$
 
 
 ## 仕様
 
-|名前|効果・戻り値|備考|
+|名前|効果|備考|
 |:--|:--|:--|
-|`convert_offline_dp_to_online_dp(n, induce)`|幅 $N$ の動的計画法に対してオフライン・オンライン変換を適用する。|`induce(l, m, r)` は $\mathrm{dp}(j)$ ($j = l, l + 1, \ldots, m - 1$) を $\mathrm{dp}(i)$ ($i = m, m + 1, \ldots, r - 1$) に適用する関数である。|
+|`void convert_online_dp_to_offline_dp(const int n, const std::function<void(int, int, int)> induce);`|幅 $N$ の動的計画法に対してオフライン・オンライン変換を適用する。|`induce(l, m, r)` は $\mathrm{dp}(j)$ ($j = l, l + 1, \ldots, m - 1$) を $\mathrm{dp}(i)$ ($i = m, m + 1, \ldots, r - 1$) に適用する関数である。|
 
 
 ## 参考文献
