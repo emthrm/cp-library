@@ -1,9 +1,13 @@
 #ifndef EMTHRM_MATH_MODINT_HPP_
 #define EMTHRM_MATH_MODINT_HPP_
 
-// #include <algorithm>
 // #include <cassert>
 #include <iostream>
+// #if __cplusplus >= 201703L
+// #include <numeric>
+// #else
+// #include <algorithm>
+// #endif
 #include <utility>
 #include <vector>
 
@@ -22,7 +26,11 @@ namespace emthrm {
 //     fact_inv(x);
 //   }
 //   static MInt inv(const int n, const bool init = false) {
-//     // assert(0 <= n && n < M && std::__gcd(n, M) == 1);
+// // #if __cplusplus >= 201703L
+// //     assert(0 <= n && n < M && std::gcd(n, M) == 1);
+// // #else
+// //     assert(0 <= n && n < M && std::__gcd(n, M) == 1);
+// // #endif
 //     static std::vector<MInt> inverse{0, 1};
 //     const int prev = inverse.size();
 //     if (n < prev) {
@@ -161,7 +169,11 @@ struct MInt {
     fact_inv(x);
   }
   static MInt inv(const int n, const bool init = false) {
-    // assert(0 <= n && n < mod() && std::__gcd(x, mod()) == 1);
+// #if __cplusplus >= 201703L
+//     assert(0 <= n && n < mod() && std::gcd(x, mod()) == 1);
+// #else
+//     assert(0 <= n && n < mod() && std::__gcd(x, mod()) == 1);
+// #endif
     static std::vector<MInt> inverse{0, 1};
     const int prev = inverse.size();
     if (n < prev) {

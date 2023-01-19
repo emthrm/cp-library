@@ -6,11 +6,13 @@
 #ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 #define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 
+#if __cplusplus >= 201703L
+#include <numeric>
+#else
 #include <algorithm>
-#include <map>
-#if __cplusplus < 201703L
 #include <utility>
 #endif
+#include <map>
 #include <vector>
 
 #include "emthrm/math/euler_phi/euler_phi.hpp"
@@ -21,7 +23,11 @@ namespace emthrm {
 
 bool is_primitive_root(long long root, const int m) {
   if ((root %= m) < 0) root += m;
+#if __cplusplus >= 201703L
+  if (std::gcd(root, m) > 1) return false;
+#else
   if (std::__gcd(static_cast<int>(root), m) > 1) return false;
+#endif
   static std::map<int, int> phi;
   if (!phi.count(m)) phi[m] = euler_phi(m);
   const int phi_m = phi[m];

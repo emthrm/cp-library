@@ -4,10 +4,14 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446"
 #define ERROR "1e-7"
 
-#include <algorithm>
 #include <cmath>
 #include <iomanip>
 #include <iostream>
+#if __cplusplus >= 201703L
+#include <numeric>
+#else
+#include <algorithm>
+#endif
 #include <vector>
 
 #include "emthrm/math/convolution/fast_mobius_transform.hpp"
@@ -30,7 +34,11 @@ int main() {
     long long l = 1;
     for (int j = 0; j < n; ++j) {
       if (i >> j & 1) {
+#if __cplusplus >= 201703L
+        l /= std::gcd(l, a[j]);
+#else
         l /= std::__gcd(l, a[j]);
+#endif
         if (l > m / a[j]) {
           l = m + 1;
           break;

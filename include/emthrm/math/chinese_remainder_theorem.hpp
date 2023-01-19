@@ -1,11 +1,16 @@
 #ifndef EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_
 #define EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_
 
+#if __cplusplus >= 201703L
+#include <numeric>
+#else
 #include <algorithm>
+#endif
 #include <utility>
 #include <vector>
 
 #include "emthrm/math/mod_inv.hpp"
+
 
 namespace emthrm {
 
@@ -23,7 +28,11 @@ std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m) {
       if (x % m[i] != b[i]) return {0, 0};
       continue;
     }
+#if __cplusplus >= 201703L
+    const T g = std::gcd(md, m[i]);
+#else
     const T g = std::__gcd(md, m[i]);
+#endif
     if ((b[i] - x) % g != 0) return {0, 0};
     const T u_i = m[i] / g;
     x += (b[i] - x) / g % u_i * mod_inv(md / g, u_i) % u_i * md;
