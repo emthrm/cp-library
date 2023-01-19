@@ -62,7 +62,7 @@ layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
 ---
 
-$g(S) = \sum_{S \subseteq T} f(T)$ または $g(S) = \sum_{T \subseteq S} f(T)$ を高速に求める．
+$g(S) = \sum_{S \subseteq T} f(T)$ または $g(S) = \sum_{T \subseteq S} f(T)$ を高速に求める。
 
 
 ## 時間計算量
@@ -70,14 +70,14 @@ $g(S) = \sum_{S \subseteq T} f(T)$ または $g(S) = \sum_{T \subseteq S} f(T)$ 
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`fast_zeta_transform(a, 上位集合に対するゼータ変換か?, 単位元 = 0, 二項演算 = 加法)`|$A$ に高速ゼータ変換を行ったもの|
+|名前|戻り値|
+|:--|:--|
+|`template <typename Ring> std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const bool adds_superset, const Ring ID = 0, const std::function<Ring(const Ring&, const Ring&)> fn = [](const Ring& a, const Ring& b) -> Ring { return a + b; })`|$A$ に高速ゼータ変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
 
 
-## 参考
+## 参考文献
 
 - https://qiita.com/convexineq/items/afc84dfb9ee4ec4a67d5
 - https://naoyat.hatenablog.jp/entry/zeta-moebius
@@ -86,6 +86,6 @@ $O(N\log{N})$
 - ~~https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform~~
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/arc100/submissions/10208329

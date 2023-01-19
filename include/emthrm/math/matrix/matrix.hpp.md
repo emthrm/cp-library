@@ -105,19 +105,19 @@ data:
   requiredBy:
   - include/emthrm/graph/matrix_tree_theorem.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  - include/emthrm/math/matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/linear_equation.hpp
   - include/emthrm/math/matrix/inverse_matrix.hpp
+  - include/emthrm/math/matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/determinant.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
+  - test/math/matrix/determinant.test.cpp
+  - test/math/matrix/linear_equation.test.cpp
   - test/math/matrix/inverse_matrix.test.cpp
   - test/math/matrix/matrix.test.cpp
-  - test/math/matrix/linear_equation.test.cpp
-  - test/math/matrix/determinant.test.cpp
 documentation_of: include/emthrm/math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"
@@ -126,30 +126,37 @@ title: "\u884C\u5217 (matrix)"
 
 ## 時間計算量
 
-|処理|時間計算量|
-|:--:|:--:|
+||時間計算量|
+|:--|:--|
 |加算|$O(MN)$|
 |減算|$O(MN)$|
 |乗算|$O(N^3)$|
 |行列累乗|$O(N^3 \log{E})$|
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`Matrix<T>(m, n, def = 0)`|初期値 $\mathrm{def}$ の $M \times N$ 型行列||
-|`nrow()`|$M$||
-|`ncol()`|$N$||
-|`pow(exponent)`|$A^\mathrm{exponent}$|半環上で成立する．|
-|`operator[](i)`|$A$ の $i$ 行目||
-|`operator=(x)`|代入||
-|`operator+=(x)`<br>`operator+(x)`|加算||
-|`operator-=(x)`<br>`operator-(x)`|減算||
-|`operator*=(x)`<br>`operator*(x)`|乗算|半環上で成立する．|
+```cpp
+template <typename T>
+struct Matrix;
+```
+
+#### メンバ関数
+
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`explicit Matrix(const int m, const int n, const T def = 0);`|初期値 $\mathrm{def}$ の $M \times N$ 型行列を表すオブジェクトを構築する。||
+|`int nrow() const;`|$M$||
+|`int ncol() const;`|$N$||
+|`Matrix pow(long long exponent) const;`|$A^\mathrm{exponent}$|半環上で成立する。|
+|`inline const std::vector<T>& operator[](const int i) const;`<br>`inline std::vector<T>& operator[](const int i);`|$A$ の $i$ 行目||
+|`Matrix& operator=(const Matrix& x);`|代入演算子||
+|`Matrix& operator+=(const Matrix& x);`<br>`Matrix operator+(const Matrix& x) const;`|加算||
+|``Matrix& operator-=(const Matrix& x);``<br>`Matrix operator-(const Matrix& x) const;`|減算||
+|`Matrix& operator*=(const Matrix& x);`<br>`Matrix operator*(const Matrix& x) const;`|乗算|半環上で成立する。|
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/math/matrix.html
 
@@ -178,6 +185,6 @@ title: "\u884C\u5217 (matrix)"
   - https://judge.yosupo.jp/problem/hafnian_of_matrix
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/45071

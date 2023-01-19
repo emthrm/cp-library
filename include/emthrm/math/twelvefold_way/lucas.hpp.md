@@ -43,13 +43,13 @@ layout: document
 title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
 ---
 
-$p \in \mathbb{P},\ n, k \in \mathrm{N}$ に対して，
+$p \in \mathbb{P},\ n, k \in \mathrm{N}$ に対して、
 
 $$
   \binom{n}{k} \equiv \prod_{i \in \mathbb{N}} \binom{\left\lfloor \frac{n}{p^i} \right\rfloor \bmod{p}}{\left\lfloor \frac{k}{p^i} \right\rfloor \bmod{p}} \pmod{p}
 $$
 
-が成り立つ．
+が成り立つ。
 
 
 ## 時間計算量
@@ -57,18 +57,18 @@ $$
 $O(P + \log_P{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`lucas<P>(n, k)`|$\binom{n}{k} \bmod{p}$|
+|名前|戻り値|
+|:--|:--|
+|`template <int P> MInt<P> lucas(int n, int k);`|$\binom{n}{k} \bmod{p}$|
 
 
-## 参考
+## 参考文献
 
 - https://manabitimes.jp/math/1324
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/arc117/submissions/21896797

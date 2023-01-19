@@ -67,14 +67,14 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/data_structure/sparse_table.test.cpp
   - test/string/longest_common_prefix.test.cpp
+  - test/data_structure/sparse_table.test.cpp
 documentation_of: include/emthrm/data_structure/sparse_table.hpp
 layout: document
 title: sparse table
 ---
 
-[帯](../../.verify-helper/docs/static/algebraic_structure.md)であるデータを含んだ区間に対して高速に演算を行うデータ構造である．
+[帯](../../.verify-helper/docs/static/algebraic_structure.md)であるデータを含んだ区間に対して高速に演算を行うデータ構造である。
 
 
 ## 時間計算量
@@ -82,22 +82,37 @@ title: sparse table
 $\langle O(N\log{N}), O(1) \rangle$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`SparseTable<帯>()`|sparse table|
-|`SparseTable<帯>(a, 二項演算)`|$A$ の sparse table|
-|`init(a, 二項演算)`|$A$ の sparse table を構築する．|
-|`query(left, right)`|$[\mathrm{left}, \mathrm{right})$ における演算を行った解|
+```cpp
+template <typename Band>
+struct SparseTable
+```
+
+- `Band`：帯である要素型
+
+#### メンバ変数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`SparseTable()`|デフォルトコンストラクタ|
+|`explicit SparseTable(const std::vector<Band>& a, const Fn fn)`|$A$ に対して二項演算 $\mathrm{fn}$ のオブジェクトを構築する。|
+|`void init(const std::vector<Band>& a, const Fn fn_);`|$A$ によって初期化する。|
+|`Band query(const int left, const int right) const;`|$[\mathrm{left}, \mathrm{right})$ における演算を行った解|
+
+#### メンバ型
+
+|名前|効果・戻り値|
+|:--|:--|
+|`Fn`|`std::function<Band(Band, Band)>`|
 
 
-## 参考
+## 参考文献
 
 - http://tookunn.hatenablog.com/entry/2016/07/13/211148
 - https://github.com/drken1215/algorithm/blob/0db023d94ca9c79a24ef13f5905e6bab056bdafe/DataStructure/sparse_table.cpp
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/2719

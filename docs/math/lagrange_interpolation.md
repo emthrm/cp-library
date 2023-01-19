@@ -1,6 +1,6 @@
 # ラグランジュ補間 (Lagrange interpolation)
 
-$1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める．
+$1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める。
 
 
 ### ラグランジュの補間多項式 (interpolation polynomial in the Lagrange form)
@@ -13,34 +13,30 @@ $$
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |評価版|$O(N^2)$|
 |評価版2|$O(N)$|
 |多項式補間|$O(N(\log{N})^2)$|
 
 
-## 使用法
+## 仕様
 
-- 評価版
+### 評価版
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`lagrange_interpolation(x, y, t)`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる．|
-
-- 評価版2
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`lagrange_interpolation(y, t)`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
-
-- 多項式補間
-
-||説明|
-|:--:|:--:|
-|`polynomial_interpolation<多項式>(x, y)`|$f(x_i) = y_i$ を満たす $f$|
+|名前|戻り値|要件|
+|:--|:--|:--|
+|`template <typename T> T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y, const T t);`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる。|
+|`template <typename T> T lagrange_interpolation(const std::vector<T>& y, const T t);`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
 
 
-## 参考
+### 多項式補間
+
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <template <typename> class C, typename T> C<T> polynomial_interpolation(const std::vector<T>& x, const std::vector<T>& y);`|$f(x_i) = y_i$ を満たす $f$|`C` は冪級数を表す構造体である。|
+
+
+## 参考文献
 
 ラグランジュ補間
 - https://mathtrain.jp/hokan
@@ -64,7 +60,7 @@ $$
   - https://judge.yosupo.jp/problem/shift_of_sampling_points_of_polynomial
 
 
-## Verified
+## Submissons
 
 - [評価版](https://atcoder.jp/contests/arc033/submissions/10088080)
 - [評価版2](https://atcoder.jp/contests/arc033/submissions/10510969)

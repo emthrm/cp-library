@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
@@ -76,38 +76,39 @@ $$
   S_k(n + 1) = \dfrac{1}{k + 1} \sum_{i = 0}^k \binom{k + 1}{i} B_i n^{k + 1 - i}
 $$
 
-が成り立つ．ここで $B$ は[ベルヌーイ数](bernoulli_number)である．
+が成り立つ。ここで $B$ は[ベルヌーイ数](bernoulli_number)である。
 
 
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |形式的冪級数版|$O(K\log{K})$|
 |ラグランジュ補間版|$O(K \log{\max{\lbrace K, M \rbrace}})$|
 
 
-## 使用法
+## 仕様
 
-- 形式的冪級数版
+### 形式的冪級数版
 
-||説明|
-|:--:|:--:|
-|`faulhaber_by_fps<T>(n, k)`|$S_k(n)$|
-
-- ラグランジュ補間版
-
-||説明|
-|:--:|:--:|
-|`faulhaber_by_lagrange_interpolation<T>(n, k)`|$S_k(n)$|
+|名前|戻り値|
+|:--|:--|
+|`template <int T> MInt<T> faulhaber_by_fps(const long long n, const int k);`|$S_k(n)$|
 
 
-## 参考
+### ラグランジュ補間版
+
+|名前|戻り値|
+|:--|:--|
+|`template <int T> MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k);`|$S_k(n)$|
+
+
+## 参考文献
 
 - https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A6%E3%83%AB%E3%83%8F%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AE%E5%85%AC%E5%BC%8F
 
 
-## Verified
+## Submissons
 
 - [形式的冪級数版](https://yukicoder.me/submissions/431468)
 - [ラグランジュ補間版](https://yukicoder.me/submissions/437458)

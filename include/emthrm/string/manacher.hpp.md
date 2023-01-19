@@ -54,7 +54,7 @@ layout: document
 title: Manacher
 ---
 
-文字列に対してそれぞれのインデックスを中心とした回文の最大半径を求めるアルゴリズムである．
+文字列に対してそれぞれのインデックスを中心とした回文の最大半径を求めるアルゴリズムである。
 
 
 ## 時間計算量
@@ -62,17 +62,23 @@ title: Manacher
 $O(\lvert S \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`Manacher(s)`|$S$ の Manacher を考える．|
-|`odd(idx)`|位置 $\mathrm{idx}$ を中心とした回文の最大半径|
-|`even(idx)`|位置 $\mathrm{idx} + 0.5$ を中心とした回文の最大半径|
-|`is_palindrome(left, right)`|$\lbrack \mathrm{left}, \mathrm{right})$ は回文であるか．|
+```cpp
+struct Manacher;
+```
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`template <typename T> explicit Manacher(const T& s);`|$S$ に対してオブジェクトを構築する。|
+|`int odd(const int idx) const;`|位置 $\mathrm{idx}$ を中心とした回文の最大半径|
+|`int even(const int idx) const;`|位置 $\mathrm{idx} + 0.5$ を中心とした回文の最大半径|
+|`bool is_palindrome(const int left, const int right) const;`|`S[left:right]` は回文であるか。|
 
 
-## 参考
+## 参考文献
 
 - https://snuke.hatenablog.com/entry/2014/12/02/235837
 - https://github.com/drken1215/algorithm/blob/d4d987bfd9205655862986b3d27339381b1ffaf7/String/manacher.cpp
@@ -89,10 +95,10 @@ $O(\lvert S \rvert)$
   - https://github.com/beet-aizu/library/blob/master/datastructure/palindromictree.cpp
   - https://mugen1337.github.io/procon/String/PalindromicTree.cpp
   - https://sotanishy.github.io/cp-library-cpp/string/palindromic_tree.hpp
-- distinct な部分回文をすべて求める．
+- distinct な部分回文をすべて求める。
   - https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/31002

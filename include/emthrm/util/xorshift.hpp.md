@@ -1,35 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/geometry/smallest_enclosing_circle.hpp
-    title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/flow/matching/maximum_matching.hpp
-    title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
-      \u30B0"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/mod_sqrt.hpp
-    title: "\u5E73\u65B9\u5270\u4F59"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/geometry/smallest_enclosing_circle.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
-  - icon: ':heavy_check_mark:'
-    path: test/graph/flow/matching/maximum_matching.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
-      \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':heavy_check_mark:'
-    path: test/math/formal_power_series/formal_power_series.6.test.cpp
-    title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u5E73\u65B9\u6839)"
   - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
-    path: test/math/mod_sqrt.test.cpp
-    title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -63,38 +39,37 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/util/xorshift.hpp
-  requiredBy:
-  - include/emthrm/geometry/smallest_enclosing_circle.hpp
-  - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  - include/emthrm/math/mod_sqrt.hpp
+  requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/geometry/smallest_enclosing_circle.test.cpp
-  - test/graph/flow/matching/maximum_matching.test.cpp
   - test/math/is_primitive_root.test.cpp
-  - test/math/mod_sqrt.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
 documentation_of: include/emthrm/util/xorshift.hpp
 layout: document
 title: xorshift
 ---
 
-疑似乱数列生成法の一種である．
+疑似乱数列生成法の一種である。
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`xor128.rand()`|`int` 型の乱数||
-|`xor128.rand(ub)`|`int` 型の乱数|$[0, \mathrm{ub})$|
-|`xor128.rand(lb, ub)`|`int` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
-|`xor128.randll()`|`long long` 型の乱数||
-|`xor128.randll(ub)`|`long long` 型の乱数|$[0, \mathrm{ub})$|
-|`xor128.randll(lb, ub)`|`long long` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
+```cpp
+struct Xor128;
+```
 
-周期は $2^{128} - 1$ である．
+周期は $2^{128} - 1$ である。
+
+#### メンバ関数
+
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`int rand();`|`int` 型の乱数||
+|`int rand(const int ub);`|`int` 型の乱数|$[0, \mathrm{ub})$|
+|`int rand(const int lb, const int ub);`|`int` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
+|`long long randll();`|`long long` 型の乱数||
+|`long long randll(const long long ub);`|`long long` 型の乱数|$[0, \mathrm{ub})$|
+|`long long randll(const long long lb, const long long ub);`|`long long` 型の乱数|$[\mathrm{lb}, \mathrm{ub})$|
 
 
 ## 備考
@@ -102,7 +77,7 @@ title: xorshift
 [Zobrist hashing](https://en.wikipedia.org/wiki/Zobrist_hashing) に用いるのは危険である。
 
 
-## 参考
+## 参考文献
 
 - https://ja.wikipedia.org/wiki/Xorshift
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!XorShift128.cpp~~

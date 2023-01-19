@@ -82,113 +82,147 @@ title: "Hopcroft\u2013Karp algorithm"
 ---
 ### マッチング (matching)
 
-互いに端点を共有しない辺集合である．
+互いに端点を共有しない辺集合である。
 
 
 ### 辺被覆 (edge cover)
 
-任意の頂点がいずれかの端点となっている辺集合である．
+任意の頂点がいずれかの端点となっている辺集合である。
 
 
 ### 独立集合 (independent set) / 安定集合 (stable set)
 
-互いに隣接していない頂点集合である．
+互いに隣接していない頂点集合である。
 
 
 ### 頂点被覆 (vertex cover)
 
-任意の辺に対して少なくとも一方の端点を含む頂点集合である．
+任意の辺に対して少なくとも一方の端点を含む頂点集合である。
 
 
 ### クリーク (clique)
 
-無向グラフに対して完全グラフな部分グラフである．
+無向グラフに対して完全グラフな部分グラフである。
 
 
 ## 性質
 
-1. 孤立点のないグラフに対して (最大マッチングのサイズ) + (最小辺被覆のサイズ) = (頂点数) が成り立つ．
+1. 孤立点のないグラフに対して (最大マッチングのサイズ) + (最小辺被覆のサイズ) = (頂点数) が成り立つ。
 
 2. (最大独立集合のサイズ) + (最小頂点被覆のサイズ) = (頂点数)
 
-3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ．ただし $A$ は $a_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である．
+3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ。ただし $A$ は $a_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である。
 
-4. 二部グラフに対して，最大マッチングのサイズは最小頂点被覆のサイズに等しい．
+4. 二部グラフに対して、最大マッチングのサイズは最小頂点被覆のサイズに等しい。
 
-5. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる．
+5. 有向非巡回グラフの最小パス被覆は二部グラフの最大マッチングに帰着できる。
 
 
 ### Hall's theorem
 
-二部グラフ $(U, V, E)$ に対して，以下は同値である．
+二部グラフ $(U, V, E)$ に対して、以下は同値である。
 
-- $U$ の元をすべて被覆するマッチングが存在する．
+- $U$ の元をすべて被覆するマッチングが存在する。
 - $\forall S \subseteq U,\ \lvert S \rvert \leq \lvert \Gamma(S) \rvert$.
 
 
 ### Dilworth's theorem
 
-任意の有限な半順序集合に対して，反鎖 (antichain) の最大サイズは共通部分のない鎖 (chain) に分解したときの最小サイズに等しい．
+任意の有限な半順序集合に対して、反鎖 (antichain) の最大サイズは共通部分のない鎖 (chain) に分解したときの最小サイズに等しい。
 
-特に有向非巡回グラフ $G$ では，$\forall u, v \in V(G)$ に対して
+特に有向非巡回グラフ $G$ では、$\forall u, v \in V(G)$ に対して
 
 $$
-  u \leq v \iff u \text{ から } v \text{ に到達可能である．}
+  u \leq v \iff u \text{ から } v \text{ に到達可能である。}
 $$
 
-と定義すると，$(V(G), \leq)$ は半順序集合である．$(V(G), \leq)$ に対して，共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する．
+と定義すると、$(V(G), \leq)$ は半順序集合である。$(V(G), \leq)$ に対して、共通部分のない鎖に分解したときの最小サイズは最小パス被覆のサイズを意味する。
 
 
 ## 時間計算量
 
-||計算量|
-|:--:|:--:|
+||時間計算量|
+|:--|:--|
 |二部グラフの最大マッチング|$O(\lvert V \rvert \lvert E \rvert)$|
 |Hopcroft–Karp algorithm|$O(\lvert E \rvert \sqrt{\lvert V \rvert})$|
 |二部グラフの重み付き最大マッチング|$O(\lvert E \rvert \lvert V \rvert \log{\lvert V \rvert})$|
 |一般グラフの最大マッチング|$O({\lvert V \rvert}^3 + \lvert E \rvert)$|
 
 
-## 使用法
+## 仕様
 
-- 二部グラフの最大マッチング
+### 二部グラフの最大マッチング
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`BipartiteMatching(n)`|頂点数 $N$ の二部グラフの最大マッチングを考える．||
-|`match`|マッチした相手|存在しないときは $-1$ となる．|
-|`add_edge(u, v)`|辺 $(u, v)$ を加える．||
-|`solve()`|最大マッチングのサイズ||
-|`fix(ver)`|頂点 $\mathrm{ver}$ に対するマッチングを固定する．||
-|`activate(ver)`|頂点 $\mathrm{ver}$ を有効にする．|返り値は最大マッチングのサイズの変化量である．|
-|`deactivate(ver)`|頂点 $\mathrm{ver}$ を無効にする．|返り値は最大マッチングのサイズの変化量である．|
+```cpp
+struct BipartiteMatching;
+```
 
-- Hopcroft–Karp algorithm
+#### メンバ変数
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`HopcroftKarp(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフで Hopcroft–Karp algorithm を考える．|
-|`match`|マッチした相手|存在しないときは $-1$ となる．|
-|`add_edge(u, v)`|辺 $(u, v)$ を加える．||
-|`solve()`|最大マッチングのサイズ||
+|名前|説明|
+|:--|:--|
+|`std::vector<int> match`|マッチした相手。ただし存在しないときは $-1$ となる。|
 
-- 二部グラフの重み付き最大マッチング
+#### メンバ関数
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`WeightedBipartiteMatching<T>(left, right)`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフの重み付き最大マッチングを考える．||
-|`add_edge(src, dst, cost)`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える．||
-|`solve()`|重み付き最大マッチングの重み||
-|`matching()`|マッチした相手|存在しないときは $-1$ となる．|
-
-- 一般グラフの最大マッチング
-
-||説明|
-|:--:|:--:|
-|`maximum_matching(graph)`|無向グラフ $\mathrm{graph}$ の最大マッチングのサイズ|
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit BipartiteMatching(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`void add_edge(const int u, const int v);`|辺 $(u, v)$ を加える。|
+|`int solve();`|最大マッチングのサイズ|
+|`void fix(const int ver);`|頂点 $\mathrm{ver}$ に対するマッチングを固定する。|
+|`int activate(const int ver);`|頂点 $\mathrm{ver}$ を有効にしたのち、最大マッチングのサイズの変化量を返す。|
+|`int deactivate(const int ver);`|頂点 $\mathrm{ver}$ を無効にしたのち、最大マッチングのサイズの変化量を返す。|
 
 
-## 参考
+### Hopcroft–Karp algorithm
+
+```cpp
+struct HopcroftKarp;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> match`|マッチした相手。ただし存在しないときは $-1$ となる。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit HopcroftKarp(const int left, const int right);`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフに対してオブジェクトを構築する。|
+|`void add_edge(const int u, const int v);`|辺 $(u, v)$ を加える。|
+|`int solve();`|最大マッチングのサイズ|
+
+
+### 二部グラフの重み付き最大マッチング
+
+```cpp
+template <typename T>
+struct WeightedBipartiteMatching;
+```
+
+- `T`：重みを表す型
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit WeightedBipartiteMatching(const int left, const int right);`|頂点数 $\mathrm{left}$ と $\mathrm{right}$ の二部グラフに対してオブジェクトを構築する。|
+|`void add_edge(const int src, const int dst, const T cost);`|重み $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える。||
+|`T solve();`|重み付き最大マッチングの重み||
+|`std::vector<int> matching() const;`|マッチした相手。ただし存在しないときは $-1$ が格納される。|
+
+
+### 一般グラフの最大マッチング
+
+|名前|戻り値|
+|:--|:--|
+|`int maximum_matching(const std::vector<std::vector<int>>& graph);`|無向グラフ $\mathrm{graph}$ の最大マッチングのサイズ|
+
+
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.195-199，マイナビ出版（2012）
 
@@ -278,7 +312,7 @@ Hopcroft–Karp algorithm
   - https://judge.yosupo.jp/problem/enumerate_cliques
 
 
-## Verified
+## Submissons
 
 - [二部グラフの最大マッチング](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_7_A/review/5876417/emthrm/C++17)
 - [Hopcroft–Karp algorithm](https://judge.yosupo.jp/submission/2723)

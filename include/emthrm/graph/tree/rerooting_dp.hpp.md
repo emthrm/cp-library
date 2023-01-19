@@ -72,11 +72,11 @@ title: "\u5168\u65B9\u4F4D\u6728 DP"
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`rerooting_dp(graph, def, merge, f, g)`|木 $\mathrm{graph}$ に対する全方位木 DP|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType, typename CommutativeSemigroup, typename E, typename F, typename G> std::vector<CommutativeSemigroup> rerooting_dp(const std::vector<std::vector<Edge<CostType>>>& graph, const std::vector<CommutativeSemigroup>& def, const E merge, const F f, const G g);`|木 $\mathrm{graph}$ に対する全方位木 DP|
 
 
 ## 例
@@ -94,7 +94,7 @@ title: "\u5168\u65B9\u4F4D\u6728 DP"
 - [Vertex Deletion](https://atcoder.jp/contests/abc223/submissions/29989873)
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.hateblo.jp/entry/2017/04/10/224413
 - https://qiita.com/keymoon/items/2a52f1b0fb7ef67fb89e

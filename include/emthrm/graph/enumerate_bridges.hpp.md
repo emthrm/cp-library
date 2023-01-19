@@ -56,8 +56,8 @@ data:
   timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/enumerate_bridges.test.cpp
   - test/graph/2-edge-connected_components_by_imos.test.cpp
+  - test/graph/enumerate_bridges.test.cpp
 documentation_of: include/emthrm/graph/enumerate_bridges.hpp
 layout: document
 title: "\u6A4B\u306E\u691C\u51FA"
@@ -69,18 +69,18 @@ title: "\u6A4B\u306E\u691C\u51FA"
 $O(\lvert V \rvert + \lvert E \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`enumerate_bridges(graph)`|無向グラフ $\mathrm{graph}$ の橋|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> std::vector<Edge<CostType>> enumerate_bridges(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の橋|
 
 
-## 参考
+## 参考文献
 
 - https://www.slideshare.net/chokudai/arc039
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_3_B/review/4082847/emthrm/C++14

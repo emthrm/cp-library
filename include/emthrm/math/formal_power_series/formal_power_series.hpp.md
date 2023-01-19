@@ -166,25 +166,26 @@ data:
     \    }\n    return res;\n  }\n\n  FormalPowerSeries differential() const {\n \
     \   const int deg = degree();\n    assert(deg >= 0);\n    FormalPowerSeries res(std::max(deg\
     \ - 1, 0));\n    for (int i = 1; i <= deg; ++i) {\n      res[i - 1] = coef[i]\
-    \ * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries exp(int deg = -1) const\
-    \ {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n    if (deg ==\
-    \ -1) deg = n - 1;\n    const FormalPowerSeries one{1};\n    FormalPowerSeries\
-    \ res = one;\n    for (int i = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n\
-    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
+    \ * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries exp(const int deg)\
+    \ const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n    const\
+    \ FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for (int i\
+    \ = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n  \
+    \                             std::next(coef.begin(), std::min(n, i << 1)))\n\
     \             - res.log((i << 1) - 1) + one;\n      res.coef.resize(i << 1);\n\
-    \    }\n    res.resize(deg);\n    return res;\n  }\n\n  FormalPowerSeries inv(int\
-    \ deg = -1) const {\n    assert(coef[0] != 0);\n    const int n = coef.size();\n\
-    \    if (deg == -1) deg = n - 1;\n    FormalPowerSeries res{static_cast<T>(1)\
-    \ / coef[0]};\n    for (int i = 1; i <= deg; i <<= 1) {\n      res = res + res\
-    \ - res * res * FormalPowerSeries(\n          coef.begin(), std::next(coef.begin(),\
-    \ std::min(n, i << 1)));\n      res.coef.resize(i << 1);\n    }\n    res.resize(deg);\n\
-    \    return res;\n  }\n\n  FormalPowerSeries log(int deg = -1) const {\n    assert(coef[0]\
-    \ == 1);\n    if (deg == -1) deg = degree();\n    FormalPowerSeries integrand\
-    \ = differential() * inv(deg - 1);\n    integrand.resize(deg);\n    for (int i\
-    \ = deg; i > 0; --i) {\n      integrand[i] = integrand[i - 1] / i;\n    }\n  \
-    \  integrand[0] = 0;\n    return integrand;\n  }\n\n  FormalPowerSeries pow(long\
-    \ long exponent, int deg = -1) const {\n    const int n = coef.size();\n    if\
-    \ (deg == -1) deg = n - 1;\n    if (exponent == 0) {\n      FormalPowerSeries\
+    \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries exp()\
+    \ const { return exp(degree()); }\n\n  FormalPowerSeries inv(const int deg) const\
+    \ {\n    assert(coef[0] != 0);\n    const int n = coef.size();\n    FormalPowerSeries\
+    \ res{static_cast<T>(1) / coef[0]};\n    for (int i = 1; i <= deg; i <<= 1) {\n\
+    \      res = res + res - res * res * FormalPowerSeries(\n          coef.begin(),\
+    \ std::next(coef.begin(), std::min(n, i << 1)));\n      res.coef.resize(i << 1);\n\
+    \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries inv()\
+    \ const { return inv(degree()); }\n\n  FormalPowerSeries log(const int deg) const\
+    \ {\n    assert(coef[0] == 1);\n    FormalPowerSeries integrand = differential()\
+    \ * inv(deg - 1);\n    integrand.resize(deg);\n    for (int i = deg; i > 0; --i)\
+    \ {\n      integrand[i] = integrand[i - 1] / i;\n    }\n    integrand[0] = 0;\n\
+    \    return integrand;\n  }\n  FormalPowerSeries log() const { return log(degree());\
+    \ }\n\n  FormalPowerSeries pow(long long exponent, const int deg) const {\n  \
+    \  const int n = coef.size();\n    if (exponent == 0) {\n      FormalPowerSeries\
     \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
     \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
     \      if (i > deg / exponent) break;\n      const long long shift = exponent\
@@ -192,9 +193,10 @@ data:
     \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
     \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
     \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
-    \    }\n    return FormalPowerSeries(deg);\n  }\n\n  FormalPowerSeries mod_pow(long\
-    \ long exponent,\n                            const FormalPowerSeries& md) const\
-    \ {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
+    \    }\n    return FormalPowerSeries(deg);\n  }\n  FormalPowerSeries pow(const\
+    \ long long exponent) const {\n    return pow(exponent, degree());\n  }\n\n  FormalPowerSeries\
+    \ mod_pow(long long exponent,\n                            const FormalPowerSeries&\
+    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
     \    const FormalPowerSeries inv_rev_md =\n        FormalPowerSeries(md.coef.rbegin(),\
     \ md.coef.rend()).inv();\n    const auto mod_mult = [&md, &inv_rev_md, deg](\n\
     \        FormalPowerSeries* multiplicand, const FormalPowerSeries& multiplier)\n\
@@ -209,20 +211,20 @@ data:
     \      }\n      multiplicand->shrink();\n    };\n    FormalPowerSeries res{1},\
     \ base = *this;\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent\
     \ & 1) mod_mult(&res, base);\n      mod_mult(&base, base);\n    }\n    return\
-    \ res;\n  }\n\n  FormalPowerSeries sqrt(int deg = -1) const {\n    const int n\
-    \ = coef.size();\n    if (deg == -1) deg = n - 1;\n    if (coef[0] == 0) {\n \
-    \     for (int i = 1; i < n; ++i) {\n        if (coef[i] == 0) continue;\n   \
-    \     if (i & 1) return FormalPowerSeries(-1);\n        const int shift = i >>\
-    \ 1;\n        if (deg < shift) break;\n        FormalPowerSeries res = (*this\
-    \ >> i).sqrt(deg - shift);\n        if (res.coef.empty()) return FormalPowerSeries(-1);\n\
-    \        res <<= shift;\n        res.resize(deg);\n        return res;\n     \
-    \ }\n      return FormalPowerSeries(deg);\n    }\n    T s;\n    if (!get_sqrt()(coef.front(),\
-    \ &s)) return FormalPowerSeries(-1);\n    FormalPowerSeries res{s};\n    const\
-    \ T half = static_cast<T>(1) / 2;\n    for (int i = 1; i <= deg; i <<= 1) {\n\
-    \      res = (FormalPowerSeries(coef.begin(),\n                              \
-    \ std::next(coef.begin(), std::min(n, i << 1)))\n             * res.inv((i <<\
-    \ 1) - 1) + res) * half;\n    }\n    res.resize(deg);\n    return res;\n  }\n\n\
-    \  FormalPowerSeries translate(const T c) const {\n    const int n = coef.size();\n\
+    \ res;\n  }\n\n  FormalPowerSeries sqrt(const int deg) const {\n    const int\
+    \ n = coef.size();\n    if (coef[0] == 0) {\n      for (int i = 1; i < n; ++i)\
+    \ {\n        if (coef[i] == 0) continue;\n        if (i & 1) return FormalPowerSeries(-1);\n\
+    \        const int shift = i >> 1;\n        if (deg < shift) break;\n        FormalPowerSeries\
+    \ res = (*this >> i).sqrt(deg - shift);\n        if (res.coef.empty()) return\
+    \ FormalPowerSeries(-1);\n        res <<= shift;\n        res.resize(deg);\n \
+    \       return res;\n      }\n      return FormalPowerSeries(deg);\n    }\n  \
+    \  T s;\n    if (!get_sqrt()(coef.front(), &s)) return FormalPowerSeries(-1);\n\
+    \    FormalPowerSeries res{s};\n    const T half = static_cast<T>(1) / 2;\n  \
+    \  for (int i = 1; i <= deg; i <<= 1) {\n      res = (FormalPowerSeries(coef.begin(),\n\
+    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
+    \             * res.inv((i << 1) - 1) + res) * half;\n    }\n    res.resize(deg);\n\
+    \    return res;\n  }\n  FormalPowerSeries sqrt() const { return sqrt(degree());\
+    \ }\n\n  FormalPowerSeries translate(const T c) const {\n    const int n = coef.size();\n\
     \    std::vector<T> fact(n, 1), inv_fact(n, 1);\n    for (int i = 1; i < n; ++i)\
     \ {\n      fact[i] = fact[i - 1] * i;\n    }\n    inv_fact[n - 1] = static_cast<T>(1)\
     \ / fact[n - 1];\n    for (int i = n - 1; i > 0; --i) {\n      inv_fact[i - 1]\
@@ -304,25 +306,26 @@ data:
     \    }\n    return res;\n  }\n\n  FormalPowerSeries differential() const {\n \
     \   const int deg = degree();\n    assert(deg >= 0);\n    FormalPowerSeries res(std::max(deg\
     \ - 1, 0));\n    for (int i = 1; i <= deg; ++i) {\n      res[i - 1] = coef[i]\
-    \ * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries exp(int deg = -1) const\
-    \ {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n    if (deg ==\
-    \ -1) deg = n - 1;\n    const FormalPowerSeries one{1};\n    FormalPowerSeries\
-    \ res = one;\n    for (int i = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n\
-    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
+    \ * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries exp(const int deg)\
+    \ const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n    const\
+    \ FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for (int i\
+    \ = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n  \
+    \                             std::next(coef.begin(), std::min(n, i << 1)))\n\
     \             - res.log((i << 1) - 1) + one;\n      res.coef.resize(i << 1);\n\
-    \    }\n    res.resize(deg);\n    return res;\n  }\n\n  FormalPowerSeries inv(int\
-    \ deg = -1) const {\n    assert(coef[0] != 0);\n    const int n = coef.size();\n\
-    \    if (deg == -1) deg = n - 1;\n    FormalPowerSeries res{static_cast<T>(1)\
-    \ / coef[0]};\n    for (int i = 1; i <= deg; i <<= 1) {\n      res = res + res\
-    \ - res * res * FormalPowerSeries(\n          coef.begin(), std::next(coef.begin(),\
-    \ std::min(n, i << 1)));\n      res.coef.resize(i << 1);\n    }\n    res.resize(deg);\n\
-    \    return res;\n  }\n\n  FormalPowerSeries log(int deg = -1) const {\n    assert(coef[0]\
-    \ == 1);\n    if (deg == -1) deg = degree();\n    FormalPowerSeries integrand\
-    \ = differential() * inv(deg - 1);\n    integrand.resize(deg);\n    for (int i\
-    \ = deg; i > 0; --i) {\n      integrand[i] = integrand[i - 1] / i;\n    }\n  \
-    \  integrand[0] = 0;\n    return integrand;\n  }\n\n  FormalPowerSeries pow(long\
-    \ long exponent, int deg = -1) const {\n    const int n = coef.size();\n    if\
-    \ (deg == -1) deg = n - 1;\n    if (exponent == 0) {\n      FormalPowerSeries\
+    \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries exp()\
+    \ const { return exp(degree()); }\n\n  FormalPowerSeries inv(const int deg) const\
+    \ {\n    assert(coef[0] != 0);\n    const int n = coef.size();\n    FormalPowerSeries\
+    \ res{static_cast<T>(1) / coef[0]};\n    for (int i = 1; i <= deg; i <<= 1) {\n\
+    \      res = res + res - res * res * FormalPowerSeries(\n          coef.begin(),\
+    \ std::next(coef.begin(), std::min(n, i << 1)));\n      res.coef.resize(i << 1);\n\
+    \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries inv()\
+    \ const { return inv(degree()); }\n\n  FormalPowerSeries log(const int deg) const\
+    \ {\n    assert(coef[0] == 1);\n    FormalPowerSeries integrand = differential()\
+    \ * inv(deg - 1);\n    integrand.resize(deg);\n    for (int i = deg; i > 0; --i)\
+    \ {\n      integrand[i] = integrand[i - 1] / i;\n    }\n    integrand[0] = 0;\n\
+    \    return integrand;\n  }\n  FormalPowerSeries log() const { return log(degree());\
+    \ }\n\n  FormalPowerSeries pow(long long exponent, const int deg) const {\n  \
+    \  const int n = coef.size();\n    if (exponent == 0) {\n      FormalPowerSeries\
     \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
     \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
     \      if (i > deg / exponent) break;\n      const long long shift = exponent\
@@ -330,9 +333,10 @@ data:
     \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
     \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
     \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
-    \    }\n    return FormalPowerSeries(deg);\n  }\n\n  FormalPowerSeries mod_pow(long\
-    \ long exponent,\n                            const FormalPowerSeries& md) const\
-    \ {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
+    \    }\n    return FormalPowerSeries(deg);\n  }\n  FormalPowerSeries pow(const\
+    \ long long exponent) const {\n    return pow(exponent, degree());\n  }\n\n  FormalPowerSeries\
+    \ mod_pow(long long exponent,\n                            const FormalPowerSeries&\
+    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
     \    const FormalPowerSeries inv_rev_md =\n        FormalPowerSeries(md.coef.rbegin(),\
     \ md.coef.rend()).inv();\n    const auto mod_mult = [&md, &inv_rev_md, deg](\n\
     \        FormalPowerSeries* multiplicand, const FormalPowerSeries& multiplier)\n\
@@ -347,20 +351,20 @@ data:
     \      }\n      multiplicand->shrink();\n    };\n    FormalPowerSeries res{1},\
     \ base = *this;\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent\
     \ & 1) mod_mult(&res, base);\n      mod_mult(&base, base);\n    }\n    return\
-    \ res;\n  }\n\n  FormalPowerSeries sqrt(int deg = -1) const {\n    const int n\
-    \ = coef.size();\n    if (deg == -1) deg = n - 1;\n    if (coef[0] == 0) {\n \
-    \     for (int i = 1; i < n; ++i) {\n        if (coef[i] == 0) continue;\n   \
-    \     if (i & 1) return FormalPowerSeries(-1);\n        const int shift = i >>\
-    \ 1;\n        if (deg < shift) break;\n        FormalPowerSeries res = (*this\
-    \ >> i).sqrt(deg - shift);\n        if (res.coef.empty()) return FormalPowerSeries(-1);\n\
-    \        res <<= shift;\n        res.resize(deg);\n        return res;\n     \
-    \ }\n      return FormalPowerSeries(deg);\n    }\n    T s;\n    if (!get_sqrt()(coef.front(),\
-    \ &s)) return FormalPowerSeries(-1);\n    FormalPowerSeries res{s};\n    const\
-    \ T half = static_cast<T>(1) / 2;\n    for (int i = 1; i <= deg; i <<= 1) {\n\
-    \      res = (FormalPowerSeries(coef.begin(),\n                              \
-    \ std::next(coef.begin(), std::min(n, i << 1)))\n             * res.inv((i <<\
-    \ 1) - 1) + res) * half;\n    }\n    res.resize(deg);\n    return res;\n  }\n\n\
-    \  FormalPowerSeries translate(const T c) const {\n    const int n = coef.size();\n\
+    \ res;\n  }\n\n  FormalPowerSeries sqrt(const int deg) const {\n    const int\
+    \ n = coef.size();\n    if (coef[0] == 0) {\n      for (int i = 1; i < n; ++i)\
+    \ {\n        if (coef[i] == 0) continue;\n        if (i & 1) return FormalPowerSeries(-1);\n\
+    \        const int shift = i >> 1;\n        if (deg < shift) break;\n        FormalPowerSeries\
+    \ res = (*this >> i).sqrt(deg - shift);\n        if (res.coef.empty()) return\
+    \ FormalPowerSeries(-1);\n        res <<= shift;\n        res.resize(deg);\n \
+    \       return res;\n      }\n      return FormalPowerSeries(deg);\n    }\n  \
+    \  T s;\n    if (!get_sqrt()(coef.front(), &s)) return FormalPowerSeries(-1);\n\
+    \    FormalPowerSeries res{s};\n    const T half = static_cast<T>(1) / 2;\n  \
+    \  for (int i = 1; i <= deg; i <<= 1) {\n      res = (FormalPowerSeries(coef.begin(),\n\
+    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
+    \             * res.inv((i << 1) - 1) + res) * half;\n    }\n    res.resize(deg);\n\
+    \    return res;\n  }\n  FormalPowerSeries sqrt() const { return sqrt(degree());\
+    \ }\n\n  FormalPowerSeries translate(const T c) const {\n    const int n = coef.size();\n\
     \    std::vector<T> fact(n, 1), inv_fact(n, 1);\n    for (int i = 1; i < n; ++i)\
     \ {\n      fact[i] = fact[i - 1] * i;\n    }\n    inv_fact[n - 1] = static_cast<T>(1)\
     \ / fact[n - 1];\n    for (int i = n - 1; i > 0; --i) {\n      inv_fact[i - 1]\
@@ -383,90 +387,90 @@ data:
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
   - include/emthrm/dynamic_programming/subset_sum_problem.hpp
-  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
+  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   - include/emthrm/math/formal_power_series/bernoulli_number.hpp
-  - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
-  - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
+  - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+  - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 ---
 
-- [重複組み合わせ](../modint.md)
+#### [重複組み合わせ](../modint.md)
 
-  $K$ 種類存在するとき
+$K$ 種類存在するとき
 
-  $$
-    \sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}
-  $$
+$$
+  \sum_{n = 0}^\infty {}_K \mathrm{H}_n = \sum_{n = 0}^\infty \binom{K + n - 1}{n} x^n = \dfrac{1}{(1 - x)^K}
+$$
 
-  となる．
+となる。
 
-- [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
+#### [二項係数](./twelvefold_way/binomial_coefficient/binomial_coefficient.md)
 
-  $$
-    \begin{split}
-      (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\
-      (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n
-    \end{split}
-  $$
+$$
+  \begin{split}
+    (x + y)^n &= \sum_{k = 0}^{\infty} \binom{n}{k} x^k y^{n - k} \\
+    (1 - rx)^{-d} &= \sum_{n = 0}^{\infty} \binom{n + d - 1}{d - 1} (rx)^n
+  \end{split}
+$$
 
-- 累積和
+#### 累積和
 
-  $$
-    (1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}
-  $$
+$$
+  (1 + x^r + x^{2r} + \cdots) f = f \cdot \sum_{n = 0}^{\infty} x^{rn} = \frac{f}{1 - x^r}
+$$
 
-- 階差数列
+#### 階差数列
 
-  $$
-    \sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f
-  $$
+$$
+  \sum_{n = 0}^{\infty} (a_n - a_{n - 1}) x^n = (1 - x) f
+$$
 
-- [部分和問題](../../dynamic_programming/subset_sum_problem.md)
+#### [部分和問題](../../dynamic_programming/subset_sum_problem.md)
 
-  $$
-    \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
-  $$
+$$
+  \prod_{i = 1}^N (1 + x^{a_i}) = \exp \left(\sum_{i = 0}^D \sum_{j = 1}^{\left\lfloor \frac{D}{j} \right\rfloor} \# \lbrace k \mid a_k = i \rbrace \frac{(-1)^{j - 1}}{j} x^{ji}\right) \bmod x^{D + 1}
+$$
 
-- 係数の和
+#### 係数の和
 
-  $n$ を素数，$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと，
+$n$ を素数、$\zeta_n$ を $1$ の原始 $n$ 乗根の一つとおくと、
 
-  $$
-    \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
-  $$
+$$
+  \sum_{i = 0}^\infty {\lbrack x^{in} \rbrack} f = \frac{1}{n} \sum_{i = 0}^{n - 1} f(\zeta_n^i)
+$$
 
-  が成り立つ．
+が成り立つ。
 
 
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |加減算|$O(N)$|
 |スカラー倍|$O(N)$|
 |乗算|$O(N\log{N})$|
@@ -478,49 +482,75 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 |逆元|$O(N\log{N})$|
 |対数|$O(N\log{N})$|
 |累乗|$O(N\log{N} + \log{M})$|
-|`mod_pow(exponent, md)`|$O((N + M)\log(N + M)\log{E})$ ?|
-|平方根|数 $M$ の平方根を求めるときの計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$．|
-|`translate(c)`|$O(N\log{N})$|
+|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|$O((N + M)\log(N + M)\log{E})$ ?|
+|平方根|数 $M$ の平方根を求めるときの時間計算量を $f(M)$ とおくと $O(N\log{N} + f(M))$|
+|$f(x + c)$|$O(N\log{N})$|
 
 
-## 使用法
+## 仕様
 
-||説明|条件|備考|
-|:--:|:--:|:--:|:--:|
-|`FormalPowerSeries<T>(deg = 0)`|$\mathrm{deg}$ 次まで考える形式的冪級数|||
-|`FormalPowerSeries<T>(coef)`|係数列を $\mathrm{coef}$ とする形式的冪級数|||
-|`coef`|係数列|||
-|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$|||
-|`set_mult(mult)`|乗算を定義する．|||
-|`set_sqrt(sqrt)`|平方根の計算を定義する．|||
-|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
-|`shrink()`|正規化を行う．|||
-|`degree()`|現在考えている次数|||
-|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．|||
-|`operator=(x)`|形式的冪級数 $x$ を代入する．|||
-|`operator+=(x)`<br>`operator+(x)`|加算|||
-|`operator-=(x)`<br>`operator-(x)`|減算|||
-|`operator*=(x)`<br>`operator*(x)`|乗算|||
-|`operator/=(x)`<br>`operator/(x)`|除算|||
-|`operator%=(x)`<br>`operator%(x)`|剰余演算|||
-|`operator<<=(n)`<br>`operator<<(n)`|$x^n f$|||
-|`operator>>=(n)`<br>`operator>>(n)`|$x^{-n} f$||$\mathrm{deg}(f) < n$ のとき $0$ となる．|
-|`operator==(x)`|$f = x$ であるか．|||
-|`operator!=(x)`|$f \neq x$ であるか．|||
-|`operator+()`|$+{f}$|||
-|`operator-()`|$-{f}$|||
-|`horner(x)`|$f(x)$|||
-|`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$||
-|`exp(deg = n)`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$||
-|`inv(deg = n)`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$||
-|`log(deg = n)`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$||
-|`pow(exponent, deg = n)`|$f^{\mathrm{exponent}}$|||
-|`mod_pow(exponent, md)`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$|||
-|`sqrt(deg = n)`|$\sqrt{f}$||存在しないときは空列となる．|
-|`translate(c)`|$f(x + c)$|||
+```cpp
+template <typename T>
+struct FormalPowerSeries;
+```
+
+- `T`：係数の要素型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<T> coef;`|係数列|
+
+#### メンバ関数
+
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`explicit FormalPowerSeries(const int deg = 0);`|$\mathrm{deg}$ 次まで係数列をもつオブジェクトを構築する。||
+|`explicit FormalPowerSeries(const std::vector<T>& coef);`|係数列を $\mathrm{coef}$ とするオブジェクトを構築する。||
+|`FormalPowerSeries(const std::initializer_list<T> init);`|初期化子リストを受け取るコンストラクタ||
+|`template <typename InputIter> explicit FormalPowerSeries(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ||
+|`inline const T& operator[](const int term) const;`<br>`inline T& operator[](const int term);`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
+|`void resize(const int deg);`|$\mathrm{deg}$ 次まで係数列をもつ。||
+|`void shrink();`|正規化を行う。||
+|`int degree() const;`|現在の次数||
+|`FormalPowerSeries& operator=(const std::vector<T>& coef_);`<br>`FormalPowerSeries& operator=(const FormalPowerSeries& x);`|代入演算子||
+|`FormalPowerSeries& operator+=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator+(const FormalPowerSeries& x) const;`|加算||
+|`FormalPowerSeries& operator-=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator-(const FormalPowerSeries& x) const;`|減算||
+|`FormalPowerSeries& operator*=(const T x);`<br>`FormalPowerSeries& operator*=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator*(const T x) const;`<br>`FormalPowerSeries operator*(const FormalPowerSeries& x) const;`|乗算||
+|`FormalPowerSeries& operator/=(const T x);`<br>`FormalPowerSeries& operator/=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator/(const T x) const;`<br>`FormalPowerSeries operator/(const FormalPowerSeries& x) const;`|除算||
+|`FormalPowerSeries& operator%=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator%(const FormalPowerSeries& x) const;`|剰余演算||
+|`FormalPowerSeries& operator<<=(const int n);`<br>`FormalPowerSeries operator<<(const int n) const;`|$x^n f$||
+|`FormalPowerSeries& operator>>=(const int n);`<br>`FormalPowerSeries operator>>(const int n) const;`|$x^{-n} f$。ただし $\mathrm{deg}(f) < n$ のとき $0$ を返す。|
+|`bool operator==(FormalPowerSeries x) const;`<br>`bool operator!=(const FormalPowerSeries& x) const;`|比較演算子||
+|`FormalPowerSeries operator+() const;`|$+{f}$||
+|`FormalPowerSeries operator-() const;`|$-{f}$||
+|`T horner(const T x) const;`|$f(x)$||
+|`FormalPowerSeries differential() const;`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
+|`FormalPowerSeries exp(const int deg) const;`<br>`FormalPowerSeries exp() const;`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$|
+|`FormalPowerSeries inv(const int deg) const`<br>`FormalPowerSeries inv() const`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$|
+|`FormalPowerSeries log(const int deg) const`<br>`FormalPowerSeries log() const`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
+|`FormalPowerSeries pow(long long exponent, const int deg) const`<br>`FormalPowerSeries pow(const long long exponent) const`|$f^{\mathrm{exponent}}$||
+|`FormalPowerSeries mod_pow(long long exponent, const FormalPowerSeries& md) const`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
+|`FormalPowerSeries sqrt(const int deg) const`<br>`FormalPowerSeries sqrt() const`|$\sqrt{f}$。ただし存在しないときは空列を返す。|
+|`FormalPowerSeries translate(const T c) const`|$f(x + c)$||
+
+#### 静的メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`static void set_mult(const Mult mult);`|乗算を定義する。|
+|`static void set_sqrt(const Sqrt sqrt);`|平方根の計算を定義する。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Mult`|`std::function<std::vector<T>(const std::vector<T>&, const std::vector<T>&)>`|
+|`Sqrt`|`std::function<bool(const T&, T*)>`|
 
 
-## 参考
+## 参考文献
 
 - ~~http://lattemalta.hatenablog.jp/entry/2019/09/29/231332~~
 - https://maspypy.com/category/%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0%e8%a7%a3%e8%aa%ac
@@ -530,7 +560,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
 - https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
 - https://yukicoder.me/wiki/polynomial_techniques
 
-係数の和
+#### 係数の和
 - https://www.youtube.com/watch?v=bOXCLR3Wric
 
 
@@ -549,7 +579,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://judge.yosupo.jp/problem/log_of_formal_power_series_sparse
   - https://judge.yosupo.jp/problem/pow_of_formal_power_series_sparse
   - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series_sparse
-- $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める．
+- $g(f(x))$ を $O((N\log{N})^{1.5})$ で求める。
   - http://www.eecs.harvard.edu/~htk/publication/1978-jacm-brent-kung.pdf
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#7-fgx
   - https://nyaannyaan.github.io/library/fps/fps-composition.hpp
@@ -598,7 +628,7 @@ title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - https://qiita.com/ryuhe1/items/185e1a283f13ac638a53
 
 
-## Verified
+## Submissons
 
 - [指数](https://judge.yosupo.jp/submission/3788)
 - [逆元](https://judge.yosupo.jp/submission/3787)

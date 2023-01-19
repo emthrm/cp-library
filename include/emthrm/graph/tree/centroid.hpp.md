@@ -50,9 +50,9 @@ layout: document
 title: "\u91CD\u5FC3 (centroid)"
 ---
 
-根としたときに任意の子の部分木の大きさが木の大きさの半分以下となる頂点である．
+根としたときに任意の子の部分木の大きさが木の大きさの半分以下となる頂点である。
 
-任意の木に必ず存在し，高々二つである．二つ存在するとき，木の頂点数は偶数である．
+任意の木に必ず存在し、高々二つである。二つ存在するとき、木の頂点数は偶数である。
 
 
 ## 時間計算量
@@ -60,20 +60,20 @@ title: "\u91CD\u5FC3 (centroid)"
 $O(\lvert V \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`centroid(graph)`|木 $\mathrm{graph}$ の重心|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> std::vector<int> centroid(const std::vector<std::vector<Edge<CostType>>>& graph);`|木 $\mathrm{graph}$ の重心|
 
 
-## 参考
+## 参考文献
 
 - https://qiita.com/drken/items/4b4c3f1824339b090202
 - https://lumakernel.github.io/ecasdqina/graph/Centroid
 - https://img.atcoder.jp/arc087/editorial.pdf
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/arc087/submissions/9306188

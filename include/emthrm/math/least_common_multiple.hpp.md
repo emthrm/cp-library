@@ -29,8 +29,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/least_common_multiple.hpp
   requiredBy:
-  - include/emthrm/math/carmichael_function_init.hpp
   - include/emthrm/math/carmichael_function.hpp
+  - include/emthrm/math/carmichael_function_init.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -46,13 +46,13 @@ title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
 $O(\log{\max \lbrace A, B \rbrace})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`__lcm(a, b)`|$a$ と $b$ の最小公倍数|
+|名前|戻り値|
+|:--|:--|
+|`long long __lcm(const long long a, const long long b);`|$a$ と $b$ の最小公倍数|
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_C/review/4967150/emthrm/C++14

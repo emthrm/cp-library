@@ -82,7 +82,7 @@ title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
     C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j
   $$
 
-添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる．
+添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる。
 
 
 ## 時間計算量
@@ -90,40 +90,40 @@ title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-- 添え字 and での畳み込み
+### 添え字 and での畳み込み
 
-||説明|
-|:--:|:--:|
-|`and_convolution(a, b, 単位元 = 0)`|$A, B$ に対する添え字 and での畳み込み|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 and での畳み込み|
 
-- 添え字 or での畳み込み
+### 添え字 or での畳み込み
 
-||説明|
-|:--:|:--:|
-|`or_convolution(a, b, 単位元 = 0)`|$A, B$ に対する添え字 or での畳み込み|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> or_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 or での畳み込み|
 
-- 添え字 xor での畳み込み
+### 添え字 xor での畳み込み
 
-||説明|
-|:--:|:--:|
-|`xor_convolution(a, b, 単位元 = 0)`|$A, B$ に対する添え字 xor での畳み込み|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 xor での畳み込み|
 
-- 添え字 gcd での畳み込み
+### 添え字 gcd での畳み込み
 
-||説明|
-|:--:|:--:|
-|`gcd_convolution(a, b)`|$A, B$ に対する添え字 gcd での畳み込み|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> gcd_convolution(std::vector<T> a, std::vector<T> b);`|$A, B$ に対する添え字 gcd での畳み込み|
 
-- 添え字 lcm での畳み込み
+### 添え字 lcm での畳み込み
 
-||説明|
-|:--:|:--:|
-|`lcm_convolution(a, b, n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, const int n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
 
 
-## 参考
+## 参考文献
 
 - https://leaf1415.hatenablog.com/entry/2021/08/04/125751
 - https://codeforces.com/blog/entry/48417
@@ -148,7 +148,7 @@ $O(N\log{N})$
 ## TODO
 
 - https://noshi91.hatenablog.com/entry/2020/10/27/175112
-- 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する．
+- 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する。
   - http://noshi91.hatenablog.com/entry/2018/12/27/121649
   - https://github.com/drken1215/algorithm/blob/master/MathAlgebra/fast_gcd_convolution.cpp
 - 添え字 xor での畳み込みにおける逆元
@@ -183,13 +183,14 @@ $O(N\log{N})$
 - relaxed multiplication
   - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
   - https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c
+  - https://hotman78.hatenablog.com/entry/2023/01/04/173507
   - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc38
   - https://atcoder.jp/contests/abc230/tasks/abc230_h
   - https://atcoder.jp/contests/abc230/editorial/3036
   - https://twitter.com/noshi91/status/1466764432961585166
 
 
-## Verified
+## Submissons
 
 - [添え字 and での畳み込み](https://judge.yosupo.jp/submission/32176)
 - 添え字 or での畳み込み

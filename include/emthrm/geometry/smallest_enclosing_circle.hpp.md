@@ -4,9 +4,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/util/xorshift.hpp
-    title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -27,32 +24,31 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/geometry/geometry.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_\n#define EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_\n\
-    \n#include <utility>\n#include <vector>\n\n#include \"emthrm/geometry/geometry.hpp\"\
-    \n#include \"emthrm/util/xorshift.hpp\"\n\nnamespace emthrm {\n\nnamespace geometry\
-    \ {\n\nCircle smallest_enclosing_circle(std::vector<Point> ps) {\n  const int\
-    \ n = ps.size();\n  if (n == 1) return Circle(ps.front(), 0);\n  for (int i =\
-    \ 0; i < n; ++i) {\n    std::swap(ps[xor128.rand(n)], ps[xor128.rand(n)]);\n \
-    \ }\n  const auto get_circle = [](const Point& p1, const Point& p2) -> Circle\
-    \ {\n    return Circle((p1 + p2) * 0.5, distance(p1, p2) * 0.5);\n  };\n  Circle\
-    \ res = get_circle(ps[0], ps[1]);\n  const auto is_in = [&res](const Point& p)\
-    \ -> bool {\n    return sgn(res.r - distance(res.p, p)) != -1;\n  };\n  for (int\
-    \ i = 2; i < n; ++i) {\n    if (is_in(ps[i])) continue;\n    res = get_circle(ps[0],\
-    \ ps[i]);\n    for (int j = 1; j < i; ++j) {\n      if (is_in(ps[j])) continue;\n\
-    \      res = get_circle(ps[j], ps[i]);\n      for (int k = 0; k < j; ++k) {\n\
-    \        if (is_in(ps[k])) continue;\n        const double a = (ps[i] - ps[j]).norm(),\
-    \ b = (ps[k] - ps[i]).norm();\n        const double c = (ps[j] - ps[k]).norm();\n\
-    \        const double s = cross(ps[i] - ps[k], ps[j] - ps[k]);\n        const\
-    \ Point p = (ps[k] * a * (b + c - a) + ps[j] * b * (c + a - b)\n             \
-    \            + ps[i] * c * (a + b - c)) / (4 * s * s);\n        res = Circle(p,\
-    \ distance(ps[k], p));\n      }\n    }\n  }\n  return res;\n}\n\n}  // namespace\
-    \ geometry\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_\n"
+    \n#include <algorithm>\n#include <random>\n#include <utility>\n#include <vector>\n\
+    \n#include \"emthrm/geometry/geometry.hpp\"\n\nnamespace emthrm {\n\nnamespace\
+    \ geometry {\n\nCircle smallest_enclosing_circle(std::vector<Point> ps) {\n  const\
+    \ int n = ps.size();\n  if (n == 1) return Circle(ps.front(), 0);\n  std::shuffle(ps.begin(),\
+    \ ps.end(), std::mt19937_64(std::random_device{}()));\n  const auto get_circle\
+    \ = [](const Point& p1, const Point& p2) -> Circle {\n    return Circle((p1 +\
+    \ p2) * 0.5, distance(p1, p2) * 0.5);\n  };\n  Circle res = get_circle(ps[0],\
+    \ ps[1]);\n  const auto is_in = [&res](const Point& p) -> bool {\n    return sgn(res.r\
+    \ - distance(res.p, p)) != -1;\n  };\n  for (int i = 2; i < n; ++i) {\n    if\
+    \ (is_in(ps[i])) continue;\n    res = get_circle(ps[0], ps[i]);\n    for (int\
+    \ j = 1; j < i; ++j) {\n      if (is_in(ps[j])) continue;\n      res = get_circle(ps[j],\
+    \ ps[i]);\n      for (int k = 0; k < j; ++k) {\n        if (is_in(ps[k])) continue;\n\
+    \        const double a = (ps[i] - ps[j]).norm(), b = (ps[k] - ps[i]).norm();\n\
+    \        const double c = (ps[j] - ps[k]).norm();\n        const double s = cross(ps[i]\
+    \ - ps[k], ps[j] - ps[k]);\n        const Point p = (ps[k] * a * (b + c - a) +\
+    \ ps[j] * b * (c + a - b)\n                         + ps[i] * c * (a + b - c))\
+    \ / (4 * s * s);\n        res = Circle(p, distance(ps[k], p));\n      }\n    }\n\
+    \  }\n  return res;\n}\n\n}  // namespace geometry\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GEOMETRY_SMALLEST_ENCLOSING_CIRCLE_HPP_\n"
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
-  - include/emthrm/util/xorshift.hpp
   isVerificationFile: false
   path: include/emthrm/geometry/smallest_enclosing_circle.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-15 02:23:52+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/smallest_enclosing_circle.test.cpp
@@ -61,7 +57,7 @@ layout: document
 title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
 ---
 
-与えられた点集合に属するすべての点を内部または円周上に含む円の内，半径最小のものである．
+与えられた点集合に属するすべての点を内部または円周上に含む円の内、半径最小のものである。
 
 
 ## 時間計算量
@@ -69,20 +65,20 @@ title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
 expected $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`smallest_enclosing_circle(ps)`|点集合 $\mathrm{ps}$ の最小包含円|
+|名前|戻り値|
+|:--|:--|
+|`geometry::Circle geometry::smallest_enclosing_circle(std::vector<Point> ps)`|点集合 $\mathrm{ps}$ の最小包含円|
 
 
-## 参考
+## 参考文献
 
 - https://www.jaist.ac.jp/~uehara/course/2014/i481f/pdf/ppt-7.pdf
 - https://tubo28.me/compprog/algorithm/minball/
 - http://nonoishi.web.fc2.com/math/fivecenters.pdf
 
 
-## Verified
+## Submissons
 
 - https://atcoder.jp/contests/abc151/submissions/11968904

@@ -79,21 +79,21 @@ title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)
   \u89E3"
 ---
 
-無向グラフを関節点の存在しない辺集合に分割することである．
+無向グラフを関節点の存在しない辺集合に分割することである。
 
-それぞれの成分には，任意の相異なる3点を始点・経由点・終点とする単純パスが存在する．
+それぞれの成分には、任意の相異なる3点を始点・経由点・終点とする単純パスが存在する。
 
 
 ### block-cut tree
 
-二重頂点連結成分を一つの頂点に縮約することで得られる木である．
+二重頂点連結成分を一つの頂点に縮約することで得られる木である。
 
 
 ### カクタスグラフ (cactus)
 
-任意の辺が高々一つの単純閉路に含まれる，すなわち任意の異なる単純閉路が高々一つの共通頂点をもつグラフである．
+任意の辺が高々一つの単純閉路に含まれる、すなわち任意の異なる単純閉路が高々一つの共通頂点をもつグラフである。
 
-任意の二重頂点連結成分は橋または単純閉路となる．
+任意の二重頂点連結成分は橋または単純閉路となる。
 
 e.g. 任意の閉路長が奇数となるグラフ
 
@@ -105,18 +105,32 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 完全版 $O(\lvert V \rvert \log{\lvert V \rvert} + \lvert E \rvert)$ ?
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`BiconnectedComponent(graph, 完全版であるか = false)`|無向グラフ $\mathrm{graph}$ の二重頂点連結成分分解を考える．||
-|`id[i]`|元のグラフの頂点 $i$ を含むブロック|関節点のときは $-1$ である．<br>完全版のみ|
-|`vertices[i]`|縮約後のグラフのブロック $i$ に含まれる頂点|完全版のみ|
-|`cutpoint[i]`|元のグラフの関節点 $i$ を含むブロック|完全版のみ|
-|`block[i]`|縮約後のグラフのブロック $i$ に含まれる辺||
+```cpp
+template <typename CostType>
+struct BiconnectedComponent : Lowlink<CostType>;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|要件|
+|:--|:--|:--|
+|`std::vector<int> id`|`id[i]` は元のグラフの頂点 $i$ を含むブロックを表す。ただし関節点のときは $-1$ である。|完全版|
+|`std::vector<std::vector<int>> vertices`|`vertices[i]` は縮約後のグラフのブロック $i$ に含まれる頂点を表す。|完全版|
+|`std::vector<std::vector<int>> cutpoint`|`cutpoint[i]` は元のグラフの関節点 $i$ を含むブロックを表す。|完全版|
+|`std::vector<std::vector<Edge<CostType>>> block`|`block[i]` は縮約後のグラフのブロック $i$ に含まれる辺を表す。||
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit BiconnectedComponent(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
-## 参考
+## 参考文献
 
 - https://www.learning-algorithms.com/entry/2018/03/21/152148
 - https://ei1333.github.io/luzhiled/snippets/graph/bi-connected-components.html
@@ -131,6 +145,6 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 - https://judge.yosupo.jp/problem/biconnected_components
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/nadafes2022_day2/submissions/31595927

@@ -10,7 +10,7 @@ $$
   \end{cases}
 $$
 
-で定義される $\mu(n)$ である．
+で定義される $\mu(n)$ である。
 
 - $$
     \forall n \in \mathbb{N}^+ \setminus \lbrace 1 \rbrace,\ \sum_{d \mid n} \mu(d) = 0,
@@ -24,7 +24,7 @@ $$
     \end{cases}
   $$
 
-が成り立つ．
+が成り立つ。
 
 
 ### メビウスの反転公式 (Möbius inversion formula)
@@ -37,39 +37,36 @@ $$
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 ||$O(\sqrt{N})$|
 |約数版||
 |数表|$O(N\log{\log{N}})$|
 |数表2|$O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?|
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`mobius_mu(n)`|$\mu(n)$|
-
-- 約数版
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`mobius_mu_focusing_on_divisor(n)`|$\lbrace n \text{ の約数 } d, \mu(d) \rbrace$|キーとして存在しないときは値 $0$ である．|
-
-- 数表
-
-||説明|
-|:--:|:--:|
-|`mobius_mu_init(n)`|メビウス関数 $\mu(i)$ ($1 \leq i \leq n$) の数表|
-
-- 数表
-
-||説明|
-|:--:|:--:|
-|`mobius_mu_init2(low, high)`|メビウス関数 $\mu(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
+|名前|戻り値|
+|:--|:--|
+|`int mobius_mu(long long n);`|$\mu(n)$|
 
 
-## 参考
+### 約数版
+
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <typename T> std::map<T, int> mobius_mu_focusing_on_divisor(T n);`|$\lbrace n \text{ の約数 } d, \mu(d) \rbrace$|キーとして存在しないときは値 $0$ である。|
+
+
+### 数表
+
+|名前|戻り値|
+|:--|:--|
+|`std::vector<int> mobius_mu_init(const int n);`|メビウス関数 $\mu(i)$ ($1 \leq i \leq n$) の数表|
+|`std::vector<int> mobius_mu_init2(const long long low, const long long high);`|メビウス関数 $\mu(i)$ ($\mathrm{low} \leq i < \mathrm{high}$) の数表|
+
+
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.265-268，マイナビ出版（2012）
 - https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E9%96%A2%E6%95%B0
@@ -82,7 +79,7 @@ $$
 - https://drive.google.com/drive/folders/1z4kUGi0ObnWPQwdzmH-IHG6oV-XCRYnL
 
 
-## Verified
+## Submissons
 
 - https://atcoder.jp/contests/abc162/submissions/26045975
 - [約数版](https://atcoder.jp/contests/abc162/submissions/26046320)

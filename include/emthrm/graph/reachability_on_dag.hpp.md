@@ -61,21 +61,21 @@ title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054
 
 ## 時間計算量
 
-ワードサイズを $W$ とおくと $O\left(\frac{Q(\lvert V \rvert + \lvert E \rvert)}{W} \right)$．
+ワードサイズを $W$ とおくと $O\left(\frac{Q(\lvert V \rvert + \lvert E \rvert)}{W} \right)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`reachability_on_dag(graph, ss, ts)`|有向非巡回グラフ $\mathrm{graph}$ 上で頂点 $\mathrm{ss}_i$ から頂点 $\mathrm{ts}_i$ に到達できるか．|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> std::vector<bool> reachability_on_dag(const std::vector<std::vector<Edge<CostType>>>& graph, const std::vector<int>& ss, const std::vector<int>& ts);`|有向非巡回グラフ $\mathrm{graph}$ 上で頂点 $\mathrm{ss}_i$ から頂点 $\mathrm{ts}_i$ に到達できるか。|
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/library/graph/others/offline-dag-reachability.hpp
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/typical90/submissions/25153847

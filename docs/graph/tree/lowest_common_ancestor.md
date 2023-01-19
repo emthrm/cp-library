@@ -1,40 +1,65 @@
 # 最小共通祖先 (lowest common ancestor)
 
-根付き木のある2頂点に対して最も深い共通祖先である．
+根付き木のある2頂点に対して最も深い共通祖先である。
 
 
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |ダブリング版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(\log{\lvert V \rvert}) \rangle$|
 |オイラーツアー版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(1) \rangle$|
 
 
-## 使用法
+## 仕様
 
-- ダブリング版
+### ダブリング版
 
-||説明|
-|:--:|:--:|
-|`LowestCommonAncestorByDoubling<CostType>(graph)`|木 $\mathrm{graph}$ の最小共通祖先を考える．|
-|`depth[i]`|頂点 $i$ の深さ|
-|`dist[i]`|根と頂点 $i$ の間の距離|
-|`build(root = 0)`|根を $\mathrm{root}$ として構築する．|
-|`query(u, v)`|頂点 $u, v$ の最小共通祖先|
-|`distance(u, v)`|頂点 $u, v$ 間の距離|
+```cpp
+template <typename CostType>
+struct LowestCommonAncestorByDoubling;
+```
 
-- [オイラーツアー](euler_tour.md)版
+- `CostType`：辺のコストを表す型
 
-||説明|
-|:--:|:--:|
-|`LowestCommonAncestor<CostType>(graph, root = 0)`|根を $\mathrm{root}$ とする木 $\mathrm{graph}$ の最小共通祖先を構築する．|
-|`query(u, v)`|頂点 $u, v$ の最小共通祖先|
+#### メンバ変数
 
-- [HL 分解版](heavy-light_decomposition.md)
+|名前|説明|
+|:--|:--|
+|`std::vector<int> depth`|`depth[i]` は頂点 $i$ の深さを表す。|
+|`std::vector<CostType> dist`|`dist[i]` は根と頂点 $i$ の間の距離を表す。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit LowestCommonAncestorByDoubling(const std::vector<std::vector<Edge<CostType>>>& graph);`|木 $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`void build(const int root = 0);`|根を $\mathrm{root}$ として構築する。|
+|`int query(int u, int v) const;`|頂点 $u, v$ の最小共通祖先|
+|`CostType distance(const int u, const int v) const;`|頂点 $u, v$ 間の距離|
 
 
-## 参考
+### [オイラーツアー](euler_tour.md)版
+
+```cpp
+template <typename CostType>
+struct LowestCommonAncestor : EulerTour<CostType>;
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit LowestCommonAncestor(const std::vector<std::vector<Edge<CostType>>>& graph, const int root = 0);`|根を $\mathrm{root}$ とする木 $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`int query(int u, int v) const;`|頂点 $u, v$ の最小共通祖先|
+
+
+### [HL 分解版](heavy-light_decomposition.md)
+
+
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.292-295，マイナビ出版（2012）
 - https://yukicoder.me/wiki/lowest_common_ancestor
@@ -63,7 +88,7 @@
   - https://judge.yosupo.jp/problem/jump_on_tree
 
 
-## Verified
+## Submissons
 
 - [ダブリング版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4084783/emthrm/C++14)
 - [オイラーツアー版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2667/review/4084875/emthrm/C++14)

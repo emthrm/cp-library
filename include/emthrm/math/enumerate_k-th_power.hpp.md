@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -57,18 +57,18 @@ title: $i^k \bmod m$ ($0 \leq i \leq n$)
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`enumerate_kth_power(n, k, m)`|$i^k \bmod m$ ($0 \leq i \leq n$)|
+|名前|戻り値|
+|:--|:--|
+|`std::vector<int> enumerate_kth_power(const int n, const int k, const int m);`|$i^k \bmod m$ ($0 \leq i \leq n$)|
 
 
-## 参考
+## 参考文献
 
 - https://37zigen.com/linear-sieve/
 
 
-## Verified
+## Submissons
 
 https://yukicoder.me/submissions/623345

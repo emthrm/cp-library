@@ -78,19 +78,33 @@ title: "\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5 (rolling hash)"
 $\langle O(\lvert S \rvert), O(1) \rangle$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`RollingHash<T = std::string>(s, 基数 = 10007, 除数 = 1000000007)`|$S$ のローリングハッシュを考える．|要素は $0$ 以外でなければならない．|
-|`s`|$S$||
-|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ におけるハッシュ値||
-|`add(t)`|$S$ に $T$ を追加する．||
-|`longest_common_prefix(i, j)`|`S[i:]` と `S[j:]` の最長共通接頭辞長||
-|`longest_common_prefix(t, i, j)`|`S[i:]` と `T[j:]` の最長共通接頭辞長|$T$ はローリングハッシュである．|
+```cpp
+template <typename T = std::string>
+struct RollingHash;
+```
+
+- `T`：$S$ の要素型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`s`|$S$|
+
+#### メンバ関数
+
+|名前|効果・戻り値|要件|
+|:--|:--|:--|
+|`explicit RollingHash(const T& s, const int base = 10007, const int mod = 1000000007);`|$S$ に対してオブジェクトを構築する。|$S_i \neq 0$|
+|`long long get(const int left, const int right) const;`|`S[left:right]` におけるハッシュ値||
+|`void add(const T& t);`|$S$ の末尾に $T$ を追加する。|$T_i \neq 0$|
+|`int longest_common_prefix(const int i, const int j) const;`|`S[i:]` と `S[j:]` の最長共通接頭辞長||
+|`template <typename U> int longest_common_prefix(const RollingHash<U>& t, const int i, const int j) const;`|`S[i:]` と `T[j:]` の最長共通接頭辞長||
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/string/rolling-hash.html
 - https://github.com/drken1215/algorithm/blob/5f6710d0f5a92456528100ae7d8b8c4f70ed99e2/String/rolling_hash.cpp
@@ -105,6 +119,6 @@ $\langle O(\lvert S \rvert), O(1) \rangle$
   - https://github.com/beet-aizu/library/blob/master/datastructure/2D/rollinghash2D.cpp
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_14_B/review/4086443/emthrm/C++14

@@ -38,14 +38,14 @@ title: "\u7D20\u6570\u5224\u5B9A (primality test)"
 $O(\sqrt{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`is_prime(n)`|$n$ は素数であるか．|
+|名前|戻り値|
+|:--|:--|
+|`bool is_prime(const long long n);`|$n$ は素数であるか。|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.110-111，マイナビ出版（2012）
 
@@ -70,6 +70,6 @@ $O(\sqrt{N})$
   - http://www.prefield.com/algorithm/math/isgprime.html
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_1_C/review/4088317/emthrm/C++14

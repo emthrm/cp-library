@@ -52,7 +52,7 @@ layout: document
 title: "\u5F69\u8272\u6570 (chromatic number)"
 ---
 
-隣接頂点間で色が異なるような頂点彩色に必要な最小の色の数である．
+隣接頂点間で色が異なるような頂点彩色に必要な最小の色の数である。
 
 
 ## 時間計算量
@@ -60,14 +60,14 @@ title: "\u5F69\u8272\u6570 (chromatic number)"
 $O(2^{\lvert V \rvert} \lvert V \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`chromatic_number(graph)`|無向グラフ $\mathrm{graph}$ の彩色数|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の彩色数|
 
 
-## 参考
+## 参考文献
 
 - https://www.slideshare.net/wata_orz/ss-12131479
 - http://drken1215.hatenablog.com/entry/2019/01/16/030000
@@ -94,6 +94,6 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
   - https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/40942

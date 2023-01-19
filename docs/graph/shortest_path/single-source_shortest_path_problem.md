@@ -1,39 +1,68 @@
 # 単一始点最短路問題 (single-source shortest path problem)
 
-始点から他の任意の頂点までの最短路を求める問題である．
+始点から他の任意の頂点までの最短路を求める問題である。
 
 
 ## 時間計算量
 
 |アルゴリズム|時間計算量|
-|:--:|:--:|
+|:--|:--|
 |Bellman–Ford 法|$O(\lvert V \rvert \lvert E \rvert)$|
 |Dijkstra 法|$O(\lvert E \rvert \log{\lvert V \rvert})$|
 
 
-## 使用法
+## 仕様
 
-- Bellman–Ford 法
+### Bellman–Ford 法
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`BellmanFord<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
-|`inf`|$\infty$||
-|`dist[ver]`|始点から頂点 $\mathrm{ver}$ までの最短距離|到達できなければ $\infty$ となる．|
-|`has_negative_cycle(s)`|始点 $s$ の単一始点最短路を構築する．|返り値はグラフが負の閉路をもつか．|
-|`build_path(t)`|終点 $t$ の最短路|到達できなければ空配列となる．|
+```cpp
+template <typename CostType>
+struct BellmanFord;
+```
 
-- Dijkstra 法
+- `CostType`：辺のコストを表す型
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`Dijkstra<CostType>(graph, ∞)`|グラフ $\mathrm{graph}$ の単一始点最短路を考える．||
-|`inf`|$\infty$||
-|`build(s)`|始点 $s$ の単一始点最短路|到達できなければ $\infty$ となる．|
-|`build_path(t)`|終点 $t$ の最短路|到達できならば空配列となる．|
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const CostType inf`|$\infty$|
+|`std::vector<CostType> dist`|`dist[ver]` は始点から頂点 $\mathrm{ver}$ までの最短距離を表す。ただし到達できないときは $\infty$ となる。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`BellmanFord(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`bool has_negative_cycle(const int s);`|始点 $s$ の単一始点最短路を構築し、グラフが負の閉路をもつかを返す。|
+|`std::vector<int> build_path(int t) const;`|終点 $t$ の最短路。ただし到達できないときは空配列を返す。|
 
 
-## 参考
+### Dijkstra 法
+
+```cpp
+template <typename CostType>
+struct Dijkstra
+```
+
+- `CostType`：辺のコストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const CostType inf`|$\infty$|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`Dijkstra(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`std::vector<CostType> build(const int s);`|始点 $s$ の単一始点最短路。ただし到達できない頂点には $\infty$ を格納する。|
+|`std::vector<int> build_path(int t) const;`|終点 $t$ の最短路。ただし到達できないときは空配列を返す。|
+
+
+## 参考文献
 
 Bellman–Ford 法
 - http://www.prefield.com/algorithm/graph/bellman_ford.html
@@ -94,7 +123,7 @@ Dijkstra 法
   - https://yukicoder.me/problems/no/1602
 
 
-## Verified
+## Submissons
 
 - [Bellman–Ford 法](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_1_B/review/4082583/emthrm/C++14)
 - [Dijkstra 法](https://judge.yosupo.jp/submission/8211)

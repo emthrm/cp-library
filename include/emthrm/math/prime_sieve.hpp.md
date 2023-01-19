@@ -66,20 +66,20 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/prime_sieve.hpp
   requiredBy:
-  - include/emthrm/math/carmichael_function_init.hpp
-  - include/emthrm/math/euler_phi/euler_phi_init2.hpp
-  - include/emthrm/math/mobius_mu/mobius_mu_init2.hpp
   - include/emthrm/math/osa_k.hpp
+  - include/emthrm/math/carmichael_function_init.hpp
+  - include/emthrm/math/mobius_mu/mobius_mu_init2.hpp
+  - include/emthrm/math/euler_phi/euler_phi_init2.hpp
   - include/emthrm/math/enumerate_k-th_power.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/euler_phi/euler_phi_init2.test.cpp
+  - test/math/enumerate_k-th_power.test.cpp
   - test/math/mobius_mu/mobius_mu_init2.test.cpp
+  - test/math/prime_sieve.test.cpp
+  - test/math/euler_phi/euler_phi_init2.test.cpp
   - test/math/osa_k.test.cpp
   - test/math/fast_divisor.test.cpp
-  - test/math/prime_sieve.test.cpp
-  - test/math/enumerate_k-th_power.test.cpp
 documentation_of: include/emthrm/math/prime_sieve.hpp
 layout: document
 title: prime sieve
@@ -91,14 +91,14 @@ title: prime sieve
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`prime_sieve(n, 素数のみ取得するか?)`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数||
+|名前|戻り値|
+|:--|:--|
+|`std::vector<int> prime_sieve(const int n, const bool get_only_prime);`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数|
 
 
-## 参考
+## 参考文献
 
 - https://37zigen.com/linear-sieve/
 - https://imulan.hatenablog.jp/entry/2019/09/29/212808
@@ -115,6 +115,6 @@ $O(N)$
   - https://judge.yosupo.jp/problem/counting_primes
 
 
-## Verified
+## Submissons
 
 https://yukicoder.me/submissions/623330

@@ -54,14 +54,14 @@ title: "\u30D2\u30B9\u30C8\u30B0\u30E9\u30E0\u4E2D\u306E\u6700\u5927\u9577\u65B9
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`largest_rectangle(height)`|高さ $\mathrm{height}$ で表されるヒストグラム中の長方形の最大面積|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> long long largest_rectangle(const std::vector<T>& height);`|高さ $\mathrm{height}$ で表されるヒストグラム中の長方形の最大面積|
 
 
-## 参考
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/dp/largest-rectangle.html
 
@@ -75,6 +75,6 @@ $O(N)$
   - https://onlinejudge.u-aizu.ac.jp/problems/DPL_3_B
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_3_C/review/4082202/emthrm/C++14

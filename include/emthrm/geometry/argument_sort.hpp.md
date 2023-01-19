@@ -68,19 +68,19 @@ title: "\u504F\u89D2\u30BD\u30FC\u30C8"
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`argument_sort(&ps)`|点集合 $\mathrm{ps}$ に対して偏角ソートを行う．|$\arg(x) = \pi$ ($x < 0$), $\arg(0) = 0$ とする．|
+|名前|効果|備考|
+|:--|:--|:--|
+|`void argument_sort(std::vector<std::pair<int, int>>* ps);`|点集合 $\mathrm{ps}$ に対して偏角ソートを行う。|$\arg(x) = \pi$ ($x < 0$), $\arg(0) = 0$ とする。|
 
 
-## 参考
+## 参考文献
 
 - https://betrue12.hateblo.jp/entry/2020/01/05/151244
 - https://github.com/beet-aizu/library/blob/78fef02c3ce4f982525361a55adbfc78faabfb93/geometry/argsort.cpp
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/6794

@@ -111,7 +111,7 @@ title: "\u6709\u7406\u6570 (rational number)"
 ---
 
 
-## 参考
+## 参考文献
 
 - https://github.com/spaghetti-source/algorithm/blob/208bcfd781e9c37aedee117ce45d5a4a5bab5fa1/math/rational.cc
 - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!Ratio.cpp~~
@@ -139,6 +139,6 @@ title: "\u6709\u7406\u6570 (rational number)"
   - https://github.com/spaghetti-source/algorithm/blob/master/math/continued_fraction.cc
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2589/review/4088153/emthrm/C++14

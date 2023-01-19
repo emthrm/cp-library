@@ -289,12 +289,12 @@ $$
 
 ## TODO
 - https://github.com/beet-aizu/library/blob/master/mod/factorial.cpp
-- $O(\sqrt{M} \log{M})$ に高速化する．
+- $O(\sqrt{M} \log{M})$ に高速化する。
   - ~~https://min-25.hatenablog.com/entry/2017/04/10/215046~~
   - https://ei1333.github.io/luzhiled/snippets/math/factorial.html
   - https://codeforces.com/blog/entry/68885
   - https://yukicoder.me/problems/no/502
-- ある素数 $p$ に対して $n! = a p^e$ を満たす $a \bmod p$ を求める．
+- ある素数 $p$ に対して $n! = a p^e$ を満たす $a \bmod p$ を求める。
   - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.262-263，マイナビ出版（2012）
 
 
@@ -363,9 +363,9 @@ $$
 
 # 乗法的関数 (multiplicative function)
 
-$n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内，$a \perp b$ を満たす $a, b \in \mathbb{N}^+$ に対して $f(ab) = f(a)f(b)$ が成り立つものである．
+$n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、$a \perp b$ を満たす $a, b \in \mathbb{N}^+$ に対して $f(ab) = f(a)f(b)$ が成り立つものである。
 
-## 参考
+## 参考文献
 - https://ja.wikipedia.org/wiki/%E4%B9%97%E6%B3%95%E7%9A%84%E9%96%A2%E6%95%B0
 
 ## TODO
@@ -594,7 +594,7 @@ $$
   \sigma_x(n) = \sum_{d \mid n} d^x
 $$
 
-## 参考
+## 参考文献
 - https://ja.wikipedia.org/wiki/%E7%B4%84%E6%95%B0%E9%96%A2%E6%95%B0
 
 ## TODO

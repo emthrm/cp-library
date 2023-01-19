@@ -61,11 +61,11 @@ title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation)"
 $O(M^2 N)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`linear_equation(a, b, ε = 1e-8)`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$|解なしのときは空配列となる．|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T, typename U = double> std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b, const U eps = 1e-8);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
 
 
 ## TODO
@@ -80,6 +80,6 @@ $O(M^2 N)$
   - https://drive.google.com/file/d/1D7sRmUy-0XnZCay8Tr1PldJVFRM2NII5
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2171/review/5899058/emthrm/C++17

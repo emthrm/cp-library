@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/subset_sum_problem.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
@@ -47,11 +47,11 @@ layout: document
 title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
 ---
 
-$n$ 個の数の選び方の内，要素の和が特定の数となるものの存在性を判定する問題である．
+$n$ 個の数の選び方の内、要素の和が特定の数となるものの存在性を判定する問題である。
 
-ナップサック問題の部分問題である．
+ナップサック問題の部分問題である。
 
-[形式的冪級数](../math/formal_power_series/formal_power_series.md)を用いて場合の数を求められる．
+[形式的冪級数](../math/formal_power_series/formal_power_series.md)を用いて場合の数を求められる。
 
 
 ## 時間計算量
@@ -59,18 +59,18 @@ $n$ 個の数の選び方の内，要素の和が特定の数となるものの�
 $O(N + D\log{D})$
 
 
-## 使用法
+## 仕様
 
-||説明|条件|
-|:--:|:--:|:--:|
-|`subset_sum_problem(a, d)`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
+|名前|戻り値|要件|
+|:--|:--|:--|
+|`template <typename T> std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d);`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
 
 
-## 参考
+## 参考文献
 
 - https://yukicoder.me/wiki/polynomial_techniques
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/6908

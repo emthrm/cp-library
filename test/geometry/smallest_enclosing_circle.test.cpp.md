@@ -7,9 +7,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/util/xorshift.hpp
-    title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -42,11 +39,10 @@ data:
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
   - include/emthrm/geometry/smallest_enclosing_circle.hpp
-  - include/emthrm/util/xorshift.hpp
   isVerificationFile: true
   path: test/geometry/smallest_enclosing_circle.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-15 02:23:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/smallest_enclosing_circle.test.cpp

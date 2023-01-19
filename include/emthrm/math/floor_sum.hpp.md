@@ -57,14 +57,14 @@ $$
 $O(\log{M})$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`floor_sum(a, b, m, n)`|$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor$|$M \in \mathbb{N}^+$|
+|名前|戻り値|要件|
+|:--|:--|:--|
+|`long long floor_sum(long long a, long long b, long long m, long long n);`|$\sum_{i = 0}^{N - 1} \left\lfloor \frac{Ai + B}{M} \right\rfloor$|$M \in \mathbb{N}^+$|
 
 
-## 参考
+## 参考文献
 
 - https://rsk0315.hatenablog.com/entry/2020/12/13/231307
 - https://qiita.com/R_olldIce/items/3e2c80baa6d5e6f3abe9#4-floor_sum
@@ -72,6 +72,6 @@ $O(\log{M})$
 - https://github.com/atcoder/ac-library/blob/6c88a70c8f95fef575af354900d107fbd0db1a12/atcoder/internal_math.hpp#L180-L207
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/39036

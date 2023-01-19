@@ -52,10 +52,10 @@ title: "\u56DE\u8EE2 (rotation)"
 
 点の回転は
 
-- $45^\circ$ のとき $(x, y) \rightarrow (x - y, x + y)$，
+- $45^\circ$ のとき $(x, y) \rightarrow (x - y, x + y)$、
 - $90^\circ$ のとき $(x, y) \rightarrow (-y, x)$
 
-と変換すればよい．
+と変換すればよい。
 
 
 ## 時間計算量
@@ -63,18 +63,18 @@ title: "\u56DE\u8EE2 (rotation)"
 $O(HW)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`rotate(grid, angle, 空白 = ' ')`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \lbrace 45, 90 \rbrace$|
+|名前|戻り値|要件|
+|:--|:--|:--|
+|`template <typename T> std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid, const int angle, const T space = ' ');`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \lbrace 45, 90 \rbrace$|
 
 
-## 参考
+## 参考文献
 
 - https://kagamiz.hatenablog.com/entry/2014/12/21/213931
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2953/review/4082725/emthrm/C++14

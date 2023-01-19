@@ -57,51 +57,75 @@ title: "Knuth\u2013Morris\u2013Pratt algorithm"
 ---
 # Knuth–Morris–Pratt algorithm
 
-文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである．
+文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである。
 
 
 ## 時間計算量
 
-パターン長を $N$, テキスト長を $M$ とおく．
+パターン長を $N$, テキスト長を $M$ とおく。
 
-- Morris–Pratt algorithm
+### Morris–Pratt algorithm
 
-|処理|時間計算量|
-|:--:|:--:|
+||時間計算量|
+|:--|:--|
 |前処理|$O(N)$|
 |更新|amortized $O(N)$ ?|
 |パターンマッチング|$O(M)$|
 
-- Knuth–Morris–Pratt algorithm
+### Knuth–Morris–Pratt algorithm
 
 $$
   \langle O(N), O(M) \rangle
 $$
 
 
-## 使用法
+## 仕様
 
-- Morris–Pratt algorithm
+### Morris–Pratt algorithm
 
-||説明|
-|:--:|:--:|
-|`MorrisPratt(s)`|文字列 $S$ の Morris–Pratt algorithm を考える．|
-|`str`|文字列 $S$|
-|`border[i]`|`S[0:i]` の最長 border 長|
-|`add(c)`|$S$ に文字 $c$ を追加する．|
-|`match(t)`|$S$ が出現する文字列 $T$ 中の位置|
-|`period(idx)`|`S[0:idx]` の最小周期|
+```cpp
+struct MorrisPratt;
+```
 
-- Knuth–Morris–Pratt algorithm
+#### メンバ変数
 
-||説明|
-|:--:|:--:|
-|`KnuthMorrisPratt<T = string>(s)`|$S$ の Knuth–Morris–Pratt algorithm を考える．|
-|`border[i]`|`S[0:i]` の最長 tagged border 長|
-|`match(t)`|$S$ が出現する $T$ 中の位置|
+|名前|説明|
+|:--|:--|
+|`std::string s`|文字列 $S$|
+|`std::vector<int> border`|$\mathrm{border}_i$ は `S[0:i]` の最長 border 長を表す。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit MorrisPratt(const std::string& s);`|文字列 $S$ に対してオブジェクトを構築する。|
+|`void add(const char c);`|$S$ の末尾に文字 $c$ を追加する。|
+|`std::vector<int> match(const std::string& t) const;`|$S$ が出現する文字列 $T$ 中の位置|
+|`int period(const int idx) const;`|`S[0:idx]` の最小周期|
 
 
-## 参考
+### Knuth–Morris–Pratt algorithm
+
+```cpp
+template <typename T = std::string>
+struct KnuthMorrisPratt;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<int> border`|`border[i]` は `S[0:i]` の最長 tagged border 長を表す。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit KnuthMorrisPratt(const T& s)`|文字列 $S$ に対してオブジェクトを構築する。|
+|`std::vector<int> match(const T& t) const`|$S$ が出現する $T$ 中の位置|
+
+
+## 参考文献
 
 Morris–Pratt algorithm
 - https://snuke.hatenablog.com/entry/2014/12/01/235807
@@ -117,7 +141,7 @@ Knuth–Morris–Pratt algorithm
 - https://github.com/drken1215/algorithm/blob/d41481f5011e8b129128050627faddebe2add91a/String/knuth_morris_pratt.cpp
 
 
-## Verified
+## Submissons
 
 - Morris–Pratt algorithm
   - [`match(t)`](https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_14_B/review/4086469/emthrm/C++14)

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -52,7 +52,7 @@ layout: document
 title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
 ---
 
-$g^x \equiv y \pmod{p}$ ($g = \text{const.},\ y \in \mathbb{Z},\ p \in \mathbb{P}$) を満たす $x$ を求める問題である．
+$g^x \equiv y \pmod{p}$ ($g = \text{const.},\ y \in \mathbb{Z},\ p \in \mathbb{P}$) を満たす $x$ を求める問題である。
 
 
 ## 時間計算量
@@ -60,16 +60,16 @@ $g^x \equiv y \pmod{p}$ ($g = \text{const.},\ y \in \mathbb{Z},\ p \in \mathbb{P
 $O(\sqrt{P} \log{P})$
 
 
-## 使用法
+## 仕様
 
-- baby-step giant-step
+### baby-step giant-step
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`mod_log(g, y, m)`|$g^x \equiv y \pmod{m}$ を満たす最小の非負整数 $x$|存在しないときは $-1$ となる．|
+|名前|戻り値|
+|:--|:--|
+|`int mod_log(long long g, long long y, const int m);`|$g^x \equiv y \pmod{m}$ を満たす最小の非負整数 $x$。ただし存在しないときは $-1$ を返す。|
 
 
-## 参考
+## 参考文献
 
 - http://sonickun.hatenablog.com/entry/2016/11/20/192743
 
@@ -83,6 +83,6 @@ $O(\sqrt{P} \log{P})$
   - https://twitter.com/maspy_stars/status/1205499459993362432
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/3457

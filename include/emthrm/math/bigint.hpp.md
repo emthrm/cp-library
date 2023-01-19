@@ -346,16 +346,16 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/bigint.05.test.cpp
+  - test/math/bigint.06.test.cpp
+  - test/math/bigint.01.test.cpp
+  - test/math/bigint.04.test.cpp
   - test/math/bigint.07.test.cpp
+  - test/math/bigint.05.test.cpp
+  - test/math/bigint.10.test.cpp
+  - test/math/bigint.08.test.cpp
   - test/math/bigint.02.test.cpp
   - test/math/bigint.03.test.cpp
-  - test/math/bigint.01.test.cpp
   - test/math/bigint.09.test.cpp
-  - test/math/bigint.06.test.cpp
-  - test/math/bigint.08.test.cpp
-  - test/math/bigint.04.test.cpp
-  - test/math/bigint.10.test.cpp
 documentation_of: include/emthrm/math/bigint.hpp
 layout: document
 title: "\u591A\u500D\u9577\u6574\u6570"
@@ -365,12 +365,12 @@ title: "\u591A\u500D\u9577\u6574\u6570"
 ## 時間計算量
 
 |アルゴリズム|時間計算量|
-|:--:|:--:|
+|:--|:--|
 |カラツバ法 (Karatsuba algorithm)|$O(N^{\log 3}) \sim O(N^{1.585})$|
 |Knuth's Algorithm D|$O(N^2)$|
 
 
-## 参考
+## 参考文献
 
 - https://lumakernel.github.io/ecasdqina/misc/BigInteger
 - https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
@@ -416,7 +416,7 @@ Knuth's Algorithm D
   - http://www.prefield.com/algorithm/math/bignum.html
 
 
-## Verified
+## Submissons
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/2679/review/4092735/emthrm/C++14
 - [加算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_A/review/4092738/emthrm/C++14)

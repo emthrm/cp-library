@@ -175,7 +175,7 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |加減算|$O(N)$|
 |スカラー倍|$O(N)$|
 |乗算|$O(N\log{N})$|
@@ -187,38 +187,61 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 |`translate(c)`|$O(N\log{N})$|
 
 
-## 使用法
+## 仕様
 
-||説明|条件|
-|:--:|:--:|:--:|
-|`Polynomial<T>(deg = 0)`|次数 $\mathrm{deg}$ の多項式||
-|`Polynomial<T>(coef)`|係数列を $\mathrm{coef}$ とする多項式||
-|`coef`|係数列||
-|`operator()[term]`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
-|`set_mul(mul)`|乗算を定義する．||
-|`resize(deg)`|$\mathrm{deg}$ 次までを考える．|||
-|`shrink()`|正規化を行う．||
-|`degree()`|次数||
-|`operator=(coef_)`|係数列 $\mathrm{coef\_}$ を代入する．||
-|`operator=(x)`|多項式 $x$ を代入する．||
-|`operator+=(x)`<br>`operator+(x)`|加算||
-|`operator-=(x)`<br>`operator-(x)`|減算||
-|`operator*=(x)`<br>`operator*(x)`|乗算||
-|`divide(x)`|$x$ で割った商とあまり||
-|`operator/=(x)`<br>`operator/(x)`|除算||
-|`operator%=(x)`<br>`operator%(x)`|剰余演算||
-|`operator<<=(n)`<br>`operator<<(n)`|$x^n f$||
-|`operator==(x)`|$f = x$ であるか．||
-|`operator!=(x)`|$f \neq x$ であるか．||
-|`operator+()`|$+{f}$||
-|`operator-()`|$-{f}$||
-|`horner(x)`|$f(x)$||
-|`differential()`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
-|`pow(exponent)`|$f^{\mathrm{exponent}}$||
-|`translate(c)`|$f(x + c)$||
+```cpp
+template <typename T>
+struct Polynomial;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<T> coef`|係数列|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit Polynomial(const int deg = 0);`|$\mathrm{deg}$ 次まで係数列をもつオブジェクトを構築する。|
+|`explicit Polynomial(const std::vector<T>& coef);`|係数列を $\mathrm{coef}$ とするオブジェクトを構築する。|
+|`Polynomial(const std::initializer_list<T> init);`|初期化子リストを受け取るコンストラクタ|
+|`template <typename InputIter> explicit Polynomial(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ|
+|`inline const T& operator[](const int term) const;`<br>`inline T& operator[](const int term);`|${\lbrack x^{\mathrm{term}} \rbrack}f$|
+|`void resize(const int deg);`|$\mathrm{deg}$ 次まで係数列をもつ。|
+|`void shrink();`|正規化を行う。|
+|`int degree() const;`|現在の次数|
+|`Polynomial& operator=(const std::vector<T>& coef_);`<br>`Polynomial& operator=(const Polynomial& x);`|代入演算子|
+|`Polynomial& operator+=(const Polynomial& x);`<br>`Polynomial operator+(const Polynomial& x) const;`|加算|
+|`Polynomial& operator-=(const Polynomial& x);`<br>`Polynomial operator-(const Polynomial& x) const;`|減算|
+|`Polynomial& operator*=(const T x);`<br>`Polynomial& operator*=(const Polynomial& x);`<br>`Polynomial operator*(const T x) const;`<br>`Polynomial operator*(const Polynomial& x) const;`|乗算|
+|`Polynomial& operator/=(const T x);`<br>`Polynomial& operator/=(const Polynomial& x);`<br>`Polynomial operator/(const T x) const;`<br>`Polynomial operator/(const Polynomial& x) const;`|除算|
+|`Polynomial& operator%=(const Polynomial& x);`<br>`Polynomial operator%(const Polynomial& x) const;`|剰余演算|
+|`std::pair<Polynomial, Polynomial> divide(Polynomial x) const;`|$x$ で割った商とあまり|
+|`Polynomial& operator<<=(const int n);`<br>`FormalPowerSeries operator<<(const int n) const;`|$x^n f$|
+|`bool operator==(Polynomial x) const;`<br>`bool operator!=(const Polynomial& x) const;`|比較演算子|
+|`Polynomial operator+() const;`|$+{f}$|
+|`Polynomial operator-() const;`|$-{f}$|
+|`T horner(const T x) const;`|$f(x)$|
+|`Polynomial differential() const;`|$f^{\prime}$|
+|`Polynomial pow(int exponent) const`|$f^{\mathrm{exponent}}$|
+|`Polynomial translate(const T c) const;`|$f(x + c)$|
+
+#### 静的メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`static void set_mult(const Mult mult);`|乗算を定義する。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Mult`|`std::function<std::vector<T>(const std::vector<T>&, const std::vector<T>&)>`|
 
 
-## 参考
+## 参考文献
 
 - https://github.com/beet-aizu/library/blob/29e15f77befa18d06b1f61221c509b5a58f4cb4c/polynomial/polynomial.cpp
 - https://github.com/primenumber/ProconLib/blob/dc175741e461e88f69350532b47fa57527b38fa3/Math/Polynomial.cpp

@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
@@ -52,9 +52,9 @@ title: "\u5206\u5272\u6570 $n = m$ \u7248"
 ---
 # 分割数 (partition function)
 
-自然数 $n$ を $m$ 個以下の正の整数の和で表す方法の総数の内，$n = m$ を満たすもの．
+自然数 $n$ を $m$ 個以下の正の整数の和で表す方法の総数の内、$n = m$ を満たすもの。
 
-和の順序は問わず，$2 + 1 + 1$ と $1 + 2 + 1$ を区別しない．
+和の順序は問わず、$2 + 1 + 1$ と $1 + 2 + 1$ を区別しない。
 
 分割数 $p(n)$ の母関数は
 
@@ -62,31 +62,32 @@ $$
   \sum_{n = 0}^\infty p(n) x^n = \prod_{n = 1}^{\infty} \dfrac{1}{1 - x^n}
 $$
 
-である．
+である。
 
 
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 ||$O(NM)$|
 |$n = m$ 版|$O(N\log{N})$|
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`partition_function<T>(n, m)`|分割数の数表|
-
-- $n = m$ 版
-
-||説明|
-|:--:|:--:|
-|`partition_function_by_fps<T>(n)`|$n = m$ のときの分割数の数表|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<std::vector<T>> partition_function(const int n, const int m);`|分割数の数表|
 
 
-## 参考
+### $n = m$ 版
+
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> partition_function_by_fps(const int n);`|$n = m$ のときの分割数の数表|
+
+
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.66-67，マイナビ出版（2012）
 - https://ja.wikipedia.org/wiki/%E5%88%86%E5%89%B2%E6%95%B0
@@ -98,13 +99,13 @@ $$
 - オイラーの五角数定理 (Euler's pentagonal number theorem)
   - https://en.wikipedia.org/wiki/Pentagonal_number_theorem
   - https://atcoder.jp/contests/abc279/tasks/abc279_h
-- $O(N\sqrt{N})$ で求める．
+- $O(N\sqrt{N})$ で求める。
   - http://degwer.hatenablog.com/entries/2017/08/29
   - https://qiita.com/drken/items/f2ea4b58b0d21621bd51
   - https://judge.yosupo.jp/problem/partition_function
 
 
-## Verified
+## Submissons
 
 - https://yukicoder.me/submissions/701499
 - [$n = m$ 版](https://judge.yosupo.jp/submission/3791)

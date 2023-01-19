@@ -1,6 +1,6 @@
 # セグメント木 (segment tree)
 
-[モノイド](../../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である．
+[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。
 
 
 ## 時間計算量
@@ -8,56 +8,78 @@
 $\langle O(N), O(\log{N}) \rangle$
 
 
-## 使用法
+## 仕様
 
-- セグメント木
+### セグメント木
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`SegmentTree<T>(n)`|要素数 $N$ のセグメント木||
-|`SegmentTree<T>(a)`|$A$ のセグメント木||
-|`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$||
-|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ||
-|`operator()[idx]`|$A_{\mathrm{idx}}$||
-|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しないときは $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しないときは $-1$ となる．|
+```cpp
+template <typename T>
+struct SegmentTree;
+```
 
-`T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
+- `T`：モノイドを表す構造体であり、以下の型エイリアスと静的メンバ関数を必要とする。
+  - `Monoid`：要素型
+  - `static constexpr Monoid id();`：単位元
+  - `static Monoid merge(const Monoid&, const Monoid&);`：二項演算 $\circ$
 
-||説明|
-|:--:|:--:|
-|`T::Monoid`|モノイド|
-|`T::id()`|単位元|
-|`T::merge(a, b)`||
+#### メンバ関数
 
-- 遅延伝播セグメント木
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit SegmentTree(const int n);`|要素数 $N$ のオブジェクトを構築する。|
+|`explicit SegmentTree(const std::vector<Monoid>& a);`|$A$ に対してオブジェクトを構築する。|
+|`void set(int idx, const Monoid val);`|$A_{\mathrm{idx}} \gets \mathrm{val}$|
+|`Monoid get(int left, int right) const;`|$A_{\mathrm{left}} \circ \cdots \circ A_{\mathrm{right}}$|
+|`Monoid operator[](const int idx) const;`|$A_{\mathrm{idx}}$|
+|`template <typename G> int find_right(int left, const G g);`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$。ただし存在しないときは $N$ を返す。|
+|`template <typename G> int find_left(int right, const G g);`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$。ただし存在しないときは $-1$ を返す。|
 
-||説明|
-|:--:|:--:|
-|`LazySegmentTree<T>(n)`|要素数 $N$ の遅延伝播セグメント木|
-|`LazySegmentTree<T>(a)`|$A$ の遅延伝播セグメント木|
-|`set(idx, val)`|$A_{\mathrm{idx}} = \mathrm{val}$|
-|`apply(idx, val)`|$\mathrm{idx}$ における変更クエリ|
-|`apply(left, right, val)`|$[\mathrm{left}, \mathrm{right})$ における変更クエリ|
-|`get(left, right)`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ|
-|`operator()[idx]`|$A_{\mathrm{idx}}$|
-|`find_right(left, g)`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$|存在しない場合は $n$ となる．|
-|`find_left(right, g)`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$|存在しない場合は $-1$ となる．|
+#### メンバ型
 
-`T` はモノイドを表す構造体であり，以下の型エイリアスと静的メンバ関数を必要とする．
-
-||説明|
-|:--:|:--:|
-|`T::Monoid`|モノイド|
-|`T::OperatorMonoid`|作用素モノイド|
-|`T::m_id()`|モノイドの単位元|
-|`T::o_id()`|作用素モノイドの単位元|
-|`T::m_merge(a, b)`||
-|`T::o_merge(a, b)`||
-|`T::apply(a, b)`||
+|名前|説明|
+|:--|:--|
+|`Monoid`|`T::Monoid`|
 
 
-## 参考
+### 遅延伝播セグメント木
+
+```cpp
+template <typename T>
+struct LazySegmentTree;
+```
+
+- `T`：モノイドを表す構造体であり、以下の型エイリアスと静的メンバ関数を必要とする。
+  - `Monoid`：要素型
+  - `OperatorMonoid`：作用素モノイドの要素型
+  - `static constexpr Monoid m_id();`：単位元
+  - `static constexpr OperatorMonoid o_id();`：作用素モノイドの単位元
+  - `static Monoid m_merge(const Monoid&, const Monoid&);`：二項演算 $\circ$
+  - `static OperatorMonoid o_merge(const OperatorMonoid&, const OperatorMonoid&);`
+  - `static Monoid apply(const Monoid&, const OperatorMonoid&);`
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit LazySegmentTree(const int n);`|要素数 $N$ のオブジェクトを構築する。|
+|`explicit LazySegmentTree(const std::vector<Monoid>& a);`|$A$ に対してオブジェクトを構築する。|
+|`void set(int idx, const Monoid val);`|$A_{\mathrm{idx}} \gets \mathrm{val}$|
+|`void apply(int idx, const OperatorMonoid val);`|$\mathrm{idx}$ における変更クエリ|
+|`void apply(int left, int right, const OperatorMonoid val);`|$[\mathrm{left}, \mathrm{right})$ における変更クエリ|
+|`Monoid get(int left, int right);`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ|
+|`Monoid operator[](const int idx);`|$A_{\mathrm{idx}}$|
+|`template <typename G> int find_right(int left, const G g);`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$。ただし存在しない場合は $N$ を返す。|
+|`template <typename G> int find_left(int right, const G g);`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$。ただし存在しない場合は $-1$ を返す。|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Monoid`|`T::Monoid`|
+|`OperatorMonoid`|`T::OperatorMonoid`|
+
+
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
 - https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
@@ -165,7 +187,7 @@ $\langle O(N), O(\log{N}) \rangle$
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 
 
-## Verified
+## Submissons
 
 - [セグメント木](https://judge.yosupo.jp/submission/25800)
   - [range minimum query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_A/review/4890699/emthrm/C++17)

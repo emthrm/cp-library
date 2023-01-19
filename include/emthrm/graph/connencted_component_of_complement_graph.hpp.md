@@ -61,18 +61,18 @@ title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
 $O(\lvert V \rvert + \lvert E \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`connencted_component_of_complement_graph(graph)`|無向グラフ $\mathrm{graph}$ の補グラフの連結成分分解|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> UnionFind connencted_component_of_complement_graph(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の補グラフの連結成分分解|
 
 
-## 参考
+## 参考文献
 
 - https://betrue12.hateblo.jp/entry/2020/02/24/165627
 
 
-## Verified
+## Submissons
 
 https://codeforces.com/contest/1242/submission/113385795

@@ -43,18 +43,18 @@ title: "\u7D04\u6570\u5217\u6319"
 $O(\sqrt{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`divisor(n)`|$n$ の約数|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<T> divisor(const T n);`|$n$ の約数|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.111，マイナビ出版（2012）
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2932/review/4088339/emthrm/C++14

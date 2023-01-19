@@ -1,21 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/util/xorshift.hpp
-    title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_mod
@@ -39,12 +36,11 @@ data:
   dependsOn:
   - include/emthrm/math/mod_sqrt.hpp
   - include/emthrm/math/mod_pow.hpp
-  - include/emthrm/util/xorshift.hpp
   isVerificationFile: true
   path: test/math/mod_sqrt.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-01-15 02:23:52+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mod_sqrt.test.cpp
 layout: document

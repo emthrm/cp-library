@@ -155,10 +155,10 @@ data:
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/tree/centroid_decomposition.test.cpp
+  - test/math/convolution/fast_fourier_transform.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
-  - test/math/convolution/fast_fourier_transform.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_fourier_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
@@ -170,9 +170,9 @@ $$
   F(t) = \sum_{x = 0}^{N - 1} f(x) \zeta_N^{-tx} = \sum_{x = 0}^{N - 1} f(x) \exp\left(-i \frac{2 \pi tx}{N} \right)
 $$
 
-を高速に行うアルゴリズムである．
+を高速に行うアルゴリズムである。
 
-畳み込み (convolution) $C_k = \sum_{i = 0}^k A_i B_{k - i}$ の計算にしばしば用いられる．
+畳み込み (convolution) $C_k = \sum_{i = 0}^k A_i B_{k - i}$ の計算にしばしば用いられる。
 
 
 
@@ -181,28 +181,51 @@ $$
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-- Cooley–Tukey algorithm
+### Cooley–Tukey algorithm
 
-||説明|
-|:--:|:--:|
-|`butterfly`|バタフライ演算用の配列|
-|`zeta[i][j]`|$1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$|
-|`init(n)`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う．|
-|`dft(&a)`|複素数列 $A$ に対して離散フーリエ変換を行う．|
-|`real_dft(a)`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
-|`idft(&a)`|複素数列 $A$ に対して逆離散フーリエ変換を行う．|
-|`convolution(a, b)`|実数列 $A$ と $B$ の畳み込み|
+|名前|説明・効果・戻り値|
+|:--|:--|
+|`Real`|`double`|
+|`Complex`|複素数を表す構造体|
+|`std::vector<int> butterfly`|バタフライ演算用の配列|
+|`std::vector<std::vector<Complex>> zeta`|`zeta[i][j]` は $1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$ を表す。|
+|`void init(const int n);`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う。|
+|`void dft(std::vector<Complex>* a);`|複素数列 $A$ に対して離散フーリエ変換を行う。|
+|`template <typename T> std::vector<Complex> real_dft(const std::vector<T>& a);`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
+|`void idft(std::vector<Complex>* a);`|複素数列 $A$ に対して逆離散フーリエ変換を行う。|
+|`template <typename T> std::vector<Real> convolution(const std::vector<T>& a, const std::vector<T>& b);`|実数列 $A$ と $B$ の畳み込み|
+
+```cpp
+struct Complex;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`Real re`|実部|
+|`Real im`|虚部|
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit Complex(const Real re = 0, const Real im = 0);`|コンストラクタ|
+|`inline Complex operator+(const Complex& x) const;`<br>`inline Complex operator-(const Complex& x) const;`<br>`inline Complex operator*(const Complex& x) const;`||
+|`inline Complex mul_real(const Real r) const;`|実数 $r$ をかける|
+|`inline Complex mul_pin(const Real r) const;`|虚数 $ir$ をかける|
+|`inline Complex conj() const;`|共役複素数|
 
 
 ## 実装
 
-実数列 $a$ と $b$ の畳み込み $c$ を考える．
+実数列 $a$ と $b$ の畳み込み $c$ を考える。
 
-複素数列 $p_i = a_i + b_i \sqrt{-1}$ ($0 \leq i < N = 2^e,\ e \in \mathbb{N}$) に離散フーリエ変換を行うと，対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に対して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる．
+複素数列 $p_i = a_i + b_i \sqrt{-1}$ ($0 \leq i < N = 2^e,\ e \in \mathbb{N}$) に離散フーリエ変換を行うと、対応する多項式 $p(x) = \sum_{i = 0}^{N - 1} p_i x^i$ に対して $p(\xi_N^{-i}) = \sum_{j = 0}^{N - 1} p_j \zeta_{N}^{-ij}$ が分かる。
 
-$\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ．すなわち
+$\overline{p(\overline{x})} = a(x) - b(x) \sqrt{-1}$ より $\overline{p(ξ_N^{-i})} = \overline{p(\overline{\xi_N^i})} = a(ξ_N^i) - b(ξ_N^i) \sqrt{-1}$ が成り立つ。すなわち
 
 $$
   \overline{P_i} =
@@ -212,7 +235,7 @@ $$
   \end{cases}
 $$
 
-が成り立つ．$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}}$ ($1 \leq i < N$) より
+が成り立つ。$A_0, B_0 \in \mathbb{R},\ A_i = \overline{A_{n - i}}$ ($1 \leq i < N$) より
 
 $$
   \begin{split}
@@ -229,7 +252,7 @@ $$
   \end{split}
 $$
 
-となる．$C_i = A_i B_i$ より
+となる。$C_i = A_i B_i$ より
 
 $$
   C_i =
@@ -239,7 +262,7 @@ $$
   \end{cases}
 $$
 
-と変形できる．ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うと
+と変形できる。ここで $d_i = c_{2i} + c_{2i+1} \sqrt{-1}$ に離散フーリエ変換を行うと
 
 $$
   \begin{split}
@@ -256,7 +279,7 @@ $$
   \end{split}
 $$
 
-となる．変形すると
+となる。変形すると
 
 - $i = 0$ に対して
 
@@ -273,10 +296,10 @@ $$
   \end{split}
 $$
 
-となる．$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい．
+となる。$C$ は既に求めたので $D$ に対して逆離散フーリエ変換を行えばよい。
 
 
-## 参考
+## 参考文献
 
 - https://www.slideshare.net/chokudai/fft-49066791
 - ~~https://lumakernel.github.io/ecasdqina/math/FFT/introduction~~
@@ -316,6 +339,6 @@ $$
   - https://hackmd.io/@koboshi/rJpHiXa-O
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/atc001/submissions/25081106

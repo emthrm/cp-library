@@ -48,7 +48,7 @@ layout: document
 title: "\u6700\u9577\u5171\u901A\u90E8\u5206\u5217 (longest common subsequence)"
 ---
 
-2列に対して双方に現れる部分列の内，最長のものである．
+2列に対して双方に現れる部分列の内、最長のものである。
 
 
 ## 時間計算量
@@ -56,14 +56,14 @@ title: "\u6700\u9577\u5171\u901A\u90E8\u5206\u5217 (longest common subsequence)"
 $O(NM)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`longest_common_subsequence(a, b)`|$A$ と $B$ の最長共通部分列|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> T longest_common_subsequence(const T& a, const T& b);`|$A$ と $B$ の最長共通部分列|
 
 
-## 参考
+## 参考文献
 
 - https://qiita.com/drken/items/03c7db44ccd27820ea0d
 
@@ -76,6 +76,6 @@ $O(NM)$
   - http://www.prefield.com/algorithm/dp/lcs_hs.html
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/dp/submissions/9236673

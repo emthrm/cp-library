@@ -15,9 +15,6 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/util/xorshift.hpp
-    title: xorshift
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -60,11 +57,10 @@ data:
   - include/emthrm/math/matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/matrix.hpp
   - include/emthrm/math/modint.hpp
-  - include/emthrm/util/xorshift.hpp
   isVerificationFile: true
   path: test/graph/flow/matching/maximum_matching.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-15 02:23:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/matching/maximum_matching.test.cpp

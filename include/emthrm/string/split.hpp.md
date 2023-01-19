@@ -39,13 +39,13 @@ title: "\u6587\u5B57\u5217\u306E\u5206\u5272"
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`split(s, delimiter)`|$\mathrm{delimiter}$ で分割した文字列 $S$|
+|名前|戻り値|
+|:--|:--|
+|`std::vector<std::string> split(const std::string& s, const std::string& delimiter);`|$\mathrm{delimiter}$ で分割した文字列 $S$|
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/abc033/submissions/9292173

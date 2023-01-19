@@ -46,13 +46,13 @@ title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E (run length encoding)"
 $O(\lvert S \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`run_length_encoding<T = char>(s)`|$S$ のランレングス圧縮|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T = char, typename U> std::vector<std::pair<T, int>> run_length_encoding(const U& s);`|$S$ のランレングス圧縮|
 
 
-## Verified
+## Submissons
 
 https://atcoder.jp/contests/abc143/submissions/9291464

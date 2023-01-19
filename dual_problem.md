@@ -1,11 +1,11 @@
 # 双対問題 (dual problem)
 
-主問題 (primary problem) の補問題である．
+主問題 (primary problem) の補問題である。
 
 
 ### 強双対定理 (strong duality theorem)
 
-主問題または双対問題のいずれか一方に最適解が存在するならば，もう一方にもそれに等しい最適解が存在する．
+主問題または双対問題のいずれか一方に最適解が存在するならば、もう一方にもそれに等しい最適解が存在する。
 
 
 ## 例
@@ -32,7 +32,7 @@ $$
   \end{cases}
 $$
 
-e.g. [Security Camera 2](https://atcoder.jp/contests/abc224/submissions/26970545)
+#### e.g. "[Security Camera 2](https://atcoder.jp/contests/abc224/submissions/26970545)"
 
 主問題
 
@@ -56,7 +56,7 @@ $$
   \end{cases}
 $$
 
-e.g. [Infinite Knapsack](https://atcoder.jp/contests/abc275/tasks/abc275_g)
+#### e.g. "[Infinite Knapsack](https://atcoder.jp/contests/abc275/tasks/abc275_g)"
 
 主問題
 
@@ -81,7 +81,7 @@ $$
 
 ### 牛ゲー
 
-自己ループのない有向グラフ $(V, E)$，始点 $s$，終点 $t$，辺 $e \in E$ のコスト $c_e$ とおく．
+自己ループのない有向グラフ $(V, E)$、始点 $s$、終点 $t$、辺 $e \in E$ のコスト $c_e$ とおく。
 
 主問題（最短経路問題）
 
@@ -104,9 +104,9 @@ $$
   \max_{\boldsymbol{p}} (p_t - p_s) \text{ s.t. } p_v - p_u \leq c_e \ (e = (u, v) \in E)
 $$
 
-e.g. [01Sequence](https://atcoder.jp/contests/abc216/submissions/25464575)
+#### e.g. "[01Sequence](https://atcoder.jp/contests/abc216/submissions/25464575)"
 
-$p_i \mathrel{:=} \sum_{j = 1}^{i - 1} (1 - A_j) \ (i = 0, 1, \ldots, N)$ とおく．問題は以下のように言い換えられる．
+$p_i \mathrel{:=} \sum_{j = 1}^{i - 1} (1 - A_j) \ (i = 0, 1, \ldots, N)$ とおく。問題は以下のように言い換えられる。
 
 $$
   \max_{\boldsymbol{p}} (p_N - p_0) \text{ s.t. }
@@ -119,11 +119,11 @@ $$
 
 ### [最大フロー最小カット定理](../graph/flow/maximum_flow/maximum_flow.md)
 
-有向グラフ $(V, E)$，始点 $s$，終点 $t$，辺 $e \in E$ の容量 $c_e$ とおく．
+有向グラフ $(V, E)$、始点 $s$、終点 $t$、辺 $e \in E$ の容量 $c_e$ とおく。
 
 主問題（最大流問題）
 
-$E^\prime = E \cup \lbrace (t, s) \rbrace$ とし，辺 $e \in E^\prime$ の流量を $x_e$ とおく．
+$E^\prime = E \cup \lbrace (t, s) \rbrace$ とし、辺 $e \in E^\prime$ の流量を $x_e$ とおく。
 
 $$
   \max_{\boldsymbol{x}} x_{(t, s)} \text{ s.t. }
@@ -145,7 +145,7 @@ $$
   \end{cases}
 $$
 
-e.g. http://hos.ac/slides/20150319_flow.pdf p.84 の有向グラフ
+#### e.g. http://hos.ac/slides/20150319_flow.pdf p.84 の有向グラフ
 
 主問題
 
@@ -297,7 +297,7 @@ $$
 
 ### 最小費用流問題
 
-有向グラフ $(V, E)$，頂点 $v \in V$ の流出量を $f_v$，辺 $e \in E$ の流量 $x_e$ ($0 \leq l_e \leq x_e \leq u_e$)，コスト $c_e$ とおく．
+有向グラフ $(V, E)$、頂点 $v \in V$ の流出量を $f_v$、辺 $e \in E$ の流量 $x_e$ ($0 \leq l_e \leq x_e \leq u_e$)、コスト $c_e$ とおく。
 
 主問題 (最小流量制約付き最小費用流)
 
@@ -319,7 +319,7 @@ $$
   \end{cases}
 $$
 
-e.g. http://hos.ac/slides/20150319_flow.pdf p.84 の有向グラフ
+#### e.g. http://hos.ac/slides/20150319_flow.pdf p.84 の有向グラフ
 
 主問題
 
@@ -492,9 +492,9 @@ $$
   \end{cases}
 $$
 
-e.g. [How to Create a Good Game](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2230/review/4224563/emthrm/C++14)
+#### e.g. "[How to Create a Good Game](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2230/review/4224563/emthrm/C++14)"
 
-有向非巡回グラフ $(V, E)$，最長経路の長さ $D$，辺 $e \in E$ に加える重み $a_e$ とおく．
+有向非巡回グラフ $(V, E)$、最長経路の長さ $D$、辺 $e \in E$ に加える重み $a_e$ とおく。
 
 $$
   \max_{\boldsymbol{p}, \boldsymbol{a}} \sum_{e \in E} a_e \text{ s.t. }
@@ -505,9 +505,9 @@ $$
   \end{cases}
 $$
 
-e.g. [123パズル](https://atcoder.jp/contests/kupc2019/submissions/10486057)
+#### e.g. 『[123パズル](https://atcoder.jp/contests/kupc2019/submissions/10486057)』
 
-単純グラフ $(V, E)$ とおく．
+単純グラフ $(V, E)$ とおく。
 
 $$
   \min_{\boldsymbol{A}, \boldsymbol{C}} \sum_{e \in E} C_e \text{ s.t. }
@@ -517,7 +517,7 @@ $$
   \end{cases}
 $$
 
-超頂点 $S$ を用意すると，以下のように変形できる．
+超頂点 $S$ を用意すると、以下のように変形できる。
 
 $$
   \max_{\boldsymbol{A}, \boldsymbol{C}} \left(\sum_{e \in E} -C_e + \sum_{v \in V} -\infty \cdot (C_v + C_v^{\prime}) \right) \text{ s.t. }
@@ -528,9 +528,9 @@ $$
   \end{cases}
 $$
 
-e.g. [Longest Shortest Path](https://atcoder.jp/contests/jag2015autumn/submissions/10498510)
+#### e.g. "[Longest Shortest Path](https://atcoder.jp/contests/jag2015autumn/submissions/10498510)"
 
-有向グラフ $(V, E)$ とおく．
+有向グラフ $(V, E)$ とおく。
 
 主問題
 
@@ -603,7 +603,7 @@ $$
   \end{cases}
 $$
 
-制約条件の上三つより $\boldsymbol{f}$ は始点 $s$，終点 $t$，流量 $1$ のフローとなる．
+制約条件の上三つより $\boldsymbol{f}$ は始点 $s$、終点 $t$、流量 $1$ のフローとなる。
 
 Sample Input 1 の場合
 
@@ -649,24 +649,29 @@ $$
 $$
 
 
-## 参考
+## 参考文献
 
 - http://tokoharuland.hateblo.jp/entry/2016/12/06/223614
 - https://www.slideshare.net/wata_orz/ss-91375739
 - ~~http://beet-aizu.hatenablog.com/entry/2019/10/20/150649~~
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.223-224，マイナビ出版（2012）
 - https://paper.dropbox.com/doc/YqGiA3I6bDbMWWWsUc1an
-- Security Camera 2
-  - https://atcoder.jp/contests/abc224/editorial/2812
-- Infinite Knapsack
-  - https://atcoder.jp/contests/abc275/editorial/5148
-- 最大フロー最小カット定理
-  - http://hos.ac/slides/20150319_flow.pdf
-- 123パズル
-  - ~~http://beet-aizu.hatenablog.com/entry/2019/10/13/235736~~
-- Longest Shortest Path
-  - https://jag-icpc.org/?plugin=attach&refer=2015%2FPractice%2F%E6%A8%A1%E6%93%AC%E5%9C%B0%E5%8C%BA%E4%BA%88%E9%81%B8%2F%E8%AC%9B%E8%A9%95&openfile=J.pdf
-  - http://tokoharuland.hateblo.jp/entry/2015/11/22/221920
+
+"Security Camera 2"
+- https://atcoder.jp/contests/abc224/editorial/2812
+
+"Infinite Knapsack"
+- https://atcoder.jp/contests/abc275/editorial/5148
+
+最大フロー最小カット定理
+- http://hos.ac/slides/20150319_flow.pdf
+
+『123パズル』
+- ~~http://beet-aizu.hatenablog.com/entry/2019/10/13/235736~~
+
+"Longest Shortest Path"
+- https://jag-icpc.org/?plugin=attach&refer=2015%2FPractice%2F%E6%A8%A1%E6%93%AC%E5%9C%B0%E5%8C%BA%E4%BA%88%E9%81%B8%2F%E8%AC%9B%E8%A9%95&openfile=J.pdf
+- http://tokoharuland.hateblo.jp/entry/2015/11/22/221920
 
 
 ## TODO
@@ -674,7 +679,7 @@ $$
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/Mi_Sawa/20140311/
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/Mi_Sawa/20140319/
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/Mi_Sawa/20140320/
-- 単体法 (simplex method): 線形計画問題を解くアルゴリズムの一種である．
+- 単体法 (simplex method): 線形計画問題を解くアルゴリズムの一種である。
   - https://www.hamayanhamayan.com/entry/2017/05/31/131424
   - https://github.com/spaghetti-source/algorithm/blob/master/math/SimplexMethodLP.cc
   - ~~http://www.prefield.com/algorithm/math/two_stage_simplex.html~~

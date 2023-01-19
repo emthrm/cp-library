@@ -36,8 +36,8 @@ title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`split(s, before, after)`|$\mathrm{before}$ を $\mathrm{after}$ に置換した文字列 $S$|
+|名前|戻り値|
+|:--|:--|
+|`std::string replace(const std::string& s, const std::string& before, const std::string& after);`|$\mathrm{before}$ を $\mathrm{after}$ に置換した文字列 $S$|

@@ -68,7 +68,7 @@ title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB
   \ (Gauss\u2013Jordan elimination)"
 ---
 
-行基本変形を用いて行列を行階段形に変形するアルゴリズムである．
+行基本変形を用いて行列を行階段形に変形するアルゴリズムである。
 
 
 ## 時間計算量
@@ -76,18 +76,18 @@ title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB
 $O(M^2 N)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`gauss_jordan(&a, ε = 1e-8, 拡大係数行列か? = false)`|行列 $A$ のランク|$A$ は行階段形に変形される．<br>要素の型は実数型または `ModInt` である．|
+|名前|戻り値|要件|備考|
+|:--|:--|:--|:--|
+|`template <typename T> int gauss_jordan(Matrix<T>* a, const T eps = 1e-8, const bool is_extended = false);`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
-## 参考
+## 参考文献
 
 - http://drken1215.hatenablog.com/entry/2019/03/20/202800
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/0004/review/4088546/emthrm/C++14

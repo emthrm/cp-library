@@ -59,12 +59,12 @@ layout: document
 title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological sort)"
 ---
 
-有向非巡回グラフ (directed acyclic graph) のトポロジカル順序を求めるアルゴリズムである．
+有向非巡回グラフ (directed acyclic graph) のトポロジカル順序を求めるアルゴリズムである。
 
 
 ### トポロジカル順序
 
-$i$ 番目の頂点 $V_i$ に対して辺 $(V_i, V_j)$ が存在するならば $i < j$ を満たすような頂点の番号の付け方である．
+$i$ 番目の頂点 $V_i$ に対して辺 $(V_i, V_j)$ が存在するならば $i < j$ を満たすような頂点の番号の付け方である。
 
 
 ## 時間計算量
@@ -72,19 +72,19 @@ $i$ 番目の頂点 $V_i$ に対して辺 $(V_i, V_j)$ が存在するならば 
 $O(\lvert V \rvert + \lvert E \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`topological_sort(graph)`|グラフ $\mathrm{graph}$ のトポロジカル順序|存在しないときは空配列となる．|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> std::vector<int> topological_sort(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ のトポロジカル順序。ただし存在しないときは空配列を返す。|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.89-90，マイナビ出版（2012）
 - https://github.com/spaghetti-source/algorithm/blob/8b1daaa3e80e5d954aac2632ef2299b1b86c55ed/graph/topological_sort.cc
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_4_B/review/4082498/emthrm/C++14

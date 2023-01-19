@@ -85,9 +85,9 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/convolution/mod_convolution.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
 documentation_of: include/emthrm/math/convolution/mod_convolution.hpp
 layout: document
 redirect_from:
@@ -97,9 +97,9 @@ title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F
 ---
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
-剰余環 $\mathbb{Z} / m\mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである．
+剰余環 $\mathbb{Z} / m\mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである。
 
-特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は，$p$ の原始根 $\omega$ に対して
+特に $2^x \geq n$ を満たす $x, k \in \mathbb{N}$ を用いて表される素数 $p = 2^x k + 1$ は、$p$ の原始根 $\omega$ に対して
 
 $$
   \omega^{p - 1} \equiv 1 \pmod{p}
@@ -111,7 +111,7 @@ $$
   (\omega^k)^{2^x} \equiv 1 \pmod{p}
 $$
 
-が成り立つので，条件を満たす．
+が成り立つので、条件を満たす。
 
 
 ## 時間計算量
@@ -119,25 +119,39 @@ $$
 $O(N\log{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`NumberTheoreticTransform<T>()`|数論変換を考える．||
-|`dft(a)`|整数列 $A$ に対して数論変換を行ったもの||
-|`idft(&a)`|$A$ に対して数論変換の逆変換を行う．||
-|`convolution(a, b)`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
+```cpp
+template <int T>
+struct NumberTheoreticTransform;
+```
 
-- 任意の法の下での畳み込み
+#### メンバ関数
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`mod_convolution(a, b, 精度 = 15)`|$A$ と $B$ の畳み込み|$\text{精度} \geq \log_2{\sqrt{m}}$ でなければならない．|
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`NumberTheoreticTransform();`|コンストラクタ||
+|`template <typename U> std::vector<ModInt> dft(const std::vector<U>& a);`|整数列 $A$ に対して数論変換を行ったもの||
+|`void idft(std::vector<ModInt>* a);`|$A$ に対して数論変換の逆変換を行う。||
+|`template <typename U> std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b);`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
 
-e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`ModInt`|`MInt<T>`|
 
 
-## 参考
+### 任意の法の下での畳み込み
+
+|名前|戻り値|要件|備考|
+|:--|:--|:--|:--|
+|`template <int T> std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b, const int pre = 15);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`pre` は精度を表す。|
+
+e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$。
+
+
+## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/math/fast-fourier-transform.html
 - ~~https://lumakernel.github.io/ecasdqina/math/FFT/NumberTheoreticTransform~~
@@ -167,7 +181,7 @@ e.g. $\text{精度} = 15$ のとき $m \leq 2^{30} = 1073741824$．
   - https://github.com/yosupo06/library-checker-problems/issues/728
 
 
-## Verified
+## Submissons
 
 - [数論変換](https://judge.yosupo.jp/submission/3591)
 - [任意の法の下での畳み込み](https://atcoder.jp/contests/atc001/submissions/25084524)

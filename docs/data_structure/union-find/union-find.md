@@ -1,71 +1,101 @@
 # 素集合データ構造 (disjoint-set data structure)
 
-|データ構造|説明|
-|:--:|:--:|
+|名前|概要|
+|:--|:--|
 |union-find|互いに素な集合族を管理するデータ構造|
 |重みつき union-find|[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)上の重みを考慮した union-find|
-|部分永続 union-find|ある時刻における状態を保存する union-find である．最新版のみ変更できる．|
+|部分永続 union-find|ある時刻における状態を保存する union-find である。最新版のみ変更できる。|
 |undo 可能 union-find|巻き戻し可能な union-find|
 
 
 ## 時間計算量
 
-|データ構造|時間計算量|
-|:--:|:--:|
+||時間計算量|
+|:--|:--|
 |union-find|$\langle O(N), \text{amortized } O(\alpha(N)) \rangle$|
 |重みつき union-find|$\langle O(N), \text{amortized } O(\alpha(N)) \rangle$|
 |部分永続 union-find|$\langle O(N), O(\log{N}) \rangle$|
 |undo 可能 union-find|$\langle O(N), O(\log{N}) \rangle$|
 
 
-## 使用法
+## 仕様
 
-- union-find
+### union-find
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`UnionFind(n)`|頂点数 $N$ の union-find||
-|`root(ver)`|$\mathrm{ver}$ の根||
-|`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
+```cpp
+struct UnionFind;
+```
 
-- 重みつき union-find
+#### メンバ関数
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`WeightedUnionFind<Abelian>(n, 単位元 = 0)`|頂点数 $N$ の 重みつき union-find||
-|`root(ver)`|$\mathrm{ver}$ の根||
-|`unite(u, v, wt)`|$w(u) + \mathrm{wt} = w(v)$ の情報を加える．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
-|`diff(u, v)`|$w(v) - w(u)$||
-
-- 部分永続 union-find
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`PartiallyPersistentUnionFind(n)`|頂点数 $N$ の部分永続 union-find||
-|`root(t, ver)`|時刻 $t$ における $\mathrm{ver}$ の根||
-|`unite(t, u, v)`|時刻 $t$ に $u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(t, u, v)`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか．||
-|`size(t, ver)`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ||
-
-- undo 可能 union-find
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`UndoableUnionFind(n)`|頂点数 $N$ の undo 可能 union-find||
-|`root(ver)`|$\mathrm{ver}$ の根||
-|`unite(u, v)`|$u$ と $v$ を併合する．|返り値は $u$ と $v$ を併合したか．|
-|`is_same(u, v)`|$u$ と $v$ は同じ集合に属しているか．||
-|`size(ver)`|$\mathrm{ver}$ を含む集合のサイズ||
-|`undo()`|`unite()` を一度だけ巻き戻す．||
-|`snap()`|スナップショット||
-|`rollback()`|`snap()` 時点まで巻き戻す．||
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit UnionFind(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`int root(const int ver);`|$\mathrm{ver}$ の根|
+|`bool unite(int u, int v);`|$u$ と $v$ を併合したのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int u, const int v);`|$u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int ver);`|$\mathrm{ver}$ を含む集合のサイズ|
 
 
-## 参考
+### 重みつき union-find
+
+```cpp
+template <typename Abelian>
+struct WeightedUnionFind;
+```
+
+- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit WeightedUnionFind(const int n, const Abelian ID = 0);`|頂点数 $N$、単位元 $\mathrm{id}$ のオブジェクトを構築する。|
+|`int root(const int ver);`|$\mathrm{ver}$ の根|
+|`bool unite(int u, int v, Abelian wt);`|$w(u) + \mathrm{wt} = w(v)$ の情報を加えたのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int u, const int v);`|$u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int ver);`|$\mathrm{ver}$ を含む集合のサイズ|
+|`Abelian diff(const int u, const int v);`|$w(v) - w(u)$|
+
+
+### 部分永続 union-find
+
+```cpp
+struct PartiallyPersistentUnionFind;
+```
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit PartiallyPersistentUnionFind(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`int root(const int t, const int ver) const;`|時刻 $t$ における $\mathrm{ver}$ の根|
+|`bool unite(const int t, int u, int v);`|時刻 $t$ に $u$ と $v$ を併合したのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int t, const int u, const int v) const;`|時刻 $t$ に $u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int t, int ver) const;`|時刻 $t$ における $\mathrm{ver}$ を含む集合のサイズ|
+
+
+### undo 可能 union-find
+
+```cpp
+struct UndoableUnionFind;
+```
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit UndoableUnionFind(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`int root(const int ver) const;`|$\mathrm{ver}$ の根|
+|`bool unite(int u, int v);`|$u$ と $v$ を併合したのち、操作前は $u$ と $v$ が異なる集合に属していたかを返す。|
+|`bool is_same(const int u, const int v) const;`|$u$ と $v$ は同じ集合に属しているか。|
+|`int size(const int ver) const;`|$\mathrm{ver}$ を含む集合のサイズ|
+|`void undo();`|`unite` を一度だけ巻き戻す。|
+|`void snapshot();`|スナップショット|
+|`void rollback();`|`snapshot` 時点まで巻き戻す。|
+
+
+## 参考文献
 
 - https://ei1333.github.io/algorithm/union-find.html
 
@@ -109,7 +139,7 @@ undo 可能 union-find
   - https://judge.yosupo.jp/problem/dynamic_graph_vertex_add_component_sum
 
 
-## Verified
+## Submissons
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
 - [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)

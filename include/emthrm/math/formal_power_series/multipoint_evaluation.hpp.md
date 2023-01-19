@@ -59,7 +59,7 @@ layout: document
 title: multipoint evaluation
 ---
 
-複数の $x$ に対して $f(x)$ を求めるアルゴリズムである．
+複数の $x$ に対して $f(x)$ を求めるアルゴリズムである。
 
 
 ## 時間計算量
@@ -67,17 +67,32 @@ title: multipoint evaluation
 $\langle O(N(\log{N})^2), O(N(\log{N})^2) \rangle$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`MultipointEvaluation<多項式, T>(xs)`|multipoint evaluation を考える．|
-|`f_x`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
-|`subproduct_tree`|subproduct tree|
-|`build(f)`|多項式 $f$ に対して `f_x` を構築する．|
+```cpp
+template <template <typename> class C, typename T>
+struct MultipointEvaluation;
+```
+
+- `C`：冪級数を表す構造体
+- `T`：係数を表す要素型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`std::vector<T> f_x`|$\lbrace f(x) \mid x \in \mathrm{xs} \rbrace$|
+|`std::vector<C<T>> subproduct_tree`|subproduct tree|
+
+#### メンバ関数
+
+|名前|効果|
+|:--|:--|
+|`explicit MultipointEvaluation(const std::vector<T> &xs);`|multipoint evaluation を考える。|
+|`void build(const C<T>& f);`|多項式 $f$ に対して `f_x` を構築する。|
 
 
-## 参考
+## 参考文献
 
 - https://www.sci.kanagawa-u.ac.jp/info/matsuo/pub/pdf/IKM09.pdf
 - https://judge.yosupo.jp/submission/3271
@@ -89,6 +104,6 @@ $\langle O(N(\log{N})^2), O(N(\log{N})^2) \rangle$
 - https://drive.google.com/drive/folders/1gszRctvUfme7ST-K3DsrH7FIU64kHcsD
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/3793

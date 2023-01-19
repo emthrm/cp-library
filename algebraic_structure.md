@@ -74,7 +74,7 @@ e.g. $(\mathbb{N}, \oplus, \land, 0, \text{0xFFFF...})$
 を満たす $(S, \cdot)$ である．
 
 
-## 参考
+## 参考文献
 
 アーベル群
 - https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%BC%E3%83%99%E3%83%AB%E7%BE%A4

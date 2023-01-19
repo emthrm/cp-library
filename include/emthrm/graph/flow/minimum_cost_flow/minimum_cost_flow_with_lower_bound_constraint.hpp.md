@@ -53,25 +53,41 @@ title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528
 
 ## 計算量
 
-[最小費用流](minimum_cost_flow.md)に同じ．
+[最小費用流](minimum_cost_flow.md)に同じ。
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`MinimumCostFlowWithLowerBoundConstraint<最小費用流, フロー, コスト>(n, 十分大きな定数, ∞)`|頂点数 $N$ の最小流量制約付き最小費用流を考える．||
-|`uinf`|$\infty$|型はコストと等しい．|
-|`add_edge(src, dst, lb, ub, cost)`|始点 $\mathrm{src}$, 終点 $\mathrm{dst}$, 流量の下限 $\mathrm{lb}$, 上限 $\mathrm{ub}$, コスト $\mathrm{cost}$ の辺を加える．||
-|`solve(s, t, flow)`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときのコストの最小値|流せないときは $\infty$ となる．|
+```cpp
+template <template <typename, typename> class C, typename T, typename U>
+struct MinimumCostFlowWithLowerBoundConstraint;
+```
+
+- `C`：最小費用流を表す構造体
+- `T`：容量を表す型
+- `U`：コストを表す型
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const U uinf`|$\infty$|
+
+#### メンバ関数
+
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`explicit MinimumCostFlowWithLowerBoundConstraint(const int n, const U m, const U uinf = std::numeric_limits<U>::max());`|頂点数 $N$ のオブジェクトを構築する。|$m$ は十分大きな定数である。|
+|`void add_edge(const int src, const int dst, const T lb, const T ub, const U cost);`|始点 $\mathrm{src}$、終点 $\mathrm{dst}$、流量の下限 $\mathrm{lb}$、上限 $\mathrm{ub}$、コスト $\mathrm{cost}$ の辺を加える。||
+|`U solve(const int s, const int t, const T flow);`|始点 $s$ から終点 $t$ まで流量 $\mathrm{flow}$ のフローを流すときのコストの最小値。ただし流せないときは `uinf` を返す。|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.204，マイナビ出版（2012）
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2230/review/4224563/emthrm/C++14
 

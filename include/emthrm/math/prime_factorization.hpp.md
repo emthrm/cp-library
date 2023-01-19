@@ -42,9 +42,9 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/game/nim.test.cpp
   - test/math/is_primitive_root.test.cpp
   - test/math/prime_factorization.test.cpp
-  - test/game/nim.test.cpp
 documentation_of: include/emthrm/math/prime_factorization.hpp
 layout: document
 title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
@@ -56,14 +56,14 @@ title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
 $O(\sqrt{N})$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`prime_factorization(n)`|$n$ の素因数分解|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<std::pair<T, int>> prime_factorization(T n);`|$n$ の素因数分解|
 
 
-## 参考
+## 参考文献
 
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，p.111，マイナビ出版（2012）
 
@@ -86,6 +86,6 @@ $O(\sqrt{N})$
   - https://judge.yosupo.jp/problem/factorize
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_1_A/review/4088167/emthrm/C++14

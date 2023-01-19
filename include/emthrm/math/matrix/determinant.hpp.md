@@ -65,14 +65,14 @@ title: "\u884C\u5217\u5F0F (determinant)"
 $O(N^3)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`det(a, ε)`|$\lvert A \rvert$|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T, typename U> U det(const Matrix<T>& a, const U eps);`|$\lvert A \rvert$|
 
 
-## 参考
+## 参考文献
 
 - https://github.com/beet-aizu/library/blob/ebcad58b8480962339b18e316b826e56752b90c8/matrix/matrix.cpp
 
@@ -89,6 +89,6 @@ $O(N^3)$
   - https://github.com/yosupo06/library-checker-problems/issues/750
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/2714

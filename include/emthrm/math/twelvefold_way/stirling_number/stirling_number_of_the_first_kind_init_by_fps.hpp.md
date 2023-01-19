@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
@@ -66,7 +66,7 @@ $$
   x^{\overline{n}} = \sum_{k = 0}^n s(n, k) x^k
 $$
 
-で定義される $s$ である．
+で定義される $s$ である。
 
 $$
   \begin{aligned}
@@ -79,9 +79,9 @@ $$
   \end{aligned}
 $$
 
-という漸化式をもつ．
+という漸化式をもつ。
 
-組合せ数学では区別された $n$ 個を $k$ 個の巡回列に分割する個数を意味する．
+組合せ数学では区別された $n$ 個を $k$ 個の巡回列に分割する個数を意味する。
 
 
 ## 第2種スターリング数 (Stirling number of the second kind)
@@ -90,7 +90,7 @@ $$
   x^n = \sum_{k = 0}^n S(n, k) x^{\underline{k}}
 $$
 
-で定義される $S$ である．
+で定義される $S$ である。
 
 $$
   \begin{aligned}
@@ -103,7 +103,7 @@ $$
   \end{aligned}
 $$
 
-という漸化式をもつ．
+という漸化式をもつ。
 
 一般項は
 
@@ -111,15 +111,15 @@ $$
   S(n,k) = \dfrac{\sum_{i = 1}^k (-1)^{k - i} \binom{k}{i} i^n}{k!}
 $$
 
-である．
+である。
 
-組合せ数学では区別された $n$ 個を $k$ グループに分割する個数を意味する．
+組合せ数学では区別された $n$ 個を $k$ グループに分割する個数を意味する。
 
 
 ## 時間計算量
 
 ||時間計算量|
-|:--:|:--:|
+|:--|:--|
 |第1種スターリング数の数表|$O(NK)$|
 |第1種スターリング数の数表 形式的冪級数版|$O(N\log{N})$|
 |第2種スターリング数|$O(K\log{N})$|
@@ -127,40 +127,44 @@ $$
 |第2種スターリング数の数表 形式的冪級数版|$O(N\log{N})$|
 
 
-## 使用法
+## 仕様
 
-- 第1種スターリング数の数表
+### 第1種スターリング数の数表
 
-||説明|
-|:--:|:--:|
-|`stirling_number_of_the_first_kind_init<T>(n, k)`|第1種スターリング数 $s(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
-
-- 第1種スターリング数の数表 形式的冪級数版
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`stirling_number_of_the_first_kind_init_by_fps<T>(n)`|第1種スターリング数 $s(n, k)$ ($0 \leq k \leq n$) の数表|$x^{\underline{n}} = \sum_{k = 0}^n (-1)^{n + k} s(n, k) x^k$|
-
-- 第2種スターリング数
-
-||説明|
-|:--:|:--:|
-|`stirling_number_of_the_second_kind<T>(n, k)`|第2種スターリング数 $S(n,k)$|
-
-- 第2種スターリング数の数表
-
-||説明|
-|:--:|:--:|
-|`stirling_number_of_the_second_kind_init<T>(n, k)`|第2種スターリング数 $S(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
-
-- 第2種スターリング数の数表 形式的冪級数版
-
-||説明|
-|:--:|:--:|
-|`stirling_number_of_the_second_kind_init_by_fps<T>(n)`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(const int n, const int k);`|第1種スターリング数 $s(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 
-## 参考
+### 第1種スターリング数の数表 形式的冪級数版
+
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <typename T> std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n);`|第1種スターリング数 $s(n, k)$ ($0 \leq k \leq n$) の数表|$x^{\underline{n}} = \sum_{k = 0}^n (-1)^{n + k} s(n, k) x^k$|
+
+
+### 第2種スターリング数
+
+|名前|戻り値|
+|:--|:--|
+|`template <int T> MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
+
+
+### 第2種スターリング数の数表
+
+|名前|戻り値|
+|:--|:--|
+|`template <typename T> std::vector<std::vector<T>> stirling_number_of_the_second_kind_init(const int n, const int k);`|第2種スターリング数 $S(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+
+
+### 第2種スターリング数の数表 形式的冪級数版
+
+|名前|戻り値|
+|:--|:--|
+|`template <int T> std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
+
+
+## 参考文献
 
 - https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E6%95%B0
 
@@ -180,7 +184,7 @@ $$
   - https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind_small_p_large_n
 
 
-## Verified
+## Submissons
 
 - 第1種スターリング数の数表
 - [第1種スターリング数の数表 形式的冪級数版](https://judge.yosupo.jp/submission/4637)

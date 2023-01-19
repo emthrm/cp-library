@@ -6,7 +6,7 @@ $$
   \forall a \in \mathbb{N}^+,\ a \perp n \implies a^x \equiv 1 \pmod{n}
 $$
 
-を満たす最小の $x \in \mathbb{N}^+$ を $\lambda(n)$ と定義する．
+を満たす最小の $x \in \mathbb{N}^+$ を $\lambda(n)$ と定義する。
 
 素因数分解 $n = \prod_{i = 1}^k p_i^{e_i}$ に対して
 
@@ -21,23 +21,24 @@ $$
   \end{cases}
 $$
 
-が成り立つ．
+が成り立つ。
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`carmichael_function(n)`|カーマイケル関数 $\lambda(n)$|
-
-- 数表
-
-||説明|
-|:--:|:--:|
-|`carmichael_function_init(low, high)`|カーマイケル関数 $\lambda(n)$ ($\mathrm{low} \leq n \leq \mathrm{high}$) の数表|
+|名前|戻り値|
+|:--|:--|
+|`long long carmichael_function(long long n);`|カーマイケル関数 $\lambda(n)$|
 
 
-## 参考
+### 数表
+
+|名前|戻り値|
+|:--|:--|
+|`std::vector<long long> carmichael_function_init(const long long low, const long long high);`|カーマイケル関数 $\lambda(n)$ ($\mathrm{low} \leq n \leq \mathrm{high}$) の数表|
+
+
+## 参考文献
 
 - http://integers.hatenablog.com/entry/2017/06/08/191649
 - https://en.wikipedia.org/wiki/Carmichael_function

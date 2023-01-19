@@ -36,15 +36,22 @@ title: "\u30BF\u30A4\u30DE\u30FC (timer)"
 ---
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`timer.reset()`|リセット|
-|`timer.elapsed<PeriodType = std::chrono::milliseconds>()`|計測時間|
+```cpp
+struct Timer;
+```
+
+#### メンバ変数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`Timer();`|コンストラクタ|
+|`void reset();`|リセットする。|
+|`template <typename PeriodType = std::chrono::milliseconds> long long elapsed() const;`|経過時間|
 
 
-## 参考
+## 参考文献
 
 - http://vivi.dyndns.org/tech/cpp/timeMeasurement.html#chrono
 - https://cpprefjp.github.io/reference/chrono.html

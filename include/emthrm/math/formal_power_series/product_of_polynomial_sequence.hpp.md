@@ -55,13 +55,13 @@ $$
 $$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`product_of_polynomial_sequence(f)`|$\prod_i f_i(x)$|
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <template <typename> class C, typename T> C<T> product_of_polynomial_sequence(std::vector<C<T>> a);`|$\prod_i f_i(x)$|`C` は冪級数を表す構造体である。|
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/113024

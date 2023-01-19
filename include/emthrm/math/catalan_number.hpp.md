@@ -48,7 +48,7 @@ $$
   c_n \mathrel{:=} \dfrac{\binom{2n}{n}}{n + 1} = \dbinom{2n}{n} - \dbinom{2n}{n - 1}
 $$
 
-で定義される $c$ である．
+で定義される $c$ である。
 
 $$
   \begin{cases}
@@ -57,9 +57,9 @@ $$
   \end{cases}
 $$
 
-の特殊解である．
+の特殊解である。
 
-カタラン数 $c_n$ を適用できる例として以下がある．
+カタラン数 $c_n$ を適用できる例として以下がある。
 - 長さ $2n$ の correct bracket sequence の場合の数
 - $n \times n$ マスの格子で左下から右上まで対角線をまたがない最短経路の個数
 - $n + 1$ 個の葉を持つ二分木の個数
@@ -72,14 +72,14 @@ $$
 $O(N)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`catalan_number<T>(n)`|カタラン数 $c_i$ ($0 \leq i \leq n$) の数表|
+|名前|戻り値|
+|:--|:--|
+|`template <int T> std::vector<MInt<T>> catalan_number(const int n);`|カタラン数 $c_i$ ($0 \leq i \leq n$) の数表|
 
 
-## 参考
+## 参考文献
 
 - https://mathtrain.jp/catalan
 - https://noshi91.hatenablog.com/entry/2021/07/10/170943
@@ -87,6 +87,6 @@ $O(N)$
 - https://drive.google.com/file/d/1WC7Y2Ni-8elttUgorfbix9tO1fvYN3g3/view
 
 
-## Verified
+## Submissons
 
 https://yukicoder.me/submissions/414045

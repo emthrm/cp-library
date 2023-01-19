@@ -56,12 +56,12 @@ layout: document
 title: double sweep
 ---
 
-木の直径を求めるアルゴリズムである．
+木の直径を求めるアルゴリズムである。
 
 
 ### 木の直径
 
-木の最遠頂点間距離である．
+木の最遠頂点間距離である。
 
 
 ## 時間計算量
@@ -69,14 +69,14 @@ title: double sweep
 $O(\lvert V \rvert)$
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`double_sweep(graph)`|グラフ $\mathrm{graph}$ の直径とその経路|
+|名前|戻り値|
+|:--|:--|
+|`template <typename CostType> std::pair<CostType, std::vector<int>> double_sweep(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ の直径とその経路|
 
 
-## 参考
+## 参考文献
 
 - http://www.prefield.com/algorithm/graph/tree_diameter.html
 
@@ -87,6 +87,6 @@ $O(\lvert V \rvert)$
   - https://github.com/beet-aizu/library/blob/master/tree/diameterforvertex.cpp
 
 
-## Verified
+## Submissons
 
 https://judge.yosupo.jp/submission/40074

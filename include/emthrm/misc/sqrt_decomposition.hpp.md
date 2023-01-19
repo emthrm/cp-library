@@ -91,23 +91,35 @@ title: "\u5E73\u65B9\u5206\u5272 (sqrt decomposition)"
 $\langle O(N), O(\sqrt{N}) \rangle$
 
 
-## 使用法
+## 仕様
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`SqrtDecomposition(n)`|サイズ $N$ の平方分割を考える．||
-|`block_size`|ブロックのサイズ||
-|`n`|ブロックの数||
-|[`ls[i]`, `rs[i]`)|ブロック $i$ に対応する列のインデックス||
-|`partial_update(idx, val)`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する．|関数プロトタイプ|
-|`total_update(idx, val)`|$\mathrm{val}$ を基に $B_{\mathrm{idx}}$ を更新する．|関数プロトタイプ|
-|`update(l, r, val)`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する．||
-|`partial_query(idx, &val)`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
-|`total_query(idx, &val)`|$B_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する．|関数プロトタイプ|
-|`query(l, r, 単位元)`|$\lbrack l, r)$ に対するクエリの解||
+```cpp
+struct SqrtDecomposition;
+```
+
+#### メンバ変数
+
+|名前|説明|
+|:--|:--|
+|`const int block_size`|ブロックのサイズ|
+|`const int n`|ブロックの数|
+|`std::vector<int> ls`<br>`std::vector<int> rs`|[`ls[i]`, `rs[i]`) はブロック $i$ に対応する列のインデックス|
+|`std::vector<bool> to_be_eval`|ブロックを評価すべきか。|
+
+#### メンバ関数
+
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`explicit SqrtDecomposition(const int n_)`|サイズ $N$ のオブジェクトを構築する。||
+|`template <typename T> void partial_update(const int idx, const T val);`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する。|関数プロトタイプ|
+|`template <typename T> void total_update(const int idx, const T val);`|$\mathrm{val}$ を基にブロック $\mathrm{idx}$ を更新する。|関数プロトタイプ|
+|`template <typename T> void update(const int l, const int r, const T val);`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する。||
+|`template <typename T> void partial_query(const int idx, T* val);`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
+|`template <typename T> void total_query(const int idx, T* val);`|ブロック $\mathrm{idx}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
+|`template <typename T> T query(const int l, const int r, const T id);`|$\lbrack l, r)$ に対するクエリの解|$\mathrm{id}$ は単位元である。|
 
 
-## 参考
+## 参考文献
 
 - https://twitter.com/chokudai/status/1125634200084729857
 
@@ -127,6 +139,6 @@ $\langle O(N), O(\sqrt{N}) \rangle$
   - http://noshi91.hatenablog.com/entry/2019/12/07/140433
 
 
-## Verified
+## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_G/review/4087985/emthrm/C++14

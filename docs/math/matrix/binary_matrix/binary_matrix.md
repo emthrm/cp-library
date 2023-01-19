@@ -1,47 +1,59 @@
 # バイナリ行列
 
-有限体 $\mathbb{F}_2$ 上の行列である．
+有限体 $\mathbb{F}_2$ 上の行列である。
 
 
-## 使用法
+## 仕様
 
-||説明|
-|:--:|:--:|
-|`BinaryMatrix<N>(m, n = N, def = false)`|初期値 $\mathrm{def}$ の $M \times N$ 型バイナリ行列|
-|`nrow()`|$M$|
-|`ncol()`|$N$|
-|`pow(exponent)`|$A^\mathrm{exponent}$|
-|`operator()[i]`|$A$ の $i$ 行目|
-|`operator=(x)`|代入|
-|`operator+=(x)`<br>`operator+(x)`|加算|
-|`operator+=(*)`<br>`operator+(*)`|乗算|
+```cpp
+template <int N>
+struct BinaryMatrix;
+```
 
-- [ガウス・ジョルダンの消去法](../gauss_jordan.md)
+- `N`：列数の最大値
 
-||説明|備考|
-|:--:|:--:|:--:|
-|`gauss_jordan(&a, 拡大係数行列か? = false)`|行列 $A$ のランク|$A$ は行階段形に変形される．|
+#### メンバ関数
 
-- [連立一次方程式](../linear_equation.md)
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`linear_equation(a, b)`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$|解なしのときは空配列となる．|
-
-- [逆行列](../inverse_matrix.md)
-
-||説明|備考|
-|:--:|:--:|:--:|
-|`inverse(a)`|行列 $A$ の逆行列|存在しないときは空行列となる．|
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit BinaryMatrix(const int m, const int n = N, const bool def = false);`|初期値 $\mathrm{def}$ の $M \times N$ 型バイナリ行列を表すオブジェクトを構築する。|
+|`int nrow() const;`|$M$|
+|`int ncol() const;`|$N$|
+|`BinaryMatrix pow(long long exponent) const;`|$A^\mathrm{exponent}$|
+|`inline const std::bitset<N>& operator[](const int i) const`<br>`inline std::bitset<N>& operator[](const int i)`|$A$ の $i$ 行目|
+|`BinaryMatrix& operator=(const BinaryMatrix& x)`|代入演算子|
+|`BinaryMatrix& operator+=(const BinaryMatrix& x);`<br>`BinaryMatrix operator+(const BinaryMatrix& x) const;`|加算|
+|`BinaryMatrix& operator*=(const BinaryMatrix& x);`<br>`BinaryMatrix operator*(const BinaryMatrix& x) const;`|乗算|
 
 
-## 参考
+### [ガウス・ジョルダンの消去法](../gauss_jordan.md)
+
+|名前|戻り値|備考|
+|:--|:--|:--|
+|`template <int N> int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
+
+
+### [連立一次方程式](../linear_equation.md)
+
+|名前|戻り値|
+|:--|:--|
+|`template <int N> std::vector<bool> linear_equation(const BinaryMatrix<N>& a, const std::vector<bool>& b);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
+
+
+### [逆行列](../inverse_matrix.md)
+
+|名前|戻り値|
+|:--|:--|
+|`template <int N> BinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a);`|行列 $A$ の逆行列。ただし存在しないときは空行列を返す。|
+
+
+## 参考文献
 
 - http://drken1215.hatenablog.com/entry/2019/03/20/202800
 - https://atcoder.jp/contests/utpc2014/submissions/428573
 
 
-## Verified
+## Submissons
 
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
