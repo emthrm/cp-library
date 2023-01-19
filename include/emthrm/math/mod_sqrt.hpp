@@ -22,7 +22,7 @@ long long mod_sqrt(long long a, const int p) {
   for (; !(q & 1); q >>= 1) {
     ++s;
   }
-  static std::mt19937_64 engine(std::random_device{}());
+  static std::mt19937_64 engine(std::random_device {} ());
   std::uniform_int_distribution<> dist(2, p - 1);
   long long z;
   do {

@@ -19,7 +19,7 @@ int maximum_matching(const std::vector<std::vector<int>>& graph) {
   constexpr int P = 1000000007;
   using ModInt = MInt<P>;
   ModInt::set_mod(P);
-  static std::mt19937_64 engine(std::random_device{}());
+  static std::mt19937_64 engine(std::random_device {} ());
   static std::uniform_int_distribution<> dist(1, P - 1);
   const int n = graph.size();
   Matrix<ModInt> tutte_matrix(n, n, 0);
