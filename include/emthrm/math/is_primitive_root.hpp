@@ -8,7 +8,9 @@
 
 #include <algorithm>
 #include <map>
+#if __cplusplus < 201703L
 #include <utility>
+#endif
 #include <vector>
 
 #include "emthrm/math/euler_phi/euler_phi.hpp"
@@ -26,9 +28,15 @@ bool is_primitive_root(long long root, const int m) {
   static std::map<int, std::vector<int>> primes;
   if (!primes.count(phi_m)) {
     std::vector<int> tmp;
+#if __cplusplus >= 201703L
+    for (const auto& [prime, _] : prime_factorization(phi_m)) {
+      tmp.emplace_back(prime);
+    }
+#else
     for (const std::pair<int, int>& pr : prime_factorization(phi_m)) {
       tmp.emplace_back(pr.first);
     }
+#endif
     primes[phi_m] = tmp;
   }
   for (const int p : primes[phi_m]) {

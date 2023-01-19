@@ -4,15 +4,21 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E"
 
 #include <iostream>
+#if __cplusplus < 201703L
 #include <tuple>
+#endif
 
 #include "emthrm/math/ext_gcd.hpp"
 
 int main() {
   int a, b;
   std::cin >> a >> b;
+#if __cplusplus >= 201703L
+  const auto [x, y] = emthrm::ext_gcd(a, b);
+#else
   int x, y;
   std::tie(x, y) = emthrm::ext_gcd(a, b);
+#endif
   std::cout << x << ' ' << y << '\n';
   return 0;
 }

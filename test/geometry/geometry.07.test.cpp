@@ -8,7 +8,9 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
+#if __cplusplus < 201703L
 #include <tuple>
+#endif
 #include <utility>
 #include <vector>
 
@@ -71,8 +73,12 @@ int main() {
   dp[0][0][false] = 0;
   dp[0][1][true] = balls[0].second - balls[0].first;
   for (int i = 1; i < n; ++i) {
+#if __cplusplus >= 201703L
+    const auto [left, right] = balls[i];
+#else
     double left, right;
     std::tie(left, right) = balls[i];
+#endif
     int x = i - 1;
     while (x >= 0 && balls[i].first <= balls[x].second) --x;
     ++x;

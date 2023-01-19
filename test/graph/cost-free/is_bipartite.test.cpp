@@ -4,8 +4,10 @@
 #include <algorithm>
 #include <iostream>
 #include <map>
+#if __cplusplus < 201703L
 #include <tuple>
 #include <utility>
+#endif
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
@@ -45,9 +47,13 @@ int main() {
   for (int i = 0; i < n; ++i) {
     mp[union_find.root(i)] += color[i];
   }
+#if __cplusplus >= 201703L
+  for (const auto& [root, size] : mp) {
+#else
   for (const std::pair<const int, int>& pr : mp) {
     int root, size;
     std::tie(root, size) = pr;
+#endif
     for (int i = n; i >= 0; --i) {
       if (dp[i]) {
         dp[i] = false;

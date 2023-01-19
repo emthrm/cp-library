@@ -23,8 +23,13 @@ struct TwoEdgeConnectedComponents : Lowlink {
       if (id[i] == -1) dfs(-1, i, &m);
     }
     g.resize(m);
+#if __cplusplus >= 201703L
+    for (const auto& [s, t] : this->bridges) {
+      const int u = id[s], v = id[t];
+#else
     for (const std::pair<int, int>& e : this->bridges) {
       const int u = id[e.first], v = id[e.second];
+#endif
       g[u].emplace_back(v);
       g[v].emplace_back(u);
     }
