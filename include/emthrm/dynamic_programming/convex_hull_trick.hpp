@@ -14,12 +14,15 @@ struct ConvexHullTrick {
   void add(T a, T b) {
 #if __cplusplus >= 201703L
     if constexpr (!IS_MINIMIZED) {
-#else
-    if (!IS_MINIMIZED) {
-#endif
       a = -a;
       b = -b;
     }
+#else
+    if (!IS_MINIMIZED) {
+      a = -a;
+      b = -b;
+    }
+#endif
     const Line line(a, b);
     if (deq.empty()) {
       deq.emplace_back(line);

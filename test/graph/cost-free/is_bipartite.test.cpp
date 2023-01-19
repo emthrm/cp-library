@@ -49,11 +49,6 @@ int main() {
   }
 #if __cplusplus >= 201703L
   for (const auto& [root, size] : mp) {
-#else
-  for (const std::pair<const int, int>& pr : mp) {
-    int root, size;
-    std::tie(root, size) = pr;
-#endif
     for (int i = n; i >= 0; --i) {
       if (dp[i]) {
         dp[i] = false;
@@ -64,6 +59,21 @@ int main() {
       }
     }
   }
+#else
+  for (const std::pair<const int, int>& pr : mp) {
+    int root, size;
+    std::tie(root, size) = pr;
+    for (int i = n; i >= 0; --i) {
+      if (dp[i]) {
+        dp[i] = false;
+        if (i + size <= n) dp[i + size] = true;
+        if (i + union_find.size(root) - size <= n) {
+          dp[i + union_find.size(root) - size] = true;
+        }
+      }
+    }
+  }
+#endif
   for (int i = 0; i <= n; ++i) {
     if (dp[i]) ans = std::min(ans, i * (i - 1) / 2 + (n - i) * (n - i - 1) / 2);
   }

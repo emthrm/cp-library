@@ -46,13 +46,16 @@ struct TwoEdgeConnectedComponentsByImos {
 #if __cplusplus >= 201703L
     for (const auto& [s, t] : bridge) {
       const int u = id[s], v = id[t];
-#else
-    for (const std::pair<int, int>& e : bridge) {
-      const int u = id[e.first], v = id[e.second];
-#endif
       g[u].emplace_back(v);
       g[v].emplace_back(u);
     }
+#else
+    for (const std::pair<int, int>& e : bridge) {
+      const int u = id[e.first], v = id[e.second];
+      g[u].emplace_back(v);
+      g[v].emplace_back(u);
+    }
+#endif
     // for (int i = 0; i < m; ++i) {
     //   std::sort(vertices[i].begin(), vertices[i].end());
     // }

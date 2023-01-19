@@ -31,12 +31,15 @@ struct LiChaoTree {
   void add(T a, T b) {
 #if __cplusplus >= 201703L
     if constexpr (!IS_MINIMIZED) {
-#else
-    if (!IS_MINIMIZED) {
-#endif
       a = -a;
       b = -b;
     }
+#else
+    if (!IS_MINIMIZED) {
+      a = -a;
+      b = -b;
+    }
+#endif
     Line line(a, b);
     add(&line, 1, 0, n);
   }
@@ -44,12 +47,15 @@ struct LiChaoTree {
   void add(T a, T b, T left, T right) {
 #if __cplusplus >= 201703L
     if constexpr (!IS_MINIMIZED) {
-#else
-    if (!IS_MINIMIZED) {
-#endif
       a = -a;
       b = -b;
     }
+#else
+    if (!IS_MINIMIZED) {
+      a = -a;
+      b = -b;
+    }
+#endif
     for (int len = 1,
              node_l = std::distance(
                  xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),

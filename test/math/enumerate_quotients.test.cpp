@@ -16,14 +16,16 @@ int main() {
   long long ans = 0;
 #if __cplusplus >= 201703L
   for (const auto& [l, r, q] : emthrm::enumerate_quotients(n)) {
+    ans += q * (r - l);
+  }
 #else
   for (const std::tuple<long long, long long, long long>& lrq
        : emthrm::enumerate_quotients(n)) {
     long long l, r, q;
     std::tie(l, r, q) = lrq;
-#endif
     ans += q * (r - l);
   }
+#endif
   std::cout << ans << '\n';
   return 0;
 }

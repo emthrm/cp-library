@@ -342,25 +342,30 @@ namespace std {
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> gcd(emthrm::BigInt<LogB, B> a,
                             emthrm::BigInt<LogB, B> b) {
+  while (!b.data.empty()) std::swap(a %= b, b);
+  return a;
+}
 #else
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,
                               emthrm::BigInt<LogB, B> b) {
-#endif
   while (!b.data.empty()) std::swap(a %= b, b);
   return a;
 }
+#endif
 #if __cplusplus >= 201703L
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> lcm(const emthrm::BigInt<LogB, B>& a,
                             const emthrm::BigInt<LogB, B>& b) {
+  return a / std::__gcd(a, b) * b;
+}
 #else
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,
                               const emthrm::BigInt<LogB, B>& b) {
-#endif
   return a / std::__gcd(a, b) * b;
 }
+#endif
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> abs(const emthrm::BigInt<LogB, B>& x) {
   return x.sgn == 1 ? x : -x;
