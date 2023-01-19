@@ -36,7 +36,7 @@ data:
     \ p;\n  if (a == 0) return 0;\n  if (p == 2) return 1;\n  if (mod_pow(a, (p -\
     \ 1) >> 1, p) == p - 1) return -1;\n  if (p % 4 == 3) return mod_pow(a, (p + 1)\
     \ >> 2, p);\n  int s = 1, q = (p - 1) >> 1;\n  for (; !(q & 1); q >>= 1) {\n \
-    \   ++s;\n  }\n  static std::mt19937_64 engine(std::random_device{}());\n  std::uniform_int_distribution<>\
+    \   ++s;\n  }\n  static std::mt19937_64 engine(std::random_device {} ());\n  std::uniform_int_distribution<>\
     \ dist(2, p - 1);\n  long long z;\n  do {\n    z = dist(engine);\n  } while (mod_pow(z,\
     \ (p - 1) >> 1, p) == 1);\n  int m = s;\n  long long c = mod_pow(z, q, p), r =\
     \ mod_pow(a, (q - 1) >> 1, p);\n  long long t = a * r % p * r % p;\n  r = (r *\
@@ -51,11 +51,11 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/mod_sqrt.hpp
   requiredBy: []
-  timestamp: '2023-01-19 21:18:04+09:00'
+  timestamp: '2023-01-19 21:24:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
 documentation_of: include/emthrm/math/mod_sqrt.hpp
 layout: document
 redirect_from:

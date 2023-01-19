@@ -277,11 +277,11 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
-  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
-  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   - test/data_structure/lazy_segment_tree.test.cpp
+  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
+  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
 documentation_of: include/emthrm/data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:

@@ -70,10 +70,10 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/misc/inversion_number.test.cpp
-  - test/misc/mo.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
+  - test/misc/mo.test.cpp
+  - test/misc/inversion_number.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
 layout: document
 redirect_from:

@@ -64,7 +64,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.6.test.cpp
   requiredBy: []
-  timestamp: '2023-01-19 21:18:04+09:00'
+  timestamp: '2023-01-19 21:24:57+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.6.test.cpp

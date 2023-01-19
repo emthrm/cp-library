@@ -105,19 +105,19 @@ data:
   requiredBy:
   - include/emthrm/graph/matrix_tree_theorem.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  - include/emthrm/math/matrix/linear_equation.hpp
-  - include/emthrm/math/matrix/inverse_matrix.hpp
   - include/emthrm/math/matrix/gauss_jordan.hpp
+  - include/emthrm/math/matrix/inverse_matrix.hpp
+  - include/emthrm/math/matrix/linear_equation.hpp
   - include/emthrm/math/matrix/determinant.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
-  - test/math/matrix/determinant.test.cpp
-  - test/math/matrix/linear_equation.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
   - test/math/matrix/inverse_matrix.test.cpp
+  - test/math/matrix/determinant.test.cpp
   - test/math/matrix/matrix.test.cpp
+  - test/math/matrix/linear_equation.test.cpp
 documentation_of: include/emthrm/math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"

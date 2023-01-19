@@ -85,9 +85,9 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/convolution/mod_convolution.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
 documentation_of: include/emthrm/math/convolution/mod_convolution.hpp
 layout: document
 redirect_from:

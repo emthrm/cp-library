@@ -50,8 +50,8 @@ data:
   timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/bernoulli_number.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/bernoulli_number.hpp
 layout: document
 title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"

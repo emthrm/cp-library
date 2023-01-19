@@ -386,34 +386,34 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
-  - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   - include/emthrm/math/formal_power_series/bernoulli_number.hpp
+  - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
+  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   timestamp: '2023-01-16 17:06:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dynamic_programming/subset_sum_problem.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
   - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"

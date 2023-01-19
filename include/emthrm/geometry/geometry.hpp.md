@@ -770,31 +770,31 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/geometry/geometry.13.test.cpp
-  - test/geometry/geometry.15.test.cpp
-  - test/geometry/geometry.14.test.cpp
-  - test/geometry/geometry.11.test.cpp
-  - test/geometry/geometry.20.test.cpp
-  - test/geometry/geometry.22.test.cpp
-  - test/geometry/geometry.08.test.cpp
-  - test/geometry/geometry.10.test.cpp
-  - test/geometry/geometry.12.test.cpp
   - test/geometry/geometry.21.test.cpp
-  - test/geometry/geometry.18.test.cpp
-  - test/geometry/geometry.04.test.cpp
-  - test/geometry/geometry.16.test.cpp
-  - test/geometry/geometry.01.test.cpp
-  - test/geometry/geometry.03.test.cpp
+  - test/geometry/geometry.12.test.cpp
+  - test/geometry/geometry.08.test.cpp
+  - test/geometry/geometry.22.test.cpp
+  - test/geometry/geometry.20.test.cpp
   - test/geometry/geometry.06.test.cpp
-  - test/geometry/geometry.17.test.cpp
-  - test/geometry/geometry.05.test.cpp
-  - test/geometry/geometry.09.test.cpp
-  - test/geometry/geometry.24.test.cpp
-  - test/geometry/geometry.19.test.cpp
   - test/geometry/smallest_enclosing_circle.test.cpp
+  - test/geometry/geometry.03.test.cpp
   - test/geometry/geometry.07.test.cpp
-  - test/geometry/geometry.02.test.cpp
+  - test/geometry/geometry.14.test.cpp
+  - test/geometry/geometry.10.test.cpp
   - test/geometry/geometry.23.test.cpp
+  - test/geometry/geometry.09.test.cpp
+  - test/geometry/geometry.15.test.cpp
+  - test/geometry/geometry.18.test.cpp
+  - test/geometry/geometry.11.test.cpp
+  - test/geometry/geometry.17.test.cpp
+  - test/geometry/geometry.04.test.cpp
+  - test/geometry/geometry.19.test.cpp
+  - test/geometry/geometry.05.test.cpp
+  - test/geometry/geometry.16.test.cpp
+  - test/geometry/geometry.13.test.cpp
+  - test/geometry/geometry.02.test.cpp
+  - test/geometry/geometry.01.test.cpp
+  - test/geometry/geometry.24.test.cpp
   - test/math/quadratic_equation.test.cpp
 documentation_of: include/emthrm/geometry/geometry.hpp
 layout: document

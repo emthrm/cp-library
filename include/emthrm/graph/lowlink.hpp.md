@@ -71,10 +71,10 @@ data:
   timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/graph/biconnected_component.test.cpp
+  - test/graph/lowlink.1.test.cpp
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp
   - test/graph/lowlink.2.test.cpp
-  - test/graph/lowlink.1.test.cpp
-  - test/graph/biconnected_component.test.cpp
 documentation_of: include/emthrm/graph/lowlink.hpp
 layout: document
 title: lowlink

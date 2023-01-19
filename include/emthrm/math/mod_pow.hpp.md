@@ -53,16 +53,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/mod_pow.hpp
   requiredBy:
-  - include/emthrm/math/is_primitive_root.hpp
-  - include/emthrm/math/mod_sqrt.hpp
-  - include/emthrm/math/mod_log.hpp
   - include/emthrm/math/enumerate_k-th_power.hpp
+  - include/emthrm/math/is_primitive_root.hpp
+  - include/emthrm/math/mod_log.hpp
+  - include/emthrm/math/mod_sqrt.hpp
   timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/mod_sqrt.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/is_primitive_root.test.cpp
-  - test/math/mod_sqrt.test.cpp
   - test/math/mod_pow.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
   - test/math/mod_log.test.cpp

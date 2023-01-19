@@ -113,9 +113,9 @@ data:
   timestamp: '2023-01-19 15:49:14+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/data_structure/segment_tree.test.cpp
   - test/data_structure/range_sum_query.test.cpp
   - test/data_structure/range_minimum_query.test.cpp
-  - test/data_structure/segment_tree.test.cpp
 documentation_of: include/emthrm/data_structure/segment_tree.hpp
 layout: document
 redirect_from:

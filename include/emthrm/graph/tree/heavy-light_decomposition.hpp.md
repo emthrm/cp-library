@@ -83,8 +83,8 @@ data:
   timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/graph/tree/heavy-light_decomposition.2.test.cpp
+  - test/graph/tree/heavy-light_decomposition.1.test.cpp
 documentation_of: include/emthrm/graph/tree/heavy-light_decomposition.hpp
 layout: document
 title: "HL \u5206\u89E3 (heavy-light decomposition)"

@@ -67,8 +67,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/string/longest_common_prefix.test.cpp
   - test/data_structure/sparse_table.test.cpp
+  - test/string/longest_common_prefix.test.cpp
 documentation_of: include/emthrm/data_structure/sparse_table.hpp
 layout: document
 title: sparse table

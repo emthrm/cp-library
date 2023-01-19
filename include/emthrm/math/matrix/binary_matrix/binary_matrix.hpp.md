@@ -87,15 +87,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
   requiredBy:
-  - include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
-  - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   - include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
+  - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
+  - include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
-  - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
 layout: document
 redirect_from:

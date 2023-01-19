@@ -161,9 +161,9 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
   - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
   - test/math/bigint.01.test.cpp
 documentation_of: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
