@@ -3,10 +3,13 @@
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_C"
 
-#include <algorithm>
 #include <iostream>
 
+#if __cplusplus >= 201703L
+#include <numeric>
+#else
 #include "emthrm/math/least_common_multiple.hpp"
+#endif
 
 int main() {
   int n;
@@ -15,7 +18,11 @@ int main() {
   while (n--) {
     int a;
     std::cin >> a;
+#if __cplusplus >= 201703L
+    ans = std::lcm(ans, a);
+#else
     ans = emthrm::__lcm(ans, a);
+#endif
   }
   std::cout << ans << '\n';
   return 0;

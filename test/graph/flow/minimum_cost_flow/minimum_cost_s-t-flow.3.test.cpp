@@ -6,7 +6,9 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
+#if __cplusplus < 201703L
 #include <tuple>
+#endif
 #include <vector>
 
 #include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
@@ -71,10 +73,15 @@ int main() {
     }
     int g;
     std::cin >> g;
+#if __cplusplus >= 201703L
+    const auto [ans_class, ans_fare] =
+        minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);
+#else
     int ans_class;
     long long ans_fare;
     std::tie(ans_class, ans_fare) =
         minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);
+#endif
     std::cout << ans_class << ' ' << ans_fare << '\n';
   }
   return 0;

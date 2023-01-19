@@ -5,7 +5,9 @@
 
 #include <algorithm>
 #include <iostream>
+#if __cplusplus < 201703L
 #include <utility>
+#endif
 #include <vector>
 
 #include "emthrm/math/osa_k.hpp"
@@ -21,9 +23,15 @@ int main() {
   const emthrm::OsaK osa_k(max_a);
   std::vector<int> prime_factor(max_a + 1, 0);
   for (const int a_i : a) {
+#if __cplusplus >= 201703L
+    for (const auto& [prime, _] : osa_k.query(a_i)) {
+      ++prime_factor[prime];
+    }
+#else
     for (const std::pair<int, int>& pr : osa_k.query(a_i)) {
       ++prime_factor[pr.first];
     }
+#endif
   }
   const int maximum =
       *std::max_element(prime_factor.begin(), prime_factor.end());

@@ -2,6 +2,7 @@
 #define EMTHRM_STRING_TRIE_HPP_
 
 #include <algorithm>
+#include <array>
 #include <functional>
 #include <string>
 #include <vector>
@@ -12,9 +13,12 @@ template <int Sigma = 26>
 struct Trie {
   struct Node {
     char c;
-    int nxt[Sigma];
+    std::array<int, Sigma> nxt;
     std::vector<int> tails;
-    explicit Node(const char c) : c(c) { std::fill(nxt, nxt + Sigma, -1); }
+
+    explicit Node(const char c) : c(c) {
+      std::fill(nxt.begin(), nxt.end(), -1);
+    }
   };
 
   const std::function<int(const char)> convert;

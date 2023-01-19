@@ -4,7 +4,9 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/tree_diameter"
 
 #include <iostream>
+#if __cplusplus < 201703L
 #include <tuple>
+#endif
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -20,9 +22,13 @@ int main() {
     graph[a].emplace_back(a, b, c);
     graph[b].emplace_back(b, a, c);
   }
+#if __cplusplus >= 201703L
+  const auto [x, u] = emthrm::double_sweep(graph);
+#else
   long long x;
   std::vector<int> u;
   std::tie(x, u) = emthrm::double_sweep(graph);
+#endif
   const int y = u.size();
   std::cout << x << ' ' << y << '\n';
   for (int i = 0; i < y; ++i) {

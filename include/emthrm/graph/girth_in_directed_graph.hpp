@@ -10,7 +10,9 @@
 #include <functional>
 #include <limits>
 #include <queue>
+#if __cplusplus < 201703L
 #include <tuple>
+#endif
 #include <utility>
 #include <vector>
 
@@ -33,9 +35,13 @@ CostType girth_in_directed_graph(
     dist[root] = 0;
     que.emplace(dist[root], root);
     while (!que.empty()) {
+#if __cplusplus >= 201703L
+      const auto [d, ver] = que.top();
+#else
       CostType d;
       int ver;
       std::tie(d, ver) = que.top();
+#endif
       que.pop();
       if (d > dist[ver]) continue;
       for (const Edge<CostType>& e : graph[ver]) {

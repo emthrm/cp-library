@@ -1,7 +1,11 @@
 #ifndef EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_
 #define EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_
 
+#if __cplusplus >= 201703L
+#include <numeric>
+#else
 #include <algorithm>
+#endif
 #include <utility>
 #include <vector>
 
@@ -16,7 +20,11 @@ std::pair<T, T> simultaneous_linear_congruence(const std::vector<T>& a,
   const int n = a.size();
   T x = 0, md = 1;
   for (int i = 0; i < n; ++i) {
+#if __cplusplus >= 201703L
+    const T p = md * a[i], q = -x * a[i] + b[i], g = std::gcd(p, m[i]);
+#else
     const T p = md * a[i], q = -x * a[i] + b[i], g = std::__gcd(p, m[i]);
+#endif
     if (q % g != 0) return {0, -1};
     const T m_i = m[i] / g;
     x += md * (q / g * mod_inv(p / g, m_i) % m_i);

@@ -9,7 +9,9 @@
 #include <numeric>
 #include <vector>
 
+#if __cplusplus < 201703L
 #include "emthrm/math/least_common_multiple.hpp"
+#endif
 #include "emthrm/math/prime_sieve.hpp"
 
 namespace emthrm {
@@ -32,11 +34,19 @@ std::vector<long long> carmichael_function_init(const long long low,
       for (; tmp[i - low] % p == 0; tmp[i - low] /= p) {
         phi *= p;
       }
+#if __cplusplus >= 201703L
+      lambda[i - low] = std::lcm(lambda[i - low], phi);
+#else
       lambda[i - low] = __lcm(lambda[i - low], phi);
+#endif
     }
   }
   for (int i = 0; i < high - low; ++i) {
+#if __cplusplus >= 201703L
+    if (tmp[i] > 1) lambda[i] = std::lcm(lambda[i], tmp[i] - 1);
+#else
     if (tmp[i] > 1) lambda[i] = __lcm(lambda[i], tmp[i] - 1);
+#endif
   }
   return lambda;
 }
