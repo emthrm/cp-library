@@ -29,21 +29,24 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/is_primitive_root.hpp: line 14: unable to process #include\
+    \ include/emthrm/math/is_primitive_root.hpp: line 18: unable to process #include\
     \ in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u539F\u59CB\u6839\u5224\u5B9A\n * @docs docs/math/primitive_root.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n#define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n\
-    \n#include <algorithm>\n#include <map>\n#include <utility>\n#include <vector>\n\
-    \n#include \"emthrm/math/euler_phi/euler_phi.hpp\"\n#include \"emthrm/math/mod_pow.hpp\"\
-    \n#include \"emthrm/math/prime_factorization.hpp\"\n\nnamespace emthrm {\n\nbool\
-    \ is_primitive_root(long long root, const int m) {\n  if ((root %= m) < 0) root\
-    \ += m;\n  if (std::__gcd(static_cast<int>(root), m) > 1) return false;\n  static\
-    \ std::map<int, int> phi;\n  if (!phi.count(m)) phi[m] = euler_phi(m);\n  const\
-    \ int phi_m = phi[m];\n  static std::map<int, std::vector<int>> primes;\n  if\
-    \ (!primes.count(phi_m)) {\n    std::vector<int> tmp;\n    for (const std::pair<int,\
+    \n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n\
+    #include <utility>\n#endif\n#include <map>\n#include <vector>\n\n#include \"emthrm/math/euler_phi/euler_phi.hpp\"\
+    \n#include \"emthrm/math/mod_pow.hpp\"\n#include \"emthrm/math/prime_factorization.hpp\"\
+    \n\nnamespace emthrm {\n\nbool is_primitive_root(long long root, const int m)\
+    \ {\n  if ((root %= m) < 0) root += m;\n#if __cplusplus >= 201703L\n  if (std::gcd(root,\
+    \ m) > 1) return false;\n#else\n  if (std::__gcd(static_cast<int>(root), m) >\
+    \ 1) return false;\n#endif\n  static std::map<int, int> phi;\n  if (!phi.count(m))\
+    \ phi[m] = euler_phi(m);\n  const int phi_m = phi[m];\n  static std::map<int,\
+    \ std::vector<int>> primes;\n  if (!primes.count(phi_m)) {\n    std::vector<int>\
+    \ tmp;\n#if __cplusplus >= 201703L\n    for (const auto& [prime, _] : prime_factorization(phi_m))\
+    \ {\n      tmp.emplace_back(prime);\n    }\n#else\n    for (const std::pair<int,\
     \ int>& pr : prime_factorization(phi_m)) {\n      tmp.emplace_back(pr.first);\n\
-    \    }\n    primes[phi_m] = tmp;\n  }\n  for (const int p : primes[phi_m]) {\n\
-    \    if (mod_pow(root, phi_m / p, m) == 1) return false;\n  }\n  return true;\n\
+    \    }\n#endif\n    primes[phi_m] = tmp;\n  }\n  for (const int p : primes[phi_m])\
+    \ {\n    if (mod_pow(root, phi_m / p, m) == 1) return false;\n  }\n  return true;\n\
     }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n"
   dependsOn:
   - include/emthrm/math/euler_phi/euler_phi.hpp
@@ -52,7 +55,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_primitive_root.test.cpp

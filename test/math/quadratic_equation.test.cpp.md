@@ -29,35 +29,36 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F\n */\n\
     #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1039\"\
-    \n\n#include <algorithm>\n#include <cmath>\n#include <iostream>\n#include <tuple>\n\
-    #include <utility>\n#include <vector>\n\n#include \"emthrm/geometry/geometry.hpp\"\
-    \n#include \"emthrm/math/quadratic_equation.hpp\"\n\nint main() {\n  constexpr\
-    \ double EPS = 1e-8;\n  constexpr int INF = 0x3f3f3f3f;\n  while (true) {\n  \
-    \  int n, m;\n    std::cin >> n >> m;\n    if (n == 0 && m == 0) break;\n    std::vector<std::pair<emthrm::geometry::Point,\
-    \ double>> dog;\n    for (int i = 0; i < n; ++i) {\n      emthrm::geometry::Point\
-    \ d;\n      double v;\n      std::cin >> d >> v;\n      dog.emplace_back(d, v);\n\
-    \    }\n    std::vector<int> ans(n, 0);\n    while (m--) {\n      emthrm::geometry::Point\
-    \ fp, fv;\n      std::cin >> fp >> fv;\n      std::vector<double> t(n, INF);\n\
-    \      for (int i = 0; i < n; ++i) {\n        emthrm::geometry::Point d;\n   \
-    \     double v;\n        std::tie(d, v) = dog[i];\n        for (std::vector<double>\
-    \ ans =\n                 emthrm::quadratic_equation(fv.norm() - v * v,\n    \
-    \                                emthrm::geometry::dot(fp - d, fv) * 2,\n    \
-    \                                (fp - d).norm());\n             !ans.empty();\
-    \ ans.pop_back()) {\n          if (ans.back() >= 0) t[i] = ans.back();\n     \
-    \   }\n      }\n      const double frisbee = *std::min_element(t.begin(), t.end());\n\
-    \      for (int i = 0; i < n; ++i) {\n        if (std::abs(t[i] - INF) < EPS)\
-    \ continue;\n        if (std::abs(frisbee - t[i]) < EPS) ++ans[i];\n        const\
-    \ emthrm::geometry::Point cat = fp + fv * t[i];\n        dog[i].first += (cat\
-    \ - dog[i].first) * frisbee / t[i];\n      }\n    }\n    for (int i = 0; i < n;\
-    \ ++i) {\n      std::cout << ans[i] << \" \\n\"[i + 1 == n];\n    }\n  }\n  return\
-    \ 0;\n}\n"
+    \n\n#include <algorithm>\n#include <cmath>\n#include <iostream>\n#if __cplusplus\
+    \ < 201703L\n#include <tuple>\n#endif\n#include <utility>\n#include <vector>\n\
+    \n#include \"emthrm/geometry/geometry.hpp\"\n#include \"emthrm/math/quadratic_equation.hpp\"\
+    \n\nint main() {\n  constexpr double EPS = 1e-8;\n  constexpr int INF = 0x3f3f3f3f;\n\
+    \  while (true) {\n    int n, m;\n    std::cin >> n >> m;\n    if (n == 0 && m\
+    \ == 0) break;\n    std::vector<std::pair<emthrm::geometry::Point, double>> dog;\n\
+    \    for (int i = 0; i < n; ++i) {\n      emthrm::geometry::Point d;\n      double\
+    \ v;\n      std::cin >> d >> v;\n      dog.emplace_back(d, v);\n    }\n    std::vector<int>\
+    \ ans(n, 0);\n    while (m--) {\n      emthrm::geometry::Point fp, fv;\n     \
+    \ std::cin >> fp >> fv;\n      std::vector<double> t(n, INF);\n      for (int\
+    \ i = 0; i < n; ++i) {\n#if __cplusplus >= 201703L\n        const auto [d, v]\
+    \ = dog[i];\n#else\n        emthrm::geometry::Point d;\n        double v;\n  \
+    \      std::tie(d, v) = dog[i];\n#endif\n        for (std::vector<double> ans\
+    \ =\n                 emthrm::quadratic_equation(fv.norm() - v * v,\n        \
+    \                            emthrm::geometry::dot(fp - d, fv) * 2,\n        \
+    \                            (fp - d).norm());\n             !ans.empty(); ans.pop_back())\
+    \ {\n          if (ans.back() >= 0) t[i] = ans.back();\n        }\n      }\n \
+    \     const double frisbee = *std::min_element(t.begin(), t.end());\n      for\
+    \ (int i = 0; i < n; ++i) {\n        if (std::abs(t[i] - INF) < EPS) continue;\n\
+    \        if (std::abs(frisbee - t[i]) < EPS) ++ans[i];\n        const emthrm::geometry::Point\
+    \ cat = fp + fv * t[i];\n        dog[i].first += (cat - dog[i].first) * frisbee\
+    \ / t[i];\n      }\n    }\n    for (int i = 0; i < n; ++i) {\n      std::cout\
+    \ << ans[i] << \" \\n\"[i + 1 == n];\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
   - include/emthrm/math/quadratic_equation.hpp
   isVerificationFile: true
   path: test/math/quadratic_equation.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/quadratic_equation.test.cpp

@@ -24,21 +24,24 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/mod_inv.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_\n#define EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_\n\
-    \n#include <algorithm>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/mod_inv.hpp\"\
+    \n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n\
+    #endif\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/mod_inv.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::pair<T, T> simultaneous_linear_congruence(const\
     \ std::vector<T>& a,\n                                               const std::vector<T>&\
     \ b,\n                                               const std::vector<T>& m)\
     \ {\n  const int n = a.size();\n  T x = 0, md = 1;\n  for (int i = 0; i < n; ++i)\
-    \ {\n    const T p = md * a[i], q = -x * a[i] + b[i], g = std::__gcd(p, m[i]);\n\
-    \    if (q % g != 0) return {0, -1};\n    const T m_i = m[i] / g;\n    x += md\
-    \ * (q / g * mod_inv(p / g, m_i) % m_i);\n    md *= m_i;\n  }\n  return {x < 0\
-    \ ? x + md : x, md};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_\n"
+    \ {\n#if __cplusplus >= 201703L\n    const T p = md * a[i], q = -x * a[i] + b[i],\
+    \ g = std::gcd(p, m[i]);\n#else\n    const T p = md * a[i], q = -x * a[i] + b[i],\
+    \ g = std::__gcd(p, m[i]);\n#endif\n    if (q % g != 0) return {0, -1};\n    const\
+    \ T m_i = m[i] / g;\n    x += md * (q / g * mod_inv(p / g, m_i) % m_i);\n    md\
+    \ *= m_i;\n  }\n  return {x < 0 ? x + md : x, md};\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_MATH_SIMULTANEOUS_LINEAR_CONGRUENCE_HPP_\n"
   dependsOn:
   - include/emthrm/math/mod_inv.hpp
   isVerificationFile: false
   path: include/emthrm/math/simultaneous_linear_congruence.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/simultaneous_linear_congruence.test.cpp

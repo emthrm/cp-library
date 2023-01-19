@@ -175,19 +175,24 @@ data:
     \      rem -= divisor * quo.data[i];\n      while (rem.sgn == -1) {\n        rem\
     \ += divisor;\n        --quo.data[i];\n      }\n    }\n    quo.sgn = sgn * x.sgn;\n\
     \    quo.trim();\n    rem.sgn = sgn;\n    rem.trim();\n    return {quo, rem /\
-    \ k};\n  }\n};\n\n}  // namespace emthrm\n\nnamespace std {\n\ntemplate <int LogB,\
-    \ int B>\nemthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,\n         \
-    \                     emthrm::BigInt<LogB, B> b) {\n  while (!b.data.empty())\
-    \ std::swap(a %= b, b);\n  return a;\n}\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
-    \ B> __lcm(const emthrm::BigInt<LogB, B>& a,\n                              const\
-    \ emthrm::BigInt<LogB, B>& b) {\n  return a / std::__gcd(a, b) * b;\n}\ntemplate\
-    \ <int LogB, int B>\nemthrm::BigInt<LogB, B> abs(const emthrm::BigInt<LogB, B>&\
-    \ x) {\n  return x.sgn == 1 ? x : -x;\n}\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
-    \ B> max(const emthrm::BigInt<LogB, B>& a,\n                            const\
-    \ emthrm::BigInt<LogB, B>& b) {\n  return a < b ? b : a;\n}\ntemplate <int LogB,\
-    \ int B>\nemthrm::BigInt<LogB, B> min(const emthrm::BigInt<LogB, B>& a,\n    \
-    \                        const emthrm::BigInt<LogB, B>& b) {\n  return a < b ?\
-    \ a : b;\n}\n\n}  // namespace std\n\n\n"
+    \ k};\n  }\n};\n\n}  // namespace emthrm\n\nnamespace std {\n\n#if __cplusplus\
+    \ >= 201703L\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B> gcd(emthrm::BigInt<LogB,\
+    \ B> a,\n                            emthrm::BigInt<LogB, B> b) {\n  while (!b.data.empty())\
+    \ std::swap(a %= b, b);\n  return a;\n}\n#else\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
+    \ B> __gcd(emthrm::BigInt<LogB, B> a,\n                              emthrm::BigInt<LogB,\
+    \ B> b) {\n  while (!b.data.empty()) std::swap(a %= b, b);\n  return a;\n}\n#endif\n\
+    #if __cplusplus >= 201703L\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B>\
+    \ lcm(const emthrm::BigInt<LogB, B>& a,\n                            const emthrm::BigInt<LogB,\
+    \ B>& b) {\n  return a / std::__gcd(a, b) * b;\n}\n#else\ntemplate <int LogB,\
+    \ int B>\nemthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,\n  \
+    \                            const emthrm::BigInt<LogB, B>& b) {\n  return a /\
+    \ std::__gcd(a, b) * b;\n}\n#endif\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
+    \ B> abs(const emthrm::BigInt<LogB, B>& x) {\n  return x.sgn == 1 ? x : -x;\n\
+    }\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B> max(const emthrm::BigInt<LogB,\
+    \ B>& a,\n                            const emthrm::BigInt<LogB, B>& b) {\n  return\
+    \ a < b ? b : a;\n}\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B> min(const\
+    \ emthrm::BigInt<LogB, B>& a,\n                            const emthrm::BigInt<LogB,\
+    \ B>& b) {\n  return a < b ? a : b;\n}\n\n}  // namespace std\n\n\n"
   code: "#ifndef EMTHRM_MATH_BIGINT_HPP_\n#define EMTHRM_MATH_BIGINT_HPP_\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <cmath>\n#include <iomanip>\n#include\
     \ <iostream>\n#include <iterator>\n#include <limits>\n#include <sstream>\n#include\
@@ -326,24 +331,29 @@ data:
     \      rem -= divisor * quo.data[i];\n      while (rem.sgn == -1) {\n        rem\
     \ += divisor;\n        --quo.data[i];\n      }\n    }\n    quo.sgn = sgn * x.sgn;\n\
     \    quo.trim();\n    rem.sgn = sgn;\n    rem.trim();\n    return {quo, rem /\
-    \ k};\n  }\n};\n\n}  // namespace emthrm\n\nnamespace std {\n\ntemplate <int LogB,\
-    \ int B>\nemthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,\n         \
-    \                     emthrm::BigInt<LogB, B> b) {\n  while (!b.data.empty())\
-    \ std::swap(a %= b, b);\n  return a;\n}\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
-    \ B> __lcm(const emthrm::BigInt<LogB, B>& a,\n                              const\
-    \ emthrm::BigInt<LogB, B>& b) {\n  return a / std::__gcd(a, b) * b;\n}\ntemplate\
-    \ <int LogB, int B>\nemthrm::BigInt<LogB, B> abs(const emthrm::BigInt<LogB, B>&\
-    \ x) {\n  return x.sgn == 1 ? x : -x;\n}\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
-    \ B> max(const emthrm::BigInt<LogB, B>& a,\n                            const\
-    \ emthrm::BigInt<LogB, B>& b) {\n  return a < b ? b : a;\n}\ntemplate <int LogB,\
-    \ int B>\nemthrm::BigInt<LogB, B> min(const emthrm::BigInt<LogB, B>& a,\n    \
-    \                        const emthrm::BigInt<LogB, B>& b) {\n  return a < b ?\
-    \ a : b;\n}\n\n}  // namespace std\n\n#endif  // EMTHRM_MATH_BIGINT_HPP_\n"
+    \ k};\n  }\n};\n\n}  // namespace emthrm\n\nnamespace std {\n\n#if __cplusplus\
+    \ >= 201703L\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B> gcd(emthrm::BigInt<LogB,\
+    \ B> a,\n                            emthrm::BigInt<LogB, B> b) {\n  while (!b.data.empty())\
+    \ std::swap(a %= b, b);\n  return a;\n}\n#else\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
+    \ B> __gcd(emthrm::BigInt<LogB, B> a,\n                              emthrm::BigInt<LogB,\
+    \ B> b) {\n  while (!b.data.empty()) std::swap(a %= b, b);\n  return a;\n}\n#endif\n\
+    #if __cplusplus >= 201703L\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B>\
+    \ lcm(const emthrm::BigInt<LogB, B>& a,\n                            const emthrm::BigInt<LogB,\
+    \ B>& b) {\n  return a / std::__gcd(a, b) * b;\n}\n#else\ntemplate <int LogB,\
+    \ int B>\nemthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,\n  \
+    \                            const emthrm::BigInt<LogB, B>& b) {\n  return a /\
+    \ std::__gcd(a, b) * b;\n}\n#endif\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB,\
+    \ B> abs(const emthrm::BigInt<LogB, B>& x) {\n  return x.sgn == 1 ? x : -x;\n\
+    }\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B> max(const emthrm::BigInt<LogB,\
+    \ B>& a,\n                            const emthrm::BigInt<LogB, B>& b) {\n  return\
+    \ a < b ? b : a;\n}\ntemplate <int LogB, int B>\nemthrm::BigInt<LogB, B> min(const\
+    \ emthrm::BigInt<LogB, B>& a,\n                            const emthrm::BigInt<LogB,\
+    \ B>& b) {\n  return a < b ? a : b;\n}\n\n}  // namespace std\n\n#endif  // EMTHRM_MATH_BIGINT_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/bigint.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/bigint.03.test.cpp

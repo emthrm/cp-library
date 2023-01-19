@@ -82,7 +82,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/mod_convolution.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp

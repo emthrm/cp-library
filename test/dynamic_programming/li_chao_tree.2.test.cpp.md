@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/li_chao_tree.2.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/li_chao_tree.2.test.cpp

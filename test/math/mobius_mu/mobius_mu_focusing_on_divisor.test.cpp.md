@@ -30,13 +30,16 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
     \u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc162/tasks/abc162_e\"\
-    \n\n#include <iostream>\n#include <map>\n#include <utility>\n\n#include \"emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp\"\
+    \n\n#include <iostream>\n#include <map>\n#if __cplusplus < 201703L\n#include <utility>\n\
+    #endif\n\n#include \"emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp\"\
     \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
     \  ModInt::set_mod(1000000007);\n  int n, k;\n  std::cin >> n >> k;\n  std::map<int,\
     \ int> mu;\n  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways\
     \ = 0;\n    for (int m = k / g; m >= 1; --m) {\n      if (mu.count(m) == 0) {\n\
-    \        for (const std::pair<const int, int>& p\n             : emthrm::mobius_mu_focusing_on_divisor(m))\
-    \ {\n          mu[p.first] = p.second;\n        }\n      }\n      ways += ModInt(k\
+    #if __cplusplus >= 201703L\n        for (const auto& [d, mu_d] : emthrm::mobius_mu_focusing_on_divisor(m))\
+    \ {\n          mu[d] = mu_d;\n        }\n#else\n        for (const std::pair<const\
+    \ int, int>& p\n             : emthrm::mobius_mu_focusing_on_divisor(m)) {\n \
+    \         mu[p.first] = p.second;\n        }\n#endif\n      }\n      ways += ModInt(k\
     \ / (g * m)).pow(n) * mu[m];\n    }\n    ans += ways * g;\n  }\n  std::cout <<\
     \ ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
@@ -45,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp

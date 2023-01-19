@@ -24,22 +24,24 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/mod_inv.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n#define EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n\
-    \n#include <algorithm>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/mod_inv.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
+    \n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n\
+    #endif\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/mod_inv.hpp\"\
+    \n\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
     \ b, std::vector<T> m) {\n  const int n = b.size();\n  T x = 0, md = 1;\n  for\
     \ (int i = 0; i < n; ++i) {\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\n    if\
     \ (md < m[i]) {\n      std::swap(x, b[i]);\n      std::swap(md, m[i]);\n    }\n\
     \    if (md % m[i] == 0) {\n      if (x % m[i] != b[i]) return {0, 0};\n     \
-    \ continue;\n    }\n    const T g = std::__gcd(md, m[i]);\n    if ((b[i] - x)\
-    \ % g != 0) return {0, 0};\n    const T u_i = m[i] / g;\n    x += (b[i] - x) /\
-    \ g % u_i * mod_inv(md / g, u_i) % u_i * md;\n    md *= u_i;\n    if (x < 0) x\
-    \ += md;\n  }\n  return {x, md};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n"
+    \ continue;\n    }\n#if __cplusplus >= 201703L\n    const T g = std::gcd(md, m[i]);\n\
+    #else\n    const T g = std::__gcd(md, m[i]);\n#endif\n    if ((b[i] - x) % g !=\
+    \ 0) return {0, 0};\n    const T u_i = m[i] / g;\n    x += (b[i] - x) / g % u_i\
+    \ * mod_inv(md / g, u_i) % u_i * md;\n    md *= u_i;\n    if (x < 0) x += md;\n\
+    \  }\n  return {x, md};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n"
   dependsOn:
   - include/emthrm/math/mod_inv.hpp
   isVerificationFile: false
   path: include/emthrm/math/chinese_remainder_theorem.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp

@@ -28,24 +28,25 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/osa_k.hpp:\
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/osa_k \u6CD5\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc177/tasks/abc177_e\"\
-    \n\n#include <algorithm>\n#include <iostream>\n#include <utility>\n#include <vector>\n\
-    \n#include \"emthrm/math/osa_k.hpp\"\n\nint main() {\n  int n;\n  std::cin >>\
-    \ n;\n  std::vector<int> a(n);\n  for (int i = 0; i < n; ++i) {\n    std::cin\
-    \ >> a[i];\n  }\n  const int max_a = *std::max_element(a.begin(), a.end());\n\
-    \  const emthrm::OsaK osa_k(max_a);\n  std::vector<int> prime_factor(max_a + 1,\
-    \ 0);\n  for (const int a_i : a) {\n    for (const std::pair<int, int>& pr : osa_k.query(a_i))\
-    \ {\n      ++prime_factor[pr.first];\n    }\n  }\n  const int maximum =\n    \
-    \  *std::max_element(prime_factor.begin(), prime_factor.end());\n  if (maximum\
-    \ <= 1) {\n    std::cout << \"pairwise coprime\\n\";\n  } else if (maximum ==\
-    \ n) {\n    std::cout << \"not coprime\\n\";\n  } else {\n    std::cout << \"\
-    setwise coprime\\n\";\n  }\n  return 0;\n}\n"
+    \n\n#include <algorithm>\n#include <iostream>\n#if __cplusplus < 201703L\n#include\
+    \ <utility>\n#endif\n#include <vector>\n\n#include \"emthrm/math/osa_k.hpp\"\n\
+    \nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a(n);\n  for (int\
+    \ i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  const int max_a = *std::max_element(a.begin(),\
+    \ a.end());\n  const emthrm::OsaK osa_k(max_a);\n  std::vector<int> prime_factor(max_a\
+    \ + 1, 0);\n  for (const int a_i : a) {\n#if __cplusplus >= 201703L\n    for (const\
+    \ auto& [prime, _] : osa_k.query(a_i)) {\n      ++prime_factor[prime];\n    }\n\
+    #else\n    for (const std::pair<int, int>& pr : osa_k.query(a_i)) {\n      ++prime_factor[pr.first];\n\
+    \    }\n#endif\n  }\n  const int maximum =\n      *std::max_element(prime_factor.begin(),\
+    \ prime_factor.end());\n  if (maximum <= 1) {\n    std::cout << \"pairwise coprime\\\
+    n\";\n  } else if (maximum == n) {\n    std::cout << \"not coprime\\n\";\n  }\
+    \ else {\n    std::cout << \"setwise coprime\\n\";\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/osa_k.hpp
   - include/emthrm/math/prime_sieve.hpp
   isVerificationFile: true
   path: test/math/osa_k.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/osa_k.test.cpp

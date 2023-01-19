@@ -50,7 +50,7 @@ data:
   path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
   requiredBy:
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp

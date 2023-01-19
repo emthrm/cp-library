@@ -19,23 +19,24 @@ data:
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/least_common_multiple.hpp:\
-    \ line -1: no such header\n"
+    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
+    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ test/math/least_common_multiple.test.cpp: line 11: unable to process #include\
+    \ in #if / #ifdef / #ifndef other than include guards\n"
   code: "/*\n * @brief \u6570\u5B66/\u6700\u5C0F\u516C\u500D\u6570\n */\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_C\"\n\n#include\
-    \ <algorithm>\n#include <iostream>\n\n#include \"emthrm/math/least_common_multiple.hpp\"\
-    \n\nint main() {\n  int n;\n  std::cin >> n;\n  int ans = 1;\n  while (n--) {\n\
-    \    int a;\n    std::cin >> a;\n    ans = emthrm::__lcm(ans, a);\n  }\n  std::cout\
-    \ << ans << '\\n';\n  return 0;\n}\n"
+    \ <iostream>\n\n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include\
+    \ \"emthrm/math/least_common_multiple.hpp\"\n#endif\n\nint main() {\n  int n;\n\
+    \  std::cin >> n;\n  int ans = 1;\n  while (n--) {\n    int a;\n    std::cin >>\
+    \ a;\n#if __cplusplus >= 201703L\n    ans = std::lcm(ans, a);\n#else\n    ans\
+    \ = emthrm::__lcm(ans, a);\n#endif\n  }\n  std::cout << ans << '\\n';\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - include/emthrm/math/least_common_multiple.hpp
   isVerificationFile: true
   path: test/math/least_common_multiple.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/least_common_multiple.test.cpp

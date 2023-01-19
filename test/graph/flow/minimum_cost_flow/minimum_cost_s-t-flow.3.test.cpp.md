@@ -31,8 +31,8 @@ data:
     \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
     \u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))\n */\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088\"\n\n#include\
-    \ <algorithm>\n#include <iostream>\n#include <iterator>\n#include <tuple>\n#include\
-    \ <vector>\n\n#include \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
+    \ <algorithm>\n#include <iostream>\n#include <iterator>\n#if __cplusplus < 201703L\n\
+    #include <tuple>\n#endif\n#include <vector>\n\n#include \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \n\nint main() {\n  struct Train { int x, y, c; };\n  while (true) {\n    int\
     \ n;\n    std::cin >> n;\n    if (n == 0) break;\n    int num = 0;\n    std::vector<std::vector<Train>>\
     \ trains(n - 1);\n    std::vector<std::vector<int>> times(n - 1);\n    for (int\
@@ -56,16 +56,18 @@ data:
     \              minimum_cost_flow.add_edge(j + w, k + w + m, 1, 0);\n         \
     \   }\n          }\n        }\n        w += m;\n      }\n    }\n    for (int i\
     \ = num - times.back().size(); i < num; ++i) {\n      minimum_cost_flow.add_edge(i,\
-    \ t, 1, 0);\n    }\n    int g;\n    std::cin >> g;\n    int ans_class;\n    long\
-    \ long ans_fare;\n    std::tie(ans_class, ans_fare) =\n        minimum_cost_flow.minimum_cost_maximum_flow(s,\
-    \ t, g);\n    std::cout << ans_class << ' ' << ans_fare << '\\n';\n  }\n  return\
+    \ t, 1, 0);\n    }\n    int g;\n    std::cin >> g;\n#if __cplusplus >= 201703L\n\
+    \    const auto [ans_class, ans_fare] =\n        minimum_cost_flow.minimum_cost_maximum_flow(s,\
+    \ t, g);\n#else\n    int ans_class;\n    long long ans_fare;\n    std::tie(ans_class,\
+    \ ans_fare) =\n        minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);\n\
+    #endif\n    std::cout << ans_class << ' ' << ans_fare << '\\n';\n  }\n  return\
     \ 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp

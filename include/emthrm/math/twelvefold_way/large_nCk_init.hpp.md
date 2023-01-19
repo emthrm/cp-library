@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/large_nCk_init.test.cpp

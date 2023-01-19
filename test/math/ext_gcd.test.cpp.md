@@ -26,16 +26,17 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5\n\
     \ */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E\"\
-    \n\n#include <iostream>\n#include <tuple>\n\n#include \"emthrm/math/ext_gcd.hpp\"\
-    \n\nint main() {\n  int a, b;\n  std::cin >> a >> b;\n  int x, y;\n  std::tie(x,\
-    \ y) = emthrm::ext_gcd(a, b);\n  std::cout << x << ' ' << y << '\\n';\n  return\
-    \ 0;\n}\n"
+    \n\n#include <iostream>\n#if __cplusplus < 201703L\n#include <tuple>\n#endif\n\
+    \n#include \"emthrm/math/ext_gcd.hpp\"\n\nint main() {\n  int a, b;\n  std::cin\
+    \ >> a >> b;\n#if __cplusplus >= 201703L\n  const auto [x, y] = emthrm::ext_gcd(a,\
+    \ b);\n#else\n  int x, y;\n  std::tie(x, y) = emthrm::ext_gcd(a, b);\n#endif\n\
+    \  std::cout << x << ' ' << y << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/ext_gcd.hpp
   isVerificationFile: true
   path: test/math/ext_gcd.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/ext_gcd.test.cpp

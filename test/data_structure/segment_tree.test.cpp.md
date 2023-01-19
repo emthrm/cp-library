@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2023-01-19 15:49:14+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/segment_tree.test.cpp

@@ -22,18 +22,18 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/girth_in_undirected_graph.hpp: line 17: unable to process\
+    \ include/emthrm/graph/girth_in_undirected_graph.hpp: line 19: unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248\n * @docs\
     \ docs/graph/girth.md\n */\n\n#ifndef EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_\n\
     #define EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
-    #include <functional>\n#include <limits>\n#include <queue>\n#include <tuple>\n\
-    #include <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\n\
-    namespace emthrm {\n\ntemplate <typename CostType>\nCostType girth_in_undirected_graph(\n\
-    \    const int n, const std::vector<Edge<CostType>>& edges,\n    const CostType\
-    \ inf = std::numeric_limits<CostType>::max()) {\n  const int m = edges.size();\n\
-    \  std::vector<std::vector<int>> graph(n);\n  for (int i = 0; i < m; ++i) {\n\
-    \    graph[edges[i].src].emplace_back(i);\n    graph[edges[i].dst].emplace_back(i);\n\
+    #include <functional>\n#include <limits>\n#include <queue>\n#if __cplusplus <\
+    \ 201703L\n#include <tuple>\n#endif\n#include <utility>\n#include <vector>\n\n\
+    #include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ CostType>\nCostType girth_in_undirected_graph(\n    const int n, const std::vector<Edge<CostType>>&\
+    \ edges,\n    const CostType inf = std::numeric_limits<CostType>::max()) {\n \
+    \ const int m = edges.size();\n  std::vector<std::vector<int>> graph(n);\n  for\
+    \ (int i = 0; i < m; ++i) {\n    graph[edges[i].src].emplace_back(i);\n    graph[edges[i].dst].emplace_back(i);\n\
     \  }\n  std::vector<bool> is_used(m, false);\n  std::vector<int> label(n), prev(n);\n\
     \  std::vector<CostType> dist(n);\n  std::priority_queue<std::pair<CostType, int>,\n\
     \                      std::vector<std::pair<CostType, int>>,\n              \
@@ -42,7 +42,8 @@ data:
     \ false);\n    std::fill(label.begin(), label.end(), -2);\n    label[root] = -1;\n\
     \    std::fill(prev.begin(), prev.end(), -1);\n    std::fill(dist.begin(), dist.end(),\
     \ inf);\n    dist[root] = 0;\n    que.emplace(0, root);\n    while (!que.empty())\
-    \ {\n      CostType d;\n      int ver;\n      std::tie(d, ver) = que.top();\n\
+    \ {\n#if __cplusplus >= 201703L\n      const auto [d, ver] = que.top();\n#else\n\
+    \      CostType d;\n      int ver;\n      std::tie(d, ver) = que.top();\n#endif\n\
     \      que.pop();\n      if (d > dist[ver]) continue;\n      for (const int id\
     \ : graph[ver]) {\n        const int dst = (edges[id].src == ver ? edges[id].dst\
     \ : edges[id].src);\n        const CostType nxt = dist[ver] + edges[id].cost;\n\
@@ -61,7 +62,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/girth_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/girth.test.cpp

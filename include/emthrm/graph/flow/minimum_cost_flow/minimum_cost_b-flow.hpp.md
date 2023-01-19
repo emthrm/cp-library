@@ -21,13 +21,13 @@ data:
     \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <functional>\n#include <limits>\n\
-    #include <numeric>\n#include <queue>\n#include <tuple>\n#include <utility>\n#include\
-    \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename T, typename U>\nstruct\
-    \ MinimumCostBFlow {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    U cost;\n\
-    \    explicit Edge(const int dst, const T cap, const U cost, const int rev)\n\
-    \        : dst(dst), rev(rev), cap(cap), cost(cost) {}\n  };\n\n  const U uinf;\n\
-    \  std::vector<std::vector<Edge>> graph;\n\n  explicit MinimumCostBFlow(const\
-    \ int n,\n                            const U uinf = std::numeric_limits<U>::max())\n\
+    #include <numeric>\n#include <queue>\n#if __cplusplus < 201703L\n#include <tuple>\n\
+    #endif\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename T, typename U>\nstruct MinimumCostBFlow {\n  struct Edge {\n    int\
+    \ dst, rev;\n    T cap;\n    U cost;\n    explicit Edge(const int dst, const T\
+    \ cap, const U cost, const int rev)\n        : dst(dst), rev(rev), cap(cap), cost(cost)\
+    \ {}\n  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>> graph;\n\n  explicit\
+    \ MinimumCostBFlow(const int n,\n                            const U uinf = std::numeric_limits<U>::max())\n\
     \      : uinf(uinf), graph(n + 2), n(n), res(0), b(n + 2, 0) {}\n\n  void add_edge(int\
     \ src, int dst, const T cap, U cost) {\n    if (cost < 0) {\n      b[src] -= cap;\n\
     \      b[dst] += cap;\n      res += cost * cap;\n      std::swap(src, dst);\n\
@@ -42,8 +42,9 @@ data:
     \ + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U,\
     \ int>>,\n                        std::greater<std::pair<U, int>>> que;\n    while\
     \ (flow > 0) {\n      std::fill(dist.begin(), dist.end(), uinf);\n      dist[n]\
-    \ = 0;\n      que.emplace(0, n);\n      while (!que.empty()) {\n        U d;\n\
-    \        int ver;\n        std::tie(d, ver) = que.top();\n        que.pop();\n\
+    \ = 0;\n      que.emplace(0, n);\n      while (!que.empty()) {\n#if __cplusplus\
+    \ >= 201703L\n        const auto [d, ver] = que.top();\n#else\n        U d;\n\
+    \        int ver;\n        std::tie(d, ver) = que.top();\n#endif\n        que.pop();\n\
     \        if (d > dist[ver]) continue;\n        for (int i = 0; i < static_cast<int>(graph[ver].size());\
     \ ++i) {\n          const Edge& e = graph[ver][i];\n          const U nxt = dist[ver]\
     \ + e.cost + potential[ver] - potential[e.dst];\n          if (e.cap > 0 && dist[e.dst]\
@@ -65,13 +66,13 @@ data:
     \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <functional>\n#include <limits>\n\
-    #include <numeric>\n#include <queue>\n#include <tuple>\n#include <utility>\n#include\
-    \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename T, typename U>\nstruct\
-    \ MinimumCostBFlow {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    U cost;\n\
-    \    explicit Edge(const int dst, const T cap, const U cost, const int rev)\n\
-    \        : dst(dst), rev(rev), cap(cap), cost(cost) {}\n  };\n\n  const U uinf;\n\
-    \  std::vector<std::vector<Edge>> graph;\n\n  explicit MinimumCostBFlow(const\
-    \ int n,\n                            const U uinf = std::numeric_limits<U>::max())\n\
+    #include <numeric>\n#include <queue>\n#if __cplusplus < 201703L\n#include <tuple>\n\
+    #endif\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename T, typename U>\nstruct MinimumCostBFlow {\n  struct Edge {\n    int\
+    \ dst, rev;\n    T cap;\n    U cost;\n    explicit Edge(const int dst, const T\
+    \ cap, const U cost, const int rev)\n        : dst(dst), rev(rev), cap(cap), cost(cost)\
+    \ {}\n  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>> graph;\n\n  explicit\
+    \ MinimumCostBFlow(const int n,\n                            const U uinf = std::numeric_limits<U>::max())\n\
     \      : uinf(uinf), graph(n + 2), n(n), res(0), b(n + 2, 0) {}\n\n  void add_edge(int\
     \ src, int dst, const T cap, U cost) {\n    if (cost < 0) {\n      b[src] -= cap;\n\
     \      b[dst] += cap;\n      res += cost * cap;\n      std::swap(src, dst);\n\
@@ -86,8 +87,9 @@ data:
     \ + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U, int>, std::vector<std::pair<U,\
     \ int>>,\n                        std::greater<std::pair<U, int>>> que;\n    while\
     \ (flow > 0) {\n      std::fill(dist.begin(), dist.end(), uinf);\n      dist[n]\
-    \ = 0;\n      que.emplace(0, n);\n      while (!que.empty()) {\n        U d;\n\
-    \        int ver;\n        std::tie(d, ver) = que.top();\n        que.pop();\n\
+    \ = 0;\n      que.emplace(0, n);\n      while (!que.empty()) {\n#if __cplusplus\
+    \ >= 201703L\n        const auto [d, ver] = que.top();\n#else\n        U d;\n\
+    \        int ver;\n        std::tie(d, ver) = que.top();\n#endif\n        que.pop();\n\
     \        if (d > dist[ver]) continue;\n        for (int i = 0; i < static_cast<int>(graph[ver].size());\
     \ ++i) {\n          const Edge& e = graph[ver][i];\n          const U nxt = dist[ver]\
     \ + e.cost + potential[ver] - potential[e.dst];\n          if (e.cap > 0 && dist[e.dst]\
@@ -108,7 +110,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp

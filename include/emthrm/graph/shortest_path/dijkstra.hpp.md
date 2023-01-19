@@ -28,37 +28,39 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/shortest_path/dijkstra.hpp: line 18: unable to process\
+    \ include/emthrm/graph/shortest_path/dijkstra.hpp: line 20: unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief Dijkstra \u6CD5\n * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_\n#define EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_\n\
     \n#include <algorithm>\n#include <cassert>\n#include <functional>\n#include <limits>\n\
-    #include <queue>\n#include <tuple>\n#include <utility>\n#include <vector>\n\n\
-    #include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ CostType>\nstruct Dijkstra {\n  const CostType inf;\n\n  Dijkstra(const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\n           const CostType inf = std::numeric_limits<CostType>::max())\n\
-    \      : inf(inf), is_built(false), graph(graph) {}\n\n  std::vector<CostType>\
-    \ build(const int s) {\n    is_built = true;\n    const int n = graph.size();\n\
-    \    std::vector<CostType> dist(n, inf);\n    dist[s] = 0;\n    prev.assign(n,\
-    \ -1);\n    std::priority_queue<std::pair<CostType, int>,\n                  \
-    \      std::vector<std::pair<CostType, int>>,\n                        std::greater<std::pair<CostType,\
-    \ int>>> que;\n    que.emplace(0, s);\n    while (!que.empty()) {\n      CostType\
-    \ d;\n      int ver;\n      std::tie(d, ver) = que.top();\n      que.pop();\n\
-    \      if (d > dist[ver]) continue;\n      for (const Edge<CostType>& e : graph[ver])\
-    \ {\n        if (dist[ver] + e.cost < dist[e.dst]) {\n          dist[e.dst] =\
-    \ dist[ver] + e.cost;\n          prev[e.dst] = ver;\n          que.emplace(dist[e.dst],\
-    \ e.dst);\n        }\n      }\n    }\n    return dist;\n  }\n\n  std::vector<int>\
-    \ build_path(int t) const {\n    assert(is_built);\n    std::vector<int> res;\n\
-    \    for (; t != -1; t = prev[t]) {\n      res.emplace_back(t);\n    }\n    std::reverse(res.begin(),\
-    \ res.end());\n    return res;\n  }\n\n private:\n  bool is_built;\n  std::vector<int>\
-    \ prev;\n  std::vector<std::vector<Edge<CostType>>> graph;\n};\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_\n"
+    #include <queue>\n#if __cplusplus < 201703L\n#include <tuple>\n#endif\n#include\
+    \ <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename CostType>\nstruct Dijkstra {\n  const CostType\
+    \ inf;\n\n  Dijkstra(const std::vector<std::vector<Edge<CostType>>>& graph,\n\
+    \           const CostType inf = std::numeric_limits<CostType>::max())\n     \
+    \ : inf(inf), is_built(false), graph(graph) {}\n\n  std::vector<CostType> build(const\
+    \ int s) {\n    is_built = true;\n    const int n = graph.size();\n    std::vector<CostType>\
+    \ dist(n, inf);\n    dist[s] = 0;\n    prev.assign(n, -1);\n    std::priority_queue<std::pair<CostType,\
+    \ int>,\n                        std::vector<std::pair<CostType, int>>,\n    \
+    \                    std::greater<std::pair<CostType, int>>> que;\n    que.emplace(0,\
+    \ s);\n    while (!que.empty()) {\n#if __cplusplus >= 201703L\n      const auto\
+    \ [d, ver] = que.top();\n#else\n      CostType d;\n      int ver;\n      std::tie(d,\
+    \ ver) = que.top();\n#endif\n      que.pop();\n      if (d > dist[ver]) continue;\n\
+    \      for (const Edge<CostType>& e : graph[ver]) {\n        if (dist[ver] + e.cost\
+    \ < dist[e.dst]) {\n          dist[e.dst] = dist[ver] + e.cost;\n          prev[e.dst]\
+    \ = ver;\n          que.emplace(dist[e.dst], e.dst);\n        }\n      }\n   \
+    \ }\n    return dist;\n  }\n\n  std::vector<int> build_path(int t) const {\n \
+    \   assert(is_built);\n    std::vector<int> res;\n    for (; t != -1; t = prev[t])\
+    \ {\n      res.emplace_back(t);\n    }\n    std::reverse(res.begin(), res.end());\n\
+    \    return res;\n  }\n\n private:\n  bool is_built;\n  std::vector<int> prev;\n\
+    \  std::vector<std::vector<Edge<CostType>>> graph;\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/shortest_path/dijkstra.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/shortest_path/dijkstra.test.cpp

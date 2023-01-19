@@ -24,10 +24,13 @@ data:
     \ xs.end()), xs.end());\n    const int xs_size = xs.size();\n    assert(xs_size\
     \ > 0);\n    while (n < xs_size) n <<= 1;\n    const T xs_back = xs.back();\n\
     \    xs.resize(n, xs_back);\n    dat.assign(n << 1, Line(0, inf));\n  }\n\n  void\
-    \ add(T a, T b) {\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n  \
-    \  }\n    Line line(a, b);\n    add(&line, 1, 0, n);\n  }\n\n  void add(T a, T\
-    \ b, T left, T right) {\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n\
-    \    }\n    for (int len = 1,\n             node_l = std::distance(\n        \
+    \ add(T a, T b) {\n#if __cplusplus >= 201703L\n    if constexpr (!IS_MINIMIZED)\
+    \ {\n      a = -a;\n      b = -b;\n    }\n#else\n    if (!IS_MINIMIZED) {\n  \
+    \    a = -a;\n      b = -b;\n    }\n#endif\n    Line line(a, b);\n    add(&line,\
+    \ 1, 0, n);\n  }\n\n  void add(T a, T b, T left, T right) {\n#if __cplusplus >=\
+    \ 201703L\n    if constexpr (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n\
+    \    }\n#else\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n    }\n\
+    #endif\n    for (int len = 1,\n             node_l = std::distance(\n        \
     \         xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),\n       \
     \      node_r = std::distance(\n                 xs.begin(), std::lower_bound(xs.begin(),\
     \ xs.end(), right)),\n             l = node_l + n, r = node_r + n;\n         l\
@@ -58,10 +61,13 @@ data:
     \ xs.end()), xs.end());\n    const int xs_size = xs.size();\n    assert(xs_size\
     \ > 0);\n    while (n < xs_size) n <<= 1;\n    const T xs_back = xs.back();\n\
     \    xs.resize(n, xs_back);\n    dat.assign(n << 1, Line(0, inf));\n  }\n\n  void\
-    \ add(T a, T b) {\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n  \
-    \  }\n    Line line(a, b);\n    add(&line, 1, 0, n);\n  }\n\n  void add(T a, T\
-    \ b, T left, T right) {\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n\
-    \    }\n    for (int len = 1,\n             node_l = std::distance(\n        \
+    \ add(T a, T b) {\n#if __cplusplus >= 201703L\n    if constexpr (!IS_MINIMIZED)\
+    \ {\n      a = -a;\n      b = -b;\n    }\n#else\n    if (!IS_MINIMIZED) {\n  \
+    \    a = -a;\n      b = -b;\n    }\n#endif\n    Line line(a, b);\n    add(&line,\
+    \ 1, 0, n);\n  }\n\n  void add(T a, T b, T left, T right) {\n#if __cplusplus >=\
+    \ 201703L\n    if constexpr (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n\
+    \    }\n#else\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n    }\n\
+    #endif\n    for (int len = 1,\n             node_l = std::distance(\n        \
     \         xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),\n       \
     \      node_r = std::distance(\n                 xs.begin(), std::lower_bound(xs.begin(),\
     \ xs.end(), right)),\n             l = node_l + n, r = node_r + n;\n         l\
@@ -87,7 +93,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/li_chao_tree.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/li_chao_tree.2.test.cpp

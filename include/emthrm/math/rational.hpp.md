@@ -11,63 +11,23 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/rational.hpp\"\n\n\n\n#include <algorithm>\n\
-    // #include <cassert>\n#include <limits>\n#include <ostream>\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename T = long long>\nstruct Rational {\n  T num, den;\n \
-    \ Rational() : num(0), den(1) {}\n  Rational(const T num, const T den = 1) : num(num),\
-    \ den(den) {\n    // assert(den != 0);\n    reduce();\n  }\n  template <typename\
-    \ Real = long double>\n  Real to_real() const { return static_cast<Real>(num)\
-    \ / den; }\n  Rational& operator+=(const Rational& x) {\n    const T g = std::__gcd(den,\
-    \ x.den);\n    num = num * (x.den / g) + x.num * (den / g);\n    den *= x.den\
-    \ / g;\n    reduce();\n    return *this;\n  }\n  Rational& operator-=(const Rational&\
-    \ x) { return *this += -x; }\n  Rational& operator*=(const Rational& x) {\n  \
-    \  const T g1 = std::__gcd(num, x.den), g2 = std::__gcd(den, x.num);\n    num\
-    \ = (num / g1) * (x.num / g2);\n    den = (den / g2) * (x.den / g1);\n    reduce();\n\
-    \    return *this;\n  }\n  Rational& operator/=(const Rational& x) {\n    return\
-    \ *this *= Rational(x.den, x.num);\n  }\n  bool operator==(const Rational& x)\
-    \ const {\n    return num == x.num && den == x.den;\n  }\n  bool operator!=(const\
-    \ Rational& x) const { return !(*this == x); }\n  bool operator<(const Rational&\
-    \ x) const { return (x - *this).num > 0; }\n  bool operator<=(const Rational&\
-    \ x) const { return !(x < *this); }\n  bool operator>(const Rational& x) const\
-    \ { return x < *this; }\n  bool operator>=(const Rational& x) const { return !(*this\
-    \ < x); }\n  Rational& operator++() {\n    if ((num += den) == 0) den = 1;\n \
-    \   return *this;\n  }\n  Rational operator++(int) {\n    const Rational res =\
-    \ *this;\n    ++*this;\n    return res;\n  }\n  Rational& operator--() {\n   \
-    \ if ((num -= den) == 0) den = 1;\n    return *this;\n  }\n  Rational operator--(int)\
-    \ {\n    const Rational res = *this;\n    --*this;\n    return res;\n  }\n  Rational\
-    \ operator+() const { return *this; }\n  Rational operator-() const { return Rational(-num,\
-    \ den); }\n  Rational operator+(const Rational& x) const { return Rational(*this)\
-    \ += x; }\n  Rational operator-(const Rational& x) const { return Rational(*this)\
-    \ -= x; }\n  Rational operator*(const Rational& x) const { return Rational(*this)\
-    \ *= x; }\n  Rational operator/(const Rational& x) const { return Rational(*this)\
-    \ /= x; }\n  friend std::ostream& operator<<(std::ostream& os, const Rational&\
-    \ x) {\n    if (x.den == 1) return os << x.num;\n    return os << x.num << '/'\
-    \ << x.den;\n  }\n private:\n  void reduce() {\n    const T g = std::__gcd(num,\
-    \ den);\n    num /= g;\n    den /= g;\n    if (den < 0) {\n      num = -num;\n\
-    \      den = -den;\n    }\n  }\n};\n\n}  // namespace emthrm\n\nnamespace std\
-    \ {\n\ntemplate <typename T>\nemthrm::Rational<T> abs(emthrm::Rational<T> x) {\n\
-    \  if (x.num < 0) x.num = -x.num;\n  return x;\n}\ntemplate <typename T>\nemthrm::Rational<T>\
-    \ max(const emthrm::Rational<T>& a,\n                        const emthrm::Rational<T>&\
-    \ b) {\n  return a < b ? b : a;\n}\ntemplate <typename T>\nemthrm::Rational<T>\
-    \ min(const emthrm::Rational<T>& a,\n                        const emthrm::Rational<T>&\
-    \ b) {\n  return a < b ? a : b;\n}\ntemplate <typename T> struct numeric_limits<emthrm::Rational<T>>\
-    \ {\n  static constexpr emthrm::Rational<T> max() {\n    return std::numeric_limits<T>::max();\n\
-    \  }\n  static constexpr emthrm::Rational<T> lowest() {\n    return std::numeric_limits<T>::lowest();\n\
-    \  }\n};\n\n}  // namespace std\n\n\n"
-  code: "#ifndef EMTHRM_MATH_RATIONAL_HPP_\n#define EMTHRM_MATH_RATIONAL_HPP_\n\n\
-    #include <algorithm>\n// #include <cassert>\n#include <limits>\n#include <ostream>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T = long long>\nstruct Rational {\n\
-    \  T num, den;\n  Rational() : num(0), den(1) {}\n  Rational(const T num, const\
-    \ T den = 1) : num(num), den(den) {\n    // assert(den != 0);\n    reduce();\n\
-    \  }\n  template <typename Real = long double>\n  Real to_real() const { return\
-    \ static_cast<Real>(num) / den; }\n  Rational& operator+=(const Rational& x) {\n\
-    \    const T g = std::__gcd(den, x.den);\n    num = num * (x.den / g) + x.num\
-    \ * (den / g);\n    den *= x.den / g;\n    reduce();\n    return *this;\n  }\n\
-    \  Rational& operator-=(const Rational& x) { return *this += -x; }\n  Rational&\
-    \ operator*=(const Rational& x) {\n    const T g1 = std::__gcd(num, x.den), g2\
-    \ = std::__gcd(den, x.num);\n    num = (num / g1) * (x.num / g2);\n    den = (den\
-    \ / g2) * (x.den / g1);\n    reduce();\n    return *this;\n  }\n  Rational& operator/=(const\
-    \ Rational& x) {\n    return *this *= Rational(x.den, x.num);\n  }\n  bool operator==(const\
+  bundledCode: "#line 1 \"include/emthrm/math/rational.hpp\"\n\n\n\n// #include <cassert>\n\
+    #include <limits>\n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include\
+    \ <algorithm>\n#endif\n#include <ostream>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T = long long>\nstruct Rational {\n  T num, den;\n  Rational() : num(0), den(1)\
+    \ {}\n  Rational(const T num, const T den = 1) : num(num), den(den) {\n    //\
+    \ assert(den != 0);\n    reduce();\n  }\n  template <typename Real = long double>\n\
+    \  Real to_real() const { return static_cast<Real>(num) / den; }\n  Rational&\
+    \ operator+=(const Rational& x) {\n#if __cplusplus >= 201703L\n    const T g =\
+    \ std::gcd(den, x.den);\n#else\n    const T g = std::__gcd(den, x.den);\n#endif\n\
+    \    num = num * (x.den / g) + x.num * (den / g);\n    den *= x.den / g;\n   \
+    \ reduce();\n    return *this;\n  }\n  Rational& operator-=(const Rational& x)\
+    \ { return *this += -x; }\n  Rational& operator*=(const Rational& x) {\n#if __cplusplus\
+    \ >= 201703L\n    const T g1 = std::gcd(num, x.den), g2 = std::gcd(den, x.num);\n\
+    #else\n    const T g1 = std::__gcd(num, x.den), g2 = std::__gcd(den, x.num);\n\
+    #endif\n    num = (num / g1) * (x.num / g2);\n    den = (den / g2) * (x.den /\
+    \ g1);\n    reduce();\n    return *this;\n  }\n  Rational& operator/=(const Rational&\
+    \ x) {\n    return *this *= Rational(x.den, x.num);\n  }\n  bool operator==(const\
     \ Rational& x) const {\n    return num == x.num && den == x.den;\n  }\n  bool\
     \ operator!=(const Rational& x) const { return !(*this == x); }\n  bool operator<(const\
     \ Rational& x) const { return (x - *this).num > 0; }\n  bool operator<=(const\
@@ -85,8 +45,9 @@ data:
     \ *= x; }\n  Rational operator/(const Rational& x) const { return Rational(*this)\
     \ /= x; }\n  friend std::ostream& operator<<(std::ostream& os, const Rational&\
     \ x) {\n    if (x.den == 1) return os << x.num;\n    return os << x.num << '/'\
-    \ << x.den;\n  }\n private:\n  void reduce() {\n    const T g = std::__gcd(num,\
-    \ den);\n    num /= g;\n    den /= g;\n    if (den < 0) {\n      num = -num;\n\
+    \ << x.den;\n  }\n private:\n  void reduce() {\n#if __cplusplus >= 201703L\n \
+    \   const T g = std::gcd(num, den);\n#else\n    const T g = std::__gcd(num, den);\n\
+    #endif\n    num /= g;\n    den /= g;\n    if (den < 0) {\n      num = -num;\n\
     \      den = -den;\n    }\n  }\n};\n\n}  // namespace emthrm\n\nnamespace std\
     \ {\n\ntemplate <typename T>\nemthrm::Rational<T> abs(emthrm::Rational<T> x) {\n\
     \  if (x.num < 0) x.num = -x.num;\n  return x;\n}\ntemplate <typename T>\nemthrm::Rational<T>\
@@ -96,12 +57,60 @@ data:
     \ b) {\n  return a < b ? a : b;\n}\ntemplate <typename T> struct numeric_limits<emthrm::Rational<T>>\
     \ {\n  static constexpr emthrm::Rational<T> max() {\n    return std::numeric_limits<T>::max();\n\
     \  }\n  static constexpr emthrm::Rational<T> lowest() {\n    return std::numeric_limits<T>::lowest();\n\
+    \  }\n};\n\n}  // namespace std\n\n\n"
+  code: "#ifndef EMTHRM_MATH_RATIONAL_HPP_\n#define EMTHRM_MATH_RATIONAL_HPP_\n\n\
+    // #include <cassert>\n#include <limits>\n#if __cplusplus >= 201703L\n#include\
+    \ <numeric>\n#else\n#include <algorithm>\n#endif\n#include <ostream>\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename T = long long>\nstruct Rational {\n  T num, den;\n\
+    \  Rational() : num(0), den(1) {}\n  Rational(const T num, const T den = 1) :\
+    \ num(num), den(den) {\n    // assert(den != 0);\n    reduce();\n  }\n  template\
+    \ <typename Real = long double>\n  Real to_real() const { return static_cast<Real>(num)\
+    \ / den; }\n  Rational& operator+=(const Rational& x) {\n#if __cplusplus >= 201703L\n\
+    \    const T g = std::gcd(den, x.den);\n#else\n    const T g = std::__gcd(den,\
+    \ x.den);\n#endif\n    num = num * (x.den / g) + x.num * (den / g);\n    den *=\
+    \ x.den / g;\n    reduce();\n    return *this;\n  }\n  Rational& operator-=(const\
+    \ Rational& x) { return *this += -x; }\n  Rational& operator*=(const Rational&\
+    \ x) {\n#if __cplusplus >= 201703L\n    const T g1 = std::gcd(num, x.den), g2\
+    \ = std::gcd(den, x.num);\n#else\n    const T g1 = std::__gcd(num, x.den), g2\
+    \ = std::__gcd(den, x.num);\n#endif\n    num = (num / g1) * (x.num / g2);\n  \
+    \  den = (den / g2) * (x.den / g1);\n    reduce();\n    return *this;\n  }\n \
+    \ Rational& operator/=(const Rational& x) {\n    return *this *= Rational(x.den,\
+    \ x.num);\n  }\n  bool operator==(const Rational& x) const {\n    return num ==\
+    \ x.num && den == x.den;\n  }\n  bool operator!=(const Rational& x) const { return\
+    \ !(*this == x); }\n  bool operator<(const Rational& x) const { return (x - *this).num\
+    \ > 0; }\n  bool operator<=(const Rational& x) const { return !(x < *this); }\n\
+    \  bool operator>(const Rational& x) const { return x < *this; }\n  bool operator>=(const\
+    \ Rational& x) const { return !(*this < x); }\n  Rational& operator++() {\n  \
+    \  if ((num += den) == 0) den = 1;\n    return *this;\n  }\n  Rational operator++(int)\
+    \ {\n    const Rational res = *this;\n    ++*this;\n    return res;\n  }\n  Rational&\
+    \ operator--() {\n    if ((num -= den) == 0) den = 1;\n    return *this;\n  }\n\
+    \  Rational operator--(int) {\n    const Rational res = *this;\n    --*this;\n\
+    \    return res;\n  }\n  Rational operator+() const { return *this; }\n  Rational\
+    \ operator-() const { return Rational(-num, den); }\n  Rational operator+(const\
+    \ Rational& x) const { return Rational(*this) += x; }\n  Rational operator-(const\
+    \ Rational& x) const { return Rational(*this) -= x; }\n  Rational operator*(const\
+    \ Rational& x) const { return Rational(*this) *= x; }\n  Rational operator/(const\
+    \ Rational& x) const { return Rational(*this) /= x; }\n  friend std::ostream&\
+    \ operator<<(std::ostream& os, const Rational& x) {\n    if (x.den == 1) return\
+    \ os << x.num;\n    return os << x.num << '/' << x.den;\n  }\n private:\n  void\
+    \ reduce() {\n#if __cplusplus >= 201703L\n    const T g = std::gcd(num, den);\n\
+    #else\n    const T g = std::__gcd(num, den);\n#endif\n    num /= g;\n    den /=\
+    \ g;\n    if (den < 0) {\n      num = -num;\n      den = -den;\n    }\n  }\n};\n\
+    \n}  // namespace emthrm\n\nnamespace std {\n\ntemplate <typename T>\nemthrm::Rational<T>\
+    \ abs(emthrm::Rational<T> x) {\n  if (x.num < 0) x.num = -x.num;\n  return x;\n\
+    }\ntemplate <typename T>\nemthrm::Rational<T> max(const emthrm::Rational<T>& a,\n\
+    \                        const emthrm::Rational<T>& b) {\n  return a < b ? b :\
+    \ a;\n}\ntemplate <typename T>\nemthrm::Rational<T> min(const emthrm::Rational<T>&\
+    \ a,\n                        const emthrm::Rational<T>& b) {\n  return a < b\
+    \ ? a : b;\n}\ntemplate <typename T> struct numeric_limits<emthrm::Rational<T>>\
+    \ {\n  static constexpr emthrm::Rational<T> max() {\n    return std::numeric_limits<T>::max();\n\
+    \  }\n  static constexpr emthrm::Rational<T> lowest() {\n    return std::numeric_limits<T>::lowest();\n\
     \  }\n};\n\n}  // namespace std\n\n#endif  // EMTHRM_MATH_RATIONAL_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/rational.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/rational.test.cpp

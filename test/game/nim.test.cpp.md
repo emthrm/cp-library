@@ -28,19 +28,21 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/game/nim.hpp:\
     \ line -1: no such header\n"
   code: "/*\n * @brief \u30B2\u30FC\u30E0/\u30CB\u30E0\n */\n#define PROBLEM \"https://yukicoder.me/problems/no/2\"\
-    \n\n#include <iostream>\n#include <utility>\n#include <vector>\n\n#include \"\
-    emthrm/game/nim.hpp\"\n#include \"emthrm/math/prime_factorization.hpp\"\n\nint\
-    \ main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a;\n  for (const std::pair<int,\
-    \ int>& p : emthrm::prime_factorization(n)) {\n    a.emplace_back(p.second);\n\
-    \  }\n  std::cout << (emthrm::nim(a) ? \"Alice\\n\" : \"Bob\\n\");\n  return 0;\n\
-    }\n"
+    \n\n#include <iostream>\n#if __cplusplus < 201703L\n#include <utility>\n#endif\n\
+    #include <vector>\n\n#include \"emthrm/game/nim.hpp\"\n#include \"emthrm/math/prime_factorization.hpp\"\
+    \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a;\n#if __cplusplus\
+    \ >= 201703L\n  for (const auto& [_, exponent] : emthrm::prime_factorization(n))\
+    \ {\n    a.emplace_back(exponent);\n  }\n#else\n  for (const std::pair<int, int>&\
+    \ p : emthrm::prime_factorization(n)) {\n    a.emplace_back(p.second);\n  }\n\
+    #endif\n  std::cout << (emthrm::nim(a) ? \"Alice\\n\" : \"Bob\\n\");\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - include/emthrm/game/nim.hpp
   - include/emthrm/math/prime_factorization.hpp
   isVerificationFile: true
   path: test/game/nim.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/game/nim.test.cpp

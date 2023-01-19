@@ -30,25 +30,27 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u591A\u9805\u5F0F\n */\n#define IGNORE\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/division_of_polynomials\"\n\n#include\
-    \ <iostream>\n#include <tuple>\n\n#include \"emthrm/math/modint.hpp\"\n#include\
-    \ \"emthrm/math/polynomial.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(998244353);\n  int n, m;\n  std::cin >> n >> m;\n  emthrm::Polynomial<ModInt>\
-    \ f(n - 1), g(m - 1);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> f[i];\n\
-    \  }\n  for (int i = 0; i < m; ++i) {\n    std::cin >> g[i];\n  }\n  emthrm::Polynomial<ModInt>\
-    \ q, r;\n  std::tie(q, r) = f.divide(g);\n  q.shrink();\n  r.shrink();\n  const\
-    \ int u = (q == emthrm::Polynomial<ModInt>{0} ? 0 : q.degree() + 1);\n  const\
-    \ int v = (r == emthrm::Polynomial<ModInt>{0} ? 0 : r.degree() + 1);\n  std::cout\
-    \ << u << ' ' << v << '\\n';\n  for (int i = 0; i < u; ++i) {\n    std::cout <<\
-    \ q[i];\n    if (i + 1 < u) std::cout << ' ';\n  }\n  std::cout << '\\n';\n  for\
-    \ (int i = 0; i < v; ++i) {\n    std::cout << r[i];\n    if (i + 1 < v) std::cout\
-    \ << ' ';\n  }\n  std::cout << '\\n';\n  return 0;\n}\n"
+    \ <iostream>\n#if __cplusplus < 201703L\n#include <tuple>\n#endif\n\n#include\
+    \ \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/polynomial.hpp\"\n\nint main()\
+    \ {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n  int n,\
+    \ m;\n  std::cin >> n >> m;\n  emthrm::Polynomial<ModInt> f(n - 1), g(m - 1);\n\
+    \  for (int i = 0; i < n; ++i) {\n    std::cin >> f[i];\n  }\n  for (int i = 0;\
+    \ i < m; ++i) {\n    std::cin >> g[i];\n  }\n#if __cplusplus >= 201703L\n  auto\
+    \ [q, r] = f.divide(g);\n#else\n  emthrm::Polynomial<ModInt> q, r;\n  std::tie(q,\
+    \ r) = f.divide(g);\n#endif\n  q.shrink();\n  r.shrink();\n  const int u = (q\
+    \ == emthrm::Polynomial<ModInt>{0} ? 0 : q.degree() + 1);\n  const int v = (r\
+    \ == emthrm::Polynomial<ModInt>{0} ? 0 : r.degree() + 1);\n  std::cout << u <<\
+    \ ' ' << v << '\\n';\n  for (int i = 0; i < u; ++i) {\n    std::cout << q[i];\n\
+    \    if (i + 1 < u) std::cout << ' ';\n  }\n  std::cout << '\\n';\n  for (int\
+    \ i = 0; i < v; ++i) {\n    std::cout << r[i];\n    if (i + 1 < v) std::cout <<\
+    \ ' ';\n  }\n  std::cout << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   - include/emthrm/math/polynomial.hpp
   isVerificationFile: true
   path: test/math/polynomial.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/polynomial.test.cpp

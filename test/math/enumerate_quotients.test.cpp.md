@@ -26,17 +26,19 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u5546\u306E\u5217\u6319\n */\n#define PROBLEM\
     \ \"https://atcoder.jp/contests/abc230/tasks/abc230_e\"\n\n#include <iostream>\n\
-    #include <tuple>\n\n#include \"emthrm/math/enumerate_quotients.hpp\"\n\nint main()\
-    \ {\n  long long n;\n  std::cin >> n;\n  long long ans = 0;\n  for (const std::tuple<long\
-    \ long, long long, long long>& lrq\n       : emthrm::enumerate_quotients(n)) {\n\
-    \    long long l, r, q;\n    std::tie(l, r, q) = lrq;\n    ans += q * (r - l);\n\
-    \  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    #if __cplusplus < 201703L\n#include <tuple>\n#endif\n\n#include \"emthrm/math/enumerate_quotients.hpp\"\
+    \n\nint main() {\n  long long n;\n  std::cin >> n;\n  long long ans = 0;\n#if\
+    \ __cplusplus >= 201703L\n  for (const auto& [l, r, q] : emthrm::enumerate_quotients(n))\
+    \ {\n    ans += q * (r - l);\n  }\n#else\n  for (const std::tuple<long long, long\
+    \ long, long long>& lrq\n       : emthrm::enumerate_quotients(n)) {\n    long\
+    \ long l, r, q;\n    std::tie(l, r, q) = lrq;\n    ans += q * (r - l);\n  }\n\
+    #endif\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/enumerate_quotients.hpp
   isVerificationFile: true
   path: test/math/enumerate_quotients.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/enumerate_quotients.test.cpp

@@ -15,35 +15,37 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/trie.hpp\"\n\n\n\n#include <algorithm>\n\
-    #include <functional>\n#include <string>\n#include <vector>\n\nnamespace emthrm\
-    \ {\n\ntemplate <int Sigma = 26>\nstruct Trie {\n  struct Node {\n    char c;\n\
-    \    int nxt[Sigma];\n    std::vector<int> tails;\n    explicit Node(const char\
-    \ c) : c(c) { std::fill(nxt, nxt + Sigma, -1); }\n  };\n\n  const std::function<int(const\
-    \ char)> convert;\n  std::vector<Node> nodes;\n\n  explicit Trie(const std::function<int(const\
-    \ char)> convert =\n                    [](const char c) -> int { return c - 'a';\
-    \ })\n      : convert(convert) { nodes.emplace_back('$'); }\n\n  void add(const\
-    \ std::string& s, const int id = -1, int pos = 0) {\n    for (const char c : s)\
-    \ {\n      const int c_int = convert(c);\n      if (nodes[pos].nxt[c_int] == -1)\
-    \ {\n        const int nxt_pos = nodes.size();\n        nodes[pos].nxt[c_int]\
-    \ = nxt_pos;\n        nodes.emplace_back(c);\n        pos = nxt_pos;\n      }\
-    \ else {\n        pos = nodes[pos].nxt[c_int];\n      }\n    }\n    nodes[pos].tails.emplace_back(id);\n\
-    \  }\n\n  int find(const std::string& t, int pos = 0) const {\n    for (const\
-    \ char c : t) {\n      const int c_int = convert(c);\n      if (nodes[pos].nxt[c_int]\
-    \ == -1) return -1;\n      pos = nodes[pos].nxt[c_int];\n    }\n    return pos;\n\
-    \  }\n};\n\n}  // namespace emthrm\n\n\n"
+    #include <array>\n#include <functional>\n#include <string>\n#include <vector>\n\
+    \nnamespace emthrm {\n\ntemplate <int Sigma = 26>\nstruct Trie {\n  struct Node\
+    \ {\n    char c;\n    std::array<int, Sigma> nxt;\n    std::vector<int> tails;\n\
+    \n    explicit Node(const char c) : c(c) {\n      std::fill(nxt.begin(), nxt.end(),\
+    \ -1);\n    }\n  };\n\n  const std::function<int(const char)> convert;\n  std::vector<Node>\
+    \ nodes;\n\n  explicit Trie(const std::function<int(const char)> convert =\n \
+    \                   [](const char c) -> int { return c - 'a'; })\n      : convert(convert)\
+    \ { nodes.emplace_back('$'); }\n\n  void add(const std::string& s, const int id\
+    \ = -1, int pos = 0) {\n    for (const char c : s) {\n      const int c_int =\
+    \ convert(c);\n      if (nodes[pos].nxt[c_int] == -1) {\n        const int nxt_pos\
+    \ = nodes.size();\n        nodes[pos].nxt[c_int] = nxt_pos;\n        nodes.emplace_back(c);\n\
+    \        pos = nxt_pos;\n      } else {\n        pos = nodes[pos].nxt[c_int];\n\
+    \      }\n    }\n    nodes[pos].tails.emplace_back(id);\n  }\n\n  int find(const\
+    \ std::string& t, int pos = 0) const {\n    for (const char c : t) {\n      const\
+    \ int c_int = convert(c);\n      if (nodes[pos].nxt[c_int] == -1) return -1;\n\
+    \      pos = nodes[pos].nxt[c_int];\n    }\n    return pos;\n  }\n};\n\n}  //\
+    \ namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_STRING_TRIE_HPP_\n#define EMTHRM_STRING_TRIE_HPP_\n\n#include\
-    \ <algorithm>\n#include <functional>\n#include <string>\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <int Sigma = 26>\nstruct Trie {\n  struct Node\
-    \ {\n    char c;\n    int nxt[Sigma];\n    std::vector<int> tails;\n    explicit\
-    \ Node(const char c) : c(c) { std::fill(nxt, nxt + Sigma, -1); }\n  };\n\n  const\
-    \ std::function<int(const char)> convert;\n  std::vector<Node> nodes;\n\n  explicit\
-    \ Trie(const std::function<int(const char)> convert =\n                    [](const\
-    \ char c) -> int { return c - 'a'; })\n      : convert(convert) { nodes.emplace_back('$');\
-    \ }\n\n  void add(const std::string& s, const int id = -1, int pos = 0) {\n  \
-    \  for (const char c : s) {\n      const int c_int = convert(c);\n      if (nodes[pos].nxt[c_int]\
-    \ == -1) {\n        const int nxt_pos = nodes.size();\n        nodes[pos].nxt[c_int]\
-    \ = nxt_pos;\n        nodes.emplace_back(c);\n        pos = nxt_pos;\n      }\
-    \ else {\n        pos = nodes[pos].nxt[c_int];\n      }\n    }\n    nodes[pos].tails.emplace_back(id);\n\
+    \ <algorithm>\n#include <array>\n#include <functional>\n#include <string>\n#include\
+    \ <vector>\n\nnamespace emthrm {\n\ntemplate <int Sigma = 26>\nstruct Trie {\n\
+    \  struct Node {\n    char c;\n    std::array<int, Sigma> nxt;\n    std::vector<int>\
+    \ tails;\n\n    explicit Node(const char c) : c(c) {\n      std::fill(nxt.begin(),\
+    \ nxt.end(), -1);\n    }\n  };\n\n  const std::function<int(const char)> convert;\n\
+    \  std::vector<Node> nodes;\n\n  explicit Trie(const std::function<int(const char)>\
+    \ convert =\n                    [](const char c) -> int { return c - 'a'; })\n\
+    \      : convert(convert) { nodes.emplace_back('$'); }\n\n  void add(const std::string&\
+    \ s, const int id = -1, int pos = 0) {\n    for (const char c : s) {\n      const\
+    \ int c_int = convert(c);\n      if (nodes[pos].nxt[c_int] == -1) {\n        const\
+    \ int nxt_pos = nodes.size();\n        nodes[pos].nxt[c_int] = nxt_pos;\n    \
+    \    nodes.emplace_back(c);\n        pos = nxt_pos;\n      } else {\n        pos\
+    \ = nodes[pos].nxt[c_int];\n      }\n    }\n    nodes[pos].tails.emplace_back(id);\n\
     \  }\n\n  int find(const std::string& t, int pos = 0) const {\n    for (const\
     \ char c : t) {\n      const int c_int = convert(c);\n      if (nodes[pos].nxt[c_int]\
     \ == -1) return -1;\n      pos = nodes[pos].nxt[c_int];\n    }\n    return pos;\n\
@@ -53,7 +55,7 @@ data:
   path: include/emthrm/string/trie.hpp
   requiredBy:
   - include/emthrm/string/aho-corasick.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-20 03:45:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/aho-corasick.test.cpp
@@ -109,7 +111,7 @@ struct Node
 |名前|説明|
 |:--|:--|
 |`char c`|そのノードが表す文字|
-|`int nxt[Sigma]`|子のインデックス|
+|`std::array<int, Sigma> nxt`|子のインデックス|
 |`std::vector<int> tails`|そのノードを末尾とする文字列の ID 集合|
 
 #### メンバ関数
