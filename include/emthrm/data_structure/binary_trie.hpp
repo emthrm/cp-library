@@ -1,6 +1,7 @@
 #ifndef EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_
 #define EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_
 
+#include <array>
 #include <cassert>
 #include <cstdint>
 #include <memory>
@@ -11,8 +12,9 @@ namespace emthrm {
 template <int B = 32, typename T = std::uint32_t>
 struct BinaryTrie {
   struct Node {
-    std::shared_ptr<Node> nxt[2];
+    std::array<std::shared_ptr<Node>, 2> nxt;
     int child;
+
     Node() : nxt{nullptr, nullptr}, child(0) {}
   };
 

@@ -50,7 +50,7 @@ struct Node
 |名前|説明|
 |:--|:--|
 |`char c`|そのノードが表す文字|
-|`int nxt[Sigma]`|子のインデックス|
+|`std::array<int, Sigma> nxt`|子のインデックス|
 |`std::vector<int> tails`|そのノードを末尾とする文字列の ID 集合|
 
 #### メンバ関数

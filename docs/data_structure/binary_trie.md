@@ -62,7 +62,7 @@ struct Node;
 
 |名前|説明|
 |:--|:--|
-|`std::shared_ptr<Node> nxt[2]`|子のポインタ|
+|`std::array<std::shared_ptr<Node>, 2> nxt`|子のポインタ|
 |`int child`|部分木に属する要素の個数|
 
 #### メンバ関数
