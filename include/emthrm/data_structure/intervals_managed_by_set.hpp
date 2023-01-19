@@ -141,7 +141,7 @@ struct IntervalsManagedBySet {
     return x < it->first ? x : it->second + 1;
   }
 
-  friend std::ostream &operator<<(std::ostream &os,
+  friend std::ostream& operator<<(std::ostream& os,
                                   const IntervalsManagedBySet& x) {
     if (x.intervals.size() == 2) return os;
     auto it = next(x.intervals.begin());

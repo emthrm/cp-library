@@ -16,7 +16,8 @@ template <typename T>
 struct SegmentTree {
   using Monoid = typename T::Monoid;
 
-  explicit SegmentTree(int n) : SegmentTree(std::vector<Monoid>(n, T::id())) {}
+  explicit SegmentTree(const int n)
+      : SegmentTree(std::vector<Monoid>(n, T::id())) {}
 
   explicit SegmentTree(const std::vector<Monoid>& a) : n(a.size()), p2(1) {
     while (p2 < n) p2 <<= 1;

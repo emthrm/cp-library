@@ -11,8 +11,9 @@
 namespace emthrm {
 
 template <typename T>
-std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, int n = -1) {
-  if (n == -1) n = (a.size() - 1) * (b.size() - 1);
+std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b,
+                               const int n = -1) {
+  if (n == -1) return lcm_convolution(a, b, (a.size() - 1) * (b.size() - 1));
   a.resize(n + 1, 0);
   b.resize(n + 1, 0);
   const auto transform = [n](std::vector<T>* v) -> void {

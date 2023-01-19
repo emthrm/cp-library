@@ -21,13 +21,10 @@ std::vector<T> longest_increasing_subsequence(
   std::vector<int> idx(n);
   std::vector<T> tmp(n, inf);
   for (int i = 0; i < n; ++i) {
-    if (is_strict) {
-      idx[i] = std::distance(tmp.begin(),
-                             std::lower_bound(tmp.begin(), tmp.end(), a[i]));
-    } else {
-      idx[i] = std::distance(tmp.begin(),
-                             std::upper_bound(tmp.begin(), tmp.end(), a[i]));
-    }
+    idx[i] = std::distance(
+        tmp.begin(),
+        is_strict ? std::lower_bound(tmp.begin(), tmp.end(), a[i]) :
+                    std::upper_bound(tmp.begin(), tmp.end(), a[i]));
     tmp[idx[i]] = a[i];
   }
   int res_size =
