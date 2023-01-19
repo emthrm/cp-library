@@ -40,7 +40,7 @@ data:
     \n#include \"emthrm/math/matrix/matrix.hpp\"\n#include \"emthrm/math/modint.hpp\"\
     \n\nnamespace emthrm {\n\nint maximum_matching(const std::vector<std::vector<int>>&\
     \ graph) {\n  constexpr int P = 1000000007;\n  using ModInt = MInt<P>;\n  ModInt::set_mod(P);\n\
-    \  std::mt19937_64 engine(std::random_device{}());\n  std::uniform_int_distribution<>\
+    \  static std::mt19937_64 engine(std::random_device{}());\n  static std::uniform_int_distribution<>\
     \ dist(1, P - 1);\n  const int n = graph.size();\n  Matrix<ModInt> tutte_matrix(n,\
     \ n, 0);\n  for (int i = 0; i < n; ++i) {\n    for (const int j : graph[i]) {\n\
     \      if (j > i) {\n        const ModInt x = dist(engine);\n        tutte_matrix[i][j]\
@@ -53,7 +53,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/matching/maximum_matching.hpp
   requiredBy: []
-  timestamp: '2023-01-15 02:23:52+09:00'
+  timestamp: '2023-01-19 21:18:04+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/maximum_matching.test.cpp

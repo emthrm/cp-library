@@ -28,7 +28,7 @@ data:
     \n#include \"emthrm/geometry/geometry.hpp\"\n\nnamespace emthrm {\n\nnamespace\
     \ geometry {\n\nCircle smallest_enclosing_circle(std::vector<Point> ps) {\n  const\
     \ int n = ps.size();\n  if (n == 1) return Circle(ps.front(), 0);\n  std::shuffle(ps.begin(),\
-    \ ps.end(), std::mt19937_64(std::random_device{}()));\n  const auto get_circle\
+    \ ps.end(), std::mt19937_64(std::random_device {} ()));\n  const auto get_circle\
     \ = [](const Point& p1, const Point& p2) -> Circle {\n    return Circle((p1 +\
     \ p2) * 0.5, distance(p1, p2) * 0.5);\n  };\n  Circle res = get_circle(ps[0],\
     \ ps[1]);\n  const auto is_in = [&res](const Point& p) -> bool {\n    return sgn(res.r\
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/geometry/smallest_enclosing_circle.hpp
   requiredBy: []
-  timestamp: '2023-01-15 02:23:52+09:00'
+  timestamp: '2023-01-19 17:51:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/smallest_enclosing_circle.test.cpp

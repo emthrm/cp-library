@@ -339,11 +339,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_log.hpp
       title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_pow.hpp
       title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\
         \u6CD5 / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_sqrt.hpp
       title: "\u5E73\u65B9\u5270\u4F59"
     - icon: ':question:'
@@ -1126,7 +1126,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/mod_pow.test.cpp
       title: "\u6570\u5B66/\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/mod_sqrt.test.cpp
       title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
     - icon: ':heavy_check_mark:'

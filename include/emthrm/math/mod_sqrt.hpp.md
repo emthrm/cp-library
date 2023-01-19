@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -11,12 +11,12 @@ data:
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/quadratic_residue.md
     document_title: "\u5E73\u65B9\u5270\u4F59"
@@ -36,8 +36,8 @@ data:
     \ p;\n  if (a == 0) return 0;\n  if (p == 2) return 1;\n  if (mod_pow(a, (p -\
     \ 1) >> 1, p) == p - 1) return -1;\n  if (p % 4 == 3) return mod_pow(a, (p + 1)\
     \ >> 2, p);\n  int s = 1, q = (p - 1) >> 1;\n  for (; !(q & 1); q >>= 1) {\n \
-    \   ++s;\n  }\n  std::mt19937_64 engine(std::random_device{}());\n  std::uniform_int_distribution<>\
-    \ dist(2, p + 1);\n  long long z;\n  do {\n    z = dist(engine);\n  } while (mod_pow(z,\
+    \   ++s;\n  }\n  static std::mt19937_64 engine(std::random_device{}());\n  std::uniform_int_distribution<>\
+    \ dist(2, p - 1);\n  long long z;\n  do {\n    z = dist(engine);\n  } while (mod_pow(z,\
     \ (p - 1) >> 1, p) == 1);\n  int m = s;\n  long long c = mod_pow(z, q, p), r =\
     \ mod_pow(a, (q - 1) >> 1, p);\n  long long t = a * r % p * r % p;\n  r = (r *\
     \ a) % p;\n  while (t != 1) {\n    long long t2 = t * t % p;\n    for (int i =\
@@ -51,8 +51,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/mod_sqrt.hpp
   requiredBy: []
-  timestamp: '2023-01-15 02:23:52+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-01-19 21:18:04+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp

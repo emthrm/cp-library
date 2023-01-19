@@ -7,11 +7,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_sqrt.hpp
     title: "\u5E73\u65B9\u5270\u4F59"
   - icon: ':question:'
@@ -64,7 +64,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.6.test.cpp
   requiredBy: []
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-01-19 21:18:04+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.6.test.cpp
