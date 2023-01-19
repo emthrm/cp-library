@@ -29,7 +29,11 @@ struct LiChaoTree {
   }
 
   void add(T a, T b) {
+#if __cplusplus >= 201703L
+    if constexpr (!IS_MINIMIZED) {
+#else
     if (!IS_MINIMIZED) {
+#endif
       a = -a;
       b = -b;
     }
@@ -38,7 +42,11 @@ struct LiChaoTree {
   }
 
   void add(T a, T b, T left, T right) {
+#if __cplusplus >= 201703L
+    if constexpr (!IS_MINIMIZED) {
+#else
     if (!IS_MINIMIZED) {
+#endif
       a = -a;
       b = -b;
     }

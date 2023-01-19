@@ -38,6 +38,8 @@ jobs:
             case "$file" in
               "include/emthrm/data_structure/binary_trie.hpp" | "include/emthrm/math/convolution/lcm_convolution.hpp" | "include/emthrm/string/aho-corasick.hpp" )
                 cpplint --root=./include --filter=-build/include_what_you_use,-legal/copyright $file ;;
+              "include/emthrm/dynamic_programming/convex_hull_trick.hpp" | "include/emthrm/dynamic_programming/li_chao_tree.hpp" )
+                cpplint --root=./include --filter=-build/header_guard,-legal/copyright $file ;;
               "include/emthrm/geometry/geometry.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-whitespace/line_length $file ;;
               "include/emthrm/math/bigint.hpp" | "include/emthrm/math/modint.hpp" | "include/emthrm/math/rational.hpp" )

@@ -1,7 +1,7 @@
 #ifndef EMTHRM_DYNAMIC_PROGRAMMING_CONVEX_HULL_TRICK_HPP_
 #define EMTHRM_DYNAMIC_PROGRAMMING_CONVEX_HULL_TRICK_HPP_
 
-// #include <cassert>
+#include <cassert>
 #include <deque>
 #include <utility>
 
@@ -12,7 +12,11 @@ struct ConvexHullTrick {
   ConvexHullTrick() = default;
 
   void add(T a, T b) {
+#if __cplusplus >= 201703L
+    if constexpr (!IS_MINIMIZED) {
+#else
     if (!IS_MINIMIZED) {
+#endif
       a = -a;
       b = -b;
     }
@@ -42,7 +46,7 @@ struct ConvexHullTrick {
   }
 
   T query(const T x) const {
-    // assert(!deq.empty());
+    assert(!deq.empty());
     int lb = -1, ub = deq.size() - 1;
     while (ub - lb > 1) {
       const int mid = (lb + ub) >> 1;
