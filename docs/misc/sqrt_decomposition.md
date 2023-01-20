@@ -28,7 +28,7 @@ struct SqrtDecomposition;
 
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`explicit SqrtDecomposition(const int n_)`|サイズ $N$ のオブジェクトを構築する。||
+|`explicit SqrtDecomposition(const int n_);`|サイズ $N$ のオブジェクトを構築する。||
 |`template <typename T> void partial_update(const int idx, const T val);`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する。|関数プロトタイプ|
 |`template <typename T> void total_update(const int idx, const T val);`|$\mathrm{val}$ を基にブロック $\mathrm{idx}$ を更新する。|関数プロトタイプ|
 |`template <typename T> void update(const int l, const int r, const T val);`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する。||

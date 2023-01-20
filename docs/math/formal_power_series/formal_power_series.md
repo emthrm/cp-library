@@ -112,12 +112,12 @@ struct FormalPowerSeries;
 |`T horner(const T x) const;`|$f(x)$||
 |`FormalPowerSeries differential() const;`|$f^{\prime}$|$\mathrm{deg}(f) \geq 0$|
 |`FormalPowerSeries exp(const int deg) const;`<br>`FormalPowerSeries exp() const;`|$\exp(f)$|${\lbrack x^0 \rbrack}f = 0$|
-|`FormalPowerSeries inv(const int deg) const`<br>`FormalPowerSeries inv() const`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$|
-|`FormalPowerSeries log(const int deg) const`<br>`FormalPowerSeries log() const`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
-|`FormalPowerSeries pow(long long exponent, const int deg) const`<br>`FormalPowerSeries pow(const long long exponent) const`|$f^{\mathrm{exponent}}$||
-|`FormalPowerSeries mod_pow(long long exponent, const FormalPowerSeries& md) const`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
-|`FormalPowerSeries sqrt(const int deg) const`<br>`FormalPowerSeries sqrt() const`|$\sqrt{f}$。ただし存在しないときは空列を返す。|
-|`FormalPowerSeries translate(const T c) const`|$f(x + c)$||
+|`FormalPowerSeries inv(const int deg) const`<br>`FormalPowerSeries inv() const;`|$f \cdot g \equiv 1 \pmod{x^{\mathrm{deg} + 1}}$ を満たす $g$|${\lbrack x^0 \rbrack}f \neq 0$|
+|`FormalPowerSeries log(const int deg) const`<br>`FormalPowerSeries log() const;`|$\ln{f}$|${\lbrack x^0 \rbrack}f = 1$|
+|`FormalPowerSeries pow(long long exponent, const int deg) const`<br>`FormalPowerSeries pow(const long long exponent) const;`|$f^{\mathrm{exponent}}$||
+|`FormalPowerSeries mod_pow(long long exponent, const FormalPowerSeries& md) const;`|$f^{\mathrm{exponent}} \bmod \mathrm{md}$||
+|`FormalPowerSeries sqrt(const int deg) const`<br>`FormalPowerSeries sqrt() const;`|$\sqrt{f}$。ただし存在しないときは空列を返す。|
+|`FormalPowerSeries translate(const T c) const;`|$f(x + c)$||
 
 #### 静的メンバ関数
 

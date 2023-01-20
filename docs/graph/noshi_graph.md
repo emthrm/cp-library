@@ -30,7 +30,7 @@ struct NoshiGraph;
 |:--|:--|
 |`explicit NoshiGraph(const int n);`|頂点数 $n$ のオブジェクトを構築する。|
 |`void add_edge(const int src, const int dst, const CostType cost = 0);`|コスト $\mathrm{cost}$ の辺 $(\mathrm{src}, \mathrm{dst})$ を加える。|
-|`add_edge(src_l, src_r, dst_l, dst_r, cost)`|コスト $\mathrm{cost}$ の辺 $(s, t)$ ($s \in \lbrace \mathrm{src\_l}, \ldots, \mathrm{src\_r} - 1 \rbrace,\ t \in \lbrace \mathrm{dst\_l}, \ldots, \mathrm{dst\_r} - 1 \rbrace$) を加える。|
+|`add_edge(src_l, src_r, dst_l, dst_r, cost);`|コスト $\mathrm{cost}$ の辺 $(s, t)$ ($s \in \lbrace \mathrm{src\_l}, \ldots, \mathrm{src\_r} - 1 \rbrace,\ t \in \lbrace \mathrm{dst\_l}, \ldots, \mathrm{dst\_r} - 1 \rbrace$) を加える。|
 
 
 ## 参考文献

@@ -33,8 +33,8 @@ struct AhoCorasick : Trie<Sigma + 1>;
 ||[継承コンストラクタ](./trie.md)||
 |`void build(const bool is_full_ver_ = false);`|オートマトンを構築する。||
 |`int move(char c, int pos) const;`|$\mathrm{pos}$ 番目のノードから見たときに、文字 $c$ に対応するノードのインデックス||
-|`match(t, pos = 0)`|$\mathrm{pos}$ 番目のノードをから見たときに、文字列 $T$ とマッチする回数||
-|`match_fully(t, pos = 0)`|$\mathrm{pos}$ 番目のノードから見たときに、文字列 $T$ とそれぞれの文字列がマッチする回数|完全版|
+|`int match(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードをから見たときに、文字列 $T$ とマッチする回数||
+|`std::map<int, int> match_fully(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードから見たときに、文字列 $T$ とそれぞれの文字列がマッチする回数|完全版|
 
 
 ## 参考文献

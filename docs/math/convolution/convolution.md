@@ -44,11 +44,13 @@ $O(N\log{N})$
 |:--|:--|
 |`template <typename T> std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 and での畳み込み|
 
+
 ### 添え字 or での畳み込み
 
 |名前|戻り値|
 |:--|:--|
 |`template <typename T> std::vector<T> or_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 or での畳み込み|
+
 
 ### 添え字 xor での畳み込み
 
@@ -56,17 +58,19 @@ $O(N\log{N})$
 |:--|:--|
 |`template <typename T> std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 xor での畳み込み|
 
+
 ### 添え字 gcd での畳み込み
 
 |名前|戻り値|
 |:--|:--|
 |`template <typename T> std::vector<T> gcd_convolution(std::vector<T> a, std::vector<T> b);`|$A, B$ に対する添え字 gcd での畳み込み|
 
+
 ### 添え字 lcm での畳み込み
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, const int n = -1)`|$A, B$ に対する添え字 lcm での畳み込み|
+|`template <typename T> std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, const int n = -1);`|$A, B$ に対する添え字 lcm での畳み込み|
 
 
 ## 参考文献
