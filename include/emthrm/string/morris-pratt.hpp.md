@@ -127,8 +127,8 @@ struct KnuthMorrisPratt;
 
 |名前|効果・戻り値|
 |:--|:--|
-|`explicit KnuthMorrisPratt(const T& s)`|文字列 $S$ に対してオブジェクトを構築する。|
-|`std::vector<int> match(const T& t) const`|$S$ が出現する $T$ 中の位置|
+|`explicit KnuthMorrisPratt(const T& s);`|文字列 $S$ に対してオブジェクトを構築する。|
+|`std::vector<int> match(const T& t) const;`|$S$ が出現する $T$ 中の位置|
 
 
 ## 参考文献

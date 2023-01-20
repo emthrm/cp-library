@@ -130,7 +130,7 @@ struct LiChaoTree;
 
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`explicit LiChaoTree(const std::vector<T>& xs_, const T inf)`|解答クエリの $x$ 座標の集合を $\mathrm{xs}$ としてオブジェクトを構築する。||
+|`explicit LiChaoTree(const std::vector<T>& xs_, const T inf);`|解答クエリの $x$ 座標の集合を $\mathrm{xs}$ としてオブジェクトを構築する。||
 |`void add(T a, T b);`|直線 $f(x) = ax + b$ を追加する。||
 |`void add(T a, T b, T left, T right);`|線分 $f(x) = ax + b$ ($\mathrm{left} \leq x < \mathrm{right}$) を追加する。||
 |`T query(const T x) const;`|$\min \text{/} \max \lbrace f(x) \mid f \in L \rbrace$|オフライン|

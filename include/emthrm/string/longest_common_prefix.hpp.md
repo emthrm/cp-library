@@ -87,7 +87,7 @@ struct LongestCommonPrefix : SuffixArray<T>;
 
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`explicit LongestCommonPrefix(const T& s)`|$S$ に対してオブジェクトを構築する。||
+|`explicit LongestCommonPrefix(const T& s);`|$S$ に対してオブジェクトを構築する。||
 |`int query(int i, int j) const;`|位置 $i, j$ を一文字目とする接尾辞の最長共通接頭辞長|$i \neq j$|
 
 

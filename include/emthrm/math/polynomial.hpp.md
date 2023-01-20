@@ -184,7 +184,7 @@ title: "\u591A\u9805\u5F0F (polynomial)"
 |ホーナー法 (Horner's rule)|$O(N)$|
 |形式微分|$O(N)$|
 |累乗||
-|`translate(c)`|$O(N\log{N})$|
+|`translate`|$O(N\log{N})$|
 
 
 ## 仕様
@@ -225,7 +225,7 @@ struct Polynomial;
 |`Polynomial operator-() const;`|$-{f}$|
 |`T horner(const T x) const;`|$f(x)$|
 |`Polynomial differential() const;`|$f^{\prime}$|
-|`Polynomial pow(int exponent) const`|$f^{\mathrm{exponent}}$|
+|`Polynomial pow(int exponent) const;`|$f^{\mathrm{exponent}}$|
 |`Polynomial translate(const T c) const;`|$f(x + c)$|
 
 #### 静的メンバ関数

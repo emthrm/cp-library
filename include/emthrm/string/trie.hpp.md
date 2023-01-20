@@ -118,7 +118,7 @@ struct Node
 
 |名前|効果|
 |:--|:--|
-|`explicit Node(const char c)`|コンストラクタ|
+|`explicit Node(const char c);`|コンストラクタ|
 
 
 ## 参考文献

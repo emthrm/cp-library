@@ -186,7 +186,7 @@ struct IntervalsManagedBySet;
 |`std::pair<IntervalsType::const_iterator, bool> insert(const T x);`|$S \gets S \cup \lbrace x \rbrace$ の操作後、要素へのイテレータと実際に挿入されたかどうかを返す。|
 |`std::pair<IntervalsType::const_iterator, T> insert(T left, T right);`|$S \gets S \cup \lbrace \mathrm{left}, \ldots, \mathrm{right} \rbrace$ の操作後、要素へのイテレータと実際に挿入した要素数を返す。|
 |`T mex(const T x = 0) const;`|$\mathrm{mex}(S)$|
-|`friend std::ostream& operator<<(std::ostream& os, const IntervalsManagedBySet& x)`||
+|`friend std::ostream& operator<<(std::ostream& os, const IntervalsManagedBySet& x);`||
 
 #### メンバ型
 

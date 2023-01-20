@@ -25,22 +25,21 @@ data:
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n#define EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n\
     \n#include <functional>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nbool is_bipartite(const\
-    \ std::vector<std::vector<Edge<CostType>>>& graph,\n                  std::vector<int>*\
-    \ color) {\n  const int n = graph.size();\n  color->assign(n, -1);\n  const std::function<bool(int,\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<int> is_bipartite(\n\
+    \    const std::vector<std::vector<Edge<CostType>>>& graph) {\n  const int n =\
+    \ graph.size();\n  std::vector<int> color(n, -1);\n  const std::function<bool(int,\
     \ int)> dfs = [&graph, &color, &dfs](\n      const int ver, const int c) -> bool\
-    \ {\n    (*color)[ver] = c;\n    for (const Edge<CostType>& e : graph[ver]) {\n\
-    \      if ((*color)[e.dst] == c ||\n          ((*color)[e.dst] == -1 && !dfs(e.dst,\
-    \ c ^ 1))) {\n        return false;\n      }\n    }\n    return true;\n  };\n\
-    \  for (int i = 0; i < n; ++i) {\n    if ((*color)[i] == -1 && !dfs(i, 0)) {\n\
-    \      color->clear();\n      return false;\n    }\n  }\n  return true;\n}\n\n\
-    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n"
+    \ {\n    color[ver] = c;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
+    \     if (color[e.dst] == c || (color[e.dst] == -1 && !dfs(e.dst, c ^ 1))) {\n\
+    \        return false;\n      }\n    }\n    return true;\n  };\n  for (int i =\
+    \ 0; i < n; ++i) {\n    if (color[i] == -1 && !dfs(i, 0)) return std::vector<int>{};\n\
+    \  }\n  return color;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/is_bipartite.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-20 16:06:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/is_bipartite.test.cpp
@@ -68,7 +67,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <typename CostType> bool is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph, std::vector<int>* color);`|グラフ $\mathrm{graph}$ は二部グラフであるか。|$\mathrm{color} \in {\lbrace 0, 1 \rbrace}^{\lvert V \rvert}$ は各頂点の色を表す。|
+|`template <typename CostType> std::vector<int> is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph);`|隣接する頂点の色が同じにならないよう、無向グラフ $\mathrm{graph}$ を $2$ 色に塗り分けたときの各頂点の色。ただし二部グラフでなければ空配列を返す。|色は $0$ または $1$ で表す。|
 
 
 ## 参考文献

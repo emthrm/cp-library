@@ -95,8 +95,8 @@ struct SparseTable
 
 |名前|効果・戻り値|
 |:--|:--|
-|`SparseTable()`|デフォルトコンストラクタ|
-|`explicit SparseTable(const std::vector<Band>& a, const Fn fn)`|$A$ に対して二項演算 $\mathrm{fn}$ のオブジェクトを構築する。|
+|`SparseTable();`|デフォルトコンストラクタ|
+|`explicit SparseTable(const std::vector<Band>& a, const Fn fn);`|$A$ に対して二項演算 $\mathrm{fn}$ のオブジェクトを構築する。|
 |`void init(const std::vector<Band>& a, const Fn fn_);`|$A$ によって初期化する。|
 |`Band query(const int left, const int right) const;`|$[\mathrm{left}, \mathrm{right})$ における演算を行った解|
 

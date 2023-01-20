@@ -45,16 +45,16 @@ data:
     \ graph(n);\n  for (int i = 0; i < n; ++i) {\n    for (int j = i + 1; j < n; ++j)\
     \ {\n      if (!is_adjacent[i][j]) {\n        union_find.unite(i, j);\n      \
     \  graph[i].emplace_back(i, j);\n        graph[j].emplace_back(j, i);\n      }\n\
-    \    }\n  }\n  std::vector<int> color;\n  if (!emthrm::is_bipartite(graph, &color))\
-    \ {\n    std::cout << \"-1\\n\";\n    return 0;\n  }\n  std::vector<bool> dp(n\
-    \ + 1, false);\n  dp[0] = true;\n  std::map<int, int> mp;\n  for (int i = 0; i\
-    \ < n; ++i) {\n    mp[union_find.root(i)] += color[i];\n  }\n#if __cplusplus >=\
-    \ 201703L\n  for (const auto& [root, size] : mp) {\n    for (int i = n; i >= 0;\
-    \ --i) {\n      if (dp[i]) {\n        dp[i] = false;\n        if (i + size <=\
-    \ n) dp[i + size] = true;\n        if (i + union_find.size(root) - size <= n)\
-    \ {\n          dp[i + union_find.size(root) - size] = true;\n        }\n     \
-    \ }\n    }\n  }\n#else\n  for (const std::pair<const int, int>& pr : mp) {\n \
-    \   int root, size;\n    std::tie(root, size) = pr;\n    for (int i = n; i >=\
+    \    }\n  }\n  const std::vector<int> color = emthrm::is_bipartite(graph);\n \
+    \ if (color.empty()) {\n    std::cout << \"-1\\n\";\n    return 0;\n  }\n  std::vector<bool>\
+    \ dp(n + 1, false);\n  dp[0] = true;\n  std::map<int, int> mp;\n  for (int i =\
+    \ 0; i < n; ++i) {\n    mp[union_find.root(i)] += color[i];\n  }\n#if __cplusplus\
+    \ >= 201703L\n  for (const auto& [root, size] : mp) {\n    for (int i = n; i >=\
+    \ 0; --i) {\n      if (dp[i]) {\n        dp[i] = false;\n        if (i + size\
+    \ <= n) dp[i + size] = true;\n        if (i + union_find.size(root) - size <=\
+    \ n) {\n          dp[i + union_find.size(root) - size] = true;\n        }\n  \
+    \    }\n    }\n  }\n#else\n  for (const std::pair<const int, int>& pr : mp) {\n\
+    \    int root, size;\n    std::tie(root, size) = pr;\n    for (int i = n; i >=\
     \ 0; --i) {\n      if (dp[i]) {\n        dp[i] = false;\n        if (i + size\
     \ <= n) dp[i + size] = true;\n        if (i + union_find.size(root) - size <=\
     \ n) {\n          dp[i + union_find.size(root) - size] = true;\n        }\n  \
@@ -68,7 +68,7 @@ data:
   isVerificationFile: true
   path: test/graph/is_bipartite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-20 16:06:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/is_bipartite.test.cpp

@@ -79,8 +79,8 @@ struct BinaryMatrix;
 |`int nrow() const;`|$M$|
 |`int ncol() const;`|$N$|
 |`BinaryMatrix pow(long long exponent) const;`|$A^\mathrm{exponent}$|
-|`inline const std::bitset<N>& operator[](const int i) const`<br>`inline std::bitset<N>& operator[](const int i)`|$A$ の $i$ 行目|
-|`BinaryMatrix& operator=(const BinaryMatrix& x)`|代入演算子|
+|`inline const std::bitset<N>& operator[](const int i) const`<br>`inline std::bitset<N>& operator[](const int i);`|$A$ の $i$ 行目|
+|`BinaryMatrix& operator=(const BinaryMatrix& x);`|代入演算子|
 |`BinaryMatrix& operator+=(const BinaryMatrix& x);`<br>`BinaryMatrix operator+(const BinaryMatrix& x) const;`|加算|
 |`BinaryMatrix& operator*=(const BinaryMatrix& x);`<br>`BinaryMatrix operator*(const BinaryMatrix& x) const;`|乗算|
 
