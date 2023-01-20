@@ -36,8 +36,8 @@ int main() {
       }
     }
   }
-  std::vector<int> color;
-  if (!emthrm::is_bipartite(graph, &color)) {
+  const std::vector<int> color = emthrm::is_bipartite(graph);
+  if (color.empty()) {
     std::cout << "-1\n";
     return 0;
   }

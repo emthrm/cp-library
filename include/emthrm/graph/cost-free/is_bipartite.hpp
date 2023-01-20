@@ -6,27 +6,21 @@
 
 namespace emthrm {
 
-bool is_bipartite(const std::vector<std::vector<int>>& graph,
-                  std::vector<int>* color) {
+std::vector<int> is_bipartite(const std::vector<std::vector<int>>& graph) {
   const int n = graph.size();
-  color->assign(n, -1);
+  std::vector<int> color(n, -1);
   const std::function<bool(int, int)> dfs = [&graph, &color, &dfs](
       const int ver, const int c) -> bool {
-    (*color)[ver] = c;
+    color[ver] = c;
     for (const int e : graph[ver]) {
-      if ((*color)[e] == c || ((*color)[e] == -1 && !dfs(e, c ^ 1))) {
-        return false;
-      }
+      if (color[e] == c || (color[e] == -1 && !dfs(e, c ^ 1))) return false;
     }
     return true;
   };
   for (int i = 0; i < n; ++i) {
-    if ((*color)[i] == -1 && !dfs(i, 0)) {
-      color->clear();
-      return false;
-    }
+    if (color[i] == -1 && !dfs(i, 0)) return std::vector<int>{};
   }
-  return true;
+  return color;
 }
 
 }  // namespace emthrm
