@@ -1,1 +1,1 @@
-exclude: ["include/emthrm/geometry/integral_geometry.hpp", "include/emthrm/graph/cost-free", "include/emthrm/math/fast_divisor.hpp", "test/graph/cost-free", "test/math/fast_divisor.hpp"]
+exclude: ["include/emthrm/geometry/integral_geometry.hpp", "include/emthrm/graph_cost-free", "include/emthrm/math/fast_divisor.hpp", "test/graph_cost-free", "test/math/fast_divisor.hpp"]
