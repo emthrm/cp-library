@@ -172,6 +172,7 @@ $$
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
   - https://judge.yosupo.jp/problem/multivariate_convolution
+  - https://judge.yosupo.jp/problem/multivariate_convolution_cyclic
   - https://nyaannyaan.github.io/library/ntt/multivariate-multiplication.hpp
   - https://yukicoder.me/problems/no/1783
 - 表現論上の高速フーリエ変換
