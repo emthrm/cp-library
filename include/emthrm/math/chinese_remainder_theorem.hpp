@@ -11,7 +11,6 @@
 
 #include "emthrm/math/mod_inv.hpp"
 
-
 namespace emthrm {
 
 template <typename T>
