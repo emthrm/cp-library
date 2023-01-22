@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-22 16:43:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp

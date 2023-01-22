@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/math/chinese_remainder_theorem.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-22 15:45:15+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/chinese_remainder_theorem.test.cpp

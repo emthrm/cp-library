@@ -26,7 +26,7 @@ data:
   code: "#ifndef EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n#define EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n\
     \n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n\
     #endif\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/mod_inv.hpp\"\
-    \n\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
+    \n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
     \ b, std::vector<T> m) {\n  const int n = b.size();\n  T x = 0, md = 1;\n  for\
     \ (int i = 0; i < n; ++i) {\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\n    if\
     \ (md < m[i]) {\n      std::swap(x, b[i]);\n      std::swap(md, m[i]);\n    }\n\
@@ -41,7 +41,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/chinese_remainder_theorem.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-22 15:45:15+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp
