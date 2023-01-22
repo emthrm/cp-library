@@ -60,6 +60,15 @@ struct LowestCommonAncestorByDoubling {
     return dist[u] + dist[v] - dist[query(u, v)] * 2;
   }
 
+  int level_ancestor(int v, const int d) const {
+    assert(is_built);
+    if (depth[v] < d) return -1;
+    for (int i = depth[v] - d, bit = 0; i > 0; i >>= 1, ++bit) {
+      if (i & 1) v = parent[bit][v];
+    }
+    return v;
+  }
+
  private:
   bool is_built;
   const int n;
