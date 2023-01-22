@@ -34,6 +34,7 @@ jobs:
 
       - name: Run tests
         run: |
+          has_error=false
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
             case "$file" in
               "include/emthrm/data_structure/binary_trie.hpp" | "include/emthrm/math/convolution/lcm_convolution.hpp" | "include/emthrm/string/aho-corasick.hpp" )
@@ -53,4 +54,11 @@ jobs:
               * )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/int $file ;;
             esac
+            if [ $? -ne 0 ]; then
+              has_error=true
+            fi
           done
+          if $has_error; then
+            exit 1
+          fi
+        shell: bash {0}
