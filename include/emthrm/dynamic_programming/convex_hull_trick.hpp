@@ -78,16 +78,18 @@ struct ConvexHullTrick {
 
   std::deque<Line> deq;
 
-  using Real = long double;
   bool must_pop(const Line& l1, const Line& l2, const Line& l3) const {
-    const Real lhs =
-        static_cast<Real>(l3.second - l2.second) / (l2.first - l3.first);
-    const Real rhs =
-        static_cast<Real>(l2.second - l1.second) / (l1.first - l2.first);
+#ifdef __SIZEOF_INT128__
+    const T lhs_num = l3.second - l2.second, lhs_den = l2.first - l3.first;
+    const T rhs_num = l2.second - l1.second, rhs_den = l1.first - l2.first;
+    return __int128{lhs_num} * rhs_den <= __int128{rhs_num} * lhs_den;
+#else
+    const long double lhs =
+        static_cast<long double>(l3.second - l2.second) / (l2.first - l3.first);
+    const long double rhs =
+        static_cast<long double>(l2.second - l1.second) / (l1.first - l2.first);
     return lhs <= rhs;
-    // const T lhs_num = l3.second - l2.second, lhs_den = l2.first - l3.first;
-    // const T rhs_num = l2.second - l1.second, rhs_den = l1.first - l2.first;
-    // return lhs_num * rhs_den <= rhs_num * lhs_den;
+#endif
   }
 
   T f(const Line& l, const T x) const { return l.first * x + l.second; }
