@@ -9,6 +9,11 @@
 #include <cassert>
 #include <utility>
 
+#if !defined(__GNUC__) && \
+    (!defined(__has_builtin) || !__has_builtin(__builtin_ctzll))
+#error "__builtin_ctzll is required."
+#endif
+
 namespace emthrm {
 
 int jacobi_symbol(long long a, long long p) {

@@ -9,6 +9,11 @@
 #include <map>
 #include <vector>
 
+#if !defined(__GNUC__) && \
+    (!defined(__has_builtin) || !__has_builtin(__builtin_popcount))
+#error "__builtin_popcount is required."
+#endif
+
 namespace emthrm {
 
 template <typename T>

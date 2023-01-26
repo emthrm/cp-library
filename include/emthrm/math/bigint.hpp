@@ -345,6 +345,11 @@ emthrm::BigInt<LogB, B> gcd(emthrm::BigInt<LogB, B> a,
   while (!b.data.empty()) std::swap(a %= b, b);
   return a;
 }
+template <int LogB, int B>
+emthrm::BigInt<LogB, B> lcm(const emthrm::BigInt<LogB, B>& a,
+                            const emthrm::BigInt<LogB, B>& b) {
+  return a / std::__gcd(a, b) * b;
+}
 #else
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,
@@ -352,14 +357,6 @@ emthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,
   while (!b.data.empty()) std::swap(a %= b, b);
   return a;
 }
-#endif
-#if __cplusplus >= 201703L
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> lcm(const emthrm::BigInt<LogB, B>& a,
-                            const emthrm::BigInt<LogB, B>& b) {
-  return a / std::__gcd(a, b) * b;
-}
-#else
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,
                               const emthrm::BigInt<LogB, B>& b) {

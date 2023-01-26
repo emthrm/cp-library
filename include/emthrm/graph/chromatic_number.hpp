@@ -5,6 +5,12 @@
 
 #include "emthrm/graph/edge.hpp"
 
+#if !defined(__GNUC__) && \
+    (!defined(__has_builtin) || !__has_builtin(__builtin_ctz) \
+                             || !__has_builtin(__builtin_popcount))
+#error "GCC built-in functions are required."
+#endif
+
 namespace emthrm {
 
 template <typename CostType>
