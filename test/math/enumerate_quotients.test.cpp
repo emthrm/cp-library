@@ -5,8 +5,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 
 #include "emthrm/math/enumerate_quotients.hpp"
 
@@ -25,7 +25,7 @@ int main() {
     std::tie(l, r, q) = lrq;
     ans += q * (r - l);
   }
-#endif
+#endif  // __cplusplus >= 201703L
   std::cout << ans << '\n';
   return 0;
 }

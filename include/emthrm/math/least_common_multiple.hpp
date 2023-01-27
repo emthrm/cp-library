@@ -13,6 +13,6 @@ long long __lcm(const long long a, const long long b) {
 
 }  // namespace emthrm
 
-#endif
+#endif  // __cplusplus < 201703L
 
 #endif  // EMTHRM_MATH_LEAST_COMMON_MULTIPLE_HPP_

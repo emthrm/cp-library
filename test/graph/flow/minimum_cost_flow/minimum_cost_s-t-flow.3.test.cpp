@@ -7,8 +7,8 @@
 #include <iostream>
 #include <iterator>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
@@ -81,7 +81,7 @@ int main() {
     long long ans_fare;
     std::tie(ans_class, ans_fare) =
         minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);
-#endif
+#endif  // __cplusplus >= 201703L
     std::cout << ans_class << ' ' << ans_fare << '\n';
   }
   return 0;

@@ -6,8 +6,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 
 #include "emthrm/math/modint.hpp"
 #include "emthrm/math/polynomial.hpp"
@@ -29,7 +29,7 @@ int main() {
 #else
   emthrm::Polynomial<ModInt> q, r;
   std::tie(q, r) = f.divide(g);
-#endif
+#endif  // __cplusplus >= 201703L
   q.shrink();
   r.shrink();
   const int u = (q == emthrm::Polynomial<ModInt>{0} ? 0 : q.degree() + 1);

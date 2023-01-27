@@ -5,8 +5,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <utility>
-#endif
+# include <utility>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/game/nim.hpp"
@@ -24,7 +24,7 @@ int main() {
   for (const std::pair<int, int>& p : emthrm::prime_factorization(n)) {
     a.emplace_back(p.second);
   }
-#endif
+#endif  // __cplusplus >= 201703L
   std::cout << (emthrm::nim(a) ? "Alice\n" : "Bob\n");
   return 0;
 }

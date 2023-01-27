@@ -11,7 +11,7 @@
 
 #if !defined(__GNUC__) && \
     (!defined(__has_builtin) || !__has_builtin(__builtin_ctzll))
-#error "__builtin_ctzll is required."
+# error "__builtin_ctzll is required."
 #endif
 
 namespace emthrm {

@@ -4,10 +4,10 @@
 // #include <cassert>
 #include <iostream>
 // #if __cplusplus >= 201703L
-// #include <numeric>
+// # include <numeric>
 // #else
-// #include <algorithm>
-// #endif
+// # include <algorithm>
+// #endif  // __cplusplus >= 201703L
 #include <utility>
 #include <vector>
 
@@ -30,7 +30,7 @@ namespace emthrm {
 // //     assert(0 <= n && n < M && std::gcd(n, M) == 1);
 // // #else
 // //     assert(0 <= n && n < M && std::__gcd(n, M) == 1);
-// // #endif
+// // #endif  // __cplusplus >= 201703L
 //     static std::vector<MInt> inverse{0, 1};
 //     const int prev = inverse.size();
 //     if (n < prev) {
@@ -173,7 +173,7 @@ struct MInt {
 //     assert(0 <= n && n < mod() && std::gcd(x, mod()) == 1);
 // #else
 //     assert(0 <= n && n < mod() && std::__gcd(x, mod()) == 1);
-// #endif
+// #endif  // __cplusplus >= 201703L
     static std::vector<MInt> inverse{0, 1};
     const int prev = inverse.size();
     if (n < prev) {

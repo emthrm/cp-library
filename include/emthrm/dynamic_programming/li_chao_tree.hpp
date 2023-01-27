@@ -39,7 +39,7 @@ struct LiChaoTree {
       a = -a;
       b = -b;
     }
-#endif
+#endif  // __cplusplus >= 201703L
     Line line(a, b);
     add(&line, 1, 0, n);
   }
@@ -55,7 +55,7 @@ struct LiChaoTree {
       a = -a;
       b = -b;
     }
-#endif
+#endif  // __cplusplus >= 201703L
     for (int len = 1,
              node_l = std::distance(
                  xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),

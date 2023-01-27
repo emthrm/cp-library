@@ -11,8 +11,8 @@
 #include <limits>
 #include <queue>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -52,7 +52,7 @@ CostType girth_in_undirected_graph(
       CostType d;
       int ver;
       std::tie(d, ver) = que.top();
-#endif
+#endif  // __cplusplus >= 201703L
       que.pop();
       if (d > dist[ver]) continue;
       for (const int id : graph[ver]) {

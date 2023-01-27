@@ -6,8 +6,8 @@
 #include <iostream>
 #include <map>
 #if __cplusplus < 201703L
-#include <utility>
-#endif
+# include <utility>
+#endif  // __cplusplus < 201703L
 
 #include "emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
 #include "emthrm/math/modint.hpp"
@@ -32,7 +32,7 @@ int main() {
              : emthrm::mobius_mu_focusing_on_divisor(m)) {
           mu[p.first] = p.second;
         }
-#endif
+#endif  // __cplusplus >= 201703L
       }
       ways += ModInt(k / (g * m)).pow(n) * mu[m];
     }

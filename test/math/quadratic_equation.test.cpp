@@ -7,8 +7,8 @@
 #include <cmath>
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -41,7 +41,7 @@ int main() {
         emthrm::geometry::Point d;
         double v;
         std::tie(d, v) = dog[i];
-#endif
+#endif  // __cplusplus >= 201703L
         for (std::vector<double> ans =
                  emthrm::quadratic_equation(fv.norm() - v * v,
                                     emthrm::geometry::dot(fp - d, fv) * 2,

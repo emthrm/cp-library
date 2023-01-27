@@ -7,10 +7,10 @@
 #define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_
 
 #if __cplusplus >= 201703L
-#include <numeric>
+# include <numeric>
 #else
-#include "emthrm/math/least_common_multiple.hpp"
-#endif
+# include "emthrm/math/least_common_multiple.hpp"
+#endif  // __cplusplus >= 201703L
 
 namespace emthrm {
 
@@ -28,14 +28,14 @@ long long carmichael_function(long long n) {
       lambda = std::lcm(lambda, phi);
 #else
       lambda = __lcm(lambda, phi);
-#endif
+#endif  // __cplusplus >= 201703L
     }
   }
 #if __cplusplus >= 201703L
   return n > 1 ? std::lcm(lambda, n - 1) : lambda;
 #else
   return n > 1 ? __lcm(lambda, n - 1) : lambda;
-#endif
+#endif  // __cplusplus >= 201703L
 }
 
 }  // namespace emthrm

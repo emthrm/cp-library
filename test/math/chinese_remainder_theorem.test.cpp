@@ -5,8 +5,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/math/chinese_remainder_theorem.hpp"
@@ -22,7 +22,7 @@ int main() {
 #else
   long long ans, mod;
   std::tie(ans, mod) = emthrm::chinese_remainder_theorem(x, y);
-#endif
+#endif  // __cplusplus >= 201703L
   if (mod == 0) {
     std::cout << "-1\n";
   } else {

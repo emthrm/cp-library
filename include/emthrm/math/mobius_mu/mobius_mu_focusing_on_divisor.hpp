@@ -11,7 +11,7 @@
 
 #if !defined(__GNUC__) && \
     (!defined(__has_builtin) || !__has_builtin(__builtin_popcount))
-#error "__builtin_popcount is required."
+# error "__builtin_popcount is required."
 #endif
 
 namespace emthrm {

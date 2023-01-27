@@ -7,11 +7,11 @@
 #define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 
 #if __cplusplus >= 201703L
-#include <numeric>
+# include <numeric>
 #else
-#include <algorithm>
-#include <utility>
-#endif
+# include <algorithm>
+# include <utility>
+#endif  // __cplusplus >= 201703L
 #include <map>
 #include <vector>
 
@@ -27,7 +27,7 @@ bool is_primitive_root(long long root, const int m) {
   if (std::gcd(root, m) > 1) return false;
 #else
   if (std::__gcd(static_cast<int>(root), m) > 1) return false;
-#endif
+#endif  // __cplusplus >= 201703L
   static std::map<int, int> phi;
   if (!phi.count(m)) phi[m] = euler_phi(m);
   const int phi_m = phi[m];
@@ -42,7 +42,7 @@ bool is_primitive_root(long long root, const int m) {
     for (const std::pair<int, int>& pr : prime_factorization(phi_m)) {
       tmp.emplace_back(pr.first);
     }
-#endif
+#endif  // __cplusplus >= 201703L
     primes[phi_m] = tmp;
   }
   for (const int p : primes[phi_m]) {

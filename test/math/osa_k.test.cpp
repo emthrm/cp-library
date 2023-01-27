@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <iostream>
 #if __cplusplus < 201703L
-#include <utility>
-#endif
+# include <utility>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/math/osa_k.hpp"
@@ -31,7 +31,7 @@ int main() {
     for (const std::pair<int, int>& pr : osa_k.query(a_i)) {
       ++prime_factor[pr.first];
     }
-#endif
+#endif  // __cplusplus >= 201703L
   }
   const int maximum =
       *std::max_element(prime_factor.begin(), prime_factor.end());

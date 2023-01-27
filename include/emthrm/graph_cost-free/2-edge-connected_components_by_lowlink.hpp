@@ -23,19 +23,21 @@ struct TwoEdgeConnectedComponents : Lowlink {
       if (id[i] == -1) dfs(-1, i, &m);
     }
     g.resize(m);
+    const auto add_edge = [this](const int u, const int v) -> void {
+      g[u].emplace_back(v);
+      g[v].emplace_back(u);
+    };
 #if __cplusplus >= 201703L
     for (const auto& [s, t] : this->bridges) {
       const int u = id[s], v = id[t];
-      g[u].emplace_back(v);
-      g[v].emplace_back(u);
+      add_edge(u, v);
     }
 #else
     for (const std::pair<int, int>& e : this->bridges) {
       const int u = id[e.first], v = id[e.second];
-      g[u].emplace_back(v);
-      g[v].emplace_back(u);
+      add_edge(u, v);
     }
-#endif
+#endif  // __cplusplus >= 201703L
     // if (is_full_ver) {
     //   for (int i = 0; i < m; ++i) {
     //     std::sort(vertices[i].begin(), vertices[i].end());

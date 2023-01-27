@@ -7,8 +7,8 @@
 #include <limits>
 #include <set>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <utility>
 
 namespace emthrm {
@@ -41,7 +41,7 @@ struct IntervalsManagedBySet {
 #else
       T left, right;
       std::tie(left, right) = *it;
-#endif
+#endif  // __cplusplus >= 201703L
       if (right < x) return {std::next(it), false};
       intervals.erase(it);
       it = std::next(intervals.emplace(left, x - 1).first);
@@ -72,7 +72,7 @@ struct IntervalsManagedBySet {
 #else
       T l, r;
       std::tie(l, r) = *it;
-#endif
+#endif  // __cplusplus >= 201703L
       intervals.erase(it);
       if (right < r) {
         res += right - left + 1;

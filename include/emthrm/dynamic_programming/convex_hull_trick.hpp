@@ -22,7 +22,7 @@ struct ConvexHullTrick {
       a = -a;
       b = -b;
     }
-#endif
+#endif  // __cplusplus >= 201703L
     const Line line(a, b);
     if (deq.empty()) {
       deq.emplace_back(line);
@@ -89,7 +89,7 @@ struct ConvexHullTrick {
     const long double rhs =
         static_cast<long double>(l2.second - l1.second) / (l1.first - l2.first);
     return lhs <= rhs;
-#endif
+#endif  // __SIZEOF_INT128__
   }
 
   T f(const Line& l, const T x) const { return l.first * x + l.second; }

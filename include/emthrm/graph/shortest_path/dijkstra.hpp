@@ -12,8 +12,8 @@
 #include <limits>
 #include <queue>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -46,7 +46,7 @@ struct Dijkstra {
       CostType d;
       int ver;
       std::tie(d, ver) = que.top();
-#endif
+#endif  // __cplusplus >= 201703L
       que.pop();
       if (d > dist[ver]) continue;
       for (const Edge<CostType>& e : graph[ver]) {

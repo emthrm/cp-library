@@ -5,8 +5,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -28,7 +28,7 @@ int main() {
   long long x;
   std::vector<int> u;
   std::tie(x, u) = emthrm::double_sweep(graph);
-#endif
+#endif  // __cplusplus >= 201703L
   const int y = u.size();
   std::cout << x << ' ' << y << '\n';
   for (int i = 0; i < y; ++i) {

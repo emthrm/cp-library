@@ -5,8 +5,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/math/simultaneous_linear_congruence.hpp"
@@ -24,7 +24,7 @@ int main() {
   long long ans, mod;
   std::tie(ans, mod) = emthrm::simultaneous_linear_congruence(
       std::vector<long long>(N, 1), x, y);
-#endif
+#endif  // __cplusplus >= 201703L
   if (mod == 0) {
     std::cout << "-1\n";
   } else {

@@ -12,7 +12,7 @@
 
 #if !defined(__GNUC__) && \
     (!defined(__has_builtin) || !__has_builtin(__builtin_clz))
-#error "__builtin_clz is required."
+# error "__builtin_clz is required."
 #endif
 
 namespace emthrm {

@@ -8,10 +8,10 @@
 #include <iomanip>
 #include <iostream>
 #if __cplusplus >= 201703L
-#include <numeric>
+# include <numeric>
 #else
-#include <algorithm>
-#endif
+# include <algorithm>
+#endif  // __cplusplus >= 201703L
 #include <vector>
 
 #include "emthrm/math/convolution/fast_mobius_transform.hpp"
@@ -38,7 +38,7 @@ int main() {
         l /= std::gcd(l, a[j]);
 #else
         l /= std::__gcd(l, a[j]);
-#endif
+#endif  // __cplusplus >= 201703L
         if (l > m / a[j]) {
           l = m + 1;
           break;

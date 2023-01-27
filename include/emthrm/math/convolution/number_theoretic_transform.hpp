@@ -17,7 +17,7 @@
 #if !defined(__GNUC__) && \
     (!defined(__has_builtin) || !__has_builtin(__builtin_popcount) \
                              || !__has_builtin(__builtin_ctz))
-#error "GCC built-in functions are required."
+# error "GCC built-in functions are required."
 #endif
 
 namespace emthrm {

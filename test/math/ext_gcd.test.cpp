@@ -5,8 +5,8 @@
 
 #include <iostream>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 
 #include "emthrm/math/ext_gcd.hpp"
 
@@ -18,7 +18,7 @@ int main() {
 #else
   int x, y;
   std::tie(x, y) = emthrm::ext_gcd(a, b);
-#endif
+#endif  // __cplusplus >= 201703L
   std::cout << x << ' ' << y << '\n';
   return 0;
 }

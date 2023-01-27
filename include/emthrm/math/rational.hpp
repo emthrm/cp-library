@@ -4,10 +4,10 @@
 // #include <cassert>
 #include <limits>
 #if __cplusplus >= 201703L
-#include <numeric>
+# include <numeric>
 #else
-#include <algorithm>
-#endif
+# include <algorithm>
+#endif  // __cplusplus >= 201703L
 #include <ostream>
 
 namespace emthrm {
@@ -27,7 +27,7 @@ struct Rational {
     const T g = std::gcd(den, x.den);
 #else
     const T g = std::__gcd(den, x.den);
-#endif
+#endif  // __cplusplus >= 201703L
     num = num * (x.den / g) + x.num * (den / g);
     den *= x.den / g;
     reduce();
@@ -39,7 +39,7 @@ struct Rational {
     const T g1 = std::gcd(num, x.den), g2 = std::gcd(den, x.num);
 #else
     const T g1 = std::__gcd(num, x.den), g2 = std::__gcd(den, x.num);
-#endif
+#endif  // __cplusplus >= 201703L
     num = (num / g1) * (x.num / g2);
     den = (den / g2) * (x.den / g1);
     reduce();
@@ -90,7 +90,7 @@ struct Rational {
     const T g = std::gcd(num, den);
 #else
     const T g = std::__gcd(num, den);
-#endif
+#endif  // __cplusplus >= 201703L
     num /= g;
     den /= g;
     if (den < 0) {

@@ -9,8 +9,8 @@
 #include <iostream>
 #include <limits>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -78,7 +78,7 @@ int main() {
 #else
     double left, right;
     std::tie(left, right) = balls[i];
-#endif
+#endif  // __cplusplus >= 201703L
     int x = i - 1;
     while (x >= 0 && balls[i].first <= balls[x].second) --x;
     ++x;

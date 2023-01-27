@@ -5,9 +5,9 @@
 #include <iostream>
 #include <map>
 #if __cplusplus < 201703L
-#include <tuple>
-#include <utility>
-#endif
+# include <tuple>
+# include <utility>
+#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
@@ -47,8 +47,8 @@ int main() {
   for (int i = 0; i < n; ++i) {
     mp[union_find.root(i)] += color[i];
   }
-#if __cplusplus >= 201703L
-  for (const auto& [root, size] : mp) {
+  const auto calc = [n, &dp, &union_find](const int root, const int size)
+      -> void {
     for (int i = n; i >= 0; --i) {
       if (dp[i]) {
         dp[i] = false;
@@ -58,22 +58,18 @@ int main() {
         }
       }
     }
+  };
+#if __cplusplus >= 201703L
+  for (const auto& [root, size] : mp) {
+    calc(root, size);
   }
 #else
   for (const std::pair<const int, int>& pr : mp) {
     int root, size;
     std::tie(root, size) = pr;
-    for (int i = n; i >= 0; --i) {
-      if (dp[i]) {
-        dp[i] = false;
-        if (i + size <= n) dp[i + size] = true;
-        if (i + union_find.size(root) - size <= n) {
-          dp[i + union_find.size(root) - size] = true;
-        }
-      }
-    }
+    calc(root, size);
   }
-#endif
+#endif  // __cplusplus >= 201703L
   for (int i = 0; i <= n; ++i) {
     if (dp[i]) ans = std::min(ans, i * (i - 1) / 2 + (n - i) * (n - i - 1) / 2);
   }

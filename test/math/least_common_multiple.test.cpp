@@ -6,10 +6,10 @@
 #include <iostream>
 
 #if __cplusplus >= 201703L
-#include <numeric>
+# include <numeric>
 #else
-#include "emthrm/math/least_common_multiple.hpp"
-#endif
+# include "emthrm/math/least_common_multiple.hpp"
+#endif  // __cplusplus >= 201703L
 
 int main() {
   int n;
@@ -22,7 +22,7 @@ int main() {
     ans = std::lcm(ans, a);
 #else
     ans = emthrm::__lcm(ans, a);
-#endif
+#endif  // __cplusplus >= 201703L
   }
   std::cout << ans << '\n';
   return 0;

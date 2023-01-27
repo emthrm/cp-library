@@ -362,7 +362,7 @@ emthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,
                               const emthrm::BigInt<LogB, B>& b) {
   return a / std::__gcd(a, b) * b;
 }
-#endif
+#endif  // __cplusplus >= 201703L
 template <int LogB, int B>
 emthrm::BigInt<LogB, B> abs(const emthrm::BigInt<LogB, B>& x) {
   return x.sgn == 1 ? x : -x;

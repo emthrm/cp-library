@@ -13,8 +13,8 @@
 #include <numeric>
 #include <queue>
 #if __cplusplus < 201703L
-#include <tuple>
-#endif
+# include <tuple>
+#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -77,7 +77,7 @@ struct MinimumCostBFlow {
         U d;
         int ver;
         std::tie(d, ver) = que.top();
-#endif
+#endif  // __cplusplus >= 201703L
         que.pop();
         if (d > dist[ver]) continue;
         for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
