@@ -6,13 +6,8 @@ documentation_of: include/emthrm/math/modint.hpp
 
 ### 組合せ数学 (combinatorics)
 
-- 順列 (permutation)
-
-  $n$ 個から $k$ 個を選んで並べたものの総数は ${}_n \mathrm{P}_k = \dfrac{n!}{(n - k)!}$ である。
-
-- 重複組合せ (repeated combination)
-
-  $n$ 種類から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ である。
+- 順列 (permutation)：$n$ 個から $k$ 個を選んで並べたものの総数は ${}_n \mathrm{P}_k = \dfrac{n!}{(n - k)!}$ である。
+- 重複組合せ (repeated combination)：$n$ 種類から重複ありで $k$ 個を選び並べたものの総数は ${}_n \mathrm{H}_k = \binom{n + k - 1}{k}$ である。
 
 
 ## 参考文献

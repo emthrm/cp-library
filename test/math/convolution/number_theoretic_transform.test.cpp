@@ -10,8 +10,8 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  constexpr int MOD = 998244353;
+  using ModInt = emthrm::MInt<MOD>;
   int n, m;
   std::cin >> n >> m;
   std::vector<int> a(n), b(m);
@@ -22,7 +22,7 @@ int main() {
     std::cin >> b[i];
   }
   const std::vector<ModInt> ans =
-      emthrm::NumberTheoreticTransform<0>().convolution(a, b);
+      emthrm::NumberTheoreticTransform<MOD>().convolution(a, b);
   for (int i = 0; i <= (n - 1) + (m - 1); ++i) {
     std::cout << ans[i] << " \n"[i == (n - 1) + (m - 1)];
   }

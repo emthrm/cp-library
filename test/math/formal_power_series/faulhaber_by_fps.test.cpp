@@ -12,8 +12,8 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(1000000007);
+  constexpr int MOD = 1000000007;
+  using ModInt = emthrm::MInt<MOD>;
   emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
@@ -22,6 +22,6 @@ int main() {
   long long n;
   int k;
   std::cin >> n >> k;
-  std::cout << emthrm::faulhaber_by_fps<0>(n + 1, k) << '\n';
+  std::cout << emthrm::faulhaber_by_fps<MOD>(n + 1, k) << '\n';
   return 0;
 }

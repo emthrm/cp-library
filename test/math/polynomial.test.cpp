@@ -13,8 +13,7 @@
 #include "emthrm/math/polynomial.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  using ModInt = emthrm::MInt<998244353>;
   int n, m;
   std::cin >> n >> m;
   emthrm::Polynomial<ModInt> f(n - 1), g(m - 1);

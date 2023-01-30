@@ -14,8 +14,8 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  constexpr int MOD = 998244353;
+  using ModInt = emthrm::MInt<MOD>;
   int n, m, t;
   std::cin >> n >> m >> t;
   std::vector<int> a(m), b(m);
@@ -31,7 +31,7 @@ int main() {
   dp[0][0] = 1;
   const std::function<void(int, int, int)> induce =
       [m, &a, &b, &p, &dp](const int l, const int mid, const int r) -> void {
-        static emthrm::NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<MOD> ntt;
         for (int id = 0; id < m; ++id) {
           std::vector<ModInt> dp_id(mid - l), p_id(r - l);
           std::copy(std::next(dp[a[id]].begin(), l),

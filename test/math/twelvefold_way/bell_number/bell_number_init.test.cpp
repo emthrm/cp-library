@@ -9,8 +9,7 @@
 #include "emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(1000000007);
+  using ModInt = emthrm::MInt<1000000007>;
   int n, k;
   std::cin >> n >> k;
   std::cout << emthrm::bell_number_init<ModInt>(n, k)[n][k] << '\n';

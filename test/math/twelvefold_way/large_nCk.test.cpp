@@ -7,8 +7,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  using ModInt = emthrm::MInt<998244353>;
   long long m, n;
   int k;
   std::cin >> m >> n >> k;

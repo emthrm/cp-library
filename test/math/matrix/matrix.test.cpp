@@ -9,8 +9,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  using ModInt = emthrm::MInt<998244353>;
   int n, m, k;
   std::cin >> n >> m >> k;
   emthrm::Matrix<ModInt> a(n, m), b(m, k);

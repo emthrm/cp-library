@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "emthrm/graph_cost-free/tree/rerooting_dp.hpp"
+#define ARBITRARY_MODINT
 #include "emthrm/math/modint.hpp"
 
 int main() {

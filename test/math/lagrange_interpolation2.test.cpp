@@ -11,8 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(1000000007);
+  using ModInt = emthrm::MInt<1000000007>;
   int n;
   std::cin >> n;
   std::vector<ModInt> a(n + 1);

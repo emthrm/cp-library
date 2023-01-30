@@ -13,7 +13,6 @@
 int main() {
   constexpr int C = 3;
   using ModInt = emthrm::MInt<C>;
-  ModInt::set_mod(C);
   const std::string color = "BWR";
   std::map<char, int> mp;
   for (int i = 0; i < C; ++i) {

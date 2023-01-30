@@ -12,12 +12,12 @@
 #include "emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  constexpr int MOD = 998244353;
+  using ModInt = emthrm::MInt<MOD>;
   emthrm::FormalPowerSeries<ModInt>::set_mult(
       [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)
           -> std::vector<ModInt> {
-        static emthrm::NumberTheoreticTransform<0> ntt;
+        static emthrm::NumberTheoreticTransform<MOD> ntt;
         return ntt.convolution(a, b);
       });
   int n;

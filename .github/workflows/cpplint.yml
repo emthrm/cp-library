@@ -42,7 +42,7 @@ jobs:
               "include/emthrm/geometry/geometry.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-whitespace/line_length $file ;;
               "include/emthrm/math/bigint.hpp" | "include/emthrm/math/modint.hpp" | "include/emthrm/math/rational.hpp" )
-                cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int,-whitespace/blank_line $file ;;
+                cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int $file ;;
               "include/emthrm/util/template.hpp" )
                 ;;  # skip
               "include/emthrm/util/timer.hpp" )

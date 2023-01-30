@@ -11,8 +11,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<0>;
-  ModInt::set_mod(998244353);
+  using ModInt = emthrm::MInt<998244353>;
   int n, q;
   std::cin >> n >> q;
   struct M {

@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
+#define ARBITRARY_MODINT
 #include "emthrm/math/montmort_number.hpp"
 
 int main() {
