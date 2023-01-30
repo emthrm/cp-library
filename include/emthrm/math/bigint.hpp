@@ -15,16 +15,18 @@
 
 namespace emthrm {
 
-template <int LogB = 9, int B = 1000000000>  // B = 10^{LogB}
+template <int LOG_B = 9, int B = 1000000000>  // B = 10^{LOG_B}
 struct BigInt {
   int sgn;
   std::vector<int> data;
+
   BigInt(const long long val = 0) { *this = val; }
   BigInt(const std::string& s) { *this = s; }
+
   std::vector<long long> convert_base(const int next_log_b,
                                       const int next_b) const {
-    assert(next_b == static_cast<int>(std::round(std::pow(10, next_log_b))));
-    const int max_base = std::max(LogB, next_log_b);
+    assert(next_b == std::llround(std::pow(10, next_log_b)));
+    const int max_base = std::max(LOG_B, next_log_b);
     std::vector<long long> p(max_base + 1, 1);
     for (int i = 1; i <= max_base; ++i) {
       p[i] = p[i - 1] * 10;
@@ -34,7 +36,7 @@ struct BigInt {
     int cur_log_b = 0;
     for (const int e : data) {
       cur_val += p[cur_log_b] * e;
-      cur_log_b += LogB;
+      cur_log_b += LOG_B;
       for (; cur_log_b >= next_log_b; cur_log_b -= next_log_b) {
         res.emplace_back(cur_val % next_b);
         cur_val /= next_b;
@@ -44,20 +46,23 @@ struct BigInt {
     while (!res.empty() && res.back() == 0) res.pop_back();
     return res;
   }
+
   int digit_sum() const {
     assert(sgn == 1);
     int res = 0;
     for (char c : to_string()) res += c - '0';
     return res;
   }
+
   int length() const {
     if (data.empty()) return 0;
-    int res = LogB * (data.size() - 1);
+    int res = LOG_B * (data.size() - 1);
     for (int tmp = data.back(); tmp > 0; tmp /= 10) {
       ++res;
     }
     return res;
   }
+
   BigInt pow(BigInt exponent) const {
     BigInt res = 1, tmp = *this;
     for (; exponent > 0; exponent /= 2) {
@@ -66,6 +71,7 @@ struct BigInt {
     }
     return res;
   }
+
   long long to_llong() const {
     assert(*this >= std::numeric_limits<long long>::min() &&
            *this <= std::numeric_limits<long long>::max());
@@ -75,6 +81,7 @@ struct BigInt {
     }
     return res;
   }
+
   std::string to_string() const {
     std::stringstream ss;
     ss << *this;
@@ -82,10 +89,12 @@ struct BigInt {
     ss >> res;
     return res;
   }
+
   void trim() {
     while (!data.empty() && data.back() == 0) data.pop_back();
     if (data.empty()) sgn = 1;
   }
+
   BigInt& operator=(long long val) {
     if (val < 0) {
       sgn = -1;
@@ -110,9 +119,9 @@ struct BigInt {
       } else if (s.front() == '+') {
         tail = 1;
       }
-      for (int i = s.length() - 1; i >= tail; i -= LogB) {
+      for (int i = s.length() - 1; i >= tail; i -= LOG_B) {
         int val = 0;
-        for (int j = std::max(tail, i - LogB + 1); j <= i; ++j) {
+        for (int j = std::max(tail, i - LOG_B + 1); j <= i; ++j) {
           val = val * 10 + (s[j] - '0');
         }
         data.emplace_back(val);
@@ -122,6 +131,7 @@ struct BigInt {
     return *this;
   }
   BigInt& operator=(const BigInt& x) = default;
+
   BigInt& operator+=(const BigInt& x) {
     if (sgn != x.sgn) return *this -= -x;
     if (data.size() < x.data.size()) data.resize(x.data.size(), 0);
@@ -138,6 +148,7 @@ struct BigInt {
     }
     return *this;
   }
+
   BigInt& operator-=(const BigInt& x) {
     if (sgn != x.sgn) return *this += -x;
     if ((sgn == 1 ? *this : -*this) < (x.sgn == 1 ? x : -x)) {
@@ -156,6 +167,7 @@ struct BigInt {
     trim();
     return *this;
   }
+
   BigInt& operator*=(const BigInt& x) {
     constexpr int next_log_b = 6, next_b = 1000000;
     std::vector<long long> this6 = convert_base(next_log_b, next_b);
@@ -180,10 +192,12 @@ struct BigInt {
     }
     return *this = s;
   }
-  BigInt& operator/=(int x) { return *this = divide(x).first; }
+
+  BigInt& operator/=(const int x) { return *this = divide(x).first; }
   BigInt& operator/=(const BigInt& x) { return *this = divide(x).first; }
-  BigInt& operator%=(int x) { return *this = divide(x).second; }
+  BigInt& operator%=(const int x) { return *this = divide(x).second; }
   BigInt& operator%=(const BigInt& x) { return *this = divide(x).second; }
+
   bool operator==(const BigInt& x) const {
     if (sgn != x.sgn || data.size() != x.data.size()) return false;
     const int n = data.size();
@@ -206,6 +220,7 @@ struct BigInt {
   bool operator<=(const BigInt& x) const { return !(x < *this); }
   bool operator>(const BigInt& x) const { return x < *this; }
   bool operator>=(const BigInt& x) const { return !(*this < x); }
+
   BigInt& operator++() { return *this += 1; }
   BigInt operator++(int) {
     const BigInt res = *this;
@@ -218,24 +233,27 @@ struct BigInt {
     --*this;
     return res;
   }
+
   BigInt operator+() const { return *this; }
   BigInt operator-() const {
     BigInt res = *this;
-    res.sgn = -res.sgn;
+    if (!data.empty()) res.sgn = -res.sgn;
     return res;
   }
+
   BigInt operator+(const BigInt& x) const { return BigInt(*this) += x; }
   BigInt operator-(const BigInt& x) const { return BigInt(*this) -= x; }
   BigInt operator*(const BigInt& x) const { return BigInt(*this) *= x; }
-  BigInt operator/(int x) const { return BigInt(*this) /= x; }
+  BigInt operator/(const int x) const { return BigInt(*this) /= x; }
   BigInt operator/(const BigInt& x) const { return BigInt(*this) /= x; }
-  BigInt operator%(int x) const { return BigInt(*this) %= x; }
+  BigInt operator%(const int x) const { return BigInt(*this) %= x; }
   BigInt operator%(const BigInt& x) const { return BigInt(*this) %= x; }
+
   friend std::ostream& operator<<(std::ostream& os, const BigInt& x) {
     if (x.sgn == -1) os << '-';
     os << (x.data.empty() ? 0 : x.data.back());
     for (int i = static_cast<int>(x.data.size()) - 2; i >= 0; --i) {
-      os << std::setw(LogB) << std::setfill('0') << x.data[i];
+      os << std::setw(LOG_B) << std::setfill('0') << x.data[i];
     }
     return os;
   }
@@ -245,6 +263,7 @@ struct BigInt {
     x = s;
     return is;
   }
+
  private:
   std::vector<long long> karatsuba(
       std::vector<long long>* a, const int a_l, const int a_r,
@@ -289,6 +308,7 @@ struct BigInt {
     while (!res.empty() && res.back() == 0) res.pop_back();
     return res;
   }
+
   std::pair<BigInt, int> divide(int x) const {
     assert(x != 0);
     BigInt dividend = *this;
@@ -305,6 +325,7 @@ struct BigInt {
     dividend.trim();
     return {dividend, static_cast<int>(rem)};
   }
+
   std::pair<BigInt, BigInt> divide(const BigInt& x) const {
     assert(!x.data.empty());
     const int k = B / (x.data.back() + 1);
@@ -339,42 +360,47 @@ struct BigInt {
 namespace std {
 
 #if __cplusplus >= 201703L
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> gcd(emthrm::BigInt<LogB, B> a,
-                            emthrm::BigInt<LogB, B> b) {
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> gcd(emthrm::BigInt<LOG_B, B> a,
+                             emthrm::BigInt<LOG_B, B> b) {
   while (!b.data.empty()) std::swap(a %= b, b);
   return a;
 }
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> lcm(const emthrm::BigInt<LogB, B>& a,
-                            const emthrm::BigInt<LogB, B>& b) {
+
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> lcm(const emthrm::BigInt<LOG_B, B>& a,
+                             const emthrm::BigInt<LOG_B, B>& b) {
   return a / std::__gcd(a, b) * b;
 }
 #else
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> __gcd(emthrm::BigInt<LogB, B> a,
-                              emthrm::BigInt<LogB, B> b) {
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> __gcd(emthrm::BigInt<LOG_B, B> a,
+                               emthrm::BigInt<LOG_B, B> b) {
   while (!b.data.empty()) std::swap(a %= b, b);
   return a;
 }
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> __lcm(const emthrm::BigInt<LogB, B>& a,
-                              const emthrm::BigInt<LogB, B>& b) {
+
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> __lcm(const emthrm::BigInt<LOG_B, B>& a,
+                               const emthrm::BigInt<LOG_B, B>& b) {
   return a / std::__gcd(a, b) * b;
 }
 #endif  // __cplusplus >= 201703L
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> abs(const emthrm::BigInt<LogB, B>& x) {
+
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> abs(const emthrm::BigInt<LOG_B, B>& x) {
   return x.sgn == 1 ? x : -x;
 }
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> max(const emthrm::BigInt<LogB, B>& a,
-                            const emthrm::BigInt<LogB, B>& b) {
+
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> max(const emthrm::BigInt<LOG_B, B>& a,
+                             const emthrm::BigInt<LOG_B, B>& b) {
   return a < b ? b : a;
 }
-template <int LogB, int B>
-emthrm::BigInt<LogB, B> min(const emthrm::BigInt<LogB, B>& a,
-                            const emthrm::BigInt<LogB, B>& b) {
+
+template <int LOG_B, int B>
+emthrm::BigInt<LOG_B, B> min(const emthrm::BigInt<LOG_B, B>& a,
+                             const emthrm::BigInt<LOG_B, B>& b) {
   return a < b ? a : b;
 }
 

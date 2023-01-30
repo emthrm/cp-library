@@ -15,13 +15,16 @@ namespace emthrm {
 template <typename T = long long>
 struct Rational {
   T num, den;
+
   Rational() : num(0), den(1) {}
   Rational(const T num, const T den = 1) : num(num), den(den) {
     // assert(den != 0);
     reduce();
   }
+
   template <typename Real = long double>
   Real to_real() const { return static_cast<Real>(num) / den; }
+
   Rational& operator+=(const Rational& x) {
 #if __cplusplus >= 201703L
     const T g = std::gcd(den, x.den);
@@ -34,6 +37,7 @@ struct Rational {
     return *this;
   }
   Rational& operator-=(const Rational& x) { return *this += -x; }
+
   Rational& operator*=(const Rational& x) {
 #if __cplusplus >= 201703L
     const T g1 = std::gcd(num, x.den), g2 = std::gcd(den, x.num);
@@ -48,6 +52,7 @@ struct Rational {
   Rational& operator/=(const Rational& x) {
     return *this *= Rational(x.den, x.num);
   }
+
   bool operator==(const Rational& x) const {
     return num == x.num && den == x.den;
   }
@@ -56,6 +61,7 @@ struct Rational {
   bool operator<=(const Rational& x) const { return !(x < *this); }
   bool operator>(const Rational& x) const { return x < *this; }
   bool operator>=(const Rational& x) const { return !(*this < x); }
+
   Rational& operator++() {
     if ((num += den) == 0) den = 1;
     return *this;
@@ -74,16 +80,20 @@ struct Rational {
     --*this;
     return res;
   }
+
   Rational operator+() const { return *this; }
   Rational operator-() const { return Rational(-num, den); }
+
   Rational operator+(const Rational& x) const { return Rational(*this) += x; }
   Rational operator-(const Rational& x) const { return Rational(*this) -= x; }
   Rational operator*(const Rational& x) const { return Rational(*this) *= x; }
   Rational operator/(const Rational& x) const { return Rational(*this) /= x; }
+
   friend std::ostream& operator<<(std::ostream& os, const Rational& x) {
     if (x.den == 1) return os << x.num;
     return os << x.num << '/' << x.den;
   }
+
  private:
   void reduce() {
 #if __cplusplus >= 201703L
@@ -109,16 +119,19 @@ emthrm::Rational<T> abs(emthrm::Rational<T> x) {
   if (x.num < 0) x.num = -x.num;
   return x;
 }
+
 template <typename T>
 emthrm::Rational<T> max(const emthrm::Rational<T>& a,
                         const emthrm::Rational<T>& b) {
   return a < b ? b : a;
 }
+
 template <typename T>
 emthrm::Rational<T> min(const emthrm::Rational<T>& a,
                         const emthrm::Rational<T>& b) {
   return a < b ? a : b;
 }
+
 template <typename T> struct numeric_limits<emthrm::Rational<T>> {
   static constexpr emthrm::Rational<T> max() {
     return std::numeric_limits<T>::max();
