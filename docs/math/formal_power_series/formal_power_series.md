@@ -191,6 +191,8 @@ struct FormalPowerSeries;
   - https://twitter.com/kobae964/status/1446833320919064577
   - https://kmjp.hatenablog.jp/entry/2021/10/11/1030
   - https://atcoder.jp/contests/xmascon22/tasks/xmascon22_d
+  - https://codeforces.com/contest/1792/problem/F2
+  - https://twitter.com/maspy_stars/status/1617925029106442247
 - 記号的 Newton 法
   - https://qiita.com/hotman78/items/f0e6d2265badd84d429a#1%E8%A8%98%E5%8F%B7%E7%9A%84%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%88%E3%83%B3%E6%B3%95
   - https://atcoder.jp/contests/abc222/tasks/abc222_h
