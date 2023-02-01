@@ -24,9 +24,11 @@ data:
   bundledCode: "#line 1 \"include/emthrm/data_structure/segment_tree.hpp\"\n/**\n\
     \ * @brief \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n * @docs docs/data_structure/segment_tree.md\n\
     \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
-    \n#include <algorithm>\n#include <limits>\n#include <vector>\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid = typename\
-    \ T::Monoid;\n\n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
+    \n#include <algorithm>\n#include <limits>\n#include <vector>\n\n#if !defined(__GNUC__)\
+    \ && \\\n    (!defined(__has_builtin) || !__has_builtin(__builtin_popcount))\n\
+    # error \"__builtin_popcount is required.\"\n#endif\n\nnamespace emthrm {\n\n\
+    template <typename T>\nstruct SegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
     \ T::id())) {}\n\n  explicit SegmentTree(const std::vector<Monoid>& a) : n(a.size()),\
     \ p2(1) {\n    while (p2 < n) p2 <<= 1;\n    dat.assign(p2 << 1, T::id());\n \
     \   std::copy(a.begin(), a.end(), dat.begin() + p2);\n    for (int i = p2 - 1;\
@@ -66,9 +68,11 @@ data:
     \n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n"
   code: "/**\n * @brief \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n * @docs docs/data_structure/segment_tree.md\n\
     \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
-    \n#include <algorithm>\n#include <limits>\n#include <vector>\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid = typename\
-    \ T::Monoid;\n\n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
+    \n#include <algorithm>\n#include <limits>\n#include <vector>\n\n#if !defined(__GNUC__)\
+    \ && \\\n    (!defined(__has_builtin) || !__has_builtin(__builtin_popcount))\n\
+    # error \"__builtin_popcount is required.\"\n#endif\n\nnamespace emthrm {\n\n\
+    template <typename T>\nstruct SegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
     \ T::id())) {}\n\n  explicit SegmentTree(const std::vector<Monoid>& a) : n(a.size()),\
     \ p2(1) {\n    while (p2 < n) p2 <<= 1;\n    dat.assign(p2 << 1, T::id());\n \
     \   std::copy(a.begin(), a.end(), dat.begin() + p2);\n    for (int i = p2 - 1;\
@@ -110,7 +114,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-01-19 15:49:14+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/segment_tree.test.cpp

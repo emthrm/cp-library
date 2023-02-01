@@ -34,7 +34,7 @@ data:
   isVerificationFile: true
   path: test/math/jacobi_symbol.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/jacobi_symbol.test.cpp

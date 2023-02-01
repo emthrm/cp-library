@@ -36,12 +36,11 @@ data:
     \u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F\n */\n#define IGNORE\n#define\
     \ PROBLEM \"https://atcoder.jp/contests/atc001/tasks/fft_c\"\n\n#include <iostream>\n\
     #include <vector>\n\n#include \"emthrm/math/convolution/mod_convolution.hpp\"\n\
-    #include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(1000000001);\n  int n;\n  std::cin >> n;\n  std::vector<ModInt>\
-    \ a(n + 1, 0), b(n + 1, 0);\n  for (int i = 1; i <= n; ++i) {\n    std::cin >>\
-    \ a[i] >> b[i];\n  }\n  const std::vector<ModInt> ans = emthrm::mod_convolution(a,\
-    \ b);\n  for (int i = 1; i <= n * 2; ++i) {\n    std::cout << ans[i] << '\\n';\n\
-    \  }\n  return 0;\n}\n"
+    #include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000001>;\n\
+    \  int n;\n  std::cin >> n;\n  std::vector<ModInt> a(n + 1, 0), b(n + 1, 0);\n\
+    \  for (int i = 1; i <= n; ++i) {\n    std::cin >> a[i] >> b[i];\n  }\n  const\
+    \ std::vector<ModInt> ans = emthrm::mod_convolution(a, b);\n  for (int i = 1;\
+    \ i <= n * 2; ++i) {\n    std::cout << ans[i] << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/mod_convolution.hpp
   - include/emthrm/math/convolution/fast_fourier_transform.hpp
@@ -49,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/mod_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/convolution/mod_convolution.test.cpp

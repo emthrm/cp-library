@@ -13,17 +13,17 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/binary_trie.hpp\"\n\n\n\n\
     #include <array>\n#include <cassert>\n#include <cstdint>\n#include <memory>\n\
-    #if __cplusplus >= 201703L\n#include <optional>\n#endif\n#include <utility>\n\n\
-    namespace emthrm {\n\ntemplate <int B = 32, typename T = std::uint32_t>\nstruct\
-    \ BinaryTrie {\n  struct Node {\n    std::array<std::shared_ptr<Node>, 2> nxt;\n\
-    \    int child;\n\n    Node() : nxt{nullptr, nullptr}, child(0) {}\n  };\n\n \
-    \ std::shared_ptr<Node> root;\n\n  BinaryTrie() : root(nullptr) {}\n\n  void clear()\
-    \ { root.reset(); }\n\n  bool empty() const { return !root; }\n\n  int size()\
-    \ const { return root ? root->child : 0; }\n\n  void erase(const T& x) {\n   \
-    \ if (root) erase(&root, x, B - 1);\n  }\n\n  std::shared_ptr<Node> find(const\
-    \ T& x) const {\n    if (!root) return nullptr;\n    std::shared_ptr<Node> node\
-    \ = root;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit = x\
-    \ >> b & 1;\n      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
+    #if __cplusplus >= 201703L\n# include <optional>\n#endif  // __cplusplus >= 201703L\n\
+    #include <utility>\n\nnamespace emthrm {\n\ntemplate <int B = 32, typename T =\
+    \ std::uint32_t>\nstruct BinaryTrie {\n  struct Node {\n    std::array<std::shared_ptr<Node>,\
+    \ 2> nxt;\n    int child;\n\n    Node() : nxt{nullptr, nullptr}, child(0) {}\n\
+    \  };\n\n  std::shared_ptr<Node> root;\n\n  BinaryTrie() : root(nullptr) {}\n\n\
+    \  void clear() { root.reset(); }\n\n  bool empty() const { return !root; }\n\n\
+    \  int size() const { return root ? root->child : 0; }\n\n  void erase(const T&\
+    \ x) {\n    if (root) erase(&root, x, B - 1);\n  }\n\n  std::shared_ptr<Node>\
+    \ find(const T& x) const {\n    if (!root) return nullptr;\n    std::shared_ptr<Node>\
+    \ node = root;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit\
+    \ = x >> b & 1;\n      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
     \    }\n    return node;\n  }\n\n  std::pair<std::shared_ptr<Node>, T> operator[](const\
     \ int n) const {\n    return find_nth(n, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
     \ T> find_nth(int n, const T& x) const {\n    assert(0 <= n && n < size());\n\
@@ -47,39 +47,38 @@ data:
     \ std::optional<T>> lower_bound(\n      const T& x) const {\n    const int lt\
     \ = less_than(x);\n    if (lt == size()) return std::make_pair(nullptr, std::nullopt);\n\
     \    const auto [node, value] = find_nth(lt, 0);\n    return std::make_pair(node,\
-    \ std::make_optional(value));\n  }\n#else\n  std::pair<std::shared_ptr<Node>,\
-    \ T> lower_bound(const T& x) const {\n    const int lt = less_than(x);\n    return\
-    \ lt == size() ? std::make_pair(nullptr, -1) : find_nth(lt, 0);\n  }\n#endif\n\
-    \n#if __cplusplus >= 201703L\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
+    \ std::make_optional(value));\n  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
     \ upper_bound(\n      const T& x) const {\n    return lower_bound(x + 1);\n  }\n\
-    #else\n  std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const {\n\
-    \    return lower_bound(x + 1);\n  }\n#endif\n\n  std::pair<std::shared_ptr<Node>,\
-    \ T> max_element(const T& x = 0) const {\n    return min_element(~x);\n  }\n\n\
-    \  std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const {\n \
-    \   assert(root);\n    std::shared_ptr<Node> node = root;\n    T res = 0;\n  \
-    \  for (int b = B - 1; b >= 0; --b) {\n      bool digit = x >> b & 1;\n      if\
-    \ (!node->nxt[digit]) digit = !digit;\n      node = node->nxt[digit];\n      if\
-    \ (digit) res |= static_cast<T>(1) << b;\n    }\n    return {node, res};\n  }\n\
-    \n private:\n  void erase(std::shared_ptr<Node>* node, const T& x, int b) {\n\
-    \    if (b == -1) {\n      if (--(*node)->child == 0) node->reset();\n      return;\n\
-    \    }\n    const bool digit = x >> b & 1;\n    if (!(*node)->nxt[digit]) return;\n\
-    \    (*node)->child -= (*node)->nxt[digit]->child;\n    erase(&(*node)->nxt[digit],\
-    \ x, b - 1);\n    if ((*node)->nxt[digit]) {\n      (*node)->child += (*node)->nxt[digit]->child;\n\
-    \    } else if ((*node)->child == 0) {\n      node->reset();\n    }\n  }\n};\n\
-    \n}  // namespace emthrm\n\n\n"
+    #else\n  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {\n\
+    \    const int lt = less_than(x);\n    return lt == size() ? std::make_pair(nullptr,\
+    \ -1) : find_nth(lt, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>, T> upper_bound(const\
+    \ T& x) const {\n    return lower_bound(x + 1);\n  }\n#endif  // __cplusplus >=\
+    \ 201703L\n\n  std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0)\
+    \ const {\n    return min_element(~x);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
+    \ T> min_element(const T& x = 0) const {\n    assert(root);\n    std::shared_ptr<Node>\
+    \ node = root;\n    T res = 0;\n    for (int b = B - 1; b >= 0; --b) {\n     \
+    \ bool digit = x >> b & 1;\n      if (!node->nxt[digit]) digit = !digit;\n   \
+    \   node = node->nxt[digit];\n      if (digit) res |= static_cast<T>(1) << b;\n\
+    \    }\n    return {node, res};\n  }\n\n private:\n  void erase(std::shared_ptr<Node>*\
+    \ node, const T& x, int b) {\n    if (b == -1) {\n      if (--(*node)->child ==\
+    \ 0) node->reset();\n      return;\n    }\n    const bool digit = x >> b & 1;\n\
+    \    if (!(*node)->nxt[digit]) return;\n    (*node)->child -= (*node)->nxt[digit]->child;\n\
+    \    erase(&(*node)->nxt[digit], x, b - 1);\n    if ((*node)->nxt[digit]) {\n\
+    \      (*node)->child += (*node)->nxt[digit]->child;\n    } else if ((*node)->child\
+    \ == 0) {\n      node->reset();\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n#define EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n\
     \n#include <array>\n#include <cassert>\n#include <cstdint>\n#include <memory>\n\
-    #if __cplusplus >= 201703L\n#include <optional>\n#endif\n#include <utility>\n\n\
-    namespace emthrm {\n\ntemplate <int B = 32, typename T = std::uint32_t>\nstruct\
-    \ BinaryTrie {\n  struct Node {\n    std::array<std::shared_ptr<Node>, 2> nxt;\n\
-    \    int child;\n\n    Node() : nxt{nullptr, nullptr}, child(0) {}\n  };\n\n \
-    \ std::shared_ptr<Node> root;\n\n  BinaryTrie() : root(nullptr) {}\n\n  void clear()\
-    \ { root.reset(); }\n\n  bool empty() const { return !root; }\n\n  int size()\
-    \ const { return root ? root->child : 0; }\n\n  void erase(const T& x) {\n   \
-    \ if (root) erase(&root, x, B - 1);\n  }\n\n  std::shared_ptr<Node> find(const\
-    \ T& x) const {\n    if (!root) return nullptr;\n    std::shared_ptr<Node> node\
-    \ = root;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit = x\
-    \ >> b & 1;\n      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
+    #if __cplusplus >= 201703L\n# include <optional>\n#endif  // __cplusplus >= 201703L\n\
+    #include <utility>\n\nnamespace emthrm {\n\ntemplate <int B = 32, typename T =\
+    \ std::uint32_t>\nstruct BinaryTrie {\n  struct Node {\n    std::array<std::shared_ptr<Node>,\
+    \ 2> nxt;\n    int child;\n\n    Node() : nxt{nullptr, nullptr}, child(0) {}\n\
+    \  };\n\n  std::shared_ptr<Node> root;\n\n  BinaryTrie() : root(nullptr) {}\n\n\
+    \  void clear() { root.reset(); }\n\n  bool empty() const { return !root; }\n\n\
+    \  int size() const { return root ? root->child : 0; }\n\n  void erase(const T&\
+    \ x) {\n    if (root) erase(&root, x, B - 1);\n  }\n\n  std::shared_ptr<Node>\
+    \ find(const T& x) const {\n    if (!root) return nullptr;\n    std::shared_ptr<Node>\
+    \ node = root;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit\
+    \ = x >> b & 1;\n      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
     \    }\n    return node;\n  }\n\n  std::pair<std::shared_ptr<Node>, T> operator[](const\
     \ int n) const {\n    return find_nth(n, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
     \ T> find_nth(int n, const T& x) const {\n    assert(0 <= n && n < size());\n\
@@ -103,31 +102,31 @@ data:
     \ std::optional<T>> lower_bound(\n      const T& x) const {\n    const int lt\
     \ = less_than(x);\n    if (lt == size()) return std::make_pair(nullptr, std::nullopt);\n\
     \    const auto [node, value] = find_nth(lt, 0);\n    return std::make_pair(node,\
-    \ std::make_optional(value));\n  }\n#else\n  std::pair<std::shared_ptr<Node>,\
-    \ T> lower_bound(const T& x) const {\n    const int lt = less_than(x);\n    return\
-    \ lt == size() ? std::make_pair(nullptr, -1) : find_nth(lt, 0);\n  }\n#endif\n\
-    \n#if __cplusplus >= 201703L\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
+    \ std::make_optional(value));\n  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
     \ upper_bound(\n      const T& x) const {\n    return lower_bound(x + 1);\n  }\n\
-    #else\n  std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const {\n\
-    \    return lower_bound(x + 1);\n  }\n#endif\n\n  std::pair<std::shared_ptr<Node>,\
-    \ T> max_element(const T& x = 0) const {\n    return min_element(~x);\n  }\n\n\
-    \  std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const {\n \
-    \   assert(root);\n    std::shared_ptr<Node> node = root;\n    T res = 0;\n  \
-    \  for (int b = B - 1; b >= 0; --b) {\n      bool digit = x >> b & 1;\n      if\
-    \ (!node->nxt[digit]) digit = !digit;\n      node = node->nxt[digit];\n      if\
-    \ (digit) res |= static_cast<T>(1) << b;\n    }\n    return {node, res};\n  }\n\
-    \n private:\n  void erase(std::shared_ptr<Node>* node, const T& x, int b) {\n\
-    \    if (b == -1) {\n      if (--(*node)->child == 0) node->reset();\n      return;\n\
-    \    }\n    const bool digit = x >> b & 1;\n    if (!(*node)->nxt[digit]) return;\n\
-    \    (*node)->child -= (*node)->nxt[digit]->child;\n    erase(&(*node)->nxt[digit],\
-    \ x, b - 1);\n    if ((*node)->nxt[digit]) {\n      (*node)->child += (*node)->nxt[digit]->child;\n\
-    \    } else if ((*node)->child == 0) {\n      node->reset();\n    }\n  }\n};\n\
-    \n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n"
+    #else\n  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {\n\
+    \    const int lt = less_than(x);\n    return lt == size() ? std::make_pair(nullptr,\
+    \ -1) : find_nth(lt, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>, T> upper_bound(const\
+    \ T& x) const {\n    return lower_bound(x + 1);\n  }\n#endif  // __cplusplus >=\
+    \ 201703L\n\n  std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0)\
+    \ const {\n    return min_element(~x);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
+    \ T> min_element(const T& x = 0) const {\n    assert(root);\n    std::shared_ptr<Node>\
+    \ node = root;\n    T res = 0;\n    for (int b = B - 1; b >= 0; --b) {\n     \
+    \ bool digit = x >> b & 1;\n      if (!node->nxt[digit]) digit = !digit;\n   \
+    \   node = node->nxt[digit];\n      if (digit) res |= static_cast<T>(1) << b;\n\
+    \    }\n    return {node, res};\n  }\n\n private:\n  void erase(std::shared_ptr<Node>*\
+    \ node, const T& x, int b) {\n    if (b == -1) {\n      if (--(*node)->child ==\
+    \ 0) node->reset();\n      return;\n    }\n    const bool digit = x >> b & 1;\n\
+    \    if (!(*node)->nxt[digit]) return;\n    (*node)->child -= (*node)->nxt[digit]->child;\n\
+    \    erase(&(*node)->nxt[digit], x, b - 1);\n    if ((*node)->nxt[digit]) {\n\
+    \      (*node)->child += (*node)->nxt[digit]->child;\n    } else if ((*node)->child\
+    \ == 0) {\n      node->reset();\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\
+    #endif  // EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/data_structure/binary_trie.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/binary_trie.test.cpp

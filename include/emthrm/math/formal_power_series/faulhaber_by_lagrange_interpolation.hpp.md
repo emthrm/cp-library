@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp

@@ -31,19 +31,19 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
     \u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc162/tasks/abc162_e\"\
     \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/mobius_mu/mobius_mu_init.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(1000000007);\n  int n, k;\n  std::cin >> n >> k;\n  const std::vector<int>\
-    \ mu = emthrm::mobius_mu_init(k);\n  ModInt ans = 0;\n  for (int g = 1; g <= k;\
-    \ ++g) {\n    ModInt ways = 0;\n    for (int mul = 1; g * mul <= k; ++mul) {\n\
-    \      ways += ModInt(k / (g * mul)).pow(n) * mu[mul];\n    }\n    ans += ways\
-    \ * g;\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \  int n, k;\n  std::cin >> n >> k;\n  const std::vector<int> mu = emthrm::mobius_mu_init(k);\n\
+    \  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways = 0;\n \
+    \   for (int mul = 1; g * mul <= k; ++mul) {\n      ways += ModInt(k / (g * mul)).pow(n)\
+    \ * mu[mul];\n    }\n    ans += ways * g;\n  }\n  std::cout << ans << '\\n';\n\
+    \  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/mobius_mu/mobius_mu_init.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/mobius_mu/mobius_mu_init.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/mobius_mu/mobius_mu_init.test.cpp

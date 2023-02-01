@@ -38,10 +38,10 @@ data:
     \n#include <iostream>\n#include <vector>\n\n#include \"emthrm/dynamic_programming/subset_sum_problem.hpp\"\
     \n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\n#include\
     \ \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n\
+    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
     \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
-    \   static emthrm::NumberTheoreticTransform<0> ntt;\n        return ntt.convolution(a,\
+    \   static emthrm::NumberTheoreticTransform<MOD> ntt;\n        return ntt.convolution(a,\
     \ b);\n      });\n  int n, t;\n  std::cin >> n >> t;\n  std::vector<int> s(n);\n\
     \  for (int i = 0; i < n; ++i) {\n    std::cin >> s[i];\n  }\n  const std::vector<ModInt>\
     \ p = emthrm::subset_sum_problem<ModInt>(s, t);\n  for (int i = 1; i <= t; ++i)\
@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/subset_sum_problem.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/subset_sum_problem.test.cpp

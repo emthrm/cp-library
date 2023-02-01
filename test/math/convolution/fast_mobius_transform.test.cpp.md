@@ -29,28 +29,28 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30E1\u30D3\
     \u30A6\u30B9\u5909\u63DB\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446\"\
     \n#define ERROR \"1e-7\"\n\n#include <cmath>\n#include <iomanip>\n#include <iostream>\n\
-    #if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n\
-    #endif\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_mobius_transform.hpp\"\
+    #if __cplusplus >= 201703L\n# include <numeric>\n#else\n# include <algorithm>\n\
+    #endif  // __cplusplus >= 201703L\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_mobius_transform.hpp\"\
     \n\nint main() {\n  int n;\n  long long m;\n  std::cin >> n >> m;\n  std::vector<long\
     \ long> a(n);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n \
     \ std::vector<double> p(n);\n  for (int i = 0; i < n; ++i) {\n    std::cin >>\
     \ p[i];\n    p[i] /= 100;\n  }\n  std::vector<long long> g(1 << n, 0);\n  for\
     \ (int i = 1; i < (1 << n); ++i) {\n    long long l = 1;\n    for (int j = 0;\
     \ j < n; ++j) {\n      if (i >> j & 1) {\n#if __cplusplus >= 201703L\n       \
-    \ l /= std::gcd(l, a[j]);\n#else\n        l /= std::__gcd(l, a[j]);\n#endif\n\
-    \        if (l > m / a[j]) {\n          l = m + 1;\n          break;\n       \
-    \ }\n        l *= a[j];\n      }\n    }\n    g[i] = m / l;\n  }\n  g = emthrm::fast_mobius_transform(g,\
-    \ false);\n  double ans = 0;\n  for (int bit = 0; bit < (1 << n); ++bit) {\n \
-    \   double prob = 1;\n    for (int i = 0; i < n; ++i) {\n      prob *= (bit >>\
-    \ i & 1 ? p[i] : 1 - p[i]);\n    }\n    ans += prob * std::abs(g[bit]);\n  }\n\
-    \  std::cout << std::fixed << std::setprecision(8) << ans << '\\n';\n  return\
-    \ 0;\n}\n"
+    \ l /= std::gcd(l, a[j]);\n#else\n        l /= std::__gcd(l, a[j]);\n#endif  //\
+    \ __cplusplus >= 201703L\n        if (l > m / a[j]) {\n          l = m + 1;\n\
+    \          break;\n        }\n        l *= a[j];\n      }\n    }\n    g[i] = m\
+    \ / l;\n  }\n  g = emthrm::fast_mobius_transform(g, false);\n  double ans = 0;\n\
+    \  for (int bit = 0; bit < (1 << n); ++bit) {\n    double prob = 1;\n    for (int\
+    \ i = 0; i < n; ++i) {\n      prob *= (bit >> i & 1 ? p[i] : 1 - p[i]);\n    }\n\
+    \    ans += prob * std::abs(g[bit]);\n  }\n  std::cout << std::fixed << std::setprecision(8)\
+    \ << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/fast_mobius_transform.hpp
   isVerificationFile: true
   path: test/math/convolution/fast_mobius_transform.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/fast_mobius_transform.test.cpp

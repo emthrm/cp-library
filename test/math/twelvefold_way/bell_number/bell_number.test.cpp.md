@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp
     title: "\u30D9\u30EB\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G
@@ -31,8 +31,8 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\
     \u30EB\u6570\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G\"\
     \n\n#include <iostream>\n\n#include \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/bell_number/bell_number.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(1000000007);\n\
-    \  int n, k;\n  std::cin >> n >> k;\n  std::cout << emthrm::bell_number<0>(n,\
+    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
+    \  int n, k;\n  std::cin >> n >> k;\n  std::cout << emthrm::bell_number<MOD>(n,\
     \ k) << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
@@ -40,8 +40,8 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/bell_number/bell_number.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-01-30 16:05:09+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/bell_number/bell_number.test.cpp
 layout: document

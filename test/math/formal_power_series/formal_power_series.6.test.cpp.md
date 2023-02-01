@@ -43,18 +43,19 @@ data:
     \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
     \n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
     \ \"emthrm/math/mod_sqrt.hpp\"\n#include \"emthrm/math/modint.hpp\"\n\nint main()\
-    \ {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n  emthrm::FormalPowerSeries<ModInt>::set_mult(\n\
-    \      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)\n      \
-    \    -> std::vector<ModInt> {\n        static emthrm::NumberTheoreticTransform<0>\
-    \ ntt;\n        return ntt.convolution(a, b);\n      });\n  emthrm::FormalPowerSeries<ModInt>::set_sqrt(\n\
-    \      [](const ModInt& a, ModInt* res) -> bool {\n        const long long ans\
-    \ = emthrm::mod_sqrt(a.v, ModInt::get_mod());\n        if (ans == -1) {\n    \
-    \      return false;\n        } else {\n          *res = ans;\n          return\
-    \ true;\n        }\n      });\n  int n;\n  std::cin >> n;\n  emthrm::FormalPowerSeries<ModInt>\
-    \ a(n - 1);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  a\
-    \ = a.sqrt(n - 1);\n  if (a.coef.empty()) {\n    std::cout << \"-1\\n\";\n  }\
-    \ else {\n    for (int i = 0; i < n; ++i) {\n      std::cout << a[i] << \" \\\
-    n\"[i + 1 == n];\n    }\n  }\n  return 0;\n}\n"
+    \ {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n \
+    \ emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
+    \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
+    \   static emthrm::NumberTheoreticTransform<MOD> ntt;\n        return ntt.convolution(a,\
+    \ b);\n      });\n  emthrm::FormalPowerSeries<ModInt>::set_sqrt(\n      [](const\
+    \ ModInt& a, ModInt* res) -> bool {\n        const long long ans = emthrm::mod_sqrt(a.v,\
+    \ ModInt::get_mod());\n        if (ans == -1) {\n          return false;\n   \
+    \     } else {\n          *res = ans;\n          return true;\n        }\n   \
+    \   });\n  int n;\n  std::cin >> n;\n  emthrm::FormalPowerSeries<ModInt> a(n -\
+    \ 1);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  a = a.sqrt(n\
+    \ - 1);\n  if (a.coef.empty()) {\n    std::cout << \"-1\\n\";\n  } else {\n  \
+    \  for (int i = 0; i < n; ++i) {\n      std::cout << a[i] << \" \\n\"[i + 1 ==\
+    \ n];\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/number_theoretic_transform.hpp
   - include/emthrm/math/modint.hpp
@@ -64,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.6.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.6.test.cpp

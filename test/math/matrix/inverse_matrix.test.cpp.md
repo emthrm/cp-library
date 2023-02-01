@@ -33,14 +33,13 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217\n */\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/inverse_matrix\"\n\n#include <iostream>\n\
     \n#include \"emthrm/math/matrix/inverse_matrix.hpp\"\n#include \"emthrm/math/matrix/matrix.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(998244353);\n  int n;\n  std::cin >> n;\n  emthrm::Matrix<ModInt>\
-    \ a(n, n);\n  for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n\
-    \      std::cin >> a[i][j];\n    }\n  }\n  const emthrm::Matrix<ModInt> b = emthrm::inverse_matrix(a,\
-    \ ModInt(0));\n  if (b.nrow() == 0) {\n    std::cout << \"-1\\n\";\n  } else {\n\
-    \    for (int i = 0; i < n; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
-    \    std::cout << b[i][j] << \" \\n\"[j + 1 == n];\n      }\n    }\n  }\n  return\
-    \ 0;\n}\n"
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n\
+    \  int n;\n  std::cin >> n;\n  emthrm::Matrix<ModInt> a(n, n);\n  for (int i =\
+    \ 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      std::cin >> a[i][j];\n\
+    \    }\n  }\n  const emthrm::Matrix<ModInt> b = emthrm::inverse_matrix(a, ModInt(0));\n\
+    \  if (b.nrow() == 0) {\n    std::cout << \"-1\\n\";\n  } else {\n    for (int\
+    \ i = 0; i < n; ++i) {\n      for (int j = 0; j < n; ++j) {\n        std::cout\
+    \ << b[i][j] << \" \\n\"[j + 1 == n];\n      }\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/matrix/inverse_matrix.hpp
   - include/emthrm/math/matrix/matrix.hpp
@@ -48,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/math/matrix/inverse_matrix.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/matrix/inverse_matrix.test.cpp

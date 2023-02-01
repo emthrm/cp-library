@@ -71,7 +71,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid_decomposition.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid_decomposition.test.cpp

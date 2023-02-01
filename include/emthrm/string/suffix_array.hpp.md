@@ -153,6 +153,7 @@ struct SuffixArray;
   - https://w.atwiki.jp/uwicoder/pages/2842.html
   - https://github.com/KodamaD/JOISS2020/blob/master/docs/presentation.pdf
   - https://github.com/spaghetti-source/algorithm/blob/master/string/suffix_automaton.cc
+  - https://codeforces.com/contest/1780/problem/G
 - 接尾辞木 (suffix tree)
   - https://ja.wikipedia.org/wiki/%E6%8E%A5%E5%B0%BE%E8%BE%9E%E6%9C%A8
   - https://qiita.com/goonew/items/548fe90e9f68c6bba9e9

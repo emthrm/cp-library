@@ -40,7 +40,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/range_sum_query_and_range_add_query.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/range_sum_query_and_range_add_query.test.cpp

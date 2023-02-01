@@ -28,41 +28,41 @@ data:
     \ docs/graph/girth.md\n */\n\n#ifndef EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_\n\
     #define EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
     #include <functional>\n#include <limits>\n#include <queue>\n#if __cplusplus <\
-    \ 201703L\n#include <tuple>\n#endif\n#include <utility>\n#include <vector>\n\n\
-    #include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ CostType>\nCostType girth_in_undirected_graph(\n    const int n, const std::vector<Edge<CostType>>&\
-    \ edges,\n    const CostType inf = std::numeric_limits<CostType>::max()) {\n \
-    \ const int m = edges.size();\n  std::vector<std::vector<int>> graph(n);\n  for\
-    \ (int i = 0; i < m; ++i) {\n    graph[edges[i].src].emplace_back(i);\n    graph[edges[i].dst].emplace_back(i);\n\
-    \  }\n  std::vector<bool> is_used(m, false);\n  std::vector<int> label(n), prev(n);\n\
-    \  std::vector<CostType> dist(n);\n  std::priority_queue<std::pair<CostType, int>,\n\
-    \                      std::vector<std::pair<CostType, int>>,\n              \
-    \        std::greater<std::pair<CostType, int>>> que;\n  CostType res = inf;\n\
-    \  for (int root = 0; root < n; ++root) {\n    std::fill(is_used.begin(), is_used.end(),\
-    \ false);\n    std::fill(label.begin(), label.end(), -2);\n    label[root] = -1;\n\
-    \    std::fill(prev.begin(), prev.end(), -1);\n    std::fill(dist.begin(), dist.end(),\
-    \ inf);\n    dist[root] = 0;\n    que.emplace(0, root);\n    while (!que.empty())\
-    \ {\n#if __cplusplus >= 201703L\n      const auto [d, ver] = que.top();\n#else\n\
-    \      CostType d;\n      int ver;\n      std::tie(d, ver) = que.top();\n#endif\n\
-    \      que.pop();\n      if (d > dist[ver]) continue;\n      for (const int id\
-    \ : graph[ver]) {\n        const int dst = (edges[id].src == ver ? edges[id].dst\
-    \ : edges[id].src);\n        const CostType nxt = dist[ver] + edges[id].cost;\n\
-    \        if (nxt < dist[dst]) {\n          dist[dst] = nxt;\n          label[dst]\
-    \ = (label[ver] == -1 ? dst : label[ver]);\n          if (prev[dst] != -1) is_used[dst]\
-    \ = true;\n          is_used[id] = true;\n          que.emplace(nxt, dst);\n \
-    \       }\n      }\n    }\n    for (int i = 0; i < m; ++i) {\n      const int\
-    \ src = edges[i].src, dst = edges[i].dst;\n      if (!is_used[i] && label[src]\
-    \ != -2 && label[dst] != -2) {\n        if (label[src] != label[dst]) {\n    \
-    \      res = std::min(res, dist[src] + dist[dst] + edges[i].cost);\n        }\
-    \ else if (label[src] == -1) {\n          res = std::min(res, edges[i].cost);\n\
-    \        }\n      }\n    }\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_\n"
+    \ 201703L\n# include <tuple>\n#endif  // __cplusplus < 201703L\n#include <utility>\n\
+    #include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\
+    \ntemplate <typename CostType>\nCostType girth_in_undirected_graph(\n    const\
+    \ int n, const std::vector<Edge<CostType>>& edges,\n    const CostType inf = std::numeric_limits<CostType>::max())\
+    \ {\n  const int m = edges.size();\n  std::vector<std::vector<int>> graph(n);\n\
+    \  for (int i = 0; i < m; ++i) {\n    graph[edges[i].src].emplace_back(i);\n \
+    \   graph[edges[i].dst].emplace_back(i);\n  }\n  std::vector<bool> is_used(m,\
+    \ false);\n  std::vector<int> label(n), prev(n);\n  std::vector<CostType> dist(n);\n\
+    \  std::priority_queue<std::pair<CostType, int>,\n                      std::vector<std::pair<CostType,\
+    \ int>>,\n                      std::greater<std::pair<CostType, int>>> que;\n\
+    \  CostType res = inf;\n  for (int root = 0; root < n; ++root) {\n    std::fill(is_used.begin(),\
+    \ is_used.end(), false);\n    std::fill(label.begin(), label.end(), -2);\n   \
+    \ label[root] = -1;\n    std::fill(prev.begin(), prev.end(), -1);\n    std::fill(dist.begin(),\
+    \ dist.end(), inf);\n    dist[root] = 0;\n    que.emplace(0, root);\n    while\
+    \ (!que.empty()) {\n#if __cplusplus >= 201703L\n      const auto [d, ver] = que.top();\n\
+    #else\n      CostType d;\n      int ver;\n      std::tie(d, ver) = que.top();\n\
+    #endif  // __cplusplus >= 201703L\n      que.pop();\n      if (d > dist[ver])\
+    \ continue;\n      for (const int id : graph[ver]) {\n        const int dst =\
+    \ (edges[id].src == ver ? edges[id].dst : edges[id].src);\n        const CostType\
+    \ nxt = dist[ver] + edges[id].cost;\n        if (nxt < dist[dst]) {\n        \
+    \  dist[dst] = nxt;\n          label[dst] = (label[ver] == -1 ? dst : label[ver]);\n\
+    \          if (prev[dst] != -1) is_used[dst] = true;\n          is_used[id] =\
+    \ true;\n          que.emplace(nxt, dst);\n        }\n      }\n    }\n    for\
+    \ (int i = 0; i < m; ++i) {\n      const int src = edges[i].src, dst = edges[i].dst;\n\
+    \      if (!is_used[i] && label[src] != -2 && label[dst] != -2) {\n        if\
+    \ (label[src] != label[dst]) {\n          res = std::min(res, dist[src] + dist[dst]\
+    \ + edges[i].cost);\n        } else if (label[src] == -1) {\n          res = std::min(res,\
+    \ edges[i].cost);\n        }\n      }\n    }\n  }\n  return res;\n}\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_GRAPH_GIRTH_IN_UNDIRECTED_GRAPH_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/girth_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/girth.test.cpp

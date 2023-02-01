@@ -32,29 +32,29 @@ data:
     \u30B0\u30E1\u30F3\u30C8\u6728\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/range_affine_range_sum\"\
     \n\n#include <iostream>\n#include <utility>\n#include <vector>\n\n#include \"\
     emthrm/data_structure/lazy_segment_tree.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n\
-    \  int n, q;\n  std::cin >> n >> q;\n  struct M {\n    using Monoid = std::pair<ModInt,\
-    \ int>;\n    using OperatorMonoid = std::pair<ModInt, ModInt>;\n    static Monoid\
-    \ m_id() { return {0, 0}; }\n    static OperatorMonoid o_id() { return {1, 0};\
-    \ }\n    static Monoid m_merge(const Monoid& a, const Monoid& b) {\n      return\
-    \ {a.first + b.first, a.second + b.second};\n    }\n    static OperatorMonoid\
-    \ o_merge(const OperatorMonoid& a,\n                                  const OperatorMonoid&\
-    \ b) {\n      return {b.first * a.first, b.first * a.second + b.second};\n   \
-    \ }\n    static Monoid apply(const Monoid& a, const OperatorMonoid& b) {\n   \
-    \   return {a.first * b.first + b.second * a.second, a.second};\n    }\n  };\n\
-    \  std::vector<M::Monoid> a(n, {0, 1});\n  for (int i = 0; i < n; ++i) {\n   \
-    \ std::cin >> a[i].first;\n  }\n  emthrm::LazySegmentTree<M> seg(a);\n  while\
-    \ (q--) {\n    int query, l, r;\n    std::cin >> query >> l >> r;\n    if (query\
-    \ == 0) {\n      int b, c;\n      std::cin >> b >> c;\n      seg.apply(l, r, {b,\
-    \ c});\n    } else if (query == 1) {\n      std::cout << seg.get(l, r).first <<\
-    \ '\\n';\n    }\n  }\n  return 0;\n}\n"
+    \n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n  int n, q;\n  std::cin\
+    \ >> n >> q;\n  struct M {\n    using Monoid = std::pair<ModInt, int>;\n    using\
+    \ OperatorMonoid = std::pair<ModInt, ModInt>;\n    static Monoid m_id() { return\
+    \ {0, 0}; }\n    static OperatorMonoid o_id() { return {1, 0}; }\n    static Monoid\
+    \ m_merge(const Monoid& a, const Monoid& b) {\n      return {a.first + b.first,\
+    \ a.second + b.second};\n    }\n    static OperatorMonoid o_merge(const OperatorMonoid&\
+    \ a,\n                                  const OperatorMonoid& b) {\n      return\
+    \ {b.first * a.first, b.first * a.second + b.second};\n    }\n    static Monoid\
+    \ apply(const Monoid& a, const OperatorMonoid& b) {\n      return {a.first * b.first\
+    \ + b.second * a.second, a.second};\n    }\n  };\n  std::vector<M::Monoid> a(n,\
+    \ {0, 1});\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i].first;\n  }\n\
+    \  emthrm::LazySegmentTree<M> seg(a);\n  while (q--) {\n    int query, l, r;\n\
+    \    std::cin >> query >> l >> r;\n    if (query == 0) {\n      int b, c;\n  \
+    \    std::cin >> b >> c;\n      seg.apply(l, r, {b, c});\n    } else if (query\
+    \ == 1) {\n      std::cout << seg.get(l, r).first << '\\n';\n    }\n  }\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - include/emthrm/data_structure/lazy_segment_tree.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/data_structure/lazy_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/lazy_segment_tree.test.cpp

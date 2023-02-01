@@ -25,18 +25,18 @@ data:
     \ in #if / #ifdef / #ifndef other than include guards\n"
   code: "/*\n * @brief \u6570\u5B66/\u6700\u5C0F\u516C\u500D\u6570\n */\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_C\"\n\n#include\
-    \ <iostream>\n\n#if __cplusplus >= 201703L\n#include <numeric>\n#else\n#include\
-    \ \"emthrm/math/least_common_multiple.hpp\"\n#endif\n\nint main() {\n  int n;\n\
-    \  std::cin >> n;\n  int ans = 1;\n  while (n--) {\n    int a;\n    std::cin >>\
-    \ a;\n#if __cplusplus >= 201703L\n    ans = std::lcm(ans, a);\n#else\n    ans\
-    \ = emthrm::__lcm(ans, a);\n#endif\n  }\n  std::cout << ans << '\\n';\n  return\
-    \ 0;\n}\n"
+    \ <iostream>\n\n#if __cplusplus >= 201703L\n# include <numeric>\n#else\n# include\
+    \ \"emthrm/math/least_common_multiple.hpp\"\n#endif  // __cplusplus >= 201703L\n\
+    \nint main() {\n  int n;\n  std::cin >> n;\n  int ans = 1;\n  while (n--) {\n\
+    \    int a;\n    std::cin >> a;\n#if __cplusplus >= 201703L\n    ans = std::lcm(ans,\
+    \ a);\n#else\n    ans = emthrm::__lcm(ans, a);\n#endif  // __cplusplus >= 201703L\n\
+    \  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/least_common_multiple.hpp
   isVerificationFile: true
   path: test/math/least_common_multiple.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/least_common_multiple.test.cpp

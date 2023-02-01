@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/catalan_number.hpp
     title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/790
@@ -30,17 +30,17 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570\n */\n#define PROBLEM\
     \ \"https://yukicoder.me/problems/no/790\"\n\n#include <iostream>\n\n#include\
     \ \"emthrm/math/catalan_number.hpp\"\n#include \"emthrm/math/modint.hpp\"\n\n\
-    int main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(742909);\n\
-    \  int n;\n  std::cin >> n;\n  std::cout << emthrm::catalan_number<0>(n)[n] <<\
-    \ '\\n';\n  return 0;\n}\n"
+    int main() {\n  constexpr int MOD = 742909;\n  using ModInt = emthrm::MInt<MOD>;\n\
+    \  int n;\n  std::cin >> n;\n  std::cout << emthrm::catalan_number<MOD>(n)[n]\
+    \ << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/catalan_number.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/catalan_number.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-01-30 16:05:09+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/catalan_number.test.cpp
 layout: document

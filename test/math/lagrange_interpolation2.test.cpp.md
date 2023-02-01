@@ -32,18 +32,17 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\
     \ \u8A55\u4FA1\u72482\n */\n#define IGNORE\n#define PROBLEM \"https://atcoder.jp/contests/arc033/tasks/arc033_4\"\
     \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/lagrange_interpolation2.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(1000000007);\n  int n;\n  std::cin >> n;\n  std::vector<ModInt>\
-    \ a(n + 1);\n  for (int i = 0; i <= n; ++i) {\n    std::cin >> a[i];\n  }\n  ModInt\
-    \ t;\n  std::cin >> t;\n  std::cout << lagrange_interpolation(a, t) << '\\n';\n\
-    \  return 0;\n}\n"
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \  int n;\n  std::cin >> n;\n  std::vector<ModInt> a(n + 1);\n  for (int i = 0;\
+    \ i <= n; ++i) {\n    std::cin >> a[i];\n  }\n  ModInt t;\n  std::cin >> t;\n\
+    \  std::cout << lagrange_interpolation(a, t) << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/lagrange_interpolation2.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/lagrange_interpolation2.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/lagrange_interpolation2.test.cpp

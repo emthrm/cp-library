@@ -28,9 +28,9 @@ data:
     \ docs/graph/girth.md\n */\n\n#ifndef EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_\n\
     #define EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n#include\
     \ <functional>\n#include <limits>\n#include <queue>\n#if __cplusplus < 201703L\n\
-    #include <tuple>\n#endif\n#include <utility>\n#include <vector>\n\n#include \"\
-    emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename CostType>\n\
-    CostType girth_in_directed_graph(\n    const std::vector<std::vector<Edge<CostType>>>&\
+    # include <tuple>\n#endif  // __cplusplus < 201703L\n#include <utility>\n#include\
+    \ <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename CostType>\nCostType girth_in_directed_graph(\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\n    const CostType inf = std::numeric_limits<CostType>::max()) {\n \
     \ const int n = graph.size();\n  CostType res = inf;\n  std::vector<CostType>\
     \ dist(n);\n  std::priority_queue<std::pair<CostType, int>,\n                \
@@ -39,18 +39,19 @@ data:
     \ dist.end(), inf);\n    dist[root] = 0;\n    que.emplace(dist[root], root);\n\
     \    while (!que.empty()) {\n#if __cplusplus >= 201703L\n      const auto [d,\
     \ ver] = que.top();\n#else\n      CostType d;\n      int ver;\n      std::tie(d,\
-    \ ver) = que.top();\n#endif\n      que.pop();\n      if (d > dist[ver]) continue;\n\
-    \      for (const Edge<CostType>& e : graph[ver]) {\n        const CostType nxt\
-    \ = dist[ver] + e.cost;\n        if (nxt < dist[e.dst]) {\n          dist[e.dst]\
-    \ = nxt;\n          que.emplace(nxt, e.dst);\n        } else if (e.dst == root)\
-    \ {\n          res = std::min(res, nxt);\n        }\n      }\n    }\n  }\n  return\
-    \ res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_\n"
+    \ ver) = que.top();\n#endif  // __cplusplus >= 201703L\n      que.pop();\n   \
+    \   if (d > dist[ver]) continue;\n      for (const Edge<CostType>& e : graph[ver])\
+    \ {\n        const CostType nxt = dist[ver] + e.cost;\n        if (nxt < dist[e.dst])\
+    \ {\n          dist[e.dst] = nxt;\n          que.emplace(nxt, e.dst);\n      \
+    \  } else if (e.dst == root) {\n          res = std::min(res, nxt);\n        }\n\
+    \      }\n    }\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  //\
+    \ EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/girth_in_directed_graph.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/girth.test.cpp

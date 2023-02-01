@@ -30,9 +30,9 @@ data:
     \ (\u7DDA\u5206\u3068\u5186\u306E\u4EA4\u5DEE\u5224\u5B9A)\n */\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2276\"\n#define ERROR\
     \ \"1e-6\"\n\n#include <algorithm>\n#include <iomanip>\n#include <iostream>\n\
-    #include <limits>\n#if __cplusplus < 201703L\n#include <tuple>\n#endif\n#include\
-    \ <utility>\n#include <vector>\n\n#include \"emthrm/geometry/geometry.hpp\"\n\n\
-    int main() {\n  int n, k;\n  std::cin >> n >> k;\n  std::vector<emthrm::geometry::Circle>\
+    #include <limits>\n#if __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus\
+    \ < 201703L\n#include <utility>\n#include <vector>\n\n#include \"emthrm/geometry/geometry.hpp\"\
+    \n\nint main() {\n  int n, k;\n  std::cin >> n >> k;\n  std::vector<emthrm::geometry::Circle>\
     \ people(n);\n  for (int i = 0; i < n; ++i) {\n    emthrm::geometry::Point p;\n\
     \    double r;\n    std::cin >> p >> r;\n    people[i] = emthrm::geometry::Circle(p,\
     \ r);\n  }\n  std::vector<double> l(n), r(n), comp;\n  for (int i = 0; i < n;\
@@ -56,24 +56,24 @@ data:
     \ std::numeric_limits<double>::lowest())));\n  dp[0][0][false] = 0;\n  dp[0][1][true]\
     \ = balls[0].second - balls[0].first;\n  for (int i = 1; i < n; ++i) {\n#if __cplusplus\
     \ >= 201703L\n    const auto [left, right] = balls[i];\n#else\n    double left,\
-    \ right;\n    std::tie(left, right) = balls[i];\n#endif\n    int x = i - 1;\n\
-    \    while (x >= 0 && balls[i].first <= balls[x].second) --x;\n    ++x;\n    if\
-    \ (x > i - 1) x = i - 1;\n    for (int j = 0; j <= k; ++j) {\n      if (j + 1\
-    \ <= k) {\n        dp[i][j + 1][true] =\n            std::max(dp[i][j + 1][true],\n\
-    \                     dp[x][j][true] + right - std::max(balls[x].second, left));\n\
-    \        dp[i][j + 1][true] =\n            std::max(dp[i][j + 1][true], dp[x][j][false]\
-    \ + right - left);\n      }\n      dp[i][j][false] =\n          std::max(dp[i][j][false],\n\
-    \                   std::max(dp[i - 1][j][false], dp[i - 1][j][true]));\n    }\n\
-    \  }\n  double ans = 0;\n  for (int y = 0; y <= k; ++y) {\n    for (int z = 0;\
-    \ z < 2; ++z) {\n      if (dp[n - 1][y][z] > ans) ans = dp[n - 1][y][z];\n   \
-    \ }\n  }\n  std::cout << std::fixed << std::setprecision(7)\n            << ans\
-    \ / emthrm::geometry::PI << '\\n';\n  return 0;\n}\n"
+    \ right;\n    std::tie(left, right) = balls[i];\n#endif  // __cplusplus >= 201703L\n\
+    \    int x = i - 1;\n    while (x >= 0 && balls[i].first <= balls[x].second) --x;\n\
+    \    ++x;\n    if (x > i - 1) x = i - 1;\n    for (int j = 0; j <= k; ++j) {\n\
+    \      if (j + 1 <= k) {\n        dp[i][j + 1][true] =\n            std::max(dp[i][j\
+    \ + 1][true],\n                     dp[x][j][true] + right - std::max(balls[x].second,\
+    \ left));\n        dp[i][j + 1][true] =\n            std::max(dp[i][j + 1][true],\
+    \ dp[x][j][false] + right - left);\n      }\n      dp[i][j][false] =\n       \
+    \   std::max(dp[i][j][false],\n                   std::max(dp[i - 1][j][false],\
+    \ dp[i - 1][j][true]));\n    }\n  }\n  double ans = 0;\n  for (int y = 0; y <=\
+    \ k; ++y) {\n    for (int z = 0; z < 2; ++z) {\n      if (dp[n - 1][y][z] > ans)\
+    \ ans = dp[n - 1][y][z];\n    }\n  }\n  std::cout << std::fixed << std::setprecision(7)\n\
+    \            << ans / emthrm::geometry::PI << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
   isVerificationFile: true
   path: test/geometry/geometry.07.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:27+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.07.test.cpp

@@ -45,20 +45,20 @@ data:
     \n\n#include <algorithm>\n#include <iostream>\n#include <iterator>\n#include <vector>\n\
     \n#include \"emthrm/data_structure/union-find/union-find.hpp\"\n#include \"emthrm/graph/edge.hpp\"\
     \n#include \"emthrm/graph/matrix_tree_theorem.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(1000000007);\n\
-    \  int n;\n  std::cin >> n;\n  std::vector<std::vector<int>> a(n, std::vector<int>(n));\n\
-    \  for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      std::cin\
-    \ >> a[i][j];\n    }\n  }\n  emthrm::UnionFind union_find(n);\n  for (int i =\
-    \ 0; i < n; ++i) {\n    for (int j = i + 1; j < n; ++j) {\n      if (a[i][j] ==\
-    \ 1 && !union_find.unite(i, j)) {\n        std::cout << 0 << '\\n';\n        return\
-    \ 0;\n      }\n    }\n  }\n  std::vector<int> root;\n  for (int i = 0; i < n;\
-    \ ++i) {\n    if (union_find.root(i) == i) root.emplace_back(i);\n  }\n  std::vector<int>\
-    \ id(n);\n  for (int i = 0; i < n; ++i) {\n    id[i] = std::distance(\n      \
-    \  root.begin(),\n        std::lower_bound(root.begin(), root.end(), union_find.root(i)));\n\
-    \  }\n  const int m = root.size();\n  std::vector<std::vector<emthrm::Edge<bool>>>\
-    \ graph(m);\n  for (int i = 0; i < n; ++i) {\n    for (int j = i + 1; j < n; ++j)\
-    \ {\n      if (a[i][j] == -1) {\n        graph[id[i]].emplace_back(id[i], id[j]);\n\
-    \        graph[id[j]].emplace_back(id[j], id[i]);\n      }\n    }\n  }\n  std::cout\
+    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n;\n  std::cin\
+    \ >> n;\n  std::vector<std::vector<int>> a(n, std::vector<int>(n));\n  for (int\
+    \ i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      std::cin >> a[i][j];\n\
+    \    }\n  }\n  emthrm::UnionFind union_find(n);\n  for (int i = 0; i < n; ++i)\
+    \ {\n    for (int j = i + 1; j < n; ++j) {\n      if (a[i][j] == 1 && !union_find.unite(i,\
+    \ j)) {\n        std::cout << 0 << '\\n';\n        return 0;\n      }\n    }\n\
+    \  }\n  std::vector<int> root;\n  for (int i = 0; i < n; ++i) {\n    if (union_find.root(i)\
+    \ == i) root.emplace_back(i);\n  }\n  std::vector<int> id(n);\n  for (int i =\
+    \ 0; i < n; ++i) {\n    id[i] = std::distance(\n        root.begin(),\n      \
+    \  std::lower_bound(root.begin(), root.end(), union_find.root(i)));\n  }\n  const\
+    \ int m = root.size();\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(m);\n\
+    \  for (int i = 0; i < n; ++i) {\n    for (int j = i + 1; j < n; ++j) {\n    \
+    \  if (a[i][j] == -1) {\n        graph[id[i]].emplace_back(id[i], id[j]);\n  \
+    \      graph[id[j]].emplace_back(id[j], id[i]);\n      }\n    }\n  }\n  std::cout\
     \ << emthrm::matrix_tree_theorem(graph, ModInt(0)) << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/data_structure/union-find/union-find.hpp
@@ -70,7 +70,7 @@ data:
   isVerificationFile: true
   path: test/graph/matrix_tree_theorem.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/matrix_tree_theorem.test.cpp

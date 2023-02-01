@@ -28,19 +28,18 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\
     \ \u5DE8\u5927\u306A $n$ \u7248\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071\"\
     \n\n#include <iostream>\n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n\
-    \  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n  long long\
-    \ m, n;\n  int k;\n  std::cin >> m >> n >> k;\n  ModInt::init(k);\n  ModInt ans\
-    \ = ModInt(m).pow(n);\n  for (int i = 1; i < k; ++i) {\n    ModInt tmp = 0;\n\
-    \    for (int j = 1; j <= i; ++j) {\n      tmp += ModInt::nCk(i, j)\n        \
-    \     * ((i - j) & 1 ? -ModInt(j).pow(n) : ModInt(j).pow(n));\n    }\n    ans\
-    \ -= tmp * ModInt::large_nCk(m, i);\n  }\n  std::cout << ans << '\\n';\n  return\
-    \ 0;\n}\n"
+    \  using ModInt = emthrm::MInt<998244353>;\n  long long m, n;\n  int k;\n  std::cin\
+    \ >> m >> n >> k;\n  ModInt::init(k);\n  ModInt ans = ModInt(m).pow(n);\n  for\
+    \ (int i = 1; i < k; ++i) {\n    ModInt tmp = 0;\n    for (int j = 1; j <= i;\
+    \ ++j) {\n      tmp += ModInt::nCk(i, j)\n             * ((i - j) & 1 ? -ModInt(j).pow(n)\
+    \ : ModInt(j).pow(n));\n    }\n    ans -= tmp * ModInt::large_nCk(m, i);\n  }\n\
+    \  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/large_nCk.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/large_nCk.test.cpp

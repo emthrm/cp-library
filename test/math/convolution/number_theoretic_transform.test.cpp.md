@@ -30,11 +30,11 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB\
     \n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n\n\
     #include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(998244353);\n  int n, m;\n  std::cin >> n >> m;\n  std::vector<int>\
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 998244353;\n\
+    \  using ModInt = emthrm::MInt<MOD>;\n  int n, m;\n  std::cin >> n >> m;\n  std::vector<int>\
     \ a(n), b(m);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n \
     \ for (int i = 0; i < m; ++i) {\n    std::cin >> b[i];\n  }\n  const std::vector<ModInt>\
-    \ ans =\n      emthrm::NumberTheoreticTransform<0>().convolution(a, b);\n  for\
+    \ ans =\n      emthrm::NumberTheoreticTransform<MOD>().convolution(a, b);\n  for\
     \ (int i = 0; i <= (n - 1) + (m - 1); ++i) {\n    std::cout << ans[i] << \" \\\
     n\"[i == (n - 1) + (m - 1)];\n  }\n  return 0;\n}\n"
   dependsOn:
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/number_theoretic_transform.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/number_theoretic_transform.test.cpp

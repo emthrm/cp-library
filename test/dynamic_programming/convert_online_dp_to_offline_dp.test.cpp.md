@@ -37,26 +37,27 @@ data:
     \n\n#include <algorithm>\n#include <functional>\n#include <iostream>\n#include\
     \ <iterator>\n#include <vector>\n\n#include \"emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
     \n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\n#include\
-    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(998244353);\n  int n, m, t;\n  std::cin >> n >> m >> t;\n \
-    \ std::vector<int> a(m), b(m);\n  std::vector<std::vector<ModInt>> p(m, std::vector<ModInt>(t\
-    \ + 1, 0));\n  for (int i = 0; i < m; ++i) {\n    std::cin >> a[i] >> b[i];\n\
-    \    --a[i]; --b[i];\n    for (int j = 1; j <= t; ++j) {\n      std::cin >> p[i][j];\n\
-    \    }\n  }\n  std::vector<std::vector<ModInt>> dp(n, std::vector<ModInt>(t +\
-    \ 1, 0));\n  dp[0][0] = 1;\n  const std::function<void(int, int, int)> induce\
-    \ =\n      [m, &a, &b, &p, &dp](const int l, const int mid, const int r) -> void\
-    \ {\n        static emthrm::NumberTheoreticTransform<0> ntt;\n        for (int\
-    \ id = 0; id < m; ++id) {\n          std::vector<ModInt> dp_id(mid - l), p_id(r\
-    \ - l);\n          std::copy(std::next(dp[a[id]].begin(), l),\n              \
-    \      std::next(dp[a[id]].begin(), mid), dp_id.begin());\n          std::copy(p[id].begin(),\
-    \ std::next(p[id].begin(), r - l),\n                    p_id.begin());\n     \
-    \     std::vector<ModInt> c = ntt.convolution(dp_id, p_id);\n          for (int\
-    \ i = mid; i < r; ++i) {\n            dp[b[id]][i] += c[i - l];\n          }\n\
-    \          std::copy(std::next(dp[b[id]].begin(), l),\n                    std::next(dp[b[id]].begin(),\
-    \ mid), dp_id.begin());\n          c = ntt.convolution(dp_id, p_id);\n       \
-    \   for (int i = mid; i < r; ++i) {\n            dp[a[id]][i] += c[i - l];\n \
-    \         }\n        }\n      };\n  emthrm::convert_online_dp_to_offline_dp(t\
-    \ + 1, induce);\n  std::cout << dp[0][t] << '\\n';\n  return 0;\n}\n"
+    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 998244353;\n\
+    \  using ModInt = emthrm::MInt<MOD>;\n  int n, m, t;\n  std::cin >> n >> m >>\
+    \ t;\n  std::vector<int> a(m), b(m);\n  std::vector<std::vector<ModInt>> p(m,\
+    \ std::vector<ModInt>(t + 1, 0));\n  for (int i = 0; i < m; ++i) {\n    std::cin\
+    \ >> a[i] >> b[i];\n    --a[i]; --b[i];\n    for (int j = 1; j <= t; ++j) {\n\
+    \      std::cin >> p[i][j];\n    }\n  }\n  std::vector<std::vector<ModInt>> dp(n,\
+    \ std::vector<ModInt>(t + 1, 0));\n  dp[0][0] = 1;\n  const std::function<void(int,\
+    \ int, int)> induce =\n      [m, &a, &b, &p, &dp](const int l, const int mid,\
+    \ const int r) -> void {\n        static emthrm::NumberTheoreticTransform<MOD>\
+    \ ntt;\n        for (int id = 0; id < m; ++id) {\n          std::vector<ModInt>\
+    \ dp_id(mid - l), p_id(r - l);\n          std::copy(std::next(dp[a[id]].begin(),\
+    \ l),\n                    std::next(dp[a[id]].begin(), mid), dp_id.begin());\n\
+    \          std::copy(p[id].begin(), std::next(p[id].begin(), r - l),\n       \
+    \             p_id.begin());\n          std::vector<ModInt> c = ntt.convolution(dp_id,\
+    \ p_id);\n          for (int i = mid; i < r; ++i) {\n            dp[b[id]][i]\
+    \ += c[i - l];\n          }\n          std::copy(std::next(dp[b[id]].begin(),\
+    \ l),\n                    std::next(dp[b[id]].begin(), mid), dp_id.begin());\n\
+    \          c = ntt.convolution(dp_id, p_id);\n          for (int i = mid; i <\
+    \ r; ++i) {\n            dp[a[id]][i] += c[i - l];\n          }\n        }\n \
+    \     };\n  emthrm::convert_online_dp_to_offline_dp(t + 1, induce);\n  std::cout\
+    \ << dp[0][t] << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
   - include/emthrm/math/convolution/number_theoretic_transform.hpp
@@ -64,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp

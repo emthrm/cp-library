@@ -29,23 +29,23 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6728/double sweep\n */\n#define PROBLEM\
     \ \"https://judge.yosupo.jp/problem/tree_diameter\"\n\n#include <iostream>\n#if\
-    \ __cplusplus < 201703L\n#include <tuple>\n#endif\n#include <vector>\n\n#include\
-    \ \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/tree/double_sweep.hpp\"\n\
-    \nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<std::vector<emthrm::Edge<long\
+    \ __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus < 201703L\n\
+    #include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/tree/double_sweep.hpp\"\
+    \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<std::vector<emthrm::Edge<long\
     \ long>>> graph(n);\n  for (int i = 0; i < n - 1; ++i) {\n    int a, b, c;\n \
     \   std::cin >> a >> b >> c;\n    graph[a].emplace_back(a, b, c);\n    graph[b].emplace_back(b,\
     \ a, c);\n  }\n#if __cplusplus >= 201703L\n  const auto [x, u] = emthrm::double_sweep(graph);\n\
     #else\n  long long x;\n  std::vector<int> u;\n  std::tie(x, u) = emthrm::double_sweep(graph);\n\
-    #endif\n  const int y = u.size();\n  std::cout << x << ' ' << y << '\\n';\n  for\
-    \ (int i = 0; i < y; ++i) {\n    std::cout << u[i] << \" \\n\"[i + 1 == y];\n\
-    \  }\n  return 0;\n}\n"
+    #endif  // __cplusplus >= 201703L\n  const int y = u.size();\n  std::cout << x\
+    \ << ' ' << y << '\\n';\n  for (int i = 0; i < y; ++i) {\n    std::cout << u[i]\
+    \ << \" \\n\"[i + 1 == y];\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   - include/emthrm/graph/tree/double_sweep.hpp
   isVerificationFile: true
   path: test/graph/tree/double_sweep.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/double_sweep.test.cpp

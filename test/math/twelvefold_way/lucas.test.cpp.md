@@ -31,19 +31,19 @@ data:
     \ */\n#define PROBLEM \"https://atcoder.jp/contests/arc117/tasks/arc117_c\"\n\n\
     #include <iostream>\n#include <map>\n#include <string>\n\n#include \"emthrm/math/modint.hpp\"\
     \n#include \"emthrm/math/twelvefold_way/lucas.hpp\"\n\nint main() {\n  constexpr\
-    \ int C = 3;\n  using ModInt = emthrm::MInt<C>;\n  ModInt::set_mod(C);\n  const\
-    \ std::string color = \"BWR\";\n  std::map<char, int> mp;\n  for (int i = 0; i\
-    \ < C; ++i) {\n    mp[color[i]] = i;\n  }\n  int n;\n  std::cin >> n;\n  std::string\
-    \ c;\n  std::cin >> c;\n  ModInt ans = 0;\n  for (int i = 0; i < n; ++i) {\n \
-    \   ans += emthrm::lucas<C>(n - 1, i) * mp[c[i]];\n  }\n  if (n % 2 == 0) ans\
-    \ = -ans;\n  std::cout << color[ans.v] << '\\n';\n  return 0;\n}\n"
+    \ int C = 3;\n  using ModInt = emthrm::MInt<C>;\n  const std::string color = \"\
+    BWR\";\n  std::map<char, int> mp;\n  for (int i = 0; i < C; ++i) {\n    mp[color[i]]\
+    \ = i;\n  }\n  int n;\n  std::cin >> n;\n  std::string c;\n  std::cin >> c;\n\
+    \  ModInt ans = 0;\n  for (int i = 0; i < n; ++i) {\n    ans += emthrm::lucas<C>(n\
+    \ - 1, i) * mp[c[i]];\n  }\n  if (n % 2 == 0) ans = -ans;\n  std::cout << color[ans.v]\
+    \ << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   - include/emthrm/math/twelvefold_way/lucas.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/lucas.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/lucas.test.cpp

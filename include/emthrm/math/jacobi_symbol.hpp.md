@@ -16,27 +16,31 @@ data:
   bundledCode: "#line 1 \"include/emthrm/math/jacobi_symbol.hpp\"\n/**\n * @brief\
     \ \u30E4\u30B3\u30D3\u8A18\u53F7\n * @docs docs/math/quadratic_residue.md\n */\n\
     \n#ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n#define EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n\
-    \n#include <cassert>\n#include <utility>\n\nnamespace emthrm {\n\nint jacobi_symbol(long\
-    \ long a, long long p) {\n  assert(p > 0 && p & 1);\n  if (p == 1) return 1;\n\
-    \  if ((a %= p) < 0) a += p;\n  if (a == 0) return 0;\n  int res = 1;\n  while\
-    \ (a > 0) {\n    const int p2 = __builtin_ctzll(a);\n    if ((p2 & 1) && ((p +\
-    \ 2) & 4)) res = -res;\n    a >>= p2;\n    if (a & p & 2) res = -res;\n    std::swap(a,\
+    \n#include <cassert>\n#include <utility>\n\n#if !defined(__GNUC__) && \\\n   \
+    \ (!defined(__has_builtin) || !__has_builtin(__builtin_ctzll))\n# error \"__builtin_ctzll\
+    \ is required.\"\n#endif\n\nnamespace emthrm {\n\nint jacobi_symbol(long long\
+    \ a, long long p) {\n  assert(p > 0 && p & 1);\n  if (p == 1) return 1;\n  if\
+    \ ((a %= p) < 0) a += p;\n  if (a == 0) return 0;\n  int res = 1;\n  while (a\
+    \ > 0) {\n    const int p2 = __builtin_ctzll(a);\n    if ((p2 & 1) && ((p + 2)\
+    \ & 4)) res = -res;\n    a >>= p2;\n    if (a & p & 2) res = -res;\n    std::swap(a,\
     \ p);\n    a %= p;\n  }\n  return p == 1 ? res : 0;\n}\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n"
   code: "/**\n * @brief \u30E4\u30B3\u30D3\u8A18\u53F7\n * @docs docs/math/quadratic_residue.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n#define EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n\
-    \n#include <cassert>\n#include <utility>\n\nnamespace emthrm {\n\nint jacobi_symbol(long\
-    \ long a, long long p) {\n  assert(p > 0 && p & 1);\n  if (p == 1) return 1;\n\
-    \  if ((a %= p) < 0) a += p;\n  if (a == 0) return 0;\n  int res = 1;\n  while\
-    \ (a > 0) {\n    const int p2 = __builtin_ctzll(a);\n    if ((p2 & 1) && ((p +\
-    \ 2) & 4)) res = -res;\n    a >>= p2;\n    if (a & p & 2) res = -res;\n    std::swap(a,\
+    \n#include <cassert>\n#include <utility>\n\n#if !defined(__GNUC__) && \\\n   \
+    \ (!defined(__has_builtin) || !__has_builtin(__builtin_ctzll))\n# error \"__builtin_ctzll\
+    \ is required.\"\n#endif\n\nnamespace emthrm {\n\nint jacobi_symbol(long long\
+    \ a, long long p) {\n  assert(p > 0 && p & 1);\n  if (p == 1) return 1;\n  if\
+    \ ((a %= p) < 0) a += p;\n  if (a == 0) return 0;\n  int res = 1;\n  while (a\
+    \ > 0) {\n    const int p2 = __builtin_ctzll(a);\n    if ((p2 & 1) && ((p + 2)\
+    \ & 4)) res = -res;\n    a >>= p2;\n    if (a & p & 2) res = -res;\n    std::swap(a,\
     \ p);\n    a %= p;\n  }\n  return p == 1 ? res : 0;\n}\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/jacobi_symbol.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/jacobi_symbol.test.cpp

@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/flow/matching/weighted_bipartite_matching.test.cpp

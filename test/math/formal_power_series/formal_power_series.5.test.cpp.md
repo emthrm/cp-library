@@ -38,13 +38,13 @@ data:
     \u7684\u51AA\u7D1A\u6570 (mod_pow(exponend, md))\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc135/tasks/abc135_d\"\
     \n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include <vector>\n\
     \n#include \"emthrm/math/convolution/mod_convolution.hpp\"\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(1000000007);\n  emthrm::FormalPowerSeries<ModInt>::set_mult(\n\
-    \      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)\n      \
-    \    -> std::vector<ModInt> {\n        return emthrm::mod_convolution(a, b);\n\
-    \      });\n  constexpr int D = 6, M = 13;\n  std::string s;\n  std::cin >> s;\n\
-    \  std::reverse(s.begin(), s.end());\n  int q[D]{};\n  for (int i = 0; i < static_cast<int>(s.length());\
-    \ ++i) {\n    if (s[i] == '?') ++q[i % D];\n  }\n  std::vector<emthrm::FormalPowerSeries<ModInt>>\
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
+    \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
+    \   return emthrm::mod_convolution(a, b);\n      });\n  constexpr int D = 6, M\
+    \ = 13;\n  std::string s;\n  std::cin >> s;\n  std::reverse(s.begin(), s.end());\n\
+    \  int q[D]{};\n  for (int i = 0; i < static_cast<int>(s.length()); ++i) {\n \
+    \   if (s[i] == '?') ++q[i % D];\n  }\n  std::vector<emthrm::FormalPowerSeries<ModInt>>\
     \ f(\n      D, emthrm::FormalPowerSeries<ModInt>(M));\n  emthrm::FormalPowerSeries<ModInt>\
     \ md(M);\n  md[0] = -1;\n  md[M] = 1;\n  for (int i = 0; i < D; ++i) {\n    int\
     \ base = 1;\n    for (int j = 0; j < i; ++j) {\n      base *= 10;\n    }\n   \
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp

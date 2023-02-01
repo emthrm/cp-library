@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/geometry/smallest_enclosing_circle.hpp
   requiredBy: []
-  timestamp: '2023-01-19 17:51:35+09:00'
+  timestamp: '2023-01-27 16:06:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/geometry/smallest_enclosing_circle.test.cpp

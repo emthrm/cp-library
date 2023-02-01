@@ -27,21 +27,20 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\n\
     \ */\n#define PROBLEM \"https://yukicoder.me/problems/no/117\"\n\n#include <algorithm>\n\
     #include <iostream>\n#include <iterator>\n#include <string>\n\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(1000000007);\n\
-    \  int t;\n  std::cin >> t;\n  while (t--) {\n    std::string s;\n    std::cin\
-    \ >> s;\n    const auto it = std::find(s.begin(), s.end(), ',');\n    const int\
-    \ n = std::stoi(std::string(std::next(s.begin(), 2), it));\n    const int k =\
-    \ std::stoi(std::string(std::next(it), std::prev(s.end())));\n    if (s.front()\
-    \ == 'C') {\n      std::cout << ModInt::nCk(n, k) << '\\n';\n    } else if (s.front()\
-    \ == 'P') {\n      std::cout << ModInt::nPk(n, k) << '\\n';\n    } else if (s.front()\
-    \ == 'H') {\n      std::cout << ModInt::nHk(n, k) << '\\n';\n    }\n  }\n  return\
-    \ 0;\n}\n"
+    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int t;\n  std::cin\
+    \ >> t;\n  while (t--) {\n    std::string s;\n    std::cin >> s;\n    const auto\
+    \ it = std::find(s.begin(), s.end(), ',');\n    const int n = std::stoi(std::string(std::next(s.begin(),\
+    \ 2), it));\n    const int k = std::stoi(std::string(std::next(it), std::prev(s.end())));\n\
+    \    if (s.front() == 'C') {\n      std::cout << ModInt::nCk(n, k) << '\\n';\n\
+    \    } else if (s.front() == 'P') {\n      std::cout << ModInt::nPk(n, k) << '\\\
+    n';\n    } else if (s.front() == 'H') {\n      std::cout << ModInt::nHk(n, k)\
+    \ << '\\n';\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/binomial_coefficients.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/binomial_coefficients.test.cpp

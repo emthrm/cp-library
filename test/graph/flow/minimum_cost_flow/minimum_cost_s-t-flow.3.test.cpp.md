@@ -32,9 +32,10 @@ data:
     \u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))\n */\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088\"\n\n#include\
     \ <algorithm>\n#include <iostream>\n#include <iterator>\n#if __cplusplus < 201703L\n\
-    #include <tuple>\n#endif\n#include <vector>\n\n#include \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
-    \n\nint main() {\n  struct Train { int x, y, c; };\n  while (true) {\n    int\
-    \ n;\n    std::cin >> n;\n    if (n == 0) break;\n    int num = 0;\n    std::vector<std::vector<Train>>\
+    # include <tuple>\n#endif  // __cplusplus < 201703L\n#include <vector>\n\n#include\
+    \ \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\n\nint main()\
+    \ {\n  struct Train { int x, y, c; };\n  while (true) {\n    int n;\n    std::cin\
+    \ >> n;\n    if (n == 0) break;\n    int num = 0;\n    std::vector<std::vector<Train>>\
     \ trains(n - 1);\n    std::vector<std::vector<int>> times(n - 1);\n    for (int\
     \ i = 0; i < n - 1; ++i) {\n      int m;\n      std::cin >> m;\n      num += m;\n\
     \      while (m--) {\n        int x, y, c;\n        std::cin >> x >> y >> c;\n\
@@ -60,14 +61,14 @@ data:
     \    const auto [ans_class, ans_fare] =\n        minimum_cost_flow.minimum_cost_maximum_flow(s,\
     \ t, g);\n#else\n    int ans_class;\n    long long ans_fare;\n    std::tie(ans_class,\
     \ ans_fare) =\n        minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);\n\
-    #endif\n    std::cout << ans_class << ' ' << ans_fare << '\\n';\n  }\n  return\
-    \ 0;\n}\n"
+    #endif  // __cplusplus >= 201703L\n    std::cout << ans_class << ' ' << ans_fare\
+    \ << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp

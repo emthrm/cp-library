@@ -21,30 +21,31 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/mod_inv.hpp\"\n\n\n\n#if __cplusplus\
-    \ >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n#endif\n#include\
-    \ <utility>\n\nnamespace emthrm {\n\nlong long mod_inv(long long a, const int\
-    \ m) {\n  if ((a %= m) < 0) a += m;\n#if __cplusplus >= 201703L\n  if (std::gcd(a,\
-    \ m) != 1) return -1;\n#else\n  if (std::__gcd(a, static_cast<long long>(m)) !=\
-    \ 1) return -1;\n#endif\n  long long x = 1;\n  for (long long b = m, u = 0; b\
-    \ > 0;) {\n    const long long q = a / b;\n    std::swap(a -= q * b, b);\n   \
-    \ std::swap(x -= q * u, u);\n  }\n  x %= m;\n  return x < 0 ? x + m : x;\n}\n\n\
-    }  // namespace emthrm\n\n\n"
+    \ >= 201703L\n# include <numeric>\n#else\n# include <algorithm>\n#endif  // __cplusplus\
+    \ >= 201703L\n#include <utility>\n\nnamespace emthrm {\n\nlong long mod_inv(long\
+    \ long a, const int m) {\n  if ((a %= m) < 0) a += m;\n#if __cplusplus >= 201703L\n\
+    \  if (std::gcd(a, m) != 1) return -1;\n#else\n  if (std::__gcd(a, static_cast<long\
+    \ long>(m)) != 1) return -1;\n#endif  // __cplusplus >= 201703L\n  long long x\
+    \ = 1;\n  for (long long b = m, u = 0; b > 0;) {\n    const long long q = a /\
+    \ b;\n    std::swap(a -= q * b, b);\n    std::swap(x -= q * u, u);\n  }\n  x %=\
+    \ m;\n  return x < 0 ? x + m : x;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_MOD_INV_HPP_\n#define EMTHRM_MATH_MOD_INV_HPP_\n\n#if\
-    \ __cplusplus >= 201703L\n#include <numeric>\n#else\n#include <algorithm>\n#endif\n\
-    #include <utility>\n\nnamespace emthrm {\n\nlong long mod_inv(long long a, const\
-    \ int m) {\n  if ((a %= m) < 0) a += m;\n#if __cplusplus >= 201703L\n  if (std::gcd(a,\
-    \ m) != 1) return -1;\n#else\n  if (std::__gcd(a, static_cast<long long>(m)) !=\
-    \ 1) return -1;\n#endif\n  long long x = 1;\n  for (long long b = m, u = 0; b\
-    \ > 0;) {\n    const long long q = a / b;\n    std::swap(a -= q * b, b);\n   \
-    \ std::swap(x -= q * u, u);\n  }\n  x %= m;\n  return x < 0 ? x + m : x;\n}\n\n\
-    }  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MOD_INV_HPP_\n"
+    \ __cplusplus >= 201703L\n# include <numeric>\n#else\n# include <algorithm>\n\
+    #endif  // __cplusplus >= 201703L\n#include <utility>\n\nnamespace emthrm {\n\n\
+    long long mod_inv(long long a, const int m) {\n  if ((a %= m) < 0) a += m;\n#if\
+    \ __cplusplus >= 201703L\n  if (std::gcd(a, m) != 1) return -1;\n#else\n  if (std::__gcd(a,\
+    \ static_cast<long long>(m)) != 1) return -1;\n#endif  // __cplusplus >= 201703L\n\
+    \  long long x = 1;\n  for (long long b = m, u = 0; b > 0;) {\n    const long\
+    \ long q = a / b;\n    std::swap(a -= q * b, b);\n    std::swap(x -= q * u, u);\n\
+    \  }\n  x %= m;\n  return x < 0 ? x + m : x;\n}\n\n}  // namespace emthrm\n\n\
+    #endif  // EMTHRM_MATH_MOD_INV_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/mod_inv.hpp
   requiredBy:
   - include/emthrm/math/simultaneous_linear_congruence.hpp
   - include/emthrm/math/chinese_remainder_theorem.hpp
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp

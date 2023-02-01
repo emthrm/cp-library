@@ -20,18 +20,20 @@ data:
   bundledCode: "#line 1 \"include/emthrm/math/least_common_multiple.hpp\"\n\n\n\n\
     #if __cplusplus < 201703L\n\n#include <algorithm>\n\nnamespace emthrm {\n\nlong\
     \ long __lcm(const long long a, const long long b) {\n  return a / std::__gcd(a,\
-    \ b) * b;\n}\n\n}  // namespace emthrm\n\n#endif\n\n\n"
+    \ b) * b;\n}\n\n}  // namespace emthrm\n\n#endif  // __cplusplus < 201703L\n\n\
+    \n"
   code: "#ifndef EMTHRM_MATH_LEAST_COMMON_MULTIPLE_HPP_\n#define EMTHRM_MATH_LEAST_COMMON_MULTIPLE_HPP_\n\
     \n#if __cplusplus < 201703L\n\n#include <algorithm>\n\nnamespace emthrm {\n\n\
     long long __lcm(const long long a, const long long b) {\n  return a / std::__gcd(a,\
-    \ b) * b;\n}\n\n}  // namespace emthrm\n\n#endif\n\n#endif  // EMTHRM_MATH_LEAST_COMMON_MULTIPLE_HPP_\n"
+    \ b) * b;\n}\n\n}  // namespace emthrm\n\n#endif  // __cplusplus < 201703L\n\n\
+    #endif  // EMTHRM_MATH_LEAST_COMMON_MULTIPLE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/least_common_multiple.hpp
   requiredBy:
   - include/emthrm/math/carmichael_function.hpp
   - include/emthrm/math/carmichael_function_init.hpp
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/least_common_multiple.test.cpp

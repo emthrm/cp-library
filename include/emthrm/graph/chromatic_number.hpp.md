@@ -24,8 +24,11 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_\n#define EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_\n\
-    \n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename CostType>\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
+    \n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\n#if !defined(__GNUC__)\
+    \ && \\\n    (!defined(__has_builtin) || !__has_builtin(__builtin_ctz) \\\n  \
+    \                           || !__has_builtin(__builtin_popcount))\n# error \"\
+    GCC built-in functions are required.\"\n#endif\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename CostType>\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\n  const int n = graph.size();\n  std::vector<int> adj(n, 0);\n  for\
     \ (int i = 0; i < n; ++i) {\n    for (const Edge<CostType>& e : graph[i]) adj[i]\
     \ |= 1 << e.dst;\n  }\n  std::vector<int> indep(1 << n);\n  indep[0] = 1;\n  for\
@@ -43,7 +46,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/chromatic_number.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/chromatic_number.test.cpp

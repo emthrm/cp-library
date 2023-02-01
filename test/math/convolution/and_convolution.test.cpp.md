@@ -37,13 +37,12 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and\
     \ \u3067\u306E\u7573\u307F\u8FBC\u307F\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/bitwise_and_convolution\"\
     \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/and_convolution.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(998244353);\n  int n;\n  std::cin >> n;\n  std::vector<ModInt>\
-    \ a(1 << n), b(1 << n);\n  for (int i = 0; i < (1 << n); ++i) {\n    std::cin\
-    \ >> a[i];\n  }\n  for (int i = 0; i < (1 << n); ++i) {\n    std::cin >> b[i];\n\
-    \  }\n  const std::vector<ModInt> c = emthrm::and_convolution(a, b);\n  for (int\
-    \ i = 0; i < (1 << n); ++i) {\n    std::cout << c[i] << \" \\n\"[i + 1 == 1 <<\
-    \ n];\n  }\n  return 0;\n}\n"
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n\
+    \  int n;\n  std::cin >> n;\n  std::vector<ModInt> a(1 << n), b(1 << n);\n  for\
+    \ (int i = 0; i < (1 << n); ++i) {\n    std::cin >> a[i];\n  }\n  for (int i =\
+    \ 0; i < (1 << n); ++i) {\n    std::cin >> b[i];\n  }\n  const std::vector<ModInt>\
+    \ c = emthrm::and_convolution(a, b);\n  for (int i = 0; i < (1 << n); ++i) {\n\
+    \    std::cout << c[i] << \" \\n\"[i + 1 == 1 << n];\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/and_convolution.hpp
   - include/emthrm/math/convolution/fast_mobius_transform.hpp
@@ -52,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/and_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/and_convolution.test.cpp

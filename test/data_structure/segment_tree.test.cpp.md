@@ -32,12 +32,12 @@ data:
     \u6728\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/point_set_range_composite\"\
     \n\n#include <iostream>\n#include <utility>\n#include <vector>\n\n#include \"\
     emthrm/data_structure/segment_tree.hpp\"\n#include \"emthrm/math/modint.hpp\"\n\
-    \nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(998244353);\n\
-    \  int n, q;\n  std::cin >> n >> q;\n  struct M {\n    using Monoid = std::pair<ModInt,\
-    \ ModInt>;\n    static Monoid id() { return {1, 0}; }\n    static Monoid merge(const\
-    \ Monoid& a, const Monoid& b) {\n      return {a.first * b.first, a.second * b.first\
-    \ + b.second};\n    }\n  };\n  std::vector<M::Monoid> f(n);\n  for (int i = 0;\
-    \ i < n; ++i) {\n    std::cin >> f[i].first >> f[i].second;\n  }\n  emthrm::SegmentTree<M>\
+    \nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n  int n, q;\n  std::cin\
+    \ >> n >> q;\n  struct M {\n    using Monoid = std::pair<ModInt, ModInt>;\n  \
+    \  static Monoid id() { return {1, 0}; }\n    static Monoid merge(const Monoid&\
+    \ a, const Monoid& b) {\n      return {a.first * b.first, a.second * b.first +\
+    \ b.second};\n    }\n  };\n  std::vector<M::Monoid> f(n);\n  for (int i = 0; i\
+    \ < n; ++i) {\n    std::cin >> f[i].first >> f[i].second;\n  }\n  emthrm::SegmentTree<M>\
     \ seg(f);\n  while (q--) {\n    int query;\n    std::cin >> query;\n    if (query\
     \ == 0) {\n      int p, c, d;\n      std::cin >> p >> c >> d;\n      seg.set(p,\
     \ {c, d});\n    } else if (query == 1) {\n      int l, r, x;\n      std::cin >>\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/segment_tree.test.cpp

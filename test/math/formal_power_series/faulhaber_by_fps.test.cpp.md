@@ -48,12 +48,12 @@ data:
     \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/mod_convolution.hpp\"\
     \n#include \"emthrm/math/formal_power_series/faulhaber_by_fps.hpp\"\n#include\
     \ \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(1000000007);\n\
+    \n\nint main() {\n  constexpr int MOD = 1000000007;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
     \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
     \   return emthrm::mod_convolution(a, b);\n      });\n  long long n;\n  int k;\n\
-    \  std::cin >> n >> k;\n  std::cout << emthrm::faulhaber_by_fps<0>(n + 1, k) <<\
-    \ '\\n';\n  return 0;\n}\n"
+    \  std::cin >> n >> k;\n  std::cout << emthrm::faulhaber_by_fps<MOD>(n + 1, k)\
+    \ << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/mod_convolution.hpp
   - include/emthrm/math/convolution/fast_fourier_transform.hpp
@@ -64,7 +64,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/faulhaber_by_fps.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/faulhaber_by_fps.test.cpp

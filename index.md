@@ -290,7 +290,7 @@ data:
     - icon: ':warning:'
       path: include/emthrm/math/carmichael_function_init.hpp
       title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: include/emthrm/math/catalan_number.hpp
       title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
     - icon: ':heavy_check_mark:'
@@ -349,7 +349,7 @@ data:
     - icon: ':question:'
       path: include/emthrm/math/modint.hpp
       title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: include/emthrm/math/montmort_number.hpp
       title: "\u30E2\u30F3\u30E2\u30FC\u30EB\u6570 (Montmort number)"
     - icon: ':heavy_check_mark:'
@@ -510,7 +510,7 @@ data:
       title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
   - name: include/emthrm/math/twelvefold_way/bell_number
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp
       title: "\u30D9\u30EB\u6570"
     - icon: ':heavy_check_mark:'
@@ -521,7 +521,7 @@ data:
       title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
   - name: include/emthrm/math/twelvefold_way
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
       title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
     - icon: ':heavy_check_mark:'
@@ -545,7 +545,7 @@ data:
       path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
       title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
         \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
       title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
     - icon: ':heavy_check_mark:'
@@ -592,9 +592,9 @@ data:
     - icon: ':warning:'
       path: include/emthrm/string/replace.hpp
       title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: include/emthrm/string/rolling_hash.hpp
-      title: "\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5 (rolling hash)"
+      title: rolling hash
     - icon: ':heavy_check_mark:'
       path: include/emthrm/string/run_length_encoding.hpp
       title: "\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E (run length encoding)"
@@ -615,9 +615,6 @@ data:
       title: Z algorithm
   - name: include/emthrm/util
     pages:
-    - icon: ':warning:'
-      path: include/emthrm/util/template.hpp
-      title: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8"
     - icon: ':warning:'
       path: include/emthrm/util/timer.hpp
       title: "\u30BF\u30A4\u30DE\u30FC (timer)"
@@ -1076,7 +1073,7 @@ data:
     - icon: ':x:'
       path: test/math/bigint.10.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/catalan_number.test.cpp
       title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
     - icon: ':heavy_check_mark:'
@@ -1129,7 +1126,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/mod_sqrt.test.cpp
       title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/montmort_number.test.cpp
       title: "\u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570"
     - icon: ':heavy_check_mark:'
@@ -1319,7 +1316,7 @@ data:
         \u30B9\u95A2\u6570\u306E\u6570\u88682"
   - name: test/math/twelvefold_way/bell_number
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/twelvefold_way/bell_number/bell_number.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570"
     - icon: ':heavy_check_mark:'
@@ -1335,7 +1332,7 @@ data:
       path: test/math/twelvefold_way/large_nCk.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570 \u5DE8\u5927\
         \u306A $n$ \u7248"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/twelvefold_way/large_nCk_init.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
         \u8868 \u5DE8\u5927\u306A $n$ \u7248"
@@ -1359,7 +1356,7 @@ data:
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\
         \u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
       title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
         \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
@@ -1410,9 +1407,9 @@ data:
     - icon: ':x:'
       path: test/string/morris-pratt.2.test.cpp
       title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/string/rolling_hash.test.cpp
-      title: "\u6587\u5B57\u5217/\u30ED\u30FC\u30EA\u30F3\u30B0\u30CF\u30C3\u30B7\u30E5"
+      title: "\u6587\u5B57\u5217/rolling hash"
     - icon: ':heavy_check_mark:'
       path: test/string/run_length_encoding.test.cpp
       title: "\u6587\u5B57\u5217/\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"

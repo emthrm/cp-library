@@ -33,7 +33,9 @@ data:
     \ */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_\n\
     #define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_\n\
     \n#include <vector>\n\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T> stirling_number_of_the_first_kind_init_by_fps(const\
+    \n\n#if !defined(__GNUC__) && \\\n    (!defined(__has_builtin) || !__has_builtin(__builtin_clz))\n\
+    # error \"__builtin_clz is required.\"\n#endif\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename T>\nstd::vector<T> stirling_number_of_the_first_kind_init_by_fps(const\
     \ int n) {\n  if (n == 0) return {1};\n  FormalPowerSeries<T> s{0, 1};\n  for\
     \ (int i = 30 - __builtin_clz(n); i >= 0; --i) {\n    s *= s.translate(-s.degree());\n\
     \    if (n >> i & 1) {\n      const int deg = s.degree();\n      s <<= 1;\n  \
@@ -45,7 +47,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp

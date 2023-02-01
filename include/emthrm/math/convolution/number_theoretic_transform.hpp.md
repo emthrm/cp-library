@@ -91,33 +91,36 @@ data:
     \ */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_\n#define\
     \ EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_\n\n#include <algorithm>\n\
     #include <cassert>\n#include <iterator>\n#include <utility>\n#include <vector>\n\
-    \n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\ntemplate <int T>\n\
-    struct NumberTheoreticTransform {\n  using ModInt = MInt<T>;\n\n  NumberTheoreticTransform()\
-    \ {\n    for (int i = 0; i < 23; ++i) {\n      if (primes[i][0] == ModInt::get_mod())\
-    \ {\n        n_max = 1 << primes[i][2];\n        root = ModInt(primes[i][1]).pow((primes[i][0]\
-    \ - 1) >> primes[i][2]);\n        return;\n      }\n    }\n    assert(false);\n\
-    \  }\n\n  template <typename U>\n  std::vector<ModInt> dft(const std::vector<U>&\
-    \ a) {\n    const int n = a.size();\n    int lg = 1;\n    while ((1 << lg) < n)\
-    \ ++lg;\n    std::vector<ModInt> b(1 << lg, 0);\n    std::copy(a.begin(), a.end(),\
-    \ b.begin());\n    calc(&b);\n    return b;\n  }\n\n  void idft(std::vector<ModInt>*\
-    \ a) {\n    const int n = a->size();\n    assert(__builtin_popcount(n) == 1);\n\
-    \    calc(a);\n    std::reverse(std::next(a->begin()), a->end());\n    const ModInt\
-    \ inv_n = ModInt::inv(n);\n    for (int i = 0; i < n; ++i) {\n      (*a)[i] *=\
-    \ inv_n;\n    }\n  }\n\n  template <typename U>\n  std::vector<ModInt> convolution(const\
-    \ std::vector<U>& a,\n                                  const std::vector<U>&\
-    \ b) {\n    const int a_size = a.size(), b_size = b.size();\n    const int c_size\
-    \ = a_size + b_size - 1;\n    int lg = 1;\n    while ((1 << lg) < c_size) ++lg;\n\
-    \    const int n = 1 << lg;\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::copy(a.begin(),\
-    \ a.end(), c.begin());\n    calc(&c);\n    std::copy(b.begin(), b.end(), d.begin());\n\
-    \    calc(&d);\n    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n\
-    \    idft(&c);\n    c.resize(c_size);\n    return c;\n  }\n\n private:\n  const\
-    \ int primes[23][3]{\n    {16957441, 329, 14},\n    {17006593, 26, 15},\n    {19529729,\
-    \ 770, 17},\n    {167772161, 3, 25},\n    {469762049, 3, 26},\n    {645922817,\
-    \ 3, 23},\n    {897581057, 3, 23},\n    {924844033, 5, 21},\n    {935329793, 3,\
-    \ 22},\n    {943718401, 7, 22},\n    {950009857, 7, 21},\n    {962592769, 7, 21},\n\
-    \    {975175681, 17, 21},\n    {976224257, 3, 20},\n    {985661441, 3, 22},\n\
-    \    {998244353, 3, 23},\n    {1004535809, 3, 21},\n    {1007681537, 3, 20},\n\
-    \    {1012924417, 5, 21},\n    {1045430273, 3, 20},\n    {1051721729, 6, 20},\n\
+    \n#include \"emthrm/math/modint.hpp\"\n\n#if !defined(__GNUC__) && \\\n    (!defined(__has_builtin)\
+    \ || !__has_builtin(__builtin_popcount) \\\n                             || !__has_builtin(__builtin_ctz))\n\
+    # error \"GCC built-in functions are required.\"\n#endif\n\nnamespace emthrm {\n\
+    \ntemplate <int T>\nstruct NumberTheoreticTransform {\n  using ModInt = MInt<T>;\n\
+    \n  NumberTheoreticTransform() {\n    for (int i = 0; i < 23; ++i) {\n      if\
+    \ (primes[i][0] == ModInt::get_mod()) {\n        n_max = 1 << primes[i][2];\n\
+    \        root = ModInt(primes[i][1]).pow((primes[i][0] - 1) >> primes[i][2]);\n\
+    \        return;\n      }\n    }\n    assert(false);\n  }\n\n  template <typename\
+    \ U>\n  std::vector<ModInt> dft(const std::vector<U>& a) {\n    const int n =\
+    \ a.size();\n    int lg = 1;\n    while ((1 << lg) < n) ++lg;\n    std::vector<ModInt>\
+    \ b(1 << lg, 0);\n    std::copy(a.begin(), a.end(), b.begin());\n    calc(&b);\n\
+    \    return b;\n  }\n\n  void idft(std::vector<ModInt>* a) {\n    const int n\
+    \ = a->size();\n    assert(__builtin_popcount(n) == 1);\n    calc(a);\n    std::reverse(std::next(a->begin()),\
+    \ a->end());\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0; i\
+    \ < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
+    \  std::vector<ModInt> convolution(const std::vector<U>& a,\n                \
+    \                  const std::vector<U>& b) {\n    const int a_size = a.size(),\
+    \ b_size = b.size();\n    const int c_size = a_size + b_size - 1;\n    int lg\
+    \ = 1;\n    while ((1 << lg) < c_size) ++lg;\n    const int n = 1 << lg;\n   \
+    \ std::vector<ModInt> c(n, 0), d(n, 0);\n    std::copy(a.begin(), a.end(), c.begin());\n\
+    \    calc(&c);\n    std::copy(b.begin(), b.end(), d.begin());\n    calc(&d);\n\
+    \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
+    \    c.resize(c_size);\n    return c;\n  }\n\n private:\n  const int primes[23][3]{\n\
+    \    {16957441, 329, 14},\n    {17006593, 26, 15},\n    {19529729, 770, 17},\n\
+    \    {167772161, 3, 25},\n    {469762049, 3, 26},\n    {645922817, 3, 23},\n \
+    \   {897581057, 3, 23},\n    {924844033, 5, 21},\n    {935329793, 3, 22},\n  \
+    \  {943718401, 7, 22},\n    {950009857, 7, 21},\n    {962592769, 7, 21},\n   \
+    \ {975175681, 17, 21},\n    {976224257, 3, 20},\n    {985661441, 3, 22},\n   \
+    \ {998244353, 3, 23},\n    {1004535809, 3, 21},\n    {1007681537, 3, 20},\n  \
+    \  {1012924417, 5, 21},\n    {1045430273, 3, 20},\n    {1051721729, 6, 20},\n\
     \    {1053818881, 7, 20},\n    {1224736769, 3, 24}\n  };\n\n  int n_max;\n  ModInt\
     \ root;\n  std::vector<int> butterfly{0};\n  std::vector<std::vector<ModInt>>\
     \ omega{{1}};\n\n  void calc(std::vector<ModInt>* a) {\n    const int n = a->size(),\
@@ -144,7 +147,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/number_theoretic_transform.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/formal_power_series.6.test.cpp

@@ -33,11 +33,11 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F\n */\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/matrix_det\"\n\n#include <iostream>\n\
     \n#include \"emthrm/math/matrix/determinant.hpp\"\n#include \"emthrm/math/matrix/matrix.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(998244353);\n  int n;\n  std::cin >> n;\n  emthrm::Matrix<int>\
-    \ a(n, n);\n  for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n\
-    \      std::cin >> a[i][j];\n    }\n  }\n  std::cout << emthrm::det(a, ModInt(0))\
-    \ << '\\n';\n  return 0;\n}\n"
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n\
+    \  int n;\n  std::cin >> n;\n  emthrm::Matrix<int> a(n, n);\n  for (int i = 0;\
+    \ i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      std::cin >> a[i][j];\n\
+    \    }\n  }\n  std::cout << emthrm::det(a, ModInt(0)) << '\\n';\n  return 0;\n\
+    }\n"
   dependsOn:
   - include/emthrm/math/matrix/determinant.hpp
   - include/emthrm/math/matrix/matrix.hpp
@@ -45,7 +45,7 @@ data:
   isVerificationFile: true
   path: test/math/matrix/determinant.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/matrix/determinant.test.cpp

@@ -37,10 +37,10 @@ data:
     \u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\
     \u30B8\u30E5\u88DC\u9593\u7248\n */\n#define PROBLEM \"https://yukicoder.me/problems/no/665\"\
     \n\n#include <iostream>\n\n#include \"emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n\
-    \  ModInt::set_mod(1000000007);\n  long long n;\n  int k;\n  std::cin >> n >>\
-    \ k;\n  std::cout << emthrm::faulhaber_by_lagrange_interpolation<0>(n + 1, k)\
-    \ << '\\n';\n  return 0;\n}\n"
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 1000000007;\n\
+    \  using ModInt = emthrm::MInt<MOD>;\n  long long n;\n  int k;\n  std::cin >>\
+    \ n >> k;\n  std::cout << emthrm::faulhaber_by_lagrange_interpolation<MOD>(n +\
+    \ 1, k)\n            << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   - include/emthrm/math/lagrange_interpolation2.hpp
@@ -48,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp

@@ -34,9 +34,9 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\
     \u30EB\u6570\u306E\u6570\u8868\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G\"\
     \n\n#include <iostream>\n\n#include \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(1000000007);\n\
-    \  int n, k;\n  std::cin >> n >> k;\n  std::cout << emthrm::bell_number_init<ModInt>(n,\
-    \ k)[n][k] << '\\n';\n  return 0;\n}\n"
+    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, k;\n  std::cin\
+    \ >> n >> k;\n  std::cout << emthrm::bell_number_init<ModInt>(n, k)[n][k] << '\\\
+    n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
@@ -44,7 +44,7 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp

@@ -30,17 +30,17 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570\n */\n\
     #define PROBLEM \"https://yukicoder.me/problems/no/269\"\n\n#include <iostream>\n\
     \n#include \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/partition_function.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<0>;\n  ModInt::set_mod(1000000007);\n\
-    \  int n, s, k;\n  std::cin >> n >> s >> k;\n  for (int i = 1; i < n; ++i) {\n\
-    \    s -= k * i;\n  }\n  std::cout << (s >= 0 ? emthrm::partition_function<ModInt>(n,\
-    \ s)[n][s] : 0)\n            << '\\n';\n  return 0;\n}\n"
+    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, s, k;\n\
+    \  std::cin >> n >> s >> k;\n  for (int i = 1; i < n; ++i) {\n    s -= k * i;\n\
+    \  }\n  std::cout << (s >= 0 ? emthrm::partition_function<ModInt>(n, s)[n][s]\
+    \ : 0)\n            << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   - include/emthrm/math/twelvefold_way/partition_function.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/partition_function_init.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-30 16:05:09+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/partition_function_init.test.cpp

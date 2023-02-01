@@ -44,12 +44,12 @@ data:
     \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <functional>\n#include <limits>\n\
-    #include <queue>\n#if __cplusplus < 201703L\n#include <tuple>\n#endif\n#include\
-    \ <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T,\
-    \ typename U>\nstruct MinimumCostSTFlow {\n  struct Edge {\n    int dst, rev;\n\
-    \    T cap;\n    U cost;\n    explicit Edge(const int dst, const T cap, const\
-    \ U cost, const int rev)\n        : dst(dst), rev(rev), cap(cap), cost(cost) {}\n\
-    \  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>> graph;\n\n  explicit\
+    #include <queue>\n#if __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus\
+    \ < 201703L\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename T, typename U>\nstruct MinimumCostSTFlow {\n  struct Edge {\n    int\
+    \ dst, rev;\n    T cap;\n    U cost;\n    explicit Edge(const int dst, const T\
+    \ cap, const U cost, const int rev)\n        : dst(dst), rev(rev), cap(cap), cost(cost)\
+    \ {}\n  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>> graph;\n\n  explicit\
     \ MinimumCostSTFlow(const int n,\n                             const U uinf =\
     \ std::numeric_limits<U>::max())\n      : uinf(uinf), graph(n), tinf(std::numeric_limits<T>::max()),\
     \ n(n),\n        has_negative_edge(false), prev_v(n, -1), prev_e(n, -1), dist(n),\n\
@@ -85,30 +85,31 @@ data:
     \n  void dijkstra(const int s) {\n    std::fill(dist.begin(), dist.end(), uinf);\n\
     \    dist[s] = 0;\n    que.emplace(0, s);\n    while (!que.empty()) {\n#if __cplusplus\
     \ >= 201703L\n      const auto [d, ver] = que.top();\n#else\n      U d;\n    \
-    \  int ver;\n      std::tie(d, ver) = que.top();\n#endif\n      que.pop();\n \
-    \     if (dist[ver] < d) continue;\n      for (int i = 0; i < static_cast<int>(graph[ver].size());\
-    \ ++i) {\n        const Edge& e = graph[ver][i];\n        const U nxt = dist[ver]\
-    \ + e.cost + potential[ver] - potential[e.dst];\n        if (e.cap > 0 && dist[e.dst]\
-    \ > nxt) {\n          dist[e.dst] = nxt;\n          prev_v[e.dst] = ver;\n   \
-    \       prev_e[e.dst] = i;\n          que.emplace(dist[e.dst], e.dst);\n     \
-    \   }\n      }\n    }\n    for (int i = 0; i < n; ++i) {\n      if (dist[i] !=\
-    \ uinf) potential[i] += dist[i];\n    }\n  }\n\n  U calc(const int s, const int\
-    \ t, T* flow) {\n    T f = *flow;\n    for (int v = t; v != s; v = prev_v[v])\
-    \ {\n      f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);\n    }\n    *flow\
-    \ -= f;\n    for (int v = t; v != s; v = prev_v[v]) {\n      Edge& e = graph[prev_v[v]][prev_e[v]];\n\
-    \      e.cap -= f;\n      graph[v][e.rev].cap += f;\n    }\n    return potential[t]\
-    \ * f;\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n"
+    \  int ver;\n      std::tie(d, ver) = que.top();\n#endif  // __cplusplus >= 201703L\n\
+    \      que.pop();\n      if (dist[ver] < d) continue;\n      for (int i = 0; i\
+    \ < static_cast<int>(graph[ver].size()); ++i) {\n        const Edge& e = graph[ver][i];\n\
+    \        const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];\n\
+    \        if (e.cap > 0 && dist[e.dst] > nxt) {\n          dist[e.dst] = nxt;\n\
+    \          prev_v[e.dst] = ver;\n          prev_e[e.dst] = i;\n          que.emplace(dist[e.dst],\
+    \ e.dst);\n        }\n      }\n    }\n    for (int i = 0; i < n; ++i) {\n    \
+    \  if (dist[i] != uinf) potential[i] += dist[i];\n    }\n  }\n\n  U calc(const\
+    \ int s, const int t, T* flow) {\n    T f = *flow;\n    for (int v = t; v != s;\
+    \ v = prev_v[v]) {\n      f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);\n\
+    \    }\n    *flow -= f;\n    for (int v = t; v != s; v = prev_v[v]) {\n      Edge&\
+    \ e = graph[prev_v[v]][prev_e[v]];\n      e.cap -= f;\n      graph[v][e.rev].cap\
+    \ += f;\n    }\n    return potential[t] * f;\n  }\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n"
   code: "/**\n * @brief \u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\
     \u77ED\u8DEF\u53CD\u5FA9\u6CD5\u7248\n * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <functional>\n#include <limits>\n\
-    #include <queue>\n#if __cplusplus < 201703L\n#include <tuple>\n#endif\n#include\
-    \ <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T,\
-    \ typename U>\nstruct MinimumCostSTFlow {\n  struct Edge {\n    int dst, rev;\n\
-    \    T cap;\n    U cost;\n    explicit Edge(const int dst, const T cap, const\
-    \ U cost, const int rev)\n        : dst(dst), rev(rev), cap(cap), cost(cost) {}\n\
-    \  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>> graph;\n\n  explicit\
+    #include <queue>\n#if __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus\
+    \ < 201703L\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename T, typename U>\nstruct MinimumCostSTFlow {\n  struct Edge {\n    int\
+    \ dst, rev;\n    T cap;\n    U cost;\n    explicit Edge(const int dst, const T\
+    \ cap, const U cost, const int rev)\n        : dst(dst), rev(rev), cap(cap), cost(cost)\
+    \ {}\n  };\n\n  const U uinf;\n  std::vector<std::vector<Edge>> graph;\n\n  explicit\
     \ MinimumCostSTFlow(const int n,\n                             const U uinf =\
     \ std::numeric_limits<U>::max())\n      : uinf(uinf), graph(n), tinf(std::numeric_limits<T>::max()),\
     \ n(n),\n        has_negative_edge(false), prev_v(n, -1), prev_e(n, -1), dist(n),\n\
@@ -144,25 +145,26 @@ data:
     \n  void dijkstra(const int s) {\n    std::fill(dist.begin(), dist.end(), uinf);\n\
     \    dist[s] = 0;\n    que.emplace(0, s);\n    while (!que.empty()) {\n#if __cplusplus\
     \ >= 201703L\n      const auto [d, ver] = que.top();\n#else\n      U d;\n    \
-    \  int ver;\n      std::tie(d, ver) = que.top();\n#endif\n      que.pop();\n \
-    \     if (dist[ver] < d) continue;\n      for (int i = 0; i < static_cast<int>(graph[ver].size());\
-    \ ++i) {\n        const Edge& e = graph[ver][i];\n        const U nxt = dist[ver]\
-    \ + e.cost + potential[ver] - potential[e.dst];\n        if (e.cap > 0 && dist[e.dst]\
-    \ > nxt) {\n          dist[e.dst] = nxt;\n          prev_v[e.dst] = ver;\n   \
-    \       prev_e[e.dst] = i;\n          que.emplace(dist[e.dst], e.dst);\n     \
-    \   }\n      }\n    }\n    for (int i = 0; i < n; ++i) {\n      if (dist[i] !=\
-    \ uinf) potential[i] += dist[i];\n    }\n  }\n\n  U calc(const int s, const int\
-    \ t, T* flow) {\n    T f = *flow;\n    for (int v = t; v != s; v = prev_v[v])\
-    \ {\n      f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);\n    }\n    *flow\
-    \ -= f;\n    for (int v = t; v != s; v = prev_v[v]) {\n      Edge& e = graph[prev_v[v]][prev_e[v]];\n\
-    \      e.cap -= f;\n      graph[v][e.rev].cap += f;\n    }\n    return potential[t]\
-    \ * f;\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n"
+    \  int ver;\n      std::tie(d, ver) = que.top();\n#endif  // __cplusplus >= 201703L\n\
+    \      que.pop();\n      if (dist[ver] < d) continue;\n      for (int i = 0; i\
+    \ < static_cast<int>(graph[ver].size()); ++i) {\n        const Edge& e = graph[ver][i];\n\
+    \        const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];\n\
+    \        if (e.cap > 0 && dist[e.dst] > nxt) {\n          dist[e.dst] = nxt;\n\
+    \          prev_v[e.dst] = ver;\n          prev_e[e.dst] = i;\n          que.emplace(dist[e.dst],\
+    \ e.dst);\n        }\n      }\n    }\n    for (int i = 0; i < n; ++i) {\n    \
+    \  if (dist[i] != uinf) potential[i] += dist[i];\n    }\n  }\n\n  U calc(const\
+    \ int s, const int t, T* flow) {\n    T f = *flow;\n    for (int v = t; v != s;\
+    \ v = prev_v[v]) {\n      f = std::min(f, graph[prev_v[v]][prev_e[v]].cap);\n\
+    \    }\n    *flow -= f;\n    for (int v = t; v != s; v = prev_v[v]) {\n      Edge&\
+    \ e = graph[prev_v[v]][prev_e[v]];\n      e.cap -= f;\n      graph[v][e.rev].cap\
+    \ += f;\n    }\n    return potential[t] * f;\n  }\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_S_T_FLOW_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
   requiredBy:
   - include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp

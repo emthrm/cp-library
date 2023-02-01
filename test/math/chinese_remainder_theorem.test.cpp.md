@@ -29,21 +29,22 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u4E2D\u56FD\u5270\u4F59\u5B9A\u7406\n */\n#define\
     \ PROBLEM \"https://yukicoder.me/problems/no/186\"\n\n#include <iostream>\n#if\
-    \ __cplusplus < 201703L\n#include <tuple>\n#endif\n#include <vector>\n\n#include\
-    \ \"emthrm/math/chinese_remainder_theorem.hpp\"\n\nint main() {\n  constexpr int\
-    \ N = 3;\n  std::vector<long long> x(N), y(N);\n  for (int i = 0; i < N; ++i)\
-    \ {\n    std::cin >> x[i] >> y[i];\n  }\n#if __cplusplus >= 201703L\n  const auto\
-    \ [ans, mod] = emthrm::chinese_remainder_theorem(x, y);\n#else\n  long long ans,\
-    \ mod;\n  std::tie(ans, mod) = emthrm::chinese_remainder_theorem(x, y);\n#endif\n\
-    \  if (mod == 0) {\n    std::cout << \"-1\\n\";\n  } else {\n    std::cout <<\
-    \ (ans == 0 ? mod : ans) << '\\n';\n  }\n  return 0;\n}\n"
+    \ __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus < 201703L\n\
+    #include <vector>\n\n#include \"emthrm/math/chinese_remainder_theorem.hpp\"\n\n\
+    int main() {\n  constexpr int N = 3;\n  std::vector<long long> x(N), y(N);\n \
+    \ for (int i = 0; i < N; ++i) {\n    std::cin >> x[i] >> y[i];\n  }\n#if __cplusplus\
+    \ >= 201703L\n  const auto [ans, mod] = emthrm::chinese_remainder_theorem(x, y);\n\
+    #else\n  long long ans, mod;\n  std::tie(ans, mod) = emthrm::chinese_remainder_theorem(x,\
+    \ y);\n#endif  // __cplusplus >= 201703L\n  if (mod == 0) {\n    std::cout <<\
+    \ \"-1\\n\";\n  } else {\n    std::cout << (ans == 0 ? mod : ans) << '\\n';\n\
+    \  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/chinese_remainder_theorem.hpp
   - include/emthrm/math/mod_inv.hpp
   isVerificationFile: true
   path: test/math/chinese_remainder_theorem.test.cpp
   requiredBy: []
-  timestamp: '2023-01-22 15:45:15+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/chinese_remainder_theorem.test.cpp

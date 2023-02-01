@@ -26,31 +26,32 @@ data:
     \    xs.resize(n, xs_back);\n    dat.assign(n << 1, Line(0, inf));\n  }\n\n  void\
     \ add(T a, T b) {\n#if __cplusplus >= 201703L\n    if constexpr (!IS_MINIMIZED)\
     \ {\n      a = -a;\n      b = -b;\n    }\n#else\n    if (!IS_MINIMIZED) {\n  \
-    \    a = -a;\n      b = -b;\n    }\n#endif\n    Line line(a, b);\n    add(&line,\
-    \ 1, 0, n);\n  }\n\n  void add(T a, T b, T left, T right) {\n#if __cplusplus >=\
-    \ 201703L\n    if constexpr (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n\
-    \    }\n#else\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n    }\n\
-    #endif\n    for (int len = 1,\n             node_l = std::distance(\n        \
-    \         xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),\n       \
-    \      node_r = std::distance(\n                 xs.begin(), std::lower_bound(xs.begin(),\
-    \ xs.end(), right)),\n             l = node_l + n, r = node_r + n;\n         l\
-    \ < r;\n         l >>= 1, r >>= 1, len <<= 1) {\n      if (l & 1) {\n        Line\
-    \ line(a, b);\n        add(&line, l++, node_l, node_l + len);\n        node_l\
-    \ += len;\n      }\n      if (r & 1) {\n        Line line(a, b);\n        node_r\
-    \ -= len;\n        add(&line, --r, node_r, node_r + len);\n      }\n    }\n  }\n\
-    \n  T query(const T x) const {\n    int node = n + std::distance(xs.begin(),\n\
-    \                                 std::lower_bound(xs.begin(), xs.end(), x));\n\
-    \    T res = dat[node].f(x);\n    while (node >>= 1) {\n      if (dat[node].f(x)\
-    \ < res) res = dat[node].f(x);\n    }\n    return IS_MINIMIZED ? res : -res;\n\
-    \  }\n\n private:\n  int n;\n  std::vector<T> xs;\n  std::vector<Line> dat;\n\n\
-    \  void add(Line* line, int node, int left, int right) {\n    const bool flag_l\
-    \ = dat[node].f(xs[left]) <= line->f(xs[left]);\n    const bool flag_r = dat[node].f(xs[right\
-    \ - 1]) <= line->f(xs[right - 1]);\n    if (flag_l && flag_r) return;\n    if\
-    \ (!flag_l && !flag_r) {\n      std::swap(dat[node], *line);\n      return;\n\
-    \    }\n    const int mid = (left + right) >> 1;\n    if (line->f(xs[mid]) < dat[node].f(xs[mid]))\
-    \ std::swap(dat[node], *line);\n    if (line->f(xs[left]) <= dat[node].f(xs[left]))\
-    \ {\n      add(line, node << 1, left, mid);\n    } else {\n      add(line, (node\
-    \ << 1) + 1, mid, right);\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+    \    a = -a;\n      b = -b;\n    }\n#endif  // __cplusplus >= 201703L\n    Line\
+    \ line(a, b);\n    add(&line, 1, 0, n);\n  }\n\n  void add(T a, T b, T left, T\
+    \ right) {\n#if __cplusplus >= 201703L\n    if constexpr (!IS_MINIMIZED) {\n \
+    \     a = -a;\n      b = -b;\n    }\n#else\n    if (!IS_MINIMIZED) {\n      a\
+    \ = -a;\n      b = -b;\n    }\n#endif  // __cplusplus >= 201703L\n    for (int\
+    \ len = 1,\n             node_l = std::distance(\n                 xs.begin(),\
+    \ std::lower_bound(xs.begin(), xs.end(), left)),\n             node_r = std::distance(\n\
+    \                 xs.begin(), std::lower_bound(xs.begin(), xs.end(), right)),\n\
+    \             l = node_l + n, r = node_r + n;\n         l < r;\n         l >>=\
+    \ 1, r >>= 1, len <<= 1) {\n      if (l & 1) {\n        Line line(a, b);\n   \
+    \     add(&line, l++, node_l, node_l + len);\n        node_l += len;\n      }\n\
+    \      if (r & 1) {\n        Line line(a, b);\n        node_r -= len;\n      \
+    \  add(&line, --r, node_r, node_r + len);\n      }\n    }\n  }\n\n  T query(const\
+    \ T x) const {\n    int node = n + std::distance(xs.begin(),\n               \
+    \                  std::lower_bound(xs.begin(), xs.end(), x));\n    T res = dat[node].f(x);\n\
+    \    while (node >>= 1) {\n      if (dat[node].f(x) < res) res = dat[node].f(x);\n\
+    \    }\n    return IS_MINIMIZED ? res : -res;\n  }\n\n private:\n  int n;\n  std::vector<T>\
+    \ xs;\n  std::vector<Line> dat;\n\n  void add(Line* line, int node, int left,\
+    \ int right) {\n    const bool flag_l = dat[node].f(xs[left]) <= line->f(xs[left]);\n\
+    \    const bool flag_r = dat[node].f(xs[right - 1]) <= line->f(xs[right - 1]);\n\
+    \    if (flag_l && flag_r) return;\n    if (!flag_l && !flag_r) {\n      std::swap(dat[node],\
+    \ *line);\n      return;\n    }\n    const int mid = (left + right) >> 1;\n  \
+    \  if (line->f(xs[mid]) < dat[node].f(xs[mid])) std::swap(dat[node], *line);\n\
+    \    if (line->f(xs[left]) <= dat[node].f(xs[left])) {\n      add(line, node <<\
+    \ 1, left, mid);\n    } else {\n      add(line, (node << 1) + 1, mid, right);\n\
+    \    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_\n#define EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_\n\
     \n#include <algorithm>\n#include <cassert>\n#include <iterator>\n#include <utility>\n\
     #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T, bool IS_MINIMIZED\
@@ -63,37 +64,37 @@ data:
     \    xs.resize(n, xs_back);\n    dat.assign(n << 1, Line(0, inf));\n  }\n\n  void\
     \ add(T a, T b) {\n#if __cplusplus >= 201703L\n    if constexpr (!IS_MINIMIZED)\
     \ {\n      a = -a;\n      b = -b;\n    }\n#else\n    if (!IS_MINIMIZED) {\n  \
-    \    a = -a;\n      b = -b;\n    }\n#endif\n    Line line(a, b);\n    add(&line,\
-    \ 1, 0, n);\n  }\n\n  void add(T a, T b, T left, T right) {\n#if __cplusplus >=\
-    \ 201703L\n    if constexpr (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n\
-    \    }\n#else\n    if (!IS_MINIMIZED) {\n      a = -a;\n      b = -b;\n    }\n\
-    #endif\n    for (int len = 1,\n             node_l = std::distance(\n        \
-    \         xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),\n       \
-    \      node_r = std::distance(\n                 xs.begin(), std::lower_bound(xs.begin(),\
-    \ xs.end(), right)),\n             l = node_l + n, r = node_r + n;\n         l\
-    \ < r;\n         l >>= 1, r >>= 1, len <<= 1) {\n      if (l & 1) {\n        Line\
-    \ line(a, b);\n        add(&line, l++, node_l, node_l + len);\n        node_l\
-    \ += len;\n      }\n      if (r & 1) {\n        Line line(a, b);\n        node_r\
-    \ -= len;\n        add(&line, --r, node_r, node_r + len);\n      }\n    }\n  }\n\
-    \n  T query(const T x) const {\n    int node = n + std::distance(xs.begin(),\n\
-    \                                 std::lower_bound(xs.begin(), xs.end(), x));\n\
-    \    T res = dat[node].f(x);\n    while (node >>= 1) {\n      if (dat[node].f(x)\
-    \ < res) res = dat[node].f(x);\n    }\n    return IS_MINIMIZED ? res : -res;\n\
-    \  }\n\n private:\n  int n;\n  std::vector<T> xs;\n  std::vector<Line> dat;\n\n\
-    \  void add(Line* line, int node, int left, int right) {\n    const bool flag_l\
-    \ = dat[node].f(xs[left]) <= line->f(xs[left]);\n    const bool flag_r = dat[node].f(xs[right\
-    \ - 1]) <= line->f(xs[right - 1]);\n    if (flag_l && flag_r) return;\n    if\
-    \ (!flag_l && !flag_r) {\n      std::swap(dat[node], *line);\n      return;\n\
-    \    }\n    const int mid = (left + right) >> 1;\n    if (line->f(xs[mid]) < dat[node].f(xs[mid]))\
-    \ std::swap(dat[node], *line);\n    if (line->f(xs[left]) <= dat[node].f(xs[left]))\
-    \ {\n      add(line, node << 1, left, mid);\n    } else {\n      add(line, (node\
-    \ << 1) + 1, mid, right);\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_\n"
+    \    a = -a;\n      b = -b;\n    }\n#endif  // __cplusplus >= 201703L\n    Line\
+    \ line(a, b);\n    add(&line, 1, 0, n);\n  }\n\n  void add(T a, T b, T left, T\
+    \ right) {\n#if __cplusplus >= 201703L\n    if constexpr (!IS_MINIMIZED) {\n \
+    \     a = -a;\n      b = -b;\n    }\n#else\n    if (!IS_MINIMIZED) {\n      a\
+    \ = -a;\n      b = -b;\n    }\n#endif  // __cplusplus >= 201703L\n    for (int\
+    \ len = 1,\n             node_l = std::distance(\n                 xs.begin(),\
+    \ std::lower_bound(xs.begin(), xs.end(), left)),\n             node_r = std::distance(\n\
+    \                 xs.begin(), std::lower_bound(xs.begin(), xs.end(), right)),\n\
+    \             l = node_l + n, r = node_r + n;\n         l < r;\n         l >>=\
+    \ 1, r >>= 1, len <<= 1) {\n      if (l & 1) {\n        Line line(a, b);\n   \
+    \     add(&line, l++, node_l, node_l + len);\n        node_l += len;\n      }\n\
+    \      if (r & 1) {\n        Line line(a, b);\n        node_r -= len;\n      \
+    \  add(&line, --r, node_r, node_r + len);\n      }\n    }\n  }\n\n  T query(const\
+    \ T x) const {\n    int node = n + std::distance(xs.begin(),\n               \
+    \                  std::lower_bound(xs.begin(), xs.end(), x));\n    T res = dat[node].f(x);\n\
+    \    while (node >>= 1) {\n      if (dat[node].f(x) < res) res = dat[node].f(x);\n\
+    \    }\n    return IS_MINIMIZED ? res : -res;\n  }\n\n private:\n  int n;\n  std::vector<T>\
+    \ xs;\n  std::vector<Line> dat;\n\n  void add(Line* line, int node, int left,\
+    \ int right) {\n    const bool flag_l = dat[node].f(xs[left]) <= line->f(xs[left]);\n\
+    \    const bool flag_r = dat[node].f(xs[right - 1]) <= line->f(xs[right - 1]);\n\
+    \    if (flag_l && flag_r) return;\n    if (!flag_l && !flag_r) {\n      std::swap(dat[node],\
+    \ *line);\n      return;\n    }\n    const int mid = (left + right) >> 1;\n  \
+    \  if (line->f(xs[mid]) < dat[node].f(xs[mid])) std::swap(dat[node], *line);\n\
+    \    if (line->f(xs[left]) <= dat[node].f(xs[left])) {\n      add(line, node <<\
+    \ 1, left, mid);\n    } else {\n      add(line, (node << 1) + 1, mid, right);\n\
+    \    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/li_chao_tree.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/li_chao_tree.2.test.cpp

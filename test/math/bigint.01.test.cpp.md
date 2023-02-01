@@ -36,10 +36,10 @@ data:
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679\"\n\n#include\
     \ <algorithm>\n#include <iostream>\n#include <map>\n#include <string>\n#include\
     \ <vector>\n\n#include \"emthrm/graph/flow/matching/weighted_bipartite_matching.hpp\"\
-    \n#include \"emthrm/math/bigint.hpp\"\n\nnamespace std {\n\ntemplate <int LogB,\
-    \ int B>\nstruct numeric_limits<emthrm::BigInt<LogB, B>> {\n  static constexpr\
-    \ emthrm::BigInt<LogB, B> max() {\n    return static_cast<std::string>(\n    \
-    \    \"453152254949043485887196599220742984693877551020408163265306122448979591836734693877551\"\
+    \n#include \"emthrm/math/bigint.hpp\"\n\nnamespace std {\n\ntemplate <int LOG_B,\
+    \ int B>\nstruct numeric_limits<emthrm::BigInt<LOG_B, B>> {\n  static constexpr\
+    \ emthrm::BigInt<LOG_B, B> max() {\n    return static_cast<std::string>(\n   \
+    \     \"453152254949043485887196599220742984693877551020408163265306122448979591836734693877551\"\
     );\n  }\n};\n\n};  // namespace std\n\nint main() {\n  using bigint = emthrm::BigInt<>;\n\
     \  constexpr int SIGMA = 26;\n  int n;\n  std::cin >> n;\n  std::map<char, bigint>\
     \ cost;\n  bigint cur = 0;\n  for (int i = SIGMA - 1; i >= 0; --i) {\n    cost['a'\
@@ -60,7 +60,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.01.test.cpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-02-02 02:21:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.01.test.cpp

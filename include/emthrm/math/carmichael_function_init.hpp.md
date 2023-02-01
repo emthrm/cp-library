@@ -27,30 +27,32 @@ data:
   code: "/**\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\
     \u8868\n * @docs docs/math/carmichael_function.md\n */\n\n#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_\n\
     #define EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_\n\n#include <numeric>\n#include\
-    \ <vector>\n\n#if __cplusplus < 201703L\n#include \"emthrm/math/least_common_multiple.hpp\"\
-    \n#endif\n#include \"emthrm/math/prime_sieve.hpp\"\n\nnamespace emthrm {\n\nstd::vector<long\
-    \ long> carmichael_function_init(const long long low,\n                      \
-    \                          const long long high) {\n  std::vector<long long> lambda(high\
-    \ - low, 1), tmp(high - low);\n  std::iota(tmp.begin(), tmp.end(), low);\n  if\
-    \ (low == 0 && high > 0) lambda[0] = 0;\n  for (long long i = (low + 7) / 8 *\
-    \ 8; i < high; i += 8) {\n    tmp[i - low] >>= 1;\n  }\n  long long root = 1;\n\
-    \  while ((root + 1) * (root + 1) < high) ++root;\n  for (const int p : prime_sieve(root,\
-    \ true)) {\n    for (long long i = (low + p - 1) / p * p; i < high; i += p) {\n\
-    \      if (i == 0) continue;\n      tmp[i - low] /= p;\n      long long phi =\
-    \ p - 1;\n      for (; tmp[i - low] % p == 0; tmp[i - low] /= p) {\n        phi\
-    \ *= p;\n      }\n#if __cplusplus >= 201703L\n      lambda[i - low] = std::lcm(lambda[i\
-    \ - low], phi);\n#else\n      lambda[i - low] = __lcm(lambda[i - low], phi);\n\
-    #endif\n    }\n  }\n  for (int i = 0; i < high - low; ++i) {\n#if __cplusplus\
+    \ <vector>\n\n#if __cplusplus < 201703L\n# include \"emthrm/math/least_common_multiple.hpp\"\
+    \n#endif  // __cplusplus < 201703L\n#include \"emthrm/math/prime_sieve.hpp\"\n\
+    \nnamespace emthrm {\n\nstd::vector<long long> carmichael_function_init(const\
+    \ long long low,\n                                                const long long\
+    \ high) {\n  std::vector<long long> lambda(high - low, 1), tmp(high - low);\n\
+    \  std::iota(tmp.begin(), tmp.end(), low);\n  if (low == 0 && high > 0) lambda[0]\
+    \ = 0;\n  for (long long i = (low + 7) / 8 * 8; i < high; i += 8) {\n    tmp[i\
+    \ - low] >>= 1;\n  }\n  long long root = 1;\n  while ((root + 1) * (root + 1)\
+    \ < high) ++root;\n  for (const int p : prime_sieve(root, true)) {\n    for (long\
+    \ long i = (low + p - 1) / p * p; i < high; i += p) {\n      if (i == 0) continue;\n\
+    \      tmp[i - low] /= p;\n      long long phi = p - 1;\n      for (; tmp[i -\
+    \ low] % p == 0; tmp[i - low] /= p) {\n        phi *= p;\n      }\n#if __cplusplus\
+    \ >= 201703L\n      lambda[i - low] = std::lcm(lambda[i - low], phi);\n#else\n\
+    \      lambda[i - low] = __lcm(lambda[i - low], phi);\n#endif  // __cplusplus\
+    \ >= 201703L\n    }\n  }\n  for (int i = 0; i < high - low; ++i) {\n#if __cplusplus\
     \ >= 201703L\n    if (tmp[i] > 1) lambda[i] = std::lcm(lambda[i], tmp[i] - 1);\n\
-    #else\n    if (tmp[i] > 1) lambda[i] = __lcm(lambda[i], tmp[i] - 1);\n#endif\n\
-    \  }\n  return lambda;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_\n"
+    #else\n    if (tmp[i] > 1) lambda[i] = __lcm(lambda[i], tmp[i] - 1);\n#endif \
+    \ // __cplusplus >= 201703L\n  }\n  return lambda;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_\n"
   dependsOn:
   - include/emthrm/math/least_common_multiple.hpp
   - include/emthrm/math/prime_sieve.hpp
   isVerificationFile: false
   path: include/emthrm/math/carmichael_function_init.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
+  timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/carmichael_function_init.hpp
