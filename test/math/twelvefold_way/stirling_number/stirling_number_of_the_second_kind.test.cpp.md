@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I
@@ -32,7 +32,7 @@ data:
     \u30B0\u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\n */\n#define\
     \ PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I\"\
     \n\n#include <iostream>\n\n#include \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp\"\
-    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
+    \n\nint main() {\n  constexpr int MOD = 1000000007;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  int n, k;\n  std::cin >> n >> k;\n  std::cout << emthrm::stirling_number_of_the_second_kind<MOD>(n,\
     \ k) << '\\n';\n  return 0;\n}\n"
   dependsOn:
@@ -41,8 +41,8 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-02-02 03:45:06+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
 layout: document

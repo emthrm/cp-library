@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/2130
@@ -43,8 +43,8 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/large_nCk_init.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-02-02 03:45:06+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/large_nCk_init.test.cpp
 layout: document

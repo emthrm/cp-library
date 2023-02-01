@@ -39,7 +39,7 @@ data:
   isVerificationFile: true
   path: test/math/catalan_number.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-02 03:45:06+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/catalan_number.test.cpp

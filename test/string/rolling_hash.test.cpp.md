@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/string/rolling_hash.hpp
     title: rolling hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
+    PROBLEM: https://atcoder.jp/contests/abc141/tasks/abc141_e
     document_title: "\u6587\u5B57\u5217/rolling hash"
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
+    - https://atcoder.jp/contests/abc141/tasks/abc141_e
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -24,7 +24,7 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/string/rolling_hash.hpp:\
     \ line -1: no such header\n"
-  code: "/*\n * @brief \u6587\u5B57\u5217/rolling hash\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\"\
+  code: "/*\n * @brief \u6587\u5B57\u5217/rolling hash\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc141/tasks/abc141_e\"\
     \n\n#include <iostream>\n#include <set>\n#include <string>\n\n#include \"emthrm/string/rolling_hash.hpp\"\
     \n\nint main() {\n  int n;\n  std::string s;\n  std::cin >> n >> s;\n  emthrm::RollingHash<>\
     \ rolling_hash(s);\n  for (int len = n - 1; len >= 1; --len) {\n    std::set<std::int64_t>\
@@ -37,8 +37,8 @@ data:
   isVerificationFile: true
   path: test/string/rolling_hash.test.cpp
   requiredBy: []
-  timestamp: '2023-02-01 21:06:01+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-02-02 03:45:06+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/rolling_hash.test.cpp
 layout: document

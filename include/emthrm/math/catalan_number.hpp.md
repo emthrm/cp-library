@@ -26,7 +26,7 @@ data:
   code: "#ifndef EMTHRM_MATH_CATALAN_NUMBER_HPP_\n#define EMTHRM_MATH_CATALAN_NUMBER_HPP_\n\
     \n#include <vector>\n\n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm\
     \ {\n\ntemplate <int T>\nstd::vector<MInt<T>> catalan_number(const int n) {\n\
-    \  using ModInt = MInt<T>;\n  ModInt::inv(n + 1, true);\n  std::vector<ModInt>\
+    \  using ModInt = MInt<T>;\n  ModInt::inv<true>(n + 1);\n  std::vector<ModInt>\
     \ c(n + 1);\n  c[0] = 1;\n  for (int i = 0; i < n; ++i) {\n    c[i + 1] = c[i]\
     \ * ModInt::inv(i + 2) * 2 * (2 * i + 1);\n  }\n  return c;\n}\n\n}  // namespace\
     \ emthrm\n\n#endif  // EMTHRM_MATH_CATALAN_NUMBER_HPP_\n"
@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/catalan_number.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-02 03:45:06+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/catalan_number.test.cpp

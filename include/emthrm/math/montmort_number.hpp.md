@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/montmort_number.test.cpp
     title: "\u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/montmort_number.hpp\"\n\n\n\n#include\
@@ -27,7 +27,7 @@ data:
   path: include/emthrm/math/montmort_number.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/montmort_number.test.cpp
 documentation_of: include/emthrm/math/montmort_number.hpp

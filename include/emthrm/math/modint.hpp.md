@@ -26,19 +26,19 @@ data:
     path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
       \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp
     title: "\u30D9\u30EB\u6570"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
     title: "\u30D9\u30EB\u6570\u306E\u6570\u8868"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/lucas.hpp
     title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
   - icon: ':heavy_check_mark:'
@@ -193,13 +193,13 @@ data:
     path: test/math/mobius_mu/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/montmort_number.test.cpp
     title: "\u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570"
   - icon: ':x:'
     path: test/math/polynomial.test.cpp
     title: "\u6570\u5B66/\u591A\u9805\u5F0F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/bell_number/bell_number.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570"
   - icon: ':heavy_check_mark:'
@@ -213,7 +213,7 @@ data:
     path: test/math/twelvefold_way/large_nCk.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570 \u5DE8\u5927\
       \u306A $n$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/large_nCk_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
       \u8868 \u5DE8\u5927\u306A $n$ \u7248"
@@ -231,7 +231,7 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"

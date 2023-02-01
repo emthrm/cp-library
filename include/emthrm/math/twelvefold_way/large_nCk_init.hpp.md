@@ -6,13 +6,13 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/large_nCk_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
       \u8868 \u5DE8\u5927\u306A $n$ \u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/binomial_coefficients.md
     document_title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A\
@@ -32,7 +32,7 @@ data:
     \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/math/modint.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <int T>\nstd::vector<MInt<T>> large_nCk_init(long\
     \ long n, const int k) {\n  using ModInt = MInt<T>;\n  const int tmp = std::min(n,\
-    \ static_cast<long long>(k));\n  ModInt::inv(tmp, true);\n  std::vector<ModInt>\
+    \ static_cast<long long>(k));\n  ModInt::template inv<true>(tmp);\n  std::vector<ModInt>\
     \ c(k + 1, 0);\n  c.front() = 1;\n  for (int i = 1; i <= tmp; ++i) {\n    c[i]\
     \ = c[i - 1] * n-- * ModInt::inv(i);\n  }\n  return c;\n}\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_\n"
@@ -41,8 +41,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-02-02 03:45:06+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/large_nCk_init.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
