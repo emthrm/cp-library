@@ -14,9 +14,9 @@
 
 namespace std {
 
-template <int LogB, int B>
-struct numeric_limits<emthrm::BigInt<LogB, B>> {
-  static constexpr emthrm::BigInt<LogB, B> max() {
+template <int LOG_B, int B>
+struct numeric_limits<emthrm::BigInt<LOG_B, B>> {
+  static constexpr emthrm::BigInt<LOG_B, B> max() {
     return static_cast<std::string>(
         "453152254949043485887196599220742984693877551020408163265306122448979591836734693877551");
   }

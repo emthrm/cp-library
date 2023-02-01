@@ -133,7 +133,7 @@ struct BigInt {
   BigInt& operator=(const BigInt& x) = default;
 
   BigInt& operator+=(const BigInt& x) {
-    if (sgn != x.sgn) return *this -= -x;
+    if (sgn != x.sgn) return x.data.empty() ? *this : *this -= -x;
     if (data.size() < x.data.size()) data.resize(x.data.size(), 0);
     bool carry = false;
     for (int i = 0; i < static_cast<int>(x.data.size()) || carry; ++i) {
@@ -237,7 +237,7 @@ struct BigInt {
   BigInt operator+() const { return *this; }
   BigInt operator-() const {
     BigInt res = *this;
-    if (!data.empty()) res.sgn = -res.sgn;
+    if (!res.data.empty()) res.sgn = -res.sgn;
     return res;
   }
 
