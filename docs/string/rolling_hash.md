@@ -1,5 +1,5 @@
 ---
-title: ローリングハッシュ (rolling hash)
+title: rolling hash
 documentation_of: include/emthrm/string/rolling_hash.hpp
 ---
 
@@ -12,7 +12,7 @@ $\langle O(\lvert S \rvert), O(1) \rangle$
 ## 仕様
 
 ```cpp
-template <typename T = std::string>
+template <typename T = char>
 struct RollingHash;
 ```
 
@@ -22,34 +22,33 @@ struct RollingHash;
 
 |名前|説明|
 |:--|:--|
-|`s`|$S$|
+|`std::vector<T> str`|$S$|
 
 #### メンバ関数
 
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`explicit RollingHash(const T& s, const int base = 10007, const int mod = 1000000007);`|$S$ に対してオブジェクトを構築する。|$S_i \neq 0$|
-|`long long get(const int left, const int right) const;`|`S[left:right]` におけるハッシュ値||
-|`void add(const T& t);`|$S$ の末尾に $T$ を追加する。|$T_i \neq 0$|
-|`int longest_common_prefix(const int i, const int j) const;`|`S[i:]` と `S[j:]` の最長共通接頭辞長||
-|`template <typename U> int longest_common_prefix(const RollingHash<U>& t, const int i, const int j) const;`|`S[i:]` と `T[j:]` の最長共通接頭辞長||
+|`template <typename U> explicit RollingHash(const U& str_, const std::int64_t base = generate_base());`|$S$ に対してオブジェクトを構築する。||
+|`void add(const T ch);`|$S$ の末尾に $\mathrm{ch}$ を追加する。|$0 \leq \mathrm{ch} < 2^{61} - 1$|
+|`std::int64_t get(const int left, const int right) const;`|`S[left:right]` におけるハッシュ値||
 
 
 ## 参考文献
 
-- https://ei1333.github.io/luzhiled/snippets/string/rolling-hash.html
-- https://github.com/drken1215/algorithm/blob/5f6710d0f5a92456528100ae7d8b8c4f70ed99e2/String/rolling_hash.cpp
+- https://www.slideshare.net/nagisaeto/rolling-hash-149990902
+- https://togetter.com/li/1413936
+- https://twitter.com/noshi91/status/1269257182870073344
+- https://twitter.com/noshi91/status/1612080505318707201
 
 
 ## TODO
 
-- https://www.slideshare.net/nagisaeto/rolling-hash-149990902
-- https://qiita.com/keymoon/items/11fac5627672a6d6a9f6
-- https://togetter.com/li/1413936
-- 2次元ローリングハッシュ
-  - https://github.com/beet-aizu/library/blob/master/datastructure/2D/rollinghash2D.cpp
+- 2次元 rolling hash
+  - https://github.com/beet-aizu/library/blob/42bf89efb7043053ac652a0053cf0a8e325195ca/string/rectanglehash.cpp
+  - https://github.com/NyaanNyaan/library/blob/06f3f98a5aada992bfc5e83b6f59363694179635/string/rolling-hash-2d.hpp
+  - https://github.com/kopricky/My-Algorithm/blob/4cb6da81e5e904422d0c153e5afe0bd6a25874c6/Competitive_Programming/ICPC/ICPC_rolling_hash_2d.hpp
 
 
 ## Submissons
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/ALDS1_14_B/review/4086443/emthrm/C++14
+https://atcoder.jp/contests/abc141/submissions/38527267

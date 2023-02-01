@@ -1,69 +1,64 @@
 #ifndef EMTHRM_STRING_ROLLING_HASH_HPP_
 #define EMTHRM_STRING_ROLLING_HASH_HPP_
 
-#include <algorithm>
-#include <string>
+#include <cassert>
+#include <cstdint>
+#include <random>
 #include <vector>
 
 namespace emthrm {
 
-template <typename T = std::string>
+template <typename T = char>
 struct RollingHash {
-  T s;
-
-  explicit RollingHash(const T& s, const int base = 10007,
-                       const int mod = 1000000007)
-      : base(base), mod(mod), hash({0}), power({1}) {
-    const int n = s.size();
-    this->s.reserve(n);
-    hash.reserve(n + 1);
-    power.reserve(n + 1);
-    add(s);
-  }
-
-  long long get(const int left, const int right) const {
-    const long long res =
-        hash[right] - hash[left] * power[right - left] % mod;
-    return res < 0 ? res + mod : res;
-  }
-
-  void add(const T& t) {
-    for (const auto c : t) {
-      s.push_back(c);
-      const int hash_nxt = (hash.back() * base % mod + c) % mod;
-      hash.emplace_back(hash_nxt);
-      const int power_nxt = power.back() * base % mod;
-      power.emplace_back(power_nxt);
-    }
-  }
-
-  int longest_common_prefix(const int i, const int j) const {
-    const int n = s.size();
-    int lb = 0, ub = n + 1 - std::max(i, j);
-    while (ub - lb > 1) {
-      const int mid = (lb + ub) >> 1;
-      (get(i, i + mid) == get(j, j + mid) ? lb : ub) = mid;
-    }
-    return lb;
-  }
+  std::vector<T> str;
 
   template <typename U>
-  int longest_common_prefix(const RollingHash<U>& t,
-                            const int i, const int j) const {
-    int lb = 0;
-    int ub = std::min(static_cast<int>(s.size()) - i,
-                      static_cast<int>(t.s.size()) - j)
-             + 1;
-    while (ub - lb > 1) {
-      const int mid = (lb + ub) >> 1;
-      (get(i, i + mid) == t.get(j, j + mid) ? lb : ub) = mid;
-    }
-    return lb;
+  explicit RollingHash(const U& str_, const std::int64_t base = generate_base())
+      : base(base), hashes({0}), powers({1}) {
+    const int n = str_.size();
+    str.reserve(n);
+    hashes.reserve(n + 1);
+    powers.reserve(n + 1);
+    for (const auto ch : str_) add(ch);
+  }
+
+  void add(const T ch) {
+    assert(0 <= ch && ch < MOD);
+    str.emplace_back(ch);
+    const std::int64_t h = mul(hashes.back(), base) + ch;
+    hashes.emplace_back(h >= MOD ? h - MOD : h);
+    const std::int64_t p = mul(powers.back(), base);
+    powers.emplace_back(p);
+  }
+
+  std::int64_t get(const int left, const int right) const {
+    const std::int64_t res =
+        hashes[right] - mul(hashes[left], powers[right - left]);
+    return res < 0 ? res + MOD : res;
   }
 
  private:
-  const int base, mod;
-  std::vector<long long> hash, power;
+  static constexpr int MOD_WIDTH = 61;
+  static constexpr std::int64_t MOD = (INT64_C(1) << MOD_WIDTH) - 1;
+
+  const std::int64_t base;
+  std::vector<std::int64_t> hashes, powers;
+
+  static std::int64_t generate_base() {
+    static std::mt19937_64 engine(std::random_device {} ());
+    static std::uniform_int_distribution<std::int64_t> dist(0, MOD - 1);
+    return dist(engine);
+  }
+
+  static std::int64_t mul(const std::int64_t a, const std::int64_t b) {
+    const std::int64_t au = a >> 31, ad = a & ((UINT32_C(1) << 31) - 1);
+    const std::int32_t bu = b >> 31, bd = b & ((UINT32_C(1) << 31) - 1);
+    const std::int64_t mid = au * bd + ad * bu;
+    std::int64_t res = au * bu * 2 + ad * bd + (mid >> 30)
+                       + ((mid & ((UINT32_C(1) << 30) - 1)) << 31);
+    res = (res >> MOD_WIDTH) + (res & MOD);
+    return res >= MOD ? res - MOD : res;
+  }
 };
 
 }  // namespace emthrm

@@ -1,23 +1,29 @@
 /*
- * @brief 文字列/ローリングハッシュ
+ * @brief 文字列/rolling hash
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 
 #include <iostream>
+#include <set>
 #include <string>
 
 #include "emthrm/string/rolling_hash.hpp"
 
 int main() {
-  std::string t, p;
-  std::cin >> t >> p;
-  const int t_size = t.length(), p_size = p.length();
-  emthrm::RollingHash<> rolling_hash_t(t), rolling_hash_p(p);
-  for (int i = 0; i < t_size; ++i) {
-    if (i + p_size <= t_size &&
-        rolling_hash_t.get(i, i + p_size) == rolling_hash_p.get(0, p_size)) {
-      std::cout << i << '\n';
+  int n;
+  std::string s;
+  std::cin >> n >> s;
+  emthrm::RollingHash<> rolling_hash(s);
+  for (int len = n - 1; len >= 1; --len) {
+    std::set<std::int64_t> hashes;
+    for (int i = len; i + len <= n; ++i) {
+      hashes.emplace(rolling_hash.get(i - len, i));
+      if (hashes.count(rolling_hash.get(i, i + len))) {
+        std::cout << len << '\n';
+        return 0;
+      }
     }
   }
+  std::cout << 0 << '\n';
   return 0;
 }
