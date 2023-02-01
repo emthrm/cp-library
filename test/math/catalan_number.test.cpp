@@ -9,10 +9,8 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  constexpr int MOD = 742909;
-  using ModInt = emthrm::MInt<MOD>;
   int n;
   std::cin >> n;
-  std::cout << emthrm::catalan_number<MOD>(n)[n] << '\n';
+  std::cout << emthrm::catalan_number<742909>(n)[n] << '\n';
   return 0;
 }
