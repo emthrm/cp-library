@@ -28,4 +28,4 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
-        run: oj-verify all --timeout 3600
+        run: oj-verify all --timeout 1800
