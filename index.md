@@ -290,7 +290,7 @@ data:
     - icon: ':warning:'
       path: include/emthrm/math/carmichael_function_init.hpp
       title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/catalan_number.hpp
       title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
     - icon: ':heavy_check_mark:'
@@ -1073,7 +1073,7 @@ data:
     - icon: ':x:'
       path: test/math/bigint.10.test.cpp
       title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/catalan_number.test.cpp
       title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
     - icon: ':heavy_check_mark:'
