@@ -9,7 +9,7 @@
 #include "emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp"
 
 int main() {
-  constexpr int MOD = 998244353;
+  constexpr int MOD = 1000000007;
   using ModInt = emthrm::MInt<MOD>;
   int n, k;
   std::cin >> n >> k;

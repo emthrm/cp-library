@@ -9,10 +9,8 @@
 #include "emthrm/math/twelvefold_way/bell_number/bell_number.hpp"
 
 int main() {
-  constexpr int MOD = 998244353;
-  using ModInt = emthrm::MInt<MOD>;
   int n, k;
   std::cin >> n >> k;
-  std::cout << emthrm::bell_number<MOD>(n, k) << '\n';
+  std::cout << emthrm::bell_number<1000000007>(n, k) << '\n';
   return 0;
 }

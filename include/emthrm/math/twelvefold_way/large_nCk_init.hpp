@@ -17,7 +17,7 @@ template <int T>
 std::vector<MInt<T>> large_nCk_init(long long n, const int k) {
   using ModInt = MInt<T>;
   const int tmp = std::min(n, static_cast<long long>(k));
-  ModInt::inv(tmp, true);
+  ModInt::template inv<true>(tmp);
   std::vector<ModInt> c(k + 1, 0);
   c.front() = 1;
   for (int i = 1; i <= tmp; ++i) {
