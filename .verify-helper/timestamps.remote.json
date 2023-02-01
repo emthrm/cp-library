@@ -120,6 +120,7 @@
 "test/math/bigint.06.test.cpp": "2023-02-02 02:21:23 +0900",
 "test/math/bigint.07.test.cpp": "2023-02-02 02:21:23 +0900",
 "test/math/bigint.09.test.cpp": "2023-02-02 02:21:23 +0900",
+"test/math/catalan_number.test.cpp": "2023-02-02 03:55:57 +0900",
 "test/math/chinese_remainder_theorem.test.cpp": "2023-01-27 16:06:19 +0900",
 "test/math/convolution/and_convolution.test.cpp": "2023-01-30 16:05:09 +0900",
 "test/math/convolution/fast_mobius_transform.test.cpp": "2023-01-27 16:06:19 +0900",
