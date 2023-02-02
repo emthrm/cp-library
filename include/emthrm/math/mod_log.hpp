@@ -33,8 +33,8 @@ int mod_log(long long g, long long y, const int m) {
   }
   long long giant = p;
   for (int i = 1; i <= root; ++i) {
-    if (baby.count(giant) == 1) {
-      const int ans = static_cast<long long>(i) * root - baby[giant];
+    if (const auto it = baby.find(giant); it != baby.end()) {
+      const int ans = static_cast<long long>(i) * root - it->second;
       if (mod_pow(g, ans, m) == y) return ans;
     }
     giant = (giant * p) % m;

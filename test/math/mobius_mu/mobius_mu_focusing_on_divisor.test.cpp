@@ -18,7 +18,7 @@ int main() {
   for (int g = 1; g <= k; ++g) {
     ModInt ways = 0;
     for (int m = k / g; m >= 1; --m) {
-      if (mu.count(m) == 0) {
+      if (!mu.contains(m)) {
         for (const auto& [d, mu_d] : emthrm::mobius_mu_focusing_on_divisor(m)) {
           mu[d] = mu_d;
         }

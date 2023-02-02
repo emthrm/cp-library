@@ -17,7 +17,7 @@ int main() {
   int ans = 0;
   for (const int p : prime) {
     if (p * p - 2 > n) break;
-    if (prime.count(p * p - 2) == 1) ans += (p == 2 ? 1 : 2);
+    if (prime.contains(p * p - 2)) ans += (p == 2 ? 1 : 2);
   }
   std::cout << ans << '\n';
   return 0;

@@ -20,10 +20,10 @@ bool is_primitive_root(long long root, const int m) {
   if ((root %= m) < 0) root += m;
   if (std::gcd(root, m) > 1) return false;
   static std::map<int, int> phi;
-  if (!phi.count(m)) phi[m] = euler_phi(m);
+  if (!phi.contains(m)) phi[m] = euler_phi(m);
   const int phi_m = phi[m];
   static std::map<int, std::vector<int>> primes;
-  if (!primes.count(phi_m)) {
+  if (!primes.contains(phi_m)) {
     std::vector<int> tmp;
     for (const auto& [prime, _] : prime_factorization(phi_m)) {
       tmp.emplace_back(prime);

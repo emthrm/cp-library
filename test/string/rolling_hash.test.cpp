@@ -18,7 +18,7 @@ int main() {
     std::set<std::int64_t> hashes;
     for (int i = len; i + len <= n; ++i) {
       hashes.emplace(rolling_hash.get(i - len, i));
-      if (hashes.count(rolling_hash.get(i, i + len))) {
+      if (hashes.contains(rolling_hash.get(i, i + len))) {
         std::cout << len << '\n';
         return 0;
       }

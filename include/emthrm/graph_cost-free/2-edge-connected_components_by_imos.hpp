@@ -34,7 +34,7 @@ struct TwoEdgeConnectedComponentsByImos {
         const int ver = que.front();
         que.pop();
         for (const int e : graph[ver]) {
-          if (id[e] == -1 && !st.count(std::minmax(ver, e))) {
+          if (id[e] == -1 && !st.contains(std::minmax(ver, e))) {
             id[e] = id[i];
             if (is_full_ver) vertices.back().emplace_back(e);
             que.emplace(e);
