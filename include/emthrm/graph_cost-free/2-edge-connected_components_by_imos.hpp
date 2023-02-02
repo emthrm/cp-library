@@ -43,21 +43,11 @@ struct TwoEdgeConnectedComponentsByImos {
       }
     }
     g.resize(m);
-    const auto add_edge = [this](const int u, const int v) -> void {
-      g[u].emplace_back(v);
-      g[v].emplace_back(u);
-    };
-#if __cplusplus >= 201703L
     for (const auto& [s, t] : bridge) {
       const int u = id[s], v = id[t];
-      add_edge(u, v);
+      g[u].emplace_back(v);
+      g[v].emplace_back(u);
     }
-#else
-    for (const std::pair<int, int>& e : bridge) {
-      const int u = id[e.first], v = id[e.second];
-      add_edge(u, v);
-    }
-#endif  // __cplusplus >= 201703L
     // for (int i = 0; i < m; ++i) {
     //   std::sort(vertices[i].begin(), vertices[i].end());
     // }

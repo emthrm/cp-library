@@ -5,9 +5,7 @@
 #include <cassert>
 #include <cstdint>
 #include <memory>
-#if __cplusplus >= 201703L
-# include <optional>
-#endif  // __cplusplus >= 201703L
+#include <optional>
 #include <utility>
 
 namespace emthrm {
@@ -100,7 +98,6 @@ struct BinaryTrie {
     return ptr ? ptr->child : 0;
   }
 
-#if __cplusplus >= 201703L
   std::pair<std::shared_ptr<Node>, std::optional<T>> lower_bound(
       const T& x) const {
     const int lt = less_than(x);
@@ -113,16 +110,6 @@ struct BinaryTrie {
       const T& x) const {
     return lower_bound(x + 1);
   }
-#else
-  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {
-    const int lt = less_than(x);
-    return lt == size() ? std::make_pair(nullptr, -1) : find_nth(lt, 0);
-  }
-
-  std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const {
-    return lower_bound(x + 1);
-  }
-#endif  // __cplusplus >= 201703L
 
   std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0) const {
     return min_element(~x);

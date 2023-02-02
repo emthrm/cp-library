@@ -5,9 +5,6 @@
 
 #include <iostream>
 #include <map>
-#if __cplusplus < 201703L
-# include <utility>
-#endif  // __cplusplus < 201703L
 
 #include "emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
 #include "emthrm/math/modint.hpp"
@@ -22,16 +19,9 @@ int main() {
     ModInt ways = 0;
     for (int m = k / g; m >= 1; --m) {
       if (mu.count(m) == 0) {
-#if __cplusplus >= 201703L
         for (const auto& [d, mu_d] : emthrm::mobius_mu_focusing_on_divisor(m)) {
           mu[d] = mu_d;
         }
-#else
-        for (const std::pair<const int, int>& p
-             : emthrm::mobius_mu_focusing_on_divisor(m)) {
-          mu[p.first] = p.second;
-        }
-#endif  // __cplusplus >= 201703L
       }
       ways += ModInt(k / (g * m)).pow(n) * mu[m];
     }

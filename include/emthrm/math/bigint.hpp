@@ -359,7 +359,6 @@ struct BigInt {
 
 namespace std {
 
-#if __cplusplus >= 201703L
 template <int LOG_B, int B>
 emthrm::BigInt<LOG_B, B> gcd(emthrm::BigInt<LOG_B, B> a,
                              emthrm::BigInt<LOG_B, B> b) {
@@ -372,20 +371,6 @@ emthrm::BigInt<LOG_B, B> lcm(const emthrm::BigInt<LOG_B, B>& a,
                              const emthrm::BigInt<LOG_B, B>& b) {
   return a / std::__gcd(a, b) * b;
 }
-#else
-template <int LOG_B, int B>
-emthrm::BigInt<LOG_B, B> __gcd(emthrm::BigInt<LOG_B, B> a,
-                               emthrm::BigInt<LOG_B, B> b) {
-  while (!b.data.empty()) std::swap(a %= b, b);
-  return a;
-}
-
-template <int LOG_B, int B>
-emthrm::BigInt<LOG_B, B> __lcm(const emthrm::BigInt<LOG_B, B>& a,
-                               const emthrm::BigInt<LOG_B, B>& b) {
-  return a / std::__gcd(a, b) * b;
-}
-#endif  // __cplusplus >= 201703L
 
 template <int LOG_B, int B>
 emthrm::BigInt<LOG_B, B> abs(const emthrm::BigInt<LOG_B, B>& x) {

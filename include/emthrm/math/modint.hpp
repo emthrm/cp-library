@@ -5,11 +5,7 @@
 # include <cassert>
 #endif
 #include <iostream>
-// #if __cplusplus >= 201703L
-// # include <numeric>
-// #else
-// # include <algorithm>
-// #endif  // __cplusplus >= 201703L
+// #include <numeric>
 #include <utility>
 #include <vector>
 
@@ -34,32 +30,18 @@ struct MInt {
 
   template <bool MEMOIZES = false>
   static MInt inv(const int n) {
-// #if __cplusplus >= 201703L
-//     assert(0 <= n && n < M && std::gcd(n, M) == 1);
-// #else
-//     assert(0 <= n && n < M && std::__gcd(n, M) == 1);
-// #endif  // __cplusplus >= 201703L
+    // assert(0 <= n && n < M && std::gcd(n, M) == 1);
     static std::vector<MInt> inverse{0, 1};
     const int prev = inverse.size();
     if (n < prev) return inverse[n];
-    const auto memoize = [prev, n]() -> void {
+    if constexpr (MEMOIZES) {
       // "n!" and "M" must be disjoint.
       inverse.resize(n + 1);
       for (int i = prev; i <= n; ++i) {
         inverse[i] = -inverse[M % i] * (M / i);
       }
-    };
-#if __cplusplus >= 201703L
-    if constexpr (MEMOIZES) {
-      memoize();
       return inverse[n];
     }
-#else
-    if (MEMOIZES) {
-      memoize();
-      return inverse[n];
-    }
-#endif  // __cplusplus >= 201703L
     int u = 1, v = 0;
     for (unsigned int a = n, b = M; b;) {
       const unsigned int q = a / b;
@@ -202,32 +184,18 @@ struct MInt {
 
   template <bool MEMOIZES = false>
   static MInt inv(const int n) {
-// #if __cplusplus >= 201703L
-//     assert(0 <= n && n < mod() && std::gcd(x, mod()) == 1);
-// #else
-//     assert(0 <= n && n < mod() && std::__gcd(x, mod()) == 1);
-// #endif  // __cplusplus >= 201703L
+    // assert(0 <= n && n < mod() && std::gcd(x, mod()) == 1);
     static std::vector<MInt> inverse{0, 1};
     const int prev = inverse.size();
     if (n < prev) return inverse[n];
-    const auto memoize = [prev, n]() -> void {
+    if constexpr (MEMOIZES) {
       // "n!" and "M" must be disjoint.
       inverse.resize(n + 1);
       for (int i = prev; i <= n; ++i) {
         inverse[i] = -inverse[mod() % i] * (mod() / i);
       }
-    };
-#if __cplusplus >= 201703L
-    if constexpr (MEMOIZES) {
-      memoize();
       return inverse[n];
     }
-#else
-    if (MEMOIZES) {
-      memoize();
-      return inverse[n];
-    }
-#endif  // __cplusplus >= 201703L
     int u = 1, v = 0;
     for (unsigned int a = n, b = mod(); b;) {
       const unsigned int q = a / b;

@@ -6,9 +6,6 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -35,13 +32,7 @@ int main() {
       std::cin >> fp >> fv;
       std::vector<double> t(n, INF);
       for (int i = 0; i < n; ++i) {
-#if __cplusplus >= 201703L
         const auto [d, v] = dog[i];
-#else
-        emthrm::geometry::Point d;
-        double v;
-        std::tie(d, v) = dog[i];
-#endif  // __cplusplus >= 201703L
         for (std::vector<double> ans =
                  emthrm::quadratic_equation(fv.norm() - v * v,
                                     emthrm::geometry::dot(fp - d, fv) * 2,
