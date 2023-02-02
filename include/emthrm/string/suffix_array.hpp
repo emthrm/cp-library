@@ -67,7 +67,7 @@ struct SuffixArray {
     const int s_size = s.size(), t_size = t->size();
     int lb = 0, ub = s_size;
     while (ub - lb > 1) {
-      const int mid = (lb + ub) >> 1;
+      const int mid = std::midpoint(lb, ub);
       int s_idx = sa[mid], t_idx = 0;
       bool finished = false;
       for (; s_idx < s_size && t_idx < t_size; ++s_idx, ++t_idx) {

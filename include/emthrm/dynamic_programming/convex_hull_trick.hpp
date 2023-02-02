@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <deque>
+#include <numeric>
 #include <utility>
 
 namespace emthrm {
@@ -45,7 +46,7 @@ struct ConvexHullTrick {
     assert(!deq.empty());
     int lb = -1, ub = deq.size() - 1;
     while (ub - lb > 1) {
-      const int mid = (lb + ub) >> 1;
+      const int mid = std::midpoint(lb, ub);
       (f(deq[mid], x) < f(deq[mid + 1], x) ? ub : lb) = mid;
     }
     return IS_MINIMIZED ? f(deq[ub], x) : -f(deq[ub], x);

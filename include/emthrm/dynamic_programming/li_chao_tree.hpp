@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iterator>
+#include <numeric>
 #include <utility>
 #include <vector>
 
@@ -86,7 +87,7 @@ struct LiChaoTree {
       std::swap(dat[node], *line);
       return;
     }
-    const int mid = (left + right) >> 1;
+    const int mid = std::midpoint(left, right);
     if (line->f(xs[mid]) < dat[node].f(xs[mid])) std::swap(dat[node], *line);
     if (line->f(xs[left]) <= dat[node].f(xs[left])) {
       add(line, node << 1, left, mid);

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <numeric>
 #include <utility>
 #include <vector>
 
@@ -97,7 +98,7 @@ Integer closest_pair(std::vector<Point> ps) {
   std::sort(ps.begin(), ps.end());
   const std::function<Integer(int, int)> f =
       [&ps, &f](const int left, const int right) -> Integer {
-        const int mid = (left + right) >> 1;
+        const int mid = std::midpoint(left, right);
         Integer x_mid = ps[mid].x, d = std::numeric_limits<Integer>::max();
         if (left + 1 < mid) d = std::min(d, f(left, mid));
         if (mid + 1 < right) d = std::min(d, f(mid, right));

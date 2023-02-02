@@ -2,6 +2,7 @@
 #define EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_
 
 #include <functional>
+#include <numeric>
 
 namespace emthrm {
 
@@ -13,7 +14,7 @@ void convert_online_dp_to_offline_dp(
           // dp(l) <- dp(l) ･ b_l
           return;
         }
-        const int m = (l + r) >> 1;
+        const int m = std::midpoint(l, r);
         solve(l, m);
         induce(l, m, r);
         solve(m, r);

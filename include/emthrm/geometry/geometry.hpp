@@ -9,6 +9,7 @@
 #include <iterator>
 #include <limits>
 #include <numbers>
+#include <numeric>
 #include <tuple>
 #include <utility>
 #include <vector>
@@ -139,7 +140,7 @@ Real closest_pair(std::vector<Point> ps) {
   std::sort(ps.begin(), ps.end());
   const std::function<Real(int, int)> f =
       [&ps, &f](const int left, const int right) -> Real {
-        const int mid = (left + right) >> 1;
+        const int mid = std::midpoint(left, right);
         Real x_mid = ps[mid].x, d = std::numeric_limits<Real>::max();
         if (left + 1 < mid) d = std::min(d, f(left, mid));
         if (mid + 1 < right) d = std::min(d, f(mid, right));
