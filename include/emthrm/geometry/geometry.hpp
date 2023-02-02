@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <numbers>
 #include <tuple>
 #include <utility>
 #include <vector>
@@ -17,15 +18,14 @@ namespace emthrm {
 namespace geometry {
 
 using Real = double;
-constexpr long double PI = 3.14159265358979323846;
 
 int sgn(const Real x) {
   static constexpr Real EPS = 1e-8;
   return x > EPS ? 1 : (x < -EPS ? -1 : 0);
 }
 
-Real degree_to_radian(const Real d) { return d * PI / 180; }
-Real radian_to_degree(const Real r) { return r * 180 / PI; }
+Real degree_to_radian(const Real d) { return d * std::numbers::pi / 180; }
+Real radian_to_degree(const Real r) { return r * 180 / std::numbers::pi; }
 
 struct Point {
   Real x, y;
@@ -33,7 +33,7 @@ struct Point {
   Real abs() const { return std::sqrt(norm()); }
   Real arg() const {
     const Real res = std::atan2(y, x);
-    return res < 0 ? res + PI * 2 : res;
+    return res < 0 ? res + std::numbers::pi * 2 : res;
   }
   Real norm() const { return x * x + y * y; }
   Point rotate(const Real angle) const {
@@ -130,7 +130,7 @@ int ccw(const Point& a, const Point& b, const Point& c) {
 Real get_angle(const Point& a, const Point& b, const Point& c) {
   Real ab = (a - b).arg(), bc = (c - b).arg();
   if (ab > bc) std::swap(ab, bc);
-  return std::min(bc - ab, static_cast<Real>(PI * 2 - (bc - ab)));
+  return std::min(bc - ab, static_cast<Real>(std::numbers::pi * 2 - (bc - ab)));
 }
 
 Real closest_pair(std::vector<Point> ps) {
@@ -377,7 +377,7 @@ Real intersection_area(const Circle& a, const Circle& b) {
   const Real nor = (b.p - a.p).norm(), dist = std::sqrt(nor);
   if (sgn(a.r + b.r - dist) != 1) return 0;
   if (sgn(std::abs(a.r - b.r) - dist) != -1) {
-    return std::min(a.r, b.r) * std::min(a.r, b.r) * PI;
+    return std::min(a.r, b.r) * std::min(a.r, b.r) * std::numbers::pi;
   }
   const Real alpha =
       std::acos((nor + a.r * a.r - b.r * b.r) / (2 * dist * a.r));

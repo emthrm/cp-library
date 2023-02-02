@@ -23,7 +23,6 @@ documentation_of: include/emthrm/geometry/geometry.hpp
 |名前|説明・戻り値|備考|
 |:--|:--|:--|
 |`Real`|`double`||
-|`constexpr long double PI`|$\pi$||
 |`int sgn(const Real x);`|$\begin{cases} 1 & (x > \varepsilon) \\\\ -1 & (x < -\varepsilon) \\\\ 0 & (\text{otherwise}) \end{cases}$|$\varepsilon = 10^{-8}$|
 |`Real degree_to_radian(const Real d);`|$\frac{\pi d}{180}\,\mathrm{rad}$||
 |`Real radian_to_degree(const Real r);`|$(\frac{180r}{\pi})^\circ$||
