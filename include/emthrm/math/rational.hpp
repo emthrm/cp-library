@@ -2,6 +2,7 @@
 #define EMTHRM_MATH_RATIONAL_HPP_
 
 // #include <cassert>
+#include <compare>
 #include <limits>
 #include <numeric>
 #include <ostream>
@@ -41,14 +42,12 @@ struct Rational {
     return *this *= Rational(x.den, x.num);
   }
 
+  auto operator<=>(const Rational& x) const {
+    return num * x.den <=> x.num * den;
+  }
   bool operator==(const Rational& x) const {
     return num == x.num && den == x.den;
   }
-  bool operator!=(const Rational& x) const { return !(*this == x); }
-  bool operator<(const Rational& x) const { return (x - *this).num > 0; }
-  bool operator<=(const Rational& x) const { return !(x < *this); }
-  bool operator>(const Rational& x) const { return x < *this; }
-  bool operator>=(const Rational& x) const { return !(*this < x); }
 
   Rational& operator++() {
     if ((num += den) == 0) den = 1;

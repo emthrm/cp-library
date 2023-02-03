@@ -103,7 +103,6 @@ struct FormalPowerSeries {
     y.shrink();
     return x.coef == y.coef;
   }
-  bool operator!=(const FormalPowerSeries& x) const { return !(*this == x); }
 
   FormalPowerSeries operator+() const { return *this; }
   FormalPowerSeries operator-() const {

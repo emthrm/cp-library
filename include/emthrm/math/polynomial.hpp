@@ -101,7 +101,6 @@ struct Polynomial {
     y.shrink();
     return x.coef == y.coef;
   }
-  bool operator!=(const Polynomial& x) const { return !(*this == x); }
 
   Polynomial operator+() const { return *this; }
   Polynomial operator-() const {

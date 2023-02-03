@@ -52,7 +52,7 @@ struct Polynomial;
 |`Polynomial& operator%=(const Polynomial& x);`<br>`Polynomial operator%(const Polynomial& x) const;`|剰余演算|
 |`std::pair<Polynomial, Polynomial> divide(Polynomial x) const;`|$x$ で割った商とあまり|
 |`Polynomial& operator<<=(const int n);`<br>`FormalPowerSeries operator<<(const int n) const;`|$x^n f$|
-|`bool operator==(Polynomial x) const;`<br>`bool operator!=(const Polynomial& x) const;`|比較演算子|
+|`bool operator==(Polynomial x) const;`|等値比較|
 |`Polynomial operator+() const;`|$+{f}$|
 |`Polynomial operator-() const;`|$-{f}$|
 |`T horner(const T x) const;`|$f(x)$|

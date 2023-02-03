@@ -51,11 +51,11 @@ struct Point;
 |`Real norm() const;`|${\lVert \boldsymbol{p} \rVert}^2$||
 |`Point rotate(const Real angle) const;`|原点周りに $\mathrm{angle}$ だけ回転させたときの座標 $(x^{\prime}, y^{\prime})$|$\begin{cases} x^{\prime} = x\cos(\mathrm{angle}) - y\sin(\mathrm{angle}) \\\\ y^{\prime} = x\sin(\mathrm{angle}) + y\cos(\mathrm{angle}) \end{cases}$|
 |`Point& operator+=(const Point& p);`<br>`Point& operator-=(const Point& p);`<br>`Point& operator*=(const Real k);`<br>`Point& operator/=(const Real k)`<br>`Point operator+(const Point& p);`<br>`Point operator-(const Point& p);`<br>`Point operator*(const Real k);`<br>`Point operator/(const Real k);`||
-|`bool operator<(const Point& p) const;`<br>`bool operator<=(const Point& p);`<br>`bool operator>(const Point& p);`<br>`bool operator>=(const Point& p);`|比較演算子|
-|`Point operator+() const;`|$(x, y)$|
-|`Point operator-() const;`|$(-x, -y)$|
-|`friend std::ostream& operator<<(std::ostream& os, const Point& p);`||
-|`friend std::istream& operator>>(std::istream& is, Point& p);`||
+|`std::partial_ordering operator<=>(const Point& p) const;`|三方比較演算子||
+|`Point operator+() const;`|$(x, y)$||
+|`Point operator-() const;`|$(-x, -y)$||
+|`friend std::ostream& operator<<(std::ostream& os, const Point& p);`|||
+|`friend std::istream& operator>>(std::istream& is, Point& p);`|||
 
 
 ### 線分

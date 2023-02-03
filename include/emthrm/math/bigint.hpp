@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <compare>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
@@ -198,6 +199,16 @@ struct BigInt {
   BigInt& operator%=(const int x) { return *this = divide(x).second; }
   BigInt& operator%=(const BigInt& x) { return *this = divide(x).second; }
 
+  std::strong_ordering operator<=>(const BigInt& x) const {
+    if (sgn != x.sgn) return sgn <=> x.sgn;
+    if (data.size() != x.data.size()) {
+      return sgn * data.size() <=> x.sgn * x.data.size();
+    }
+    for (int i = std::ssize(data) - 1; i >= 0; --i) {
+      if (data[i] != x.data[i]) return data[i] * sgn <=> x.data[i] * x.sgn;
+    }
+    return std::strong_ordering::equivalent;
+  }
   bool operator==(const BigInt& x) const {
     if (sgn != x.sgn || data.size() != x.data.size()) return false;
     const int n = data.size();
@@ -206,20 +217,6 @@ struct BigInt {
     }
     return true;
   }
-  bool operator!=(const BigInt& x) const { return !(*this == x); }
-  bool operator<(const BigInt& x) const {
-    if (sgn != x.sgn) return sgn < x.sgn;
-    if (data.size() != x.data.size()) {
-      return sgn * data.size() < x.sgn * x.data.size();
-    }
-    for (int i = std::ssize(data) - 1; i >= 0; --i) {
-      if (data[i] != x.data[i]) return data[i] * sgn < x.data[i] * x.sgn;
-    }
-    return false;
-  }
-  bool operator<=(const BigInt& x) const { return !(x < *this); }
-  bool operator>(const BigInt& x) const { return x < *this; }
-  bool operator>=(const BigInt& x) const { return !(*this < x); }
 
   BigInt& operator++() { return *this += 1; }
   BigInt operator++(int) {

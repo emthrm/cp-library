@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <compare>
 #include <functional>
 #include <iostream>
 #include <iterator>
@@ -23,8 +24,11 @@ int sgn(const Integer x) {
 
 struct Point {
   Integer x, y;
+
   explicit Point(const Integer x = 0, const Integer y = 0) : x(x), y(y) {}
+
   Integer norm() const { return x * x + y * y; }
+
   Point& operator+=(const Point& p) {
     x += p.x; y += p.y;
     return *this;
@@ -41,19 +45,22 @@ struct Point {
     x /= k; y /= k;
     return *this;
   }
-  bool operator<(const Point& p) const {
+
+  std::strong_ordering operator<=>(const Point& p) const {
     const int x_sgn = sgn(p.x - x);
-    return x_sgn != 0 ? x_sgn == 1 : sgn(p.y - y) == 1;
+    if (x_sgn == 0) return 0 <=> sgn(p.y - y);
+    return x_sgn == 1 ? std::strong_ordering::less :
+                        std::strong_ordering::greater;
   }
-  bool operator<=(const Point& p) const { return !(p < *this); }
-  bool operator>(const Point& p) const { return p < *this; }
-  bool operator>=(const Point& p) const { return !(*this < p); }
+
   Point operator+() const { return *this; }
   Point operator-() const { return Point(-x, -y); }
+
   Point operator+(const Point& p) const { return Point(*this) += p; }
   Point operator-(const Point& p) const { return Point(*this) -= p; }
   Point operator*(const Integer k) const { return Point(*this) *= k; }
   Point operator/(const Integer k) const { return Point(*this) /= k; }
+
   friend std::ostream& operator<<(std::ostream& os, const Point& p) {
     return os << '(' << p.x << ", " << p.y << ')';
   }

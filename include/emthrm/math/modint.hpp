@@ -4,6 +4,7 @@
 #ifndef ARBITRARY_MODINT
 # include <cassert>
 #endif
+#include <compare>
 #include <iostream>
 // #include <numeric>
 #include <utility>
@@ -121,12 +122,7 @@ struct MInt {
   }
   MInt& operator/=(const MInt& x) { return *this *= inv(x.v); }
 
-  bool operator==(const MInt& x) const { return v == x.v; }
-  bool operator!=(const MInt& x) const { return v != x.v; }
-  bool operator<(const MInt& x) const { return v < x.v; }
-  bool operator<=(const MInt& x) const { return v <= x.v; }
-  bool operator>(const MInt& x) const { return v > x.v; }
-  bool operator>=(const MInt& x) const { return v >= x.v; }
+  auto operator<=>(const MInt& x) const = default;
 
   MInt& operator++() {
     if (std::cmp_equal(++v, M)) v = 0;
@@ -275,12 +271,7 @@ struct MInt {
     }
   MInt& operator/=(const MInt& x) { return *this *= inv(x.v); }
 
-  bool operator==(const MInt& x) const { return v == x.v; }
-  bool operator!=(const MInt& x) const { return v != x.v; }
-  bool operator<(const MInt& x) const { return v < x.v; }
-  bool operator<=(const MInt& x) const { return v <= x.v; }
-  bool operator>(const MInt& x) const { return v > x.v; }
-  bool operator>=(const MInt& x) const { return v >= x.v; }
+  auto operator<=>(const MInt& x) const = default;
 
   MInt& operator++() {
     if (std::cmp_equal(++v, mod())) v = 0;

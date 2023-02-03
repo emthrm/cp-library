@@ -5,21 +5,19 @@
 #ifndef EMTHRM_GRAPH_EDGE_HPP_
 #define EMTHRM_GRAPH_EDGE_HPP_
 
+#include <compare>
+
 namespace emthrm {
 
 template <typename CostType>
 struct Edge {
-  int src, dst;
   CostType cost;
+  int src, dst;
+
   explicit Edge(const int src, const int dst, const CostType cost = 0)
-      : src(src), dst(dst), cost(cost) {}
-  inline bool operator<(const Edge& x) const {
-    if (cost != x.cost) return cost < x.cost;
-    return src != x.src ? src < x.src : dst < x.dst;
-  }
-  inline bool operator<=(const Edge& x) const { return !(x < *this); }
-  inline bool operator>(const Edge& x) const { return x < *this; }
-  inline bool operator>=(const Edge& x) const { return !(*this < x); }
+      : cost(cost), src(src), dst(dst) {}
+
+  auto operator<=>(const Edge& x) const = default;
 };
 
 }  // namespace emthrm
