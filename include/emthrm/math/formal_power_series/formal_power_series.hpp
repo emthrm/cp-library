@@ -35,7 +35,7 @@ struct FormalPowerSeries {
   void shrink() {
     while (coef.size() > 1 && coef.back() == 0) coef.pop_back();
   }
-  int degree() const { return static_cast<int>(coef.size()) - 1; }
+  int degree() const { return std::ssize(coef) - 1; }
 
   FormalPowerSeries& operator=(const std::vector<T>& coef_) {
     coef = coef_;

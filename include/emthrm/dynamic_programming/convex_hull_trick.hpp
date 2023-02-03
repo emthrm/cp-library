@@ -3,6 +3,7 @@
 
 #include <cassert>
 #include <deque>
+#include <iterator>
 #include <numeric>
 #include <utility>
 
@@ -25,7 +26,7 @@ struct ConvexHullTrick {
         if (b >= deq.back().second) return;
         deq.pop_back();
       }
-      for (int i = static_cast<int>(deq.size()) - 2; i >= 0; --i) {
+      for (int i = std::ssize(deq) - 2; i >= 0; --i) {
         if (!must_pop(deq[i], deq[i + 1], line)) break;
         deq.pop_back();
       }
@@ -60,7 +61,7 @@ struct ConvexHullTrick {
   }
 
   T monotonically_decreasing_query(const T x) {
-    for (int i = static_cast<int>(deq.size()) - 2; i >= 0; --i) {
+    for (int i = std::ssize(deq) - 2; i >= 0; --i) {
       if (f(deq[i], x) > f(deq[i + 1], x)) break;
       deq.pop_back();
     }

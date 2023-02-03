@@ -76,7 +76,7 @@ struct BigInt {
     assert(*this >= std::numeric_limits<long long>::min() &&
            *this <= std::numeric_limits<long long>::max());
     long long res = 0;
-    for (int i = static_cast<int>(data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(data) - 1; i >= 0; --i) {
       res = res * B + data[i];
     }
     return res;
@@ -186,7 +186,7 @@ struct BigInt {
       }
     }
     std::string s = (sgn * x.sgn == 1 ? "+" : "-");
-    for (int i = static_cast<int>(res.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(res) - 1; i >= 0; --i) {
       const std::string tmp = std::to_string(res[i]);
       s += std::string(next_log_b - tmp.length(), '0') + tmp;
     }
@@ -212,7 +212,7 @@ struct BigInt {
     if (data.size() != x.data.size()) {
       return sgn * data.size() < x.sgn * x.data.size();
     }
-    for (int i = static_cast<int>(data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(data) - 1; i >= 0; --i) {
       if (data[i] != x.data[i]) return data[i] * sgn < x.data[i] * x.sgn;
     }
     return false;
@@ -252,7 +252,7 @@ struct BigInt {
   friend std::ostream& operator<<(std::ostream& os, const BigInt& x) {
     if (x.sgn == -1) os << '-';
     os << (x.data.empty() ? 0 : x.data.back());
-    for (int i = static_cast<int>(x.data.size()) - 2; i >= 0; --i) {
+    for (int i = std::ssize(x.data) - 2; i >= 0; --i) {
       os << std::setw(LOG_B) << std::setfill('0') << x.data[i];
     }
     return os;
@@ -317,7 +317,7 @@ struct BigInt {
       x = -x;
     }
     long long rem = 0;
-    for (int i = static_cast<int>(dividend.data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(dividend.data) - 1; i >= 0; --i) {
       const long long tmp = rem * B + dividend.data[i];
       dividend.data[i] = tmp / x;
       rem = tmp % x;
@@ -334,7 +334,7 @@ struct BigInt {
     BigInt quo, rem = 0;
     quo.data.resize(dividend.data.size());
     const int n = divisor.data.size();
-    for (int i = static_cast<int>(dividend.data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(dividend.data) - 1; i >= 0; --i) {
       rem.data.emplace(rem.data.begin(), dividend.data[i]);
       quo.data[i] =
           ((std::cmp_less(n, rem.data.size()) ?

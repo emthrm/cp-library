@@ -153,7 +153,7 @@ Real closest_pair(std::vector<Point> ps) {
         std::vector<Point> tmp;
         for (int i = left; i < right; ++i) {
           if (sgn(std::abs(ps[i].x - x_mid) - d) == 1) continue;
-          for (int j = static_cast<int>(tmp.size()) - 1; j >= 0; --j) {
+          for (int j = std::ssize(tmp) - 1; j >= 0; --j) {
             const Point v = ps[i] - tmp[j];
             if (sgn(v.y - d) == 1) break;
             d = std::min(d, v.abs());
