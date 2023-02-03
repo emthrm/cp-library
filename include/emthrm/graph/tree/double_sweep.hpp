@@ -28,9 +28,7 @@ std::pair<CostType, std::vector<int>> double_sweep(
         return res;
       };
   const int s = dfs1(-1, 0).second;
-  CostType diameter;
-  int t;
-  std::tie(diameter, t) = dfs1(-1, s);
+  const auto [diameter, t] = dfs1(-1, s);
   std::vector<int> path{s};
   const std::function<bool(int, int)> dfs2 =
       [&graph, t, &path, &dfs2](const int par, const int ver) -> bool {
