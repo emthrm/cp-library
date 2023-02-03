@@ -109,11 +109,11 @@ struct MInt {
   }
 
   MInt& operator+=(const MInt& x) {
-    if (std::greater_equal(v += x.v, M)) v -= M;
+    if (std::cmp_greater_equal(v += x.v, M)) v -= M;
     return *this;
   }
   MInt& operator-=(const MInt& x) {
-    if (std::greater_equal(v += M - x.v, M)) v -= M;
+    if (std::cmp_greater_equal(v += M - x.v, M)) v -= M;
     return *this;
   }
   MInt& operator*=(const MInt& x) {
@@ -258,11 +258,11 @@ struct MInt {
   }
 
   MInt& operator+=(const MInt& x) {
-    if (std::greater_equal(v += x.v, mod())) v -= mod();
+    if (std::cmp_greater_equal(v += x.v, mod())) v -= mod();
     return *this;
   }
   MInt& operator-=(const MInt& x) {
-    if (std::greater_equal(v += mod() - x.v, mod())) v -= mod();
+    if (std::cmp_greater_equal(v += mod() - x.v, mod())) v -= mod();
     return *this;
   }
   MInt& operator*=(const MInt& x) {
