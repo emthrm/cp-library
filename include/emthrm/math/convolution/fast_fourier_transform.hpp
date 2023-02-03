@@ -109,7 +109,7 @@ template <typename T>
 std::vector<Real> convolution(const std::vector<T>& a,
                               const std::vector<T>& b) {
   const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
-  const int n = std::max(std::bit_ceil(static_cast<unsigned int>(c_size)), 2);
+  const int n = std::max(std::bit_ceil(static_cast<unsigned int>(c_size)), 2U);
   const int hlf = n >> 1, qtr = hlf >> 1;
   std::vector<Complex> c(n);
   for (int i = 0; i < a_size; ++i) {
@@ -128,7 +128,7 @@ std::vector<Real> convolution(const std::vector<T>& a,
   c[hlf] = Complex(c[hlf].re * c[hlf].im, 0);
   c.front() = (c.front() + c[hlf]
                + (c.front() - c[hlf]).mul_pin(1)).mul_real(0.5);
-  const int den = std::countr_zero(hlf);
+  const int den = std::countr_zero(static_cast<unsigned int>(hlf));
   for (int i = 1; i < qtr; ++i) {
     const int j = hlf - i;
     const Complex tmp1 = c[i] + c[j].conj();
