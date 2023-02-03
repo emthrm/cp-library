@@ -16,10 +16,8 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> a[i];
   }
-  const auto fn = [](const int a, const int b) -> int {
-    return std::min(a, b);
-  };
-  emthrm::DisjointSparseTable<int, decltype(fn)> disjoint_sparse_table(a, fn);
+  emthrm::DisjointSparseTable disjoint_sparse_table(
+      a, [](const int a, const int b) -> int { return std::min(a, b); });
   while (q--) {
     int l, r;
     std::cin >> l >> r;
