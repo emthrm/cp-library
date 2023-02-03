@@ -19,7 +19,7 @@ int chromatic_number(const std::vector<std::vector<int>>& graph) {
     indep[i] = indep[i ^ (1 << v)] + indep[(i ^ (1 << v)) & ~adj[v]];
   }
   int res = n;
-  for (constexpr int mod : std::vector<int>{1000000007, 1000000011}) {
+  for (const int mod : std::vector<int>{1000000007, 1000000011}) {
     std::vector<long long> f(1 << n);
     for (unsigned int i = 0; i < (1 << n); ++i) {
       f[i] = ((n - std::popcount(i)) & 1 ? mod - 1 : 1);
