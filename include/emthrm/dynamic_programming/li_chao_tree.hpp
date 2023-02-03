@@ -2,6 +2,7 @@
 #define EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <cassert>
 #include <iterator>
 #include <numeric>
@@ -21,9 +22,8 @@ struct LiChaoTree {
   explicit LiChaoTree(const std::vector<T>& xs_, const T inf) : n(1), xs(xs_) {
     std::sort(xs.begin(), xs.end());
     xs.erase(std::unique(xs.begin(), xs.end()), xs.end());
-    const int xs_size = xs.size();
-    assert(xs_size > 0);
-    while (n < xs_size) n <<= 1;
+    assert(xs.size() > 0);
+    n = std::bit_ceil(xs.size());
     const T xs_back = xs.back();
     xs.resize(n, xs_back);
     dat.assign(n << 1, Line(0, inf));

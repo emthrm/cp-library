@@ -2,17 +2,12 @@
 #define EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <cassert>
 #include <cmath>
 #include <iterator>
 #include <utility>
 #include <vector>
-
-#if !defined(__GNUC__) && \
-    (!defined(__has_builtin) || !__has_builtin(__builtin_ctz) \
-                             || !__has_builtin(__builtin_popcount))
-# error "GCC built-in functions are required."
-#endif
 
 namespace emthrm {
 
@@ -48,7 +43,8 @@ void init(const int n) {
   const int prev_n = butterfly.size();
   if (n <= prev_n) return;
   butterfly.resize(n);
-  const int prev_lg = zeta.size(), lg = __builtin_ctz(n);
+  const int prev_lg = zeta.size();
+  const int lg = std::countr_zero(static_cast<unsigned int>(n));
   for (int i = 1; i < prev_n; ++i) {
     butterfly[i] <<= lg - prev_lg;
   }
@@ -68,10 +64,11 @@ void init(const int n) {
 }
 
 void dft(std::vector<Complex>* a) {
+  assert(std::has_single_bit(a->size()));
   const int n = a->size();
-  assert(__builtin_popcount(n) == 1);
   init(n);
-  const int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);
+  const int shift =
+      std::countr_zero(butterfly.size()) - std::countr_zero(a->size());
   for (int i = 0; i < n; ++i) {
     const int j = butterfly[i] >> shift;
     if (i < j) std::swap((*a)[i], (*a)[j]);
@@ -90,9 +87,7 @@ void dft(std::vector<Complex>* a) {
 template <typename T>
 std::vector<Complex> real_dft(const std::vector<T>& a) {
   const int n = a.size();
-  int lg = 1;
-  while ((1 << lg) < n) ++lg;
-  std::vector<Complex> c(1 << lg);
+  std::vector<Complex> c(std::bit_ceil(a.size()));
   for (int i = 0; i < n; ++i) {
     c[i].re = a[i];
   }
@@ -114,9 +109,8 @@ template <typename T>
 std::vector<Real> convolution(const std::vector<T>& a,
                               const std::vector<T>& b) {
   const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
-  int lg = 1;
-  while ((1 << lg) < c_size) ++lg;
-  const int n = 1 << lg, hlf = n >> 1, qtr = hlf >> 1;
+  const int n = std::max(std::bit_ceil(static_cast<unsigned int>(c_size)), 2);
+  const int hlf = n >> 1, qtr = hlf >> 1;
   std::vector<Complex> c(n);
   for (int i = 0; i < a_size; ++i) {
     c[i].re = a[i];
@@ -134,7 +128,7 @@ std::vector<Real> convolution(const std::vector<T>& a,
   c[hlf] = Complex(c[hlf].re * c[hlf].im, 0);
   c.front() = (c.front() + c[hlf]
                + (c.front() - c[hlf]).mul_pin(1)).mul_real(0.5);
-  const int den = __builtin_ctz(hlf);
+  const int den = std::countr_zero(hlf);
   for (int i = 1; i < qtr; ++i) {
     const int j = hlf - i;
     const Complex tmp1 = c[i] + c[j].conj();

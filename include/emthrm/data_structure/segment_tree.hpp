@@ -7,13 +7,9 @@
 #define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <limits>
 #include <vector>
-
-#if !defined(__GNUC__) && \
-    (!defined(__has_builtin) || !__has_builtin(__builtin_popcount))
-# error "__builtin_popcount is required."
-#endif
 
 namespace emthrm {
 
@@ -24,8 +20,8 @@ struct SegmentTree {
   explicit SegmentTree(const int n)
       : SegmentTree(std::vector<Monoid>(n, T::id())) {}
 
-  explicit SegmentTree(const std::vector<Monoid>& a) : n(a.size()), p2(1) {
-    while (p2 < n) p2 <<= 1;
+  explicit SegmentTree(const std::vector<Monoid>& a)
+      : n(a.size()), p2(std::bit_ceil(a.size())) {
     dat.assign(p2 << 1, T::id());
     std::copy(a.begin(), a.end(), dat.begin() + p2);
     for (int i = p2 - 1; i > 0; --i) {
@@ -52,7 +48,7 @@ struct SegmentTree {
 
   template <typename G>
   int find_right(int left, const G g) {
-    if (left >= n) return n;
+    if (left >= n) [[unlikely]] return n;
     Monoid val = T::id();
     left += p2;
     do {
@@ -71,13 +67,13 @@ struct SegmentTree {
       }
       val = nxt;
       ++left;
-    } while (__builtin_popcount(left) > 1);
+    } while (!std::has_single_bit(static_cast<int>(left)));
     return n;
   }
 
   template <typename G>
   int find_left(int right, const G g) {
-    if (right <= 0) return -1;
+    if (right <= 0) [[unlikely]] return -1;
     Monoid val = T::id();
     right += p2;
     do {
@@ -96,13 +92,12 @@ struct SegmentTree {
         return right - p2;
       }
       val = nxt;
-    } while (__builtin_popcount(right) > 1);
+    } while (!std::has_single_bit(static_cast<int>(right)));
     return -1;
   }
 
  private:
-  const int n;
-  int p2;
+  const int n, p2;
   std::vector<Monoid> dat;
 };
 

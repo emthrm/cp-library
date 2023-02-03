@@ -1,6 +1,7 @@
 #ifndef EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
 #define EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
 
+#include <bit>
 #include <cassert>
 #include <utility>
 #include <vector>
@@ -12,9 +13,10 @@ struct LowestCommonAncestorByDoubling {
 
   explicit LowestCommonAncestorByDoubling(
       const std::vector<std::vector<int>>& graph)
-      : is_built(false), n(graph.size()), table_h(1), graph(graph) {
+      : is_built(false), n(graph.size()),
+        table_h(std::countr_zero(std::bit_floor(graph.size())) + 1),
+        graph(graph) {
     depth.resize(n);
-    while ((1 << table_h) <= n) ++table_h;
     parent.resize(table_h, std::vector<int>(n));
   }
 
@@ -61,7 +63,7 @@ struct LowestCommonAncestorByDoubling {
 
   int jump(const int u, const int v, const int d) const {
     assert(is_built);
-    if (d == 0) return u;
+    if (d == 0) [[unlikely]] return u;
     const int l = query(u, v), d_lu = depth[u] - depth[l];
     if (d_lu == d) return l;
     if (d_lu > d) return level_ancestor(u, depth[u] - d);
@@ -70,8 +72,7 @@ struct LowestCommonAncestorByDoubling {
 
  private:
   bool is_built;
-  const int n;
-  int table_h;
+  const int n, table_h;
   const std::vector<std::vector<int>> graph;
   std::vector<std::vector<int>> parent;
 
@@ -79,7 +80,7 @@ struct LowestCommonAncestorByDoubling {
     depth[ver] = cur_depth;
     parent.front()[ver] = par;
     for (const int e : graph[ver]) {
-      if (e != par) dfs(ver, e, cur_depth + 1);
+      if (e != par) [[likely]] dfs(ver, e, cur_depth + 1);
     }
   }
 };

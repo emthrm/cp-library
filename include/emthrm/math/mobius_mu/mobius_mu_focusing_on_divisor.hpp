@@ -6,13 +6,9 @@
 #ifndef EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_
 #define EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_
 
+#include <bit>
 #include <map>
 #include <vector>
-
-#if !defined(__GNUC__) && \
-    (!defined(__has_builtin) || !__has_builtin(__builtin_popcount))
-# error "__builtin_popcount is required."
-#endif
 
 namespace emthrm {
 
@@ -28,12 +24,12 @@ std::map<T, int> mobius_mu_focusing_on_divisor(T n) {
   if (n > 1) primes.emplace_back(n);
   const int p = primes.size();
   std::map<T, int> mu;
-  for (int i = 0; i < (1 << p); ++i) {
+  for (unsigned int i = 0; i < (1 << p); ++i) {
     T d = 1;
     for (int j = 0; j < p; ++j) {
       if (i >> j & 1) d *= primes[j];
     }
-    mu[d] = (__builtin_popcount(i) & 1 ? -1 : 1);
+    mu[d] = (std::popcount(i) & 1 ? -1 : 1);
   }
   return mu;
 }

@@ -7,18 +7,13 @@
 #define EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <cassert>
 #include <iterator>
 #include <utility>
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
-
-#if !defined(__GNUC__) && \
-    (!defined(__has_builtin) || !__has_builtin(__builtin_popcount) \
-                             || !__has_builtin(__builtin_ctz))
-# error "GCC built-in functions are required."
-#endif
 
 namespace emthrm {
 
@@ -28,7 +23,7 @@ struct NumberTheoreticTransform {
 
   NumberTheoreticTransform() {
     for (int i = 0; i < 23; ++i) {
-      if (primes[i][0] == ModInt::get_mod()) {
+      if (primes[i][0] == ModInt::get_mod()) [[unlikely]] {
         n_max = 1 << primes[i][2];
         root = ModInt(primes[i][1]).pow((primes[i][0] - 1) >> primes[i][2]);
         return;
@@ -39,20 +34,17 @@ struct NumberTheoreticTransform {
 
   template <typename U>
   std::vector<ModInt> dft(const std::vector<U>& a) {
-    const int n = a.size();
-    int lg = 1;
-    while ((1 << lg) < n) ++lg;
-    std::vector<ModInt> b(1 << lg, 0);
+    std::vector<ModInt> b(std::bit_ceil(a.size()), 0);
     std::copy(a.begin(), a.end(), b.begin());
     calc(&b);
     return b;
   }
 
   void idft(std::vector<ModInt>* a) {
-    const int n = a->size();
-    assert(__builtin_popcount(n) == 1);
+    assert(std::has_single_bit(a->size()));
     calc(a);
     std::reverse(std::next(a->begin()), a->end());
+    const int n = a->size();
     const ModInt inv_n = ModInt::inv(n);
     for (int i = 0; i < n; ++i) {
       (*a)[i] *= inv_n;
@@ -64,9 +56,7 @@ struct NumberTheoreticTransform {
                                   const std::vector<U>& b) {
     const int a_size = a.size(), b_size = b.size();
     const int c_size = a_size + b_size - 1;
-    int lg = 1;
-    while ((1 << lg) < c_size) ++lg;
-    const int n = 1 << lg;
+    const int n = std::bit_ceil(static_cast<unsigned int>(c_size));
     std::vector<ModInt> c(n, 0), d(n, 0);
     std::copy(a.begin(), a.end(), c.begin());
     calc(&c);
@@ -117,7 +107,7 @@ struct NumberTheoreticTransform {
     if (n > prev_n) {
       assert(n <= n_max);
       butterfly.resize(n);
-      const int prev_lg = omega.size(), lg = __builtin_ctz(n);
+      const int prev_lg = omega.size(), lg = std::countr_zero(a->size());
       for (int i = 1; i < prev_n; ++i) {
         butterfly[i] <<= lg - prev_lg;
       }
@@ -134,7 +124,8 @@ struct NumberTheoreticTransform {
         }
       }
     }
-    const int shift = __builtin_ctz(butterfly.size()) - __builtin_ctz(n);
+    const int shift =
+        std::countr_zero(butterfly.size()) - std::countr_zero(a->size());
     for (int i = 0; i < n; ++i) {
       const int j = butterfly[i] >> shift;
       if (i < j) std::swap((*a)[i], (*a)[j]);

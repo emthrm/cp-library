@@ -7,15 +7,10 @@
 #define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_
 
 #include <algorithm>
+#include <bit>
 // #include <cassert>
 #include <limits>
 #include <vector>
-
-#if !defined(__GNUC__) && \
-    (!defined(__has_builtin) || !__has_builtin(__builtin_ctz) \
-                             || !__has_builtin(__builtin_popcount))
-# error "GCC built-in functions are required."
-#endif
 
 namespace emthrm {
 
@@ -28,9 +23,8 @@ struct LazySegmentTree {
       : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}
 
   explicit LazySegmentTree(const std::vector<Monoid>& a)
-      : n(a.size()), height(0) {
-    while ((1 << height) < n) ++height;
-    p2 = 1 << height;
+      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),
+        p2(1 << height) {
     lazy.assign(p2, T::o_id());
     data.assign(p2 << 1, T::m_id());
     std::copy(a.begin(), a.end(), data.begin() + p2);
@@ -66,14 +60,14 @@ struct LazySegmentTree {
   }
 
   void apply(int left, int right, const OperatorMonoid val) {
-    if (right <= left) return;
+    if (right <= left) [[unlikely]] return;
     left += p2;
     right += p2;
-    const int ctz_left = __builtin_ctz(left);
+    const int ctz_left = std::countr_zero(static_cast<unsigned int>(left));
     for (int i = height; i > ctz_left; --i) {
       propagate(left >> i);
     }
-    const int ctz_right = __builtin_ctz(right);
+    const int ctz_right = std::countr_zero(static_cast<unsigned int>(right));
     for (int i = height; i > ctz_right; --i) {
       propagate(right >> i);
     }
@@ -90,14 +84,14 @@ struct LazySegmentTree {
   }
 
   Monoid get(int left, int right) {
-    if (right <= left) return T::m_id();
+    if (right <= left) [[unlikely]] return T::m_id();
     left += p2;
     right += p2;
-    const int ctz_left = __builtin_ctz(left);
+    const int ctz_left = std::countr_zero(static_cast<unsigned int>(left));
     for (int i = height; i > ctz_left; --i) {
       propagate(left >> i);
     }
-    const int ctz_right = __builtin_ctz(right);
+    const int ctz_right = std::countr_zero(static_cast<unsigned int>(right));
     for (int i = height; i > ctz_right; --i) {
       propagate(right >> i);
     }
@@ -119,7 +113,7 @@ struct LazySegmentTree {
 
   template <typename G>
   int find_right(int left, const G g) {
-    if (left >= n) return n;
+    if (left >= n) [[unlikely]] return n;
     left += p2;
     for (int i = height; i > 0; --i) {
       propagate(left >> i);
@@ -142,13 +136,13 @@ struct LazySegmentTree {
       }
       val = nxt;
       ++left;
-    } while (__builtin_popcount(left) > 1);
+    } while (!std::has_single_bit(static_cast<unsigned int>(left)));
     return n;
   }
 
   template <typename G>
   int find_left(int right, const G g) {
-    if (right <= 0) return -1;
+    if (right <= 0) [[unlikely]] return -1;
     right += p2;
     for (int i = height; i > 0; --i) {
       propagate((right - 1) >> i);
@@ -171,13 +165,12 @@ struct LazySegmentTree {
         return right - p2;
       }
       val = nxt;
-    } while (__builtin_popcount(right) > 1);
+    } while (!std::has_single_bit(static_cast<unsigned int>(right)));
     return -1;
   }
 
  private:
-  const int n;
-  int p2, height;
+  const int n, height, p2;
   std::vector<Monoid> data;
   std::vector<OperatorMonoid> lazy;
 

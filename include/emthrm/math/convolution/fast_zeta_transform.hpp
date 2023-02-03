@@ -1,6 +1,7 @@
 #ifndef EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_
 #define EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_
 
+#include <bit>
 #include <functional>
 #include <vector>
 
@@ -11,9 +12,7 @@ std::vector<Ring> fast_zeta_transform(
     std::vector<Ring> a, const bool adds_superset, const Ring ID = 0,
     const std::function<Ring(const Ring&, const Ring&)> fn =
         [](const Ring& a, const Ring& b) -> Ring { return a + b; }) {
-  int n = a.size(), p = 1;
-  while ((1 << p) < n) ++p;
-  n = 1 << p;
+  const int n = std::bit_ceil(a.size());
   a.resize(n, ID);
   if (adds_superset) {
     for (int i = 1; i < n; i <<= 1) {

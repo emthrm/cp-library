@@ -6,6 +6,7 @@
 #ifndef EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
 #define EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
 
+#include <bit>
 #include <cmath>
 #include <vector>
 
@@ -20,9 +21,8 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
                                      const int pre = 15) {
   using ModInt = MInt<T>;
   const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
-  int lg = 1;
-  while ((1 << lg) < c_size) ++lg;
-  const int n = 1 << lg, mask = (1 << pre) - 1;
+  const int n = std::bit_ceil(static_cast<unsigned int>(c_size));
+  const int mask = (1 << pre) - 1;
   std::vector<fast_fourier_transform::Complex> x(n), y(n);
   for (int i = 0; i < a_size; ++i) {
     const int a_i = a[i].v;
