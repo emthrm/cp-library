@@ -6,11 +6,10 @@
 
 namespace emthrm {
 
-template <typename Ring>
+template <typename Ring, typename Fn = decltype(std::plus<Ring>())>
 std::vector<Ring> fast_zeta_transform(
-    std::vector<Ring> a, const bool adds_superset, const Ring ID = 0,
-    const std::function<Ring(const Ring&, const Ring&)> fn =
-        [](const Ring& a, const Ring& b) -> Ring { return a + b; }) {
+    std::vector<Ring> a, const bool adds_superset,
+    const Ring ID = 0, const Fn fn = std::plus<Ring>()) {
   int n = a.size(), p = 1;
   while ((1 << p) < n) ++p;
   n = 1 << p;
