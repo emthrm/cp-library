@@ -96,7 +96,7 @@ struct MinimumCostSTFlow {
       is_updated = false;
       for (int i = 0; i < n; ++i) {
         if (dist[i] == uinf) continue;
-        for (int j = 0; j < static_cast<int>(graph[i].size()); ++j) {
+        for (int j = 0; std::cmp_less(j, graph[i].size()); ++j) {
           const Edge& e = graph[i][j];
           if (e.cap > 0 && dist[e.dst] > dist[i] + e.cost) {
             dist[e.dst] = dist[i] + e.cost;
@@ -121,7 +121,7 @@ struct MinimumCostSTFlow {
       const auto [d, ver] = que.top();
       que.pop();
       if (dist[ver] < d) continue;
-      for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
+      for (int i = 0; std::cmp_less(i, graph[ver].size()); ++i) {
         const Edge& e = graph[ver][i];
         const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];
         if (e.cap > 0 && dist[e.dst] > nxt) {

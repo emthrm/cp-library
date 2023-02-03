@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <functional>
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -63,7 +64,7 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
     }
   };
   dfs(s);
-  if (static_cast<int>(res.size()) == edge_num) {
+  if (std::cmp_equal(res.size(), edge_num)) {
     std::reverse(res.begin(), res.end());
     return res;
   }

@@ -71,7 +71,7 @@ struct MinimumCostBFlow {
         const auto [d, ver] = que.top();
         que.pop();
         if (d > dist[ver]) continue;
-        for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
+        for (int i = 0; std::cmp_less(i, graph[ver].size()); ++i) {
           const Edge& e = graph[ver][i];
           const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];
           if (e.cap > 0 && dist[e.dst] > nxt) {

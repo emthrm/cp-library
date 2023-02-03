@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_COST_FREE_TOPOLOGICAL_SORT_HPP_
 
 #include <queue>
+#include <utility>
 #include <vector>
 
 namespace emthrm {
@@ -26,7 +27,7 @@ std::vector<int> topological_sort(const std::vector<std::vector<int>>& graph) {
       if (--deg[e] == 0) que.emplace(e);
     }
   }
-  return static_cast<int>(res.size()) == n ? res : std::vector<int>{};
+  return std::cmp_equal(res.size(), n) ? res : std::vector<int>{};
 }
 
 }  // namespace emthrm

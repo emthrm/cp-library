@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cstdint>
 #include <limits>
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph_cost-free/topological_sort.hpp"
@@ -15,7 +16,7 @@ std::vector<int> reachability_on_dag(
     const std::vector<std::vector<int>>& graph,
     const std::vector<int>& ss, const std::vector<int>& ts) {
   const int n = graph.size(), q = ss.size();
-  assert(static_cast<int>(ts.size()) == q);
+  assert(std::cmp_equal(ts.size(), q));
   const std::vector<int> order = topological_sort(graph);
   std::vector<int> can_reach(q, false);
   std::vector<std::uint64_t> dp(n, 0);

@@ -115,7 +115,7 @@ struct HeavyLightDecomposition {
   std::vector<std::vector<int>> graph;
 
   void dfs1(const int ver) {
-    for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
+    for (int i = 0; std::cmp_less(i, graph[ver].size()); ++i) {
       if (graph[ver][i] != parent[ver]) {
         parent[graph[ver][i]] = ver;
         dfs1(graph[ver][i]);

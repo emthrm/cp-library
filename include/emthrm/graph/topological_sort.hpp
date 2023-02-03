@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_TOPOLOGICAL_SORT_HPP_
 
 #include <queue>
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -30,7 +31,7 @@ std::vector<int> topological_sort(
       if (--deg[e.dst] == 0) que.emplace(e.dst);
     }
   }
-  return static_cast<int>(res.size()) == n ? res : std::vector<int>{};
+  return std::cmp_equal(res.size(), n) ? res : std::vector<int>{};
 }
 
 }  // namespace emthrm

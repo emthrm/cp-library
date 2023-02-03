@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "emthrm/string/split.hpp"
@@ -16,7 +17,7 @@ int main() {
   int ans = 0;
   for (const std::string& terms : emthrm::split(s, "+")) {
     bool is_0 = false;
-    for (int i = 0; i < static_cast<int>(terms.length()); i += 2) {
+    for (int i = 0; std::cmp_less(i, terms.length()); i += 2) {
       is_0 |= terms[i] == '0';
     }
     ans += !is_0;

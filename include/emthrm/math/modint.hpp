@@ -108,11 +108,11 @@ struct MInt {
   }
 
   MInt& operator+=(const MInt& x) {
-    if (static_cast<int>(v += x.v) >= M) v -= M;
+    if (std::greater_equal(v += x.v, M)) v -= M;
     return *this;
   }
   MInt& operator-=(const MInt& x) {
-    if (static_cast<int>(v += M - x.v) >= M) v -= M;
+    if (std::greater_equal(v += M - x.v, M)) v -= M;
     return *this;
   }
   MInt& operator*=(const MInt& x) {
@@ -129,7 +129,7 @@ struct MInt {
   bool operator>=(const MInt& x) const { return v >= x.v; }
 
   MInt& operator++() {
-    if (static_cast<int>(++v) == M) v = 0;
+    if (std::cmp_equal(++v, M)) v = 0;
     return *this;
   }
   MInt operator++(int) {
@@ -262,11 +262,11 @@ struct MInt {
   }
 
   MInt& operator+=(const MInt& x) {
-    if (static_cast<int>(v += x.v) >= mod()) v -= mod();
+    if (std::greater_equal(v += x.v, mod())) v -= mod();
     return *this;
   }
   MInt& operator-=(const MInt& x) {
-    if (static_cast<int>(v += mod() - x.v) >= mod()) v -= mod();
+    if (std::greater_equal(v += mod() - x.v, mod())) v -= mod();
     return *this;
   }
   MInt& operator*=(const MInt& x) {
@@ -283,7 +283,7 @@ struct MInt {
   bool operator>=(const MInt& x) const { return v >= x.v; }
 
   MInt& operator++() {
-    if (static_cast<int>(++v) == mod()) v = 0;
+    if (std::cmp_equal(++v, mod())) v = 0;
     return *this;
   }
   MInt operator++(int) {
