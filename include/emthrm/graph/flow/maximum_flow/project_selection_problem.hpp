@@ -5,9 +5,12 @@
 #include <limits>
 #include <vector>
 
+#include "emthrm/graph/flow/maximum_flow/maximum_flow.hpp"
+
 namespace emthrm {
 
 template <template <typename> class C, typename T>
+requires MaximumFlow<C, T>
 struct ProjectSelectionProblem {
   explicit ProjectSelectionProblem(const int n)
       : inf(std::numeric_limits<T>::max()), n(n), res(0) {}

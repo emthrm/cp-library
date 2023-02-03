@@ -1,9 +1,12 @@
 #ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_
 #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_
 
+#include "emthrm/graph/flow/maximum_flow/maximum_flow.hpp"
+
 namespace emthrm {
 
 template <template <typename> class C, typename T>
+requires MaximumFlow<C, T>
 struct MaximumFlowWithLowerBoundConstraint {
   explicit MaximumFlowWithLowerBoundConstraint(const int n)
       : n(n), sum_lb(0), mf(n + 2) {}
