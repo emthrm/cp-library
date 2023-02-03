@@ -2,7 +2,6 @@
 #define EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_
 
 #include <algorithm>
-#include <functional>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -15,13 +14,13 @@ std::vector<Edge<CostType>> enumerate_bridges(
   const int n = graph.size();
   std::vector<Edge<CostType>> res;
   std::vector<int> depth(n, -1), imos(n, 0);
-  const std::function<void(int, int)> dfs = [&graph, &res, &depth, &imos, &dfs](
-      const int par, const int ver) -> void {
+  const auto dfs = [&graph, &res, &depth, &imos](
+      auto dfs, const int par, const int ver) -> void {
     bool has_multiple_edges = false;
     for (const Edge<CostType>& e : graph[ver]) {
       if (depth[e.dst] == -1) {
         depth[e.dst] = depth[ver] + 1;
-        dfs(ver, e.dst);
+        dfs(dfs, ver, e.dst);
         if (imos[e.dst] == 0) {
           res.emplace_back(std::min(ver, e.dst), std::max(ver, e.dst), e.cost);
         }
@@ -37,7 +36,7 @@ std::vector<Edge<CostType>> enumerate_bridges(
   for (int i = 0; i < n; ++i) {
     if (depth[i] == -1) {
       depth[i] = 0;
-      dfs(-1, i);
+      dfs(dfs, -1, i);
     }
   }
   return res;

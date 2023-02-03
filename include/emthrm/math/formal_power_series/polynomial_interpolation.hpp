@@ -6,7 +6,6 @@
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_
 
-#include <functional>
 #include <vector>
 
 #include "emthrm/math/formal_power_series/multipoint_evaluation.hpp"
@@ -19,12 +18,12 @@ C<T> polynomial_interpolation(const std::vector<T>& x,
   MultipointEvaluation<C, T> m(x);
   m.build(m.subproduct_tree[1].differential());
   const int n = x.size();
-  const std::function<C<T>(int)> f = [&y, &m, n, &f](const int node) -> C<T> {
+  const auto f = [&y, &m, n](auto f, const int node) -> C<T> {
     return node >= n ? C<T>{y[node - n] / m.f_x[node - n]} :
-                       f(node << 1) * m.subproduct_tree[(node << 1) + 1]
-                       + f((node << 1) + 1) * m.subproduct_tree[node << 1];
+                       f(f, node << 1) * m.subproduct_tree[(node << 1) + 1]
+                       + f(f, (node << 1) + 1) * m.subproduct_tree[node << 1];
   };
-  return f(1);
+  return f(f, 1);
 }
 
 }  // namespace emthrm

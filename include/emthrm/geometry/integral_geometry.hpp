@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <cassert>
 #include <compare>
-#include <functional>
 #include <iostream>
 #include <iterator>
 #include <limits>
@@ -103,31 +102,29 @@ Integer closest_pair(std::vector<Point> ps) {
   const int n = ps.size();
   assert(n >= 2);
   std::sort(ps.begin(), ps.end());
-  const std::function<Integer(int, int)> f =
-      [&ps, &f](const int left, const int right) -> Integer {
-        const int mid = std::midpoint(left, right);
-        Integer x_mid = ps[mid].x, d = std::numeric_limits<Integer>::max();
-        if (left + 1 < mid) d = std::min(d, f(left, mid));
-        if (mid + 1 < right) d = std::min(d, f(mid, right));
-        std::inplace_merge(std::next(ps.begin(), left),
-                           std::next(ps.begin(), mid),
-                           std::next(ps.begin(), right),
-                           [](const Point& a, const Point& b) -> bool {
-                             return sgn(b.y - a.y) == 1;
-                           });
-        std::vector<Point> tmp;
-        for (int i = left; i < right; ++i) {
-          if (sgn((ps[i].x - x_mid) * (ps[i].x - x_mid) - d) == 1) continue;
-          for (int j = std::ssize(tmp) - 1; j >= 0; --j) {
-            const Point v = ps[i] - tmp[j];
-            if (sgn(v.y * v.y - d) == 1) break;
-            d = std::min(d, v.norm());
-          }
-          tmp.emplace_back(ps[i]);
-        }
-        return d;
-      };
-  return f(0, n);
+  const auto f = [&ps](auto f, const int left, const int right) -> Integer {
+    const int mid = std::midpoint(left, right);
+    Integer x_mid = ps[mid].x, d = std::numeric_limits<Integer>::max();
+    if (left + 1 < mid) d = std::min(d, f(f, left, mid));
+    if (mid + 1 < right) d = std::min(d, f(f, mid, right));
+    std::inplace_merge(std::next(ps.begin(), left), std::next(ps.begin(), mid),
+                       std::next(ps.begin(), right),
+                       [](const Point& a, const Point& b) -> bool {
+                         return sgn(b.y - a.y) == 1;
+                       });
+    std::vector<Point> tmp;
+    for (int i = left; i < right; ++i) {
+      if (sgn((ps[i].x - x_mid) * (ps[i].x - x_mid) - d) == 1) continue;
+      for (int j = std::ssize(tmp) - 1; j >= 0; --j) {
+        const Point v = ps[i] - tmp[j];
+        if (sgn(v.y * v.y - d) == 1) break;
+        d = std::min(d, v.norm());
+      }
+      tmp.emplace_back(ps[i]);
+    }
+    return d;
+  };
+  return f(f, 0, n);
 }
 
 bool is_parallel(const Segment& a, const Segment& b) {

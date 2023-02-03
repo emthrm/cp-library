@@ -4,7 +4,6 @@
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2416"
 
 #include <bitset>
-#include <functional>
 #include <iostream>
 #include <vector>
 
@@ -26,20 +25,20 @@ int main() {
   std::vector<long long> x(n, -1);
   x[0] = 0;
   emthrm::Basis<D> basis;
-  const std::function<void(int, int)> dfs = [&graph, &x, &basis, &dfs](
-      const int par, const int ver) {
+  const auto dfs = [&graph, &x, &basis](auto dfs, const int par, const int ver)
+      -> void {
     for (const emthrm::Edge<long long>& e : graph[ver]) {
       if (e.dst != par) {
         if (x[e.dst] == -1) {
           x[e.dst] = x[ver] ^ e.cost;
-          dfs(ver, e.dst);
+          dfs(dfs, ver, e.dst);
         } else {
           basis.add(x[ver] ^ x[e.dst] ^ e.cost);
         }
       }
     }
   };
-  dfs(-1, 0);
+  dfs(dfs, -1, 0);
   while (q--) {
     int a, b;
     std::cin >> a >> b;

@@ -3,7 +3,6 @@
 
 #include <algorithm>
 #include <cassert>
-#include <functional>
 #include <iostream>
 #include <iterator>
 #include <set>
@@ -54,28 +53,27 @@ int main() {
         block_cut_tree[i].end());
   }
   long long ans = static_cast<long long>(n) * (n - 1) / 2 * x;
-  const std::function<int(int, int)> dfs =
-      [n, x, &block_cut_tree, &weight, &ans, &dfs](
-          const int par, const int ver) -> int {
-        int subtree = weight[ver];
-        if (ver < x) {
-          for (const int e : block_cut_tree[ver]) {
-            if (e != par) {
-              const int child = dfs(ver, e);
-              ans -= static_cast<long long>(child) * (child - 1) / 2 + child;
-              subtree += child;
-            }
-          }
-          ans -= static_cast<long long>(n - subtree) * (n - subtree - 1) / 2
-                 + (n - subtree);
-        } else {
-          for (const int e : block_cut_tree[ver]) {
-            if (e != par) subtree += dfs(ver, e);
-          }
+  const auto dfs = [n, x, &block_cut_tree, &weight, &ans](
+      auto dfs, const int par, const int ver) -> int {
+    int subtree = weight[ver];
+    if (ver < x) {
+      for (const int e : block_cut_tree[ver]) {
+        if (e != par) {
+          const int child = dfs(dfs, ver, e);
+          ans -= static_cast<long long>(child) * (child - 1) / 2 + child;
+          subtree += child;
         }
-        return subtree;
-      };
-  assert(dfs(-1, 0) == n);
+      }
+      ans -= static_cast<long long>(n - subtree) * (n - subtree - 1) / 2
+              + (n - subtree);
+    } else {
+      for (const int e : block_cut_tree[ver]) {
+        if (e != par) subtree += dfs(dfs, ver, e);
+      }
+    }
+    return subtree;
+  };
+  assert(dfs(dfs, -1, 0) == n);
   std::cout << ans << '\n';
   return 0;
 }

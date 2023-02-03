@@ -1,7 +1,6 @@
 #define PROBLEM "https://atcoder.jp/contests/arc087/tasks/arc087_f"
 // #define PROBLEM "https://atcoder.jp/contests/arc087/tasks/arc087_d"
 
-#include <functional>
 #include <iostream>
 #include <vector>
 
@@ -25,16 +24,16 @@ int main() {
     std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\n';
   } else {
     std::vector<int> subtree(n, 1);
-    const std::function<void(int, int)> dfs =
-        [&graph, &subtree, &dfs](const int par, const int ver) -> void {
-          for (const int e : graph[ver]) {
-            if (e != par) {
-              dfs(ver, e);
-              subtree[ver] += subtree[e];
-            }
-          }
-        };
-    dfs(-1, centroids.front());
+    const auto dfs = [&graph, &subtree](auto dfs, const int par, const int ver)
+        -> void {
+      for (const int e : graph[ver]) {
+        if (e != par) {
+          dfs(dfs, ver, e);
+          subtree[ver] += subtree[e];
+        }
+      }
+    };
+    dfs(dfs, -1, centroids.front());
     std::vector<int> nums;
     for (const int e : graph[centroids.front()]) {
       nums.emplace_back(subtree[e]);

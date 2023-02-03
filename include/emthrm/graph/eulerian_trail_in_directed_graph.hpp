@@ -7,7 +7,6 @@
 #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
 
 #include <algorithm>
-#include <functional>
 #include <utility>
 #include <vector>
 
@@ -55,15 +54,15 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
     return {};
   }
   std::vector<Edge<CostType>> res;
-  const std::function<void(int)> dfs = [&graph, &res, &dfs](const int ver) {
+  const auto dfs = [&graph, &res](auto dfs, const int ver) {
     while (!graph[ver].empty()) {
       const Edge<CostType> e = graph[ver].back();
       graph[ver].pop_back();
-      dfs(e.dst);
+      dfs(dfs, e.dst);
       res.emplace_back(e);
     }
   };
-  dfs(s);
+  dfs(dfs, s);
   if (std::cmp_equal(res.size(), edge_num)) {
     std::reverse(res.begin(), res.end());
     return res;
