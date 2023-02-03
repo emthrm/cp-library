@@ -31,7 +31,7 @@ int main() {
     const auto dfs = [&graph, &subtree](auto dfs, const int par, const int ver)
         -> void {
       for (const emthrm::Edge<bool>& e : graph[ver]) {
-        if (e.dst != par) {
+        if (e.dst != par) [[likely]] {
           dfs(dfs, ver, e.dst);
           subtree[ver] += subtree[e.dst];
         }

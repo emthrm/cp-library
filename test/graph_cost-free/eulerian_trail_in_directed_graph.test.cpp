@@ -12,7 +12,7 @@ int main() {
   while (true) {
     int n;
     std::cin >> n;
-    if (n == 0) break;
+    if (n == 0) [[unlikely]] break;
     std::vector<std::vector<int>> graph(SIGMA);
     while (n--) {
       std::string word;

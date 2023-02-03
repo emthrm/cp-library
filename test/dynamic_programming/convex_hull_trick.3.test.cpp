@@ -25,7 +25,7 @@ int main() {
     const long long dp =
         convex_hull_trick.monotonically_decreasing_query(h[i])
         + static_cast<long long>(h[i]) * h[i] + c;
-    if (i + 1 == n) {
+    if (i + 1 == n) [[unlikely]] {
       std::cout << dp << '\n';
     } else {
       convex_hull_trick.add(-2 * h[i],

@@ -62,7 +62,7 @@ int main() {
     int subtree = weight[ver];
     if (ver < x) {
       for (const int e : block_cut_tree[ver]) {
-        if (e != par) {
+        if (e != par) [[likely]] {
           const int child = dfs(dfs, ver, e);
           ans -= static_cast<long long>(child) * (child - 1) / 2 + child;
           subtree += child;
@@ -72,7 +72,7 @@ int main() {
              + (n - subtree);
     } else {
       for (const int e : block_cut_tree[ver]) {
-        if (e != par) subtree += dfs(dfs, ver, e);
+        if (e != par) [[likely]] subtree += dfs(dfs, ver, e);
       }
     }
     return subtree;

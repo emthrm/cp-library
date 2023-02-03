@@ -27,7 +27,7 @@ int main() {
     const auto dfs = [&graph, &subtree](auto dfs, const int par, const int ver)
         -> void {
       for (const int e : graph[ver]) {
-        if (e != par) {
+        if (e != par) [[likely]] {
           dfs(dfs, ver, e);
           subtree[ver] += subtree[e];
         }
