@@ -27,7 +27,7 @@ int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph) {
     indep[i] = indep[i ^ (1 << v)] + indep[(i ^ (1 << v)) & ~adj[v]];
   }
   int res = n;
-  for (const int mod : std::vector<int>{1000000007, 1000000011}) {
+  for (constexpr int mod : std::vector<int>{1000000007, 1000000011}) {
     std::vector<long long> f(1 << n);
     for (int i = 0; i < (1 << n); ++i) {
       f[i] = ((n - __builtin_popcount(i)) & 1 ? mod - 1 : 1);
