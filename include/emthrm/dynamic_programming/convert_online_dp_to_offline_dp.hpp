@@ -18,7 +18,7 @@ void convert_online_dp_to_offline_dp(
     induce(l, m, r);
     solve(solve, m, r);
   };
-  if (n > 0) solve(solve, 0, n);
+  if (n > 0) [[likely]] solve(solve, 0, n);
 }
 
 }  // namespace emthrm

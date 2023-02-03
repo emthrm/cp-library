@@ -42,7 +42,7 @@ struct MinimumCostSTFlow {
   }
 
   U solve(const int s, const int t, T flow) {
-    if (flow == 0) return 0;
+    if (flow == 0) [[unlikely]] return 0;
     U res = 0;
     has_negative_edge ? bellman_ford(s) : dijkstra(s);
     while (true) {
@@ -67,7 +67,7 @@ struct MinimumCostSTFlow {
 
   std::pair<T, U> minimum_cost_maximum_flow(const int s, const int t,
                                             const T flow) {
-    if (flow == 0) return {0, 0};
+    if (flow == 0) [[unlikely]] return {0, 0};
     T f = flow;
     U cost = 0;
     has_negative_edge ? bellman_ford(s) : dijkstra(s);

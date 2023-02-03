@@ -55,7 +55,7 @@ struct BiconnectedComponent : Lowlink<CostType> {
   void dfs(const int par, const int ver) {
     id[ver] = -1;
     for (const Edge<CostType>& e : this->graph[ver]) {
-      if (e.dst == par) continue;
+      if (e.dst == par) [[unlikely]] continue;
       int src = ver, dst = e.dst;
       if (src > dst) std::swap(src, dst);
       if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver]) {

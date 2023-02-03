@@ -17,7 +17,7 @@ std::vector<int> centroid(
       auto dfs, const int par, const int ver) -> void {
     bool is_centroid = true;
     for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != par) {
+      if (e.dst != par) [[likely]] {
         dfs(dfs, ver, e.dst);
         subtree[ver] += subtree[e.dst];
         is_centroid &= subtree[e.dst] <= n / 2;

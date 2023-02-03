@@ -237,7 +237,7 @@ Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
 
 std::pair<Point, Point> rotating_calipers(Polygon a) {
   const int n = a.size();
-  if (n <= 2) {
+  if (n <= 2) [[unlikely]] {
     assert(n == 2);
     return {a[0], a[1]};
   }

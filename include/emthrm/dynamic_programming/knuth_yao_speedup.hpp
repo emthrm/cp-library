@@ -11,7 +11,7 @@ std::vector<std::vector<T>> knuth_yao_speedup(
     const std::vector<std::vector<T>>& w, const T inf) {
   const int n = w.size();
   std::vector<std::vector<T>> dp(n, std::vector<T>(n, inf));
-  if (n == 0) return dp;
+  if (n == 0) [[unlikely]] return dp;
   std::vector<std::vector<int>> argmin(n, std::vector<int>(n, -1));
   for (int j = 0; j < n; ++j) {
     dp[j][j] = 0;

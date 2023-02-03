@@ -203,7 +203,7 @@ struct FormalPowerSeries {
     const int n = coef.size();
     if (exponent == 0) {
       FormalPowerSeries res(deg);
-      if (deg != -1) res[0] = 1;
+      if (deg != -1) [[unlikely]] res[0] = 1;
       return res;
     }
     assert(deg >= 0);
@@ -228,7 +228,7 @@ struct FormalPowerSeries {
   FormalPowerSeries mod_pow(long long exponent,
                             const FormalPowerSeries& md) const {
     const int deg = md.degree() - 1;
-    if (deg < 0) return FormalPowerSeries(-1);
+    if (deg < 0) [[unlikely]] return FormalPowerSeries(-1);
     const FormalPowerSeries inv_rev_md =
         FormalPowerSeries(md.coef.rbegin(), md.coef.rend()).inv();
     const auto mod_mult = [&md, &inv_rev_md, deg](

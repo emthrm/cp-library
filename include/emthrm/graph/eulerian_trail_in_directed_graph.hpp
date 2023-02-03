@@ -25,7 +25,7 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
     deg[i] += graph[i].size();
     for (const Edge<CostType>& e : graph[i]) --deg[e.dst];
   }
-  if (edge_num == 0) return {};
+  if (edge_num == 0) [[unlikely]] return {};
   const int not0 = n - std::count(deg.begin(), deg.end(), 0);
   if (not0 == 0) {
     if (s == -1) {

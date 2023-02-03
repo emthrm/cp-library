@@ -12,7 +12,7 @@ std::string replace(const std::string& s, const std::string& before,
   int pos = 0;
   while (true) {
     const std::size_t pos_b = s.find(before, pos);
-    if (pos_b == s.npos) break;
+    if (pos_b == s.npos) [[unlikely]] break;
     res += s.substr(pos, pos_b - pos) + after;
     pos = pos_b + before.length();
   }

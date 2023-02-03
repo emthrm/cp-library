@@ -25,7 +25,7 @@ std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,
         rotated_grid[w - 1 - j][i] = grid[i][j];
       }
     }
-  } else {
+  } else [[unlikely]] {
     assert(false);
   }
   return rotated_grid;

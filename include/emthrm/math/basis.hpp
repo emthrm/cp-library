@@ -24,7 +24,7 @@ struct Basis {
     if (val.none()) return false;
     int m = D - 1;
     while (!val[m]) --m;
-    if (v.empty()) {
+    if (v.empty()) [[unlikely]] {
       v.emplace_back(val);
       msb.emplace_back(m);
       return true;

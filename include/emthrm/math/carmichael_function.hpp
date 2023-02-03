@@ -14,7 +14,7 @@ long long carmichael_function(long long n) {
   long long lambda = 1;
   if (n % 8 == 0) n >>= 1;
   for (long long i = 2; i * i <= n; ++i) {
-    if (n % i == 0) {
+    if (n % i == 0) [[unlikely]] {
       n /= i;
       long long phi = i - 1;
       for (; n % i == 0; n /= i) {

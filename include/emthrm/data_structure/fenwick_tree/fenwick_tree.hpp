@@ -36,7 +36,7 @@ struct FenwickTree {
   Abelian operator[](const int idx) const { return sum(idx, idx + 1); }
 
   int lower_bound(Abelian val) const {
-    if (val <= ID) return 0;
+    if (val <= ID) [[unlikely]] return 0;
     int res = 0, exponent = 1;
     while (exponent <= n) exponent <<= 1;
     for (int mask = exponent >> 1; mask > 0; mask >>= 1) {

@@ -13,7 +13,7 @@ std::vector<std::string> split(
   int pos = 0;
   while (true) {
     const std::size_t pos_to_del = s.find(delimiter, pos);
-    if (pos_to_del == s.npos) break;
+    if (pos_to_del == s.npos) [[unlikely]] break;
     res.emplace_back(s.substr(pos, pos_to_del - pos));
     pos = pos_to_del + delimiter.length();
   }

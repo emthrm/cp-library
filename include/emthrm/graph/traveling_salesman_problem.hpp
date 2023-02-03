@@ -15,7 +15,7 @@ CostType traveling_salesman_problem(
     const std::vector<std::vector<Edge<CostType>>>& graph,
     const CostType inf = std::numeric_limits<CostType>::max()) {
   const int n = graph.size();
-  if (n == 1) return 0;
+  if (n == 1) [[unlikely]] return 0;
   std::vector<std::vector<CostType>> dp(1 << n, std::vector<CostType>(n, inf));
   dp[1][0] = 0;
   for (int i = 1; i < (1 << n); ++i) {

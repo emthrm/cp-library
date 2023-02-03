@@ -14,7 +14,7 @@ namespace geometry {
 
 Circle smallest_enclosing_circle(std::vector<Point> ps) {
   const int n = ps.size();
-  if (n == 1) return Circle(ps.front(), 0);
+  if (n == 1) [[unlikely]] return Circle(ps.front(), 0);
   std::shuffle(ps.begin(), ps.end(), std::mt19937_64(std::random_device {} ()));
   const auto get_circle = [](const Point& p1, const Point& p2) -> Circle {
     return Circle((p1 + p2) * 0.5, distance(p1, p2) * 0.5);

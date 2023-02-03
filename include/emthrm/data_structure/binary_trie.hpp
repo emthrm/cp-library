@@ -30,11 +30,11 @@ struct BinaryTrie {
   int size() const { return root ? root->child : 0; }
 
   void erase(const T& x) {
-    if (root) erase(&root, x, B - 1);
+    if (root) [[likely]] erase(&root, x, B - 1);
   }
 
   std::shared_ptr<Node> find(const T& x) const {
-    if (!root) return nullptr;
+    if (!root) [[unlikely]] return nullptr;
     std::shared_ptr<Node> node = root;
     for (int b = B - 1; b >= 0; --b) {
       const bool digit = x >> b & 1;
@@ -66,7 +66,7 @@ struct BinaryTrie {
   }
 
   std::shared_ptr<Node> insert(const T& x) {
-    if (!root) root = std::make_shared<Node>();
+    if (!root) [[unlikely]] root = std::make_shared<Node>();
     std::shared_ptr<Node> node = root;
     ++node->child;
     for (int b = B - 1; b >= 0; --b) {

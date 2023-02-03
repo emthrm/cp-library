@@ -17,7 +17,7 @@ std::vector<bool> segmented_sieve(const long long low, const long long high) {
   std::vector<bool> res(high - low, true);
   if (low < 2) std::fill(res.begin(), std::next(res.begin(), 2 - low), false);
   for (long long i = 2; i <= root; ++i) {
-    if (is_prime[i]) {
+    if (is_prime[i]) [[unlikely]] {
       for (long long j = i * i; j <= root; j += i) {
         is_prime[j] = false;
       }

@@ -19,7 +19,7 @@ struct ConvexHullTrick {
       b = -b;
     }
     const Line line(a, b);
-    if (deq.empty()) {
+    if (deq.empty()) [[unlikely]] {
       deq.emplace_back(line);
     } else if (deq.back().first >= a) {
       if (deq.back().first == a) {

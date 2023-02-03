@@ -13,7 +13,7 @@ std::vector<int> centroid(const std::vector<std::vector<int>>& graph) {
       auto dfs, const int par, const int ver) -> void {
     bool is_centroid = true;
     for (const int e : graph[ver]) {
-      if (e != par) {
+      if (e != par) [[likely]] {
         dfs(dfs, ver, e);
         subtree[ver] += subtree[e];
         is_centroid &= subtree[e] <= n / 2;

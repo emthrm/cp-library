@@ -14,7 +14,7 @@ template <typename T>
 T matrix_tree_theorem(const std::vector<std::vector<int>>& graph,
                       const T eps = 1e-8) {
   const int n = graph.size();
-  if (n == 1) return 1;
+  if (n == 1) [[unlikely]] return 1;
   Matrix<int> laplacian(n, n, 0);
   for (int i = 0; i < n; ++i) {
     for (const int j : graph[i]) {

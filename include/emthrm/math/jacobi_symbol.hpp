@@ -18,9 +18,9 @@ namespace emthrm {
 
 int jacobi_symbol(long long a, long long p) {
   assert(p > 0 && p & 1);
-  if (p == 1) return 1;
+  if (p == 1) [[unlikely]] return 1;
   if ((a %= p) < 0) a += p;
-  if (a == 0) return 0;
+  if (a == 0) [[unlikely]] return 0;
   int res = 1;
   while (a > 0) {
     const int p2 = __builtin_ctzll(a);

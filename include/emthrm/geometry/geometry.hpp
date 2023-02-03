@@ -487,7 +487,7 @@ Polygon cut_convex(Polygon a, const Line& b) {
 
 std::tuple<Point, Point> rotating_calipers(Polygon a) {
   const int n = a.size();
-  if (n <= 2) {
+  if (n <= 2) [[unlikely]] {
     assert(n == 2);
     return {a[0], a[1]};
   }

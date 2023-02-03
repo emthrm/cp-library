@@ -29,7 +29,7 @@ struct SqrtDecomposition {
 
   template <typename T>
   void update(const int l, const int r, const T val) {
-    if (r <= l) return;
+    if (r <= l) [[unlikely]] return;
     const int b_l = l / block_size, b_r = (r - 1) / block_size;
     if (b_l < b_r) {
       if (l == ls[b_l]) {

@@ -20,7 +20,7 @@ struct FenwickTreeSupportingRangeAddQuery {
   }
 
   void add(int left, const int right, const Abelian val) {
-    if (right < ++left) return;
+    if (right < ++left) [[unlikely]] return;
     for (int i = left; i < n; i += i & -i) {
       data_const[i] -= val * (left - 1);
       data_linear[i] += val;

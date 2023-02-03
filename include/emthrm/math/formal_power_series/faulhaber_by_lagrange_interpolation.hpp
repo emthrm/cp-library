@@ -16,7 +16,7 @@ namespace emthrm {
 template <int T>
 MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k) {
   using ModInt = MInt<T>;
-  if (n < 1) return 0;
+  if (n < 1) [[unlikely]] return 0;
   std::vector<ModInt> y(k + 2, 0);
   for (int i = 1; i < k + 2; ++i) {
     y[i] = y[i - 1] + ModInt(i).pow(k);

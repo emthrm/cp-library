@@ -52,7 +52,7 @@ struct BiconnectedComponent : Lowlink {
   void dfs(const int par, const int ver) {
     id[ver] = -1;
     for (const int e : this->graph[ver]) {
-      if (e == par) continue;
+      if (e == par) [[unlikely]] continue;
       int src = ver, dst = e;
       if (src > dst) std::swap(src, dst);
       if (id[e] == -2 || this->order[e] < this->order[ver]) {
