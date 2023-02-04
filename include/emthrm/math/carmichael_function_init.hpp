@@ -23,7 +23,7 @@ std::vector<long long> carmichael_function_init(const long long low,
   }
   long long root = 1;
   while ((root + 1) * (root + 1) < high) ++root;
-  for (const int p : prime_sieve(root, true)) {
+  for (const int p : prime_sieve<true>(root)) {
     for (long long i = (low + p - 1) / p * p; i < high; i += p) {
       if (i == 0) continue;
       tmp[i - low] /= p;

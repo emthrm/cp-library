@@ -30,7 +30,7 @@ struct BinaryMatrix;
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <int N> int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
+|`template <bool IS_EXTENDED = false, int N> int gauss_jordan(BinaryMatrix<N>* a);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
 ### [連立一次方程式](../linear_equation.md)

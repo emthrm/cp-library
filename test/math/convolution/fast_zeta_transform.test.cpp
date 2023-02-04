@@ -27,7 +27,7 @@ int main() {
         std::sort(tmp, tmp + 4, std::greater<int>());
         return {tmp[0], tmp[1]};
       };
-  a = emthrm::fast_zeta_transform(a, false, {0, 0}, max);
+  a = emthrm::fast_zeta_transform<false>(a, {0, 0}, max);
   std::vector<int> ans(1 << n);
   for (int i = 0; i < (1 << n); ++i) {
     ans[i] = a[i].first + a[i].second;

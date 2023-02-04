@@ -7,24 +7,19 @@
 
 namespace emthrm {
 
-template <typename Ring>
+template <bool ADDS_SUPERSET, typename Ring>
 std::vector<Ring> fast_zeta_transform(
-    std::vector<Ring> a, const bool adds_superset, const Ring ID = 0,
+    std::vector<Ring> a, const Ring ID = 0,
     const std::function<Ring(const Ring&, const Ring&)> fn =
         [](const Ring& a, const Ring& b) -> Ring { return a + b; }) {
   const int n = std::bit_ceil(a.size());
   a.resize(n, ID);
-  if (adds_superset) {
-    for (int i = 1; i < n; i <<= 1) {
-      for (int s = 0; s < n; ++s) {
-        if (s & i) continue;
+  for (int i = 1; i < n; i <<= 1) {
+    for (int s = 0; s < n; ++s) {
+      if (s & i) continue;
+      if constexpr (ADDS_SUPERSET) {
         a[s] = fn(a[s], a[s | i]);
-      }
-    }
-  } else {
-    for (int i = 1; i < n; i <<= 1) {
-      for (int s = 0; s < n; ++s) {
-        if (s & i) continue;
+      } else {
         a[s | i] = fn(a[s | i], a[s]);
       }
     }

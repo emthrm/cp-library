@@ -6,22 +6,16 @@
 
 namespace emthrm {
 
-template <typename T>
-std::vector<T> fast_mobius_transform(std::vector<T> a,
-                                     const bool adds_superset, const T id = 0) {
+template <bool ADDS_SUPERSET, typename T>
+std::vector<T> fast_mobius_transform(std::vector<T> a, const T id = 0) {
   const int n = std::bit_ceil(a.size());
   a.resize(n, id);
-  if (adds_superset) {
-    for (int i = 1; i < n; i <<= 1) {
-      for (int s = 0; s < n; ++s) {
-        if (s & i) continue;
+  for (int i = 1; i < n; i <<= 1) {
+    for (int s = 0; s < n; ++s) {
+      if (s & i) continue;
+      if constexpr (ADDS_SUPERSET) {
         a[s] -= a[s | i];
-      }
-    }
-  } else {
-    for (int i = 1; i < n; i <<= 1) {
-      for (int s = 0; s < n; ++s) {
-        if (s & i) continue;
+      } else {
         a[s | i] -= a[s];
       }
     }

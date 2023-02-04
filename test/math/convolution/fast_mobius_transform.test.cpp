@@ -40,7 +40,7 @@ int main() {
     }
     g[i] = m / l;
   }
-  g = emthrm::fast_mobius_transform(g, false);
+  g = emthrm::fast_mobius_transform<false>(g);
   double ans = 0;
   for (int bit = 0; bit < (1 << n); ++bit) {
     double prob = 1;

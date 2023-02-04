@@ -144,7 +144,7 @@ struct Circle;
 |`Point centroid(Polygon a);`|多角形 $\mathrm{A}$ の重心||
 |`int contains(Polygon a, const Point &b);`|点 $\mathrm{B}$ は多角形 $\mathrm{A}$ の内部に存在するか。|`0` は外部、`1` は線上、`2` は内部を表す。|
 |`bool is_convex(Polygon a);`|多角形 $\mathrm{A}$ は凸性を満たすか。||
-|`Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true);`|点集合 $\mathrm{ps}$ の凸包|`is_tight` は凸包の辺上にある点を含まないかを表す。<br>座標幅 $w$ のとき、頂点数は $O(\sqrt{w})$ 個である。|
+|`template <bool IS_TIGHT = true> Polygon monotone_chain(std::vector<Point> ps);`|点集合 $\mathrm{ps}$ の凸包|`IS_TIGHT` は凸包の辺上にある点を含まないかを表す。<br>座標幅 $w$ のとき、頂点数は $O(\sqrt{w})$ 個である。|
 |`Polygon cut_convex(Polygon a, const Line& b);`|直線 $\mathrm{B}$ で凸多角形 $\mathrm{A}$ を切断したときの左側の凸多角形||
 |`std::tuple<Point, Point> rotating_calipers(Polygon a);`|凸多角形 $\mathrm{A}$ の直径||
 

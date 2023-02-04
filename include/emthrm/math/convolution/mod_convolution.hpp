@@ -15,23 +15,22 @@
 
 namespace emthrm {
 
-template <int T>
+template <int PRECISION = 15, int T>
 std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
-                                     const std::vector<MInt<T>>& b,
-                                     const int pre = 15) {
+                                     const std::vector<MInt<T>>& b) {
   using ModInt = MInt<T>;
   const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
   const int n = std::bit_ceil(static_cast<unsigned int>(c_size));
-  const int mask = (1 << pre) - 1;
+  constexpr int mask = (1 << PRECISION) - 1;
   std::vector<fast_fourier_transform::Complex> x(n), y(n);
   for (int i = 0; i < a_size; ++i) {
     const int a_i = a[i].v;
-    x[i] = fast_fourier_transform::Complex(a_i & mask, a_i >> pre);
+    x[i] = fast_fourier_transform::Complex(a_i & mask, a_i >> PRECISION);
   }
   fast_fourier_transform::dft(&x);
   for (int i = 0; i < b_size; ++i) {
     const int b_i = b[i].v;
-    y[i] = fast_fourier_transform::Complex(b_i & mask, b_i >> pre);
+    y[i] = fast_fourier_transform::Complex(b_i & mask, b_i >> PRECISION);
   }
   fast_fourier_transform::dft(&y);
   const int half = n >> 1;
@@ -73,7 +72,7 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
   fast_fourier_transform::idft(&x);
   fast_fourier_transform::idft(&y);
   std::vector<ModInt> res(c_size);
-  const ModInt tmp1 = 1 << pre, tmp2 = 1LL << (pre << 1);
+  const ModInt tmp1 = 1 << PRECISION, tmp2 = 1LL << (PRECISION << 1);
   for (int i = 0; i < c_size; ++i) {
     res[i] = tmp1 * std::llround(y[i].re) + tmp2 * std::llround(x[i].im)
              + std::llround(x[i].re);

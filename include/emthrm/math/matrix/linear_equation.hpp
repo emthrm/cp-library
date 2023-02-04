@@ -19,7 +19,7 @@ std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b,
     std::copy(a[i].begin(), a[i].end(), c[i].begin());
     c[i].back() = b[i];
   }
-  const int rank = gauss_jordan(&c, eps, true);
+  const int rank = gauss_jordan<true>(&c, eps);
   for (int row = rank; row < m; ++row) {
     if ((c[row].back() < 0 ? -c[row].back() : c[row].back()) > eps) {
       return std::vector<U>{};

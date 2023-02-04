@@ -24,7 +24,7 @@ std::vector<bool> linear_equation(const BinaryMatrix<N>& a,
     }
     c[i][n] = b[i];
   }
-  const int rank = gauss_jordan(&c, true);
+  const int rank = gauss_jordan<true>(&c);
   for (int row = rank; row < m; ++row) {
     if (c[row][n]) return std::vector<bool>{};
   }

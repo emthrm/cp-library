@@ -20,13 +20,13 @@ std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b,
   int n = std::max(a.size(), b.size());
   a.resize(n, id);
   b.resize(n, id);
-  a = fast_zeta_transform(a, true, id);
-  b = fast_zeta_transform(b, true, id);
+  a = fast_zeta_transform<true>(a, id);
+  b = fast_zeta_transform<true>(b, id);
   n = a.size();
   for (int i = 0; i < n; ++i) {
     a[i] *= b[i];
   }
-  return fast_mobius_transform(a, true);
+  return fast_mobius_transform<true>(a);
 }
 
 }  // namespace emthrm

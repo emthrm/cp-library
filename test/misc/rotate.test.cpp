@@ -19,7 +19,7 @@ int main() {
       std::cin >> c[i][j];
     }
   }
-  c = emthrm::rotate(c, 45);
+  c = emthrm::rotate<45>(c);
   h = c.size();
   w = c.front().size();
   int y_min = h, y_max = -1, x_min = w, x_max = -1;

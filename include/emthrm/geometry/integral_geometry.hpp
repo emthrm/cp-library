@@ -212,7 +212,8 @@ bool is_convex(Polygon a) {
   return true;
 }
 
-Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
+template <bool IS_TIGHT = true>
+Polygon monotone_chain(std::vector<Point> ps) {
   const int n = ps.size();
   std::sort(ps.begin(), ps.end());
   Polygon convex_hull(n << 1);
@@ -220,14 +221,14 @@ Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
   for (int i = 0; i < n; convex_hull[idx++] = ps[i++]) {
     while (idx >= 2 &&
            sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],
-                     ps[i] - convex_hull[idx - 1])) < is_tight) {
+                     ps[i] - convex_hull[idx - 1])) < IS_TIGHT) {
       --idx;
     }
   }
   for (int i = n - 2, border = idx + 1; i >= 0; convex_hull[idx++] = ps[i--]) {
     while (idx >= border &&
            sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],
-                     ps[i] - convex_hull[idx - 1])) < is_tight) {
+                     ps[i] - convex_hull[idx - 1])) < IS_TIGHT) {
       --idx;
     }
   }

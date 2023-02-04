@@ -6,7 +6,8 @@
 
 namespace emthrm {
 
-std::vector<int> prime_sieve(const int n, const bool get_only_prime) {
+template <bool GETS_ONLY_PRIME>
+std::vector<int> prime_sieve(const int n) {
   std::vector<int> smallest_prime_factor(n + 1), prime;
   std::iota(smallest_prime_factor.begin(), smallest_prime_factor.end(), 0);
   for (int i = 2; i <= n; ++i) {
@@ -16,7 +17,7 @@ std::vector<int> prime_sieve(const int n, const bool get_only_prime) {
       smallest_prime_factor[i * p] = p;
     }
   }
-  return get_only_prime ? prime : smallest_prime_factor;
+  return GETS_ONLY_PRIME ? prime : smallest_prime_factor;
 }
 
 }  // namespace emthrm

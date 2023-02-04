@@ -9,7 +9,7 @@
 namespace emthrm {
 
 std::vector<int> enumerate_kth_power(const int n, const int k, const int m) {
-  const std::vector<int> smallest_prime_factor = prime_sieve(n, false);
+  const std::vector<int> smallest_prime_factor = prime_sieve<false>(n);
   std::vector<int> res(n + 1, 0);
   for (int i = 1; i <= n; ++i) {
     if (smallest_prime_factor[i] == i) [[unlikely]] {
