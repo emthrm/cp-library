@@ -9,13 +9,13 @@
 
 namespace emthrm {
 
+template <bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponents : Lowlink {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, g;
 
-  TwoEdgeConnectedComponents(const std::vector<std::vector<int>>& graph,
-                             const bool is_full_ver = false)
-      : Lowlink(graph), is_full_ver(is_full_ver) {
+  TwoEdgeConnectedComponents(const std::vector<std::vector<int>>& graph)
+      : Lowlink(graph) {
     const int n = graph.size();
     id.assign(n, -1);
     int m = 0;
@@ -28,7 +28,7 @@ struct TwoEdgeConnectedComponents : Lowlink {
       g[u].emplace_back(v);
       g[v].emplace_back(u);
     }
-    // if (is_full_ver) {
+    // if constexpr (IS_FULL_VER) {
     //   for (int i = 0; i < m; ++i) {
     //     std::sort(vertices[i].begin(), vertices[i].end());
     //   }
@@ -36,16 +36,14 @@ struct TwoEdgeConnectedComponents : Lowlink {
   }
 
  private:
-  const bool is_full_ver;
-
   void dfs(const int par, const int ver, int* m) {
     if (par != -1 && this->order[par] >= this->lowlink[ver]) {
       id[ver] = id[par];
     } else {
       id[ver] = (*m)++;
-      if (is_full_ver) vertices.emplace_back();
+      if constexpr (IS_FULL_VER) vertices.emplace_back();
     }
-    if (is_full_ver) vertices[id[ver]].emplace_back(ver);
+    if constexpr (IS_FULL_VER) vertices[id[ver]].emplace_back(ver);
     for (const int e : this->graph[ver]) {
       if (id[e] == -1) dfs(ver, e, m);
     }

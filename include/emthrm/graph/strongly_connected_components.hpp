@@ -8,17 +8,15 @@
 
 namespace emthrm {
 
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct StronglyConnectedComponents {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices;
   std::vector<std::vector<Edge<CostType>>> g;
 
   explicit StronglyConnectedComponents(
-      const std::vector<std::vector<Edge<CostType>>>& graph,
-      const bool is_full_ver = false)
-      : is_full_ver(is_full_ver), n(graph.size()), is_used(n, false),
-        graph(graph), rgraph(n) {
+      const std::vector<std::vector<Edge<CostType>>>& graph)
+      : n(graph.size()), is_used(n, false), graph(graph), rgraph(n) {
     for (int i = 0; i < n; ++i) {
       if (!is_used[i]) dfs(i);
     }
@@ -32,7 +30,7 @@ struct StronglyConnectedComponents {
     int m = 0;
     for (int i = n - 1; i >= 0; --i) {
       if (id[order[i]] == -1) {
-        if (is_full_ver) vertices.emplace_back();
+        if constexpr (IS_FULL_VER) vertices.emplace_back();
         rdfs(order[i], m++);
       }
     }
@@ -42,7 +40,7 @@ struct StronglyConnectedComponents {
         if (id[i] != id[e.dst]) g[id[i]].emplace_back(id[i], id[e.dst], e.cost);
       }
     }
-    // if (is_full_ver) {
+    // if constexpr (IS_FULL_VER) {
     //   for (int i = 0; i < m; ++i) {
     //     std::sort(vertices[i].begin(), vertices[i].end());
     //   }
@@ -50,7 +48,6 @@ struct StronglyConnectedComponents {
   }
 
  private:
-  const bool is_full_ver;
   const int n;
   std::vector<bool> is_used;
   std::vector<int> order;
@@ -67,7 +64,7 @@ struct StronglyConnectedComponents {
 
   void rdfs(const int ver, const int m) {
     id[ver] = m;
-    if (is_full_ver) vertices.back().emplace_back(ver);
+    if constexpr (IS_FULL_VER) vertices.back().emplace_back(ver);
     for (const Edge<CostType>& e : rgraph[ver]) {
       if (id[e.dst] == -1) rdfs(e.dst, m);
     }

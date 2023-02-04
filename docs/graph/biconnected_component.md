@@ -32,11 +32,12 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 ## 仕様
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct BiconnectedComponent : Lowlink<CostType>;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -51,7 +52,7 @@ struct BiconnectedComponent : Lowlink<CostType>;
 
 |名前|効果|
 |:--|:--|
-|`explicit BiconnectedComponent(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit BiconnectedComponent(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

@@ -11,19 +11,18 @@
 
 namespace emthrm {
 
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct BiconnectedComponent : Lowlink<CostType> {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, cutpoint;
   std::vector<std::vector<Edge<CostType>>> block;
 
   explicit BiconnectedComponent(
-      const std::vector<std::vector<Edge<CostType>>>& graph,
-      const bool is_full_ver = false)
-      : Lowlink<CostType>(graph), is_full_ver(is_full_ver) {
+      const std::vector<std::vector<Edge<CostType>>>& graph)
+      : Lowlink<CostType>(graph) {
     const int n = graph.size();
     id.assign(n, -2);
-    if (is_full_ver) {
+    if constexpr (IS_FULL_VER) {
       cutpoint.resize(n);
       is_articulation_point.assign(n, false);
       for (const int articulation_point : this->articulation_points) {
@@ -37,7 +36,7 @@ struct BiconnectedComponent : Lowlink<CostType> {
     // for (int i = 0; i < m; ++i) {
     //   std::sort(block[i].begin(), block[i].end());
     // }
-    // if (is_full_ver) {
+    // if constexpr (IS_FULL_VER) {
     //   for (int i = 0; i < m; ++i) {
     //     std::sort(vertices[i].begin(), vertices[i].end());
     //   }
@@ -48,7 +47,6 @@ struct BiconnectedComponent : Lowlink<CostType> {
   }
 
  private:
-  const bool is_full_ver;
   std::vector<bool> is_articulation_point;
   std::vector<Edge<CostType>> tmp;
 
@@ -71,13 +69,13 @@ struct BiconnectedComponent : Lowlink<CostType> {
             const Edge<CostType> edge = tmp.back();
             tmp.pop_back();
             block.back().emplace_back(edge);
-            if (is_full_ver) {
+            if constexpr (IS_FULL_VER) {
               st.emplace(edge.src);
               st.emplace(edge.dst);
             }
             if (edge.src == src && edge.dst == dst) break;
           }
-          if (is_full_ver) {
+          if constexpr (IS_FULL_VER) {
             vertices.emplace_back();
             for (const int el : st) {
               vertices.back().emplace_back(el);

@@ -16,11 +16,12 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 ### Kosaraju's algorithm
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct StronglyConnectedComponents;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す型
 
 #### メンバ変数
 
@@ -34,7 +35,7 @@ struct StronglyConnectedComponents;
 
 |名前|効果|
 |:--|:--|
-|`explicit StronglyConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|有向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit StronglyConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph);`|有向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 備考

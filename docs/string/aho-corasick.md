@@ -14,11 +14,12 @@ documentation_of: include/emthrm/string/aho-corasick.hpp
 ## 仕様
 
 ```cpp
-template <int Sigma = 26>
+template <int Sigma = 26, bool IS_FULL_VER = false>
 struct AhoCorasick : Trie<Sigma + 1>;
 ```
 
 - `Sigma`：アルファベットサイズ
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -31,7 +32,7 @@ struct AhoCorasick : Trie<Sigma + 1>;
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
 ||[継承コンストラクタ](./trie.md)||
-|`void build(const bool is_full_ver_ = false);`|オートマトンを構築する。||
+|`void build();`|オートマトンを構築する。||
 |`int move(char c, int pos) const;`|$\mathrm{pos}$ 番目のノードから見たときに、文字 $c$ に対応するノードのインデックス||
 |`int match(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードをから見たときに、文字列 $T$ とマッチする回数||
 |`std::map<int, int> match_fully(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードから見たときに、文字列 $T$ とそれぞれの文字列がマッチする回数|完全版|

@@ -23,11 +23,12 @@
 ### lowlink 版
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponents : Lowlink<CostType>;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -41,17 +42,18 @@ struct TwoEdgeConnectedComponents : Lowlink<CostType>;
 
 |名前|効果|
 |:--|:--|
-|`explicit TwoEdgeConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit TwoEdgeConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ### いもす法版
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponentsByImos;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -66,7 +68,7 @@ struct TwoEdgeConnectedComponentsByImos;
 
 |名前|効果|
 |:--|:--|
-|`explicit TwoEdgeConnectedComponentsByImos(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit TwoEdgeConnectedComponentsByImos(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

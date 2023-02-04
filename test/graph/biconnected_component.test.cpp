@@ -26,7 +26,7 @@ int main() {
     graph[a].emplace_back(a, b);
     graph[b].emplace_back(b, a);
   }
-  emthrm::BiconnectedComponent<bool> biconnected_component(graph, true);
+  emthrm::BiconnectedComponent<bool, true> biconnected_component(graph);
   const int x = biconnected_component.articulation_points.size();
   const int y = biconnected_component.vertices.size();
   std::sort(biconnected_component.articulation_points.begin(),
