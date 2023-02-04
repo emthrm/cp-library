@@ -11,7 +11,7 @@ Library for competitive programming
 - The accuracy of this library is not guaranteed.
 - The author is not responsible for any damage arising from this library.
 - It is highly recommended to refer to the links.
-- This library requires C++11 and GCC built-in functions.
+- This library requires C++20.
 - See [here](https://github.com/emthrm/cp-library/issues/2) for my style.
 
 
