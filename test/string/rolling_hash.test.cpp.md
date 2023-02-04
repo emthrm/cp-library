@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/string/rolling_hash.test.cpp
   requiredBy: []
-  timestamp: '2023-02-02 03:45:06+09:00'
+  timestamp: '2023-02-04 14:26:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/rolling_hash.test.cpp

@@ -13,33 +13,8 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/rolling_hash.hpp\"\n\n\n\n#include\
     \ <cassert>\n#include <cstdint>\n#include <random>\n#include <vector>\n\nnamespace\
-    \ emthrm {\n\ntemplate <typename T = char>\nstruct RollingHash {\n  std::vector<T>\
-    \ str;\n\n  template <typename U>\n  explicit RollingHash(const U& str_, const\
-    \ std::int64_t base = generate_base())\n      : base(base), hashes({0}), powers({1})\
-    \ {\n    const int n = str_.size();\n    str.reserve(n);\n    hashes.reserve(n\
-    \ + 1);\n    powers.reserve(n + 1);\n    for (const auto ch : str_) add(ch);\n\
-    \  }\n\n  void add(const T ch) {\n    assert(0 <= ch && ch < MOD);\n    str.emplace_back(ch);\n\
-    \    const std::int64_t h = mul(hashes.back(), base) + ch;\n    hashes.emplace_back(h\
-    \ >= MOD ? h - MOD : h);\n    const std::int64_t p = mul(powers.back(), base);\n\
-    \    powers.emplace_back(p);\n  }\n\n  std::int64_t get(const int left, const\
-    \ int right) const {\n    const std::int64_t res =\n        hashes[right] - mul(hashes[left],\
-    \ powers[right - left]);\n    return res < 0 ? res + MOD : res;\n  }\n\n private:\n\
-    \  static constexpr int MOD_WIDTH = 61;\n  static constexpr std::int64_t MOD =\
-    \ (INT64_C(1) << MOD_WIDTH) - 1;\n\n  const std::int64_t base;\n  std::vector<std::int64_t>\
-    \ hashes, powers;\n\n  static std::int64_t generate_base() {\n    static std::mt19937_64\
-    \ engine(std::random_device {} ());\n    static std::uniform_int_distribution<std::int64_t>\
-    \ dist(0, MOD - 1);\n    return dist(engine);\n  }\n\n  static std::int64_t mul(const\
-    \ std::int64_t a, const std::int64_t b) {\n    const std::int64_t au = a >> 31,\
-    \ ad = a & ((UINT32_C(1) << 31) - 1);\n    const std::int32_t bu = b >> 31, bd\
-    \ = b & ((UINT32_C(1) << 31) - 1);\n    const std::int64_t mid = au * bd + ad\
-    \ * bu;\n    std::int64_t res = au * bu * 2 + ad * bd + (mid >> 30)\n        \
-    \               + ((mid & ((UINT32_C(1) << 30) - 1)) << 31);\n    res = (res >>\
-    \ MOD_WIDTH) + (res & MOD);\n    return res >= MOD ? res - MOD : res;\n  }\n};\n\
-    \n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_STRING_ROLLING_HASH_HPP_\n#define EMTHRM_STRING_ROLLING_HASH_HPP_\n\
-    \n#include <cassert>\n#include <cstdint>\n#include <random>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T = char>\nstruct RollingHash {\n \
-    \ std::vector<T> str;\n\n  template <typename U>\n  explicit RollingHash(const\
+    \ emthrm {\n\ntemplate <typename T = char>\nstruct RollingHash {\n  const std::int64_t\
+    \ base;\n  std::vector<T> str;\n\n  template <typename U>\n  explicit RollingHash(const\
     \ U& str_, const std::int64_t base = generate_base())\n      : base(base), hashes({0}),\
     \ powers({1}) {\n    const int n = str_.size();\n    str.reserve(n);\n    hashes.reserve(n\
     \ + 1);\n    powers.reserve(n + 1);\n    for (const auto ch : str_) add(ch);\n\
@@ -50,22 +25,48 @@ data:
     \ int right) const {\n    const std::int64_t res =\n        hashes[right] - mul(hashes[left],\
     \ powers[right - left]);\n    return res < 0 ? res + MOD : res;\n  }\n\n private:\n\
     \  static constexpr int MOD_WIDTH = 61;\n  static constexpr std::int64_t MOD =\
-    \ (INT64_C(1) << MOD_WIDTH) - 1;\n\n  const std::int64_t base;\n  std::vector<std::int64_t>\
-    \ hashes, powers;\n\n  static std::int64_t generate_base() {\n    static std::mt19937_64\
-    \ engine(std::random_device {} ());\n    static std::uniform_int_distribution<std::int64_t>\
-    \ dist(0, MOD - 1);\n    return dist(engine);\n  }\n\n  static std::int64_t mul(const\
-    \ std::int64_t a, const std::int64_t b) {\n    const std::int64_t au = a >> 31,\
-    \ ad = a & ((UINT32_C(1) << 31) - 1);\n    const std::int32_t bu = b >> 31, bd\
-    \ = b & ((UINT32_C(1) << 31) - 1);\n    const std::int64_t mid = au * bd + ad\
-    \ * bu;\n    std::int64_t res = au * bu * 2 + ad * bd + (mid >> 30)\n        \
-    \               + ((mid & ((UINT32_C(1) << 30) - 1)) << 31);\n    res = (res >>\
-    \ MOD_WIDTH) + (res & MOD);\n    return res >= MOD ? res - MOD : res;\n  }\n};\n\
-    \n}  // namespace emthrm\n\n#endif  // EMTHRM_STRING_ROLLING_HASH_HPP_\n"
+    \ (INT64_C(1) << MOD_WIDTH) - 1;\n\n  std::vector<std::int64_t> hashes, powers;\n\
+    \n  static std::int64_t generate_base() {\n    static std::mt19937_64 engine(std::random_device\
+    \ {} ());\n    static std::uniform_int_distribution<std::int64_t> dist(0, MOD\
+    \ - 1);\n    return dist(engine);\n  }\n\n  static std::int64_t mul(const std::int64_t\
+    \ a, const std::int64_t b) {\n    const std::int64_t au = a >> 31, ad = a & ((UINT32_C(1)\
+    \ << 31) - 1);\n    const std::int32_t bu = b >> 31, bd = b & ((UINT32_C(1) <<\
+    \ 31) - 1);\n    const std::int64_t mid = au * bd + ad * bu;\n    std::int64_t\
+    \ res = au * bu * 2 + ad * bd + (mid >> 30)\n                       + ((mid &\
+    \ ((UINT32_C(1) << 30) - 1)) << 31);\n    res = (res >> MOD_WIDTH) + (res & MOD);\n\
+    \    return res >= MOD ? res - MOD : res;\n  }\n};\n\n}  // namespace emthrm\n\
+    \n\n"
+  code: "#ifndef EMTHRM_STRING_ROLLING_HASH_HPP_\n#define EMTHRM_STRING_ROLLING_HASH_HPP_\n\
+    \n#include <cassert>\n#include <cstdint>\n#include <random>\n#include <vector>\n\
+    \nnamespace emthrm {\n\ntemplate <typename T = char>\nstruct RollingHash {\n \
+    \ const std::int64_t base;\n  std::vector<T> str;\n\n  template <typename U>\n\
+    \  explicit RollingHash(const U& str_, const std::int64_t base = generate_base())\n\
+    \      : base(base), hashes({0}), powers({1}) {\n    const int n = str_.size();\n\
+    \    str.reserve(n);\n    hashes.reserve(n + 1);\n    powers.reserve(n + 1);\n\
+    \    for (const auto ch : str_) add(ch);\n  }\n\n  void add(const T ch) {\n  \
+    \  assert(0 <= ch && ch < MOD);\n    str.emplace_back(ch);\n    const std::int64_t\
+    \ h = mul(hashes.back(), base) + ch;\n    hashes.emplace_back(h >= MOD ? h - MOD\
+    \ : h);\n    const std::int64_t p = mul(powers.back(), base);\n    powers.emplace_back(p);\n\
+    \  }\n\n  std::int64_t get(const int left, const int right) const {\n    const\
+    \ std::int64_t res =\n        hashes[right] - mul(hashes[left], powers[right -\
+    \ left]);\n    return res < 0 ? res + MOD : res;\n  }\n\n private:\n  static constexpr\
+    \ int MOD_WIDTH = 61;\n  static constexpr std::int64_t MOD = (INT64_C(1) << MOD_WIDTH)\
+    \ - 1;\n\n  std::vector<std::int64_t> hashes, powers;\n\n  static std::int64_t\
+    \ generate_base() {\n    static std::mt19937_64 engine(std::random_device {} ());\n\
+    \    static std::uniform_int_distribution<std::int64_t> dist(0, MOD - 1);\n  \
+    \  return dist(engine);\n  }\n\n  static std::int64_t mul(const std::int64_t a,\
+    \ const std::int64_t b) {\n    const std::int64_t au = a >> 31, ad = a & ((UINT32_C(1)\
+    \ << 31) - 1);\n    const std::int32_t bu = b >> 31, bd = b & ((UINT32_C(1) <<\
+    \ 31) - 1);\n    const std::int64_t mid = au * bd + ad * bu;\n    std::int64_t\
+    \ res = au * bu * 2 + ad * bd + (mid >> 30)\n                       + ((mid &\
+    \ ((UINT32_C(1) << 30) - 1)) << 31);\n    res = (res >> MOD_WIDTH) + (res & MOD);\n\
+    \    return res >= MOD ? res - MOD : res;\n  }\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_STRING_ROLLING_HASH_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/string/rolling_hash.hpp
   requiredBy: []
-  timestamp: '2023-02-01 21:06:01+09:00'
+  timestamp: '2023-02-04 14:26:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/rolling_hash.test.cpp

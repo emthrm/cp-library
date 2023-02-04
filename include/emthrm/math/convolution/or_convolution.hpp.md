@@ -42,7 +42,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/or_convolution.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-03 18:44:50+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/convolution/or_convolution.hpp

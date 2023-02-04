@@ -29,26 +29,25 @@ data:
   code: "/*\n * @brief \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30BC\u30FC\
     \u30BF\u5909\u63DB\n */\n#define PROBLEM \"https://atcoder.jp/contests/arc100/tasks/arc100_e\"\
     \n// #define PROBLEM \"https://atcoder.jp/contests/arc100/tasks/arc100_c\"\n\n\
-    #include <algorithm>\n#include <functional>\n#include <iostream>\n#include <utility>\n\
-    #include <vector>\n\n#include \"emthrm/math/convolution/fast_zeta_transform.hpp\"\
+    #include <algorithm>\n#include <array>\n#include <functional>\n#include <iostream>\n\
+    #include <utility>\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_zeta_transform.hpp\"\
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<std::pair<int, int>>\
     \ a(1 << n, {0, 0});\n  for (int i = 0; i < (1 << n); ++i) {\n    std::cin >>\
-    \ a[i].first;\n  }\n  const std::function<std::pair<int, int>(const std::pair<int,\
-    \ int>&,\n                                          const std::pair<int, int>&)>\
-    \ max =\n      [](const std::pair<int, int>& a, const std::pair<int, int>& b)\n\
-    \          -> std::pair<int, int> {\n        int tmp[]{a.first, a.second, b.first,\
-    \ b.second};\n        std::sort(tmp, tmp + 4, std::greater<int>());\n        return\
-    \ {tmp[0], tmp[1]};\n      };\n  a = emthrm::fast_zeta_transform(a, false, {0,\
-    \ 0}, max);\n  std::vector<int> ans(1 << n);\n  for (int i = 0; i < (1 << n);\
-    \ ++i) {\n    ans[i] = a[i].first + a[i].second;\n  }\n  for (int i = 1; i < (1\
-    \ << n); ++i) {\n    ans[i] = std::max(ans[i], ans[i - 1]);\n    std::cout <<\
-    \ ans[i] << '\\n';\n  }\n  return 0;\n}\n"
+    \ a[i].first;\n  }\n  a = emthrm::fast_zeta_transform(\n          a, false, std::make_pair(0,\
+    \ 0),\n          [](const std::pair<int, int>& a, const std::pair<int, int>& b)\n\
+    \              -> std::pair<int, int> {\n            std::array<int, 4> tmp{a.first,\
+    \ a.second, b.first, b.second};\n            std::sort(tmp.begin(), tmp.end(),\
+    \ std::greater<int>());\n            return {tmp[0], tmp[1]};\n          });\n\
+    \  std::vector<int> ans(1 << n);\n  for (int i = 0; i < (1 << n); ++i) {\n   \
+    \ ans[i] = a[i].first + a[i].second;\n  }\n  for (int i = 1; i < (1 << n); ++i)\
+    \ {\n    ans[i] = std::max(ans[i], ans[i - 1]);\n    std::cout << ans[i] << '\\\
+    n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/fast_zeta_transform.hpp
   isVerificationFile: true
   path: test/math/convolution/fast_zeta_transform.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-03 18:44:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/fast_zeta_transform.test.cpp
