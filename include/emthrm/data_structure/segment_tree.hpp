@@ -67,7 +67,7 @@ struct SegmentTree {
       }
       val = nxt;
       ++left;
-    } while (!std::has_single_bit(static_cast<int>(left)));
+    } while (!std::has_single_bit(static_cast<unsigned int>(left)));
     return n;
   }
 
@@ -92,7 +92,7 @@ struct SegmentTree {
         return right - p2;
       }
       val = nxt;
-    } while (!std::has_single_bit(static_cast<int>(right)));
+    } while (!std::has_single_bit(static_cast<unsigned int>(right)));
     return -1;
   }
 

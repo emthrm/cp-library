@@ -12,7 +12,8 @@ template <typename CostType>
 struct NoshiGraph {
   std::vector<std::vector<Edge<CostType>>> graph;
 
-  explicit NoshiGraph(const int n) : p2(std::bit_ceil(n)) {
+  explicit NoshiGraph(const int n)
+      : p2(std::bit_ceil(static_cast<unsigned int>(n))) {
     const int dbl = p2 << 1, hlf = p2 >> 1;
     graph.resize(dbl + p2);
     for (int i = 1; i < hlf; ++i) {

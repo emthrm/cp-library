@@ -23,7 +23,8 @@ struct LowestCommonAncestorByDoubling {
   explicit LowestCommonAncestorByDoubling(
       const std::vector<std::vector<Edge<CostType>>>& graph)
       : is_built(false), n(graph.size()),
-        table_h(std::countr_zero(std::bit_floor(a.size())) + 1), graph(graph) {
+        table_h(std::countr_zero(std::bit_floor(graph.size())) + 1),
+        graph(graph) {
     assert(n > 0);
     depth.resize(n);
     dist.resize(n);

@@ -15,7 +15,7 @@ namespace emthrm {
 template <typename T>
 std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b,
                                const T id = 0) {
-  const int n = std::bit_ceil(std::max(a.size(), b.size()))
+  const int n = std::bit_ceil(std::max(a.size(), b.size()));
   const auto fast_walsh_hadamard_transform = [n](std::vector<T>* v) -> void {
     for (int i = 1; i < n; i <<= 1) {
       for (int s = 0; s < n; ++s) {
