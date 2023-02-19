@@ -15,7 +15,7 @@ $O(\lvert V \rvert)$
 
 ```cpp
 template <typename CostType>
-struct EulerTour
+struct EulerTour;
 ```
 
 - `CostType`：辺のコストを表す型
