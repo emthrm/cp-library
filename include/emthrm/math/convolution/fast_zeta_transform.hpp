@@ -6,10 +6,10 @@
 
 namespace emthrm {
 
-template <typename Ring, typename Fn = decltype(std::plus<Ring>())>
+template <typename Ring, typename BinOp = std::plus<Ring>>
 std::vector<Ring> fast_zeta_transform(
     std::vector<Ring> a, const bool adds_superset,
-    const Ring ID = 0, const Fn fn = std::plus<Ring>()) {
+    const Ring ID = 0, const BinOp bin_op = BinOp()) {
   int n = a.size(), p = 1;
   while ((1 << p) < n) ++p;
   n = 1 << p;
@@ -18,14 +18,14 @@ std::vector<Ring> fast_zeta_transform(
     for (int i = 1; i < n; i <<= 1) {
       for (int s = 0; s < n; ++s) {
         if (s & i) continue;
-        a[s] = fn(a[s], a[s | i]);
+        a[s] = bin_op(a[s], a[s | i]);
       }
     }
   } else {
     for (int i = 1; i < n; i <<= 1) {
       for (int s = 0; s < n; ++s) {
         if (s & i) continue;
-        a[s | i] = fn(a[s | i], a[s]);
+        a[s | i] = bin_op(a[s | i], a[s]);
       }
     }
   }
