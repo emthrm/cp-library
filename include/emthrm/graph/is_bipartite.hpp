@@ -1,6 +1,7 @@
 #ifndef EMTHRM_GRAPH_IS_BIPARTITE_HPP_
 #define EMTHRM_GRAPH_IS_BIPARTITE_HPP_
 
+#include <ranges>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -15,9 +16,9 @@ std::vector<int> is_bipartite(
   const auto dfs = [&graph, &color](auto dfs, const int ver, const int c)
       -> bool {
     color[ver] = c;
-    for (const Edge<CostType>& e : graph[ver]) {
-      if (color[e.dst] == c
-          || (color[e.dst] == -1 && !dfs(dfs, e.dst, c ^ 1))) {
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (color[e] == c || (color[e] == -1 && !dfs(dfs, e, c ^ 1))) {
         return false;
       }
     }

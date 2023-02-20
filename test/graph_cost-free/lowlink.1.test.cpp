@@ -18,13 +18,7 @@ int main() {
     graph[t].emplace_back(s);
   }
   emthrm::Lowlink l(graph);
-  std::sort(
-      l.bridges.begin(), l.bridges.end(),
-      [](const std::pair<int, int>& a, const std::pair<int, int>& b) -> bool {
-        const auto [source_a, target_a] = a;
-        const auto [source_b, target_b] = b;
-        return source_a != source_b ? source_a < source_b : target_a < target_b;
-      });
+  std::sort(l.bridges.begin(), l.bridges.end());
   for (const auto& [source, target] : l.bridges) {
     std::cout << source << ' ' << target << '\n';
   }

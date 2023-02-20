@@ -19,16 +19,16 @@ int main() {
   }
   const emthrm::Divisor divisor(*std::max_element(a.begin(), a.end()));
   std::multiset<int> s(a.begin(), a.end());
-  int ans = 0;
-  for (int i = 0; i < n; ++i) {
-    s.erase(s.lower_bound(a[i]));
-    bool meets = true;
-    for (const int d : divisor.query(a[i])) {
-      meets &= s.find(d) == s.end();
-    }
-    ans += meets;
-    s.emplace(a[i]);
-  }
-  std::cout << ans << '\n';
+  std::cout << std::ranges::count_if(
+                   a,
+                   [&divisor, &s](const int a_i) -> bool {
+                     s.erase(s.lower_bound(a_i));
+                     const bool res = std::ranges::all_of(
+                         divisor.query(a_i),
+                         [&s](const int d) -> bool { return !s.contains(d); });
+                     s.emplace(a_i);
+                     return res;
+                   })
+            << '\n';
   return 0;
 }

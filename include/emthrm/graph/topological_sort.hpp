@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_TOPOLOGICAL_SORT_HPP_
 
 #include <queue>
+#include <ranges>
 #include <utility>
 #include <vector>
 
@@ -14,8 +15,10 @@ std::vector<int> topological_sort(
     const std::vector<std::vector<Edge<CostType>>>& graph) {
   const int n = graph.size();
   std::vector<int> deg(n, 0);
-  for (int i = 0; i < n; ++i) {
-    for (const Edge<CostType>& e : graph[i]) ++deg[e.dst];
+  for (const int e : graph
+                   | std::views::join
+                   | std::views::transform(&Edge<CostType>::dst)) {
+    ++deg[e];
   }
   std::queue<int> que;
   for (int i = 0; i < n; ++i) {
@@ -27,8 +30,9 @@ std::vector<int> topological_sort(
     const int ver = que.front();
     que.pop();
     res.emplace_back(ver);
-    for (const Edge<CostType>& e : graph[ver]) {
-      if (--deg[e.dst] == 0) que.emplace(e.dst);
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (--deg[e] == 0) que.emplace(e);
     }
   }
   return std::cmp_equal(res.size(), n) ? res : std::vector<int>{};

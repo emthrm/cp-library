@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_
 
 // #include <algorithm>
+#include <ranges>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -56,8 +57,9 @@ struct StronglyConnectedComponents {
 
   void dfs(const int ver) {
     is_used[ver] = true;
-    for (const Edge<CostType>& e : graph[ver]) {
-      if (!is_used[e.dst]) dfs(e.dst);
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (!is_used[e]) dfs(e);
     }
     order.emplace_back(ver);
   }
@@ -65,8 +67,9 @@ struct StronglyConnectedComponents {
   void rdfs(const int ver, const int m) {
     id[ver] = m;
     if constexpr (IS_FULL_VER) vertices.back().emplace_back(ver);
-    for (const Edge<CostType>& e : rgraph[ver]) {
-      if (id[e.dst] == -1) rdfs(e.dst, m);
+    for (const int e : rgraph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (id[e] == -1) rdfs(e, m);
     }
   }
 };

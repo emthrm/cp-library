@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <set>
 #include <queue>
+#include <ranges>
 #include <utility>
 #include <vector>
 
@@ -41,11 +42,12 @@ struct TwoEdgeConnectedComponentsByImos {
       while (!que.empty()) {
         const int ver = que.front();
         que.pop();
-        for (const Edge<CostType>& e : graph[ver]) {
-          if (id[e.dst] == -1 && !st.contains(std::minmax(ver, e.dst))) {
-            id[e.dst] = id[i];
-            if constexpr (IS_FULL_VER) vertices.back().emplace_back(e.dst);
-            que.emplace(e.dst);
+        for (const int e : graph[ver]
+                         | std::views::transform(&Edge<CostType>::dst)) {
+          if (id[e] == -1 && !st.contains(std::minmax(ver, e))) {
+            id[e] = id[i];
+            if constexpr (IS_FULL_VER) vertices.back().emplace_back(e);
+            que.emplace(e);
           }
         }
       }

@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_
 
 #include <bit>
+#include <ranges>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -13,7 +14,9 @@ int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph) {
   const int n = graph.size();
   std::vector<int> adj(n, 0);
   for (int i = 0; i < n; ++i) {
-    for (const Edge<CostType>& e : graph[i]) adj[i] |= 1 << e.dst;
+    for (const int e : graph[i] | std::views::transform(&Edge<CostType>::dst)) {
+      adj[i] |= 1 << e;
+    }
   }
   std::vector<int> indep(1 << n);
   indep[0] = 1;

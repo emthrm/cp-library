@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_COST_FREE_TOPOLOGICAL_SORT_HPP_
 
 #include <queue>
+#include <ranges>
 #include <utility>
 #include <vector>
 
@@ -10,9 +11,7 @@ namespace emthrm {
 std::vector<int> topological_sort(const std::vector<std::vector<int>>& graph) {
   const int n = graph.size();
   std::vector<int> deg(n, 0);
-  for (int i = 0; i < n; ++i) {
-    for (const int e : graph[i]) ++deg[e];
-  }
+  for (const int e : graph | std::views::join) ++deg[e];
   std::queue<int> que;
   for (int i = 0; i < n; ++i) {
     if (deg[i] == 0) que.emplace(i);

@@ -282,16 +282,16 @@ struct BigInt {
       for (int i = b_l; i + mid < b_r; ++i) {
         (*b)[i] += (*b)[i + mid];
       }
-      std::vector<long long> tmp =
-          karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
-      std::copy(tmp.begin(), tmp.end(), std::next(res.begin(), mid));
+      std::ranges::copy(karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n),
+                        std::next(res.begin(), mid));
       for (int i = a_l; i + mid < a_r; ++i) {
         (*a)[i] -= (*a)[i + mid];
       }
       for (int i = b_l; i + mid < b_r; ++i) {
         (*b)[i] -= (*b)[i + mid];
       }
-      tmp = karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
+      std::vector<long long> tmp =
+          karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
       for (int i = 0; std::cmp_less(i, tmp.size()); ++i) {
         res[i] += tmp[i];
         res[mid + i] -= tmp[i];

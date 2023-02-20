@@ -2,6 +2,7 @@
 #define EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_
 
 #include <cassert>
+#include <ranges>
 #include <tuple>
 #include <utility>
 #include <vector>
@@ -31,10 +32,11 @@ std::pair<CostType, std::vector<int>> double_sweep(
   const auto dfs2 = [&graph, t, &path](auto dfs2, const int par, const int ver)
       -> bool {
     if (ver == t) return true;
-    for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != par) [[likely]] {
-        path.emplace_back(e.dst);
-        if (dfs2(dfs2, ver, e.dst)) return true;
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (e != par) [[likely]] {
+        path.emplace_back(e);
+        if (dfs2(dfs2, ver, e)) return true;
         path.pop_back();
       }
     }

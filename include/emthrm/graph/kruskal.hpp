@@ -7,6 +7,7 @@
 #define EMTHRM_GRAPH_KRUSKAL_HPP_
 
 #include <algorithm>
+#include <ranges>
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
@@ -17,11 +18,9 @@ namespace emthrm {
 template <typename CostType>
 CostType kruskal(const std::vector<std::vector<Edge<CostType>>>& graph) {
   const int n = graph.size();
-  std::vector<Edge<CostType>> edges;
-  for (int i = 0; i < n; ++i) {
-    for (const Edge<CostType>& e : graph[i]) edges.emplace_back(e);
-  }
-  std::sort(edges.begin(), edges.end());
+  const auto jv = graph | std::views::join;
+  std::vector<Edge<CostType>> edges(jv.begin(), jv.end());
+  std::ranges::sort(edges);
   CostType res = 0;
   UnionFind uf(n);
   for (const Edge<CostType>& e : edges) {

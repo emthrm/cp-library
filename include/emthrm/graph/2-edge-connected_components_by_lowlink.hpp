@@ -7,6 +7,7 @@
 #define EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
 
 // #include <algorithm>
+#include <ranges>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -51,8 +52,9 @@ struct TwoEdgeConnectedComponents : Lowlink<CostType> {
       if constexpr (IS_FULL_VER) vertices.emplace_back();
     }
     if constexpr (IS_FULL_VER) vertices[id[ver]].emplace_back(ver);
-    for (const Edge<CostType>& e : this->graph[ver]) {
-      if (id[e.dst] == -1) dfs(ver, e.dst, m);
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (id[e] == -1) dfs(ver, e, m);
     }
   }
 };

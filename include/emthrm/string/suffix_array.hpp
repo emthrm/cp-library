@@ -17,10 +17,9 @@ struct SuffixArray {
     const int n = s.size();
     s.push_back(sentinel);
     sa.resize(n + 1);
-    std::iota(sa.begin(), sa.end(), 0);
-    std::sort(sa.begin(), sa.end(), [this](const int a, const int b) -> bool {
-      return s[a] == s[b] ? a > b : s[a] < s[b];
-    });
+    std::iota(sa.rbegin(), sa.rend(), 0);
+    std::ranges::stable_sort(
+        sa, {}, [this](const int index) -> int { return s[index]; });
     rank.resize(n + 1);
     for (int i = 0; i <= n; ++i) {
       rank[i] = s[i];

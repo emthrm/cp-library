@@ -7,6 +7,7 @@
 #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
 
 #include <algorithm>
+#include <ranges>
 #include <utility>
 #include <vector>
 
@@ -23,7 +24,9 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
   for (int i = 0; i < n; ++i) {
     edge_num += graph[i].size();
     deg[i] += graph[i].size();
-    for (const Edge<CostType>& e : graph[i]) --deg[e.dst];
+    for (const int e : graph[i] | std::views::transform(&Edge<CostType>::dst)) {
+      --deg[e];
+    }
   }
   if (edge_num == 0) [[unlikely]] return {};
   const int not0 = n - std::count(deg.begin(), deg.end(), 0);

@@ -1,6 +1,7 @@
 #ifndef EMTHRM_GRAPH_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_
 #define EMTHRM_GRAPH_CONNENCTED_COMPONENT_OF_COMPLEMENT_GRAPH_HPP_
 
+#include <ranges>
 #include <vector>
 
 #include "emthrm/data_structure/union-find/union-find.hpp"
@@ -15,7 +16,10 @@ UnionFind connencted_component_of_complement_graph(
   UnionFind union_find(n);
   const auto check = [&graph, n, &union_find](const int ver) -> void {
     std::vector<bool> is_adjacent(n, false);
-    for (const Edge<CostType>& e : graph[ver]) is_adjacent[e.dst] = true;
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      is_adjacent[e] = true;
+    }
     for (int i = 0; i < n; ++i) {
       if (!is_adjacent[i]) union_find.unite(ver, i);
     }
@@ -25,7 +29,10 @@ UnionFind connencted_component_of_complement_graph(
     if (graph[i].size() < graph[argmin_deg].size()) argmin_deg = i;
   }
   check(argmin_deg);
-  for (const Edge<CostType>& e : graph[argmin_deg]) check(e.dst);
+  for (const int e : graph[argmin_deg]
+                   | std::views::transform(&Edge<CostType>::dst)) {
+    check(e);
+  }
   return union_find;
 }
 
