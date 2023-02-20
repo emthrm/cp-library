@@ -57,7 +57,7 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
     return {};
   }
   std::vector<Edge<CostType>> res;
-  const auto dfs = [&graph, &res](auto dfs, const int ver) {
+  const auto dfs = [&graph, &res](auto dfs, const int ver) -> void {
     while (!graph[ver].empty()) {
       const Edge<CostType> e = graph[ver].back();
       graph[ver].pop_back();

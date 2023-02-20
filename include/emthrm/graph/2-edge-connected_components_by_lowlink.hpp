@@ -52,7 +52,7 @@ struct TwoEdgeConnectedComponents : Lowlink<CostType> {
       if constexpr (IS_FULL_VER) vertices.emplace_back();
     }
     if constexpr (IS_FULL_VER) vertices[id[ver]].emplace_back(ver);
-    for (const int e : graph[ver]
+    for (const int e : this->graph[ver]
                      | std::views::transform(&Edge<CostType>::dst)) {
       if (id[e] == -1) dfs(ver, e, m);
     }
