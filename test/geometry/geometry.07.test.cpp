@@ -5,6 +5,7 @@
 #define ERROR "1e-6"
 
 #include <algorithm>
+#include <cmath>
 #include <iomanip>
 #include <iostream>
 #include <limits>
@@ -57,7 +58,7 @@ int main() {
       if (j != i && l[i] <= l[j] && r[j] <= r[i]) is_used[j] = false;
     }
   }
-  std::vector<std::pair<double, double>> balls;
+  std::vector<emthrm::geometry::Point> balls;
   for (int i = 0; i < n; ++i) {
     if (is_used[i]) balls.emplace_back(l[i], r[i]);
   }
@@ -71,7 +72,7 @@ int main() {
       std::vector<std::vector<double>>(k + 1,
           std::vector<double>(2, std::numeric_limits<double>::lowest())));
   dp[0][0][false] = 0;
-  dp[0][1][true] = balls[0].second - balls[0].first;
+  dp[0][1][true] = balls[0].y - balls[0].x;
   for (int i = 1; i < n; ++i) {
 #if __cplusplus >= 201703L
     const auto [left, right] = balls[i];
@@ -80,14 +81,14 @@ int main() {
     std::tie(left, right) = balls[i];
 #endif  // __cplusplus >= 201703L
     int x = i - 1;
-    while (x >= 0 && balls[i].first <= balls[x].second) --x;
+    while (x >= 0 && balls[i].x <= balls[x].y) --x;
     ++x;
     if (x > i - 1) x = i - 1;
     for (int j = 0; j <= k; ++j) {
       if (j + 1 <= k) {
         dp[i][j + 1][true] =
             std::max(dp[i][j + 1][true],
-                     dp[x][j][true] + right - std::max(balls[x].second, left));
+                     dp[x][j][true] + right - std::max(balls[x].y, left));
         dp[i][j + 1][true] =
             std::max(dp[i][j + 1][true], dp[x][j][false] + right - left);
       }
