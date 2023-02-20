@@ -1,6 +1,7 @@
 #ifndef EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_
 #define EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_
 
+#include <numeric>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -33,12 +34,10 @@ int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph) {
       f[i] = ((n - __builtin_popcount(i)) & 1 ? mod - 1 : 1);
     }
     for (int c = 1; c < res; ++c) {
-      long long pat = 0;
       for (int i = 0; i < (1 << n); ++i) {
         f[i] = (f[i] * indep[i]) % mod;
-        pat += f[i];
       }
-      if (pat % mod > 0) {
+      if (std::accumulate(f.begin(), f.end(), 0LL) % mod > 0) {
         res = c;
         break;
       }

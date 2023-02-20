@@ -6,10 +6,10 @@
 #ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 #define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 
+#include <algorithm>
 #if __cplusplus >= 201703L
 # include <numeric>
 #else
-# include <algorithm>
 # include <utility>
 #endif  // __cplusplus >= 201703L
 #include <map>
@@ -45,10 +45,10 @@ bool is_primitive_root(long long root, const int m) {
 #endif  // __cplusplus >= 201703L
     primes[phi_m] = tmp;
   }
-  for (const int p : primes[phi_m]) {
-    if (mod_pow(root, phi_m / p, m) == 1) return false;
-  }
-  return true;
+  return std::none_of(primes[phi_m].begin(), primes[phi_m].end(),
+                      [root, phi_m, m](const int p) -> bool {
+                        return mod_pow(root, phi_m / p, m) == 1;
+                      });
 }
 
 }  // namespace emthrm

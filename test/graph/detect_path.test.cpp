@@ -4,8 +4,8 @@
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/past202112-open/tasks/past202112_g"
 
+#include <algorithm>
 #include <iostream>
-#include <iterator>
 #include <vector>
 
 #include "emthrm/graph/detect_path.hpp"
@@ -20,23 +20,14 @@ int main() {
     std::cin >> type >> u >> v;
     --u; --v;
     if (type == 1) {
-      bool is_adjacent = false;
-      for (auto it = graph[u].begin(); it != graph[u].end();
-           it = std::next(it)) {
-        if (it->dst == v) {
-          graph[u].erase(it);
-          is_adjacent = true;
-          break;
-        }
-      }
-      if (is_adjacent) {
-        for (auto it = graph[v].begin(); it != graph[v].end();
-             it = std::next(it)) {
-          if (it->dst == u) {
-            graph[v].erase(it);
-            break;
-          }
-        }
+      const auto adj = std::find_if(
+          graph[u].begin(), graph[u].end(),
+          [v](const emthrm::Edge<bool>& e) -> bool { return e.dst == v; });
+      if (adj != graph[u].end()) {
+        graph[u].erase(adj);
+        graph[v].erase(std::find_if(
+            graph[v].begin(), graph[v].end(),
+            [u](const emthrm::Edge<bool>& e) -> bool { return e.dst == u; }));
       } else {
         graph[u].emplace_back(u, v);
         graph[v].emplace_back(v, u);

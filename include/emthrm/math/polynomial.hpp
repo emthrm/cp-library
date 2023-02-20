@@ -5,6 +5,7 @@
 #include <cassert>
 #include <functional>
 #include <initializer_list>
+#include <numeric>
 #include <utility>
 #include <vector>
 
@@ -131,11 +132,9 @@ struct Polynomial {
   Polynomial operator<<(const int n) const { return Polynomial(*this) <<= n; }
 
   T horner(const T x) const {
-    T res = 0;
-    for (int i = degree(); i >= 0; --i) {
-      res = res * x + coef[i];
-    }
-    return res;
+    return std::accumulate(
+        coef.rbegin(), coef.rend(), static_cast<T>(0),
+        [x](const T l, const T r) -> T { return l * x + r; });
   }
 
   Polynomial differential() const {

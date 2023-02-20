@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iterator>
+#include <numeric>
 #include <vector>
 
 namespace emthrm {
@@ -31,9 +32,8 @@ struct CumulativeSum2D {
     assert(!is_built);
     is_built = true;
     for (int i = 0; i < h; ++i) {
-      for (int j = 0; j < w; ++j) {
-        data[i + 1][j + 1] += data[i + 1][j];
-      }
+      std::partial_sum(data[i + 1].begin(), data[i + 1].end(),
+                       data[i + 1].begin());
     }
     for (int j = 1; j <= w; ++j) {
       for (int i = 1; i < h; ++i) {

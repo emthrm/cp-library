@@ -7,6 +7,7 @@
 #define EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_
 
 #include <cassert>
+#include <numeric>
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
@@ -22,9 +23,7 @@ MInt<T> bell_number(const int n, int k) {
   for (int i = 0; i <= k; ++i) {
     tmp[i] = (i & 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i));
   }
-  for (int i = 0; i < k; ++i) {
-    tmp[i + 1] += tmp[i];
-  }
+  std::partial_sum(tmp.begin(), tmp.end(), tmp.begin());
   ModInt bell = 0;
   for (int i = 0; i <= k; ++i) {
     bell += ModInt(i).pow(n) * ModInt::fact_inv(i) * tmp[k - i];

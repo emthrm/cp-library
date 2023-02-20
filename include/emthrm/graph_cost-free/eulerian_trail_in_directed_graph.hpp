@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <functional>
+#include <iterator>
 #include <vector>
 
 namespace emthrm {
@@ -20,12 +21,12 @@ std::vector<int> eulerian_trail_in_directed_graph(
   const int not0 = n - std::count(deg.begin(), deg.end(), 0);
   if (not0 == 0) {
     if (s == -1) {
-      for (int i = 0; i < n; ++i) {
-        if (!graph[i].empty()) {
-          s = i;
-          break;
-        }
-      }
+      s = std::distance(
+          graph.begin(),
+          std::find_if_not(graph.begin(), graph.end(),
+                           [](const std::vector<int>& edges) -> bool {
+                             return edges.empty();
+                           }));
     }
   } else if (not0 == 2) {
     bool t_exists = false;

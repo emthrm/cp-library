@@ -105,9 +105,8 @@ void idft(std::vector<Complex>* a) {
   dft(a);
   std::reverse(std::next(a->begin()), a->end());
   const Real r = 1. / n;
-  for (int i = 0; i < n; ++i) {
-    (*a)[i] = (*a)[i].mul_real(r);
-  }
+  std::transform(a->begin(), a->end(), a->begin(),
+                 [r](const Complex& c) -> Complex { return c.mul_real(r); });
 }
 
 template <typename T>
