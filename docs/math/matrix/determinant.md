@@ -13,7 +13,7 @@ $O(N^3)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T, typename U> U det(const Matrix<T>& a, const U eps);`|$\lvert A \rvert$|
+|`template <typename T, typename U>`<br>`U det(const Matrix<T>& a, const U eps);`|$\lvert A \rvert$|
 
 
 ## 参考文献

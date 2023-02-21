@@ -8,8 +8,8 @@ documentation_of: include/emthrm/math/division.hpp
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T, typename U> std::common_type_t<T, U> floor_div(const T a, const U b);`|$\left\lfloor \frac{A}{B} \right\rfloor$|
-|`template <typename T, typename U> std::common_type_t<T, U> ceil_div(const T a, const U b);`|$\left\lceil \frac{A}{B} \right\rceil$|
+|`template <typename T, typename U>`<br>`std::common_type_t<T, U> floor_div(const T a, const U b);`|$\left\lfloor \frac{A}{B} \right\rfloor$|
+|`template <typename T, typename U>`<br>`std::common_type_t<T, U> ceil_div(const T a, const U b);`|$\left\lceil \frac{A}{B} \right\rceil$|
 
 
 ## 参考文献

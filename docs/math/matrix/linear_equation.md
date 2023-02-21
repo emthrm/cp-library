@@ -13,7 +13,7 @@ $O(M^2 N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T, typename U = double> std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b, const U eps = 1e-8);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
+|`template <typename T, typename U = double>`<br>`std::vector<U> linear_equation(const Matrix<T>& a, const std::vector<T>& b, const U eps = 1e-8);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
 
 
 ## TODO

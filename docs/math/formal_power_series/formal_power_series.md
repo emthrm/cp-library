@@ -93,7 +93,7 @@ struct FormalPowerSeries;
 |`explicit FormalPowerSeries(const int deg = 0);`|$\mathrm{deg}$ 次まで係数列をもつオブジェクトを構築する。||
 |`explicit FormalPowerSeries(const std::vector<T>& coef);`|係数列を $\mathrm{coef}$ とするオブジェクトを構築する。||
 |`FormalPowerSeries(const std::initializer_list<T> init);`|初期化子リストを受け取るコンストラクタ||
-|`template <typename InputIter> explicit FormalPowerSeries(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ||
+|`template <typename InputIter>`<br>`explicit FormalPowerSeries(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ||
 |`inline const T& operator[](const int term) const;`<br>`inline T& operator[](const int term);`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`void resize(const int deg);`|$\mathrm{deg}$ 次まで係数列をもつ。||
 |`void shrink();`|正規化を行う。||

@@ -66,7 +66,7 @@ $O(N^2)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> knuth_yao_speedup(const std::vector<std::vector<T>>& w, const T inf);`|二変数関数 $w$ に対して上で定義した $f$|
+|`template <typename T>`<br>`std::vector<std::vector<T>> knuth_yao_speedup(const std::vector<std::vector<T>>& w, const T inf);`|二変数関数 $w$ に対して上で定義した $f$|
 
 
 ## 参考文献

@@ -32,7 +32,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename CostType> std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(std::vector<std::vector<Edge<CostType>>> graph, int s = -1);`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路。ただし存在しないときは空配列を返す。|
+|`template <typename CostType>`<br>`std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(std::vector<std::vector<Edge<CostType>>> graph, int s = -1);`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路。ただし存在しないときは空配列を返す。|
 
 
 ### オイラー路 無向グラフ版

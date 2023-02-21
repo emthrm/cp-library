@@ -15,7 +15,7 @@ $O(N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> bool misere_nim(const std::vector<T>& a);`|盤面が $A$ のときの misère Nim で先手が勝利するか。|
+|`template <typename T>`<br>`bool misere_nim(const std::vector<T>& a);`|盤面が $A$ のときの misère Nim で先手が勝利するか。|
 
 
 ## 参考文献

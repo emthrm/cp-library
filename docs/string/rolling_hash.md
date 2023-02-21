@@ -28,7 +28,7 @@ struct RollingHash;
 
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`template <typename U> explicit RollingHash(const U& str_, const std::int64_t base = generate_base());`|$S$ に対してオブジェクトを構築する。||
+|`template <typename U>`<br>`explicit RollingHash(const U& str_, const std::int64_t base = generate_base());`|$S$ に対してオブジェクトを構築する。||
 |`void add(const T ch);`|$S$ の末尾に $\mathrm{ch}$ を追加する。|$0 \leq \mathrm{ch} < 2^{61} - 1$|
 |`std::int64_t get(const int left, const int right) const;`|`S[left:right]` におけるハッシュ値||
 

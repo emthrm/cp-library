@@ -13,7 +13,7 @@ $O(\sqrt{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::pair<T, int>> prime_factorization(T n);`|$n$ の素因数分解|
+|`template <typename T>`<br>`std::vector<std::pair<T, int>> prime_factorization(T n);`|$n$ の素因数分解|
 
 
 ## 参考文献
