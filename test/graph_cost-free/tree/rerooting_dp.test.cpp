@@ -1,5 +1,6 @@
 #define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_v"
 
+#include <functional>
 #include <iostream>
 #include <vector>
 
@@ -22,8 +23,7 @@ int main() {
   }
   for (const ModInt ans
        : emthrm::rerooting_dp(
-             graph, std::vector<ModInt>(n, 1),
-             [](const ModInt& x, const ModInt& y) -> ModInt { return x * y; },
+             graph, std::vector<ModInt>(n, 1), std::multiplies<ModInt>(),
              [](const ModInt& x, const int, const int) -> ModInt {
                return x + 1;
              },

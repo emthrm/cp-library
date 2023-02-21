@@ -487,6 +487,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - https://scrapbox.io/data-structures/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%81%A8%E3%81%AF
 - https://twitter.com/hamamu_kyopro/status/1615009114484248577
 - https://twitter.com/noimi_kyopro/status/1619940049348616192
+- https://twitter.com/noshi91/status/1425120446169501697
 - http://yosupo.hatenablog.com/entry/2014/12/09/222401
 - https://github.com/ei1333/library/tree/master/structure/bbst
 - https://github.com/beet-aizu/library/tree/master/bbst

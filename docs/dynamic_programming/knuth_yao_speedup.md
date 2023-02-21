@@ -141,6 +141,7 @@ Monge property
 - LARSCH algorithm
   - https://noshi91.github.io/algorithm-encyclopedia/larsch-algorithm
   - https://noshi91.github.io/Library/algorithm/larsch.cpp.html
+  - https://noshi91.hatenablog.com/entry/2023/02/18/005856
   - https://atcoder.jp/contests/dp/tasks/dp_z
   - https://twitter.com/lorent_kyopro/status/1379104326958772226
   - https://atcoder.jp/contests/abc228/tasks/abc228_h
