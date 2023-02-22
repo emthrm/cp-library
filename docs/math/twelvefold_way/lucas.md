@@ -21,7 +21,7 @@ $O(P + \log_P{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int P> MInt<P> lucas(int n, int k);`|$\binom{n}{k} \bmod{p}$|
+|`template <int P>`<br>`MInt<P> lucas(int n, int k);`|$\binom{n}{k} \bmod{p}$|
 
 
 ## 参考文献

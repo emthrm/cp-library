@@ -1,10 +1,10 @@
 /**
  * @brief オイラーの $\varphi$ 関数の数表2
- * @docs docs/math/euler_phi/euler_phi.md
+ * @docs docs/math/euler_phi.md
  */
 
-#ifndef EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT2_HPP_
-#define EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT2_HPP_
+#ifndef EMTHRM_MATH_EULER_PHI_INIT2_HPP_
+#define EMTHRM_MATH_EULER_PHI_INIT2_HPP_
 
 #include <numeric>
 #include <vector>
@@ -34,4 +34,4 @@ std::vector<long long> euler_phi_init2(const long long low,
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_MATH_EULER_PHI_EULER_PHI_INIT2_HPP_
+#endif  // EMTHRM_MATH_EULER_PHI_INIT2_HPP_

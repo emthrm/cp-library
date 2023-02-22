@@ -17,7 +17,7 @@ $O(N\log{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> long long inversion_number(const std::vector<T>& a);`|$A$ の転倒数|
+|`template <typename T>`<br>`long long inversion_number(const std::vector<T>& a);`|$A$ の転倒数|
 
 
 ## 参考文献

@@ -43,7 +43,7 @@ $O(N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> montmort_number(const int n);`|モンモール数 $!i$ ($1 \leq i \leq n$) の数表|
+|`template <typename T>`<br>`std::vector<T> montmort_number(const int n);`|モンモール数 $!i$ ($1 \leq i \leq n$) の数表|
 
 
 ## 参考文献

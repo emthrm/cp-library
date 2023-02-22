@@ -6,6 +6,7 @@
 #include <functional>
 #include <initializer_list>
 #include <iterator>
+#include <numeric>
 #include <vector>
 
 namespace emthrm {
@@ -140,11 +141,9 @@ struct FormalPowerSeries {
   }
 
   T horner(const T x) const {
-    T res = 0;
-    for (int i = degree(); i >= 0; --i) {
-      res = res * x + coef[i];
-    }
-    return res;
+    return std::accumulate(
+        coef.rbegin(), coef.rend(), static_cast<T>(0),
+        [x](const T l, const T r) -> T { return l * x + r; });
   }
 
   FormalPowerSeries differential() const {

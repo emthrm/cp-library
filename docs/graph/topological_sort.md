@@ -20,7 +20,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename CostType> std::vector<int> topological_sort(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ のトポロジカル順序。ただし存在しないときは空配列を返す。|
+|`template <typename CostType>`<br>`std::vector<int> topological_sort(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ のトポロジカル順序。ただし存在しないときは空配列を返す。|
 
 
 ## 参考文献

@@ -6,6 +6,7 @@
 #ifndef EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
 #define EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
 
+#include <algorithm>
 #include <bit>
 #include <cmath>
 #include <vector>
@@ -23,15 +24,19 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
   const int n = std::bit_ceil(static_cast<unsigned int>(c_size));
   constexpr int mask = (1 << PRECISION) - 1;
   std::vector<fast_fourier_transform::Complex> x(n), y(n);
-  for (int i = 0; i < a_size; ++i) {
-    const int a_i = a[i].v;
-    x[i] = fast_fourier_transform::Complex(a_i & mask, a_i >> PRECISION);
-  }
+  std::transform(
+        a.begin(), a.end(), x.begin(),
+        [mask, pre](const MInt<T>& a_i) -> fast_fourier_transform::Complex {
+          return fast_fourier_transform::Complex(a_i.v & mask,
+                                                 a_i.v >> PRECISION);
+        });
   fast_fourier_transform::dft(&x);
-  for (int i = 0; i < b_size; ++i) {
-    const int b_i = b[i].v;
-    y[i] = fast_fourier_transform::Complex(b_i & mask, b_i >> PRECISION);
-  }
+  std::transform(
+        b.begin(), b.end(), y.begin(),
+        [mask, pre](const MInt<T>& b_i) -> fast_fourier_transform::Complex {
+          return fast_fourier_transform::Complex(b_i.v & mask,
+                                                 b_i.v >> PRECISION);
+        });
   fast_fourier_transform::dft(&y);
   const int half = n >> 1;
   fast_fourier_transform::Complex tmp_a = x.front(), tmp_b = y.front();

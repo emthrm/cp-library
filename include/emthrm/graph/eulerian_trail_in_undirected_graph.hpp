@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <cassert>
+#include <iterator>
 #include <utility>
 #include <vector>
 
@@ -41,12 +42,12 @@ struct EulerianTrailInUndirectedGraph {
     }
     if (odd_deg == 0) {
       if (s == -1) {
-        for (int i = 0; i < n; ++i) {
-          if (!graph[i].empty()) {
-            s = i;
-            break;
-          }
-        }
+        s = std::distance(
+            graph.begin(),
+            std::find_if_not(graph.begin(), graph.end(),
+                             [](const std::vector<Edge>& edges) -> bool {
+                               return edges.empty();
+                             }));
       }
     } else if (odd_deg != 2) {
       return false;

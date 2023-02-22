@@ -14,18 +14,18 @@ $\langle O(N\log{N}), O(1) \rangle$
 ## 仕様
 
 ```cpp
-template <typename Semigroup, typename Fn>
+template <typename Semigroup, typename BinOp>
 struct DisjointSparseTable;
 ```
 
 - `Semigroup`：半群である要素型
-- `Fn`：二項演算を表す型
+- `BinOp`：二項演算を表す型
 
 #### メンバ関数
 
 |名前|効果・戻り値|
 |:--|:--|
-|`explicit DisjointSparseTable(const std::vector<Semigroup>& a, const Fn fn);`|$A$ に対して二項演算 $\mathrm{fn}$ のオブジェクトを構築する。|
+|`explicit DisjointSparseTable(const std::vector<Semigroup>& a, const BinOp bin_op = BinOp());`|$A$ に対して二項演算 $\mathrm{binOp}$ のオブジェクトを構築する。|
 |`Semigroup query(const int left, int right) const;`|$\lbrack \mathrm{left}, \mathrm{right})$ における演算を行った解|
 
 

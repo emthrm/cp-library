@@ -43,12 +43,8 @@ jobs:
                 cpplint --root=./include --filter=-legal/copyright,-whitespace/line_length $file ;;
               "include/emthrm/math/bigint.hpp" | "include/emthrm/math/modint.hpp" | "include/emthrm/math/rational.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int $file ;;
-              "include/emthrm/util/template.hpp" )
-                ;;  # skip
               "include/emthrm/util/timer.hpp" )
                 cpplint --root=./include --filter=-build/c++11,-legal/copyright,-runtime/int $file ;;
-              "include/emthrm/util/xorshift.hpp" )
-                cpplint --root=./include --filter=-legal/copyright,-runtime/int,-runtime/threadsafe_fn $file ;;
               *.test.cpp )
                 cpplint --filter=-legal/copyright,-runtime/int,-whitespace/line_length $file ;;
               * )

@@ -3,6 +3,7 @@
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667"
 
+#include <functional>
 #include <iostream>
 #include <vector>
 
@@ -23,19 +24,19 @@ int main() {
   emthrm::HeavyLightDecomposition<long long>
       heavy_light_decomposition(graph, 0);
   emthrm::FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);
-  const auto f = [&bit](const int l, const int r) -> long long {
-    return bit.sum(l, r);
-  };
-  const auto g = [](const long long a, const long long b) -> long long {
-    return a + b;
-  };
   while (q--) {
     int type;
     std::cin >> type;
     if (type == 0) {
       int u, v;
       std::cin >> u >> v;
-      std::cout << heavy_light_decomposition.query_e(u, v, f, g, 0LL) << '\n';
+      std::cout << heavy_light_decomposition.query_e(
+                       u, v,
+                       [&bit](const int l, const int r) -> long long {
+                         return bit.sum(l, r);
+                       },
+                       std::plus<long long>(), 0LL)
+                << '\n';
     } else if (type == 1) {
       int v, x;
       std::cin >> v >> x;

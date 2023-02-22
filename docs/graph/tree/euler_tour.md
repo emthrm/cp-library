@@ -15,7 +15,7 @@ $O(\lvert V \rvert)$
 
 ```cpp
 template <typename CostType>
-struct EulerTour
+struct EulerTour;
 ```
 
 - `CostType`：辺のコストを表す型
@@ -37,11 +37,11 @@ struct EulerTour
 |名前|効果・戻り値|
 |:--|:--|
 |`explicit EulerTour(const std::vector<std::vector<Edge<CostType>>> &graph, const int root = 0);`|根を $\mathrm{root}$ とする木 $\mathrm{graph}$ に対してオブジェクトを構築する。|
-|`template <typename Fn> void update_v(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の頂点に対して $f$ を基に更新する。|
-|`template <typename T, typename Fn> T query_v(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の頂点に対する $f$ を基にしたクエリの解|
-|`template <typename T, typename Fn> T query_e(const int u, const int v, const Fn f) const;`|頂点 $u$ から $v$ へ下る辺に対する $f$ を基にしたクエリの解|
-|`template <typename Fn> void update_subtree_e(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の辺に対して $f$ を基に更新する。|
-|`template <typename T, typename Fn> T query_subtree_e(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の辺に対する $f$ を基にしたクエリの解|
+|`template <typename Fn>`<br>`void update_v(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の頂点に対して $f$ を基に更新する。|
+|`template <typename T, typename Fn>`<br>`T query_v(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の頂点に対する $f$ を基にしたクエリの解|
+|`template <typename T, typename Fn>`<br>`T query_e(const int u, const int v, const Fn f) const;`|頂点 $u$ から $v$ へ下る辺に対する $f$ を基にしたクエリの解|
+|`template <typename Fn>`<br>`void update_subtree_e(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の辺に対して $f$ を基に更新する。|
+|`template <typename T, typename Fn>`<br>`T query_subtree_e(const int ver, const Fn f) const;`|頂点 $\mathrm{ver}$ の部分木の辺に対する $f$ を基にしたクエリの解|
 
 
 ## 参考文献

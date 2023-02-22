@@ -7,20 +7,18 @@
 
 namespace emthrm {
 
-template <bool ADDS_SUPERSET, typename Ring>
+template <bool ADDS_SUPERSET, typename Ring, typename BinOp = std::plus<Ring>>
 std::vector<Ring> fast_zeta_transform(
-    std::vector<Ring> a, const Ring ID = 0,
-    const std::function<Ring(const Ring&, const Ring&)> fn =
-        [](const Ring& a, const Ring& b) -> Ring { return a + b; }) {
+    std::vector<Ring> a, const Ring ID = 0, const BinOp bin_op = BinOp()) {
   const int n = std::bit_ceil(a.size());
   a.resize(n, ID);
   for (int i = 1; i < n; i <<= 1) {
     for (int s = 0; s < n; ++s) {
       if (s & i) continue;
       if constexpr (ADDS_SUPERSET) {
-        a[s] = fn(a[s], a[s | i]);
+        a[s] = bin_op(a[s], a[s | i]);
       } else {
-        a[s | i] = fn(a[s | i], a[s]);
+        a[s | i] = bin_op(a[s | i], a[s]);
       }
     }
   }

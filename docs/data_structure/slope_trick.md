@@ -42,10 +42,10 @@ struct SegmentTree;
 
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
-|`explicit SlopeTrick(const T min_f = 0, const T inf = std::numeric_limits<T>::max());`|$f(x) = \mathrm{min\_f}$ を管理する。||
+|`explicit SlopeTrick(const T min_f = 0, const T inf = std::numeric_limits<T>::max());`|$f(x) = \mathrm{minF}$ を管理する。||
 |`T min() const;`|$\min_x f(x)$||
 |`std::pair<T, T> argmin() const;`|$\mathrm{argmin}_x f(x)$||
-|`template <typename U> U f(const U x);`|$f(x)$|
+|`template <typename U>`<br>`U f(const U x);`|$f(x)$|
 |`void constant_function(const T c);`|$f(x) \gets f(x) + c$||
 |`void x_minus_a(const T a);`|$f(x) \gets f(x) + (x - a)^+$||
 |`void a_minus_x(const T a);`|$f(x) \gets f(x) + (a - x)^+$||

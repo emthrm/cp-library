@@ -10,6 +10,7 @@ namespace emthrm {
 
 template <typename T = char>
 struct RollingHash {
+  const std::int64_t base;
   std::vector<T> str;
 
   template <typename U>
@@ -41,7 +42,6 @@ struct RollingHash {
   static constexpr int MOD_WIDTH = 61;
   static constexpr std::int64_t MOD = (INT64_C(1) << MOD_WIDTH) - 1;
 
-  const std::int64_t base;
   std::vector<std::int64_t> hashes, powers;
 
   static std::int64_t generate_base() {

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <map>
 
-#include "emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
+#include "emthrm/math/mobius_mu_focusing_on_divisor.hpp"
 #include "emthrm/math/modint.hpp"
 
 int main() {

@@ -1,10 +1,10 @@
 /**
  * @brief オイラーの $\varphi$ 関数
- * @docs docs/math/euler_phi/euler_phi.md
+ * @docs docs/math/euler_phi.md
  */
 
-#ifndef EMTHRM_MATH_EULER_PHI_EULER_PHI_HPP_
-#define EMTHRM_MATH_EULER_PHI_EULER_PHI_HPP_
+#ifndef EMTHRM_MATH_EULER_PHI_HPP_
+#define EMTHRM_MATH_EULER_PHI_HPP_
 
 #include <cassert>
 
@@ -24,4 +24,4 @@ long long euler_phi(long long n) {
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_MATH_EULER_PHI_EULER_PHI_HPP_
+#endif  // EMTHRM_MATH_EULER_PHI_HPP_

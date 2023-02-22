@@ -1,6 +1,8 @@
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_
 
+#include <algorithm>
+#include <iterator>
 #include <vector>
 
 namespace emthrm {
@@ -12,9 +14,8 @@ struct MultipointEvaluation {
 
   explicit MultipointEvaluation(const std::vector<T> &xs)
       : f_x(xs.size()), subproduct_tree(xs.size() << 1), n(xs.size()) {
-    for (int i = 0; i < n; ++i) {
-      subproduct_tree[i + n] = C<T>{-xs[i], 1};
-    }
+    std::transform(xs.begin(), xs.end(), std::next(subproduct_tree.begin(), n),
+                   [](const T& x) -> C<T> { return C<T>{-x, 1}; });
     for (int i = n - 1; i > 0; --i) {
       subproduct_tree[i] =
           subproduct_tree[i << 1] * subproduct_tree[(i << 1) + 1];

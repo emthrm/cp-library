@@ -15,7 +15,7 @@ $O(N\log{N})$
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <bool IS_STRICT = true, typename T> std::vector<T> longest_increasing_subsequence(const std::vector<T>& a);`|$A$ の最長増加部分列|`IS_STRICT` は広義単調増加であるかを表す。|
+|`template <bool IS_STRICT = true, typename T>`<br>`std::vector<T> longest_increasing_subsequence(const std::vector<T>& a);`|$A$ の最長増加部分列|`IS_STRICT` は広義単調増加であるかを表す。|
 
 
 ## 参考文献

@@ -24,7 +24,9 @@ T lagrange_interpolation(const std::vector<T>& y, const T t) {
     res += ((n - 1 - i) & 1 ? -y[i] : y[i])
            / ((t - i) * fact[i] * fact[n - 1 - i]);
   }
-  for (int i = 0; i < n; ++i) res *= t - i;
+  for (int i = 0; i < n; ++i) {
+    res *= t - i;
+  }
   return res;
 }
 

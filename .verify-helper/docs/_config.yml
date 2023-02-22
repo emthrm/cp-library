@@ -1,6 +1,8 @@
+title: cp-library
+description: C++ Library for Competitive Programming
+
 exclude: [
   "include/emthrm/geometry/integral_geometry.hpp",
-  "include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp",
   "include/emthrm/graph_cost-free",
   "include/emthrm/math/fast_divisor.hpp",
   "test/graph_cost-free",

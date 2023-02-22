@@ -15,7 +15,7 @@ $O(N\log{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <bool ADDS_SUPERSET, typename Ring> std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const Ring ID = 0, const std::function<Ring(const Ring&, const Ring&)> fn = [](const Ring& a, const Ring& b) -> Ring { return a + b; });`|$A$ に高速ゼータ変換を行ったもの|`ADDS_SUPERSET` は上位集合に対する変換かを表す。|
+|`template <bool ADDS_SUPERSET, typename Ring, typename BinOp = std::plus<Ring>>`<br>`std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const Ring ID = 0, const BinOp bin_op = BinOp());`|$A$ に高速ゼータ変換を行ったもの|`ADDS_SUPERSET` は上位集合に対する変換かを表す。|
 
 
 ## 参考文献

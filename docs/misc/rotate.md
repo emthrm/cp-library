@@ -20,7 +20,7 @@ $O(HW)$
 
 |名前|戻り値|要件|
 |:--|:--|:--|
-|`template <int ANGLE, typename T> std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid, const T space = ' ');`|グリッド $\mathrm{grid}$ を $\mathrm{ANGLE}$ 度だけ回転させたもの|$\mathrm{ANGLE} \in \lbrace 45, 90 \rbrace$|
+|`template <int ANGLE, typename T>`<br>`std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid, const T space = ' ');`|グリッド $\mathrm{grid}$ を $\mathrm{ANGLE}$ 度だけ回転させたもの|$\mathrm{ANGLE} \in \lbrace 45, 90 \rbrace$|
 
 
 ## 参考文献

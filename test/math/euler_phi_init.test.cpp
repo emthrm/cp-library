@@ -6,8 +6,8 @@
 #include <iostream>
 #include <vector>
 
-#include "emthrm/math/euler_phi/euler_phi.hpp"
-#include "emthrm/math/euler_phi/euler_phi_init.hpp"
+#include "emthrm/math/euler_phi.hpp"
+#include "emthrm/math/euler_phi_init.hpp"
 
 int main() {
   constexpr int M = 1000000;

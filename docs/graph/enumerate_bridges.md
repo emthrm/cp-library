@@ -13,7 +13,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename CostType> std::vector<Edge<CostType>> enumerate_bridges(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の橋|
+|`template <typename CostType>`<br>`std::vector<Edge<CostType>> enumerate_bridges(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の橋|
 
 
 ## 参考文献

@@ -49,7 +49,11 @@ struct MinimumCostBFlow {
   void supply_or_demand(const int ver, const T amount) { b[ver] += amount; }
 
   U solve() {
+#if __cplusplus >= 201703L
+    assert(std::reduce(b.begin(), b.end(), static_cast<T>(0)) == 0);
+#else
     assert(std::accumulate(b.begin(), b.end(), static_cast<T>(0)) == 0);
+#endif  // __cplusplus >= 201703L
     T flow = 0;
     for (int i = 0; i < n; ++i) {
       if (b[i] > 0) {

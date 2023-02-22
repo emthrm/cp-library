@@ -6,12 +6,13 @@
 #ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 #define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 
-#include <numeric>
+#include <algorithm>
 #include <map>
+#include <numeric>
 #include <ranges>
 #include <vector>
 
-#include "emthrm/math/euler_phi/euler_phi.hpp"
+#include "emthrm/math/euler_phi.hpp"
 #include "emthrm/math/mod_pow.hpp"
 #include "emthrm/math/prime_factorization.hpp"
 
@@ -28,10 +29,10 @@ bool is_primitive_root(long long root, const int m) {
     const auto ev = prime_factorization(phi_m) | std::views::keys;
     primes[phi_m] = std::vector<int>(ev.begin(), ev.end());
   }
-  for (const int p : primes[phi_m]) {
-    if (mod_pow(root, phi_m / p, m) == 1) return false;
-  }
-  return true;
+  return std::none_of(primes[phi_m].begin(), primes[phi_m].end(),
+                      [root, phi_m, m](const int p) -> bool {
+                        return mod_pow(root, phi_m / p, m) == 1;
+                      });
 }
 
 }  // namespace emthrm

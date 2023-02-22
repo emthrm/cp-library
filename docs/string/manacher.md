@@ -21,7 +21,7 @@ struct Manacher;
 
 |名前|効果・戻り値|
 |:--|:--|
-|`template <typename T> explicit Manacher(const T& s);`|$S$ に対してオブジェクトを構築する。|
+|`template <typename T>`<br>`explicit Manacher(const T& s);`|$S$ に対してオブジェクトを構築する。|
 |`int odd(const int idx) const;`|位置 $\mathrm{idx}$ を中心とした回文の最大半径|
 |`int even(const int idx) const;`|位置 $\mathrm{idx} + 0.5$ を中心とした回文の最大半径|
 |`bool is_palindrome(const int left, const int right) const;`|`S[left:right]` は回文であるか。|

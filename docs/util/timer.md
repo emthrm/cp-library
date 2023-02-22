@@ -16,7 +16,7 @@ struct Timer;
 |:--|:--|
 |`Timer();`|コンストラクタ|
 |`void reset();`|リセットする。|
-|`template <typename PeriodType = std::chrono::milliseconds> long long elapsed() const;`|経過時間|
+|`template <typename PeriodType = std::chrono::milliseconds>`<br>`long long elapsed() const;`|経過時間|
 
 
 ## 参考文献
