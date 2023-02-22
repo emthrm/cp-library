@@ -27,9 +27,10 @@ int main() {
     } while (!emthrm::is_primitive_root(root, p));
     std::vector<int> a(x, emthrm::mod_pow(root, v, p));
     a.front() = 1;
-    std::partial_sum(
-        a.begin(), a.end(), a.begin(),
-        [p](const int l, const int r) -> int { return l * r % p; });
+    std::partial_sum(a.begin(), a.end(), a.begin(),
+                     [p](const int l, const int r) -> int {
+                       return static_cast<long long>(l) * r % p;
+                     });
     std::sort(a.begin(), a.end());
     for (int i = 0; i < x; ++i) {
       std::cout << a[i] << " \n"[i + 1 == x];

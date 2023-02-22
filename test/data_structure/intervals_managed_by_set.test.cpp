@@ -1,5 +1,5 @@
 /*
- * @brief その他/区間を std::set で管理するやつ
+ * @brief データ構造/区間を std::set で管理するやつ
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880"
 

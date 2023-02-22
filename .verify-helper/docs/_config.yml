@@ -1,9 +1,6 @@
 title: cp-library
 description: C++ Library for Competitive Programming
 
-docs:
-  categorize_verify: false
-
 exclude: [
   "include/emthrm/geometry/integral_geometry.hpp",
   "include/emthrm/graph_cost-free",
