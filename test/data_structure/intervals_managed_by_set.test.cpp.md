@@ -12,8 +12,8 @@ data:
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880
-    document_title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\
-      \u3059\u308B\u3084\u3064"
+    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u533A\u9593\u3092 std::set \u3067\
+      \u7BA1\u7406\u3059\u308B\u3084\u3064"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -25,8 +25,8 @@ data:
     , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/data_structure/intervals_managed_by_set.hpp:\
     \ line -1: no such header\n"
-  code: "/*\n * @brief \u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\
-    \u7406\u3059\u308B\u3084\u3064\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880\"\
+  code: "/*\n * @brief \u30C7\u30FC\u30BF\u69CB\u9020/\u533A\u9593\u3092 std::set\
+    \ \u3067\u7BA1\u7406\u3059\u308B\u3084\u3064\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880\"\
     \n\n#include <algorithm>\n#include <iostream>\n#include <numeric>\n#include <vector>\n\
     \n#include \"emthrm/data_structure/intervals_managed_by_set.hpp\"\n\nint main()\
     \ {\n  int n, m, q;\n  std::cin >> n >> m >> q;\n  std::vector<int> d(m), a(m),\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/intervals_managed_by_set.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 02:35:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/intervals_managed_by_set.test.cpp
@@ -54,6 +54,6 @@ layout: document
 redirect_from:
 - /verify/test/data_structure/intervals_managed_by_set.test.cpp
 - /verify/test/data_structure/intervals_managed_by_set.test.cpp.html
-title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\u308B\
-  \u3084\u3064"
+title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\
+  \u3059\u308B\u3084\u3064"
 ---

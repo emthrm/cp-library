@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
@@ -22,7 +22,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
@@ -34,9 +34,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/mod_pow.hpp\"\n\n\n\nnamespace emthrm\
@@ -58,7 +58,7 @@ data:
   - include/emthrm/math/is_primitive_root.hpp
   - include/emthrm/math/mod_sqrt.hpp
   timestamp: '2022-12-16 05:33:31+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/mod_pow.test.cpp
   - test/math/mod_sqrt.test.cpp

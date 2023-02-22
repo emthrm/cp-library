@@ -309,7 +309,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/enumerate_quotients.hpp
       title: "\u5546\u306E\u5217\u6319"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/euler_phi.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
     - icon: ':heavy_check_mark:'
@@ -328,7 +328,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/is_prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A (primality test)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/is_primitive_root.hpp
       title: "\u539F\u59CB\u6839\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -361,7 +361,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_log.hpp
       title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_pow.hpp
       title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\
         \u6CD5 / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -380,7 +380,7 @@ data:
     - icon: ':x:'
       path: include/emthrm/math/polynomial.hpp
       title: "\u591A\u9805\u5F0F (polynomial)"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/prime_factorization.hpp
       title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
     - icon: ':heavy_check_mark:'
@@ -626,8 +626,8 @@ data:
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/disjoint sparse table"
     - icon: ':heavy_check_mark:'
       path: test/data_structure/intervals_managed_by_set.test.cpp
-      title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\
-        \u308B\u3084\u3064"
+      title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u533A\u9593\u3092 std::set \u3067\u7BA1\
+        \u7406\u3059\u308B\u3084\u3064"
     - icon: ':heavy_check_mark:'
       path: test/data_structure/lazy_segment_tree.test.cpp
       title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\
@@ -1106,7 +1106,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/is_prime.test.cpp
       title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/math/is_primitive_root.test.cpp
       title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
     - icon: ':heavy_check_mark:'

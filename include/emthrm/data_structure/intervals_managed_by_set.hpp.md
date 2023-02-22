@@ -5,8 +5,8 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/intervals_managed_by_set.test.cpp
-    title: "\u305D\u306E\u4ED6/\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\
-      \u308B\u3084\u3064"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u533A\u9593\u3092 std::set \u3067\u7BA1\
+      \u7406\u3059\u308B\u3084\u3064"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'

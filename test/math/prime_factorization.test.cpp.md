@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/prime_factorization.hpp
     title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
   _extendedRequiredBy: []
