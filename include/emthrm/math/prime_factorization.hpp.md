@@ -1,17 +1,23 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':x:'
+    path: include/emthrm/math/is_primitive_root.hpp
+    title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/game/nim.test.cpp
     title: "\u30B2\u30FC\u30E0/\u30CB\u30E0"
+  - icon: ':x:'
+    path: test/math/is_primitive_root.test.cpp
+    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: test/math/prime_factorization.test.cpp
     title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/prime_factorization.hpp\"\n\n\n\n#include\
@@ -31,11 +37,13 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/prime_factorization.hpp
-  requiredBy: []
+  requiredBy:
+  - include/emthrm/math/is_primitive_root.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/prime_factorization.test.cpp
+  - test/math/is_primitive_root.test.cpp
   - test/game/nim.test.cpp
 documentation_of: include/emthrm/math/prime_factorization.hpp
 layout: document

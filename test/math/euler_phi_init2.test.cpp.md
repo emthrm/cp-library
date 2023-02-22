@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/euler_phi.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
   - icon: ':heavy_check_mark:'
@@ -48,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/math/euler_phi_init2.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 01:08:39+09:00'
+  timestamp: '2023-02-23 01:44:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/euler_phi_init2.test.cpp

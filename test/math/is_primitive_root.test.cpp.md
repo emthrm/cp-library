@@ -1,12 +1,30 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: include/emthrm/math/euler_phi.hpp
+    title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
+  - icon: ':x:'
+    path: include/emthrm/math/is_primitive_root.hpp
+    title: "\u539F\u59CB\u6839\u5224\u5B9A"
+  - icon: ':question:'
+    path: include/emthrm/math/mod_pow.hpp
+    title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
+      \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
+  - icon: ':question:'
+    path: include/emthrm/math/prime_factorization.hpp
+    title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
-  attributes: {}
+  attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://yukicoder.me/problems/no/1409
+    document_title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
+    links:
+    - https://yukicoder.me/problems/no/1409
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
@@ -29,11 +47,15 @@ data:
     \  [p](const int l, const int r) -> int { return l * r % p; });\n    std::sort(a.begin(),\
     \ a.end());\n    for (int i = 0; i < x; ++i) {\n      std::cout << a[i] << \"\
     \ \\n\"[i + 1 == x];\n    }\n  }\n  return 0;\n}\n"
-  dependsOn: []
+  dependsOn:
+  - include/emthrm/math/is_primitive_root.hpp
+  - include/emthrm/math/euler_phi.hpp
+  - include/emthrm/math/mod_pow.hpp
+  - include/emthrm/math/prime_factorization.hpp
   isVerificationFile: true
   path: test/math/is_primitive_root.test.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2023-02-23 01:45:01+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/is_primitive_root.test.cpp
@@ -41,5 +63,5 @@ layout: document
 redirect_from:
 - /verify/test/math/is_primitive_root.test.cpp
 - /verify/test/math/is_primitive_root.test.cpp.html
-title: test/math/is_primitive_root.test.cpp
+title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
 ---

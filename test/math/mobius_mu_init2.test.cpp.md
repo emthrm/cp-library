@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu_init2.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 01:08:39+09:00'
+  timestamp: '2023-02-23 01:44:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/mobius_mu_init2.test.cpp

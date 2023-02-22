@@ -107,7 +107,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/geometry/argument_sort.hpp
       title: "\u504F\u89D2\u30BD\u30FC\u30C8"
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/geometry/geometry.hpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
     - icon: ':heavy_check_mark:'
@@ -309,7 +309,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/enumerate_quotients.hpp
       title: "\u5546\u306E\u5217\u6319"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: include/emthrm/math/euler_phi.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
     - icon: ':heavy_check_mark:'
@@ -328,7 +328,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/is_prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A (primality test)"
-    - icon: ':warning:'
+    - icon: ':x:'
       path: include/emthrm/math/is_primitive_root.hpp
       title: "\u539F\u59CB\u6839\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -361,7 +361,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_log.hpp
       title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: include/emthrm/math/mod_pow.hpp
       title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\
         \u6CD5 / \u30D0\u30A4\u30CA\u30EA\u6CD5"
@@ -380,7 +380,7 @@ data:
     - icon: ':x:'
       path: include/emthrm/math/polynomial.hpp
       title: "\u591A\u9805\u5F0F (polynomial)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: include/emthrm/math/prime_factorization.hpp
       title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
     - icon: ':heavy_check_mark:'
@@ -780,7 +780,7 @@ data:
       path: test/geometry/geometry.06.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u7DDA\
         \u5206\u306E\u4EA4\u5DEE\u5224\u5B9A)"
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/geometry/geometry.07.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u7DDA\
         \u5206\u3068\u5186\u306E\u4EA4\u5DEE\u5224\u5B9A)"
@@ -1108,7 +1108,7 @@ data:
       title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
     - icon: ':x:'
       path: test/math/is_primitive_root.test.cpp
-      title: test/math/is_primitive_root.test.cpp
+      title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
       path: test/math/jacobi_symbol.test.cpp
       title: "\u6570\u5B66/\u30E4\u30B3\u30D3\u8A18\u53F7"

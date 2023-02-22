@@ -30,7 +30,7 @@ data:
     path: test/geometry/geometry.06.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u7DDA\
       \u5206\u306E\u4EA4\u5DEE\u5224\u5B9A)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.07.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u7DDA\u5206\
       \u3068\u5186\u306E\u4EA4\u5DEE\u5224\u5B9A)"
@@ -108,9 +108,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/quadratic_equation.test.cpp
     title: "\u6570\u5B66/\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -556,7 +556,7 @@ data:
   requiredBy:
   - include/emthrm/geometry/smallest_enclosing_circle.hpp
   timestamp: '2023-01-27 16:06:27+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/quadratic_equation.test.cpp
   - test/geometry/geometry.13.test.cpp

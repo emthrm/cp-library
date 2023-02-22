@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     ERROR: 1e-6
@@ -30,8 +30,7 @@ data:
     \ (\u7DDA\u5206\u3068\u5186\u306E\u4EA4\u5DEE\u5224\u5B9A)\n */\n#define PROBLEM\
     \ \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2276\"\n#define ERROR\
     \ \"1e-6\"\n\n#include <algorithm>\n#include <cmath>\n#include <iomanip>\n#include\
-    \ <iostream>\n#include <limits>\n#if __cplusplus < 201703L\n# include <tuple>\n\
-    #endif  // __cplusplus < 201703L\n#include <utility>\n#include <vector>\n\n#include\
+    \ <iostream>\n#include <limits>\n#include <utility>\n#include <vector>\n\n#include\
     \ \"emthrm/geometry/geometry.hpp\"\n\nint main() {\n  int n, k;\n  std::cin >>\
     \ n >> k;\n  std::vector<emthrm::geometry::Circle> people(n);\n  for (int i =\
     \ 0; i < n; ++i) {\n    emthrm::geometry::Point p;\n    double r;\n    std::cin\
@@ -55,27 +54,25 @@ data:
     \ balls.end());\n  std::vector<std::vector<std::vector<double>>> dp(n,\n     \
     \ std::vector<std::vector<double>>(k + 1,\n          std::vector<double>(2, std::numeric_limits<double>::lowest())));\n\
     \  dp[0][0][false] = 0;\n  dp[0][1][true] = balls[0].y - balls[0].x;\n  for (int\
-    \ i = 1; i < n; ++i) {\n#if __cplusplus >= 201703L\n    const auto [left, right]\
-    \ = balls[i];\n#else\n    double left, right;\n    std::tie(left, right) = balls[i];\n\
-    #endif  // __cplusplus >= 201703L\n    int x = i - 1;\n    while (x >= 0 && balls[i].x\
-    \ <= balls[x].y) --x;\n    ++x;\n    if (x > i - 1) x = i - 1;\n    for (int j\
-    \ = 0; j <= k; ++j) {\n      if (j + 1 <= k) {\n        dp[i][j + 1][true] =\n\
-    \            std::max(dp[i][j + 1][true],\n                     dp[x][j][true]\
-    \ + right - std::max(balls[x].y, left));\n        dp[i][j + 1][true] =\n     \
-    \       std::max(dp[i][j + 1][true], dp[x][j][false] + right - left);\n      }\n\
-    \      dp[i][j][false] =\n          std::max(dp[i][j][false],\n              \
-    \     std::max(dp[i - 1][j][false], dp[i - 1][j][true]));\n    }\n  }\n  double\
-    \ ans = 0;\n  for (int y = 0; y <= k; ++y) {\n    for (int z = 0; z < 2; ++z)\
-    \ {\n      if (dp[n - 1][y][z] > ans) ans = dp[n - 1][y][z];\n    }\n  }\n  std::cout\
-    \ << std::fixed << std::setprecision(7)\n            << ans / emthrm::geometry::PI\
-    \ << '\\n';\n  return 0;\n}\n"
+    \ i = 1; i < n; ++i) {\n    const double left = balls[i].x, right = balls[i].y;\n\
+    \    int x = i - 1;\n    while (x >= 0 && balls[i].x <= balls[x].y) --x;\n   \
+    \ ++x;\n    if (x > i - 1) x = i - 1;\n    for (int j = 0; j <= k; ++j) {\n  \
+    \    if (j + 1 <= k) {\n        dp[i][j + 1][true] =\n            std::max(dp[i][j\
+    \ + 1][true],\n                     dp[x][j][true] + right - std::max(balls[x].y,\
+    \ left));\n        dp[i][j + 1][true] =\n            std::max(dp[i][j + 1][true],\
+    \ dp[x][j][false] + right - left);\n      }\n      dp[i][j][false] =\n       \
+    \   std::max(dp[i][j][false],\n                   std::max(dp[i - 1][j][false],\
+    \ dp[i - 1][j][true]));\n    }\n  }\n  double ans = 0;\n  for (int y = 0; y <=\
+    \ k; ++y) {\n    for (int z = 0; z < 2; ++z) {\n      if (dp[n - 1][y][z] > ans)\
+    \ ans = dp[n - 1][y][z];\n    }\n  }\n  std::cout << std::fixed << std::setprecision(7)\n\
+    \            << ans / emthrm::geometry::PI << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
   isVerificationFile: true
   path: test/geometry/geometry.07.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:58:53+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-02-23 01:45:01+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.07.test.cpp
 layout: document

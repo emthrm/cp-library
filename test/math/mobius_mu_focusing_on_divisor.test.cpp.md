@@ -48,7 +48,7 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu_focusing_on_divisor.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 01:08:39+09:00'
+  timestamp: '2023-02-23 01:44:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/mobius_mu_focusing_on_divisor.test.cpp

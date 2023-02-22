@@ -1,11 +1,24 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':question:'
+    path: include/emthrm/math/euler_phi.hpp
+    title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
+  - icon: ':question:'
+    path: include/emthrm/math/mod_pow.hpp
+    title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
+      \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
+  - icon: ':question:'
+    path: include/emthrm/math/prime_factorization.hpp
+    title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/math/is_primitive_root.test.cpp
+    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/primitive_root.md
     document_title: "\u539F\u59CB\u6839\u5224\u5B9A"
@@ -22,7 +35,7 @@ data:
     \ */\n\n#ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n#define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n\
     \n#include <algorithm>\n#if __cplusplus >= 201703L\n# include <numeric>\n#else\n\
     # include <utility>\n#endif  // __cplusplus >= 201703L\n#include <map>\n#include\
-    \ <vector>\n\n#include \"emthrm/math/euler_phi/euler_phi.hpp\"\n#include \"emthrm/math/mod_pow.hpp\"\
+    \ <vector>\n\n#include \"emthrm/math/euler_phi.hpp\"\n#include \"emthrm/math/mod_pow.hpp\"\
     \n#include \"emthrm/math/prime_factorization.hpp\"\n\nnamespace emthrm {\n\nbool\
     \ is_primitive_root(long long root, const int m) {\n  if ((root %= m) < 0) root\
     \ += m;\n#if __cplusplus >= 201703L\n  if (std::gcd(root, m) > 1) return false;\n\
@@ -38,13 +51,17 @@ data:
     \     [root, phi_m, m](const int p) -> bool {\n                        return\
     \ mod_pow(root, phi_m / p, m) == 1;\n                      });\n}\n\n}  // namespace\
     \ emthrm\n\n#endif  // EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n"
-  dependsOn: []
+  dependsOn:
+  - include/emthrm/math/euler_phi.hpp
+  - include/emthrm/math/mod_pow.hpp
+  - include/emthrm/math/prime_factorization.hpp
   isVerificationFile: false
   path: include/emthrm/math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2023-02-23 01:45:01+09:00'
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/math/is_primitive_root.test.cpp
 documentation_of: include/emthrm/math/is_primitive_root.hpp
 layout: document
 redirect_from:
