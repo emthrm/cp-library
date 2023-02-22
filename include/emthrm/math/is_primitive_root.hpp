@@ -15,7 +15,7 @@
 #include <map>
 #include <vector>
 
-#include "emthrm/math/euler_phi/euler_phi.hpp"
+#include "emthrm/math/euler_phi.hpp"
 #include "emthrm/math/mod_pow.hpp"
 #include "emthrm/math/prime_factorization.hpp"
 

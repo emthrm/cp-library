@@ -9,9 +9,6 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -74,12 +71,7 @@ int main() {
   dp[0][0][false] = 0;
   dp[0][1][true] = balls[0].y - balls[0].x;
   for (int i = 1; i < n; ++i) {
-#if __cplusplus >= 201703L
-    const auto [left, right] = balls[i];
-#else
-    double left, right;
-    std::tie(left, right) = balls[i];
-#endif  // __cplusplus >= 201703L
+    const double left = balls[i].x, right = balls[i].y;
     int x = i - 1;
     while (x >= 0 && balls[i].x <= balls[x].y) --x;
     ++x;
