@@ -64,11 +64,11 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/data_structure/union-find/union-find.test.cpp
   - test/graph/kruskal.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/is_bipartite.test.cpp
-  - test/data_structure/union-find/union-find.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/union-find.hpp
 layout: document
 redirect_from:

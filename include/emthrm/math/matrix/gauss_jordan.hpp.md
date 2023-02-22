@@ -55,13 +55,13 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/gauss_jordan.hpp
   requiredBy:
-  - include/emthrm/graph/flow/matching/maximum_matching.hpp
   - include/emthrm/math/matrix/linear_equation.hpp
+  - include/emthrm/graph/flow/matching/maximum_matching.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/matching/maximum_matching.test.cpp
   - test/math/matrix/linear_equation.test.cpp
+  - test/graph/flow/matching/maximum_matching.test.cpp
 documentation_of: include/emthrm/math/matrix/gauss_jordan.hpp
 layout: document
 title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5\
@@ -80,7 +80,7 @@ $O(M^2 N)$
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <typename T> int gauss_jordan(Matrix<T>* a, const T eps = 1e-8, const bool is_extended = false);`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
+|`template <typename T>`<br>`int gauss_jordan(Matrix<T>* a, const T eps = 1e-8, const bool is_extended = false);`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
 ## 参考文献

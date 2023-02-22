@@ -94,8 +94,8 @@ data:
   timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/dynamic_programming/convex_hull_trick.2.test.cpp
   - test/dynamic_programming/convex_hull_trick.1.test.cpp
+  - test/dynamic_programming/convex_hull_trick.2.test.cpp
   - test/dynamic_programming/convex_hull_trick.3.test.cpp
 documentation_of: include/emthrm/dynamic_programming/convex_hull_trick.hpp
 layout: document

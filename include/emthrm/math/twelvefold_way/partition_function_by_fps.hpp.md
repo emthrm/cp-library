@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
@@ -77,14 +77,14 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> partition_function(const int n, const int m);`|分割数の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> partition_function(const int n, const int m);`|分割数の数表|
 
 
 ### $n = m$ 版
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> partition_function_by_fps(const int n);`|$n = m$ のときの分割数の数表|
+|`template <typename T>`<br>`std::vector<T> partition_function_by_fps(const int n);`|$n = m$ のときの分割数の数表|
 
 
 ## 参考文献

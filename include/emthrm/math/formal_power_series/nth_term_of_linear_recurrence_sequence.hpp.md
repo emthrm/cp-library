@@ -66,8 +66,8 @@ $d$ 次多項式同士の乗算の算術計算量を $\mathsf{M}(d)$ とおく�
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <template <typename> class C, typename T> T bostan_mori(C<T> p, C<T> q, long long n);`|${\lbrack x^N \rbrack}\frac{P(x)}{Q(x)}$|${\lbrack x^0 \rbrack}Q = Q(0)$ は可逆元 (invertible element) である。|`C` は冪級数を表す構造体である。|
-|`template <template <typename> class C, typename T> T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n);`|特性多項式 $Q(x)$ をもち、$A(x) = B(x) \bmod{x^{\mathrm{deg}(A)}}$ を満たす線形回帰数列の母関数 $B(x)$ に対して ${\lbrack x^N \rbrack}B$||`C` は冪級数を表す構造体である。|
+|`template <template <typename> class C, typename T>`<br>`T bostan_mori(C<T> p, C<T> q, long long n);`|${\lbrack x^N \rbrack}\frac{P(x)}{Q(x)}$|${\lbrack x^0 \rbrack}Q = Q(0)$ は可逆元 (invertible element) である。|`C` は冪級数を表す構造体である。|
+|`template <template <typename> class C, typename T>`<br>`T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n);`|特性多項式 $Q(x)$ をもち、$A(x) = B(x) \bmod{x^{\mathrm{deg}(A)}}$ を満たす線形回帰数列の母関数 $B(x)$ に対して ${\lbrack x^N \rbrack}B$||`C` は冪級数を表す構造体である。|
 
 
 ## 参考文献

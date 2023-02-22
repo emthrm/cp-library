@@ -89,14 +89,14 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> eulerian_number(const int n, const int m);`|Eulerian number $A(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq m$) の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> eulerian_number(const int n, const int m);`|Eulerian number $A(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq m$) の数表|
 
 
 ### 形式的冪級数版
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> std::vector<MInt<T>> eulerian_number_init_by_fps(const int n);`|Eulerian number $A(n, j)$ ($0 \leq j \leq n$) の数表|
+|`template <int T>`<br>`std::vector<MInt<T>> eulerian_number_init_by_fps(const int n);`|Eulerian number $A(n, j)$ ($0 \leq j \leq n$) の数表|
 
 
 ## 参考文献

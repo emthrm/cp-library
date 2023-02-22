@@ -33,8 +33,8 @@ data:
     \ t >= n);\n  std::vector<T> fact(n, 1);\n  for (int i = 1; i < n; ++i) {\n  \
     \  fact[i] = fact[i - 1] * i;\n  }\n  T res = 0;\n  for (int i = 0; i < n; ++i)\
     \ {\n    res += ((n - 1 - i) & 1 ? -y[i] : y[i])\n           / ((t - i) * fact[i]\
-    \ * fact[n - 1 - i]);\n  }\n  for (int i = 0; i < n; ++i) res *= t - i;\n  return\
-    \ res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
+    \ * fact[n - 1 - i]);\n  }\n  for (int i = 0; i < n; ++i) {\n    res *= t - i;\n\
+    \  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
   code: "/**\n * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
     \u72482\n * @docs docs/math/lagrange_interpolation.md\n */\n\n#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\
     #define EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\n#include <cassert>\n#include\
@@ -43,18 +43,18 @@ data:
     \ t >= n);\n  std::vector<T> fact(n, 1);\n  for (int i = 1; i < n; ++i) {\n  \
     \  fact[i] = fact[i - 1] * i;\n  }\n  T res = 0;\n  for (int i = 0; i < n; ++i)\
     \ {\n    res += ((n - 1 - i) & 1 ? -y[i] : y[i])\n           / ((t - i) * fact[i]\
-    \ * fact[n - 1 - i]);\n  }\n  for (int i = 0; i < n; ++i) res *= t - i;\n  return\
-    \ res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
+    \ * fact[n - 1 - i]);\n  }\n  for (int i = 0; i < n; ++i) {\n    res *= t - i;\n\
+    \  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/lagrange_interpolation2.hpp
   requiredBy:
   - include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   - test/math/lagrange_interpolation2.test.cpp
+  - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
 documentation_of: include/emthrm/math/lagrange_interpolation2.hpp
 layout: document
 redirect_from:
@@ -89,15 +89,15 @@ $$
 
 |名前|戻り値|要件|
 |:--|:--|:--|
-|`template <typename T> T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y, const T t);`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる。|
-|`template <typename T> T lagrange_interpolation(const std::vector<T>& y, const T t);`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
+|`template <typename T>`<br>`T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y, const T t);`|$f(x_i) = y_i$ を満たす $f(t)$|$x_i$ は互いに異なる。|
+|`template <typename T>`<br>`T lagrange_interpolation(const std::vector<T>& y, const T t);`|$f(i) = y_i$ を満たす $f(t)$|$t < 0,\ N \leq t$|
 
 
 ### 多項式補間
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <template <typename> class C, typename T> C<T> polynomial_interpolation(const std::vector<T>& x, const std::vector<T>& y);`|$f(x_i) = y_i$ を満たす $f$|`C` は冪級数を表す構造体である。|
+|`template <template <typename> class C, typename T>`<br>`C<T> polynomial_interpolation(const std::vector<T>& x, const std::vector<T>& y);`|$f(x_i) = y_i$ を満たす $f$|`C` は冪級数を表す構造体である。|
 
 
 ## 参考文献

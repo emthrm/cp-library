@@ -54,7 +54,7 @@ $O(N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <bool IS_MINIMIZED = true, typename T> std::vector<T> slide_min(const std::vector<T>& a, const int len);`|$A$ に対する長さ $\mathrm{len}$ のスライド最小値|
+|`template <bool IS_MINIMIZED = true, typename T>`<br>`std::vector<T> slide_min(const std::vector<T>& a, const int len);`|$A$ に対する長さ $\mathrm{len}$ のスライド最小値|
 
 
 ## 参考文献

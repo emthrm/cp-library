@@ -60,7 +60,7 @@ $O(NM)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> T longest_common_subsequence(const T& a, const T& b);`|$A$ と $B$ の最長共通部分列|
+|`template <typename T>`<br>`T longest_common_subsequence(const T& a, const T& b);`|$A$ と $B$ の最長共通部分列|
 
 
 ## 参考文献

@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
@@ -100,14 +100,14 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> eulerian_number(const int n, const int m);`|Eulerian number $A(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq m$) の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> eulerian_number(const int n, const int m);`|Eulerian number $A(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq m$) の数表|
 
 
 ### 形式的冪級数版
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> std::vector<MInt<T>> eulerian_number_init_by_fps(const int n);`|Eulerian number $A(n, j)$ ($0 \leq j \leq n$) の数表|
+|`template <int T>`<br>`std::vector<MInt<T>> eulerian_number_init_by_fps(const int n);`|Eulerian number $A(n, j)$ ($0 \leq j \leq n$) の数表|
 
 
 ## 参考文献

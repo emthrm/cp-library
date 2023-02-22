@@ -57,7 +57,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/2d_cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/2d_cumulative_sum.test.cpp

@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
@@ -93,14 +93,14 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> MInt<T> faulhaber_by_fps(const long long n, const int k);`|$S_k(n)$|
+|`template <int T>`<br>`MInt<T> faulhaber_by_fps(const long long n, const int k);`|$S_k(n)$|
 
 
 ### ラグランジュ補間版
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k);`|$S_k(n)$|
+|`template <int T>`<br>`MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k);`|$S_k(n)$|
 
 
 ## 参考文献

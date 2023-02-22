@@ -54,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/bernoulli_number.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/bernoulli_number.test.cpp

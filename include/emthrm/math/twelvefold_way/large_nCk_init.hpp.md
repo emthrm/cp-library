@@ -75,7 +75,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> pascal(const int n);`|$n$ 段のパスカルの三角形|
+|`template <typename T>`<br>`std::vector<std::vector<T>> pascal(const int n);`|$n$ 段のパスカルの三角形|
 
 
 ### [二項係数](../../../include/emthrm/math/modint.hpp)
@@ -88,7 +88,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
+|`template <int T>`<br>`std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
 
 
 ## 参考文献

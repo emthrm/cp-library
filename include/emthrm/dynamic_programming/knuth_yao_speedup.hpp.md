@@ -111,7 +111,7 @@ $O(N^2)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> knuth_yao_speedup(const std::vector<std::vector<T>>& w, const T inf);`|二変数関数 $w$ に対して上で定義した $f$|
+|`template <typename T>`<br>`std::vector<std::vector<T>> knuth_yao_speedup(const std::vector<std::vector<T>>& w, const T inf);`|二変数関数 $w$ に対して上で定義した $f$|
 
 
 ## 参考文献
@@ -186,6 +186,7 @@ Monge property
 - LARSCH algorithm
   - https://noshi91.github.io/algorithm-encyclopedia/larsch-algorithm
   - https://noshi91.github.io/Library/algorithm/larsch.cpp.html
+  - https://noshi91.hatenablog.com/entry/2023/02/18/005856
   - https://atcoder.jp/contests/dp/tasks/dp_z
   - https://twitter.com/lorent_kyopro/status/1379104326958772226
   - https://atcoder.jp/contests/abc228/tasks/abc228_h

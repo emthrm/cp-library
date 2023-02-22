@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/graph/eulerian_trail_in_undirected_graph.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/eulerian_trail_in_undirected_graph.test.cpp

@@ -22,25 +22,25 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp: line 12: unable\
+    \ include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp: line 13: unable\
     \ to process #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u30D9\u30EB\u6570\n * @docs docs/math/twelvefold_way/bell_number/bell_number.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_\n#define\
     \ EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_\n\n#include <cassert>\n\
-    #include <vector>\n\n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\
-    \ntemplate <int T>\nMInt<T> bell_number(const int n, int k) {\n  using ModInt\
-    \ = MInt<T>;\n  if (k > n) k = n;\n  ModInt::init(k);\n  std::vector<ModInt> tmp(k\
-    \ + 1);\n  for (int i = 0; i <= k; ++i) {\n    tmp[i] = (i & 1 ? -ModInt::fact_inv(i)\
-    \ : ModInt::fact_inv(i));\n  }\n  for (int i = 0; i < k; ++i) {\n    tmp[i + 1]\
-    \ += tmp[i];\n  }\n  ModInt bell = 0;\n  for (int i = 0; i <= k; ++i) {\n    bell\
-    \ += ModInt(i).pow(n) * ModInt::fact_inv(i) * tmp[k - i];\n  }\n  return bell;\n\
-    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_\n"
+    #include <numeric>\n#include <vector>\n\n#include \"emthrm/math/modint.hpp\"\n\
+    \nnamespace emthrm {\n\ntemplate <int T>\nMInt<T> bell_number(const int n, int\
+    \ k) {\n  using ModInt = MInt<T>;\n  if (k > n) k = n;\n  ModInt::init(k);\n \
+    \ std::vector<ModInt> tmp(k + 1);\n  for (int i = 0; i <= k; ++i) {\n    tmp[i]\
+    \ = (i & 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i));\n  }\n  std::partial_sum(tmp.begin(),\
+    \ tmp.end(), tmp.begin());\n  ModInt bell = 0;\n  for (int i = 0; i <= k; ++i)\
+    \ {\n    bell += ModInt(i).pow(n) * ModInt::fact_inv(i) * tmp[k - i];\n  }\n \
+    \ return bell;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_HPP_\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp
@@ -91,21 +91,21 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
+|`template <int T>`<br>`MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
 
 
 ### 数表
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> bell_number_init(const int n, const int k);`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> bell_number_init(const int n, const int k);`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 
 ### 数表 $n = k$ 版
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
+|`template <typename T> std::vector<T>`<br>`bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

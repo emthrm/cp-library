@@ -65,7 +65,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename CostType> UnionFind connencted_component_of_complement_graph(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の補グラフの連結成分分解|
+|`template <typename CostType>`<br>`UnionFind connencted_component_of_complement_graph(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ の補グラフの連結成分分解|
 
 
 ## 参考文献

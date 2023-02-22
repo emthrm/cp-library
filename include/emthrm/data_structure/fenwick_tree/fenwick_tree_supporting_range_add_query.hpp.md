@@ -66,8 +66,8 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
+  - test/graph/tree/heavy-light_decomposition.1.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
 layout: document
 redirect_from:

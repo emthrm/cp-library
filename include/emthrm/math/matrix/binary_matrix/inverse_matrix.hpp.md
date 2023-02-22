@@ -89,21 +89,21 @@ struct BinaryMatrix;
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <int N> int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
+|`template <int N>`<br>`int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
 ### [連立一次方程式](../linear_equation.md)
 
 |名前|戻り値|
 |:--|:--|
-|`template <int N> std::vector<bool> linear_equation(const BinaryMatrix<N>& a, const std::vector<bool>& b);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
+|`template <int N>`<br>`std::vector<bool> linear_equation(const BinaryMatrix<N>& a, const std::vector<bool>& b);`|$A \boldsymbol{x} = \boldsymbol{b}$ を満たす $\boldsymbol{x}$。ただし解なしのときは空配列を返す。|
 
 
 ### [逆行列](../inverse_matrix.md)
 
 |名前|戻り値|
 |:--|:--|
-|`template <int N> BinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a);`|行列 $A$ の逆行列。ただし存在しないときは空行列を返す。|
+|`template <int N>`<br>`BinaryMatrix<N> inverse_matrix(const BinaryMatrix<N>& a);`|行列 $A$ の逆行列。ただし存在しないときは空行列を返す。|
 
 
 ## 参考文献

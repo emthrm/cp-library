@@ -52,8 +52,8 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/string/morris-pratt.2.test.cpp
   - test/string/morris-pratt.1.test.cpp
+  - test/string/morris-pratt.2.test.cpp
 documentation_of: include/emthrm/string/morris-pratt.hpp
 layout: document
 redirect_from:

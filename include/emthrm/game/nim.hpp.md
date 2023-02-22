@@ -48,7 +48,7 @@ $O(N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> bool nim(const std::vector<T>& a);`|盤面が $A$ のときのニムで先手が勝利するか。|
+|`template <typename T>`<br>`bool nim(const std::vector<T>& a);`|盤面が $A$ のときのニムで先手が勝利するか。|
 
 
 ## 参考文献

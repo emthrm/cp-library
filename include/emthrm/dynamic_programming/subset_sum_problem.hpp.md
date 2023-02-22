@@ -38,7 +38,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/subset_sum_problem.hpp
   requiredBy: []
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
@@ -63,7 +63,7 @@ $O(N + D\log{D})$
 
 |名前|戻り値|要件|
 |:--|:--|:--|
-|`template <typename T> std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d);`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
+|`template <typename T>`<br>`std::vector<T> subset_sum_problem(const std::vector<int>& a, const int d);`|集合内の要素の和が $s$ ($0 \leq s \leq D$) となる $A$ の部分集合の個数|$A_i \geq 0$|
 
 
 ## 参考文献

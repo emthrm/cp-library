@@ -74,14 +74,14 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> partition_function(const int n, const int m);`|分割数の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> partition_function(const int n, const int m);`|分割数の数表|
 
 
 ### $n = m$ 版
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> partition_function_by_fps(const int n);`|$n = m$ のときの分割数の数表|
+|`template <typename T>`<br>`std::vector<T> partition_function_by_fps(const int n);`|$n = m$ のときの分割数の数表|
 
 
 ## 参考文献

@@ -111,12 +111,12 @@ struct SqrtDecomposition;
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
 |`explicit SqrtDecomposition(const int n_);`|サイズ $N$ のオブジェクトを構築する。||
-|`template <typename T> void partial_update(const int idx, const T val);`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する。|関数プロトタイプ|
-|`template <typename T> void total_update(const int idx, const T val);`|$\mathrm{val}$ を基にブロック $\mathrm{idx}$ を更新する。|関数プロトタイプ|
-|`template <typename T> void update(const int l, const int r, const T val);`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する。||
-|`template <typename T> void partial_query(const int idx, T* val);`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
-|`template <typename T> void total_query(const int idx, T* val);`|ブロック $\mathrm{idx}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
-|`template <typename T> T query(const int l, const int r, const T id);`|$\lbrack l, r)$ に対するクエリの解|$\mathrm{id}$ は単位元である。|
+|`template <typename T>`<br>`void partial_update(const int idx, const T val);`|$\mathrm{val}$ を基に $A_{\mathrm{idx}}$ を更新する。|関数プロトタイプ|
+|`template <typename T>`<br>`void total_update(const int idx, const T val);`|$\mathrm{val}$ を基にブロック $\mathrm{idx}$ を更新する。|関数プロトタイプ|
+|`template <typename T>`<br>`void update(const int l, const int r, const T val);`|$\mathrm{val}$ を基に $\lbrack l, r)$ を更新する。||
+|`template <typename T>`<br>`void partial_query(const int idx, T* val);`|$A_{\mathrm{idx}}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
+|`template <typename T>`<br>`void total_query(const int idx, T* val);`|ブロック $\mathrm{idx}$ を基にクエリの解 $\mathrm{val}$ を更新する。|関数プロトタイプ|
+|`template <typename T>`<br>`T query(const int l, const int r, const T id);`|$\lbrack l, r)$ に対するクエリの解|$\mathrm{id}$ は単位元である。|
 
 
 ## 参考文献

@@ -67,7 +67,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <typename CostType> std::vector<int> is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph);`|隣接する頂点の色が同じにならないよう、無向グラフ $\mathrm{graph}$ を $2$ 色に塗り分けたときの各頂点の色。ただし二部グラフでなければ空配列を返す。|色は $0$ または $1$ で表す。|
+|`template <typename CostType>`<br>`std::vector<int> is_bipartite(const std::vector<std::vector<Edge<CostType>>>& graph);`|隣接する頂点の色が同じにならないよう、無向グラフ $\mathrm{graph}$ を $2$ 色に塗り分けたときの各頂点の色。ただし二部グラフでなければ空配列を返す。|色は $0$ または $1$ で表す。|
 
 
 ## 参考文献

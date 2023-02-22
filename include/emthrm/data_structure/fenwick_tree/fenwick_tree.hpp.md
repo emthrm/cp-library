@@ -72,8 +72,8 @@ data:
   verifiedWith:
   - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
-  - test/misc/mo.test.cpp
   - test/misc/inversion_number.test.cpp
+  - test/misc/mo.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
 layout: document
 redirect_from:

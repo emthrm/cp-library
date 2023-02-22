@@ -58,7 +58,7 @@ $O(NM)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> int levenshtein_distance(const T& a, const T& b);`|$A$ と $B$ のレーベンシュタイン距離|
+|`template <typename T>`<br>`int levenshtein_distance(const T& a, const T& b);`|$A$ と $B$ のレーベンシュタイン距離|
 
 
 ## 参考文献

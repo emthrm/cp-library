@@ -52,8 +52,8 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/matrix_tree_theorem.test.cpp
   - test/math/matrix/determinant.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: include/emthrm/math/matrix/determinant.hpp
 layout: document
 title: "\u884C\u5217\u5F0F (determinant)"
@@ -69,7 +69,7 @@ $O(N^3)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T, typename U> U det(const Matrix<T>& a, const U eps);`|$\lvert A \rvert$|
+|`template <typename T, typename U>`<br>`U det(const Matrix<T>& a, const U eps);`|$\lvert A \rvert$|
 
 
 ## 参考文献

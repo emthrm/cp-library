@@ -59,7 +59,7 @@ $$
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <template <typename> class C, typename T> C<T> product_of_polynomial_sequence(std::vector<C<T>> a);`|$\prod_i f_i(x)$|`C` は冪級数を表す構造体である。|
+|`template <template <typename> class C, typename T>`<br>`C<T> product_of_polynomial_sequence(std::vector<C<T>> a);`|$\prod_i f_i(x)$|`C` は冪級数を表す構造体である。|
 
 
 ## Submissons

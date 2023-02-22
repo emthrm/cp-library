@@ -14,14 +14,14 @@ $O(\lvert V \rvert (\lvert V \rvert + \lvert E \rvert) \log{\lvert V \rvert})$
 
 |名前|戻り値|要件|
 |:--|:--|:--|
-|`template <typename CostType> CostType girth_in_directed_graph(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|有向グラフ $\mathrm{graph}$ の内周。ただし存在しないときは $\infty$ を返す。|辺の重みは自然数である。|
+|`template <typename CostType>`<br>`CostType girth_in_directed_graph(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|有向グラフ $\mathrm{graph}$ の内周。ただし存在しないときは $\infty$ を返す。|辺の重みは自然数である。|
 
 
 ### 無向グラフ版
 
 |名前|戻り値|要件|
 |:--|:--|:--|
-|`template <typename CostType> CostType girth_in_undirected_graph(const int n, const std::vector<Edge<CostType>>& edges, const CostType inf = std::numeric_limits<CostType>::max());`|頂点数 $n$、辺集合 $\mathrm{edges}$ である無向グラフの内周。ただし存在しないときは $\infty$ を返す。|辺の重みは自然数である。|
+|`template <typename CostType>`<br>`CostType girth_in_undirected_graph(const int n, const std::vector<Edge<CostType>>& edges, const CostType inf = std::numeric_limits<CostType>::max());`|頂点数 $n$、辺集合 $\mathrm{edges}$ である無向グラフの内周。ただし存在しないときは $\infty$ を返す。|辺の重みは自然数である。|
 
 
 ## 参考文献

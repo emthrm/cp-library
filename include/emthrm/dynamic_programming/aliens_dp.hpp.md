@@ -50,7 +50,7 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename Real = double, typename F, typename T> Real aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat);`|辺の重みを $c(i, j) \gets c(i, j) + \lambda$ とした $G$ に対する始点 $0$、終点 $n - 1$ の最短路長を $\mathrm{calc}(\lambda)$、三分探索の反復回数を $\mathrm{repeat}$ としたとき、$G$ 上でちょうど $d$ 辺通る始点 $0$、終点 $n - 1$ の道の内、最短のものの長さ|
+|`template <typename Real = double, typename F, typename T>`<br>`Real aliens_dp(const F calc, const int d, const T& max_abs_c, int repeat);`|辺の重みを $c(i, j) \gets c(i, j) + \lambda$ とした $G$ に対する始点 $0$、終点 $n - 1$ の最短路長を $\mathrm{calc}(\lambda)$、三分探索の反復回数を $\mathrm{repeat}$ としたとき、$G$ 上でちょうど $d$ 辺通る始点 $0$、終点 $n - 1$ の道の内、最短のものの長さ|
 
 
 ## 参考文献

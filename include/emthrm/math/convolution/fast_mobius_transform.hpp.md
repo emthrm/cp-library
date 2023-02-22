@@ -51,8 +51,8 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/convolution/fast_mobius_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fast_mobius_transform.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_mobius_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
@@ -72,7 +72,7 @@ $O(N\log{N})$
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <typename T> std::vector<T> fast_mobius_transform(std::vector<T> a, const bool adds_superset, const T id = 0);`|$A$ に高速メビウス変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
+|`template <typename T>`<br>`std::vector<T> fast_mobius_transform(std::vector<T> a, const bool adds_superset, const T id = 0);`|$A$ に高速メビウス変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
 
 
 ## 参考文献

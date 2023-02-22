@@ -34,16 +34,18 @@ data:
     emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/large_nCk_init.hpp\"\
     \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  long long n;\n  int m;\n  std::cin >> n >> m;\n  const std::vector<ModInt>\
-    \ c = emthrm::large_nCk_init<MOD>(n, m - 1);\n  std::cout << ModInt(2).pow(n)\
-    \ - std::accumulate(c.begin(), c.end(), ModInt(0))\n            << '\\n';\n  return\
-    \ 0;\n}\n"
+    \ c = emthrm::large_nCk_init<MOD>(n, m - 1);\n#if __cplusplus >= 201703L\n  std::cout\
+    \ << ModInt(2).pow(n) - std::reduce(c.begin(), c.end(), ModInt(0))\n         \
+    \   << '\\n';\n#else\n  std::cout << ModInt(2).pow(n) - std::accumulate(c.begin(),\
+    \ c.end(), ModInt(0))\n            << '\\n';\n#endif  // __cplusplus >= 201703L\n\
+    \  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   - include/emthrm/math/twelvefold_way/large_nCk_init.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/large_nCk_init.test.cpp
   requiredBy: []
-  timestamp: '2023-02-02 03:45:06+09:00'
+  timestamp: '2023-02-21 03:10:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/large_nCk_init.test.cpp

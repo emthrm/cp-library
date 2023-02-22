@@ -36,7 +36,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
@@ -86,21 +86,21 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
+|`template <int T>`<br>`MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
 
 
 ### 数表
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> bell_number_init(const int n, const int k);`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> bell_number_init(const int n, const int k);`|$B(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 
 ### 数表 $n = k$ 版
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
+|`template <typename T> std::vector<T>`<br>`bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

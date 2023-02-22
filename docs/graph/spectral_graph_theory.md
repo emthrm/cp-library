@@ -46,7 +46,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T, typename CostType> T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph, const T eps = 1e-8);`|無向グラフ $\mathrm{graph}$ の全域木の個数|
+|`template <typename T, typename CostType>`<br>`T matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>& graph, const T eps = 1e-8);`|無向グラフ $\mathrm{graph}$ の全域木の個数|
 
 
 ## 参考文献

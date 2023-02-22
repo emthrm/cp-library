@@ -66,7 +66,7 @@ $O(M^2 N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T, typename U = double> Matrix<U> inverse_matrix(const Matrix<T>& a, const U eps = 1e-8);`|行列 $A$ の逆行列。ただし存在しないときは空行列を返す。|
+|`template <typename T, typename U = double>`<br>`Matrix<U> inverse_matrix(const Matrix<T>& a, const U eps = 1e-8);`|行列 $A$ の逆行列。ただし存在しないときは空行列を返す。|
 
 
 ## Submissons

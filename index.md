@@ -107,7 +107,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/geometry/argument_sort.hpp
       title: "\u504F\u89D2\u30BD\u30FC\u30C8"
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: include/emthrm/geometry/geometry.hpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
     - icon: ':heavy_check_mark:'
@@ -310,6 +310,16 @@ data:
       path: include/emthrm/math/enumerate_quotients.hpp
       title: "\u5546\u306E\u5217\u6319"
     - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/euler_phi.hpp
+      title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/euler_phi_init.hpp
+      title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
+    - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/euler_phi_init2.hpp
+      title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
+        2"
+    - icon: ':heavy_check_mark:'
       path: include/emthrm/math/ext_gcd.hpp
       title: "\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5 (extended Euclidean algorithm)"
     - icon: ':heavy_check_mark:'
@@ -318,7 +328,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/is_prime.hpp
       title: "\u7D20\u6570\u5224\u5B9A (primality test)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: include/emthrm/math/is_primitive_root.hpp
       title: "\u539F\u59CB\u6839\u5224\u5B9A"
     - icon: ':heavy_check_mark:'
@@ -333,6 +343,18 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/least_common_multiple.hpp
       title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
+    - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/mobius_mu.hpp
+      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
+      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
+    - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/mobius_mu_init.hpp
+      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868"
+    - icon: ':heavy_check_mark:'
+      path: include/emthrm/math/mobius_mu_init2.hpp
+      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/mod_inv.hpp
       title: "\u9006\u5143 (inverse element)"
@@ -393,6 +415,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/gcd_convolution.hpp
       title: "\u6DFB\u3048\u5B57 gcd \u3067\u306E\u7573\u307F\u8FBC\u307F"
+    - icon: ':x:'
+      path: include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
+      title: "\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\u51AA (Kronecker power) \u3068\u30D9\
+        \u30AF\u30C8\u30EB\u306E\u7A4D"
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/lcm_convolution.hpp
       title: "\u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -408,18 +434,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: include/emthrm/math/convolution/xor_convolution.hpp
       title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
-  - name: include/emthrm/math/euler_phi
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/euler_phi/euler_phi.hpp
-      title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/euler_phi/euler_phi_init.hpp
-      title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/euler_phi/euler_phi_init2.hpp
-      title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
-        2"
   - name: include/emthrm/math/formal_power_series
     pages:
     - icon: ':heavy_check_mark:'
@@ -494,20 +508,6 @@ data:
     - icon: ':question:'
       path: include/emthrm/math/matrix/matrix.hpp
       title: "\u884C\u5217 (matrix)"
-  - name: include/emthrm/math/mobius_mu
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/mobius_mu/mobius_mu.hpp
-      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp
-      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/mobius_mu/mobius_mu_init.hpp
-      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/math/mobius_mu/mobius_mu_init2.hpp
-      title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
   - name: include/emthrm/math/twelvefold_way/bell_number
     pages:
     - icon: ':heavy_check_mark:'
@@ -589,9 +589,6 @@ data:
     - icon: ':question:'
       path: include/emthrm/string/morris-pratt.hpp
       title: "Morris\u2013Pratt algorithm"
-    - icon: ':warning:'
-      path: include/emthrm/string/replace.hpp
-      title: "\u6587\u5B57\u5217\u306E\u7F6E\u63DB"
     - icon: ':heavy_check_mark:'
       path: include/emthrm/string/rolling_hash.hpp
       title: rolling hash
@@ -618,9 +615,6 @@ data:
     - icon: ':warning:'
       path: include/emthrm/util/timer.hpp
       title: "\u30BF\u30A4\u30DE\u30FC (timer)"
-    - icon: ':heavy_check_mark:'
-      path: include/emthrm/util/xorshift.hpp
-      title: xorshift
   verificationCategories:
   - name: test/data_structure
     pages:
@@ -786,7 +780,7 @@ data:
       path: test/geometry/geometry.06.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u7DDA\
         \u5206\u306E\u4EA4\u5DEE\u5224\u5B9A)"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/geometry/geometry.07.test.cpp
       title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u7DDA\
         \u5206\u3068\u5186\u306E\u4EA4\u5DEE\u5224\u5B9A)"
@@ -1089,6 +1083,18 @@ data:
       path: test/math/enumerate_quotients.test.cpp
       title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
     - icon: ':heavy_check_mark:'
+      path: test/math/euler_phi.test.cpp
+      title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
+        /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: test/math/euler_phi_init.test.cpp
+      title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
+        /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
+    - icon: ':heavy_check_mark:'
+      path: test/math/euler_phi_init2.test.cpp
+      title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
+        /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
+    - icon: ':heavy_check_mark:'
       path: test/math/ext_gcd.test.cpp
       title: "\u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
     - icon: ':heavy_check_mark:'
@@ -1100,9 +1106,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/is_prime.test.cpp
       title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/math/is_primitive_root.test.cpp
-      title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
+      title: test/math/is_primitive_root.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/math/jacobi_symbol.test.cpp
       title: "\u6570\u5B66/\u30E4\u30B3\u30D3\u8A18\u53F7"
@@ -1117,6 +1123,22 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/least_common_multiple.test.cpp
       title: "\u6570\u5B66/\u6700\u5C0F\u516C\u500D\u6570"
+    - icon: ':heavy_check_mark:'
+      path: test/math/mobius_mu.test.cpp
+      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
+        \u30B9\u95A2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: test/math/mobius_mu_focusing_on_divisor.test.cpp
+      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
+        \u30B9\u95A2\u6570 \u7D04\u6570\u7248"
+    - icon: ':heavy_check_mark:'
+      path: test/math/mobius_mu_init.test.cpp
+      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
+        \u30B9\u95A2\u6570\u306E\u6570\u8868"
+    - icon: ':heavy_check_mark:'
+      path: test/math/mobius_mu_init2.test.cpp
+      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
+        \u30B9\u95A2\u6570\u306E\u6570\u88682"
     - icon: ':heavy_check_mark:'
       path: test/math/mod_log.test.cpp
       title: "\u6570\u5B66/\u96E2\u6563\u5BFE\u6570\u554F\u984C"
@@ -1175,6 +1197,10 @@ data:
       path: test/math/convolution/gcd_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 gcd \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
+    - icon: ':x:'
+      path: test/math/convolution/kronecker_power-vector_multiplication.test.cpp
+      title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u30AF\u30ED\u30CD\u30C3\u30AB\
+        \u30FC\u51AA\u3068\u30D9\u30AF\u30C8\u30EB\u306E\u7A4D"
     - icon: ':heavy_check_mark:'
       path: test/math/convolution/lcm_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
@@ -1190,20 +1216,6 @@ data:
       path: test/math/convolution/xor_convolution.test.cpp
       title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 xor \u3067\u306E\
         \u7573\u307F\u8FBC\u307F"
-  - name: test/math/euler_phi
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/math/euler_phi/euler_phi.test.cpp
-      title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
-        /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: test/math/euler_phi/euler_phi_init.test.cpp
-      title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
-        /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':heavy_check_mark:'
-      path: test/math/euler_phi/euler_phi_init2.test.cpp
-      title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\
-        /\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
   - name: test/math/formal_power_series
     pages:
     - icon: ':heavy_check_mark:'
@@ -1296,24 +1308,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/math/matrix/matrix.test.cpp
       title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
-  - name: test/math/mobius_mu
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: test/math/mobius_mu/mobius_mu.test.cpp
-      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
-        \u30B9\u95A2\u6570"
-    - icon: ':heavy_check_mark:'
-      path: test/math/mobius_mu/mobius_mu_focusing_on_divisor.test.cpp
-      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
-        \u30B9\u95A2\u6570 \u7D04\u6570\u7248"
-    - icon: ':heavy_check_mark:'
-      path: test/math/mobius_mu/mobius_mu_init.test.cpp
-      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
-        \u30B9\u95A2\u6570\u306E\u6570\u8868"
-    - icon: ':heavy_check_mark:'
-      path: test/math/mobius_mu/mobius_mu_init2.test.cpp
-      title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
-        \u30B9\u95A2\u6570\u306E\u6570\u88682"
   - name: test/math/twelvefold_way/bell_number
     pages:
     - icon: ':heavy_check_mark:'

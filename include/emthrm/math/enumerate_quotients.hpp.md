@@ -46,7 +46,7 @@ $O(\sqrt{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::tuple<T, T, T>> enumerate_quotients(const T n);`|$\lbrace (l, r, q) \mid \forall x \in \lbrace l, l + 1, \ldots, r - 1 \rbrace,\ \lfloor \frac{n}{x} \rfloor = q \rbrace$|
+|`template <typename T>`<br>`std::vector<std::tuple<T, T, T>> enumerate_quotients(const T n);`|$\lbrace (l, r, q) \mid \forall x \in \lbrace l, l + 1, \ldots, r - 1 \rbrace,\ \lfloor \frac{n}{x} \rfloor = q \rbrace$|
 
 
 ## 備考

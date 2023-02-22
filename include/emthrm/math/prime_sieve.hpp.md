@@ -9,11 +9,11 @@ data:
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/euler_phi/euler_phi_init2.hpp
+    path: include/emthrm/math/euler_phi_init2.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
       2"
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/mobius_mu/mobius_mu_init2.hpp
+    path: include/emthrm/math/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/osa_k.hpp
@@ -23,14 +23,14 @@ data:
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
   - icon: ':heavy_check_mark:'
-    path: test/math/euler_phi/euler_phi_init2.test.cpp
+    path: test/math/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
   - icon: ':heavy_check_mark:'
     path: test/math/fast_divisor.test.cpp
     title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
   - icon: ':heavy_check_mark:'
-    path: test/math/mobius_mu/mobius_mu_init2.test.cpp
+    path: test/math/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
   - icon: ':heavy_check_mark:'
@@ -66,20 +66,20 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/prime_sieve.hpp
   requiredBy:
+  - include/emthrm/math/euler_phi_init2.hpp
   - include/emthrm/math/osa_k.hpp
-  - include/emthrm/math/mobius_mu/mobius_mu_init2.hpp
-  - include/emthrm/math/enumerate_k-th_power.hpp
   - include/emthrm/math/carmichael_function_init.hpp
-  - include/emthrm/math/euler_phi/euler_phi_init2.hpp
+  - include/emthrm/math/enumerate_k-th_power.hpp
+  - include/emthrm/math/mobius_mu_init2.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/fast_divisor.test.cpp
-  - test/math/mobius_mu/mobius_mu_init2.test.cpp
   - test/math/prime_sieve.test.cpp
   - test/math/osa_k.test.cpp
   - test/math/enumerate_k-th_power.test.cpp
-  - test/math/euler_phi/euler_phi_init2.test.cpp
+  - test/math/mobius_mu_init2.test.cpp
+  - test/math/euler_phi_init2.test.cpp
 documentation_of: include/emthrm/math/prime_sieve.hpp
 layout: document
 title: prime sieve

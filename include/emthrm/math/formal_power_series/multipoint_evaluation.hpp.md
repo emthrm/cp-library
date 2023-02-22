@@ -19,26 +19,27 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/multipoint_evaluation.hpp\"\
-    \n\n\n\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <template <typename>\
-    \ class C, typename T>\nstruct MultipointEvaluation {\n  std::vector<T> f_x;\n\
-    \  std::vector<C<T>> subproduct_tree;\n\n  explicit MultipointEvaluation(const\
-    \ std::vector<T> &xs)\n      : f_x(xs.size()), subproduct_tree(xs.size() << 1),\
-    \ n(xs.size()) {\n    for (int i = 0; i < n; ++i) {\n      subproduct_tree[i +\
-    \ n] = C<T>{-xs[i], 1};\n    }\n    for (int i = n - 1; i > 0; --i) {\n      subproduct_tree[i]\
-    \ =\n          subproduct_tree[i << 1] * subproduct_tree[(i << 1) + 1];\n    }\n\
-    \  }\n\n  void build(const C<T>& f) { dfs(f, 1); }\n\n private:\n  const int n;\n\
-    \n  void dfs(C<T> f, int node) {\n    f %= subproduct_tree[node];\n    if (node\
-    \ < n) {\n      dfs(f, node << 1);\n      dfs(f, (node << 1) + 1);\n    } else\
-    \ {\n      f_x[node - n] = f[0];\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\
-    \n"
+    \n\n\n\n#include <algorithm>\n#include <iterator>\n#include <vector>\n\nnamespace\
+    \ emthrm {\n\ntemplate <template <typename> class C, typename T>\nstruct MultipointEvaluation\
+    \ {\n  std::vector<T> f_x;\n  std::vector<C<T>> subproduct_tree;\n\n  explicit\
+    \ MultipointEvaluation(const std::vector<T> &xs)\n      : f_x(xs.size()), subproduct_tree(xs.size()\
+    \ << 1), n(xs.size()) {\n    std::transform(xs.begin(), xs.end(), std::next(subproduct_tree.begin(),\
+    \ n),\n                   [](const T& x) -> C<T> { return C<T>{-x, 1}; });\n \
+    \   for (int i = n - 1; i > 0; --i) {\n      subproduct_tree[i] =\n          subproduct_tree[i\
+    \ << 1] * subproduct_tree[(i << 1) + 1];\n    }\n  }\n\n  void build(const C<T>&\
+    \ f) { dfs(f, 1); }\n\n private:\n  const int n;\n\n  void dfs(C<T> f, int node)\
+    \ {\n    f %= subproduct_tree[node];\n    if (node < n) {\n      dfs(f, node <<\
+    \ 1);\n      dfs(f, (node << 1) + 1);\n    } else {\n      f_x[node - n] = f[0];\n\
+    \    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_\n#define\
-    \ EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_\n\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\nstruct\
-    \ MultipointEvaluation {\n  std::vector<T> f_x;\n  std::vector<C<T>> subproduct_tree;\n\
-    \n  explicit MultipointEvaluation(const std::vector<T> &xs)\n      : f_x(xs.size()),\
-    \ subproduct_tree(xs.size() << 1), n(xs.size()) {\n    for (int i = 0; i < n;\
-    \ ++i) {\n      subproduct_tree[i + n] = C<T>{-xs[i], 1};\n    }\n    for (int\
-    \ i = n - 1; i > 0; --i) {\n      subproduct_tree[i] =\n          subproduct_tree[i\
+    \ EMTHRM_MATH_FORMAL_POWER_SERIES_MULTIPOINT_EVALUATION_HPP_\n\n#include <algorithm>\n\
+    #include <iterator>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <template\
+    \ <typename> class C, typename T>\nstruct MultipointEvaluation {\n  std::vector<T>\
+    \ f_x;\n  std::vector<C<T>> subproduct_tree;\n\n  explicit MultipointEvaluation(const\
+    \ std::vector<T> &xs)\n      : f_x(xs.size()), subproduct_tree(xs.size() << 1),\
+    \ n(xs.size()) {\n    std::transform(xs.begin(), xs.end(), std::next(subproduct_tree.begin(),\
+    \ n),\n                   [](const T& x) -> C<T> { return C<T>{-x, 1}; });\n \
+    \   for (int i = n - 1; i > 0; --i) {\n      subproduct_tree[i] =\n          subproduct_tree[i\
     \ << 1] * subproduct_tree[(i << 1) + 1];\n    }\n  }\n\n  void build(const C<T>&\
     \ f) { dfs(f, 1); }\n\n private:\n  const int n;\n\n  void dfs(C<T> f, int node)\
     \ {\n    f %= subproduct_tree[node];\n    if (node < n) {\n      dfs(f, node <<\
@@ -49,7 +50,7 @@ data:
   path: include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
   requiredBy:
   - include/emthrm/math/formal_power_series/polynomial_interpolation.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/multipoint_evaluation.test.cpp

@@ -76,7 +76,7 @@ title: "\u5168\u65B9\u4F4D\u6728 DP"
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename CostType, typename CommutativeSemigroup, typename E, typename F, typename G> std::vector<CommutativeSemigroup> rerooting_dp(const std::vector<std::vector<Edge<CostType>>>& graph, const std::vector<CommutativeSemigroup>& def, const E merge, const F f, const G g);`|木 $\mathrm{graph}$ に対する全方位木 DP|
+|`template <typename CostType, typename CommutativeSemigroup, typename E, typename F, typename G>`<br>`std::vector<CommutativeSemigroup> rerooting_dp(const std::vector<std::vector<Edge<CostType>>>& graph, const std::vector<CommutativeSemigroup>& def, const E merge, const F f, const G g);`|木 $\mathrm{graph}$ に対する全方位木 DP|
 
 
 ## 例

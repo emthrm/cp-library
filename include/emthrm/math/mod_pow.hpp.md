@@ -6,9 +6,6 @@ data:
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/is_primitive_root.hpp
-    title: "\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_log.hpp
     title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
   - icon: ':heavy_check_mark:'
@@ -22,9 +19,6 @@ data:
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (\u5E73\u65B9\u6839)"
-  - icon: ':heavy_check_mark:'
-    path: test/math/is_primitive_root.test.cpp
-    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: test/math/mod_log.test.cpp
     title: "\u6570\u5B66/\u96E2\u6563\u5BFE\u6570\u554F\u984C"
@@ -53,19 +47,17 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/mod_pow.hpp
   requiredBy:
-  - include/emthrm/math/enumerate_k-th_power.hpp
-  - include/emthrm/math/is_primitive_root.hpp
   - include/emthrm/math/mod_log.hpp
+  - include/emthrm/math/enumerate_k-th_power.hpp
   - include/emthrm/math/mod_sqrt.hpp
   timestamp: '2022-12-16 05:33:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/mod_sqrt.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/is_primitive_root.test.cpp
   - test/math/mod_pow.test.cpp
-  - test/math/enumerate_k-th_power.test.cpp
+  - test/math/mod_sqrt.test.cpp
   - test/math/mod_log.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/enumerate_k-th_power.test.cpp
 documentation_of: include/emthrm/math/mod_pow.hpp
 layout: document
 title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\

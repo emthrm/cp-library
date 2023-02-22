@@ -9,6 +9,10 @@ data:
   - icon: ':x:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406"
+  - icon: ':x:'
+    path: include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
+    title: "\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\u51AA (Kronecker power) \u3068\u30D9\
+      \u30AF\u30C8\u30EB\u306E\u7A4D"
   - icon: ':question:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
@@ -30,6 +34,10 @@ data:
   - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
+  - icon: ':x:'
+    path: test/math/convolution/kronecker_power-vector_multiplication.test.cpp
+    title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\
+      \u51AA\u3068\u30D9\u30AF\u30C8\u30EB\u306E\u7A4D"
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
@@ -103,21 +111,23 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/matrix.hpp
   requiredBy:
+  - include/emthrm/math/matrix/inverse_matrix.hpp
+  - include/emthrm/math/matrix/determinant.hpp
+  - include/emthrm/math/matrix/gauss_jordan.hpp
+  - include/emthrm/math/matrix/linear_equation.hpp
+  - include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
   - include/emthrm/graph/matrix_tree_theorem.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  - include/emthrm/math/matrix/gauss_jordan.hpp
-  - include/emthrm/math/matrix/inverse_matrix.hpp
-  - include/emthrm/math/matrix/linear_equation.hpp
-  - include/emthrm/math/matrix/determinant.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/flow/matching/maximum_matching.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
-  - test/math/matrix/inverse_matrix.test.cpp
   - test/math/matrix/determinant.test.cpp
-  - test/math/matrix/matrix.test.cpp
+  - test/math/matrix/inverse_matrix.test.cpp
   - test/math/matrix/linear_equation.test.cpp
+  - test/math/matrix/matrix.test.cpp
+  - test/math/convolution/kronecker_power-vector_multiplication.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/flow/matching/maximum_matching.test.cpp
 documentation_of: include/emthrm/math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"

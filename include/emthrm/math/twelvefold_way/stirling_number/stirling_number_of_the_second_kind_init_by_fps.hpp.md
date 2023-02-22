@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
@@ -137,35 +137,35 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(const int n, const int k);`|第1種スターリング数 $s(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> stirling_number_of_the_first_kind_init(const int n, const int k);`|第1種スターリング数 $s(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 
 ### 第1種スターリング数の数表 形式的冪級数版
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <typename T> std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n);`|第1種スターリング数 $s(n, k)$ ($0 \leq k \leq n$) の数表|$x^{\underline{n}} = \sum_{k = 0}^n (-1)^{n + k} s(n, k) x^k$|
+|`template <typename T>`<br>`std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n);`|第1種スターリング数 $s(n, k)$ ($0 \leq k \leq n$) の数表|$x^{\underline{n}} = \sum_{k = 0}^n (-1)^{n + k} s(n, k) x^k$|
 
 
 ### 第2種スターリング数
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
+|`template <int T> MInt<T>`<br>`stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
 
 
 ### 第2種スターリング数の数表
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>> stirling_number_of_the_second_kind_init(const int n, const int k);`|第2種スターリング数 $S(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+|`template <typename T> std::vector<std::vector<T>>`<br>`stirling_number_of_the_second_kind_init(const int n, const int k);`|第2種スターリング数 $S(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 
 ### 第2種スターリング数の数表 形式的冪級数版
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
+|`template <int T> std::vector<MInt<T>>`<br>`stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
 
 
 ## 参考文献

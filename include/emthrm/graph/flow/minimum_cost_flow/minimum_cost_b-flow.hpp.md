@@ -34,12 +34,14 @@ data:
     \ cap;\n      res += cost * cap;\n      std::swap(src, dst);\n      cost = -cost;\n\
     \    }\n    graph[src].emplace_back(dst, cap, cost, graph[dst].size());\n    graph[dst].emplace_back(src,\
     \ 0, -cost, graph[src].size() - 1);\n  }\n\n  void supply_or_demand(const int\
-    \ ver, const T amount) { b[ver] += amount; }\n\n  U solve() {\n    assert(std::accumulate(b.begin(),\
-    \ b.end(), static_cast<T>(0)) == 0);\n    T flow = 0;\n    for (int i = 0; i <\
-    \ n; ++i) {\n      if (b[i] > 0) {\n        add_edge(n, i, b[i], 0);\n       \
-    \ flow += b[i];\n      } else if (b[i] < 0) {\n        add_edge(i, n + 1, -b[i],\
-    \ 0);\n      }\n    }\n    std::vector<int> prev_v(n + 2, -1), prev_e(n + 2, -1);\n\
-    \    std::vector<U> dist(n + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U,\
+    \ ver, const T amount) { b[ver] += amount; }\n\n  U solve() {\n#if __cplusplus\
+    \ >= 201703L\n    assert(std::reduce(b.begin(), b.end(), static_cast<T>(0)) ==\
+    \ 0);\n#else\n    assert(std::accumulate(b.begin(), b.end(), static_cast<T>(0))\
+    \ == 0);\n#endif  // __cplusplus >= 201703L\n    T flow = 0;\n    for (int i =\
+    \ 0; i < n; ++i) {\n      if (b[i] > 0) {\n        add_edge(n, i, b[i], 0);\n\
+    \        flow += b[i];\n      } else if (b[i] < 0) {\n        add_edge(i, n +\
+    \ 1, -b[i], 0);\n      }\n    }\n    std::vector<int> prev_v(n + 2, -1), prev_e(n\
+    \ + 2, -1);\n    std::vector<U> dist(n + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U,\
     \ int>, std::vector<std::pair<U, int>>,\n                        std::greater<std::pair<U,\
     \ int>>> que;\n    while (flow > 0) {\n      std::fill(dist.begin(), dist.end(),\
     \ uinf);\n      dist[n] = 0;\n      que.emplace(0, n);\n      while (!que.empty())\
@@ -80,12 +82,14 @@ data:
     \ cap;\n      res += cost * cap;\n      std::swap(src, dst);\n      cost = -cost;\n\
     \    }\n    graph[src].emplace_back(dst, cap, cost, graph[dst].size());\n    graph[dst].emplace_back(src,\
     \ 0, -cost, graph[src].size() - 1);\n  }\n\n  void supply_or_demand(const int\
-    \ ver, const T amount) { b[ver] += amount; }\n\n  U solve() {\n    assert(std::accumulate(b.begin(),\
-    \ b.end(), static_cast<T>(0)) == 0);\n    T flow = 0;\n    for (int i = 0; i <\
-    \ n; ++i) {\n      if (b[i] > 0) {\n        add_edge(n, i, b[i], 0);\n       \
-    \ flow += b[i];\n      } else if (b[i] < 0) {\n        add_edge(i, n + 1, -b[i],\
-    \ 0);\n      }\n    }\n    std::vector<int> prev_v(n + 2, -1), prev_e(n + 2, -1);\n\
-    \    std::vector<U> dist(n + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U,\
+    \ ver, const T amount) { b[ver] += amount; }\n\n  U solve() {\n#if __cplusplus\
+    \ >= 201703L\n    assert(std::reduce(b.begin(), b.end(), static_cast<T>(0)) ==\
+    \ 0);\n#else\n    assert(std::accumulate(b.begin(), b.end(), static_cast<T>(0))\
+    \ == 0);\n#endif  // __cplusplus >= 201703L\n    T flow = 0;\n    for (int i =\
+    \ 0; i < n; ++i) {\n      if (b[i] > 0) {\n        add_edge(n, i, b[i], 0);\n\
+    \        flow += b[i];\n      } else if (b[i] < 0) {\n        add_edge(i, n +\
+    \ 1, -b[i], 0);\n      }\n    }\n    std::vector<int> prev_v(n + 2, -1), prev_e(n\
+    \ + 2, -1);\n    std::vector<U> dist(n + 2), potential(n + 2, 0);\n    std::priority_queue<std::pair<U,\
     \ int>, std::vector<std::pair<U, int>>,\n                        std::greater<std::pair<U,\
     \ int>>> que;\n    while (flow > 0) {\n      std::fill(dist.begin(), dist.end(),\
     \ uinf);\n      dist[n] = 0;\n      que.emplace(0, n);\n      while (!que.empty())\
@@ -112,7 +116,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-21 03:10:55+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp

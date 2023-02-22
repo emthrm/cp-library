@@ -69,28 +69,28 @@ data:
     \  std::vector<Complex> c(1 << lg);\n  for (int i = 0; i < n; ++i) {\n    c[i].re\
     \ = a[i];\n  }\n  dft(&c);\n  return c;\n}\n\nvoid idft(std::vector<Complex>*\
     \ a) {\n  const int n = a->size();\n  dft(a);\n  std::reverse(std::next(a->begin()),\
-    \ a->end());\n  const Real r = 1. / n;\n  for (int i = 0; i < n; ++i) {\n    (*a)[i]\
-    \ = (*a)[i].mul_real(r);\n  }\n}\n\ntemplate <typename T>\nstd::vector<Real> convolution(const\
-    \ std::vector<T>& a,\n                              const std::vector<T>& b) {\n\
-    \  const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size -\
-    \ 1;\n  int lg = 1;\n  while ((1 << lg) < c_size) ++lg;\n  const int n = 1 <<\
-    \ lg, hlf = n >> 1, qtr = hlf >> 1;\n  std::vector<Complex> c(n);\n  for (int\
-    \ i = 0; i < a_size; ++i) {\n    c[i].re = a[i];\n  }\n  for (int i = 0; i < b_size;\
-    \ ++i) {\n    c[i].im = b[i];\n  }\n  dft(&c);\n  c.front() = Complex(c.front().re\
-    \ * c.front().im, 0);\n  for (int i = 1; i < hlf; ++i) {\n    const Complex i_square\
-    \ = c[i] * c[i], j_square = c[n - i] * c[n - i];\n    c[i] = (j_square.conj()\
-    \ - i_square).mul_pin(0.25);\n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\n\
-    \  }\n  c[hlf] = Complex(c[hlf].re * c[hlf].im, 0);\n  c.front() = (c.front()\
-    \ + c[hlf]\n               + (c.front() - c[hlf]).mul_pin(1)).mul_real(0.5);\n\
-    \  const int den = __builtin_ctz(hlf);\n  for (int i = 1; i < qtr; ++i) {\n  \
-    \  const int j = hlf - i;\n    const Complex tmp1 = c[i] + c[j].conj();\n    const\
-    \ Complex tmp2 = ((c[i] - c[j].conj()) * zeta[den][j]).mul_pin(1);\n    c[i] =\
-    \ (tmp1 - tmp2).mul_real(0.5);\n    c[j] = (tmp1 + tmp2).mul_real(0.5).conj();\n\
-    \  }\n  if (qtr > 0) c[qtr] = c[qtr].conj();\n  c.resize(hlf);\n  idft(&c);\n\
-    \  std::vector<Real> res(c_size);\n  for (int i = 0; i < c_size; i += 2) {\n \
-    \   res[i] = c[i >> 1].re;\n  }\n  for (int i = 1; i < c_size; i += 2) {\n   \
-    \ res[i] = c[i >> 1].im;\n  }\n  return res;\n}\n\n}  // namespace fast_fourier_transform\n\
-    \n}  // namespace emthrm\n\n\n"
+    \ a->end());\n  const Real r = 1. / n;\n  std::transform(a->begin(), a->end(),\
+    \ a->begin(),\n                 [r](const Complex& c) -> Complex { return c.mul_real(r);\
+    \ });\n}\n\ntemplate <typename T>\nstd::vector<Real> convolution(const std::vector<T>&\
+    \ a,\n                              const std::vector<T>& b) {\n  const int a_size\
+    \ = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;\n  int lg = 1;\n\
+    \  while ((1 << lg) < c_size) ++lg;\n  const int n = 1 << lg, hlf = n >> 1, qtr\
+    \ = hlf >> 1;\n  std::vector<Complex> c(n);\n  for (int i = 0; i < a_size; ++i)\
+    \ {\n    c[i].re = a[i];\n  }\n  for (int i = 0; i < b_size; ++i) {\n    c[i].im\
+    \ = b[i];\n  }\n  dft(&c);\n  c.front() = Complex(c.front().re * c.front().im,\
+    \ 0);\n  for (int i = 1; i < hlf; ++i) {\n    const Complex i_square = c[i] *\
+    \ c[i], j_square = c[n - i] * c[n - i];\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\n\
+    \    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\n  }\n  c[hlf] = Complex(c[hlf].re\
+    \ * c[hlf].im, 0);\n  c.front() = (c.front() + c[hlf]\n               + (c.front()\
+    \ - c[hlf]).mul_pin(1)).mul_real(0.5);\n  const int den = __builtin_ctz(hlf);\n\
+    \  for (int i = 1; i < qtr; ++i) {\n    const int j = hlf - i;\n    const Complex\
+    \ tmp1 = c[i] + c[j].conj();\n    const Complex tmp2 = ((c[i] - c[j].conj()) *\
+    \ zeta[den][j]).mul_pin(1);\n    c[i] = (tmp1 - tmp2).mul_real(0.5);\n    c[j]\
+    \ = (tmp1 + tmp2).mul_real(0.5).conj();\n  }\n  if (qtr > 0) c[qtr] = c[qtr].conj();\n\
+    \  c.resize(hlf);\n  idft(&c);\n  std::vector<Real> res(c_size);\n  for (int i\
+    \ = 0; i < c_size; i += 2) {\n    res[i] = c[i >> 1].re;\n  }\n  for (int i =\
+    \ 1; i < c_size; i += 2) {\n    res[i] = c[i >> 1].im;\n  }\n  return res;\n}\n\
+    \n}  // namespace fast_fourier_transform\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_\n#define EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_\n\
     \n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <iterator>\n\
     #include <utility>\n#include <vector>\n\n#if !defined(__GNUC__) && \\\n    (!defined(__has_builtin)\
@@ -129,41 +129,42 @@ data:
     \  std::vector<Complex> c(1 << lg);\n  for (int i = 0; i < n; ++i) {\n    c[i].re\
     \ = a[i];\n  }\n  dft(&c);\n  return c;\n}\n\nvoid idft(std::vector<Complex>*\
     \ a) {\n  const int n = a->size();\n  dft(a);\n  std::reverse(std::next(a->begin()),\
-    \ a->end());\n  const Real r = 1. / n;\n  for (int i = 0; i < n; ++i) {\n    (*a)[i]\
-    \ = (*a)[i].mul_real(r);\n  }\n}\n\ntemplate <typename T>\nstd::vector<Real> convolution(const\
-    \ std::vector<T>& a,\n                              const std::vector<T>& b) {\n\
-    \  const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size -\
-    \ 1;\n  int lg = 1;\n  while ((1 << lg) < c_size) ++lg;\n  const int n = 1 <<\
-    \ lg, hlf = n >> 1, qtr = hlf >> 1;\n  std::vector<Complex> c(n);\n  for (int\
-    \ i = 0; i < a_size; ++i) {\n    c[i].re = a[i];\n  }\n  for (int i = 0; i < b_size;\
-    \ ++i) {\n    c[i].im = b[i];\n  }\n  dft(&c);\n  c.front() = Complex(c.front().re\
-    \ * c.front().im, 0);\n  for (int i = 1; i < hlf; ++i) {\n    const Complex i_square\
-    \ = c[i] * c[i], j_square = c[n - i] * c[n - i];\n    c[i] = (j_square.conj()\
-    \ - i_square).mul_pin(0.25);\n    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\n\
-    \  }\n  c[hlf] = Complex(c[hlf].re * c[hlf].im, 0);\n  c.front() = (c.front()\
-    \ + c[hlf]\n               + (c.front() - c[hlf]).mul_pin(1)).mul_real(0.5);\n\
-    \  const int den = __builtin_ctz(hlf);\n  for (int i = 1; i < qtr; ++i) {\n  \
-    \  const int j = hlf - i;\n    const Complex tmp1 = c[i] + c[j].conj();\n    const\
-    \ Complex tmp2 = ((c[i] - c[j].conj()) * zeta[den][j]).mul_pin(1);\n    c[i] =\
-    \ (tmp1 - tmp2).mul_real(0.5);\n    c[j] = (tmp1 + tmp2).mul_real(0.5).conj();\n\
-    \  }\n  if (qtr > 0) c[qtr] = c[qtr].conj();\n  c.resize(hlf);\n  idft(&c);\n\
-    \  std::vector<Real> res(c_size);\n  for (int i = 0; i < c_size; i += 2) {\n \
-    \   res[i] = c[i >> 1].re;\n  }\n  for (int i = 1; i < c_size; i += 2) {\n   \
-    \ res[i] = c[i >> 1].im;\n  }\n  return res;\n}\n\n}  // namespace fast_fourier_transform\n\
-    \n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_\n"
+    \ a->end());\n  const Real r = 1. / n;\n  std::transform(a->begin(), a->end(),\
+    \ a->begin(),\n                 [r](const Complex& c) -> Complex { return c.mul_real(r);\
+    \ });\n}\n\ntemplate <typename T>\nstd::vector<Real> convolution(const std::vector<T>&\
+    \ a,\n                              const std::vector<T>& b) {\n  const int a_size\
+    \ = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;\n  int lg = 1;\n\
+    \  while ((1 << lg) < c_size) ++lg;\n  const int n = 1 << lg, hlf = n >> 1, qtr\
+    \ = hlf >> 1;\n  std::vector<Complex> c(n);\n  for (int i = 0; i < a_size; ++i)\
+    \ {\n    c[i].re = a[i];\n  }\n  for (int i = 0; i < b_size; ++i) {\n    c[i].im\
+    \ = b[i];\n  }\n  dft(&c);\n  c.front() = Complex(c.front().re * c.front().im,\
+    \ 0);\n  for (int i = 1; i < hlf; ++i) {\n    const Complex i_square = c[i] *\
+    \ c[i], j_square = c[n - i] * c[n - i];\n    c[i] = (j_square.conj() - i_square).mul_pin(0.25);\n\
+    \    c[n - i] = (i_square.conj() - j_square).mul_pin(0.25);\n  }\n  c[hlf] = Complex(c[hlf].re\
+    \ * c[hlf].im, 0);\n  c.front() = (c.front() + c[hlf]\n               + (c.front()\
+    \ - c[hlf]).mul_pin(1)).mul_real(0.5);\n  const int den = __builtin_ctz(hlf);\n\
+    \  for (int i = 1; i < qtr; ++i) {\n    const int j = hlf - i;\n    const Complex\
+    \ tmp1 = c[i] + c[j].conj();\n    const Complex tmp2 = ((c[i] - c[j].conj()) *\
+    \ zeta[den][j]).mul_pin(1);\n    c[i] = (tmp1 - tmp2).mul_real(0.5);\n    c[j]\
+    \ = (tmp1 + tmp2).mul_real(0.5).conj();\n  }\n  if (qtr > 0) c[qtr] = c[qtr].conj();\n\
+    \  c.resize(hlf);\n  idft(&c);\n  std::vector<Real> res(c_size);\n  for (int i\
+    \ = 0; i < c_size; i += 2) {\n    res[i] = c[i >> 1].re;\n  }\n  for (int i =\
+    \ 1; i < c_size; i += 2) {\n    res[i] = c[i >> 1].im;\n  }\n  return res;\n}\n\
+    \n}  // namespace fast_fourier_transform\n\n}  // namespace emthrm\n\n#endif \
+    \ // EMTHRM_MATH_CONVOLUTION_FAST_FOURIER_TRANSFORM_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/convolution/fast_fourier_transform.hpp
   requiredBy:
   - include/emthrm/math/convolution/mod_convolution.hpp
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/tree/centroid_decomposition.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/convolution/mod_convolution.test.cpp
   - test/math/convolution/fast_fourier_transform.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_fourier_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
@@ -198,9 +199,9 @@ $O(N\log{N})$
 |`std::vector<std::vector<Complex>> zeta`|`zeta[i][j]` は $1$ の $2^{i + 1}$ 乗根 $\xi_{2^{i + 1}}^{-j}$ を表す。|
 |`void init(const int n);`|サイズ $N$ の数列に対して離散フーリエ変換を行うための前処理を行う。|
 |`void dft(std::vector<Complex>* a);`|複素数列 $A$ に対して離散フーリエ変換を行う。|
-|`template <typename T> std::vector<Complex> real_dft(const std::vector<T>& a);`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
+|`template <typename T>`<br>`std::vector<Complex> real_dft(const std::vector<T>& a);`|実数列 $A$ に対して離散フーリエ変換を行ったもの|
 |`void idft(std::vector<Complex>* a);`|複素数列 $A$ に対して逆離散フーリエ変換を行う。|
-|`template <typename T> std::vector<Real> convolution(const std::vector<T>& a, const std::vector<T>& b);`|実数列 $A$ と $B$ の畳み込み|
+|`template <typename T>`<br>`std::vector<Real> convolution(const std::vector<T>& a, const std::vector<T>& b);`|実数列 $A$ と $B$ の畳み込み|
 
 ```cpp
 struct Complex;

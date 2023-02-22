@@ -24,26 +24,25 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/convolution/fast_zeta_transform.hpp\"\
     \n\n\n\n#include <functional>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
-    \ <typename Ring, typename Fn = decltype(std::plus<Ring>())>\nstd::vector<Ring>\
-    \ fast_zeta_transform(\n    std::vector<Ring> a, const bool adds_superset,\n \
-    \   const Ring ID = 0, const Fn fn = std::plus<Ring>()) {\n  int n = a.size(),\
-    \ p = 1;\n  while ((1 << p) < n) ++p;\n  n = 1 << p;\n  a.resize(n, ID);\n  if\
-    \ (adds_superset) {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s =\
-    \ 0; s < n; ++s) {\n        if (s & i) continue;\n        a[s] = fn(a[s], a[s\
-    \ | i]);\n      }\n    }\n  } else {\n    for (int i = 1; i < n; i <<= 1) {\n\
-    \      for (int s = 0; s < n; ++s) {\n        if (s & i) continue;\n        a[s\
-    \ | i] = fn(a[s | i], a[s]);\n      }\n    }\n  }\n  return a;\n}\n\n}  // namespace\
-    \ emthrm\n\n\n"
+    \ <typename Ring, typename BinOp = std::plus<Ring>>\nstd::vector<Ring> fast_zeta_transform(\n\
+    \    std::vector<Ring> a, const bool adds_superset,\n    const Ring ID = 0, const\
+    \ BinOp bin_op = BinOp()) {\n  int n = a.size(), p = 1;\n  while ((1 << p) < n)\
+    \ ++p;\n  n = 1 << p;\n  a.resize(n, ID);\n  if (adds_superset) {\n    for (int\
+    \ i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n; ++s) {\n        if (s\
+    \ & i) continue;\n        a[s] = bin_op(a[s], a[s | i]);\n      }\n    }\n  }\
+    \ else {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n;\
+    \ ++s) {\n        if (s & i) continue;\n        a[s | i] = bin_op(a[s | i], a[s]);\n\
+    \      }\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_\n#define EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_\n\
     \n#include <functional>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ Ring, typename Fn = decltype(std::plus<Ring>())>\nstd::vector<Ring> fast_zeta_transform(\n\
+    \ Ring, typename BinOp = std::plus<Ring>>\nstd::vector<Ring> fast_zeta_transform(\n\
     \    std::vector<Ring> a, const bool adds_superset,\n    const Ring ID = 0, const\
-    \ Fn fn = std::plus<Ring>()) {\n  int n = a.size(), p = 1;\n  while ((1 << p)\
-    \ < n) ++p;\n  n = 1 << p;\n  a.resize(n, ID);\n  if (adds_superset) {\n    for\
-    \ (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n; ++s) {\n       \
-    \ if (s & i) continue;\n        a[s] = fn(a[s], a[s | i]);\n      }\n    }\n \
-    \ } else {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n;\
-    \ ++s) {\n        if (s & i) continue;\n        a[s | i] = fn(a[s | i], a[s]);\n\
+    \ BinOp bin_op = BinOp()) {\n  int n = a.size(), p = 1;\n  while ((1 << p) < n)\
+    \ ++p;\n  n = 1 << p;\n  a.resize(n, ID);\n  if (adds_superset) {\n    for (int\
+    \ i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n; ++s) {\n        if (s\
+    \ & i) continue;\n        a[s] = bin_op(a[s], a[s | i]);\n      }\n    }\n  }\
+    \ else {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n;\
+    \ ++s) {\n        if (s & i) continue;\n        a[s | i] = bin_op(a[s | i], a[s]);\n\
     \      }\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_FAST_ZETA_TRANSFORM_HPP_\n"
   dependsOn: []
   isVerificationFile: false
@@ -51,11 +50,11 @@ data:
   requiredBy:
   - include/emthrm/math/convolution/and_convolution.hpp
   - include/emthrm/math/convolution/or_convolution.hpp
-  timestamp: '2023-02-03 18:44:50+09:00'
+  timestamp: '2023-02-20 01:07:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/convolution/fast_zeta_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fast_zeta_transform.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_zeta_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
@@ -73,7 +72,7 @@ $O(N\log{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename Ring, typename Fn = decltype(std::plus<Ring>())> std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const bool adds_superset, const Ring ID = 0, const Fn fn = std::plus<Ring>());`|$A$ に高速ゼータ変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
+|`template <typename Ring, typename BinOp = std::plus<Ring>>`<br>`std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const bool adds_superset, const Ring ID = 0, const BinOp bin_op = BinOp());`|$A$ に高速ゼータ変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
 
 
 ## 参考文献

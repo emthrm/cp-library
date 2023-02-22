@@ -19,19 +19,21 @@ data:
     \n/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
     \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\
     #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <vector>\n\nnamespace emthrm {\n\nstruct EulerianTrailInUndirectedGraph\
-    \ {\n  std::vector<int> trail;\n\n  explicit EulerianTrailInUndirectedGraph(const\
-    \ int n)\n      : n(n), is_visited(n), graph(n) {}\n\n  void add_edge(const int\
-    \ u, const int v) {\n    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
-    \ graph[u].size() - 1);\n  }\n\n  bool build(int s = -1) {\n    trail.clear();\n\
-    \    int odd_deg = 0, edge_num = 0;\n    for (int i = 0; i < n; ++i) {\n     \
-    \ if (graph[i].size() & 1) {\n        ++odd_deg;\n        if (s == -1) s = i;\n\
-    \      }\n      edge_num += graph[i].size();\n    }\n    edge_num >>= 1;\n   \
-    \ if (edge_num == 0) {\n      trail = {s == -1 ? 0 : s};\n      return true;\n\
-    \    }\n    if (odd_deg == 0) {\n      if (s == -1) {\n        for (int i = 0;\
-    \ i < n; ++i) {\n          if (!graph[i].empty()) {\n            s = i;\n    \
-    \        break;\n          }\n        }\n      }\n    } else if (odd_deg != 2)\
-    \ {\n      return false;\n    }\n    for (int i = 0; i < n; ++i) {\n      is_visited[i].assign(graph[i].size(),\
+    #include <cassert>\n#include <iterator>\n#include <vector>\n\nnamespace emthrm\
+    \ {\n\nstruct EulerianTrailInUndirectedGraph {\n  std::vector<int> trail;\n\n\
+    \  explicit EulerianTrailInUndirectedGraph(const int n)\n      : n(n), is_visited(n),\
+    \ graph(n) {}\n\n  void add_edge(const int u, const int v) {\n    graph[u].emplace_back(v,\
+    \ graph[v].size());\n    graph[v].emplace_back(u, graph[u].size() - 1);\n  }\n\
+    \n  bool build(int s = -1) {\n    trail.clear();\n    int odd_deg = 0, edge_num\
+    \ = 0;\n    for (int i = 0; i < n; ++i) {\n      if (graph[i].size() & 1) {\n\
+    \        ++odd_deg;\n        if (s == -1) s = i;\n      }\n      edge_num += graph[i].size();\n\
+    \    }\n    edge_num >>= 1;\n    if (edge_num == 0) {\n      trail = {s == -1\
+    \ ? 0 : s};\n      return true;\n    }\n    if (odd_deg == 0) {\n      if (s ==\
+    \ -1) {\n        s = std::distance(\n            graph.begin(),\n            std::find_if_not(graph.begin(),\
+    \ graph.end(),\n                             [](const std::vector<Edge>& edges)\
+    \ -> bool {\n                               return edges.empty();\n          \
+    \                   }));\n      }\n    } else if (odd_deg != 2) {\n      return\
+    \ false;\n    }\n    for (int i = 0; i < n; ++i) {\n      is_visited[i].assign(graph[i].size(),\
     \ false);\n    }\n    dfs(s);\n    if (static_cast<int>(trail.size()) == edge_num\
     \ + 1) {\n      std::reverse(trail.begin(), trail.end());\n      return true;\n\
     \    }\n    trail.clear();\n    return false;\n  }\n\n private:\n  struct Edge\
@@ -46,19 +48,21 @@ data:
   code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
     \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\
     #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <vector>\n\nnamespace emthrm {\n\nstruct EulerianTrailInUndirectedGraph\
-    \ {\n  std::vector<int> trail;\n\n  explicit EulerianTrailInUndirectedGraph(const\
-    \ int n)\n      : n(n), is_visited(n), graph(n) {}\n\n  void add_edge(const int\
-    \ u, const int v) {\n    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
-    \ graph[u].size() - 1);\n  }\n\n  bool build(int s = -1) {\n    trail.clear();\n\
-    \    int odd_deg = 0, edge_num = 0;\n    for (int i = 0; i < n; ++i) {\n     \
-    \ if (graph[i].size() & 1) {\n        ++odd_deg;\n        if (s == -1) s = i;\n\
-    \      }\n      edge_num += graph[i].size();\n    }\n    edge_num >>= 1;\n   \
-    \ if (edge_num == 0) {\n      trail = {s == -1 ? 0 : s};\n      return true;\n\
-    \    }\n    if (odd_deg == 0) {\n      if (s == -1) {\n        for (int i = 0;\
-    \ i < n; ++i) {\n          if (!graph[i].empty()) {\n            s = i;\n    \
-    \        break;\n          }\n        }\n      }\n    } else if (odd_deg != 2)\
-    \ {\n      return false;\n    }\n    for (int i = 0; i < n; ++i) {\n      is_visited[i].assign(graph[i].size(),\
+    #include <cassert>\n#include <iterator>\n#include <vector>\n\nnamespace emthrm\
+    \ {\n\nstruct EulerianTrailInUndirectedGraph {\n  std::vector<int> trail;\n\n\
+    \  explicit EulerianTrailInUndirectedGraph(const int n)\n      : n(n), is_visited(n),\
+    \ graph(n) {}\n\n  void add_edge(const int u, const int v) {\n    graph[u].emplace_back(v,\
+    \ graph[v].size());\n    graph[v].emplace_back(u, graph[u].size() - 1);\n  }\n\
+    \n  bool build(int s = -1) {\n    trail.clear();\n    int odd_deg = 0, edge_num\
+    \ = 0;\n    for (int i = 0; i < n; ++i) {\n      if (graph[i].size() & 1) {\n\
+    \        ++odd_deg;\n        if (s == -1) s = i;\n      }\n      edge_num += graph[i].size();\n\
+    \    }\n    edge_num >>= 1;\n    if (edge_num == 0) {\n      trail = {s == -1\
+    \ ? 0 : s};\n      return true;\n    }\n    if (odd_deg == 0) {\n      if (s ==\
+    \ -1) {\n        s = std::distance(\n            graph.begin(),\n            std::find_if_not(graph.begin(),\
+    \ graph.end(),\n                             [](const std::vector<Edge>& edges)\
+    \ -> bool {\n                               return edges.empty();\n          \
+    \                   }));\n      }\n    } else if (odd_deg != 2) {\n      return\
+    \ false;\n    }\n    for (int i = 0; i < n; ++i) {\n      is_visited[i].assign(graph[i].size(),\
     \ false);\n    }\n    dfs(s);\n    if (static_cast<int>(trail.size()) == edge_num\
     \ + 1) {\n      std::reverse(trail.begin(), trail.end());\n      return true;\n\
     \    }\n    trail.clear();\n    return false;\n  }\n\n private:\n  struct Edge\
@@ -74,7 +78,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/eulerian_trail_in_undirected_graph.test.cpp
@@ -119,7 +123,7 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename CostType> std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(std::vector<std::vector<Edge<CostType>>> graph, int s = -1);`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路。ただし存在しないときは空配列を返す。|
+|`template <typename CostType>`<br>`std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(std::vector<std::vector<Edge<CostType>>> graph, int s = -1);`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路。ただし存在しないときは空配列を返す。|
 
 
 ### オイラー路 無向グラフ版

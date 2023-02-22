@@ -36,12 +36,12 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/convolution/mod_convolution.hpp: line 12: unable to process\
+    \ include/emthrm/math/convolution/mod_convolution.hpp: line 13: unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\
     \u8FBC\u307F\n * @docs docs/math/convolution/number_theoretic_transform.md\n */\n\
     \n#ifndef EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_\n#define EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_\n\
-    \n#include <cmath>\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_fourier_transform.hpp\"\
+    \n#include <algorithm>\n#include <cmath>\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_fourier_transform.hpp\"\
     \n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\ntemplate <int T>\n\
     std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,\n        \
     \                             const std::vector<MInt<T>>& b,\n               \
@@ -49,12 +49,14 @@ data:
     \ int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;\n  int\
     \ lg = 1;\n  while ((1 << lg) < c_size) ++lg;\n  const int n = 1 << lg, mask =\
     \ (1 << pre) - 1;\n  std::vector<fast_fourier_transform::Complex> x(n), y(n);\n\
-    \  for (int i = 0; i < a_size; ++i) {\n    const int a_i = a[i].v;\n    x[i] =\
-    \ fast_fourier_transform::Complex(a_i & mask, a_i >> pre);\n  }\n  fast_fourier_transform::dft(&x);\n\
-    \  for (int i = 0; i < b_size; ++i) {\n    const int b_i = b[i].v;\n    y[i] =\
-    \ fast_fourier_transform::Complex(b_i & mask, b_i >> pre);\n  }\n  fast_fourier_transform::dft(&y);\n\
-    \  const int half = n >> 1;\n  fast_fourier_transform::Complex tmp_a = x.front(),\
-    \ tmp_b = y.front();\n  x.front() =\n      fast_fourier_transform::Complex(tmp_a.re\
+    \  std::transform(\n        a.begin(), a.end(), x.begin(),\n        [mask, pre](const\
+    \ MInt<T>& a_i) -> fast_fourier_transform::Complex {\n          return fast_fourier_transform::Complex(a_i.v\
+    \ & mask, a_i.v >> pre);\n        });\n  fast_fourier_transform::dft(&x);\n  std::transform(\n\
+    \        b.begin(), b.end(), y.begin(),\n        [mask, pre](const MInt<T>& b_i)\
+    \ -> fast_fourier_transform::Complex {\n          return fast_fourier_transform::Complex(b_i.v\
+    \ & mask, b_i.v >> pre);\n        });\n  fast_fourier_transform::dft(&y);\n  const\
+    \ int half = n >> 1;\n  fast_fourier_transform::Complex tmp_a = x.front(), tmp_b\
+    \ = y.front();\n  x.front() =\n      fast_fourier_transform::Complex(tmp_a.re\
     \ * tmp_b.re, tmp_a.im * tmp_b.im);\n  y.front() =\n      fast_fourier_transform::Complex(\n\
     \          tmp_a.re * tmp_b.im + tmp_a.im * tmp_b.re, 0);\n  for (int i = 1; i\
     \ < half; ++i) {\n    const int j = n - i;\n    const fast_fourier_transform::Complex\
@@ -82,12 +84,12 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/mod_convolution.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/convolution/mod_convolution.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
 documentation_of: include/emthrm/math/convolution/mod_convolution.hpp
 layout: document
 redirect_from:
@@ -131,9 +133,9 @@ struct NumberTheoreticTransform;
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
 |`NumberTheoreticTransform();`|コンストラクタ||
-|`template <typename U> std::vector<ModInt> dft(const std::vector<U>& a);`|整数列 $A$ に対して数論変換を行ったもの||
+|`template <typename U>`<br>`std::vector<ModInt> dft(const std::vector<U>& a);`|整数列 $A$ に対して数論変換を行ったもの||
 |`void idft(std::vector<ModInt>* a);`|$A$ に対して数論変換の逆変換を行う。||
-|`template <typename U> std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b);`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
+|`template <typename U>`<br>`std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b);`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
 
 #### メンバ型
 
@@ -146,7 +148,7 @@ struct NumberTheoreticTransform;
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <int T> std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b, const int pre = 15);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`pre` は精度を表す。|
+|`template <int T> std::vector<MInt<T>>`<br>`mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b, const int pre = 15);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`pre` は精度を表す。|
 
 e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$。
 

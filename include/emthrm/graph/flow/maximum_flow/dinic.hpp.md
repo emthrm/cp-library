@@ -80,8 +80,8 @@ data:
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
 documentation_of: include/emthrm/graph/flow/maximum_flow/dinic.hpp
 layout: document
 redirect_from:

@@ -280,12 +280,12 @@ data:
   timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/data_structure/lazy_segment_tree.test.cpp
-  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
-  - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
   - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+  - test/data_structure/lazy_segment_tree.test.cpp
+  - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
+  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/range_sum_query_and_range_update_query.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:
@@ -326,8 +326,8 @@ struct SegmentTree;
 |`void set(int idx, const Monoid val);`|$A_{\mathrm{idx}} \gets \mathrm{val}$|
 |`Monoid get(int left, int right) const;`|$A_{\mathrm{left}} \circ \cdots \circ A_{\mathrm{right}}$|
 |`Monoid operator[](const int idx) const;`|$A_{\mathrm{idx}}$|
-|`template <typename G> int find_right(int left, const G g);`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$。ただし存在しないときは $N$ を返す。|
-|`template <typename G> int find_left(int right, const G g);`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$。ただし存在しないときは $-1$ を返す。|
+|`template <typename G>`<br>`int find_right(int left, const G g);`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$。ただし存在しないときは $N$ を返す。|
+|`template <typename G>`<br>`int find_left(int right, const G g);`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$。ただし存在しないときは $-1$ を返す。|
 
 #### メンバ型
 
@@ -363,8 +363,8 @@ struct LazySegmentTree;
 |`void apply(int left, int right, const OperatorMonoid val);`|$[\mathrm{left}, \mathrm{right})$ における変更クエリ|
 |`Monoid get(int left, int right);`|$[\mathrm{left}, \mathrm{right})$ における解答クエリ|
 |`Monoid operator[](const int idx);`|$A_{\mathrm{idx}}$|
-|`template <typename G> int find_right(int left, const G g);`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$。ただし存在しない場合は $N$ を返す。|
-|`template <typename G> int find_left(int right, const G g);`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$。ただし存在しない場合は $-1$ を返す。|
+|`template <typename G>`<br>`int find_right(int left, const G g);`|`g(get(left, right + 1)) = false` を満たす最小の $\mathrm{right}$。ただし存在しない場合は $N$ を返す。|
+|`template <typename G>`<br>`int find_left(int right, const G g);`|`g(get(left, right)) = false` を満たす最大の $\mathrm{left}$。ただし存在しない場合は $-1$ を返す。|
 
 #### メンバ型
 

@@ -47,7 +47,7 @@ $O(\sqrt{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> divisor(const T n);`|$n$ の約数|
+|`template <typename T>`<br>`std::vector<T> divisor(const T n);`|$n$ の約数|
 
 
 ## 参考文献

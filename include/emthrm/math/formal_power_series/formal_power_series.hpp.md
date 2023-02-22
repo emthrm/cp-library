@@ -105,15 +105,15 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/formal_power_series.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <functional>\n#include\
-    \ <initializer_list>\n#include <iterator>\n#include <vector>\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename T>\nstruct FormalPowerSeries {\n  std::vector<T> coef;\n\
-    \n  explicit FormalPowerSeries(const int deg = 0) : coef(deg + 1, 0) {}\n  explicit\
-    \ FormalPowerSeries(const std::vector<T>& coef) : coef(coef) {}\n  FormalPowerSeries(const\
-    \ std::initializer_list<T> init)\n      : coef(init.begin(), init.end()) {}\n\
-    \  template <typename InputIter>\n  explicit FormalPowerSeries(const InputIter\
-    \ first, const InputIter last)\n      : coef(first, last) {}\n\n  inline const\
-    \ T& operator[](const int term) const { return coef[term]; }\n  inline T& operator[](const\
-    \ int term) { return coef[term]; }\n\n  using Mult = std::function<std::vector<T>(const\
+    \ <initializer_list>\n#include <iterator>\n#include <numeric>\n#include <vector>\n\
+    \nnamespace emthrm {\n\ntemplate <typename T>\nstruct FormalPowerSeries {\n  std::vector<T>\
+    \ coef;\n\n  explicit FormalPowerSeries(const int deg = 0) : coef(deg + 1, 0)\
+    \ {}\n  explicit FormalPowerSeries(const std::vector<T>& coef) : coef(coef) {}\n\
+    \  FormalPowerSeries(const std::initializer_list<T> init)\n      : coef(init.begin(),\
+    \ init.end()) {}\n  template <typename InputIter>\n  explicit FormalPowerSeries(const\
+    \ InputIter first, const InputIter last)\n      : coef(first, last) {}\n\n  inline\
+    \ const T& operator[](const int term) const { return coef[term]; }\n  inline T&\
+    \ operator[](const int term) { return coef[term]; }\n\n  using Mult = std::function<std::vector<T>(const\
     \ std::vector<T>&,\n                                            const std::vector<T>&)>;\n\
     \  using Sqrt = std::function<bool(const T&, T*)>;\n  static void set_mult(const\
     \ Mult mult) { get_mult() = mult; }\n  static void set_sqrt(const Sqrt sqrt) {\
@@ -161,16 +161,16 @@ data:
     \ FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this) %= x;\n \
     \ }\n  FormalPowerSeries operator<<(const int n) const {\n    return FormalPowerSeries(*this)\
     \ <<= n;\n  }\n  FormalPowerSeries operator>>(const int n) const {\n    return\
-    \ FormalPowerSeries(*this) >>= n;\n  }\n\n  T horner(const T x) const {\n    T\
-    \ res = 0;\n    for (int i = degree(); i >= 0; --i) {\n      res = res * x + coef[i];\n\
-    \    }\n    return res;\n  }\n\n  FormalPowerSeries differential() const {\n \
-    \   const int deg = degree();\n    assert(deg >= 0);\n    FormalPowerSeries res(std::max(deg\
-    \ - 1, 0));\n    for (int i = 1; i <= deg; ++i) {\n      res[i - 1] = coef[i]\
-    \ * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries exp(const int deg)\
-    \ const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n    const\
-    \ FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for (int i\
-    \ = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n  \
-    \                             std::next(coef.begin(), std::min(n, i << 1)))\n\
+    \ FormalPowerSeries(*this) >>= n;\n  }\n\n  T horner(const T x) const {\n    return\
+    \ std::accumulate(\n        coef.rbegin(), coef.rend(), static_cast<T>(0),\n \
+    \       [x](const T l, const T r) -> T { return l * x + r; });\n  }\n\n  FormalPowerSeries\
+    \ differential() const {\n    const int deg = degree();\n    assert(deg >= 0);\n\
+    \    FormalPowerSeries res(std::max(deg - 1, 0));\n    for (int i = 1; i <= deg;\
+    \ ++i) {\n      res[i - 1] = coef[i] * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries\
+    \ exp(const int deg) const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n\
+    \    const FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for\
+    \ (int i = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n\
+    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
     \             - res.log((i << 1) - 1) + one;\n      res.coef.resize(i << 1);\n\
     \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries exp()\
     \ const { return exp(degree()); }\n\n  FormalPowerSeries inv(const int deg) const\
@@ -245,20 +245,20 @@ data:
   code: "#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_FORMAL_POWER_SERIES_HPP_\n#define\
     \ EMTHRM_MATH_FORMAL_POWER_SERIES_FORMAL_POWER_SERIES_HPP_\n\n#include <algorithm>\n\
     #include <cassert>\n#include <functional>\n#include <initializer_list>\n#include\
-    \ <iterator>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
-    struct FormalPowerSeries {\n  std::vector<T> coef;\n\n  explicit FormalPowerSeries(const\
-    \ int deg = 0) : coef(deg + 1, 0) {}\n  explicit FormalPowerSeries(const std::vector<T>&\
-    \ coef) : coef(coef) {}\n  FormalPowerSeries(const std::initializer_list<T> init)\n\
-    \      : coef(init.begin(), init.end()) {}\n  template <typename InputIter>\n\
-    \  explicit FormalPowerSeries(const InputIter first, const InputIter last)\n \
-    \     : coef(first, last) {}\n\n  inline const T& operator[](const int term) const\
-    \ { return coef[term]; }\n  inline T& operator[](const int term) { return coef[term];\
-    \ }\n\n  using Mult = std::function<std::vector<T>(const std::vector<T>&,\n  \
-    \                                          const std::vector<T>&)>;\n  using Sqrt\
-    \ = std::function<bool(const T&, T*)>;\n  static void set_mult(const Mult mult)\
-    \ { get_mult() = mult; }\n  static void set_sqrt(const Sqrt sqrt) { get_sqrt()\
-    \ = sqrt; }\n\n  void resize(const int deg) { coef.resize(deg + 1, 0); }\n  void\
-    \ shrink() {\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\n\
+    \ <iterator>\n#include <numeric>\n#include <vector>\n\nnamespace emthrm {\n\n\
+    template <typename T>\nstruct FormalPowerSeries {\n  std::vector<T> coef;\n\n\
+    \  explicit FormalPowerSeries(const int deg = 0) : coef(deg + 1, 0) {}\n  explicit\
+    \ FormalPowerSeries(const std::vector<T>& coef) : coef(coef) {}\n  FormalPowerSeries(const\
+    \ std::initializer_list<T> init)\n      : coef(init.begin(), init.end()) {}\n\
+    \  template <typename InputIter>\n  explicit FormalPowerSeries(const InputIter\
+    \ first, const InputIter last)\n      : coef(first, last) {}\n\n  inline const\
+    \ T& operator[](const int term) const { return coef[term]; }\n  inline T& operator[](const\
+    \ int term) { return coef[term]; }\n\n  using Mult = std::function<std::vector<T>(const\
+    \ std::vector<T>&,\n                                            const std::vector<T>&)>;\n\
+    \  using Sqrt = std::function<bool(const T&, T*)>;\n  static void set_mult(const\
+    \ Mult mult) { get_mult() = mult; }\n  static void set_sqrt(const Sqrt sqrt) {\
+    \ get_sqrt() = sqrt; }\n\n  void resize(const int deg) { coef.resize(deg + 1,\
+    \ 0); }\n  void shrink() {\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\n\
     \  }\n  int degree() const { return static_cast<int>(coef.size()) - 1; }\n\n \
     \ FormalPowerSeries& operator=(const std::vector<T>& coef_) {\n    coef = coef_;\n\
     \    return *this;\n  }\n  FormalPowerSeries& operator=(const FormalPowerSeries&\
@@ -301,16 +301,16 @@ data:
     \ FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this) %= x;\n \
     \ }\n  FormalPowerSeries operator<<(const int n) const {\n    return FormalPowerSeries(*this)\
     \ <<= n;\n  }\n  FormalPowerSeries operator>>(const int n) const {\n    return\
-    \ FormalPowerSeries(*this) >>= n;\n  }\n\n  T horner(const T x) const {\n    T\
-    \ res = 0;\n    for (int i = degree(); i >= 0; --i) {\n      res = res * x + coef[i];\n\
-    \    }\n    return res;\n  }\n\n  FormalPowerSeries differential() const {\n \
-    \   const int deg = degree();\n    assert(deg >= 0);\n    FormalPowerSeries res(std::max(deg\
-    \ - 1, 0));\n    for (int i = 1; i <= deg; ++i) {\n      res[i - 1] = coef[i]\
-    \ * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries exp(const int deg)\
-    \ const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n    const\
-    \ FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for (int i\
-    \ = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n  \
-    \                             std::next(coef.begin(), std::min(n, i << 1)))\n\
+    \ FormalPowerSeries(*this) >>= n;\n  }\n\n  T horner(const T x) const {\n    return\
+    \ std::accumulate(\n        coef.rbegin(), coef.rend(), static_cast<T>(0),\n \
+    \       [x](const T l, const T r) -> T { return l * x + r; });\n  }\n\n  FormalPowerSeries\
+    \ differential() const {\n    const int deg = degree();\n    assert(deg >= 0);\n\
+    \    FormalPowerSeries res(std::max(deg - 1, 0));\n    for (int i = 1; i <= deg;\
+    \ ++i) {\n      res[i - 1] = coef[i] * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries\
+    \ exp(const int deg) const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n\
+    \    const FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for\
+    \ (int i = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n\
+    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
     \             - res.log((i << 1) - 1) + one;\n      res.coef.resize(i << 1);\n\
     \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries exp()\
     \ const { return exp(degree()); }\n\n  FormalPowerSeries inv(const int deg) const\
@@ -386,33 +386,33 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
-  - include/emthrm/math/formal_power_series/bernoulli_number.hpp
-  - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
-  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
+  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
+  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
+  - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
+  - include/emthrm/math/formal_power_series/bernoulli_number.hpp
   - include/emthrm/dynamic_programming/subset_sum_problem.hpp
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
   - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
   - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
@@ -509,7 +509,7 @@ struct FormalPowerSeries;
 |`explicit FormalPowerSeries(const int deg = 0);`|$\mathrm{deg}$ 次まで係数列をもつオブジェクトを構築する。||
 |`explicit FormalPowerSeries(const std::vector<T>& coef);`|係数列を $\mathrm{coef}$ とするオブジェクトを構築する。||
 |`FormalPowerSeries(const std::initializer_list<T> init);`|初期化子リストを受け取るコンストラクタ||
-|`template <typename InputIter> explicit FormalPowerSeries(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ||
+|`template <typename InputIter>`<br>`explicit FormalPowerSeries(const InputIter first, const InputIter last);`|イテレータ範囲コンストラクタ||
 |`inline const T& operator[](const int term) const;`<br>`inline T& operator[](const int term);`|${\lbrack x^{\mathrm{term}} \rbrack}f$||
 |`void resize(const int deg);`|$\mathrm{deg}$ 次まで係数列をもつ。||
 |`void shrink();`|正規化を行う。||

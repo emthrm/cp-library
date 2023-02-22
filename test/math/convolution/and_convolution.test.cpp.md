@@ -51,7 +51,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/and_convolution.test.cpp
   requiredBy: []
-  timestamp: '2023-02-03 18:44:50+09:00'
+  timestamp: '2023-02-20 01:07:37+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/and_convolution.test.cpp

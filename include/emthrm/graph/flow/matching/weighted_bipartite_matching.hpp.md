@@ -60,8 +60,8 @@ data:
   timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
   - test/math/bigint.01.test.cpp
+  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
 documentation_of: include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
 layout: document
 redirect_from:

@@ -31,8 +31,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/least_common_multiple.hpp
   requiredBy:
-  - include/emthrm/math/carmichael_function.hpp
   - include/emthrm/math/carmichael_function_init.hpp
+  - include/emthrm/math/carmichael_function.hpp
   timestamp: '2023-01-27 16:06:19+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

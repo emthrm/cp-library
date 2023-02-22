@@ -42,7 +42,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/or_convolution.hpp
   requiredBy: []
-  timestamp: '2023-02-03 18:44:50+09:00'
+  timestamp: '2023-02-20 01:07:37+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/convolution/or_convolution.hpp
@@ -52,37 +52,9 @@ redirect_from:
 - /library/include/emthrm/math/convolution/or_convolution.hpp.html
 title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
-- 添え字 and での畳み込み
+$C_k = \sum_{k = i \circ j} A_i B_j$ を求める。ただし $\circ$ は二項演算である。
 
-  $$
-    C_k = \sum_{k = i \land j} A_i B_j
-  $$
-
-- 添え字 or での畳み込み
-
-  $$
-    C_k = \sum_{k = i \lor j} A_i B_j
-  $$
-
-- 添え字 xor での畳み込み
-
-  $$
-    C_k = \sum_{k = i \oplus j} A_i B_j
-  $$
-
-- 添え字 gcd での畳み込み
-
-  $$
-    C_k = \sum_{k = \gcd(i, j)} A_i B_j
-  $$
-
-- 添え字 lcm での畳み込み
-
-  $$
-    C_k = \sum_{k = \mathrm{lcm}(i, j)} A_i B_j
-  $$
-
-添え字 xor での畳み込みには「高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)」を用いる。
+添え字 xor での畳み込みには『高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)』を用いる。
 
 
 ## 時間計算量
@@ -96,35 +68,35 @@ $O(N\log{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 and での畳み込み|
+|`template <typename T>`<br>`std::vector<T> and_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 and での畳み込み|
 
 
 ### 添え字 or での畳み込み
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> or_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 or での畳み込み|
+|`template <typename T>`<br>`std::vector<T> or_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 or での畳み込み|
 
 
 ### 添え字 xor での畳み込み
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 xor での畳み込み|
+|`template <typename T>`<br>`std::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b, const T id = 0);`|$A, B$ に対する添え字 xor での畳み込み|
 
 
 ### 添え字 gcd での畳み込み
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> gcd_convolution(std::vector<T> a, std::vector<T> b);`|$A, B$ に対する添え字 gcd での畳み込み|
+|`template <typename T>`<br>`std::vector<T> gcd_convolution(std::vector<T> a, std::vector<T> b);`|$A, B$ に対する添え字 gcd での畳み込み|
 
 
 ### 添え字 lcm での畳み込み
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, const int n = -1);`|$A, B$ に対する添え字 lcm での畳み込み|
+|`template <typename T>`<br>`std::vector<T> lcm_convolution(std::vector<T> a, std::vector<T> b, const int n = -1);`|$A, B$ に対する添え字 lcm での畳み込み|
 
 
 ## 参考文献
@@ -132,7 +104,7 @@ $O(N\log{N})$
 - https://leaf1415.hatenablog.com/entry/2021/08/04/125751
 - https://codeforces.com/blog/entry/48417
 - http://kazuma8128.hatenablog.com/entry/2018/05/31/144519
-- https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform
+- ~~https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform~~
 
 高速ウォルシュ・アダマール変換
 - https://sapphire15.hatenablog.com/entry/2021/09/13/114900

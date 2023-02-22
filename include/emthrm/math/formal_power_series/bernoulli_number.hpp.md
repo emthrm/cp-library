@@ -47,7 +47,7 @@ data:
   path: include/emthrm/math/formal_power_series/bernoulli_number.hpp
   requiredBy:
   - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
-  timestamp: '2023-01-16 17:06:21+09:00'
+  timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
@@ -82,7 +82,7 @@ $O(N\log{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T> bernoulli_number(const int n);`|ベルヌーイ数 $B_i$ ($0 \leq i \leq n$) の数表|
+|`template <typename T>`<br>`std::vector<T> bernoulli_number(const int n);`|ベルヌーイ数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

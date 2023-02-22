@@ -1,17 +1,11 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/is_primitive_root.hpp
-    title: "\u539F\u59CB\u6839\u5224\u5B9A"
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/game/nim.test.cpp
     title: "\u30B2\u30FC\u30E0/\u30CB\u30E0"
-  - icon: ':heavy_check_mark:'
-    path: test/math/is_primitive_root.test.cpp
-    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: test/math/prime_factorization.test.cpp
     title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
@@ -37,14 +31,12 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/prime_factorization.hpp
-  requiredBy:
-  - include/emthrm/math/is_primitive_root.hpp
+  requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/game/nim.test.cpp
-  - test/math/is_primitive_root.test.cpp
   - test/math/prime_factorization.test.cpp
+  - test/game/nim.test.cpp
 documentation_of: include/emthrm/math/prime_factorization.hpp
 layout: document
 title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
@@ -60,7 +52,7 @@ $O(\sqrt{N})$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::pair<T, int>> prime_factorization(T n);`|$n$ の素因数分解|
+|`template <typename T>`<br>`std::vector<std::pair<T, int>> prime_factorization(T n);`|$n$ の素因数分解|
 
 
 ## 参考文献

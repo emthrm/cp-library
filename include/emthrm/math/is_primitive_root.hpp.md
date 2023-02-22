@@ -1,24 +1,11 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/euler_phi/euler_phi.hpp
-    title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/mod_pow.hpp
-    title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
-      \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/prime_factorization.hpp
-    title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
+  _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/math/is_primitive_root.test.cpp
-    title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     _deprecated_at_docs: docs/math/primitive_root.md
     document_title: "\u539F\u59CB\u6839\u5224\u5B9A"
@@ -33,7 +20,7 @@ data:
     \ in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u539F\u59CB\u6839\u5224\u5B9A\n * @docs docs/math/primitive_root.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n#define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n\
-    \n#if __cplusplus >= 201703L\n# include <numeric>\n#else\n# include <algorithm>\n\
+    \n#include <algorithm>\n#if __cplusplus >= 201703L\n# include <numeric>\n#else\n\
     # include <utility>\n#endif  // __cplusplus >= 201703L\n#include <map>\n#include\
     \ <vector>\n\n#include \"emthrm/math/euler_phi/euler_phi.hpp\"\n#include \"emthrm/math/mod_pow.hpp\"\
     \n#include \"emthrm/math/prime_factorization.hpp\"\n\nnamespace emthrm {\n\nbool\
@@ -46,20 +33,18 @@ data:
     \ tmp;\n#if __cplusplus >= 201703L\n    for (const auto& [prime, _] : prime_factorization(phi_m))\
     \ {\n      tmp.emplace_back(prime);\n    }\n#else\n    for (const std::pair<int,\
     \ int>& pr : prime_factorization(phi_m)) {\n      tmp.emplace_back(pr.first);\n\
-    \    }\n#endif  // __cplusplus >= 201703L\n    primes[phi_m] = tmp;\n  }\n  for\
-    \ (const int p : primes[phi_m]) {\n    if (mod_pow(root, phi_m / p, m) == 1) return\
-    \ false;\n  }\n  return true;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n"
-  dependsOn:
-  - include/emthrm/math/euler_phi/euler_phi.hpp
-  - include/emthrm/math/mod_pow.hpp
-  - include/emthrm/math/prime_factorization.hpp
+    \    }\n#endif  // __cplusplus >= 201703L\n    primes[phi_m] = tmp;\n  }\n  return\
+    \ std::none_of(primes[phi_m].begin(), primes[phi_m].end(),\n                 \
+    \     [root, phi_m, m](const int p) -> bool {\n                        return\
+    \ mod_pow(root, phi_m / p, m) == 1;\n                      });\n}\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_\n"
+  dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/is_primitive_root.hpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/math/is_primitive_root.test.cpp
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: include/emthrm/math/is_primitive_root.hpp
 layout: document
 redirect_from:
