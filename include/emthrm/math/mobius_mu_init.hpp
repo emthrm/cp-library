@@ -1,10 +1,10 @@
 /**
  * @brief メビウス関数の数表
- * @docs docs/math/mobius_mu/mobius_mu.md
+ * @docs docs/math/mobius_mu.md
  */
 
-#ifndef EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_INIT_HPP_
-#define EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_INIT_HPP_
+#ifndef EMTHRM_MATH_MOBIUS_MU_INIT_HPP_
+#define EMTHRM_MATH_MOBIUS_MU_INIT_HPP_
 
 #include <vector>
 
@@ -30,4 +30,4 @@ std::vector<int> mobius_mu_init(const int n) {
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_MATH_MOBIUS_MU_MOBIUS_MU_INIT_HPP_
+#endif  // EMTHRM_MATH_MOBIUS_MU_INIT_HPP_
