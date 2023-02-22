@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-#include "emthrm/math/mobius_mu/mobius_mu.hpp"
+#include "emthrm/math/mobius_mu.hpp"
 #include "emthrm/math/modint.hpp"
 
 int main() {

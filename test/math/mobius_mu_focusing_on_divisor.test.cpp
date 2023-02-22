@@ -9,7 +9,7 @@
 # include <utility>
 #endif  // __cplusplus < 201703L
 
-#include "emthrm/math/mobius_mu/mobius_mu_focusing_on_divisor.hpp"
+#include "emthrm/math/mobius_mu_focusing_on_divisor.hpp"
 #include "emthrm/math/modint.hpp"
 
 int main() {

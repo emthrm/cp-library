@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-#include "emthrm/math/mobius_mu/mobius_mu_init.hpp"
+#include "emthrm/math/mobius_mu_init.hpp"
 #include "emthrm/math/modint.hpp"
 
 int main() {
