@@ -105,7 +105,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<T>`<br>`bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
+|`template <typename T>`<br>`std::vector<T> bell_number_init_by_fps(const int n);`|ベル数 $B_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

@@ -88,21 +88,21 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> MInt<T>`<br>`stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
+|`template <int T>`<br>`MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
 
 
 ### 第2種スターリング数の数表
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T> std::vector<std::vector<T>>`<br>`stirling_number_of_the_second_kind_init(const int n, const int k);`|第2種スターリング数 $S(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
+|`template <typename T>`<br>`std::vector<std::vector<T>> stirling_number_of_the_second_kind_init(const int n, const int k);`|第2種スターリング数 $S(i, j)$ ($0 \leq i \leq n,\ 0 \leq j \leq k$) の数表|
 
 
 ### 第2種スターリング数の数表 形式的冪級数版
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T> std::vector<MInt<T>>`<br>`stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
+|`template <int T>`<br>`std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
 
 
 ## 参考文献
