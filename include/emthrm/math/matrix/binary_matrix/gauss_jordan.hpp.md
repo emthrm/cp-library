@@ -1,31 +1,31 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
     title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\u30EA\u884C\
       \u5217\u7248"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30AC\u30A6\
       \u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5 \u30D0\u30A4\
       \u30CA\u30EA\u884C\u5217\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9006\u884C\
       \u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9023\u7ACB\
       \u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\
@@ -58,7 +58,7 @@ data:
   requiredBy:
   - include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp

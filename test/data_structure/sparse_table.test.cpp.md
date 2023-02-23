@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
   _extendedRequiredBy: []

@@ -13,17 +13,17 @@ data:
     path: include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
     title: "\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\u51AA (Kronecker power) \u3068\u30D9\
       \u30AF\u30C8\u30EB\u306E\u7A4D"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/inverse_matrix.hpp
     title: "\u9006\u884C\u5217 (inverse matrix)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation)"
   _extendedVerifiedWith:
@@ -38,16 +38,16 @@ data:
     path: test/math/convolution/kronecker_power-vector_multiplication.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\
       \u51AA\u3068\u30D9\u30AF\u30C8\u30EB\u306E\u7A4D"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
   _isVerificationFailed: true

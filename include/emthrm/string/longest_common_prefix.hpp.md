@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/string/suffix_array.hpp
     title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (suffix array)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -49,7 +49,7 @@ data:
   path: include/emthrm/string/longest_common_prefix.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/longest_common_prefix.test.cpp
 documentation_of: include/emthrm/string/longest_common_prefix.hpp

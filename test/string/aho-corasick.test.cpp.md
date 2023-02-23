@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/string/aho-corasick.hpp
     title: "Aho\u2013Corasick algorithm"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/string/trie.hpp
     title: "\u30C8\u30E9\u30A4\u6728 (trie)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/430
@@ -41,7 +41,7 @@ data:
   path: test/string/aho-corasick.test.cpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/aho-corasick.test.cpp
 layout: document

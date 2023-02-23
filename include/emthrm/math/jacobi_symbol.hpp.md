@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/jacobi_symbol.test.cpp
     title: "\u6570\u5B66/\u30E4\u30B3\u30D3\u8A18\u53F7"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/quadratic_residue.md
     document_title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
@@ -39,7 +39,7 @@ data:
   path: include/emthrm/math/jacobi_symbol.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/jacobi_symbol.test.cpp
 documentation_of: include/emthrm/math/jacobi_symbol.hpp

@@ -105,12 +105,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/quadratic_equation.test.cpp
     title: "\u6570\u5B66/\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -553,7 +553,7 @@ data:
   requiredBy:
   - include/emthrm/geometry/smallest_enclosing_circle.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/quadratic_equation.test.cpp
   - test/geometry/geometry.13.test.cpp
