@@ -13,8 +13,9 @@ struct TwoEdgeConnectedComponents : Lowlink {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, g;
 
-  TwoEdgeConnectedComponents(const std::vector<std::vector<int>>& graph,
-                             const bool is_full_ver = false)
+  explicit TwoEdgeConnectedComponents(
+      const std::vector<std::vector<int>>& graph,
+      const bool is_full_ver = false)
       : Lowlink(graph), is_full_ver(is_full_ver) {
     const int n = graph.size();
     id.assign(n, -1);

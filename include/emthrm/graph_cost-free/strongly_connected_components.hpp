@@ -10,8 +10,9 @@ struct StronglyConnectedComponents {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, g;
 
-  StronglyConnectedComponents(const std::vector<std::vector<int>>& graph,
-                              const bool is_full_ver = false)
+  explicit StronglyConnectedComponents(
+      const std::vector<std::vector<int>>& graph,
+      const bool is_full_ver = false)
       : is_full_ver(is_full_ver), n(graph.size()), is_used(n, false),
         graph(graph), rgraph(n) {
     order.reserve(n);
