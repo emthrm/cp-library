@@ -38,9 +38,8 @@ data:
     \u30B8\u30E5\u88DC\u9593\u7248\n */\n#define PROBLEM \"https://yukicoder.me/problems/no/665\"\
     \n\n#include <iostream>\n\n#include \"emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp\"\
     \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 1000000007;\n\
-    \  using ModInt = emthrm::MInt<MOD>;\n  long long n;\n  int k;\n  std::cin >>\
-    \ n >> k;\n  std::cout << emthrm::faulhaber_by_lagrange_interpolation<MOD>(n +\
-    \ 1, k)\n            << '\\n';\n  return 0;\n}\n"
+    \  long long n;\n  int k;\n  std::cin >> n >> k;\n  std::cout << emthrm::faulhaber_by_lagrange_interpolation<MOD>(n\
+    \ + 1, k)\n            << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   - include/emthrm/math/lagrange_interpolation2.hpp
@@ -48,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:19:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
