@@ -12,6 +12,7 @@ C++ Library for Competitive Programming
 - The author is not responsible for any damage arising from this library.
 - It is highly recommended to refer to the links.
 - This library requires C++20.
+  - C++11 Version: https://github.com/emthrm/cp-library/tree/cpp11
 - See [here](https://github.com/emthrm/cp-library/issues/2) for my style.
 
 

@@ -21,14 +21,18 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    document_title: "\u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\
-    \n\n\n\n#include <concepts>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate\
-    \ <template <typename> class C, typename T>\nconcept MaximumFlow = requires (C<T>\
-    \ mf) {\n  {mf.add_edge(std::declval<int>(), std::declval<int>(), std::declval<T>())}\n\
+    \n/**\n * @brief \u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8\n */\n\n#ifndef\
+    \ EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
+    \n#include <concepts>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <template\
+    \ <typename> class C, typename T>\nconcept MaximumFlow = requires (C<T> mf) {\n\
+    \  {mf.add_edge(std::declval<int>(), std::declval<int>(), std::declval<T>())}\n\
     \      -> std::same_as<void>;\n  {mf.maximum_flow(std::declval<int>(), std::declval<int>())}\n\
-    \      -> std::same_as<T>;\n};\n\n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
+    \      -> std::same_as<T>;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n"
+  code: "/**\n * @brief \u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8\n */\n\n\
+    #ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
     \n#include <concepts>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <template\
     \ <typename> class C, typename T>\nconcept MaximumFlow = requires (C<T> mf) {\n\
     \  {mf.add_edge(std::declval<int>(), std::declval<int>(), std::declval<T>())}\n\
@@ -40,7 +44,7 @@ data:
   requiredBy:
   - include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
   - include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-24 00:16:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
@@ -50,5 +54,5 @@ layout: document
 redirect_from:
 - /library/include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
 - /library/include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp.html
-title: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+title: "\u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8"
 ---

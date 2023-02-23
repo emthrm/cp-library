@@ -3,7 +3,7 @@ data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
-    title: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+    title: "\u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -55,7 +55,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-24 00:16:54+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp

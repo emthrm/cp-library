@@ -220,7 +220,7 @@ data:
       title: "Ford\u2013Fulkerson \u6CD5"
     - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
-      title: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+      title: "\u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8"
     - icon: ':heavy_check_mark:'
       path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
       title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
