@@ -5,9 +5,8 @@
 
 #include <algorithm>
 #include <iostream>
-#if __cplusplus < 201703L
-# include <utility>
-#endif  // __cplusplus < 201703L
+#include <ranges>
+#include <utility>
 #include <vector>
 
 #include "emthrm/math/osa_k.hpp"
@@ -23,15 +22,13 @@ int main() {
   const emthrm::OsaK osa_k(max_a);
   std::vector<int> prime_factor(max_a + 1, 0);
   for (const int a_i : a) {
-#if __cplusplus >= 201703L
-    for (const auto& [prime, _] : osa_k.query(a_i)) {
+    // GCC 12 adopted P2415.
+    const std::vector<std::pair<int, int>> pf = osa_k.query(a_i);
+    for (const int prime : pf
+    // for (const int prime : osa_k.query(a_i)
+                         | std::views::transform(&std::pair<int, int>::first)) {
       ++prime_factor[prime];
     }
-#else
-    for (const std::pair<int, int>& pr : osa_k.query(a_i)) {
-      ++prime_factor[pr.first];
-    }
-#endif  // __cplusplus >= 201703L
   }
   const int maximum =
       *std::max_element(prime_factor.begin(), prime_factor.end());

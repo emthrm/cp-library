@@ -27,7 +27,7 @@ struct UnicyclicGraph {
     dsts.emplace_back(dst);
     costs.emplace_back(cost);
     graph[src].emplace_back(id);
-    if (dst != src) graph[dst].emplace_back(id);
+    if (dst != src) [[likely]] graph[dst].emplace_back(id);
   }
 
   void build() {
@@ -79,7 +79,7 @@ struct UnicyclicGraph {
   bool dfs(const int prev_id, const int ver) {
     is_in_loop[ver] = true;
     for (const int id : graph[ver]) {
-      if (id == prev_id) continue;
+      if (id == prev_id) [[unlikely]] continue;
       const int dst = destination(id, ver);
       loop.emplace_back(ver, dst, costs[id]);
       if (is_in_loop[dst]) {

@@ -12,11 +12,11 @@
 
 namespace emthrm {
 
-template <int N>
-int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false) {
+template <bool IS_EXTENDED = false, int N>
+int gauss_jordan(BinaryMatrix<N>* a) {
   const int m = a->nrow(), n = a->ncol();
   int rank = 0;
-  for (int col = 0; col < (is_extended ? n - 1 : n); ++col) {
+  for (int col = 0; col < (IS_EXTENDED ? n - 1 : n); ++col) {
     int pivot = -1;
     for (int row = rank; row < m; ++row) {
       if ((*a)[row][col]) {

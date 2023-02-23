@@ -16,7 +16,7 @@ namespace emthrm {
 template <int T>
 std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {
   using ModInt = MInt<T>;
-  if (n == 0) return {1};
+  if (n == 0) [[unlikely]] return {1};
   ModInt::init(n + 1);
   const int m = (n + 1) >> 1;
   FormalPowerSeries<ModInt> a(m - 1), b(m - 1);

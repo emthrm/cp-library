@@ -4,6 +4,7 @@
 #define PROBLEM "https://atcoder.jp/contests/agc002/tasks/agc002_d"
 
 #include <iostream>
+#include <numeric>
 
 #include "emthrm/data_structure/union-find/partially_persistent_union-find.hpp"
 
@@ -25,7 +26,7 @@ int main() {
     --x; --y;
     int lb = 0, ub = m;
     while (ub - lb > 1) {
-      const int mid = (lb + ub) >> 1;
+      const int mid = std::midpoint(lb, ub);
       (union_find.size(mid, x) + (union_find.is_same(mid, x, y) ?
        0 : union_find.size(mid, y)) >= z ? ub : lb) = mid;
     }

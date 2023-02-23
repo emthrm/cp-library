@@ -15,7 +15,7 @@ int main() {
     graph[a].emplace_back(b);
   }
   const std::vector<std::vector<int>> ans =
-      emthrm::StronglyConnectedComponents(graph, true).vertices;
+      emthrm::StronglyConnectedComponents<true>(graph).vertices;
   const int k = ans.size();
   std::cout << k << '\n';
   for (int i = 0; i < k; ++i) {

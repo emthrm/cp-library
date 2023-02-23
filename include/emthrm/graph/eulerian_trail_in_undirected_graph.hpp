@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iterator>
+#include <utility>
 #include <vector>
 
 namespace emthrm {
@@ -55,7 +56,7 @@ struct EulerianTrailInUndirectedGraph {
       is_visited[i].assign(graph[i].size(), false);
     }
     dfs(s);
-    if (static_cast<int>(trail.size()) == edge_num + 1) {
+    if (std::cmp_equal(trail.size(), edge_num + 1)) {
       std::reverse(trail.begin(), trail.end());
       return true;
     }

@@ -2,6 +2,7 @@
 #define EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <cassert>
 #include <functional>
 #include <vector>
@@ -20,12 +21,13 @@ struct SparseTable {
 
   void init(const std::vector<Band>& a, const BinOp bin_op_) {
     bin_op = bin_op_;
-    int n = a.size(), table_h = 0;
+    const int n = a.size();
+    assert(n > 0);
     lg.assign(n + 1, 0);
     for (int i = 2; i <= n; ++i) {
       lg[i] = lg[i >> 1] + 1;
     }
-    while ((1 << table_h) <= n) ++table_h;
+    const int table_h = std::countr_zero(std::bit_floor(a.size())) + 1;
     data.assign(table_h, std::vector<Band>(n));
     std::copy(a.begin(), a.end(), data.front().begin());
     for (int i = 1; i < table_h; ++i) {

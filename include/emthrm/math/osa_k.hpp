@@ -11,7 +11,7 @@ namespace emthrm {
 struct OsaK {
   const std::vector<int> smallest_prime_factor;
 
-  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false)) {}
+  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve<false>(n)) {}
 
   std::vector<std::pair<int, int>> query(int n) const {
     std::vector<std::pair<int, int>> res;

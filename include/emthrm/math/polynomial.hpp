@@ -5,6 +5,7 @@
 #include <cassert>
 #include <functional>
 #include <initializer_list>
+#include <iterator>
 #include <numeric>
 #include <utility>
 #include <vector>
@@ -34,7 +35,7 @@ struct Polynomial {
   void shrink() {
     while (coef.size() > 1 && coef.back() == 0) coef.pop_back();
   }
-  int degree() const { return static_cast<int>(coef.size()) - 1; }
+  int degree() const { return std::ssize(coef) - 1; }
 
   Polynomial& operator=(const std::vector<T>& coef_) {
     coef = coef_;
@@ -101,7 +102,6 @@ struct Polynomial {
     y.shrink();
     return x.coef == y.coef;
   }
-  bool operator!=(const Polynomial& x) const { return !(*this == x); }
 
   Polynomial operator+() const { return *this; }
   Polynomial operator-() const {

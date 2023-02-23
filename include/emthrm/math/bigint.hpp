@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <compare>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
@@ -76,7 +77,7 @@ struct BigInt {
     assert(*this >= std::numeric_limits<long long>::min() &&
            *this <= std::numeric_limits<long long>::max());
     long long res = 0;
-    for (int i = static_cast<int>(data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(data) - 1; i >= 0; --i) {
       res = res * B + data[i];
     }
     return res;
@@ -136,9 +137,9 @@ struct BigInt {
     if (sgn != x.sgn) return x.data.empty() ? *this : *this -= -x;
     if (data.size() < x.data.size()) data.resize(x.data.size(), 0);
     bool carry = false;
-    for (int i = 0; i < static_cast<int>(x.data.size()) || carry; ++i) {
-      if (i == static_cast<int>(data.size())) data.emplace_back(0);
-      data[i] += (i < static_cast<int>(x.data.size()) ? x.data[i] : 0) + carry;
+    for (int i = 0; std::cmp_less(i, x.data.size()) || carry; ++i) {
+      if (std::cmp_equal(i, data.size())) data.emplace_back(0);
+      data[i] += (std::cmp_less(i, x.data.size()) ? x.data[i] : 0) + carry;
       if (data[i] >= B) {
         carry = true;
         data[i] -= B;
@@ -155,8 +156,8 @@ struct BigInt {
       return *this = -(x - *this);
     }
     bool carry = false;
-    for (int i = 0; i < static_cast<int>(data.size()) || carry; ++i) {
-      data[i] -= (i < static_cast<int>(x.data.size()) ? x.data[i] : 0) + carry;
+    for (int i = 0; std::cmp_less(i, data.size()) || carry; ++i) {
+      data[i] -= (std::cmp_less(i, x.data.size()) ? x.data[i] : 0) + carry;
       if (data[i] < 0) {
         carry = true;
         data[i] += B;
@@ -174,10 +175,10 @@ struct BigInt {
     std::vector<long long> x6 = x.convert_base(next_log_b, next_b);
     std::vector<long long> res = karatsuba(&this6, 0, this6.size(),
                                            &x6, 0, x6.size());
-    for (int i = 0; i < static_cast<int>(res.size()); ++i) {
+    for (int i = 0; std::cmp_less(i, res.size()); ++i) {
       const long long quo = res[i] / next_b;
       if (quo > 0) {
-        if (i + 1 == static_cast<int>(res.size())) {
+        if (std::cmp_equal(i + 1, res.size())) {
           res.emplace_back(quo);
         } else {
           res[i + 1] += quo;
@@ -186,7 +187,7 @@ struct BigInt {
       }
     }
     std::string s = (sgn * x.sgn == 1 ? "+" : "-");
-    for (int i = static_cast<int>(res.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(res) - 1; i >= 0; --i) {
       const std::string tmp = std::to_string(res[i]);
       s += std::string(next_log_b - tmp.length(), '0') + tmp;
     }
@@ -198,6 +199,16 @@ struct BigInt {
   BigInt& operator%=(const int x) { return *this = divide(x).second; }
   BigInt& operator%=(const BigInt& x) { return *this = divide(x).second; }
 
+  std::strong_ordering operator<=>(const BigInt& x) const {
+    if (sgn != x.sgn) return sgn <=> x.sgn;
+    if (data.size() != x.data.size()) {
+      return sgn * data.size() <=> x.sgn * x.data.size();
+    }
+    for (int i = std::ssize(data) - 1; i >= 0; --i) {
+      if (data[i] != x.data[i]) return data[i] * sgn <=> x.data[i] * x.sgn;
+    }
+    return std::strong_ordering::equivalent;
+  }
   bool operator==(const BigInt& x) const {
     if (sgn != x.sgn || data.size() != x.data.size()) return false;
     const int n = data.size();
@@ -206,20 +217,6 @@ struct BigInt {
     }
     return true;
   }
-  bool operator!=(const BigInt& x) const { return !(*this == x); }
-  bool operator<(const BigInt& x) const {
-    if (sgn != x.sgn) return sgn < x.sgn;
-    if (data.size() != x.data.size()) {
-      return sgn * data.size() < x.sgn * x.data.size();
-    }
-    for (int i = static_cast<int>(data.size()) - 1; i >= 0; --i) {
-      if (data[i] != x.data[i]) return data[i] * sgn < x.data[i] * x.sgn;
-    }
-    return false;
-  }
-  bool operator<=(const BigInt& x) const { return !(x < *this); }
-  bool operator>(const BigInt& x) const { return x < *this; }
-  bool operator>=(const BigInt& x) const { return !(*this < x); }
 
   BigInt& operator++() { return *this += 1; }
   BigInt operator++(int) {
@@ -252,7 +249,7 @@ struct BigInt {
   friend std::ostream& operator<<(std::ostream& os, const BigInt& x) {
     if (x.sgn == -1) os << '-';
     os << (x.data.empty() ? 0 : x.data.back());
-    for (int i = static_cast<int>(x.data.size()) - 2; i >= 0; --i) {
+    for (int i = std::ssize(x.data) - 2; i >= 0; --i) {
       os << std::setw(LOG_B) << std::setfill('0') << x.data[i];
     }
     return os;
@@ -285,22 +282,22 @@ struct BigInt {
       for (int i = b_l; i + mid < b_r; ++i) {
         (*b)[i] += (*b)[i + mid];
       }
-      std::vector<long long> tmp =
-          karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
-      std::copy(tmp.begin(), tmp.end(), std::next(res.begin(), mid));
+      std::ranges::copy(karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n),
+                        std::next(res.begin(), mid));
       for (int i = a_l; i + mid < a_r; ++i) {
         (*a)[i] -= (*a)[i + mid];
       }
       for (int i = b_l; i + mid < b_r; ++i) {
         (*b)[i] -= (*b)[i + mid];
       }
-      tmp = karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
-      for (int i = 0; i < static_cast<int>(tmp.size()); ++i) {
+      std::vector<long long> tmp =
+          karatsuba(a, a_l, a_l + mid, b, b_l, b_l + n);
+      for (int i = 0; std::cmp_less(i, tmp.size()); ++i) {
         res[i] += tmp[i];
         res[mid + i] -= tmp[i];
       }
       tmp = karatsuba(a, a_l + mid, a_r, b, b_l + n, b_r);
-      for (int i = 0; i < static_cast<int>(tmp.size()); ++i) {
+      for (int i = 0; std::cmp_less(i, tmp.size()); ++i) {
         res[mid + i] -= tmp[i];
         res[(mid << 1) + i] += tmp[i];
       }
@@ -317,7 +314,7 @@ struct BigInt {
       x = -x;
     }
     long long rem = 0;
-    for (int i = static_cast<int>(dividend.data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(dividend.data) - 1; i >= 0; --i) {
       const long long tmp = rem * B + dividend.data[i];
       dividend.data[i] = tmp / x;
       rem = tmp % x;
@@ -334,12 +331,12 @@ struct BigInt {
     BigInt quo, rem = 0;
     quo.data.resize(dividend.data.size());
     const int n = divisor.data.size();
-    for (int i = static_cast<int>(dividend.data.size()) - 1; i >= 0; --i) {
+    for (int i = std::ssize(dividend.data) - 1; i >= 0; --i) {
       rem.data.emplace(rem.data.begin(), dividend.data[i]);
       quo.data[i] =
-          ((n < static_cast<int>(rem.data.size()) ?
+          ((std::cmp_less(n, rem.data.size()) ?
             static_cast<long long>(rem.data[n]) * B : 0)
-           + (n - 1 < static_cast<int>(rem.data.size()) ? rem.data[n - 1] : 0))
+           + (std::cmp_less(n - 1, rem.data.size()) ? rem.data[n - 1] : 0))
           / divisor.data.back();
       rem -= divisor * quo.data[i];
       while (rem.sgn == -1) {
@@ -359,7 +356,6 @@ struct BigInt {
 
 namespace std {
 
-#if __cplusplus >= 201703L
 template <int LOG_B, int B>
 emthrm::BigInt<LOG_B, B> gcd(emthrm::BigInt<LOG_B, B> a,
                              emthrm::BigInt<LOG_B, B> b) {
@@ -372,20 +368,6 @@ emthrm::BigInt<LOG_B, B> lcm(const emthrm::BigInt<LOG_B, B>& a,
                              const emthrm::BigInt<LOG_B, B>& b) {
   return a / std::__gcd(a, b) * b;
 }
-#else
-template <int LOG_B, int B>
-emthrm::BigInt<LOG_B, B> __gcd(emthrm::BigInt<LOG_B, B> a,
-                               emthrm::BigInt<LOG_B, B> b) {
-  while (!b.data.empty()) std::swap(a %= b, b);
-  return a;
-}
-
-template <int LOG_B, int B>
-emthrm::BigInt<LOG_B, B> __lcm(const emthrm::BigInt<LOG_B, B>& a,
-                               const emthrm::BigInt<LOG_B, B>& b) {
-  return a / std::__gcd(a, b) * b;
-}
-#endif  // __cplusplus >= 201703L
 
 template <int LOG_B, int B>
 emthrm::BigInt<LOG_B, B> abs(const emthrm::BigInt<LOG_B, B>& x) {

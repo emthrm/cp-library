@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -21,11 +22,10 @@ int main() {
     graph[t].emplace_back(t, s);
   }
   emthrm::Lowlink<bool> l(graph);
-  std::sort(l.bridges.begin(), l.bridges.end(),
-            [](const emthrm::Edge<bool>& a,
-               const emthrm::Edge<bool>& b) -> bool {
-              return a.src != b.src ? a.src < b.src : a.dst < b.dst;
-            });
+  std::ranges::sort(l.bridges.begin(), l.bridges.end(), {},
+                    [](const emthrm::Edge<bool>& e) -> std::pair<int, int> {
+                      return std::make_pair(e.src, e.dst);
+                    });
   for (const emthrm::Edge<bool>& bridge : l.bridges) {
     std::cout << bridge.src << ' ' << bridge.dst << '\n';
   }

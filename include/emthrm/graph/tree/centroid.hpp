@@ -2,7 +2,7 @@
 #define EMTHRM_GRAPH_TREE_CENTROID_HPP_
 
 #include <algorithm>
-#include <functional>
+#include <ranges>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -14,19 +14,20 @@ std::vector<int> centroid(
     const std::vector<std::vector<Edge<CostType>>>& graph) {
   const int n = graph.size();
   std::vector<int> subtree(n, 1), res;
-  const std::function<void(int, int)> dfs =
-      [&graph, n, &subtree, &res, &dfs](const int par, const int ver) -> void {
-        bool is_centroid = true;
-        for (const Edge<CostType>& e : graph[ver]) {
-          if (e.dst != par) {
-            dfs(ver, e.dst);
-            subtree[ver] += subtree[e.dst];
-            is_centroid &= subtree[e.dst] <= n / 2;
-          }
-        }
-        if (is_centroid && n - subtree[ver] <= n / 2) res.emplace_back(ver);
-      };
-  dfs(-1, 0);
+  const auto dfs = [&graph, n, &subtree, &res](
+      auto dfs, const int par, const int ver) -> void {
+    bool is_centroid = true;
+    for (const int e : graph[ver]
+                     | std::views::transform(&Edge<CostType>::dst)) {
+      if (e != par) [[likely]] {
+        dfs(dfs, ver, e);
+        subtree[ver] += subtree[e];
+        is_centroid &= subtree[e] <= n / 2;
+      }
+    }
+    if (is_centroid && n - subtree[ver] <= n / 2) res.emplace_back(ver);
+  };
+  dfs(dfs, -1, 0);
   std::sort(res.begin(), res.end());
   return res;
 }

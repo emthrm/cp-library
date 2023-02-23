@@ -2,8 +2,10 @@
 #define EMTHRM_DYNAMIC_PROGRAMMING_LI_CHAO_TREE_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <cassert>
 #include <iterator>
+#include <numeric>
 #include <utility>
 #include <vector>
 
@@ -20,42 +22,27 @@ struct LiChaoTree {
   explicit LiChaoTree(const std::vector<T>& xs_, const T inf) : n(1), xs(xs_) {
     std::sort(xs.begin(), xs.end());
     xs.erase(std::unique(xs.begin(), xs.end()), xs.end());
-    const int xs_size = xs.size();
-    assert(xs_size > 0);
-    while (n < xs_size) n <<= 1;
+    assert(xs.size() > 0);
+    n = std::bit_ceil(xs.size());
     const T xs_back = xs.back();
     xs.resize(n, xs_back);
     dat.assign(n << 1, Line(0, inf));
   }
 
   void add(T a, T b) {
-#if __cplusplus >= 201703L
     if constexpr (!IS_MINIMIZED) {
       a = -a;
       b = -b;
     }
-#else
-    if (!IS_MINIMIZED) {
-      a = -a;
-      b = -b;
-    }
-#endif  // __cplusplus >= 201703L
     Line line(a, b);
     add(&line, 1, 0, n);
   }
 
   void add(T a, T b, T left, T right) {
-#if __cplusplus >= 201703L
     if constexpr (!IS_MINIMIZED) {
       a = -a;
       b = -b;
     }
-#else
-    if (!IS_MINIMIZED) {
-      a = -a;
-      b = -b;
-    }
-#endif  // __cplusplus >= 201703L
     for (int len = 1,
              node_l = std::distance(
                  xs.begin(), std::lower_bound(xs.begin(), xs.end(), left)),
@@ -100,7 +87,7 @@ struct LiChaoTree {
       std::swap(dat[node], *line);
       return;
     }
-    const int mid = (left + right) >> 1;
+    const int mid = std::midpoint(left, right);
     if (line->f(xs[mid]) < dat[node].f(xs[mid])) std::swap(dat[node], *line);
     if (line->f(xs[left]) <= dat[node].f(xs[left])) {
       add(line, node << 1, left, mid);

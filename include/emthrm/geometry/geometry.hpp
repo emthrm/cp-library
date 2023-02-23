@@ -4,10 +4,12 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
-#include <functional>
+#include <compare>
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <numbers>
+#include <numeric>
 #include <tuple>
 #include <utility>
 #include <vector>
@@ -17,29 +19,34 @@ namespace emthrm {
 namespace geometry {
 
 using Real = double;
-constexpr long double PI = 3.14159265358979323846;
 
 int sgn(const Real x) {
   static constexpr Real EPS = 1e-8;
   return x > EPS ? 1 : (x < -EPS ? -1 : 0);
 }
 
-Real degree_to_radian(const Real d) { return d * PI / 180; }
-Real radian_to_degree(const Real r) { return r * 180 / PI; }
+Real degree_to_radian(const Real d) { return d * std::numbers::pi / 180; }
+Real radian_to_degree(const Real r) { return r * 180 / std::numbers::pi; }
 
 struct Point {
   Real x, y;
+
   explicit Point(const Real x = 0, const Real y = 0) : x(x), y(y) {}
+
   Real abs() const { return std::sqrt(norm()); }
+
   Real arg() const {
     const Real res = std::atan2(y, x);
-    return res < 0 ? res + PI * 2 : res;
+    return res < 0 ? res + std::numbers::pi * 2 : res;
   }
+
   Real norm() const { return x * x + y * y; }
+
   Point rotate(const Real angle) const {
     const Real cs = std::cos(angle), sn = std::sin(angle);
     return Point(x * cs - y * sn, x * sn + y * cs);
   }
+
   Point& operator+=(const Point& p) {
     x += p.x; y += p.y;
     return *this;
@@ -56,19 +63,22 @@ struct Point {
     x /= k; y /= k;
     return *this;
   }
-  bool operator<(const Point& p) const {
+
+  std::partial_ordering operator<=>(const Point& p) const {
     const int x_sgn = sgn(p.x - x);
-    return x_sgn != 0 ? x_sgn == 1 : sgn(p.y - y) == 1;
+    if (x_sgn == 0) return 0 <=> sgn(p.y - y);
+    return x_sgn == 1 ? std::partial_ordering::less :
+                        std::partial_ordering::greater;
   }
-  bool operator<=(const Point& p) const { return !(p < *this); }
-  bool operator>(const Point& p) const { return p < *this; }
-  bool operator>=(const Point& p) const { return !(*this < p); }
+
   Point operator+() const { return *this; }
   Point operator-() const { return Point(-x, -y); }
+
   Point operator+(const Point& p) const { return Point(*this) += p; }
   Point operator-(const Point& p) const { return Point(*this) -= p; }
   Point operator*(const Real k) const { return Point(*this) *= k; }
   Point operator/(const Real k) const { return Point(*this) /= k; }
+
   friend std::ostream& operator<<(std::ostream& os, const Point& p) {
     return os << '(' << p.x << ", " << p.y << ')';
   }
@@ -130,38 +140,36 @@ int ccw(const Point& a, const Point& b, const Point& c) {
 Real get_angle(const Point& a, const Point& b, const Point& c) {
   Real ab = (a - b).arg(), bc = (c - b).arg();
   if (ab > bc) std::swap(ab, bc);
-  return std::min(bc - ab, static_cast<Real>(PI * 2 - (bc - ab)));
+  return std::min(bc - ab, static_cast<Real>(std::numbers::pi * 2 - (bc - ab)));
 }
 
 Real closest_pair(std::vector<Point> ps) {
   const int n = ps.size();
   assert(n >= 2);
   std::sort(ps.begin(), ps.end());
-  const std::function<Real(int, int)> f =
-      [&ps, &f](const int left, const int right) -> Real {
-        const int mid = (left + right) >> 1;
-        Real x_mid = ps[mid].x, d = std::numeric_limits<Real>::max();
-        if (left + 1 < mid) d = std::min(d, f(left, mid));
-        if (mid + 1 < right) d = std::min(d, f(mid, right));
-        std::inplace_merge(std::next(ps.begin(), left),
-                           std::next(ps.begin(), mid),
-                           std::next(ps.begin(), right),
-                           [](const Point& a, const Point& b) -> bool {
-                             return sgn(b.y - a.y) == 1;
-                           });
-        std::vector<Point> tmp;
-        for (int i = left; i < right; ++i) {
-          if (sgn(std::abs(ps[i].x - x_mid) - d) == 1) continue;
-          for (int j = static_cast<int>(tmp.size()) - 1; j >= 0; --j) {
-            const Point v = ps[i] - tmp[j];
-            if (sgn(v.y - d) == 1) break;
-            d = std::min(d, v.abs());
-          }
-          tmp.emplace_back(ps[i]);
-        }
-        return d;
-      };
-  return f(0, n);
+  const auto f = [&ps](auto f, const int left, const int right) -> Real {
+    const int mid = std::midpoint(left, right);
+    Real x_mid = ps[mid].x, d = std::numeric_limits<Real>::max();
+    if (left + 1 < mid) d = std::min(d, f(f, left, mid));
+    if (mid + 1 < right) d = std::min(d, f(f, mid, right));
+    std::inplace_merge(std::next(ps.begin(), left), std::next(ps.begin(), mid),
+                       std::next(ps.begin(), right),
+                       [](const Point& a, const Point& b) -> bool {
+                         return sgn(b.y - a.y) == 1;
+                       });
+    std::vector<Point> tmp;
+    for (int i = left; i < right; ++i) {
+      if (sgn(std::abs(ps[i].x - x_mid) - d) == 1) continue;
+      for (int j = std::ssize(tmp) - 1; j >= 0; --j) {
+        const Point v = ps[i] - tmp[j];
+        if (sgn(v.y - d) == 1) break;
+        d = std::min(d, v.abs());
+      }
+      tmp.emplace_back(ps[i]);
+    }
+    return d;
+  };
+  return f(f, 0, n);
 }
 
 Point projection(const Segment& a, const Point& b) {
@@ -377,7 +385,7 @@ Real intersection_area(const Circle& a, const Circle& b) {
   const Real nor = (b.p - a.p).norm(), dist = std::sqrt(nor);
   if (sgn(a.r + b.r - dist) != 1) return 0;
   if (sgn(std::abs(a.r - b.r) - dist) != -1) {
-    return std::min(a.r, b.r) * std::min(a.r, b.r) * PI;
+    return std::min(a.r, b.r) * std::min(a.r, b.r) * std::numbers::pi;
   }
   const Real alpha =
       std::acos((nor + a.r * a.r - b.r * b.r) / (2 * dist * a.r));
@@ -439,7 +447,8 @@ bool is_convex(Polygon a) {
   return true;
 }
 
-Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
+template <bool IS_TIGHT = true>
+Polygon monotone_chain(std::vector<Point> ps) {
   const int n = ps.size();
   std::sort(ps.begin(), ps.end());
   Polygon convex_hull(n << 1);
@@ -447,14 +456,14 @@ Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
   for (int i = 0; i < n; convex_hull[idx++] = ps[i++]) {
     while (idx >= 2 &&
            sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],
-                     ps[i] - convex_hull[idx - 1])) < is_tight) {
+                     ps[i] - convex_hull[idx - 1])) < IS_TIGHT) {
       --idx;
     }
   }
   for (int i = n - 2, border = idx + 1; i >= 0; convex_hull[idx++] = ps[i--]) {
     while (idx >= border &&
            sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],
-                     ps[i] - convex_hull[idx - 1])) < is_tight) {
+                     ps[i] - convex_hull[idx - 1])) < IS_TIGHT) {
       --idx;
     }
   }
@@ -479,7 +488,7 @@ Polygon cut_convex(Polygon a, const Line& b) {
 
 std::tuple<Point, Point> rotating_calipers(Polygon a) {
   const int n = a.size();
-  if (n <= 2) {
+  if (n <= 2) [[unlikely]] {
     assert(n == 2);
     return {a[0], a[1]};
   }

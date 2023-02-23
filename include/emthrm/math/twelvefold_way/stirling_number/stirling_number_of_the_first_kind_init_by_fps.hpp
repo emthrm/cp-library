@@ -6,22 +6,20 @@
 #ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_
 #define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_
 
+#include <bit>
+#include <cstdint>
 #include <vector>
 
 #include "emthrm/math/formal_power_series/formal_power_series.hpp"
-
-#if !defined(__GNUC__) && \
-    (!defined(__has_builtin) || !__has_builtin(__builtin_clz))
-# error "__builtin_clz is required."
-#endif
 
 namespace emthrm {
 
 template <typename T>
 std::vector<T> stirling_number_of_the_first_kind_init_by_fps(const int n) {
-  if (n == 0) return {1};
+  if (n == 0) [[unlikely]] return {1};
   FormalPowerSeries<T> s{0, 1};
-  for (int i = 30 - __builtin_clz(n); i >= 0; --i) {
+  for (int i = 30 - std::countl_zero(static_cast<std::uint32_t>(n));
+       i >= 0; --i) {
     s *= s.translate(-s.degree());
     if (n >> i & 1) {
       const int deg = s.degree();

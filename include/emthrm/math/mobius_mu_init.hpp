@@ -13,11 +13,11 @@ namespace emthrm {
 std::vector<int> mobius_mu_init(const int n) {
   std::vector<bool> is_prime(n + 1, true);
   is_prime[0] = false;
-  if (n >= 1) is_prime[1] = false;
+  if (n >= 1) [[likely]] is_prime[1] = false;
   std::vector<int> mu(n + 1, 1);
   mu[0] = 0;
   for (int i = 2; i <= n; ++i) {
-    if (is_prime[i]) {
+    if (is_prime[i]) [[unlikely]] {
       mu[i] = -mu[i];
       for (int j = i * 2; j <= n; j += i) {
         is_prime[j] = false;

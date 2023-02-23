@@ -9,6 +9,7 @@
 #include <iomanip>
 #include <iostream>
 #include <limits>
+#include <numbers>
 #include <utility>
 #include <vector>
 
@@ -31,7 +32,7 @@ int main() {
     l[i] = t[0].arg();
     r[i] = t[1].arg();
     if (l[i] > r[i]) std::swap(l[i], r[i]);
-    if (r[i] > emthrm::geometry::PI &&
+    if (r[i] > std::numbers::pi &&
         emthrm::geometry::has_intersected(
             people[i],
             emthrm::geometry::Segment(emthrm::geometry::Point(0, 0),
@@ -40,16 +41,16 @@ int main() {
       l[i] = 0;
     } else {
       if (l[i] < 0) l[i] = 0;
-      if (r[i] > emthrm::geometry::PI) r[i] = emthrm::geometry::PI;
+      if (r[i] > std::numbers::pi) r[i] = std::numbers::pi;
     }
-    if (l[i] < emthrm::geometry::PI) {
+    if (l[i] < std::numbers::pi) {
       comp.emplace_back(l[i]);
       comp.emplace_back(r[i]);
     }
   }
   std::vector<bool> is_used(n, true);
   for (int i = 0; i < n; ++i) {
-    if (l[i] >= emthrm::geometry::PI) is_used[i] = false;
+    if (l[i] >= std::numbers::pi) is_used[i] = false;
     if (!is_used[i]) continue;
     for (int j = 0; j < n; ++j) {
       if (j != i && l[i] <= l[j] && r[j] <= r[i]) is_used[j] = false;
@@ -96,6 +97,6 @@ int main() {
     }
   }
   std::cout << std::fixed << std::setprecision(7)
-            << ans / emthrm::geometry::PI << '\n';
+            << ans / std::numbers::pi << '\n';
   return 0;
 }

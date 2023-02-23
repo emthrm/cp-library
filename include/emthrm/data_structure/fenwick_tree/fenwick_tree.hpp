@@ -6,6 +6,7 @@
 #ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_
 #define EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_
 
+#include <bit>
 #include <vector>
 
 namespace emthrm {
@@ -36,10 +37,10 @@ struct FenwickTree {
   Abelian operator[](const int idx) const { return sum(idx, idx + 1); }
 
   int lower_bound(Abelian val) const {
-    if (val <= ID) return 0;
-    int res = 0, exponent = 1;
-    while (exponent <= n) exponent <<= 1;
-    for (int mask = exponent >> 1; mask > 0; mask >>= 1) {
+    if (val <= ID) [[unlikely]] return 0;
+    int res = 0;
+    for (int mask = std::bit_ceil(static_cast<unsigned int>(n + 1)) >> 1;
+         mask > 0; mask >>= 1) {
       const int idx = res + mask - 1;
       if (idx < n && data[idx] < val) {
         val -= data[idx];

@@ -20,8 +20,8 @@ int main() {
   for (int i = 0; i < (1 << n); ++i) {
     std::cin >> a[i].first;
   }
-  a = emthrm::fast_zeta_transform(
-          a, false, std::make_pair(0, 0),
+  a = emthrm::fast_zeta_transform<false>(
+          a, std::make_pair(0, 0),
           [](const std::pair<int, int>& a, const std::pair<int, int>& b)
               -> std::pair<int, int> {
             std::array<int, 4> tmp{a.first, a.second, b.first, b.second};

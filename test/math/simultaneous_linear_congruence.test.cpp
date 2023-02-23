@@ -4,9 +4,6 @@
 #define PROBLEM "https://yukicoder.me/problems/no/186"
 
 #include <iostream>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 #include <vector>
 
 #include "emthrm/math/simultaneous_linear_congruence.hpp"
@@ -17,14 +14,8 @@ int main() {
   for (int i = 0; i < N; ++i) {
     std::cin >> x[i] >> y[i];
   }
-#if __cplusplus >= 201703L
   const auto [ans, mod] = emthrm::simultaneous_linear_congruence(
       std::vector<long long>(N, 1), x, y);
-#else
-  long long ans, mod;
-  std::tie(ans, mod) = emthrm::simultaneous_linear_congruence(
-      std::vector<long long>(N, 1), x, y);
-#endif  // __cplusplus >= 201703L
   if (mod == 0) {
     std::cout << "-1\n";
   } else {

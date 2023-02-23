@@ -7,8 +7,9 @@
 #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
 
 #include <algorithm>
-#include <functional>
 #include <iterator>
+#include <ranges>
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -24,9 +25,11 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
   for (int i = 0; i < n; ++i) {
     edge_num += graph[i].size();
     deg[i] += graph[i].size();
-    for (const Edge<CostType>& e : graph[i]) --deg[e.dst];
+    for (const int e : graph[i] | std::views::transform(&Edge<CostType>::dst)) {
+      --deg[e];
+    }
   }
-  if (edge_num == 0) return {};
+  if (edge_num == 0) [[unlikely]] return {};
   const int not0 = n - std::count(deg.begin(), deg.end(), 0);
   if (not0 == 0) {
     if (s == -1) {
@@ -56,16 +59,16 @@ std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(
     return {};
   }
   std::vector<Edge<CostType>> res;
-  const std::function<void(int)> dfs = [&graph, &res, &dfs](const int ver) {
+  const auto dfs = [&graph, &res](auto dfs, const int ver) -> void {
     while (!graph[ver].empty()) {
       const Edge<CostType> e = graph[ver].back();
       graph[ver].pop_back();
-      dfs(e.dst);
+      dfs(dfs, e.dst);
       res.emplace_back(e);
     }
   };
-  dfs(s);
-  if (static_cast<int>(res.size()) == edge_num) {
+  dfs(dfs, s);
+  if (std::cmp_equal(res.size(), edge_num)) {
     std::reverse(res.begin(), res.end());
     return res;
   }

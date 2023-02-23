@@ -13,19 +13,18 @@
 
 namespace emthrm {
 
-template <int Sigma = 26>
+template <int Sigma = 26, bool IS_FULL_VER = false>
 struct AhoCorasick : Trie<Sigma + 1> {
   using Trie<Sigma + 1>::Trie;
 
   std::vector<int> nums;
 
-  void build(const bool is_full_ver_ = false) {
-    is_full_ver = is_full_ver_;
+  void build() {
     auto& vertices = this->nodes;
     const int n = vertices.size();
     nums.resize(n);
     for (int i = 0; i < n; ++i) {
-      if (is_full_ver) {
+      if constexpr (IS_FULL_VER) {
         std::sort(vertices[i].tails.begin(), vertices[i].tails.end());
       }
       nums[i] = vertices[i].tails.size();
@@ -50,7 +49,7 @@ struct AhoCorasick : Trie<Sigma + 1> {
           on_failure = vertices[on_failure].nxt[Sigma];
         }
         vertices[node.nxt[i]].nxt[Sigma] = vertices[on_failure].nxt[i];
-        if (is_full_ver) {
+        if constexpr (IS_FULL_VER) {
           std::vector<int>& ids = vertices[node.nxt[i]].tails;
           std::vector<int> tmp;
           std::set_union(ids.begin(), ids.end(),
@@ -81,7 +80,7 @@ struct AhoCorasick : Trie<Sigma + 1> {
   }
 
   std::map<int, int> match_fully(const std::string& t, int pos = 0) const {
-    assert(is_full_ver);
+    static_assert(IS_FULL_VER);
     std::map<int, int> mp;
     for (const char c : t) {
       pos = move(c, pos);
@@ -89,9 +88,6 @@ struct AhoCorasick : Trie<Sigma + 1> {
     }
     return mp;
   }
-
- private:
-  bool is_full_ver = false;
 };
 
 }  // namespace emthrm

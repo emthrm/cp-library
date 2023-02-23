@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <numbers>
 #include <string>
 #include <vector>
 
@@ -40,7 +41,7 @@ int main() {
                  emthrm::geometry::Segment(flo[j], flo[j + 1]))) {
           const double ar =
               std::atan2((inter - wheel).y, (inter - wheel).x) - sta;
-          if (-EPS < ar && ar < emthrm::geometry::PI / 2 + EPS) {
+          if (-EPS < ar && ar < std::numbers::pi / 2 + EPS) {
             if (type == 0) {
               type = 1;
               p = inter;
@@ -61,14 +62,14 @@ int main() {
                  emthrm::geometry::Segment(flo[j], flo[j + 1]))) {
           const double ar =
               std::atan2((inter - wheel).y, (inter - wheel).x) - sta;
-          if (emthrm::geometry::PI / 4 - EPS < ar &&
-              ar < emthrm::geometry::PI / 4 * 3 + EPS) {
+          if (std::numbers::pi / 4 - EPS < ar &&
+              ar < std::numbers::pi / 4 * 3 + EPS) {
             if (type == 0) {
               type = 2;
               p = inter;
               must_skip = j > i + 1;
             } else if (type == 1) {
-              if (ar - emthrm::geometry::PI / 4
+              if (ar - std::numbers::pi / 4
                   > std::atan2((p - wheel).y, (p - wheel).x) - sta) {
                 type = 2;
                 p = inter;

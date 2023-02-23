@@ -12,9 +12,6 @@
 #include <limits>
 #include <numeric>
 #include <queue>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -52,11 +49,7 @@ struct MinimumCostBFlow {
   void supply_or_demand(const int ver, const T amount) { b[ver] += amount; }
 
   U solve() {
-#if __cplusplus >= 201703L
     assert(std::reduce(b.begin(), b.end(), static_cast<T>(0)) == 0);
-#else
-    assert(std::accumulate(b.begin(), b.end(), static_cast<T>(0)) == 0);
-#endif  // __cplusplus >= 201703L
     T flow = 0;
     for (int i = 0; i < n; ++i) {
       if (b[i] > 0) {
@@ -75,16 +68,10 @@ struct MinimumCostBFlow {
       dist[n] = 0;
       que.emplace(0, n);
       while (!que.empty()) {
-#if __cplusplus >= 201703L
         const auto [d, ver] = que.top();
-#else
-        U d;
-        int ver;
-        std::tie(d, ver) = que.top();
-#endif  // __cplusplus >= 201703L
         que.pop();
         if (d > dist[ver]) continue;
-        for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
+        for (int i = 0; std::cmp_less(i, graph[ver].size()); ++i) {
           const Edge& e = graph[ver][i];
           const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];
           if (e.cap > 0 && dist[e.dst] > nxt) {

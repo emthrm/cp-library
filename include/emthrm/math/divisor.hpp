@@ -11,7 +11,7 @@ std::vector<T> divisor(const T n) {
   std::vector<T> res;
   T i = 1;
   for (; i * i < n; ++i) {
-    if (n % i == 0) {
+    if (n % i == 0) [[unlikely]] {
       res.emplace_back(i);
       res.emplace_back(n / i);
     }

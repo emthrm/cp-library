@@ -6,9 +6,6 @@
 #include <iterator>
 #include <limits>
 #include <set>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 #include <utility>
 
 namespace emthrm {
@@ -36,12 +33,7 @@ struct IntervalsManagedBySet {
       if (x + 1 <= right) it = intervals.emplace(x + 1, right).first;
     } else {
       it = std::prev(it);
-#if __cplusplus >= 201703L
       const auto [left, right] = *it;
-#else
-      T left, right;
-      std::tie(left, right) = *it;
-#endif  // __cplusplus >= 201703L
       if (right < x) return {std::next(it), false};
       intervals.erase(it);
       it = std::next(intervals.emplace(left, x - 1).first);
@@ -67,12 +59,7 @@ struct IntervalsManagedBySet {
     }
     if (left <= std::prev(it)->second) {
       it = std::prev(it);
-#if __cplusplus >= 201703L
       const auto [l, r] = *it;
-#else
-      T l, r;
-      std::tie(l, r) = *it;
-#endif  // __cplusplus >= 201703L
       intervals.erase(it);
       if (right < r) {
         res += right - left + 1;

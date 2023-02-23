@@ -6,9 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp"
@@ -39,7 +37,7 @@ int main() {
     }
     emthrm::MinimumCostSTFlow<int, long long> minimum_cost_flow(num + 2);
     const int s = num, t = num + 1;
-    for (int i = 0; i < static_cast<int>(trains.front().size()); ++i) {
+    for (int i = 0; std::cmp_less(i, trains.front().size()); ++i) {
       minimum_cost_flow.add_edge(s, i, 1, 0);
     }
     int w = 0;
@@ -59,7 +57,7 @@ int main() {
       w += m;
       if (i + 1 < n - 1) {
         for (int j = 0; j < m; ++j) {
-          for (int k = 0; k < static_cast<int>(trains[i + 1].size()); ++k) {
+          for (int k = 0; std::cmp_less(k, trains[i + 1].size()); ++k) {
             if (times[i][j] <= trains[i + 1][k].x) {
               minimum_cost_flow.add_edge(j + w, k + w + m, 1, 0);
             }
@@ -73,15 +71,8 @@ int main() {
     }
     int g;
     std::cin >> g;
-#if __cplusplus >= 201703L
     const auto [ans_class, ans_fare] =
         minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);
-#else
-    int ans_class;
-    long long ans_fare;
-    std::tie(ans_class, ans_fare) =
-        minimum_cost_flow.minimum_cost_maximum_flow(s, t, g);
-#endif  // __cplusplus >= 201703L
     std::cout << ans_class << ' ' << ans_fare << '\n';
   }
   return 0;

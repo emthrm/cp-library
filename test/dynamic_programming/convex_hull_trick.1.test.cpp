@@ -15,12 +15,12 @@ int main() {
   for (int i = 0; i < n; ++i) {
     int h;
     std::cin >> h;
-    if (i == 0) {
+    if (i == 0) [[unlikely]] {
       convex_hull_trick.add(-2 * h, static_cast<long long>(h) * h);
     } else {
       const long long dp =
           convex_hull_trick.query(h) + static_cast<long long>(h) * h + c;
-      if (i + 1 == n) {
+      if (i + 1 == n) [[unlikely]] {
         std::cout << dp << '\n';
       } else {
         convex_hull_trick.add(-2 * h, dp + static_cast<long long>(h) * h);

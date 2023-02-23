@@ -3,6 +3,8 @@
 
 #include <cassert>
 #include <deque>
+#include <iterator>
+#include <numeric>
 #include <utility>
 
 namespace emthrm {
@@ -12,26 +14,19 @@ struct ConvexHullTrick {
   ConvexHullTrick() = default;
 
   void add(T a, T b) {
-#if __cplusplus >= 201703L
     if constexpr (!IS_MINIMIZED) {
       a = -a;
       b = -b;
     }
-#else
-    if (!IS_MINIMIZED) {
-      a = -a;
-      b = -b;
-    }
-#endif  // __cplusplus >= 201703L
     const Line line(a, b);
-    if (deq.empty()) {
+    if (deq.empty()) [[unlikely]] {
       deq.emplace_back(line);
     } else if (deq.back().first >= a) {
       if (deq.back().first == a) {
         if (b >= deq.back().second) return;
         deq.pop_back();
       }
-      for (int i = static_cast<int>(deq.size()) - 2; i >= 0; --i) {
+      for (int i = std::ssize(deq) - 2; i >= 0; --i) {
         if (!must_pop(deq[i], deq[i + 1], line)) break;
         deq.pop_back();
       }
@@ -52,7 +47,7 @@ struct ConvexHullTrick {
     assert(!deq.empty());
     int lb = -1, ub = deq.size() - 1;
     while (ub - lb > 1) {
-      const int mid = (lb + ub) >> 1;
+      const int mid = std::midpoint(lb, ub);
       (f(deq[mid], x) < f(deq[mid + 1], x) ? ub : lb) = mid;
     }
     return IS_MINIMIZED ? f(deq[ub], x) : -f(deq[ub], x);
@@ -66,7 +61,7 @@ struct ConvexHullTrick {
   }
 
   T monotonically_decreasing_query(const T x) {
-    for (int i = static_cast<int>(deq.size()) - 2; i >= 0; --i) {
+    for (int i = std::ssize(deq) - 2; i >= 0; --i) {
       if (f(deq[i], x) > f(deq[i + 1], x)) break;
       deq.pop_back();
     }

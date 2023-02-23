@@ -13,7 +13,7 @@ $O(N)$
 
 |名前|戻り値|
 |:--|:--|
-|`std::vector<int> prime_sieve(const int n, const bool get_only_prime);`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数|
+|`template <bool GETS_ONLY_PRIME> std::vector<int> prime_sieve(const int n);`|$n$ 以下の素数または $i$ ($i \leq n$) の最小素因数|
 
 
 ## 参考文献

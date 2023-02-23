@@ -2,6 +2,7 @@
 #define EMTHRM_DATA_STRUCTURE_DISJOINT_SPARSE_TABLE_HPP_
 
 #include <algorithm>
+#include <bit>
 #include <cassert>
 #include <vector>
 
@@ -12,13 +13,12 @@ struct DisjointSparseTable {
   explicit DisjointSparseTable(const std::vector<Semigroup>& a,
                                const BinOp bin_op = BinOp())
       : bin_op(bin_op) {
-    const int n = a.size();
-    int table_h = 1;
-    while ((1 << table_h) < n) ++table_h;
+    const int table_h = std::max(std::countr_zero(std::bit_ceil(a.size())), 1);
     lg.assign(1 << table_h, 0);
     for (int i = 2; i < (1 << table_h); ++i) {
       lg[i] = lg[i >> 1] + 1;
     }
+    const int n = a.size();
     data.assign(table_h, std::vector<Semigroup>(n));
     std::copy(a.begin(), a.end(), data.front().begin());
     for (int i = 1; i < table_h; ++i) {

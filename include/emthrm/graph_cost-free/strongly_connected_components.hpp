@@ -6,15 +6,14 @@
 
 namespace emthrm {
 
+template <bool IS_FULL_VER = false>
 struct StronglyConnectedComponents {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, g;
 
   explicit StronglyConnectedComponents(
-      const std::vector<std::vector<int>>& graph,
-      const bool is_full_ver = false)
-      : is_full_ver(is_full_ver), n(graph.size()), is_used(n, false),
-        graph(graph), rgraph(n) {
+      const std::vector<std::vector<int>>& graph)
+      : n(graph.size()), is_used(n, false), graph(graph), rgraph(n) {
     order.reserve(n);
     for (int i = 0; i < n; ++i) {
       if (!is_used[i]) dfs(i);
@@ -26,7 +25,7 @@ struct StronglyConnectedComponents {
     int m = 0;
     for (int i = n - 1; i >= 0; --i) {
       if (id[order[i]] == -1) {
-        if (is_full_ver) vertices.emplace_back();
+        if constexpr (IS_FULL_VER) vertices.emplace_back();
         rdfs(order[i], m++);
       }
     }
@@ -36,7 +35,7 @@ struct StronglyConnectedComponents {
         if (id[i] != id[e]) g[id[i]].emplace_back(id[e]);
       }
     }
-    // if (is_full_ver) {
+    // if constexpr (IS_FULL_VER) {
     //   for (int i = 0; i < m; ++i) {
     //     std::sort(vertices[i].begin(), vertices[i].end());
     //   }
@@ -44,7 +43,6 @@ struct StronglyConnectedComponents {
   }
 
  private:
-  const bool is_full_ver;
   const int n;
   std::vector<bool> is_used;
   std::vector<int> order;
@@ -60,7 +58,7 @@ struct StronglyConnectedComponents {
 
   void rdfs(const int ver, const int m) {
     id[ver] = m;
-    if (is_full_ver) vertices.back().emplace_back(ver);
+    if constexpr (IS_FULL_VER) vertices.back().emplace_back(ver);
     for (const int e : rgraph[ver]) {
       if (id[e] == -1) rdfs(e, m);
     }

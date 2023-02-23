@@ -16,7 +16,7 @@ struct Divisor {
   const std::vector<int> smallest_prime_factor;
 
   explicit Divisor(const int n)
-      : smallest_prime_factor(prime_sieve(n, false)) {}
+      : smallest_prime_factor(prime_sieve<false>(n)) {}
 
   std::vector<int> query(int n) const {
     std::vector<int> res{1};

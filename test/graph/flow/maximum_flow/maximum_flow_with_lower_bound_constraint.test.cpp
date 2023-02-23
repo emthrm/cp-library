@@ -13,7 +13,7 @@ int main() {
   while (true) {
     int n, m;
     std::cin >> n >> m;
-    if (n == 0 && m == 0) break;
+    if (n == 0 && m == 0) [[unlikely]] break;
     std::vector<int> u(m), v(m);
     for (int i = 0; i < m; ++i) {
       std::cin >> u[i] >> v[i];

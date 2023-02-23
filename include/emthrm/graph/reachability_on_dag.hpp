@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cstdint>
 #include <limits>
+#include <utility>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -17,7 +18,7 @@ std::vector<bool> reachability_on_dag(
     const std::vector<std::vector<Edge<CostType>>>& graph,
     const std::vector<int>& ss, const std::vector<int>& ts) {
   const int n = graph.size(), q = ss.size();
-  assert(static_cast<int>(ts.size()) == q);
+  assert(std::cmp_equal(ts.size(), q));
   const std::vector<int> order = topological_sort(graph);
   std::vector<bool> can_reach(q, false);
   std::vector<std::uint64_t> dp(n, 0);
@@ -28,7 +29,10 @@ std::vector<bool> reachability_on_dag(
       dp[ss[k]] |= UINT64_C(1) << (k - i);
     }
     for (const int node : order) {
-      for (const Edge<CostType>& e : graph[node]) dp[e.dst] |= dp[node];
+      for (const int e : graph[node]
+                       | std::views::transform(&Edge<CostType>::dst)) {
+        dp[e] |= dp[node];
+      }
     }
     for (int k = i; k < j; ++k) {
       can_reach[k] = dp[ts[k]] >> (k - i) & 1;

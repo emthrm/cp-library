@@ -7,12 +7,11 @@
 
 namespace emthrm {
 
-template <typename T>
-int gauss_jordan(Matrix<T>* a, const T eps = 1e-8,
-                 const bool is_extended = false) {
+template <bool IS_EXTENDED = false, typename T>
+int gauss_jordan(Matrix<T>* a, const T eps = 1e-8) {
   const int m = a->nrow(), n = a->ncol();
   int rank = 0;
-  for (int col = 0; col < (is_extended ? n - 1 : n); ++col) {
+  for (int col = 0; col < (IS_EXTENDED ? n - 1 : n); ++col) {
     int pivot = -1;
     T mx = eps;
     for (int row = rank; row < m; ++row) {

@@ -20,7 +20,7 @@ std::vector<long long> euler_phi_init2(const long long low,
   std::iota(rem.begin(), rem.end(), low);
   long long root = 1;
   while ((root + 1) * (root + 1) < high) ++root;
-  for (const int p : prime_sieve(root, true)) {
+  for (const int p : prime_sieve<true>(root)) {
     for (long long i = (low + p - 1) / p * p; i < high; i += p) {
       phi[i - low] -= phi[i - low] / p;
       while (rem[i - low] % p == 0) rem[i - low] /= p;

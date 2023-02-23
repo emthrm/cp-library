@@ -16,7 +16,7 @@ int main() {
   std::vector<std::vector<long long>> w(n, std::vector<long long>(n));
   for (int j = 0; j < n; ++j) {
     std::cin >> w.front()[j];
-    if (j > 0) w.front()[j] += w.front()[j - 1];
+    if (j > 0) [[likely]] w.front()[j] += w.front()[j - 1];
   }
   for (int i = 1; i < n; ++i) {
     for (int j = i; j < n; ++j) {

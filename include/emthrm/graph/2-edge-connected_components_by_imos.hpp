@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <set>
 #include <queue>
+#include <ranges>
 #include <utility>
 #include <vector>
 
@@ -17,7 +18,7 @@
 
 namespace emthrm {
 
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponentsByImos {
   std::vector<int> id;
   std::vector<Edge<CostType>> bridge;
@@ -25,8 +26,7 @@ struct TwoEdgeConnectedComponentsByImos {
   std::vector<std::vector<Edge<CostType>>> g;
 
   explicit TwoEdgeConnectedComponentsByImos(
-      const std::vector<std::vector<Edge<CostType>>>& graph,
-      const bool is_full_ver = false)
+      const std::vector<std::vector<Edge<CostType>>>& graph)
       : bridge(enumerate_bridges(graph)) {
     const int n = graph.size();
     id.assign(n, -1);
@@ -38,15 +38,16 @@ struct TwoEdgeConnectedComponentsByImos {
       if (id[i] != -1) continue;
       que.emplace(i);
       id[i] = m++;
-      if (is_full_ver) vertices.emplace_back(std::vector<int>{i});
+      if constexpr (IS_FULL_VER) vertices.emplace_back(std::vector<int>{i});
       while (!que.empty()) {
         const int ver = que.front();
         que.pop();
-        for (const Edge<CostType>& e : graph[ver]) {
-          if (id[e.dst] == -1 && !st.count(std::minmax(ver, e.dst))) {
-            id[e.dst] = id[i];
-            if (is_full_ver) vertices.back().emplace_back(e.dst);
-            que.emplace(e.dst);
+        for (const int e : graph[ver]
+                         | std::views::transform(&Edge<CostType>::dst)) {
+          if (id[e] == -1 && !st.contains(std::minmax(ver, e))) {
+            id[e] = id[i];
+            if constexpr (IS_FULL_VER) vertices.back().emplace_back(e);
+            que.emplace(e);
           }
         }
       }
@@ -57,7 +58,7 @@ struct TwoEdgeConnectedComponentsByImos {
       g[u].emplace_back(u, v, e.cost);
       g[v].emplace_back(v, u, e.cost);
     }
-    if (is_full_ver) {
+    if constexpr (IS_FULL_VER) {
       for (int i = 0; i < m; ++i) {
         std::sort(vertices[i].begin(), vertices[i].end());
       }

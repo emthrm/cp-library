@@ -45,8 +45,8 @@ int main() {
   }
   std::vector<int> ans(q);
   for (const auto& sasb_query : queries) {
-    if (edges.count(sasb_query.first)) {
-      for (const int id : edges[sasb_query.first]) {
+    if (const auto it = edges.find(sasb_query.first); it != edges.end()) {
+      for (const int id : it->second) {
         union_find.unite(u[id], v[id]);
       }
     }

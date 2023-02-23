@@ -19,7 +19,7 @@ int main() {
   for (int i = 0; i < n; ++i) {
     std::cin >> p[i];
   }
-  emthrm::geometry::Polygon convex_hull = monotone_chain(p, false);
+  emthrm::geometry::Polygon convex_hull = monotone_chain<false>(p);
   const int m = convex_hull.size();
   std::vector<std::pair<emthrm::geometry::Point, int>> ps;
   ps.reserve(m);

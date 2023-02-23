@@ -15,7 +15,7 @@ int main() {
   emthrm::Manacher manacher(s);
   for (int i = 0; i < n; ++i) {
     std::cout << (manacher.odd(i) - 1) * 2 + 1;
-    if (i + 1 == n) {
+    if (i + 1 == n) [[unlikely]] {
       std::cout << '\n';
     } else {
       std::cout << ' ' << manacher.even(i) * 2 << ' ';

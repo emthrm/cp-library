@@ -2,8 +2,8 @@
 #define EMTHRM_GRAPH_COST_FREE_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
 
 #include <algorithm>
-#include <functional>
 #include <iterator>
+#include <utility>
 #include <vector>
 
 namespace emthrm {
@@ -46,16 +46,16 @@ std::vector<int> eulerian_trail_in_directed_graph(
     return {};
   }
   std::vector<int> res;
-  const std::function<void(int)> dfs = [&graph, &res, &dfs](const int ver) {
+  const auto dfs = [&graph, &res](auto dfs, const int ver) -> void {
     while (!graph[ver].empty()) {
       const int nxt = graph[ver].back();
       graph[ver].pop_back();
-      dfs(nxt);
+      dfs(dfs, nxt);
     }
     res.emplace_back(ver);
   };
-  dfs(s);
-  if (static_cast<int>(res.size()) == edge_num + 1) {
+  dfs(dfs, s);
+  if (std::cmp_equal(res.size(), edge_num + 1)) {
     std::reverse(res.begin(), res.end());
     return res;
   }

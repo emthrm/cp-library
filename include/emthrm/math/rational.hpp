@@ -2,12 +2,9 @@
 #define EMTHRM_MATH_RATIONAL_HPP_
 
 // #include <cassert>
+#include <compare>
 #include <limits>
-#if __cplusplus >= 201703L
-# include <numeric>
-#else
-# include <algorithm>
-#endif  // __cplusplus >= 201703L
+#include <numeric>
 #include <ostream>
 
 namespace emthrm {
@@ -26,11 +23,7 @@ struct Rational {
   Real to_real() const { return static_cast<Real>(num) / den; }
 
   Rational& operator+=(const Rational& x) {
-#if __cplusplus >= 201703L
     const T g = std::gcd(den, x.den);
-#else
-    const T g = std::__gcd(den, x.den);
-#endif  // __cplusplus >= 201703L
     num = num * (x.den / g) + x.num * (den / g);
     den *= x.den / g;
     reduce();
@@ -39,11 +32,7 @@ struct Rational {
   Rational& operator-=(const Rational& x) { return *this += -x; }
 
   Rational& operator*=(const Rational& x) {
-#if __cplusplus >= 201703L
     const T g1 = std::gcd(num, x.den), g2 = std::gcd(den, x.num);
-#else
-    const T g1 = std::__gcd(num, x.den), g2 = std::__gcd(den, x.num);
-#endif  // __cplusplus >= 201703L
     num = (num / g1) * (x.num / g2);
     den = (den / g2) * (x.den / g1);
     reduce();
@@ -53,14 +42,12 @@ struct Rational {
     return *this *= Rational(x.den, x.num);
   }
 
+  auto operator<=>(const Rational& x) const {
+    return num * x.den <=> x.num * den;
+  }
   bool operator==(const Rational& x) const {
     return num == x.num && den == x.den;
   }
-  bool operator!=(const Rational& x) const { return !(*this == x); }
-  bool operator<(const Rational& x) const { return (x - *this).num > 0; }
-  bool operator<=(const Rational& x) const { return !(x < *this); }
-  bool operator>(const Rational& x) const { return x < *this; }
-  bool operator>=(const Rational& x) const { return !(*this < x); }
 
   Rational& operator++() {
     if ((num += den) == 0) den = 1;
@@ -96,11 +83,7 @@ struct Rational {
 
  private:
   void reduce() {
-#if __cplusplus >= 201703L
     const T g = std::gcd(num, den);
-#else
-    const T g = std::__gcd(num, den);
-#endif  // __cplusplus >= 201703L
     num /= g;
     den /= g;
     if (den < 0) {

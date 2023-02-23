@@ -17,8 +17,8 @@ namespace emthrm {
 template <int T>
 MInt<T> faulhaber_by_fps(const long long n, const int k) {
   using ModInt = MInt<T>;
-  if (n <= 1) return 0;
-  if (k == 0) return n - 1;
+  if (n <= 1) [[unlikely]] return 0;
+  if (k == 0) [[unlikely]] return n - 1;
   ModInt::init(k + 1);
   const std::vector<ModInt> bernoulli = bernoulli_number<ModInt>(k);
   ModInt res = 0, p = 1;

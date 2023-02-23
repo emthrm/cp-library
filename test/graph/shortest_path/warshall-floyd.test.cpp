@@ -13,7 +13,7 @@ int main() {
   while (true) {
     int n, k;
     std::cin >> n >> k;
-    if (n == 0 && k == 0) break;
+    if (n == 0 && k == 0) [[unlikely]] break;
     std::vector<std::vector<long long>> graph(n,
                                               std::vector<long long>(n, LINF));
     for (int i = 0; i < n; ++i) {

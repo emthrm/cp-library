@@ -5,9 +5,7 @@
 #include <cassert>
 #include <cstdint>
 #include <memory>
-#if __cplusplus >= 201703L
-# include <optional>
-#endif  // __cplusplus >= 201703L
+#include <optional>
 #include <utility>
 
 namespace emthrm {
@@ -32,11 +30,11 @@ struct BinaryTrie {
   int size() const { return root ? root->child : 0; }
 
   void erase(const T& x) {
-    if (root) erase(&root, x, B - 1);
+    if (root) [[likely]] erase(&root, x, B - 1);
   }
 
   std::shared_ptr<Node> find(const T& x) const {
-    if (!root) return nullptr;
+    if (!root) [[unlikely]] return nullptr;
     std::shared_ptr<Node> node = root;
     for (int b = B - 1; b >= 0; --b) {
       const bool digit = x >> b & 1;
@@ -68,7 +66,7 @@ struct BinaryTrie {
   }
 
   std::shared_ptr<Node> insert(const T& x) {
-    if (!root) root = std::make_shared<Node>();
+    if (!root) [[unlikely]] root = std::make_shared<Node>();
     std::shared_ptr<Node> node = root;
     ++node->child;
     for (int b = B - 1; b >= 0; --b) {
@@ -100,7 +98,6 @@ struct BinaryTrie {
     return ptr ? ptr->child : 0;
   }
 
-#if __cplusplus >= 201703L
   std::pair<std::shared_ptr<Node>, std::optional<T>> lower_bound(
       const T& x) const {
     const int lt = less_than(x);
@@ -113,16 +110,6 @@ struct BinaryTrie {
       const T& x) const {
     return lower_bound(x + 1);
   }
-#else
-  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {
-    const int lt = less_than(x);
-    return lt == size() ? std::make_pair(nullptr, -1) : find_nth(lt, 0);
-  }
-
-  std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const {
-    return lower_bound(x + 1);
-  }
-#endif  // __cplusplus >= 201703L
 
   std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0) const {
     return min_element(~x);

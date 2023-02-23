@@ -9,7 +9,7 @@ namespace emthrm {
 template <template <typename> class C, typename T>
 C<T> product_of_polynomial_sequence(std::vector<C<T>> a) {
   const int n = a.size();
-  if (n == 0) return C<T>{1};
+  if (n == 0) [[unlikely]] return C<T>{1};
   for (int i = 0; i < n; ++i) {
     a[i].shrink();
   }

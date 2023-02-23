@@ -14,8 +14,8 @@ namespace emthrm {
 
 long long mod_sqrt(long long a, const int p) {
   if ((a %= p) < 0) a += p;
-  if (a == 0) return 0;
-  if (p == 2) return 1;
+  if (a == 0) [[unlikely]] return 0;
+  if (p == 2) [[unlikely]] return 1;
   if (mod_pow(a, (p - 1) >> 1, p) == p - 1) return -1;
   if (p % 4 == 3) return mod_pow(a, (p + 1) >> 2, p);
   int s = 1, q = (p - 1) >> 1;

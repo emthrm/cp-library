@@ -1,6 +1,7 @@
 #ifndef EMTHRM_GRAPH_NOSHI_GRAPH_HPP_
 #define EMTHRM_GRAPH_NOSHI_GRAPH_HPP_
 
+#include <bit>
 #include <vector>
 
 #include "emthrm/graph/edge.hpp"
@@ -11,8 +12,8 @@ template <typename CostType>
 struct NoshiGraph {
   std::vector<std::vector<Edge<CostType>>> graph;
 
-  explicit NoshiGraph(const int n) : p2(1) {
-    while (p2 < n) p2 <<= 1;
+  explicit NoshiGraph(const int n)
+      : p2(std::bit_ceil(static_cast<unsigned int>(n))) {
     const int dbl = p2 << 1, hlf = p2 >> 1;
     graph.resize(dbl + p2);
     for (int i = 1; i < hlf; ++i) {
@@ -37,7 +38,7 @@ struct NoshiGraph {
 
   void add_edge(int src_l, int src_r, int dst_l, int dst_r,
                 const CostType cost) {
-    if (src_r <= src_l || dst_r <= dst_l) return;
+    if (src_r <= src_l || dst_r <= dst_l) [[unlikely]] return;
     const int src_id = graph.size(), dst_id = src_id + 1;
     graph.emplace_back();
     graph.emplace_back();
@@ -57,7 +58,7 @@ struct NoshiGraph {
   }
 
  private:
-  int p2;
+  const int p2;
 };
 
 }  // namespace emthrm

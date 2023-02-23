@@ -13,9 +13,8 @@
 
 namespace emthrm {
 
-template <typename T>
-std::vector<T> longest_increasing_subsequence(
-    const std::vector<T>& a, const bool is_strict = true) {
+template <bool IS_STRICT = true, typename T>
+std::vector<T> longest_increasing_subsequence(const std::vector<T>& a) {
   const T inf = std::numeric_limits<T>::max();
   const int n = a.size();
   std::vector<int> idx(n);
@@ -23,7 +22,7 @@ std::vector<T> longest_increasing_subsequence(
   for (int i = 0; i < n; ++i) {
     idx[i] = std::distance(
         tmp.begin(),
-        is_strict ? std::lower_bound(tmp.begin(), tmp.end(), a[i]) :
+        IS_STRICT ? std::lower_bound(tmp.begin(), tmp.end(), a[i]) :
                     std::upper_bound(tmp.begin(), tmp.end(), a[i]));
     tmp[idx[i]] = a[i];
   }

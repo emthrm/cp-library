@@ -3,10 +3,11 @@
 
 #include <algorithm>
 #include <cassert>
-#include <functional>
+#include <compare>
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <numeric>
 #include <utility>
 #include <vector>
 
@@ -22,8 +23,11 @@ int sgn(const Integer x) {
 
 struct Point {
   Integer x, y;
+
   explicit Point(const Integer x = 0, const Integer y = 0) : x(x), y(y) {}
+
   Integer norm() const { return x * x + y * y; }
+
   Point& operator+=(const Point& p) {
     x += p.x; y += p.y;
     return *this;
@@ -40,19 +44,22 @@ struct Point {
     x /= k; y /= k;
     return *this;
   }
-  bool operator<(const Point& p) const {
+
+  std::strong_ordering operator<=>(const Point& p) const {
     const int x_sgn = sgn(p.x - x);
-    return x_sgn != 0 ? x_sgn == 1 : sgn(p.y - y) == 1;
+    if (x_sgn == 0) return 0 <=> sgn(p.y - y);
+    return x_sgn == 1 ? std::strong_ordering::less :
+                        std::strong_ordering::greater;
   }
-  bool operator<=(const Point& p) const { return !(p < *this); }
-  bool operator>(const Point& p) const { return p < *this; }
-  bool operator>=(const Point& p) const { return !(*this < p); }
+
   Point operator+() const { return *this; }
   Point operator-() const { return Point(-x, -y); }
+
   Point operator+(const Point& p) const { return Point(*this) += p; }
   Point operator-(const Point& p) const { return Point(*this) -= p; }
   Point operator*(const Integer k) const { return Point(*this) *= k; }
   Point operator/(const Integer k) const { return Point(*this) /= k; }
+
   friend std::ostream& operator<<(std::ostream& os, const Point& p) {
     return os << '(' << p.x << ", " << p.y << ')';
   }
@@ -95,31 +102,29 @@ Integer closest_pair(std::vector<Point> ps) {
   const int n = ps.size();
   assert(n >= 2);
   std::sort(ps.begin(), ps.end());
-  const std::function<Integer(int, int)> f =
-      [&ps, &f](const int left, const int right) -> Integer {
-        const int mid = (left + right) >> 1;
-        Integer x_mid = ps[mid].x, d = std::numeric_limits<Integer>::max();
-        if (left + 1 < mid) d = std::min(d, f(left, mid));
-        if (mid + 1 < right) d = std::min(d, f(mid, right));
-        std::inplace_merge(std::next(ps.begin(), left),
-                           std::next(ps.begin(), mid),
-                           std::next(ps.begin(), right),
-                           [](const Point& a, const Point& b) -> bool {
-                             return sgn(b.y - a.y) == 1;
-                           });
-        std::vector<Point> tmp;
-        for (int i = left; i < right; ++i) {
-          if (sgn((ps[i].x - x_mid) * (ps[i].x - x_mid) - d) == 1) continue;
-          for (int j = static_cast<int>(tmp.size()) - 1; j >= 0; --j) {
-            const Point v = ps[i] - tmp[j];
-            if (sgn(v.y * v.y - d) == 1) break;
-            d = std::min(d, v.norm());
-          }
-          tmp.emplace_back(ps[i]);
-        }
-        return d;
-      };
-  return f(0, n);
+  const auto f = [&ps](auto f, const int left, const int right) -> Integer {
+    const int mid = std::midpoint(left, right);
+    Integer x_mid = ps[mid].x, d = std::numeric_limits<Integer>::max();
+    if (left + 1 < mid) d = std::min(d, f(f, left, mid));
+    if (mid + 1 < right) d = std::min(d, f(f, mid, right));
+    std::inplace_merge(std::next(ps.begin(), left), std::next(ps.begin(), mid),
+                       std::next(ps.begin(), right),
+                       [](const Point& a, const Point& b) -> bool {
+                         return sgn(b.y - a.y) == 1;
+                       });
+    std::vector<Point> tmp;
+    for (int i = left; i < right; ++i) {
+      if (sgn((ps[i].x - x_mid) * (ps[i].x - x_mid) - d) == 1) continue;
+      for (int j = std::ssize(tmp) - 1; j >= 0; --j) {
+        const Point v = ps[i] - tmp[j];
+        if (sgn(v.y * v.y - d) == 1) break;
+        d = std::min(d, v.norm());
+      }
+      tmp.emplace_back(ps[i]);
+    }
+    return d;
+  };
+  return f(f, 0, n);
 }
 
 bool is_parallel(const Segment& a, const Segment& b) {
@@ -207,7 +212,8 @@ bool is_convex(Polygon a) {
   return true;
 }
 
-Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
+template <bool IS_TIGHT = true>
+Polygon monotone_chain(std::vector<Point> ps) {
   const int n = ps.size();
   std::sort(ps.begin(), ps.end());
   Polygon convex_hull(n << 1);
@@ -215,14 +221,14 @@ Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
   for (int i = 0; i < n; convex_hull[idx++] = ps[i++]) {
     while (idx >= 2 &&
            sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],
-                     ps[i] - convex_hull[idx - 1])) < is_tight) {
+                     ps[i] - convex_hull[idx - 1])) < IS_TIGHT) {
       --idx;
     }
   }
   for (int i = n - 2, border = idx + 1; i >= 0; convex_hull[idx++] = ps[i--]) {
     while (idx >= border &&
            sgn(cross(convex_hull[idx - 1] - convex_hull[idx - 2],
-                     ps[i] - convex_hull[idx - 1])) < is_tight) {
+                     ps[i] - convex_hull[idx - 1])) < IS_TIGHT) {
       --idx;
     }
   }
@@ -232,7 +238,7 @@ Polygon monotone_chain(std::vector<Point> ps, const bool is_tight = true) {
 
 std::pair<Point, Point> rotating_calipers(Polygon a) {
   const int n = a.size();
-  if (n <= 2) {
+  if (n <= 2) [[unlikely]] {
     assert(n == 2);
     return {a[0], a[1]};
   }

@@ -106,7 +106,7 @@ struct FormalPowerSeries;
 |`FormalPowerSeries& operator%=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator%(const FormalPowerSeries& x) const;`|剰余演算||
 |`FormalPowerSeries& operator<<=(const int n);`<br>`FormalPowerSeries operator<<(const int n) const;`|$x^n f$||
 |`FormalPowerSeries& operator>>=(const int n);`<br>`FormalPowerSeries operator>>(const int n) const;`|$x^{-n} f$。ただし $\mathrm{deg}(f) < n$ のとき $0$ を返す。|
-|`bool operator==(FormalPowerSeries x) const;`<br>`bool operator!=(const FormalPowerSeries& x) const;`|比較演算子||
+|`bool operator==(FormalPowerSeries x) const;`|等値比較||
 |`FormalPowerSeries operator+() const;`|$+{f}$||
 |`FormalPowerSeries operator-() const;`|$-{f}$||
 |`T horner(const T x) const;`|$f(x)$||

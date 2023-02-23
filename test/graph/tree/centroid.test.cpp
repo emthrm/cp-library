@@ -4,7 +4,6 @@
 #define PROBLEM "https://atcoder.jp/contests/arc087/tasks/arc087_f"
 // #define PROBLEM "https://atcoder.jp/contests/arc087/tasks/arc087_d"
 
-#include <functional>
 #include <iostream>
 #include <vector>
 
@@ -29,16 +28,16 @@ int main() {
     std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\n';
   } else {
     std::vector<int> subtree(n, 1);
-    const std::function<void(int, int)> dfs =
-        [&graph, &subtree, &dfs](const int par, const int ver) -> void {
-          for (const emthrm::Edge<bool>& e : graph[ver]) {
-            if (e.dst != par) {
-              dfs(ver, e.dst);
-              subtree[ver] += subtree[e.dst];
-            }
-          }
-        };
-    dfs(-1, centroids.front());
+    const auto dfs = [&graph, &subtree](auto dfs, const int par, const int ver)
+        -> void {
+      for (const emthrm::Edge<bool>& e : graph[ver]) {
+        if (e.dst != par) [[likely]] {
+          dfs(dfs, ver, e.dst);
+          subtree[ver] += subtree[e.dst];
+        }
+      }
+    };
+    dfs(dfs, -1, centroids.front());
     std::vector<int> nums;
     for (const emthrm::Edge<bool>& e : graph[centroids.front()]) {
       nums.emplace_back(subtree[e.dst]);

@@ -36,7 +36,7 @@ struct FormalPowerSeries {
   void shrink() {
     while (coef.size() > 1 && coef.back() == 0) coef.pop_back();
   }
-  int degree() const { return static_cast<int>(coef.size()) - 1; }
+  int degree() const { return std::ssize(coef) - 1; }
 
   FormalPowerSeries& operator=(const std::vector<T>& coef_) {
     coef = coef_;
@@ -104,7 +104,6 @@ struct FormalPowerSeries {
     y.shrink();
     return x.coef == y.coef;
   }
-  bool operator!=(const FormalPowerSeries& x) const { return !(*this == x); }
 
   FormalPowerSeries operator+() const { return *this; }
   FormalPowerSeries operator-() const {
@@ -203,7 +202,7 @@ struct FormalPowerSeries {
     const int n = coef.size();
     if (exponent == 0) {
       FormalPowerSeries res(deg);
-      if (deg != -1) res[0] = 1;
+      if (deg != -1) [[unlikely]] res[0] = 1;
       return res;
     }
     assert(deg >= 0);
@@ -228,7 +227,7 @@ struct FormalPowerSeries {
   FormalPowerSeries mod_pow(long long exponent,
                             const FormalPowerSeries& md) const {
     const int deg = md.degree() - 1;
-    if (deg < 0) return FormalPowerSeries(-1);
+    if (deg < 0) [[unlikely]] return FormalPowerSeries(-1);
     const FormalPowerSeries inv_rev_md =
         FormalPowerSeries(md.coef.rbegin(), md.coef.rend()).inv();
     const auto mod_mult = [&md, &inv_rev_md, deg](

@@ -10,7 +10,7 @@ template <typename T = char, typename U>
 std::vector<std::pair<T, int>> run_length_encoding(const U& s) {
   const int n = s.size();
   std::vector<std::pair<T, int>> res;
-  if (n == 0) return res;
+  if (n == 0) [[unlikely]] return res;
   T ch = s.front();
   int num = 1;
   for (int i = 1; i < n; ++i) {

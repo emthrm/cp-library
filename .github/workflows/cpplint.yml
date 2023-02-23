@@ -38,23 +38,101 @@ jobs:
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
             case "$file" in
               "include/emthrm/data_structure/binary_trie.hpp" | \
+              "include/emthrm/graph/tree/centroid_decomposition.hpp" | \
+              "include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp" | \
+              "include/emthrm/graph/connencted_component_of_complement_graph.hpp" | \
+              "include/emthrm/graph/is_bipartite.hpp" | \
+              "include/emthrm/graph/strongly_connected_components.hpp" | \
               "include/emthrm/math/convolution/lcm_convolution.hpp" | \
               "include/emthrm/string/aho-corasick.hpp" )
                 cpplint --root=./include --filter=-build/include_what_you_use,-legal/copyright $file ;;
 
+              "include/emthrm/data_structure/disjoint_sparse_table.hpp" | \
+              "include/emthrm/data_structure/lazy_segment_tree.hpp" | \
+              "include/emthrm/data_structure/sparse_table.hpp" | \
+              "include/emthrm/data_structure/segment_tree.hpp" | \
+              "include/emthrm/dynamic_programming/li_chao_tree.hpp" | \
+              "include/emthrm/graph/2-edge-connected_components_by_imos.hpp" | \
+              "include/emthrm/graph/eulerian_trail_in_directed_graph.hpp" | \
+              "include/emthrm/graph/kruskal.hpp" | \
+              "include/emthrm/graph_cost-free/topological_sort.hpp" | \
+              "include/emthrm/math/convolution/fast_fourier_transform.hpp" | \
+              "include/emthrm/math/convolution/mod_convolution.hpp" | \
+              "include/emthrm/math/convolution/xor_convolution.hpp" | \
+              "include/emthrm/math/is_primitive_root.hpp" )
+                cpplint --root=./include --filter=-build/include_order,-legal/copyright,-runtime/int $file ;;
+
               "include/emthrm/dynamic_programming/convex_hull_trick.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-whitespace/braces $file ;;
 
-              "include/emthrm/math/bigint.hpp" | \
-              "include/emthrm/math/modint.hpp" | \
-              "include/emthrm/math/rational.hpp" )
+              "include/emthrm/geometry/geometry.hpp" | \
+              "include/emthrm/geometry/integral_geometry.hpp" | \
+              "include/emthrm/graph/tree/centroid.hpp" | \
+              "include/emthrm/math/convolution/number_theoretic_transform.hpp" )
+                cpplint --root=./include --filter=-build/include_order,-legal/copyright,-readability/braces,-runtime/int $file ;;
+
+              "include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp" )
+                cpplint --root=./include --filter=-legal/copyright,-readability/braces,-whitespace/parens $file ;;
+
+              "include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp" )
+                cpplint --root=./include --filter=-legal/copyright,-whitespace/parens $file ;;
+
+              "include/emthrm/graph/tree/double_sweep.hpp" )
+                cpplint --root=./include --filter=-build/include_order,-build/include_what_you_use,-legal/copyright,-readability/braces $file ;;
+
+              "include/emthrm/graph/tree/euler_tour.hpp" | \
+              "include/emthrm/graph/tree/heavy-light_decomposition.hpp" | \
+              "include/emthrm/graph_cost-free/tree/centroid.hpp" | \
+              "include/emthrm/graph_cost-free/tree/euler_tour.hpp" | \
+              "include/emthrm/graph_cost-free/tree/double_sweep.hpp" | \
+              "include/emthrm/graph_cost-free/tree/heavy-light_decomposition.hpp" | \
+              "include/emthrm/graph_cost-free/tree/rerooting_dp.hpp" | \
+              "include/emthrm/math/basis.hpp" | \
+              "include/emthrm/math/carmichael_function.hpp" | \
+              "include/emthrm/math/divisor.hpp" | \
+              "include/emthrm/math/euler_phi.hpp" | \
+              "include/emthrm/math/euler_phi_init.hpp" | \
+              "include/emthrm/math/mobius_mu.hpp" | \
+              "include/emthrm/math/mobius_mu_focusing_on_divisor.hpp" | \
+              "include/emthrm/math/mobius_mu_init.hpp" | \
+              "include/emthrm/math/mod_log.hpp" | \
+              "include/emthrm/math/prime_factorization.hpp" | \
+              "include/emthrm/math/segmented_sieve.hpp" )
+                cpplint --root=./include --filter=-legal/copyright,-readability/braces,-runtime/int $file ;;
+
+              "include/emthrm/graph/chromatic_number.hpp" | \
+              "include/emthrm/graph/topological_sort.hpp" )
+                cpplint --root=./include --filter=-build/include_order,-build/include_what_you_use,-legal/copyright,-runtime/int $file ;;
+
+              "include/emthrm/math/bigint.hpp" )
+                cpplint --root=./include --filter=-build/include_order,-legal/copyright,-runtime/explicit,-runtime/int $file ;;
+
+              "include/emthrm/math/modint.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int $file ;;
+
+              "include/emthrm/math/rational.hpp" )
+                cpplint --root=./include --filter=-build/include_what_you_use,-legal/copyright,-runtime/explicit,-runtime/int $file ;;
 
               "include/emthrm/util/timer.hpp" )
                 cpplint --root=./include --filter=-build/c++11,-legal/copyright,-runtime/int $file ;;
 
+              "test/game/nim.test.cpp" | \
+              "test/geometry/geometry.07.test.cpp" | \
+              "test/geometry/geometry.10.test.cpp" | \
+              "test/geometry/geometry.15.test.cpp" | \
+              "test/graph/detect_directed_cycle.test.cpp" | \
+              "test/math/osa_k.test.cpp" )
+                cpplint --filter=-build/include_order,-legal/copyright,-whitespace/line_length $file ;;
+
+              "test/graph/tree/centroid.test.cpp" | \
+              "test/graph/biconnected_component.test.cpp" | \
+              "test/graph_cost-free/tree/centroid.test.cpp" | \
+              "test/graph_cost-free/biconnected_component.test.cpp" )
+                cpplint --filter=-legal/copyright,-readability/braces,-runtime/int,-whitespace/line_length $file ;;
+
               *.test.cpp )
                 cpplint --filter=-legal/copyright,-runtime/int,-whitespace/line_length $file ;;
+
 
               * )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/int $file ;;

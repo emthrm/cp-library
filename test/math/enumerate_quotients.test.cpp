@@ -4,9 +4,6 @@
 #define PROBLEM "https://atcoder.jp/contests/abc230/tasks/abc230_e"
 
 #include <iostream>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 
 #include "emthrm/math/enumerate_quotients.hpp"
 
@@ -14,18 +11,9 @@ int main() {
   long long n;
   std::cin >> n;
   long long ans = 0;
-#if __cplusplus >= 201703L
   for (const auto& [l, r, q] : emthrm::enumerate_quotients(n)) {
     ans += q * (r - l);
   }
-#else
-  for (const std::tuple<long long, long long, long long>& lrq
-       : emthrm::enumerate_quotients(n)) {
-    long long l, r, q;
-    std::tie(l, r, q) = lrq;
-    ans += q * (r - l);
-  }
-#endif  // __cplusplus >= 201703L
   std::cout << ans << '\n';
   return 0;
 }

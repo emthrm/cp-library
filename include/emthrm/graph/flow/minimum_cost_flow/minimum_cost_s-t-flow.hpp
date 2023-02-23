@@ -11,9 +11,6 @@
 #include <functional>
 #include <limits>
 #include <queue>
-#if __cplusplus < 201703L
-# include <tuple>
-#endif  // __cplusplus < 201703L
 #include <utility>
 #include <vector>
 
@@ -45,7 +42,7 @@ struct MinimumCostSTFlow {
   }
 
   U solve(const int s, const int t, T flow) {
-    if (flow == 0) return 0;
+    if (flow == 0) [[unlikely]] return 0;
     U res = 0;
     has_negative_edge ? bellman_ford(s) : dijkstra(s);
     while (true) {
@@ -70,7 +67,7 @@ struct MinimumCostSTFlow {
 
   std::pair<T, U> minimum_cost_maximum_flow(const int s, const int t,
                                             const T flow) {
-    if (flow == 0) return {0, 0};
+    if (flow == 0) [[unlikely]] return {0, 0};
     T f = flow;
     U cost = 0;
     has_negative_edge ? bellman_ford(s) : dijkstra(s);
@@ -99,7 +96,7 @@ struct MinimumCostSTFlow {
       is_updated = false;
       for (int i = 0; i < n; ++i) {
         if (dist[i] == uinf) continue;
-        for (int j = 0; j < static_cast<int>(graph[i].size()); ++j) {
+        for (int j = 0; std::cmp_less(j, graph[i].size()); ++j) {
           const Edge& e = graph[i][j];
           if (e.cap > 0 && dist[e.dst] > dist[i] + e.cost) {
             dist[e.dst] = dist[i] + e.cost;
@@ -121,16 +118,10 @@ struct MinimumCostSTFlow {
     dist[s] = 0;
     que.emplace(0, s);
     while (!que.empty()) {
-#if __cplusplus >= 201703L
       const auto [d, ver] = que.top();
-#else
-      U d;
-      int ver;
-      std::tie(d, ver) = que.top();
-#endif  // __cplusplus >= 201703L
       que.pop();
       if (dist[ver] < d) continue;
-      for (int i = 0; i < static_cast<int>(graph[ver].size()); ++i) {
+      for (int i = 0; std::cmp_less(i, graph[ver].size()); ++i) {
         const Edge& e = graph[ver][i];
         const U nxt = dist[ver] + e.cost + potential[ver] - potential[e.dst];
         if (e.cap > 0 && dist[e.dst] > nxt) {

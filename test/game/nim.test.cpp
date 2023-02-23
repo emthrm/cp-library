@@ -4,9 +4,8 @@
 #define PROBLEM "https://yukicoder.me/problems/no/2"
 
 #include <iostream>
-#if __cplusplus < 201703L
-# include <utility>
-#endif  // __cplusplus < 201703L
+#include <ranges>
+#include <utility>
 #include <vector>
 
 #include "emthrm/game/nim.hpp"
@@ -16,15 +15,11 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<int> a;
-#if __cplusplus >= 201703L
-  for (const auto& [_, exponent] : emthrm::prime_factorization(n)) {
-    a.emplace_back(exponent);
-  }
-#else
-  for (const std::pair<int, int>& p : emthrm::prime_factorization(n)) {
-    a.emplace_back(p.second);
-  }
-#endif  // __cplusplus >= 201703L
-  std::cout << (emthrm::nim(a) ? "Alice\n" : "Bob\n");
+  // GCC 12 adopted P2415.
+  const std::vector<std::pair<int, int>> pf = emthrm::prime_factorization(n);
+  const auto ev = pf | std::views::values;
+  // const auto ev = emthrm::prime_factorization(n) | std::views::values;
+  std::cout << (emthrm::nim(std::vector<int>(ev.begin(), ev.end())) ?
+                "Alice\n" : "Bob\n");
   return 0;
 }

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include "emthrm/math/convolution/mod_convolution.hpp"
@@ -24,7 +25,7 @@ int main() {
   std::cin >> s;
   std::reverse(s.begin(), s.end());
   int q[D]{};
-  for (int i = 0; i < static_cast<int>(s.length()); ++i) {
+  for (int i = 0; std::cmp_less(i, s.length()); ++i) {
     if (s[i] == '?') ++q[i % D];
   }
   std::vector<emthrm::FormalPowerSeries<ModInt>> f(
@@ -47,7 +48,7 @@ int main() {
   }
   f.front() %= md;
   int idx = D - 1, w = 1;
-  for (int i = 0; i < static_cast<int>(s.length()); ++i) {
+  for (int i = 0; std::cmp_less(i, s.length()); ++i) {
     if (s[i] != '?') {
       idx = (idx - w * (s[i] - '0')) % M;
       if (idx < 0) idx += M;

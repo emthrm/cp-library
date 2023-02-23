@@ -20,14 +20,11 @@ int main() {
     std::cin >> type >> u >> v;
     --u; --v;
     if (type == 1) {
-      const auto adj = std::find_if(
-          graph[u].begin(), graph[u].end(),
-          [v](const emthrm::Edge<bool>& e) -> bool { return e.dst == v; });
+      const auto adj = std::ranges::find(graph[u], v, &emthrm::Edge<bool>::dst);
       if (adj != graph[u].end()) {
         graph[u].erase(adj);
-        graph[v].erase(std::find_if(
-            graph[v].begin(), graph[v].end(),
-            [u](const emthrm::Edge<bool>& e) -> bool { return e.dst == u; }));
+        graph[v].erase(
+            std::ranges::find(graph[v], u, &emthrm::Edge<bool>::dst));
       } else {
         graph[u].emplace_back(u, v);
         graph[v].emplace_back(v, u);

@@ -22,7 +22,7 @@ struct Mo {
   }
 
   int process() {
-    if (ptr == n) return -1;
+    if (ptr == n) [[unlikely]] return -1;
     const int id = order[ptr++];
     while (ls[id] < nl) add(--nl);
     while (nr < rs[id]) add(nr++);

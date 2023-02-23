@@ -11,14 +11,14 @@
 
 namespace emthrm {
 
+template <bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponentsByImos {
   std::vector<int> id;
   std::vector<std::pair<int, int>> bridge;
   std::vector<std::vector<int>> vertices, g;
 
   explicit TwoEdgeConnectedComponentsByImos(
-      const std::vector<std::vector<int>>& graph,
-      const bool is_full_ver = false)
+      const std::vector<std::vector<int>>& graph)
       : bridge(enumerate_bridges(graph)) {
     const int n = graph.size();
     id.assign(n, -1);
@@ -29,35 +29,25 @@ struct TwoEdgeConnectedComponentsByImos {
       if (id[i] != -1) continue;
       que.emplace(i);
       id[i] = m++;
-      if (is_full_ver) vertices.emplace_back(std::vector<int>{i});
+      if constexpr (IS_FULL_VER) vertices.emplace_back(std::vector<int>{i});
       while (!que.empty()) {
         const int ver = que.front();
         que.pop();
         for (const int e : graph[ver]) {
-          if (id[e] == -1 && !st.count(std::minmax(ver, e))) {
+          if (id[e] == -1 && !st.contains(std::minmax(ver, e))) {
             id[e] = id[i];
-            if (is_full_ver) vertices.back().emplace_back(e);
+            if constexpr (IS_FULL_VER) vertices.back().emplace_back(e);
             que.emplace(e);
           }
         }
       }
     }
     g.resize(m);
-    const auto add_edge = [this](const int u, const int v) -> void {
-      g[u].emplace_back(v);
-      g[v].emplace_back(u);
-    };
-#if __cplusplus >= 201703L
     for (const auto& [s, t] : bridge) {
       const int u = id[s], v = id[t];
-      add_edge(u, v);
+      g[u].emplace_back(v);
+      g[v].emplace_back(u);
     }
-#else
-    for (const std::pair<int, int>& e : bridge) {
-      const int u = id[e.first], v = id[e.second];
-      add_edge(u, v);
-    }
-#endif  // __cplusplus >= 201703L
     // for (int i = 0; i < m; ++i) {
     //   std::sort(vertices[i].begin(), vertices[i].end());
     // }

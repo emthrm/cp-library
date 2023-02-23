@@ -8,10 +8,10 @@
 namespace emthrm {
 
 int mod_log(long long g, long long y, const int m) {
-  if (m == 1) return 0;
+  if (m == 1) [[unlikely]] return 0;
   if ((g %= m) < 0) g += m;
   if ((y %= m) < 0) y += m;
-  if (g == 0) {
+  if (g == 0) [[unlikely]] {
     if (y == 1) return 0;
     if (y == 0) return 1;
     return -1;
@@ -33,8 +33,8 @@ int mod_log(long long g, long long y, const int m) {
   }
   long long giant = p;
   for (int i = 1; i <= root; ++i) {
-    if (baby.count(giant) == 1) {
-      const int ans = static_cast<long long>(i) * root - baby[giant];
+    if (const auto it = baby.find(giant); it != baby.end()) {
+      const int ans = static_cast<long long>(i) * root - it->second;
       if (mod_pow(g, ans, m) == y) return ans;
     }
     giant = (giant * p) % m;
