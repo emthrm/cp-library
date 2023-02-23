@@ -10,7 +10,6 @@
 
 int main() {
   constexpr int MOD = 1000000007;
-  using ModInt = emthrm::MInt<MOD>;
   long long n;
   int k;
   std::cin >> n >> k;
