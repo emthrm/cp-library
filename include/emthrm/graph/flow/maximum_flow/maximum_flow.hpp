@@ -1,5 +1,5 @@
-#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_HPP_
-#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_HPP_
+#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_
+#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_
 
 #include <concepts>
 #include <utility>
@@ -16,4 +16,4 @@ concept MaximumFlow = requires (C<T> mf) {
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_HPP_
+#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_

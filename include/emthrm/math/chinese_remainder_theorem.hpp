@@ -2,6 +2,7 @@
 #define EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_
 
 #include <numeric>
+#include <utility>
 #include <vector>
 
 #include "emthrm/math/mod_inv.hpp"

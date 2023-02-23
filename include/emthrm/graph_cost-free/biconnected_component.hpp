@@ -16,7 +16,7 @@ struct BiconnectedComponent : Lowlink {
   std::vector<std::vector<int>> vertices, cutpoint;
   std::vector<std::vector<std::pair<int, int>>> block;
 
-  BiconnectedComponent(const std::vector<std::vector<int>>& graph)
+  explicit BiconnectedComponent(const std::vector<std::vector<int>>& graph)
       : Lowlink(graph) {
     const int n = graph.size();
     id.assign(n, -2);

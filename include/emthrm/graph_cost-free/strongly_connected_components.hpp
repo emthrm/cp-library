@@ -11,7 +11,8 @@ struct StronglyConnectedComponents {
   std::vector<int> id;
   std::vector<std::vector<int>> vertices, g;
 
-  StronglyConnectedComponents(const std::vector<std::vector<int>>& graph)
+  explicit StronglyConnectedComponents(
+      const std::vector<std::vector<int>>& graph)
       : n(graph.size()), is_used(n, false), graph(graph), rgraph(n) {
     order.reserve(n);
     for (int i = 0; i < n; ++i) {
