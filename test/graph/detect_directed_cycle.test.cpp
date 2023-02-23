@@ -19,8 +19,12 @@ int main() {
     std::cin >> u >> v;
     graph[u].emplace_back(u, v, i);
   }
-  const auto ev = emthrm::detect_directed_cycle(graph)
-                | std::views::transform(&emthrm::Edge<int>::cost);
+  // GCC 12 adopted P2415.
+  const std::vector<emthrm::Edge<int>> cycle =
+      emthrm::detect_directed_cycle(graph);
+  const auto ev = cycle | std::views::transform(&emthrm::Edge<int>::cost);
+  // const auto ev = emthrm::detect_directed_cycle(graph)
+  //               | std::views::transform(&emthrm::Edge<int>::cost);
   const int l = ev.size();
   if (l == 0) {
     std::cout << "-1\n";

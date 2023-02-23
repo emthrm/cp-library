@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iostream>
 #include <ranges>
+#include <utility>
 #include <vector>
 
 #include "emthrm/math/osa_k.hpp"
@@ -21,7 +22,10 @@ int main() {
   const emthrm::OsaK osa_k(max_a);
   std::vector<int> prime_factor(max_a + 1, 0);
   for (const int a_i : a) {
-    for (const int prime : osa_k.query(a_i)
+    // GCC 12 adopted P2415.
+    const std::vector<std::pair<int, int>> pf = osa_k.query(a_i);
+    for (const int prime : pf
+    // for (const int prime : osa_k.query(a_i)
                          | std::views::transform(&std::pair<int, int>::first)) {
       ++prime_factor[prime];
     }

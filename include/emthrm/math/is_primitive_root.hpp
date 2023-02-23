@@ -10,6 +10,7 @@
 #include <map>
 #include <numeric>
 #include <ranges>
+#include <utility>
 #include <vector>
 
 #include "emthrm/math/euler_phi.hpp"
@@ -26,7 +27,10 @@ bool is_primitive_root(long long root, const int m) {
   const int phi_m = phi[m];
   static std::map<int, std::vector<int>> primes;
   if (!primes.contains(phi_m)) {
-    const auto ev = prime_factorization(phi_m) | std::views::keys;
+    // GCC 12 adopted P2415.
+    const std::vector<std::pair<int, int>> pf = prime_factorization(phi_m);
+    const auto ev = pf | std::views::keys;
+    // const auto ev = prime_factorization(phi_m) | std::views::keys;
     primes[phi_m] = std::vector<int>(ev.begin(), ev.end());
   }
   return std::none_of(primes[phi_m].begin(), primes[phi_m].end(),

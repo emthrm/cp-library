@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <ranges>
+#include <utility>
 #include <vector>
 
 #include "emthrm/game/nim.hpp"
@@ -14,7 +15,10 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<int> a;
-  const auto ev = emthrm::prime_factorization(n) | std::views::values;
+  // GCC 12 adopted P2415.
+  const std::vector<std::pair<int, int>> pf = emthrm::prime_factorization(n);
+  const auto ev = pf | std::views::values;
+  // const auto ev = emthrm::prime_factorization(n) | std::views::values;
   std::cout << (emthrm::nim(std::vector<int>(ev.begin(), ev.end())) ?
                 "Alice\n" : "Bob\n");
   return 0;
