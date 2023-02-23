@@ -53,6 +53,7 @@ title: "\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\u51AA (Kronecker power) \u3068\u30D
 ---
 
 $G \in K^{d \times d},\ \boldsymbol{v} \in K^{d^n}$ に対して $G^{\otimes n} \boldsymbol{v}$ を求める。ここで
+
 $$
 A \otimes B \mathrel{:=}
 \begin{pmatrix}
@@ -62,6 +63,7 @@ A \otimes B \mathrel{:=}
 \end{pmatrix}
 \quad (A \in K^{m \times n})
 $$
+
 はクロネッカー積である。
 
 
