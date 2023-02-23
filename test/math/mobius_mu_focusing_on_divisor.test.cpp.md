@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc162/tasks/abc162_e
@@ -30,26 +30,22 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
     \u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc162/tasks/abc162_e\"\
-    \n\n#include <iostream>\n#include <map>\n#if __cplusplus < 201703L\n# include\
-    \ <utility>\n#endif  // __cplusplus < 201703L\n\n#include \"emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\
+    \n\n#include <iostream>\n#include <map>\n\n#include \"emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\
     \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  int n, k;\n  std::cin >> n >> k;\n  std::map<int, int> mu;\n  ModInt ans =\
     \ 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways = 0;\n    for (int m =\
-    \ k / g; m >= 1; --m) {\n      if (mu.count(m) == 0) {\n#if __cplusplus >= 201703L\n\
-    \        for (const auto& [d, mu_d] : emthrm::mobius_mu_focusing_on_divisor(m))\
-    \ {\n          mu[d] = mu_d;\n        }\n#else\n        for (const std::pair<const\
-    \ int, int>& p\n             : emthrm::mobius_mu_focusing_on_divisor(m)) {\n \
-    \         mu[p.first] = p.second;\n        }\n#endif  // __cplusplus >= 201703L\n\
-    \      }\n      ways += ModInt(k / (g * m)).pow(n) * mu[m];\n    }\n    ans +=\
-    \ ways * g;\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \ k / g; m >= 1; --m) {\n      if (!mu.contains(m)) {\n        for (const auto&\
+    \ [d, mu_d] : emthrm::mobius_mu_focusing_on_divisor(m)) {\n          mu[d] = mu_d;\n\
+    \        }\n      }\n      ways += ModInt(k / (g * m)).pow(n) * mu[m];\n    }\n\
+    \    ans += ways * g;\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/mobius_mu_focusing_on_divisor.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 01:44:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mobius_mu_focusing_on_divisor.test.cpp
 layout: document

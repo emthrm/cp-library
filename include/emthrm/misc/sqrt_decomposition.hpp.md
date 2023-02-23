@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/sqrt_decomposition.test.cpp
     title: "\u305D\u306E\u4ED6/\u5E73\u65B9\u5206\u5272"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/misc/sqrt_decomposition.hpp\"\n\n\n\n#include\
@@ -21,26 +21,27 @@ data:
     \    }\n  }\n\n  template <typename T> void partial_update(const int idx, const\
     \ T val);\n\n  template <typename T> void total_update(const int idx, const T\
     \ val);\n\n  template <typename T>\n  void update(const int l, const int r, const\
-    \ T val) {\n    if (r <= l) return;\n    const int b_l = l / block_size, b_r =\
-    \ (r - 1) / block_size;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n   \
-    \     total_update(b_l, val);\n      } else {\n        for (int i = l; i < rs[b_l];\
-    \ ++i) {\n          partial_update(i, val);\n        }\n      }\n      for (int\
-    \ i = b_l + 1; i < b_r; ++i) {\n        total_update(i, val);\n      }\n     \
-    \ if (r == rs[b_r]) {\n        total_update(b_r, val);\n      } else {\n     \
-    \   for (int i = ls[b_r]; i < r; ++i) {\n          partial_update(i, val);\n \
-    \       }\n      }\n    } else {\n      for (int i = l; i < r; ++i) {\n      \
-    \  partial_update(i, val);\n      }\n    }\n  }\n\n  template <typename T> void\
-    \ partial_query(const int idx, T* val);\n\n  template <typename T> void total_query(const\
-    \ int idx, T* val);\n\n  template <typename T>\n  T query(const int l, const int\
-    \ r, const T id) {\n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\n\
-    \    T res = id;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n        total_query(b_l,\
-    \ &res);\n      } else {\n        for (int i = l; i < rs[b_l]; ++i) {\n      \
-    \    partial_query(i, &res);\n        }\n      }\n      for (int i = b_l + 1;\
-    \ i < b_r; ++i) {\n        total_query(i, &res);\n      }\n      if (r == rs[b_r])\
-    \ {\n        total_query(b_r, &res);\n      } else {\n        for (int i = ls[b_r];\
-    \ i < r; ++i) {\n          partial_query(i, &res);\n        }\n      }\n    }\
-    \ else {\n      for (int i = l; i < r; ++i) {\n        partial_query(i, &res);\n\
-    \      }\n    }\n    return res;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+    \ T val) {\n    if (r <= l) [[unlikely]] return;\n    const int b_l = l / block_size,\
+    \ b_r = (r - 1) / block_size;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n\
+    \        total_update(b_l, val);\n      } else {\n        for (int i = l; i <\
+    \ rs[b_l]; ++i) {\n          partial_update(i, val);\n        }\n      }\n   \
+    \   for (int i = b_l + 1; i < b_r; ++i) {\n        total_update(i, val);\n   \
+    \   }\n      if (r == rs[b_r]) {\n        total_update(b_r, val);\n      } else\
+    \ {\n        for (int i = ls[b_r]; i < r; ++i) {\n          partial_update(i,\
+    \ val);\n        }\n      }\n    } else {\n      for (int i = l; i < r; ++i) {\n\
+    \        partial_update(i, val);\n      }\n    }\n  }\n\n  template <typename\
+    \ T> void partial_query(const int idx, T* val);\n\n  template <typename T> void\
+    \ total_query(const int idx, T* val);\n\n  template <typename T>\n  T query(const\
+    \ int l, const int r, const T id) {\n    const int b_l = l / block_size, b_r =\
+    \ (r - 1) / block_size;\n    T res = id;\n    if (b_l < b_r) {\n      if (l ==\
+    \ ls[b_l]) {\n        total_query(b_l, &res);\n      } else {\n        for (int\
+    \ i = l; i < rs[b_l]; ++i) {\n          partial_query(i, &res);\n        }\n \
+    \     }\n      for (int i = b_l + 1; i < b_r; ++i) {\n        total_query(i, &res);\n\
+    \      }\n      if (r == rs[b_r]) {\n        total_query(b_r, &res);\n      }\
+    \ else {\n        for (int i = ls[b_r]; i < r; ++i) {\n          partial_query(i,\
+    \ &res);\n        }\n      }\n    } else {\n      for (int i = l; i < r; ++i)\
+    \ {\n        partial_query(i, &res);\n      }\n    }\n    return res;\n  }\n};\n\
+    \n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_\n#define EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_\n\
     \n#include <cmath>\n#include <vector>\n\nnamespace emthrm {\n\nstruct SqrtDecomposition\
     \ {\n  const int block_size, n;\n  std::vector<int> ls, rs;\n  std::vector<bool>\
@@ -51,33 +52,33 @@ data:
     \    }\n  }\n\n  template <typename T> void partial_update(const int idx, const\
     \ T val);\n\n  template <typename T> void total_update(const int idx, const T\
     \ val);\n\n  template <typename T>\n  void update(const int l, const int r, const\
-    \ T val) {\n    if (r <= l) return;\n    const int b_l = l / block_size, b_r =\
-    \ (r - 1) / block_size;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n   \
-    \     total_update(b_l, val);\n      } else {\n        for (int i = l; i < rs[b_l];\
-    \ ++i) {\n          partial_update(i, val);\n        }\n      }\n      for (int\
-    \ i = b_l + 1; i < b_r; ++i) {\n        total_update(i, val);\n      }\n     \
-    \ if (r == rs[b_r]) {\n        total_update(b_r, val);\n      } else {\n     \
-    \   for (int i = ls[b_r]; i < r; ++i) {\n          partial_update(i, val);\n \
-    \       }\n      }\n    } else {\n      for (int i = l; i < r; ++i) {\n      \
-    \  partial_update(i, val);\n      }\n    }\n  }\n\n  template <typename T> void\
-    \ partial_query(const int idx, T* val);\n\n  template <typename T> void total_query(const\
-    \ int idx, T* val);\n\n  template <typename T>\n  T query(const int l, const int\
-    \ r, const T id) {\n    const int b_l = l / block_size, b_r = (r - 1) / block_size;\n\
-    \    T res = id;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n        total_query(b_l,\
-    \ &res);\n      } else {\n        for (int i = l; i < rs[b_l]; ++i) {\n      \
-    \    partial_query(i, &res);\n        }\n      }\n      for (int i = b_l + 1;\
-    \ i < b_r; ++i) {\n        total_query(i, &res);\n      }\n      if (r == rs[b_r])\
-    \ {\n        total_query(b_r, &res);\n      } else {\n        for (int i = ls[b_r];\
-    \ i < r; ++i) {\n          partial_query(i, &res);\n        }\n      }\n    }\
-    \ else {\n      for (int i = l; i < r; ++i) {\n        partial_query(i, &res);\n\
-    \      }\n    }\n    return res;\n  }\n};\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_\n"
+    \ T val) {\n    if (r <= l) [[unlikely]] return;\n    const int b_l = l / block_size,\
+    \ b_r = (r - 1) / block_size;\n    if (b_l < b_r) {\n      if (l == ls[b_l]) {\n\
+    \        total_update(b_l, val);\n      } else {\n        for (int i = l; i <\
+    \ rs[b_l]; ++i) {\n          partial_update(i, val);\n        }\n      }\n   \
+    \   for (int i = b_l + 1; i < b_r; ++i) {\n        total_update(i, val);\n   \
+    \   }\n      if (r == rs[b_r]) {\n        total_update(b_r, val);\n      } else\
+    \ {\n        for (int i = ls[b_r]; i < r; ++i) {\n          partial_update(i,\
+    \ val);\n        }\n      }\n    } else {\n      for (int i = l; i < r; ++i) {\n\
+    \        partial_update(i, val);\n      }\n    }\n  }\n\n  template <typename\
+    \ T> void partial_query(const int idx, T* val);\n\n  template <typename T> void\
+    \ total_query(const int idx, T* val);\n\n  template <typename T>\n  T query(const\
+    \ int l, const int r, const T id) {\n    const int b_l = l / block_size, b_r =\
+    \ (r - 1) / block_size;\n    T res = id;\n    if (b_l < b_r) {\n      if (l ==\
+    \ ls[b_l]) {\n        total_query(b_l, &res);\n      } else {\n        for (int\
+    \ i = l; i < rs[b_l]; ++i) {\n          partial_query(i, &res);\n        }\n \
+    \     }\n      for (int i = b_l + 1; i < b_r; ++i) {\n        total_query(i, &res);\n\
+    \      }\n      if (r == rs[b_r]) {\n        total_query(b_r, &res);\n      }\
+    \ else {\n        for (int i = ls[b_r]; i < r; ++i) {\n          partial_query(i,\
+    \ &res);\n        }\n      }\n    } else {\n      for (int i = l; i < r; ++i)\
+    \ {\n        partial_query(i, &res);\n      }\n    }\n    return res;\n  }\n};\n\
+    \n}  // namespace emthrm\n\n#endif  // EMTHRM_MISC_SQRT_DECOMPOSITION_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/misc/sqrt_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/sqrt_decomposition.test.cpp
 documentation_of: include/emthrm/misc/sqrt_decomposition.hpp

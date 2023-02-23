@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/stirling_number/stirling_number.md
     document_title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
@@ -26,29 +26,27 @@ data:
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
     \ include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp:\
-    \ line 11: unable to process #include in #if / #ifdef / #ifndef other than include\
+    \ line 13: unable to process #include in #if / #ifdef / #ifndef other than include\
     \ guards\n"
   code: "/**\n * @brief \u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\
     \u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248\n * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_\n\
     #define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_\n\
-    \n#include <vector>\n\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n\n#if !defined(__GNUC__) && \\\n    (!defined(__has_builtin) || !__has_builtin(__builtin_clz))\n\
-    # error \"__builtin_clz is required.\"\n#endif\n\nnamespace emthrm {\n\ntemplate\
-    \ <typename T>\nstd::vector<T> stirling_number_of_the_first_kind_init_by_fps(const\
-    \ int n) {\n  if (n == 0) return {1};\n  FormalPowerSeries<T> s{0, 1};\n  for\
-    \ (int i = 30 - __builtin_clz(n); i >= 0; --i) {\n    s *= s.translate(-s.degree());\n\
-    \    if (n >> i & 1) {\n      const int deg = s.degree();\n      s <<= 1;\n  \
-    \    for (int i = 0; i <= deg; ++i) {\n        s[i] += s[i + 1] * -deg;\n    \
-    \  }\n    }\n  }\n  return s.coef;\n}\n\n}  // namespace emthrm\n\n#endif  //\
-    \ EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_\n"
+    \n#include <bit>\n#include <cstdint>\n#include <vector>\n\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T> stirling_number_of_the_first_kind_init_by_fps(const\
+    \ int n) {\n  if (n == 0) [[unlikely]] return {1};\n  FormalPowerSeries<T> s{0,\
+    \ 1};\n  for (int i = 30 - std::countl_zero(static_cast<std::uint32_t>(n));\n\
+    \       i >= 0; --i) {\n    s *= s.translate(-s.degree());\n    if (n >> i & 1)\
+    \ {\n      const int deg = s.degree();\n      s <<= 1;\n      for (int i = 0;\
+    \ i <= deg; ++i) {\n        s[i] += s[i + 1] * -deg;\n      }\n    }\n  }\n  return\
+    \ s.coef;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_\n"
   dependsOn:
   - include/emthrm/math/formal_power_series/formal_power_series.hpp
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp

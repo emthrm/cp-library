@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/range_minimum_query.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/range_minimum_query.test.cpp

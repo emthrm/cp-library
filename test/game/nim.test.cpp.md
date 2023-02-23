@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/game/nim.hpp
     title: "\u30CB\u30E0 (nim)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_factorization.hpp
     title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
   _extendedRequiredBy: []
@@ -28,21 +28,20 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/game/nim.hpp:\
     \ line -1: no such header\n"
   code: "/*\n * @brief \u30B2\u30FC\u30E0/\u30CB\u30E0\n */\n#define PROBLEM \"https://yukicoder.me/problems/no/2\"\
-    \n\n#include <iostream>\n#if __cplusplus < 201703L\n# include <utility>\n#endif\
-    \  // __cplusplus < 201703L\n#include <vector>\n\n#include \"emthrm/game/nim.hpp\"\
-    \n#include \"emthrm/math/prime_factorization.hpp\"\n\nint main() {\n  int n;\n\
-    \  std::cin >> n;\n  std::vector<int> a;\n#if __cplusplus >= 201703L\n  for (const\
-    \ auto& [_, exponent] : emthrm::prime_factorization(n)) {\n    a.emplace_back(exponent);\n\
-    \  }\n#else\n  for (const std::pair<int, int>& p : emthrm::prime_factorization(n))\
-    \ {\n    a.emplace_back(p.second);\n  }\n#endif  // __cplusplus >= 201703L\n \
-    \ std::cout << (emthrm::nim(a) ? \"Alice\\n\" : \"Bob\\n\");\n  return 0;\n}\n"
+    \n\n#include <iostream>\n#include <ranges>\n#include <utility>\n#include <vector>\n\
+    \n#include \"emthrm/game/nim.hpp\"\n#include \"emthrm/math/prime_factorization.hpp\"\
+    \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a;\n  // GCC\
+    \ 12 adopted P2415.\n  const std::vector<std::pair<int, int>> pf = emthrm::prime_factorization(n);\n\
+    \  const auto ev = pf | std::views::values;\n  // const auto ev = emthrm::prime_factorization(n)\
+    \ | std::views::values;\n  std::cout << (emthrm::nim(std::vector<int>(ev.begin(),\
+    \ ev.end())) ?\n                \"Alice\\n\" : \"Bob\\n\");\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/game/nim.hpp
   - include/emthrm/math/prime_factorization.hpp
   isVerificationFile: true
   path: test/game/nim.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/game/nim.test.cpp

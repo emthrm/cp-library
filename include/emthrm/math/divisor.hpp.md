@@ -14,21 +14,22 @@ data:
   bundledCode: "#line 1 \"include/emthrm/math/divisor.hpp\"\n\n\n\n#include <algorithm>\n\
     #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
     \ divisor(const T n) {\n  std::vector<T> res;\n  T i = 1;\n  for (; i * i < n;\
-    \ ++i) {\n    if (n % i == 0) {\n      res.emplace_back(i);\n      res.emplace_back(n\
-    \ / i);\n    }\n  }\n  if (i * i == n && n % i == 0) res.emplace_back(i);\n  std::sort(res.begin(),\
-    \ res.end());\n  return res;\n}\n\n}  // namespace emthrm\n\n\n"
+    \ ++i) {\n    if (n % i == 0) [[unlikely]] {\n      res.emplace_back(i);\n   \
+    \   res.emplace_back(n / i);\n    }\n  }\n  if (i * i == n && n % i == 0) res.emplace_back(i);\n\
+    \  std::sort(res.begin(), res.end());\n  return res;\n}\n\n}  // namespace emthrm\n\
+    \n\n"
   code: "#ifndef EMTHRM_MATH_DIVISOR_HPP_\n#define EMTHRM_MATH_DIVISOR_HPP_\n\n#include\
     \ <algorithm>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
     std::vector<T> divisor(const T n) {\n  std::vector<T> res;\n  T i = 1;\n  for\
-    \ (; i * i < n; ++i) {\n    if (n % i == 0) {\n      res.emplace_back(i);\n  \
-    \    res.emplace_back(n / i);\n    }\n  }\n  if (i * i == n && n % i == 0) res.emplace_back(i);\n\
+    \ (; i * i < n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n      res.emplace_back(i);\n\
+    \      res.emplace_back(n / i);\n    }\n  }\n  if (i * i == n && n % i == 0) res.emplace_back(i);\n\
     \  std::sort(res.begin(), res.end());\n  return res;\n}\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_MATH_DIVISOR_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/divisor.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/divisor.test.cpp

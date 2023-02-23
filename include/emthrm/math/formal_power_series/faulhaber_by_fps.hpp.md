@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/bernoulli_number.hpp
     title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -40,11 +40,11 @@ data:
     #include <vector>\n\n#include \"emthrm/math/formal_power_series/bernoulli_number.hpp\"\
     \n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\ntemplate <int T>\n\
     MInt<T> faulhaber_by_fps(const long long n, const int k) {\n  using ModInt = MInt<T>;\n\
-    \  if (n <= 1) return 0;\n  if (k == 0) return n - 1;\n  ModInt::init(k + 1);\n\
-    \  const std::vector<ModInt> bernoulli = bernoulli_number<ModInt>(k);\n  ModInt\
-    \ res = 0, p = 1;\n  for (int i = k; i >= 0; --i) {\n    p *= n;\n    res += ModInt::nCk(k\
-    \ + 1, i) * bernoulli[i] * p;\n  }\n  return res / (k + 1);\n}\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_\n"
+    \  if (n <= 1) [[unlikely]] return 0;\n  if (k == 0) [[unlikely]] return n - 1;\n\
+    \  ModInt::init(k + 1);\n  const std::vector<ModInt> bernoulli = bernoulli_number<ModInt>(k);\n\
+    \  ModInt res = 0, p = 1;\n  for (int i = k; i >= 0; --i) {\n    p *= n;\n   \
+    \ res += ModInt::nCk(k + 1, i) * bernoulli[i] * p;\n  }\n  return res / (k + 1);\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_\n"
   dependsOn:
   - include/emthrm/math/formal_power_series/bernoulli_number.hpp
   - include/emthrm/math/formal_power_series/formal_power_series.hpp
@@ -52,7 +52,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp

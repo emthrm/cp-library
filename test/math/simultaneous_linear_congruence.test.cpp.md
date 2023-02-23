@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_inv.hpp
     title: "\u9006\u5143 (inverse element)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/simultaneous_linear_congruence.hpp
     title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/186
@@ -29,24 +29,20 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F\n */\n\
     #define PROBLEM \"https://yukicoder.me/problems/no/186\"\n\n#include <iostream>\n\
-    #if __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus < 201703L\n\
     #include <vector>\n\n#include \"emthrm/math/simultaneous_linear_congruence.hpp\"\
     \n\nint main() {\n  constexpr int N = 3;\n  std::vector<long long> x(N), y(N);\n\
-    \  for (int i = 0; i < N; ++i) {\n    std::cin >> x[i] >> y[i];\n  }\n#if __cplusplus\
-    \ >= 201703L\n  const auto [ans, mod] = emthrm::simultaneous_linear_congruence(\n\
-    \      std::vector<long long>(N, 1), x, y);\n#else\n  long long ans, mod;\n  std::tie(ans,\
-    \ mod) = emthrm::simultaneous_linear_congruence(\n      std::vector<long long>(N,\
-    \ 1), x, y);\n#endif  // __cplusplus >= 201703L\n  if (mod == 0) {\n    std::cout\
-    \ << \"-1\\n\";\n  } else {\n    std::cout << (ans == 0 ? mod : ans) << '\\n';\n\
-    \  }\n  return 0;\n}\n"
+    \  for (int i = 0; i < N; ++i) {\n    std::cin >> x[i] >> y[i];\n  }\n  const\
+    \ auto [ans, mod] = emthrm::simultaneous_linear_congruence(\n      std::vector<long\
+    \ long>(N, 1), x, y);\n  if (mod == 0) {\n    std::cout << \"-1\\n\";\n  } else\
+    \ {\n    std::cout << (ans == 0 ? mod : ans) << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/simultaneous_linear_congruence.hpp
   - include/emthrm/math/mod_inv.hpp
   isVerificationFile: true
   path: test/math/simultaneous_linear_congruence.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/simultaneous_linear_congruence.test.cpp
 layout: document

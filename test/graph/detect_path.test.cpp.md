@@ -34,22 +34,20 @@ data:
     emthrm/graph/detect_path.hpp\"\n#include \"emthrm/graph/edge.hpp\"\n\nint main()\
     \ {\n  int n, q;\n  std::cin >> n >> q;\n  std::vector<std::vector<emthrm::Edge<bool>>>\
     \ graph(n);\n  while (q--) {\n    int type, u, v;\n    std::cin >> type >> u >>\
-    \ v;\n    --u; --v;\n    if (type == 1) {\n      const auto adj = std::find_if(\n\
-    \          graph[u].begin(), graph[u].end(),\n          [v](const emthrm::Edge<bool>&\
-    \ e) -> bool { return e.dst == v; });\n      if (adj != graph[u].end()) {\n  \
-    \      graph[u].erase(adj);\n        graph[v].erase(std::find_if(\n          \
-    \  graph[v].begin(), graph[v].end(),\n            [u](const emthrm::Edge<bool>&\
-    \ e) -> bool { return e.dst == u; }));\n      } else {\n        graph[u].emplace_back(u,\
-    \ v);\n        graph[v].emplace_back(v, u);\n      }\n    } else if (type == 2)\
-    \ {\n      std::cout << (emthrm::detect_path(graph, u, v).empty() ?\n        \
-    \            \"No\\n\" : \"Yes\\n\");\n    }\n  }\n  return 0;\n}\n"
+    \ v;\n    --u; --v;\n    if (type == 1) {\n      const auto adj = std::ranges::find(graph[u],\
+    \ v, &emthrm::Edge<bool>::dst);\n      if (adj != graph[u].end()) {\n        graph[u].erase(adj);\n\
+    \        graph[v].erase(\n            std::ranges::find(graph[v], u, &emthrm::Edge<bool>::dst));\n\
+    \      } else {\n        graph[u].emplace_back(u, v);\n        graph[v].emplace_back(v,\
+    \ u);\n      }\n    } else if (type == 2) {\n      std::cout << (emthrm::detect_path(graph,\
+    \ u, v).empty() ?\n                    \"No\\n\" : \"Yes\\n\");\n    }\n  }\n\
+    \  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/detect_path.hpp
   - include/emthrm/graph/edge.hpp
   isVerificationFile: true
   path: test/graph/detect_path.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/detect_path.test.cpp

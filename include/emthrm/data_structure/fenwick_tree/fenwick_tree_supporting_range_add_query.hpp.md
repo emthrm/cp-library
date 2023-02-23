@@ -27,13 +27,13 @@ data:
     \ FenwickTreeSupportingRangeAddQuery {\n  explicit FenwickTreeSupportingRangeAddQuery(\n\
     \      const int n_, const Abelian ID = 0)\n      : n(n_ + 1), ID(ID) {\n    data_const.assign(n,\
     \ ID);\n    data_linear.assign(n, ID);\n  }\n\n  void add(int left, const int\
-    \ right, const Abelian val) {\n    if (right < ++left) return;\n    for (int i\
-    \ = left; i < n; i += i & -i) {\n      data_const[i] -= val * (left - 1);\n  \
-    \    data_linear[i] += val;\n    }\n    for (int i = right + 1; i < n; i += i\
-    \ & -i) {\n      data_const[i] += val * right;\n      data_linear[i] -= val;\n\
-    \    }\n  }\n\n  Abelian sum(const int idx) const {\n    Abelian res = ID;\n \
-    \   for (int i = idx; i > 0; i -= i & -i) {\n      res += data_linear[i];\n  \
-    \  }\n    res *= idx;\n    for (int i = idx; i > 0; i -= i & -i) {\n      res\
+    \ right, const Abelian val) {\n    if (right < ++left) [[unlikely]] return;\n\
+    \    for (int i = left; i < n; i += i & -i) {\n      data_const[i] -= val * (left\
+    \ - 1);\n      data_linear[i] += val;\n    }\n    for (int i = right + 1; i <\
+    \ n; i += i & -i) {\n      data_const[i] += val * right;\n      data_linear[i]\
+    \ -= val;\n    }\n  }\n\n  Abelian sum(const int idx) const {\n    Abelian res\
+    \ = ID;\n    for (int i = idx; i > 0; i -= i & -i) {\n      res += data_linear[i];\n\
+    \    }\n    res *= idx;\n    for (int i = idx; i > 0; i -= i & -i) {\n      res\
     \ += data_const[i];\n    }\n    return res;\n  }\n\n  Abelian sum(const int left,\
     \ const int right) const {\n    return left < right ? sum(right) - sum(left) :\
     \ ID;\n  }\n\n  Abelian operator[](const int idx) const { return sum(idx, idx\
@@ -47,13 +47,13 @@ data:
     \ FenwickTreeSupportingRangeAddQuery {\n  explicit FenwickTreeSupportingRangeAddQuery(\n\
     \      const int n_, const Abelian ID = 0)\n      : n(n_ + 1), ID(ID) {\n    data_const.assign(n,\
     \ ID);\n    data_linear.assign(n, ID);\n  }\n\n  void add(int left, const int\
-    \ right, const Abelian val) {\n    if (right < ++left) return;\n    for (int i\
-    \ = left; i < n; i += i & -i) {\n      data_const[i] -= val * (left - 1);\n  \
-    \    data_linear[i] += val;\n    }\n    for (int i = right + 1; i < n; i += i\
-    \ & -i) {\n      data_const[i] += val * right;\n      data_linear[i] -= val;\n\
-    \    }\n  }\n\n  Abelian sum(const int idx) const {\n    Abelian res = ID;\n \
-    \   for (int i = idx; i > 0; i -= i & -i) {\n      res += data_linear[i];\n  \
-    \  }\n    res *= idx;\n    for (int i = idx; i > 0; i -= i & -i) {\n      res\
+    \ right, const Abelian val) {\n    if (right < ++left) [[unlikely]] return;\n\
+    \    for (int i = left; i < n; i += i & -i) {\n      data_const[i] -= val * (left\
+    \ - 1);\n      data_linear[i] += val;\n    }\n    for (int i = right + 1; i <\
+    \ n; i += i & -i) {\n      data_const[i] += val * right;\n      data_linear[i]\
+    \ -= val;\n    }\n  }\n\n  Abelian sum(const int idx) const {\n    Abelian res\
+    \ = ID;\n    for (int i = idx; i > 0; i -= i & -i) {\n      res += data_linear[i];\n\
+    \    }\n    res *= idx;\n    for (int i = idx; i > 0; i -= i & -i) {\n      res\
     \ += data_const[i];\n    }\n    return res;\n  }\n\n  Abelian sum(const int left,\
     \ const int right) const {\n    return left < right ? sum(right) - sum(left) :\
     \ ID;\n  }\n\n  Abelian operator[](const int idx) const { return sum(idx, idx\
@@ -63,7 +63,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp

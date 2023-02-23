@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_init.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868"
   - icon: ':question:'
@@ -9,9 +9,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc162/tasks/abc162_e
@@ -43,8 +43,8 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu_init.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 01:44:48+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mobius_mu_init.test.cpp
 layout: document

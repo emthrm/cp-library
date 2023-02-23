@@ -34,13 +34,12 @@ data:
   code: "/*\n * @brief \u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A\
     \n */\n#define PROBLEM \"https://atcoder.jp/contests/arc099/tasks/arc099_e\"\n\
     // #define PROBLEM \"https://atcoder.jp/contests/arc099/tasks/arc099_c\"\n\n#include\
-    \ <algorithm>\n#include <iostream>\n#include <map>\n#if __cplusplus < 201703L\n\
-    # include <tuple>\n# include <utility>\n#endif  // __cplusplus < 201703L\n#include\
-    \ <vector>\n\n#include \"emthrm/data_structure/union-find/union-find.hpp\"\n#include\
-    \ \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/is_bipartite.hpp\"\n\nint\
-    \ main() {\n  int n, m;\n  std::cin >> n >> m;\n  int ans = m;\n  std::vector<std::vector<bool>>\
-    \ is_adjacent(n, std::vector<bool>(n, false));\n  while (m--) {\n    int a, b;\n\
-    \    std::cin >> a >> b;\n    --a; --b;\n    is_adjacent[a][b] = true;\n    is_adjacent[b][a]\
+    \ <algorithm>\n#include <iostream>\n#include <map>\n#include <vector>\n\n#include\
+    \ \"emthrm/data_structure/union-find/union-find.hpp\"\n#include \"emthrm/graph/edge.hpp\"\
+    \n#include \"emthrm/graph/is_bipartite.hpp\"\n\nint main() {\n  int n, m;\n  std::cin\
+    \ >> n >> m;\n  int ans = m;\n  std::vector<std::vector<bool>> is_adjacent(n,\
+    \ std::vector<bool>(n, false));\n  while (m--) {\n    int a, b;\n    std::cin\
+    \ >> a >> b;\n    --a; --b;\n    is_adjacent[a][b] = true;\n    is_adjacent[b][a]\
     \ = true;\n  }\n  emthrm::UnionFind union_find(n);\n  std::vector<std::vector<emthrm::Edge<bool>>>\
     \ graph(n);\n  for (int i = 0; i < n; ++i) {\n    for (int j = i + 1; j < n; ++j)\
     \ {\n      if (!is_adjacent[i][j]) {\n        union_find.unite(i, j);\n      \
@@ -48,17 +47,13 @@ data:
     \    }\n  }\n  const std::vector<int> color = emthrm::is_bipartite(graph);\n \
     \ if (color.empty()) {\n    std::cout << \"-1\\n\";\n    return 0;\n  }\n  std::vector<bool>\
     \ dp(n + 1, false);\n  dp[0] = true;\n  std::map<int, int> mp;\n  for (int i =\
-    \ 0; i < n; ++i) {\n    mp[union_find.root(i)] += color[i];\n  }\n  const auto\
-    \ calc = [n, &dp, &union_find](const int root, const int size)\n      -> void\
-    \ {\n    for (int i = n; i >= 0; --i) {\n      if (dp[i]) {\n        dp[i] = false;\n\
-    \        if (i + size <= n) dp[i + size] = true;\n        if (i + union_find.size(root)\
-    \ - size <= n) {\n          dp[i + union_find.size(root) - size] = true;\n   \
-    \     }\n      }\n    }\n  };\n#if __cplusplus >= 201703L\n  for (const auto&\
-    \ [root, size] : mp) {\n    calc(root, size);\n  }\n#else\n  for (const std::pair<const\
-    \ int, int>& pr : mp) {\n    int root, size;\n    std::tie(root, size) = pr;\n\
-    \    calc(root, size);\n  }\n#endif  // __cplusplus >= 201703L\n  for (int i =\
-    \ 0; i <= n; ++i) {\n    if (dp[i]) ans = std::min(ans, i * (i - 1) / 2 + (n -\
-    \ i) * (n - i - 1) / 2);\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \ 0; i < n; ++i) {\n    mp[union_find.root(i)] += color[i];\n  }\n  for (const\
+    \ auto& [root, size] : mp) {\n    for (int i = n; i >= 0; --i) {\n      if (dp[i])\
+    \ {\n        dp[i] = false;\n        if (i + size <= n) dp[i + size] = true;\n\
+    \        if (i + union_find.size(root) - size <= n) {\n          dp[i + union_find.size(root)\
+    \ - size] = true;\n        }\n      }\n    }\n  }\n  for (int i = 0; i <= n; ++i)\
+    \ {\n    if (dp[i]) ans = std::min(ans, i * (i - 1) / 2 + (n - i) * (n - i - 1)\
+    \ / 2);\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/data_structure/union-find/union-find.hpp
   - include/emthrm/graph/edge.hpp
@@ -66,7 +61,7 @@ data:
   isVerificationFile: true
   path: test/graph/is_bipartite.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/is_bipartite.test.cpp

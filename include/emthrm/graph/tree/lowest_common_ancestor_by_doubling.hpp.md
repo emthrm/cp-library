@@ -28,21 +28,23 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp: line 13: unable\
+    \ include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp: line 14: unable\
     \ to process #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
     \u30B0\u7248\n * @docs docs/graph/tree/lowest_common_ancestor.md\n */\n\n#ifndef\
     \ EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n#define EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n\
-    \n#include <cassert>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct LowestCommonAncestorByDoubling\
-    \ {\n  std::vector<int> depth;\n  std::vector<CostType> dist;\n\n  explicit LowestCommonAncestorByDoubling(\n\
+    \n#include <bit>\n#include <cassert>\n#include <utility>\n#include <vector>\n\n\
+    #include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ CostType>\nstruct LowestCommonAncestorByDoubling {\n  std::vector<int> depth;\n\
+    \  std::vector<CostType> dist;\n\n  explicit LowestCommonAncestorByDoubling(\n\
     \      const std::vector<std::vector<Edge<CostType>>>& graph)\n      : is_built(false),\
-    \ n(graph.size()), table_h(1), graph(graph) {\n    depth.resize(n);\n    dist.resize(n);\n\
-    \    while ((1 << table_h) <= n) ++table_h;\n    parent.resize(table_h, std::vector<int>(n));\n\
-    \  }\n\n  void build(const int root = 0) {\n    is_built = true;\n    dfs(-1,\
-    \ root, 0, 0);\n    for (int i = 0; i + 1 < table_h; ++i) {\n      for (int ver\
-    \ = 0; ver < n; ++ver) {\n        parent[i + 1][ver] =\n            (parent[i][ver]\
-    \ == -1 ? -1 : parent[i][parent[i][ver]]);\n      }\n    }\n  }\n\n  int query(int\
+    \ n(graph.size()),\n        table_h(std::countr_zero(std::bit_floor(graph.size()))\
+    \ + 1),\n        graph(graph) {\n    assert(n > 0);\n    depth.resize(n);\n  \
+    \  dist.resize(n);\n    parent.resize(table_h, std::vector<int>(n));\n  }\n\n\
+    \  void build(const int root = 0) {\n    is_built = true;\n    dfs(-1, root, 0,\
+    \ 0);\n    for (int i = 0; i + 1 < table_h; ++i) {\n      for (int ver = 0; ver\
+    \ < n; ++ver) {\n        parent[i + 1][ver] =\n            (parent[i][ver] ==\
+    \ -1 ? -1 : parent[i][parent[i][ver]]);\n      }\n    }\n  }\n\n  int query(int\
     \ u, int v) const {\n    assert(is_built);\n    if (depth[u] > depth[v]) std::swap(u,\
     \ v);\n    for (int i = 0; i < table_h; ++i) {\n      if ((depth[v] - depth[u])\
     \ >> i & 1) v = parent[i][v];\n    }\n    if (u == v) return u;\n    for (int\
@@ -53,19 +55,19 @@ data:
     \ 2;\n  }\n\n  int level_ancestor(int v, const int d) const {\n    assert(is_built);\n\
     \    if (depth[v] < d) return -1;\n    for (int i = depth[v] - d, bit = 0; i >\
     \ 0; i >>= 1, ++bit) {\n      if (i & 1) v = parent[bit][v];\n    }\n    return\
-    \ v;\n  }\n\n private:\n  bool is_built;\n  const int n;\n  int table_h;\n  std::vector<std::vector<int>>\
+    \ v;\n  }\n\n private:\n  bool is_built;\n  const int n, table_h;\n  std::vector<std::vector<int>>\
     \ parent;\n  const std::vector<std::vector<Edge<CostType>>> graph;\n\n  void dfs(const\
     \ int par, const int ver, const int cur_depth,\n           const CostType cur_dist)\
     \ {\n    depth[ver] = cur_depth;\n    dist[ver] = cur_dist;\n    parent.front()[ver]\
     \ = par;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst !=\
-    \ par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n    }\n  }\n};\n\n\
-    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n"
+    \ par) [[likely]] {\n        dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n\
+    \      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
   requiredBy: []
-  timestamp: '2023-01-22 16:43:15+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp

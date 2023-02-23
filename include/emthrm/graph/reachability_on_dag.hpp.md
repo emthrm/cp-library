@@ -29,26 +29,27 @@ data:
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_\n#define EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_\n\
     \n#include <algorithm>\n#include <cassert>\n#include <cstdint>\n#include <limits>\n\
-    #include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/topological_sort.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<bool> reachability_on_dag(\n\
-    \    const std::vector<std::vector<Edge<CostType>>>& graph,\n    const std::vector<int>&\
-    \ ss, const std::vector<int>& ts) {\n  const int n = graph.size(), q = ss.size();\n\
-    \  assert(static_cast<int>(ts.size()) == q);\n  const std::vector<int> order =\
-    \ topological_sort(graph);\n  std::vector<bool> can_reach(q, false);\n  std::vector<std::uint64_t>\
-    \ dp(n, 0);\n  for (int i = 0; i < q;) {\n    const int j = std::min(i + std::numeric_limits<std::uint64_t>::digits,\
+    #include <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\
+    #include \"emthrm/graph/topological_sort.hpp\"\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename CostType>\nstd::vector<bool> reachability_on_dag(\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n    const std::vector<int>& ss, const std::vector<int>& ts) {\n  const\
+    \ int n = graph.size(), q = ss.size();\n  assert(std::cmp_equal(ts.size(), q));\n\
+    \  const std::vector<int> order = topological_sort(graph);\n  std::vector<bool>\
+    \ can_reach(q, false);\n  std::vector<std::uint64_t> dp(n, 0);\n  for (int i =\
+    \ 0; i < q;) {\n    const int j = std::min(i + std::numeric_limits<std::uint64_t>::digits,\
     \ q);\n    std::fill(dp.begin(), dp.end(), 0);\n    for (int k = i; k < j; ++k)\
     \ {\n      dp[ss[k]] |= UINT64_C(1) << (k - i);\n    }\n    for (const int node\
-    \ : order) {\n      for (const Edge<CostType>& e : graph[node]) dp[e.dst] |= dp[node];\n\
-    \    }\n    for (int k = i; k < j; ++k) {\n      can_reach[k] = dp[ts[k]] >> (k\
-    \ - i) & 1;\n    }\n    i = j;\n  }\n  return can_reach;\n}\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_\n"
+    \ : order) {\n      for (const int e : graph[node]\n                       | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n        dp[e] |= dp[node];\n      }\n    }\n    for (int k = i; k < j; ++k)\
+    \ {\n      can_reach[k] = dp[ts[k]] >> (k - i) & 1;\n    }\n    i = j;\n  }\n\
+    \  return can_reach;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_REACHABILITY_ON_DAG_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   - include/emthrm/graph/topological_sort.hpp
   isVerificationFile: false
   path: include/emthrm/graph/reachability_on_dag.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/reachability_on_dag.test.cpp

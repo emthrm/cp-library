@@ -5,6 +5,9 @@ data:
     path: include/emthrm/graph/flow/maximum_flow/dinic.hpp
     title: "Dinic \u6CD5"
   - icon: ':heavy_check_mark:'
+    path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+    title: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
     title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   _extendedRequiredBy: []
@@ -34,13 +37,14 @@ data:
     \ <iostream>\n#include <vector>\n\n#include \"emthrm/graph/flow/maximum_flow/dinic.hpp\"\
     \n#include \"emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp\"\
     \n\nint main() {\n  while (true) {\n    int n, m;\n    std::cin >> n >> m;\n \
-    \   if (n == 0 && m == 0) break;\n    std::vector<int> u(m), v(m);\n    for (int\
-    \ i = 0; i < m; ++i) {\n      std::cin >> u[i] >> v[i];\n      --u[i]; --v[i];\n\
-    \    }\n    const int s = m + n, t = m + n + 1;\n    const auto solve =\n    \
-    \    [m, n, s, t, &u, &v](const int lb, const int ub) -> bool {\n          emthrm::MaximumFlowWithLowerBoundConstraint<emthrm::Dinic,\
-    \ int>\n              lower_bound_constraint(m + n + 2);\n          for (int i\
-    \ = 0; i < m; ++i) {\n            lower_bound_constraint.add_edge(s, i, 1, 1);\n\
-    \          }\n          for (int i = 0; i < n; ++i) {\n            lower_bound_constraint.add_edge(m\
+    \   if (n == 0 && m == 0) [[unlikely]] break;\n    std::vector<int> u(m), v(m);\n\
+    \    for (int i = 0; i < m; ++i) {\n      std::cin >> u[i] >> v[i];\n      --u[i];\
+    \ --v[i];\n    }\n    const int s = m + n, t = m + n + 1;\n    const auto solve\
+    \ =\n        [m, n, s, t, &u, &v](const int lb, const int ub) -> bool {\n    \
+    \      emthrm::MaximumFlowWithLowerBoundConstraint<emthrm::Dinic, int>\n     \
+    \         lower_bound_constraint(m + n + 2);\n          for (int i = 0; i < m;\
+    \ ++i) {\n            lower_bound_constraint.add_edge(s, i, 1, 1);\n         \
+    \ }\n          for (int i = 0; i < n; ++i) {\n            lower_bound_constraint.add_edge(m\
     \ + i, t, lb, ub);\n          }\n          for (int i = 0; i < m; ++i) {\n   \
     \         lower_bound_constraint.add_edge(i, m + u[i], 0, 1);\n            lower_bound_constraint.add_edge(i,\
     \ m + v[i], 0, 1);\n          }\n          return lower_bound_constraint.solve(s,\
@@ -52,10 +56,11 @@ data:
   dependsOn:
   - include/emthrm/graph/flow/maximum_flow/dinic.hpp
   - include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
+  - include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   isVerificationFile: true
   path: test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp

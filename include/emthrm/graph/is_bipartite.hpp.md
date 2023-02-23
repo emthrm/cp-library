@@ -24,22 +24,22 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n#define EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n\
-    \n#include <functional>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<int> is_bipartite(\n\
+    \n#include <ranges>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<int> is_bipartite(\n\
     \    const std::vector<std::vector<Edge<CostType>>>& graph) {\n  const int n =\
-    \ graph.size();\n  std::vector<int> color(n, -1);\n  const std::function<bool(int,\
-    \ int)> dfs = [&graph, &color, &dfs](\n      const int ver, const int c) -> bool\
-    \ {\n    color[ver] = c;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
-    \     if (color[e.dst] == c || (color[e.dst] == -1 && !dfs(e.dst, c ^ 1))) {\n\
-    \        return false;\n      }\n    }\n    return true;\n  };\n  for (int i =\
-    \ 0; i < n; ++i) {\n    if (color[i] == -1 && !dfs(i, 0)) return std::vector<int>{};\n\
+    \ graph.size();\n  std::vector<int> color(n, -1);\n  const auto dfs = [&graph,\
+    \ &color](auto dfs, const int ver, const int c)\n      -> bool {\n    color[ver]\
+    \ = c;\n    for (const int e : graph[ver]\n                     | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n      if (color[e] == c || (color[e] == -1 && !dfs(dfs, e, c ^ 1))) {\n \
+    \       return false;\n      }\n    }\n    return true;\n  };\n  for (int i =\
+    \ 0; i < n; ++i) {\n    if (color[i] == -1 && !dfs(dfs, i, 0)) return std::vector<int>{};\n\
     \  }\n  return color;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_IS_BIPARTITE_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/is_bipartite.hpp
   requiredBy: []
-  timestamp: '2023-01-20 16:06:13+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/is_bipartite.test.cpp

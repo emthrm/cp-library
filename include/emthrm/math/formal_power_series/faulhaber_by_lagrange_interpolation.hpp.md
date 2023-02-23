@@ -38,8 +38,8 @@ data:
     \n#include <vector>\n\n#include \"emthrm/math/lagrange_interpolation2.hpp\"\n\
     #include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\ntemplate <int T>\n\
     MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k) {\n\
-    \  using ModInt = MInt<T>;\n  if (n < 1) return 0;\n  std::vector<ModInt> y(k\
-    \ + 2, 0);\n  for (int i = 1; i < k + 2; ++i) {\n    y[i] = y[i - 1] + ModInt(i).pow(k);\n\
+    \  using ModInt = MInt<T>;\n  if (n < 1) [[unlikely]] return 0;\n  std::vector<ModInt>\
+    \ y(k + 2, 0);\n  for (int i = 1; i < k + 2; ++i) {\n    y[i] = y[i - 1] + ModInt(i).pow(k);\n\
     \  }\n  return n - 1 < k + 2 ? y[n - 1] : lagrange_interpolation(y, ModInt(n -\
     \ 1));\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_LAGRANGE_INTERPOLATION_HPP_\n"
   dependsOn:
@@ -48,7 +48,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp

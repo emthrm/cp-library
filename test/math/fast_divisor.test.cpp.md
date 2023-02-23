@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
@@ -30,16 +30,19 @@ data:
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a(n);\n  for\
     \ (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  const emthrm::Divisor\
     \ divisor(*std::max_element(a.begin(), a.end()));\n  std::multiset<int> s(a.begin(),\
-    \ a.end());\n  int ans = 0;\n  for (int i = 0; i < n; ++i) {\n    s.erase(s.lower_bound(a[i]));\n\
-    \    bool meets = true;\n    for (const int d : divisor.query(a[i])) {\n     \
-    \ meets &= s.find(d) == s.end();\n    }\n    ans += meets;\n    s.emplace(a[i]);\n\
-    \  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \ a.end());\n  std::cout << std::ranges::count_if(\n                   a,\n  \
+    \                 [&divisor, &s](const int a_i) -> bool {\n                  \
+    \   s.erase(s.lower_bound(a_i));\n                     const bool res = std::ranges::all_of(\n\
+    \                         divisor.query(a_i),\n                         [&s](const\
+    \ int d) -> bool { return !s.contains(d); });\n                     s.emplace(a_i);\n\
+    \                     return res;\n                   })\n            << '\\n';\n\
+    \  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/prime_sieve.hpp
   isVerificationFile: true
   path: test/math/fast_divisor.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/fast_divisor.test.cpp

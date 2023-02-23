@@ -15,7 +15,7 @@ data:
     \n\n\n\n#include <algorithm>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
     \ <typename T>\nstd::vector<std::vector<T>> knuth_yao_speedup(\n    const std::vector<std::vector<T>>&\
     \ w, const T inf) {\n  const int n = w.size();\n  std::vector<std::vector<T>>\
-    \ dp(n, std::vector<T>(n, inf));\n  if (n == 0) return dp;\n  std::vector<std::vector<int>>\
+    \ dp(n, std::vector<T>(n, inf));\n  if (n == 0) [[unlikely]] return dp;\n  std::vector<std::vector<int>>\
     \ argmin(n, std::vector<int>(n, -1));\n  for (int j = 0; j < n; ++j) {\n    dp[j][j]\
     \ = 0;\n    argmin[j][j] = j;\n    for (int i = j - 1; i >= 0; --i) {\n      const\
     \ int right = std::min(j - 1, argmin[i + 1][j]);\n      for (int k = argmin[i][j\
@@ -27,7 +27,7 @@ data:
     \n#include <algorithm>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
     \ T>\nstd::vector<std::vector<T>> knuth_yao_speedup(\n    const std::vector<std::vector<T>>&\
     \ w, const T inf) {\n  const int n = w.size();\n  std::vector<std::vector<T>>\
-    \ dp(n, std::vector<T>(n, inf));\n  if (n == 0) return dp;\n  std::vector<std::vector<int>>\
+    \ dp(n, std::vector<T>(n, inf));\n  if (n == 0) [[unlikely]] return dp;\n  std::vector<std::vector<int>>\
     \ argmin(n, std::vector<int>(n, -1));\n  for (int j = 0; j < n; ++j) {\n    dp[j][j]\
     \ = 0;\n    argmin[j][j] = j;\n    for (int i = j - 1; i >= 0; --i) {\n      const\
     \ int right = std::min(j - 1, argmin[i + 1][j]);\n      for (int k = argmin[i][j\
@@ -39,7 +39,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/knuth_yao_speedup.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/knuth_yao_speedup.test.cpp

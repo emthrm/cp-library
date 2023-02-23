@@ -24,31 +24,28 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_\n#define EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_\n\
-    \n#include <numeric>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\
-    \n#if !defined(__GNUC__) && \\\n    (!defined(__has_builtin) || !__has_builtin(__builtin_ctz)\
-    \ \\\n                             || !__has_builtin(__builtin_popcount))\n# error\
-    \ \"GCC built-in functions are required.\"\n#endif\n\nnamespace emthrm {\n\ntemplate\
-    \ <typename CostType>\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
+    \n#include <bit>\n#include <numeric>\n#include <ranges>\n#include <vector>\n\n\
+    #include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ CostType>\nint chromatic_number(const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\n  const int n = graph.size();\n  std::vector<int> adj(n, 0);\n  for\
-    \ (int i = 0; i < n; ++i) {\n    for (const Edge<CostType>& e : graph[i]) adj[i]\
-    \ |= 1 << e.dst;\n  }\n  std::vector<int> indep(1 << n);\n  indep[0] = 1;\n  for\
-    \ (int i = 1; i < (1 << n); ++i) {\n    const int v = __builtin_ctz(i);\n    indep[i]\
-    \ = indep[i ^ (1 << v)] + indep[(i ^ (1 << v)) & ~adj[v]];\n  }\n  int res = n;\n\
-    \  for (const int mod : std::vector<int>{1000000007, 1000000011}) {\n    std::vector<long\
-    \ long> f(1 << n);\n    for (int i = 0; i < (1 << n); ++i) {\n      f[i] = ((n\
-    \ - __builtin_popcount(i)) & 1 ? mod - 1 : 1);\n    }\n    for (int c = 1; c <\
-    \ res; ++c) {\n      for (int i = 0; i < (1 << n); ++i) {\n        f[i] = (f[i]\
-    \ * indep[i]) % mod;\n      }\n#if __cplusplus >= 201703L\n      if (std::reduce(f.begin(),\
-    \ f.end(), 0LL) % mod > 0) {\n        res = c;\n        break;\n      }\n#else\n\
-    \      if (std::accumulate(f.begin(), f.end(), 0LL) % mod > 0) {\n        res\
-    \ = c;\n        break;\n      }\n#endif  // __cplusplus >= 201703L\n    }\n  }\n\
-    \  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_\n"
+    \ (int i = 0; i < n; ++i) {\n    for (const int e : graph[i] | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n      adj[i] |= 1 << e;\n    }\n  }\n  std::vector<int> indep(1 << n);\n\
+    \  indep[0] = 1;\n  for (unsigned int i = 1; i < (1 << n); ++i) {\n    const int\
+    \ v = std::countr_zero(i);\n    indep[i] = indep[i ^ (1 << v)] + indep[(i ^ (1\
+    \ << v)) & ~adj[v]];\n  }\n  int res = n;\n  for (const int mod : std::vector<int>{1000000007,\
+    \ 1000000011}) {\n    std::vector<long long> f(1 << n);\n    for (unsigned int\
+    \ i = 0; i < (1 << n); ++i) {\n      f[i] = ((n - std::popcount(i)) & 1 ? mod\
+    \ - 1 : 1);\n    }\n    for (int c = 1; c < res; ++c) {\n      for (int i = 0;\
+    \ i < (1 << n); ++i) {\n        f[i] = (f[i] * indep[i]) % mod;\n      }\n   \
+    \   if (std::reduce(f.begin(), f.end(), 0LL) % mod > 0) {\n        res = c;\n\
+    \        break;\n      }\n    }\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_CHROMATIC_NUMBER_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/chromatic_number.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:10:55+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/chromatic_number.test.cpp

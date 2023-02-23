@@ -36,32 +36,33 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/convolution/mod_convolution.hpp: line 13: unable to process\
+    \ include/emthrm/math/convolution/mod_convolution.hpp: line 14: unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\
     \u8FBC\u307F\n * @docs docs/math/convolution/number_theoretic_transform.md\n */\n\
     \n#ifndef EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_\n#define EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_\n\
-    \n#include <algorithm>\n#include <cmath>\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_fourier_transform.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\ntemplate <int T>\n\
-    std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,\n        \
-    \                             const std::vector<MInt<T>>& b,\n               \
-    \                      const int pre = 15) {\n  using ModInt = MInt<T>;\n  const\
-    \ int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;\n  int\
-    \ lg = 1;\n  while ((1 << lg) < c_size) ++lg;\n  const int n = 1 << lg, mask =\
-    \ (1 << pre) - 1;\n  std::vector<fast_fourier_transform::Complex> x(n), y(n);\n\
-    \  std::transform(\n        a.begin(), a.end(), x.begin(),\n        [mask, pre](const\
-    \ MInt<T>& a_i) -> fast_fourier_transform::Complex {\n          return fast_fourier_transform::Complex(a_i.v\
-    \ & mask, a_i.v >> pre);\n        });\n  fast_fourier_transform::dft(&x);\n  std::transform(\n\
-    \        b.begin(), b.end(), y.begin(),\n        [mask, pre](const MInt<T>& b_i)\
-    \ -> fast_fourier_transform::Complex {\n          return fast_fourier_transform::Complex(b_i.v\
-    \ & mask, b_i.v >> pre);\n        });\n  fast_fourier_transform::dft(&y);\n  const\
-    \ int half = n >> 1;\n  fast_fourier_transform::Complex tmp_a = x.front(), tmp_b\
-    \ = y.front();\n  x.front() =\n      fast_fourier_transform::Complex(tmp_a.re\
-    \ * tmp_b.re, tmp_a.im * tmp_b.im);\n  y.front() =\n      fast_fourier_transform::Complex(\n\
-    \          tmp_a.re * tmp_b.im + tmp_a.im * tmp_b.re, 0);\n  for (int i = 1; i\
-    \ < half; ++i) {\n    const int j = n - i;\n    const fast_fourier_transform::Complex\
-    \ a_l_i =\n        (x[i] + x[j].conj()).mul_real(0.5);\n    const fast_fourier_transform::Complex\
-    \ a_h_i =\n        (x[j].conj() - x[i]).mul_pin(0.5);\n    const fast_fourier_transform::Complex\
+    \n#include <algorithm>\n#include <bit>\n#include <cmath>\n#include <vector>\n\n\
+    #include \"emthrm/math/convolution/fast_fourier_transform.hpp\"\n#include \"emthrm/math/modint.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <int PRECISION = 15, int T>\nstd::vector<MInt<T>>\
+    \ mod_convolution(const std::vector<MInt<T>>& a,\n                           \
+    \          const std::vector<MInt<T>>& b) {\n  using ModInt = MInt<T>;\n  const\
+    \ int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;\n  const\
+    \ int n = std::max(std::bit_ceil(static_cast<unsigned int>(c_size)), 2U);\n  constexpr\
+    \ int mask = (1 << PRECISION) - 1;\n  std::vector<fast_fourier_transform::Complex>\
+    \ x(n), y(n);\n  std::transform(\n      a.begin(), a.end(), x.begin(),\n     \
+    \ [mask](const MInt<T>& x) -> fast_fourier_transform::Complex {\n        return\
+    \ fast_fourier_transform::Complex(x.v & mask, x.v >> PRECISION);\n      });\n\
+    \  fast_fourier_transform::dft(&x);\n  std::transform(\n      b.begin(), b.end(),\
+    \ y.begin(),\n      [mask](const MInt<T>& y) -> fast_fourier_transform::Complex\
+    \ {\n        return fast_fourier_transform::Complex(y.v & mask, y.v >> PRECISION);\n\
+    \      });\n  fast_fourier_transform::dft(&y);\n  const int half = n >> 1;\n \
+    \ fast_fourier_transform::Complex tmp_a = x.front(), tmp_b = y.front();\n  x.front()\
+    \ =\n      fast_fourier_transform::Complex(tmp_a.re * tmp_b.re, tmp_a.im * tmp_b.im);\n\
+    \  y.front() =\n      fast_fourier_transform::Complex(\n          tmp_a.re * tmp_b.im\
+    \ + tmp_a.im * tmp_b.re, 0);\n  for (int i = 1; i < half; ++i) {\n    const int\
+    \ j = n - i;\n    const fast_fourier_transform::Complex a_l_i =\n        (x[i]\
+    \ + x[j].conj()).mul_real(0.5);\n    const fast_fourier_transform::Complex a_h_i\
+    \ =\n        (x[j].conj() - x[i]).mul_pin(0.5);\n    const fast_fourier_transform::Complex\
     \ b_l_i =\n        (y[i] + y[j].conj()).mul_real(0.5);\n    const fast_fourier_transform::Complex\
     \ b_h_i =\n        (y[j].conj() - y[i]).mul_pin(0.5);\n    const fast_fourier_transform::Complex\
     \ a_l_j =\n        (x[j] + x[i].conj()).mul_real(0.5);\n    const fast_fourier_transform::Complex\
@@ -74,17 +75,17 @@ data:
     \      tmp_a.re * tmp_b.re, tmp_a.im * tmp_b.im);\n  y[half] = fast_fourier_transform::Complex(\n\
     \      tmp_a.re * tmp_b.im + tmp_a.im * tmp_b.re, 0);\n  fast_fourier_transform::idft(&x);\n\
     \  fast_fourier_transform::idft(&y);\n  std::vector<ModInt> res(c_size);\n  const\
-    \ ModInt tmp1 = 1 << pre, tmp2 = 1LL << (pre << 1);\n  for (int i = 0; i < c_size;\
-    \ ++i) {\n    res[i] = tmp1 * std::llround(y[i].re) + tmp2 * std::llround(x[i].im)\n\
-    \             + std::llround(x[i].re);\n  }\n  return res;\n}\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_\n"
+    \ ModInt tmp1 = 1 << PRECISION, tmp2 = 1LL << (PRECISION << 1);\n  for (int i\
+    \ = 0; i < c_size; ++i) {\n    res[i] = tmp1 * std::llround(y[i].re) + tmp2 *\
+    \ std::llround(x[i].im)\n             + std::llround(x[i].re);\n  }\n  return\
+    \ res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_\n"
   dependsOn:
   - include/emthrm/math/convolution/fast_fourier_transform.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: false
   path: include/emthrm/math/convolution/mod_convolution.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/convolution/mod_convolution.test.cpp
@@ -148,9 +149,9 @@ struct NumberTheoreticTransform;
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <int T> std::vector<MInt<T>>`<br>`mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b, const int pre = 15);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`pre` は精度を表す。|
+|`template <int PRECISION = 15, int T>`<br>`std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`PRECISION` は精度を表す。|
 
-e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$。
+e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$
 
 
 ## 参考文献

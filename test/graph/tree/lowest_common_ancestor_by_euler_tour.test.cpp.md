@@ -4,7 +4,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
   - icon: ':question:'
@@ -74,7 +74,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

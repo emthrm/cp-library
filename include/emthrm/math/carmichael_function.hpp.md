@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: include/emthrm/math/least_common_multiple.hpp
-    title: "\u6700\u5C0F\u516C\u500D\u6570 (least common multiple)"
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -13,33 +10,30 @@ data:
     _deprecated_at_docs: docs/math/carmichael_function.md
     document_title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/carmichael_function.hpp: line 12: unable to process #include\
-    \ in #if / #ifdef / #ifndef other than include guards\n"
+  bundledCode: "#line 1 \"include/emthrm/math/carmichael_function.hpp\"\n/**\n * @brief\
+    \ \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\n * @docs docs/math/carmichael_function.md\n\
+    \ */\n\n#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n#define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\
+    \n#include <numeric>\n\nnamespace emthrm {\n\nlong long carmichael_function(long\
+    \ long n) {\n  long long lambda = 1;\n  if (n % 8 == 0) n >>= 1;\n  for (long\
+    \ long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n      n\
+    \ /= i;\n      long long phi = i - 1;\n      for (; n % i == 0; n /= i) {\n  \
+    \      phi *= i;\n      }\n      lambda = std::lcm(lambda, phi);\n    }\n  }\n\
+    \  return n > 1 ? std::lcm(lambda, n - 1) : lambda;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n"
   code: "/**\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\n * @docs\
     \ docs/math/carmichael_function.md\n */\n\n#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\
-    #define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\n#if __cplusplus >= 201703L\n#\
-    \ include <numeric>\n#else\n# include \"emthrm/math/least_common_multiple.hpp\"\
-    \n#endif  // __cplusplus >= 201703L\n\nnamespace emthrm {\n\nlong long carmichael_function(long\
-    \ long n) {\n  long long lambda = 1;\n  if (n % 8 == 0) n >>= 1;\n  for (long\
-    \ long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) {\n      n /= i;\n     \
-    \ long long phi = i - 1;\n      for (; n % i == 0; n /= i) {\n        phi *= i;\n\
-    \      }\n#if __cplusplus >= 201703L\n      lambda = std::lcm(lambda, phi);\n\
-    #else\n      lambda = __lcm(lambda, phi);\n#endif  // __cplusplus >= 201703L\n\
-    \    }\n  }\n#if __cplusplus >= 201703L\n  return n > 1 ? std::lcm(lambda, n -\
-    \ 1) : lambda;\n#else\n  return n > 1 ? __lcm(lambda, n - 1) : lambda;\n#endif\
-    \  // __cplusplus >= 201703L\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n"
-  dependsOn:
-  - include/emthrm/math/least_common_multiple.hpp
+    #define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\n#include <numeric>\n\nnamespace\
+    \ emthrm {\n\nlong long carmichael_function(long long n) {\n  long long lambda\
+    \ = 1;\n  if (n % 8 == 0) n >>= 1;\n  for (long long i = 2; i * i <= n; ++i) {\n\
+    \    if (n % i == 0) [[unlikely]] {\n      n /= i;\n      long long phi = i -\
+    \ 1;\n      for (; n % i == 0; n /= i) {\n        phi *= i;\n      }\n      lambda\
+    \ = std::lcm(lambda, phi);\n    }\n  }\n  return n > 1 ? std::lcm(lambda, n -\
+    \ 1) : lambda;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n"
+  dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/carmichael_function.hpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/carmichael_function.hpp

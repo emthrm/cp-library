@@ -31,18 +31,17 @@ data:
     \n#include \"emthrm/math/convolution/fast_zeta_transform.hpp\"\n\nnamespace emthrm\
     \ {\n\ntemplate <typename T>\nstd::vector<T> or_convolution(std::vector<T> a,\
     \ std::vector<T> b,\n                              const T id = 0) {\n  int n\
-    \ = std::max(a.size(), b.size());\n  a.resize(n, id);\n  a = fast_zeta_transform(a,\
-    \ false, id);\n  b.resize(n, id);\n  b = fast_zeta_transform(b, false, id);\n\
-    \  n = a.size();\n  for (int i = 0; i < n; ++i) {\n    a[i] *= b[i];\n  }\n  return\
-    \ fast_mobius_transform(a, false);\n}\n\n}  // namespace emthrm\n\n#endif  //\
-    \ EMTHRM_MATH_CONVOLUTION_OR_CONVOLUTION_HPP_\n"
+    \ = std::max(a.size(), b.size());\n  a.resize(n, id);\n  a = fast_zeta_transform<false>(a,\
+    \ id);\n  b.resize(n, id);\n  b = fast_zeta_transform<false>(b, id);\n  n = a.size();\n\
+    \  for (int i = 0; i < n; ++i) {\n    a[i] *= b[i];\n  }\n  return fast_mobius_transform<false>(a);\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_OR_CONVOLUTION_HPP_\n"
   dependsOn:
   - include/emthrm/math/convolution/fast_mobius_transform.hpp
   - include/emthrm/math/convolution/fast_zeta_transform.hpp
   isVerificationFile: false
   path: include/emthrm/math/convolution/or_convolution.hpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/convolution/or_convolution.hpp

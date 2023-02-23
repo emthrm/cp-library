@@ -2,16 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/aho-corasick.hpp
     title: "Aho\u2013Corasick algorithm"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/aho-corasick.test.cpp
     title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/trie.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -56,7 +56,7 @@ data:
   requiredBy:
   - include/emthrm/string/aho-corasick.hpp
   timestamp: '2023-01-20 03:45:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/aho-corasick.test.cpp
 documentation_of: include/emthrm/string/trie.hpp

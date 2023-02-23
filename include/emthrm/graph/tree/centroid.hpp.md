@@ -24,24 +24,24 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_CENTROID_HPP_\n#define EMTHRM_GRAPH_TREE_CENTROID_HPP_\n\
-    \n#include <algorithm>\n#include <functional>\n#include <vector>\n\n#include \"\
-    emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename CostType>\n\
-    std::vector<int> centroid(\n    const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph) {\n  const int n = graph.size();\n  std::vector<int> subtree(n, 1), res;\n\
-    \  const std::function<void(int, int)> dfs =\n      [&graph, n, &subtree, &res,\
-    \ &dfs](const int par, const int ver) -> void {\n        bool is_centroid = true;\n\
-    \        for (const Edge<CostType>& e : graph[ver]) {\n          if (e.dst !=\
-    \ par) {\n            dfs(ver, e.dst);\n            subtree[ver] += subtree[e.dst];\n\
-    \            is_centroid &= subtree[e.dst] <= n / 2;\n          }\n        }\n\
-    \        if (is_centroid && n - subtree[ver] <= n / 2) res.emplace_back(ver);\n\
-    \      };\n  dfs(-1, 0);\n  std::sort(res.begin(), res.end());\n  return res;\n\
-    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_CENTROID_HPP_\n"
+    \n#include <algorithm>\n#include <ranges>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<int> centroid(\n\
+    \    const std::vector<std::vector<Edge<CostType>>>& graph) {\n  const int n =\
+    \ graph.size();\n  std::vector<int> subtree(n, 1), res;\n  const auto dfs = [&graph,\
+    \ n, &subtree, &res](\n      auto dfs, const int par, const int ver) -> void {\n\
+    \    bool is_centroid = true;\n    for (const int e : graph[ver]\n           \
+    \          | std::views::transform(&Edge<CostType>::dst)) {\n      if (e != par)\
+    \ [[likely]] {\n        dfs(dfs, ver, e);\n        subtree[ver] += subtree[e];\n\
+    \        is_centroid &= subtree[e] <= n / 2;\n      }\n    }\n    if (is_centroid\
+    \ && n - subtree[ver] <= n / 2) res.emplace_back(ver);\n  };\n  dfs(dfs, -1, 0);\n\
+    \  std::sort(res.begin(), res.end());\n  return res;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_TREE_CENTROID_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/centroid.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/centroid.test.cpp

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
@@ -18,12 +18,12 @@ data:
     path: test/math/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/euler_phi.md
     document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570"
@@ -33,23 +33,23 @@ data:
     \ */\n\n#ifndef EMTHRM_MATH_EULER_PHI_HPP_\n#define EMTHRM_MATH_EULER_PHI_HPP_\n\
     \n#include <cassert>\n\nnamespace emthrm {\n\nlong long euler_phi(long long n)\
     \ {\n  assert(n >= 1);\n  long long res = n;\n  for (long long i = 2; i * i <=\
-    \ n; ++i) {\n    if (n % i == 0) {\n      res -= res / i;\n      while (n % i\
-    \ == 0) n /= i;\n    }\n  }\n  return n > 1 ? res - res / n : res;\n}\n\n}  //\
-    \ namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_HPP_\n"
+    \ n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n      res -= res / i;\n     \
+    \ while (n % i == 0) n /= i;\n    }\n  }\n  return n > 1 ? res - res / n : res;\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_HPP_\n"
   code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\n *\
     \ @docs docs/math/euler_phi.md\n */\n\n#ifndef EMTHRM_MATH_EULER_PHI_HPP_\n#define\
     \ EMTHRM_MATH_EULER_PHI_HPP_\n\n#include <cassert>\n\nnamespace emthrm {\n\nlong\
     \ long euler_phi(long long n) {\n  assert(n >= 1);\n  long long res = n;\n  for\
-    \ (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) {\n      res -= res\
-    \ / i;\n      while (n % i == 0) n /= i;\n    }\n  }\n  return n > 1 ? res - res\
-    \ / n : res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_HPP_\n"
+    \ (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n \
+    \     res -= res / i;\n      while (n % i == 0) n /= i;\n    }\n  }\n  return\
+    \ n > 1 ? res - res / n : res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/euler_phi.hpp
   requiredBy:
   - include/emthrm/math/is_primitive_root.hpp
-  timestamp: '2023-02-23 01:44:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/euler_phi_init.test.cpp
   - test/math/is_primitive_root.test.cpp

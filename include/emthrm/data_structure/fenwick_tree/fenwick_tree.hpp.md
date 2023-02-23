@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/misc/inversion_number.hpp
     title: "\u8EE2\u5012\u6570 (inversion number)"
   _extendedVerifiedWith:
@@ -12,10 +12,10 @@ data:
   - icon: ':x:'
     path: test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (lower_bound(val))"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
   _isVerificationFailed: true
@@ -28,46 +28,48 @@ data:
   bundledCode: "#line 1 \"include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp\"\
     \n/**\n * @brief Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
     \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n#define\
-    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename Abelian>\nstruct FenwickTree {\n  explicit\
-    \ FenwickTree(const int n, const Abelian ID = 0)\n      : n(n), ID(ID), data(n,\
-    \ ID) {}\n\n  void add(int idx, const Abelian val) {\n    for (; idx < n; idx\
-    \ |= idx + 1) {\n      data[idx] += val;\n    }\n  }\n\n  Abelian sum(int idx)\
-    \ const {\n    Abelian res = ID;\n    for (--idx; idx >= 0; idx = (idx & (idx\
-    \ + 1)) - 1) {\n      res += data[idx];\n    }\n    return res;\n  }\n\n  Abelian\
-    \ sum(const int left, const int right) const {\n    return left < right ? sum(right)\
-    \ - sum(left) : ID;\n  }\n\n  Abelian operator[](const int idx) const { return\
-    \ sum(idx, idx + 1); }\n\n  int lower_bound(Abelian val) const {\n    if (val\
-    \ <= ID) return 0;\n    int res = 0, exponent = 1;\n    while (exponent <= n)\
-    \ exponent <<= 1;\n    for (int mask = exponent >> 1; mask > 0; mask >>= 1) {\n\
-    \      const int idx = res + mask - 1;\n      if (idx < n && data[idx] < val)\
-    \ {\n        val -= data[idx];\n        res += mask;\n      }\n    }\n    return\
-    \ res;\n  }\n\n private:\n  const int n;\n  const Abelian ID;\n  std::vector<Abelian>\
-    \ data;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n"
+    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n\n#include <bit>\n#include\
+    \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename Abelian>\nstruct FenwickTree\
+    \ {\n  explicit FenwickTree(const int n, const Abelian ID = 0)\n      : n(n),\
+    \ ID(ID), data(n, ID) {}\n\n  void add(int idx, const Abelian val) {\n    for\
+    \ (; idx < n; idx |= idx + 1) {\n      data[idx] += val;\n    }\n  }\n\n  Abelian\
+    \ sum(int idx) const {\n    Abelian res = ID;\n    for (--idx; idx >= 0; idx =\
+    \ (idx & (idx + 1)) - 1) {\n      res += data[idx];\n    }\n    return res;\n\
+    \  }\n\n  Abelian sum(const int left, const int right) const {\n    return left\
+    \ < right ? sum(right) - sum(left) : ID;\n  }\n\n  Abelian operator[](const int\
+    \ idx) const { return sum(idx, idx + 1); }\n\n  int lower_bound(Abelian val) const\
+    \ {\n    if (val <= ID) [[unlikely]] return 0;\n    int res = 0;\n    for (int\
+    \ mask = std::bit_ceil(static_cast<unsigned int>(n + 1)) >> 1;\n         mask\
+    \ > 0; mask >>= 1) {\n      const int idx = res + mask - 1;\n      if (idx < n\
+    \ && data[idx] < val) {\n        val -= data[idx];\n        res += mask;\n   \
+    \   }\n    }\n    return res;\n  }\n\n private:\n  const int n;\n  const Abelian\
+    \ ID;\n  std::vector<Abelian> data;\n};\n\n}  // namespace emthrm\n\n#endif  //\
+    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n"
   code: "/**\n * @brief Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
     \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n#define\
-    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename Abelian>\nstruct FenwickTree {\n  explicit\
-    \ FenwickTree(const int n, const Abelian ID = 0)\n      : n(n), ID(ID), data(n,\
-    \ ID) {}\n\n  void add(int idx, const Abelian val) {\n    for (; idx < n; idx\
-    \ |= idx + 1) {\n      data[idx] += val;\n    }\n  }\n\n  Abelian sum(int idx)\
-    \ const {\n    Abelian res = ID;\n    for (--idx; idx >= 0; idx = (idx & (idx\
-    \ + 1)) - 1) {\n      res += data[idx];\n    }\n    return res;\n  }\n\n  Abelian\
-    \ sum(const int left, const int right) const {\n    return left < right ? sum(right)\
-    \ - sum(left) : ID;\n  }\n\n  Abelian operator[](const int idx) const { return\
-    \ sum(idx, idx + 1); }\n\n  int lower_bound(Abelian val) const {\n    if (val\
-    \ <= ID) return 0;\n    int res = 0, exponent = 1;\n    while (exponent <= n)\
-    \ exponent <<= 1;\n    for (int mask = exponent >> 1; mask > 0; mask >>= 1) {\n\
-    \      const int idx = res + mask - 1;\n      if (idx < n && data[idx] < val)\
-    \ {\n        val -= data[idx];\n        res += mask;\n      }\n    }\n    return\
-    \ res;\n  }\n\n private:\n  const int n;\n  const Abelian ID;\n  std::vector<Abelian>\
-    \ data;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n"
+    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n\n#include <bit>\n#include\
+    \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename Abelian>\nstruct FenwickTree\
+    \ {\n  explicit FenwickTree(const int n, const Abelian ID = 0)\n      : n(n),\
+    \ ID(ID), data(n, ID) {}\n\n  void add(int idx, const Abelian val) {\n    for\
+    \ (; idx < n; idx |= idx + 1) {\n      data[idx] += val;\n    }\n  }\n\n  Abelian\
+    \ sum(int idx) const {\n    Abelian res = ID;\n    for (--idx; idx >= 0; idx =\
+    \ (idx & (idx + 1)) - 1) {\n      res += data[idx];\n    }\n    return res;\n\
+    \  }\n\n  Abelian sum(const int left, const int right) const {\n    return left\
+    \ < right ? sum(right) - sum(left) : ID;\n  }\n\n  Abelian operator[](const int\
+    \ idx) const { return sum(idx, idx + 1); }\n\n  int lower_bound(Abelian val) const\
+    \ {\n    if (val <= ID) [[unlikely]] return 0;\n    int res = 0;\n    for (int\
+    \ mask = std::bit_ceil(static_cast<unsigned int>(n + 1)) >> 1;\n         mask\
+    \ > 0; mask >>= 1) {\n      const int idx = res + mask - 1;\n      if (idx < n\
+    \ && data[idx] < val) {\n        val -= data[idx];\n        res += mask;\n   \
+    \   }\n    }\n    return res;\n  }\n\n private:\n  const int n;\n  const Abelian\
+    \ ID;\n  std::vector<Abelian> data;\n};\n\n}  // namespace emthrm\n\n#endif  //\
+    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_FENWICK_TREE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
   requiredBy:
   - include/emthrm/misc/inversion_number.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp

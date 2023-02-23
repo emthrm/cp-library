@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/longest_common_prefix.hpp
     title: longest common prefix
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/suffix_array.hpp
     title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (suffix array)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
@@ -44,8 +44,8 @@ data:
   isVerificationFile: true
   path: test/string/longest_common_prefix.test.cpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/longest_common_prefix.test.cpp
 layout: document

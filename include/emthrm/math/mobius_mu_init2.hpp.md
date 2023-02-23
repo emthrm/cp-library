@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/mobius_mu.md
     document_title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
@@ -32,20 +32,19 @@ data:
     \ mobius_mu_init2(const long long low, const long long high) {\n  std::vector<int>\
     \ mu(high - low, 1);\n  std::vector<long long> tmp(high - low);\n  std::iota(tmp.begin(),\
     \ tmp.end(), low);\n  if (low == 0 && high > 0) mu[0] = 0;\n  long long root =\
-    \ 1;\n  while ((root + 1) * (root + 1) < high) ++root;\n  for (const int p : prime_sieve(root,\
-    \ true)) {\n    for (long long i = (low + p - 1) / p * p; i < high; i += p) {\n\
-    \      if ((i / p) % p == 0) {\n        mu[i - low] = tmp[i - low] = 0;\n    \
-    \  } else {\n        mu[i - low] = -mu[i - low];\n        tmp[i - low] /= p;\n\
-    \      }\n    }\n  }\n  for (int i = 0; i < high - low; ++i) {\n    if (tmp[i]\
-    \ > 1) mu[i] = -mu[i];\n  }\n  return mu;\n}\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_MATH_MOBIUS_MU_INIT2_HPP_\n"
+    \ 1;\n  while ((root + 1) * (root + 1) < high) ++root;\n  for (const int p : prime_sieve<true>(root))\
+    \ {\n    for (long long i = (low + p - 1) / p * p; i < high; i += p) {\n     \
+    \ if ((i / p) % p == 0) {\n        mu[i - low] = tmp[i - low] = 0;\n      } else\
+    \ {\n        mu[i - low] = -mu[i - low];\n        tmp[i - low] /= p;\n      }\n\
+    \    }\n  }\n  for (int i = 0; i < high - low; ++i) {\n    if (tmp[i] > 1) mu[i]\
+    \ = -mu[i];\n  }\n  return mu;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MOBIUS_MU_INIT2_HPP_\n"
   dependsOn:
   - include/emthrm/math/prime_sieve.hpp
   isVerificationFile: false
   path: include/emthrm/math/mobius_mu_init2.hpp
   requiredBy: []
-  timestamp: '2023-02-23 01:44:48+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/mobius_mu_init2.test.cpp
 documentation_of: include/emthrm/math/mobius_mu_init2.hpp

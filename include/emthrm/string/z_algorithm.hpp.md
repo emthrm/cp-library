@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/z_algorithm.test.cpp
     title: "\u6587\u5B57\u5217/Z algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/z_algorithm.hpp\"\n\n\n\n#include\
@@ -32,7 +32,7 @@ data:
   path: include/emthrm/string/z_algorithm.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/z_algorithm.test.cpp
 documentation_of: include/emthrm/string/z_algorithm.hpp

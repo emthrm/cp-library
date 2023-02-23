@@ -51,30 +51,30 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
       \u306E\u76F8\u4E57"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/math/convolution/number_theoretic_transform.md
     document_title: "\u6570\u8AD6\u5909\u63DB"
@@ -85,70 +85,66 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/convolution/number_theoretic_transform.hpp: line 15: unable\
+    \ include/emthrm/math/convolution/number_theoretic_transform.hpp: line 16: unable\
     \ to process #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u6570\u8AD6\u5909\u63DB\n * @docs docs/math/convolution/number_theoretic_transform.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_\n#define\
     \ EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <iterator>\n#include <utility>\n#include <vector>\n\
-    \n#include \"emthrm/math/modint.hpp\"\n\n#if !defined(__GNUC__) && \\\n    (!defined(__has_builtin)\
-    \ || !__has_builtin(__builtin_popcount) \\\n                             || !__has_builtin(__builtin_ctz))\n\
-    # error \"GCC built-in functions are required.\"\n#endif\n\nnamespace emthrm {\n\
+    #include <bit>\n#include <cassert>\n#include <iterator>\n#include <utility>\n\
+    #include <vector>\n\n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\
     \ntemplate <int T>\nstruct NumberTheoreticTransform {\n  using ModInt = MInt<T>;\n\
     \n  NumberTheoreticTransform() {\n    for (int i = 0; i < 23; ++i) {\n      if\
-    \ (primes[i][0] == ModInt::get_mod()) {\n        n_max = 1 << primes[i][2];\n\
+    \ (primes[i][0] == ModInt::get_mod()) [[unlikely]] {\n        n_max = 1 << primes[i][2];\n\
     \        root = ModInt(primes[i][1]).pow((primes[i][0] - 1) >> primes[i][2]);\n\
     \        return;\n      }\n    }\n    assert(false);\n  }\n\n  template <typename\
-    \ U>\n  std::vector<ModInt> dft(const std::vector<U>& a) {\n    const int n =\
-    \ a.size();\n    int lg = 1;\n    while ((1 << lg) < n) ++lg;\n    std::vector<ModInt>\
-    \ b(1 << lg, 0);\n    std::copy(a.begin(), a.end(), b.begin());\n    calc(&b);\n\
-    \    return b;\n  }\n\n  void idft(std::vector<ModInt>* a) {\n    const int n\
-    \ = a->size();\n    assert(__builtin_popcount(n) == 1);\n    calc(a);\n    std::reverse(std::next(a->begin()),\
-    \ a->end());\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0; i\
-    \ < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
-    \  std::vector<ModInt> convolution(const std::vector<U>& a,\n                \
-    \                  const std::vector<U>& b) {\n    const int a_size = a.size(),\
-    \ b_size = b.size();\n    const int c_size = a_size + b_size - 1;\n    int lg\
-    \ = 1;\n    while ((1 << lg) < c_size) ++lg;\n    const int n = 1 << lg;\n   \
-    \ std::vector<ModInt> c(n, 0), d(n, 0);\n    std::copy(a.begin(), a.end(), c.begin());\n\
-    \    calc(&c);\n    std::copy(b.begin(), b.end(), d.begin());\n    calc(&d);\n\
-    \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
-    \    c.resize(c_size);\n    return c;\n  }\n\n private:\n  const int primes[23][3]{\n\
-    \    {16957441, 329, 14},\n    {17006593, 26, 15},\n    {19529729, 770, 17},\n\
-    \    {167772161, 3, 25},\n    {469762049, 3, 26},\n    {645922817, 3, 23},\n \
-    \   {897581057, 3, 23},\n    {924844033, 5, 21},\n    {935329793, 3, 22},\n  \
-    \  {943718401, 7, 22},\n    {950009857, 7, 21},\n    {962592769, 7, 21},\n   \
-    \ {975175681, 17, 21},\n    {976224257, 3, 20},\n    {985661441, 3, 22},\n   \
-    \ {998244353, 3, 23},\n    {1004535809, 3, 21},\n    {1007681537, 3, 20},\n  \
-    \  {1012924417, 5, 21},\n    {1045430273, 3, 20},\n    {1051721729, 6, 20},\n\
-    \    {1053818881, 7, 20},\n    {1224736769, 3, 24}\n  };\n\n  int n_max;\n  ModInt\
-    \ root;\n  std::vector<int> butterfly{0};\n  std::vector<std::vector<ModInt>>\
-    \ omega{{1}};\n\n  void calc(std::vector<ModInt>* a) {\n    const int n = a->size(),\
-    \ prev_n = butterfly.size();\n    if (n > prev_n) {\n      assert(n <= n_max);\n\
-    \      butterfly.resize(n);\n      const int prev_lg = omega.size(), lg = __builtin_ctz(n);\n\
-    \      for (int i = 1; i < prev_n; ++i) {\n        butterfly[i] <<= lg - prev_lg;\n\
-    \      }\n      for (int i = prev_n; i < n; ++i) {\n        butterfly[i] = (butterfly[i\
-    \ >> 1] >> 1) | ((i & 1) << (lg - 1));\n      }\n      omega.resize(lg);\n   \
-    \   for (int i = prev_lg; i < lg; ++i) {\n        omega[i].resize(1 << i);\n \
-    \       const ModInt tmp = root.pow((ModInt::get_mod() - 1) >> (i + 1));\n   \
-    \     for (int j = 0; j < (1 << (i - 1)); ++j) {\n          omega[i][j << 1] =\
-    \ omega[i - 1][j];\n          omega[i][(j << 1) + 1] = omega[i - 1][j] * tmp;\n\
-    \        }\n      }\n    }\n    const int shift = __builtin_ctz(butterfly.size())\
-    \ - __builtin_ctz(n);\n    for (int i = 0; i < n; ++i) {\n      const int j =\
-    \ butterfly[i] >> shift;\n      if (i < j) std::swap((*a)[i], (*a)[j]);\n    }\n\
-    \    for (int block = 1, den = 0; block < n; block <<= 1, ++den) {\n      for\
-    \ (int i = 0; i < n; i += (block << 1)) {\n        for (int j = 0; j < block;\
-    \ ++j) {\n          const ModInt tmp = (*a)[i + j + block] * omega[den][j];\n\
-    \          (*a)[i + j + block] = (*a)[i + j] - tmp;\n          (*a)[i + j] +=\
-    \ tmp;\n        }\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_\n"
+    \ U>\n  std::vector<ModInt> dft(const std::vector<U>& a) {\n    std::vector<ModInt>\
+    \ b(std::bit_ceil(a.size()), 0);\n    std::copy(a.begin(), a.end(), b.begin());\n\
+    \    calc(&b);\n    return b;\n  }\n\n  void idft(std::vector<ModInt>* a) {\n\
+    \    assert(std::has_single_bit(a->size()));\n    calc(a);\n    std::reverse(std::next(a->begin()),\
+    \ a->end());\n    const int n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n\
+    \    for (int i = 0; i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template\
+    \ <typename U>\n  std::vector<ModInt> convolution(const std::vector<U>& a,\n \
+    \                                 const std::vector<U>& b) {\n    const int a_size\
+    \ = a.size(), b_size = b.size();\n    const int c_size = a_size + b_size - 1;\n\
+    \    const int n = std::bit_ceil(static_cast<unsigned int>(c_size));\n    std::vector<ModInt>\
+    \ c(n, 0), d(n, 0);\n    std::copy(a.begin(), a.end(), c.begin());\n    calc(&c);\n\
+    \    std::copy(b.begin(), b.end(), d.begin());\n    calc(&d);\n    for (int i\
+    \ = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n    c.resize(c_size);\n\
+    \    return c;\n  }\n\n private:\n  const int primes[23][3]{\n    {16957441, 329,\
+    \ 14},\n    {17006593, 26, 15},\n    {19529729, 770, 17},\n    {167772161, 3,\
+    \ 25},\n    {469762049, 3, 26},\n    {645922817, 3, 23},\n    {897581057, 3, 23},\n\
+    \    {924844033, 5, 21},\n    {935329793, 3, 22},\n    {943718401, 7, 22},\n \
+    \   {950009857, 7, 21},\n    {962592769, 7, 21},\n    {975175681, 17, 21},\n \
+    \   {976224257, 3, 20},\n    {985661441, 3, 22},\n    {998244353, 3, 23},\n  \
+    \  {1004535809, 3, 21},\n    {1007681537, 3, 20},\n    {1012924417, 5, 21},\n\
+    \    {1045430273, 3, 20},\n    {1051721729, 6, 20},\n    {1053818881, 7, 20},\n\
+    \    {1224736769, 3, 24}\n  };\n\n  int n_max;\n  ModInt root;\n  std::vector<int>\
+    \ butterfly{0};\n  std::vector<std::vector<ModInt>> omega{{1}};\n\n  void calc(std::vector<ModInt>*\
+    \ a) {\n    const int n = a->size(), prev_n = butterfly.size();\n    if (n > prev_n)\
+    \ {\n      assert(n <= n_max);\n      butterfly.resize(n);\n      const int prev_lg\
+    \ = omega.size(), lg = std::countr_zero(a->size());\n      for (int i = 1; i <\
+    \ prev_n; ++i) {\n        butterfly[i] <<= lg - prev_lg;\n      }\n      for (int\
+    \ i = prev_n; i < n; ++i) {\n        butterfly[i] = (butterfly[i >> 1] >> 1) |\
+    \ ((i & 1) << (lg - 1));\n      }\n      omega.resize(lg);\n      for (int i =\
+    \ prev_lg; i < lg; ++i) {\n        omega[i].resize(1 << i);\n        const ModInt\
+    \ tmp = root.pow((ModInt::get_mod() - 1) >> (i + 1));\n        for (int j = 0;\
+    \ j < (1 << (i - 1)); ++j) {\n          omega[i][j << 1] = omega[i - 1][j];\n\
+    \          omega[i][(j << 1) + 1] = omega[i - 1][j] * tmp;\n        }\n      }\n\
+    \    }\n    const int shift =\n        std::countr_zero(butterfly.size()) - std::countr_zero(a->size());\n\
+    \    for (int i = 0; i < n; ++i) {\n      const int j = butterfly[i] >> shift;\n\
+    \      if (i < j) std::swap((*a)[i], (*a)[j]);\n    }\n    for (int block = 1,\
+    \ den = 0; block < n; block <<= 1, ++den) {\n      for (int i = 0; i < n; i +=\
+    \ (block << 1)) {\n        for (int j = 0; j < block; ++j) {\n          const\
+    \ ModInt tmp = (*a)[i + j + block] * omega[den][j];\n          (*a)[i + j + block]\
+    \ = (*a)[i + j] - tmp;\n          (*a)[i + j] += tmp;\n        }\n      }\n  \
+    \  }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   isVerificationFile: false
   path: include/emthrm/math/convolution/number_theoretic_transform.hpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
@@ -225,9 +221,9 @@ struct NumberTheoreticTransform;
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <int T> std::vector<MInt<T>>`<br>`mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b, const int pre = 15);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`pre` は精度を表す。|
+|`template <int PRECISION = 15, int T>`<br>`std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`PRECISION` は精度を表す。|
 
-e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$。
+e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$
 
 
 ## 参考文献

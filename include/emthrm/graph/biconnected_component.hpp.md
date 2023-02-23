@@ -30,36 +30,36 @@ data:
   code: "#ifndef EMTHRM_GRAPH_BICONNECTED_COMPONENT_HPP_\n#define EMTHRM_GRAPH_BICONNECTED_COMPONENT_HPP_\n\
     \n// #include <algorithm>\n#include <set>\n#include <utility>\n#include <vector>\n\
     \n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/lowlink.hpp\"\n\n\
-    namespace emthrm {\n\ntemplate <typename CostType>\nstruct BiconnectedComponent\
-    \ : Lowlink<CostType> {\n  std::vector<int> id;\n  std::vector<std::vector<int>>\
+    namespace emthrm {\n\ntemplate <typename CostType, bool IS_FULL_VER = false>\n\
+    struct BiconnectedComponent : Lowlink<CostType> {\n  std::vector<int> id;\n  std::vector<std::vector<int>>\
     \ vertices, cutpoint;\n  std::vector<std::vector<Edge<CostType>>> block;\n\n \
     \ explicit BiconnectedComponent(\n      const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\n      const bool is_full_ver = false)\n      : Lowlink<CostType>(graph),\
-    \ is_full_ver(is_full_ver) {\n    const int n = graph.size();\n    id.assign(n,\
-    \ -2);\n    if (is_full_ver) {\n      cutpoint.resize(n);\n      is_articulation_point.assign(n,\
-    \ false);\n      for (const int articulation_point : this->articulation_points)\
-    \ {\n        is_articulation_point[articulation_point] = true;\n      }\n    }\n\
-    \    for (int i = 0; i < n; ++i) {\n      if (id[i] == -2) dfs(-1, i);\n    }\n\
-    \    // const int m = vertices.size();\n    // for (int i = 0; i < m; ++i) {\n\
-    \    //   std::sort(block[i].begin(), block[i].end());\n    // }\n    // if (is_full_ver)\
-    \ {\n    //   for (int i = 0; i < m; ++i) {\n    //     std::sort(vertices[i].begin(),\
-    \ vertices[i].end());\n    //   }\n    //   for (int i = 0; i < n; ++i) {\n  \
-    \  //     std::sort(cutpoint[i].begin(), cutpoint[i].end());\n    //   }\n   \
-    \ // }\n  }\n\n private:\n  const bool is_full_ver;\n  std::vector<bool> is_articulation_point;\n\
-    \  std::vector<Edge<CostType>> tmp;\n\n  void dfs(const int par, const int ver)\
-    \ {\n    id[ver] = -1;\n    for (const Edge<CostType>& e : this->graph[ver]) {\n\
-    \      if (e.dst == par) continue;\n      int src = ver, dst = e.dst;\n      if\
-    \ (src > dst) std::swap(src, dst);\n      if (id[e.dst] == -2 || this->order[e.dst]\
-    \ < this->order[ver]) {\n        tmp.emplace_back(src, dst, e.cost);\n      }\n\
-    \      if (id[e.dst] == -2) {\n        dfs(ver, e.dst);\n        if (this->lowlink[e.dst]\
-    \ >= this->order[ver]) {\n          const int idx = block.size();\n          block.emplace_back();\n\
+    \ graph)\n      : Lowlink<CostType>(graph) {\n    const int n = graph.size();\n\
+    \    id.assign(n, -2);\n    if constexpr (IS_FULL_VER) {\n      cutpoint.resize(n);\n\
+    \      is_articulation_point.assign(n, false);\n      for (const int articulation_point\
+    \ : this->articulation_points) {\n        is_articulation_point[articulation_point]\
+    \ = true;\n      }\n    }\n    for (int i = 0; i < n; ++i) {\n      if (id[i]\
+    \ == -2) dfs(-1, i);\n    }\n    // const int m = vertices.size();\n    // for\
+    \ (int i = 0; i < m; ++i) {\n    //   std::sort(block[i].begin(), block[i].end());\n\
+    \    // }\n    // if constexpr (IS_FULL_VER) {\n    //   for (int i = 0; i < m;\
+    \ ++i) {\n    //     std::sort(vertices[i].begin(), vertices[i].end());\n    //\
+    \   }\n    //   for (int i = 0; i < n; ++i) {\n    //     std::sort(cutpoint[i].begin(),\
+    \ cutpoint[i].end());\n    //   }\n    // }\n  }\n\n private:\n  std::vector<bool>\
+    \ is_articulation_point;\n  std::vector<Edge<CostType>> tmp;\n\n  void dfs(const\
+    \ int par, const int ver) {\n    id[ver] = -1;\n    for (const Edge<CostType>&\
+    \ e : this->graph[ver]) {\n      if (e.dst == par) [[unlikely]] continue;\n  \
+    \    int src = ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n\
+    \      if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver]) {\n     \
+    \   tmp.emplace_back(src, dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n\
+    \        dfs(ver, e.dst);\n        if (this->lowlink[e.dst] >= this->order[ver])\
+    \ {\n          const int idx = block.size();\n          block.emplace_back();\n\
     \          std::set<int> st;\n          while (true) {\n            const Edge<CostType>\
     \ edge = tmp.back();\n            tmp.pop_back();\n            block.back().emplace_back(edge);\n\
-    \            if (is_full_ver) {\n              st.emplace(edge.src);\n       \
-    \       st.emplace(edge.dst);\n            }\n            if (edge.src == src\
-    \ && edge.dst == dst) break;\n          }\n          if (is_full_ver) {\n    \
-    \        vertices.emplace_back();\n            for (const int el : st) {\n   \
-    \           vertices.back().emplace_back(el);\n              if (is_articulation_point[el])\
+    \            if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
+    \              st.emplace(edge.dst);\n            }\n            if (edge.src\
+    \ == src && edge.dst == dst) break;\n          }\n          if constexpr (IS_FULL_VER)\
+    \ {\n            vertices.emplace_back();\n            for (const int el : st)\
+    \ {\n              vertices.back().emplace_back(el);\n              if (is_articulation_point[el])\
     \ {\n                cutpoint[el].emplace_back(idx);\n              } else {\n\
     \                id[el] = idx;\n              }\n            }\n          }\n\
     \        }\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_BICONNECTED_COMPONENT_HPP_\n"
@@ -69,7 +69,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/biconnected_component.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/biconnected_component.test.cpp
@@ -108,11 +108,12 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 ## 仕様
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct BiconnectedComponent : Lowlink<CostType>;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -127,7 +128,7 @@ struct BiconnectedComponent : Lowlink<CostType>;
 
 |名前|効果|
 |:--|:--|
-|`explicit BiconnectedComponent(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit BiconnectedComponent(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

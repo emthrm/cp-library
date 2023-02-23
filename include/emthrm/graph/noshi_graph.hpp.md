@@ -24,21 +24,21 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_NOSHI_GRAPH_HPP_\n#define EMTHRM_GRAPH_NOSHI_GRAPH_HPP_\n\
-    \n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename CostType>\nstruct NoshiGraph {\n  std::vector<std::vector<Edge<CostType>>>\
-    \ graph;\n\n  explicit NoshiGraph(const int n) : p2(1) {\n    while (p2 < n) p2\
-    \ <<= 1;\n    const int dbl = p2 << 1, hlf = p2 >> 1;\n    graph.resize(dbl +\
-    \ p2);\n    for (int i = 1; i < hlf; ++i) {\n      add_edge(i + p2, (i << 1) +\
-    \ p2);\n      add_edge(i + p2, (i << 1) + 1 + p2);\n      add_edge((i << 1) +\
-    \ dbl, i + dbl);\n      add_edge((i << 1) + 1 + dbl, i + dbl);\n    }\n    for\
+    \n#include <bit>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\n\
+    namespace emthrm {\n\ntemplate <typename CostType>\nstruct NoshiGraph {\n  std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n\n  explicit NoshiGraph(const int n)\n      : p2(std::bit_ceil(static_cast<unsigned\
+    \ int>(n))) {\n    const int dbl = p2 << 1, hlf = p2 >> 1;\n    graph.resize(dbl\
+    \ + p2);\n    for (int i = 1; i < hlf; ++i) {\n      add_edge(i + p2, (i << 1)\
+    \ + p2);\n      add_edge(i + p2, (i << 1) + 1 + p2);\n      add_edge((i << 1)\
+    \ + dbl, i + dbl);\n      add_edge((i << 1) + 1 + dbl, i + dbl);\n    }\n    for\
     \ (int src = p2 + hlf, dst = 0; dst < p2; ++src, dst += 2) {\n      add_edge(src,\
     \ dst);\n      add_edge(src, dst + 1);\n    }\n    for (int src = 0, dst = dbl\
     \ + hlf; src < p2; src += 2, ++dst) {\n      add_edge(src, dst);\n      add_edge(src\
     \ + 1, dst);\n    }\n  }\n\n  void add_edge(const int src, const int dst, const\
     \ CostType cost = 0) {\n    graph[src].emplace_back(src, dst, cost);\n  }\n\n\
     \  void add_edge(int src_l, int src_r, int dst_l, int dst_r,\n               \
-    \ const CostType cost) {\n    if (src_r <= src_l || dst_r <= dst_l) return;\n\
-    \    const int src_id = graph.size(), dst_id = src_id + 1;\n    graph.emplace_back();\n\
+    \ const CostType cost) {\n    if (src_r <= src_l || dst_r <= dst_l) [[unlikely]]\
+    \ return;\n    const int src_id = graph.size(), dst_id = src_id + 1;\n    graph.emplace_back();\n\
     \    graph.emplace_back();\n    if ((dst_l += p2) & 1) add_edge(dst_id, dst_l++\
     \ - p2);\n    if ((dst_r += p2) & 1) add_edge(dst_id, --dst_r - p2);\n    for\
     \ (dst_l >>= 1, dst_r >>= 1; dst_l < dst_r; dst_l >>= 1, dst_r >>= 1) {\n    \
@@ -48,13 +48,13 @@ data:
     \ - p2, src_id);\n    for (src_l >>= 1, src_r >>= 1; src_l < src_r; src_l >>=\
     \ 1, src_r >>= 1) {\n      if (src_l & 1) add_edge(src_l++ + (p2 << 1), src_id);\n\
     \      if (src_r & 1) add_edge(--src_r + (p2 << 1), src_id);\n    }\n  }\n\n private:\n\
-    \  int p2;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_NOSHI_GRAPH_HPP_\n"
+    \  const int p2;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_NOSHI_GRAPH_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/noshi_graph.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/noshi_graph.test.cpp

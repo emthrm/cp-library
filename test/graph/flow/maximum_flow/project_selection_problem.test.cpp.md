@@ -5,6 +5,9 @@ data:
     path: include/emthrm/graph/flow/maximum_flow/dinic.hpp
     title: "Dinic \u6CD5"
   - icon: ':heavy_check_mark:'
+    path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+    title: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
     title: project selection problem
   _extendedRequiredBy: []
@@ -46,10 +49,11 @@ data:
   dependsOn:
   - include/emthrm/graph/flow/maximum_flow/dinic.hpp
   - include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
+  - include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   isVerificationFile: true
   path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/maximum_flow/project_selection_problem.test.cpp

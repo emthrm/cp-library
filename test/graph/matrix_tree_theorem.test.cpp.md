@@ -10,7 +10,7 @@ data:
   - icon: ':x:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'
@@ -70,7 +70,7 @@ data:
   isVerificationFile: true
   path: test/graph/matrix_tree_theorem.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/matrix_tree_theorem.test.cpp

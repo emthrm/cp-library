@@ -25,26 +25,25 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/kruskal.hpp: line 12: unable to process #include in #if\
+    \ include/emthrm/graph/kruskal.hpp: line 13: unable to process #include in #if\
     \ / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief Kruskal \u6CD5\n * @docs docs/graph/minimum_spanning_tree.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_KRUSKAL_HPP_\n#define EMTHRM_GRAPH_KRUSKAL_HPP_\n\
-    \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/data_structure/union-find/union-find.hpp\"\
+    \n#include <algorithm>\n#include <ranges>\n#include <vector>\n\n#include \"emthrm/data_structure/union-find/union-find.hpp\"\
     \n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
     \ CostType>\nCostType kruskal(const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph) {\n  const int n = graph.size();\n  std::vector<Edge<CostType>> edges;\n\
-    \  for (int i = 0; i < n; ++i) {\n    for (const Edge<CostType>& e : graph[i])\
-    \ edges.emplace_back(e);\n  }\n  std::sort(edges.begin(), edges.end());\n  CostType\
-    \ res = 0;\n  UnionFind uf(n);\n  for (const Edge<CostType>& e : edges) {\n  \
-    \  if (uf.unite(e.src, e.dst)) res += e.cost;\n  }\n  return res;\n}\n\n}  //\
-    \ namespace emthrm\n\n#endif  // EMTHRM_GRAPH_KRUSKAL_HPP_\n"
+    \ graph) {\n  const int n = graph.size();\n  const auto jv = graph | std::views::join;\n\
+    \  std::vector<Edge<CostType>> edges(jv.begin(), jv.end());\n  std::ranges::sort(edges);\n\
+    \  CostType res = 0;\n  UnionFind uf(n);\n  for (const Edge<CostType>& e : edges)\
+    \ {\n    if (uf.unite(e.src, e.dst)) res += e.cost;\n  }\n  return res;\n}\n\n\
+    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_KRUSKAL_HPP_\n"
   dependsOn:
   - include/emthrm/data_structure/union-find/union-find.hpp
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/kruskal.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/kruskal.test.cpp

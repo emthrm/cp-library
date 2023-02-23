@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/misc/rotate.hpp
     title: "\u56DE\u8EE2 (rotation)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2953
@@ -29,7 +29,7 @@ data:
     \n#include \"emthrm/misc/rotate.hpp\"\n\nint main() {\n  int h, w;\n  std::cin\
     \ >> h >> w;\n  std::vector<std::vector<char>> c(h, std::vector<char>(w));\n \
     \ for (int i = 0; i < h; ++i) {\n    for (int j = 0; j < w; ++j) {\n      std::cin\
-    \ >> c[i][j];\n    }\n  }\n  c = emthrm::rotate(c, 45);\n  h = c.size();\n  w\
+    \ >> c[i][j];\n    }\n  }\n  c = emthrm::rotate<45>(c);\n  h = c.size();\n  w\
     \ = c.front().size();\n  int y_min = h, y_max = -1, x_min = w, x_max = -1;\n \
     \ for (int i = 0; i < h; ++i) {\n    for (int j = 0; j < w; ++j) {\n      if (c[i][j]\
     \ == 'B') {\n        y_min = std::min(y_min, i);\n        y_max = std::max(y_max,\
@@ -41,8 +41,8 @@ data:
   isVerificationFile: true
   path: test/misc/rotate.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/misc/rotate.test.cpp
 layout: document

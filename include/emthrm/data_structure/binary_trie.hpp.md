@@ -13,17 +13,17 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/binary_trie.hpp\"\n\n\n\n\
     #include <array>\n#include <cassert>\n#include <cstdint>\n#include <memory>\n\
-    #if __cplusplus >= 201703L\n# include <optional>\n#endif  // __cplusplus >= 201703L\n\
-    #include <utility>\n\nnamespace emthrm {\n\ntemplate <int B = 32, typename T =\
-    \ std::uint32_t>\nstruct BinaryTrie {\n  struct Node {\n    std::array<std::shared_ptr<Node>,\
-    \ 2> nxt;\n    int child;\n\n    Node() : nxt{nullptr, nullptr}, child(0) {}\n\
-    \  };\n\n  std::shared_ptr<Node> root;\n\n  BinaryTrie() : root(nullptr) {}\n\n\
-    \  void clear() { root.reset(); }\n\n  bool empty() const { return !root; }\n\n\
-    \  int size() const { return root ? root->child : 0; }\n\n  void erase(const T&\
-    \ x) {\n    if (root) erase(&root, x, B - 1);\n  }\n\n  std::shared_ptr<Node>\
-    \ find(const T& x) const {\n    if (!root) return nullptr;\n    std::shared_ptr<Node>\
-    \ node = root;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit\
-    \ = x >> b & 1;\n      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
+    #include <optional>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <int\
+    \ B = 32, typename T = std::uint32_t>\nstruct BinaryTrie {\n  struct Node {\n\
+    \    std::array<std::shared_ptr<Node>, 2> nxt;\n    int child;\n\n    Node() :\
+    \ nxt{nullptr, nullptr}, child(0) {}\n  };\n\n  std::shared_ptr<Node> root;\n\n\
+    \  BinaryTrie() : root(nullptr) {}\n\n  void clear() { root.reset(); }\n\n  bool\
+    \ empty() const { return !root; }\n\n  int size() const { return root ? root->child\
+    \ : 0; }\n\n  void erase(const T& x) {\n    if (root) [[likely]] erase(&root,\
+    \ x, B - 1);\n  }\n\n  std::shared_ptr<Node> find(const T& x) const {\n    if\
+    \ (!root) [[unlikely]] return nullptr;\n    std::shared_ptr<Node> node = root;\n\
+    \    for (int b = B - 1; b >= 0; --b) {\n      const bool digit = x >> b & 1;\n\
+    \      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
     \    }\n    return node;\n  }\n\n  std::pair<std::shared_ptr<Node>, T> operator[](const\
     \ int n) const {\n    return find_nth(n, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
     \ T> find_nth(int n, const T& x) const {\n    assert(0 <= n && n < size());\n\
@@ -32,53 +32,49 @@ data:
     \ (node->nxt[digit] ? node->nxt[digit]->child : 0);\n      if (n >= l_child) {\n\
     \        n -= l_child;\n        digit = !digit;\n      }\n      node = node->nxt[digit];\n\
     \      if (digit) res |= static_cast<T>(1) << b;\n    }\n    return {node, res};\n\
-    \  }\n\n  std::shared_ptr<Node> insert(const T& x) {\n    if (!root) root = std::make_shared<Node>();\n\
-    \    std::shared_ptr<Node> node = root;\n    ++node->child;\n    for (int b =\
-    \ B - 1; b >= 0; --b) {\n      const bool digit = x >> b & 1;\n      if (!node->nxt[digit])\
-    \ node->nxt[digit] = std::make_shared<Node>();\n      node = node->nxt[digit];\n\
-    \      ++node->child;\n    }\n    return node;\n  }\n\n  int less_than(const T&\
-    \ x) const {\n    int res = 0;\n    std::shared_ptr<Node> node = root;\n    for\
-    \ (int b = B - 1; node && b >= 0; --b) {\n      const bool digit = x >> b & 1;\n\
-    \      if (digit && node->nxt[0]) res += node->nxt[0]->child;\n      node = node->nxt[digit];\n\
-    \    }\n    return res;\n  }\n\n  int count(const T& l, const T& r) const {\n\
-    \    return less_than(r) - less_than(l);\n  }\n\n  int count(const T& x) const\
-    \ {\n    const std::shared_ptr<Node> ptr = find(x);\n    return ptr ? ptr->child\
-    \ : 0;\n  }\n\n#if __cplusplus >= 201703L\n  std::pair<std::shared_ptr<Node>,\
-    \ std::optional<T>> lower_bound(\n      const T& x) const {\n    const int lt\
-    \ = less_than(x);\n    if (lt == size()) return std::make_pair(nullptr, std::nullopt);\n\
-    \    const auto [node, value] = find_nth(lt, 0);\n    return std::make_pair(node,\
-    \ std::make_optional(value));\n  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
-    \ upper_bound(\n      const T& x) const {\n    return lower_bound(x + 1);\n  }\n\
-    #else\n  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {\n\
-    \    const int lt = less_than(x);\n    return lt == size() ? std::make_pair(nullptr,\
-    \ -1) : find_nth(lt, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>, T> upper_bound(const\
-    \ T& x) const {\n    return lower_bound(x + 1);\n  }\n#endif  // __cplusplus >=\
-    \ 201703L\n\n  std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0)\
-    \ const {\n    return min_element(~x);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
-    \ T> min_element(const T& x = 0) const {\n    assert(root);\n    std::shared_ptr<Node>\
-    \ node = root;\n    T res = 0;\n    for (int b = B - 1; b >= 0; --b) {\n     \
-    \ bool digit = x >> b & 1;\n      if (!node->nxt[digit]) digit = !digit;\n   \
-    \   node = node->nxt[digit];\n      if (digit) res |= static_cast<T>(1) << b;\n\
-    \    }\n    return {node, res};\n  }\n\n private:\n  void erase(std::shared_ptr<Node>*\
-    \ node, const T& x, int b) {\n    if (b == -1) {\n      if (--(*node)->child ==\
-    \ 0) node->reset();\n      return;\n    }\n    const bool digit = x >> b & 1;\n\
-    \    if (!(*node)->nxt[digit]) return;\n    (*node)->child -= (*node)->nxt[digit]->child;\n\
-    \    erase(&(*node)->nxt[digit], x, b - 1);\n    if ((*node)->nxt[digit]) {\n\
-    \      (*node)->child += (*node)->nxt[digit]->child;\n    } else if ((*node)->child\
-    \ == 0) {\n      node->reset();\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+    \  }\n\n  std::shared_ptr<Node> insert(const T& x) {\n    if (!root) [[unlikely]]\
+    \ root = std::make_shared<Node>();\n    std::shared_ptr<Node> node = root;\n \
+    \   ++node->child;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit\
+    \ = x >> b & 1;\n      if (!node->nxt[digit]) node->nxt[digit] = std::make_shared<Node>();\n\
+    \      node = node->nxt[digit];\n      ++node->child;\n    }\n    return node;\n\
+    \  }\n\n  int less_than(const T& x) const {\n    int res = 0;\n    std::shared_ptr<Node>\
+    \ node = root;\n    for (int b = B - 1; node && b >= 0; --b) {\n      const bool\
+    \ digit = x >> b & 1;\n      if (digit && node->nxt[0]) res += node->nxt[0]->child;\n\
+    \      node = node->nxt[digit];\n    }\n    return res;\n  }\n\n  int count(const\
+    \ T& l, const T& r) const {\n    return less_than(r) - less_than(l);\n  }\n\n\
+    \  int count(const T& x) const {\n    const std::shared_ptr<Node> ptr = find(x);\n\
+    \    return ptr ? ptr->child : 0;\n  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
+    \ lower_bound(\n      const T& x) const {\n    const int lt = less_than(x);\n\
+    \    if (lt == size()) return std::make_pair(nullptr, std::nullopt);\n    const\
+    \ auto [node, value] = find_nth(lt, 0);\n    return std::make_pair(node, std::make_optional(value));\n\
+    \  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>> upper_bound(\n  \
+    \    const T& x) const {\n    return lower_bound(x + 1);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
+    \ T> max_element(const T& x = 0) const {\n    return min_element(~x);\n  }\n\n\
+    \  std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const {\n \
+    \   assert(root);\n    std::shared_ptr<Node> node = root;\n    T res = 0;\n  \
+    \  for (int b = B - 1; b >= 0; --b) {\n      bool digit = x >> b & 1;\n      if\
+    \ (!node->nxt[digit]) digit = !digit;\n      node = node->nxt[digit];\n      if\
+    \ (digit) res |= static_cast<T>(1) << b;\n    }\n    return {node, res};\n  }\n\
+    \n private:\n  void erase(std::shared_ptr<Node>* node, const T& x, int b) {\n\
+    \    if (b == -1) {\n      if (--(*node)->child == 0) node->reset();\n      return;\n\
+    \    }\n    const bool digit = x >> b & 1;\n    if (!(*node)->nxt[digit]) return;\n\
+    \    (*node)->child -= (*node)->nxt[digit]->child;\n    erase(&(*node)->nxt[digit],\
+    \ x, b - 1);\n    if ((*node)->nxt[digit]) {\n      (*node)->child += (*node)->nxt[digit]->child;\n\
+    \    } else if ((*node)->child == 0) {\n      node->reset();\n    }\n  }\n};\n\
+    \n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n#define EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n\
     \n#include <array>\n#include <cassert>\n#include <cstdint>\n#include <memory>\n\
-    #if __cplusplus >= 201703L\n# include <optional>\n#endif  // __cplusplus >= 201703L\n\
-    #include <utility>\n\nnamespace emthrm {\n\ntemplate <int B = 32, typename T =\
-    \ std::uint32_t>\nstruct BinaryTrie {\n  struct Node {\n    std::array<std::shared_ptr<Node>,\
-    \ 2> nxt;\n    int child;\n\n    Node() : nxt{nullptr, nullptr}, child(0) {}\n\
-    \  };\n\n  std::shared_ptr<Node> root;\n\n  BinaryTrie() : root(nullptr) {}\n\n\
-    \  void clear() { root.reset(); }\n\n  bool empty() const { return !root; }\n\n\
-    \  int size() const { return root ? root->child : 0; }\n\n  void erase(const T&\
-    \ x) {\n    if (root) erase(&root, x, B - 1);\n  }\n\n  std::shared_ptr<Node>\
-    \ find(const T& x) const {\n    if (!root) return nullptr;\n    std::shared_ptr<Node>\
-    \ node = root;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit\
-    \ = x >> b & 1;\n      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
+    #include <optional>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <int\
+    \ B = 32, typename T = std::uint32_t>\nstruct BinaryTrie {\n  struct Node {\n\
+    \    std::array<std::shared_ptr<Node>, 2> nxt;\n    int child;\n\n    Node() :\
+    \ nxt{nullptr, nullptr}, child(0) {}\n  };\n\n  std::shared_ptr<Node> root;\n\n\
+    \  BinaryTrie() : root(nullptr) {}\n\n  void clear() { root.reset(); }\n\n  bool\
+    \ empty() const { return !root; }\n\n  int size() const { return root ? root->child\
+    \ : 0; }\n\n  void erase(const T& x) {\n    if (root) [[likely]] erase(&root,\
+    \ x, B - 1);\n  }\n\n  std::shared_ptr<Node> find(const T& x) const {\n    if\
+    \ (!root) [[unlikely]] return nullptr;\n    std::shared_ptr<Node> node = root;\n\
+    \    for (int b = B - 1; b >= 0; --b) {\n      const bool digit = x >> b & 1;\n\
+    \      if (!node->nxt[digit]) return nullptr;\n      node = node->nxt[digit];\n\
     \    }\n    return node;\n  }\n\n  std::pair<std::shared_ptr<Node>, T> operator[](const\
     \ int n) const {\n    return find_nth(n, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
     \ T> find_nth(int n, const T& x) const {\n    assert(0 <= n && n < size());\n\
@@ -87,46 +83,41 @@ data:
     \ (node->nxt[digit] ? node->nxt[digit]->child : 0);\n      if (n >= l_child) {\n\
     \        n -= l_child;\n        digit = !digit;\n      }\n      node = node->nxt[digit];\n\
     \      if (digit) res |= static_cast<T>(1) << b;\n    }\n    return {node, res};\n\
-    \  }\n\n  std::shared_ptr<Node> insert(const T& x) {\n    if (!root) root = std::make_shared<Node>();\n\
-    \    std::shared_ptr<Node> node = root;\n    ++node->child;\n    for (int b =\
-    \ B - 1; b >= 0; --b) {\n      const bool digit = x >> b & 1;\n      if (!node->nxt[digit])\
-    \ node->nxt[digit] = std::make_shared<Node>();\n      node = node->nxt[digit];\n\
-    \      ++node->child;\n    }\n    return node;\n  }\n\n  int less_than(const T&\
-    \ x) const {\n    int res = 0;\n    std::shared_ptr<Node> node = root;\n    for\
-    \ (int b = B - 1; node && b >= 0; --b) {\n      const bool digit = x >> b & 1;\n\
-    \      if (digit && node->nxt[0]) res += node->nxt[0]->child;\n      node = node->nxt[digit];\n\
-    \    }\n    return res;\n  }\n\n  int count(const T& l, const T& r) const {\n\
-    \    return less_than(r) - less_than(l);\n  }\n\n  int count(const T& x) const\
-    \ {\n    const std::shared_ptr<Node> ptr = find(x);\n    return ptr ? ptr->child\
-    \ : 0;\n  }\n\n#if __cplusplus >= 201703L\n  std::pair<std::shared_ptr<Node>,\
-    \ std::optional<T>> lower_bound(\n      const T& x) const {\n    const int lt\
-    \ = less_than(x);\n    if (lt == size()) return std::make_pair(nullptr, std::nullopt);\n\
-    \    const auto [node, value] = find_nth(lt, 0);\n    return std::make_pair(node,\
-    \ std::make_optional(value));\n  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
-    \ upper_bound(\n      const T& x) const {\n    return lower_bound(x + 1);\n  }\n\
-    #else\n  std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const {\n\
-    \    const int lt = less_than(x);\n    return lt == size() ? std::make_pair(nullptr,\
-    \ -1) : find_nth(lt, 0);\n  }\n\n  std::pair<std::shared_ptr<Node>, T> upper_bound(const\
-    \ T& x) const {\n    return lower_bound(x + 1);\n  }\n#endif  // __cplusplus >=\
-    \ 201703L\n\n  std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0)\
-    \ const {\n    return min_element(~x);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
-    \ T> min_element(const T& x = 0) const {\n    assert(root);\n    std::shared_ptr<Node>\
-    \ node = root;\n    T res = 0;\n    for (int b = B - 1; b >= 0; --b) {\n     \
-    \ bool digit = x >> b & 1;\n      if (!node->nxt[digit]) digit = !digit;\n   \
-    \   node = node->nxt[digit];\n      if (digit) res |= static_cast<T>(1) << b;\n\
-    \    }\n    return {node, res};\n  }\n\n private:\n  void erase(std::shared_ptr<Node>*\
-    \ node, const T& x, int b) {\n    if (b == -1) {\n      if (--(*node)->child ==\
-    \ 0) node->reset();\n      return;\n    }\n    const bool digit = x >> b & 1;\n\
-    \    if (!(*node)->nxt[digit]) return;\n    (*node)->child -= (*node)->nxt[digit]->child;\n\
-    \    erase(&(*node)->nxt[digit], x, b - 1);\n    if ((*node)->nxt[digit]) {\n\
-    \      (*node)->child += (*node)->nxt[digit]->child;\n    } else if ((*node)->child\
-    \ == 0) {\n      node->reset();\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n"
+    \  }\n\n  std::shared_ptr<Node> insert(const T& x) {\n    if (!root) [[unlikely]]\
+    \ root = std::make_shared<Node>();\n    std::shared_ptr<Node> node = root;\n \
+    \   ++node->child;\n    for (int b = B - 1; b >= 0; --b) {\n      const bool digit\
+    \ = x >> b & 1;\n      if (!node->nxt[digit]) node->nxt[digit] = std::make_shared<Node>();\n\
+    \      node = node->nxt[digit];\n      ++node->child;\n    }\n    return node;\n\
+    \  }\n\n  int less_than(const T& x) const {\n    int res = 0;\n    std::shared_ptr<Node>\
+    \ node = root;\n    for (int b = B - 1; node && b >= 0; --b) {\n      const bool\
+    \ digit = x >> b & 1;\n      if (digit && node->nxt[0]) res += node->nxt[0]->child;\n\
+    \      node = node->nxt[digit];\n    }\n    return res;\n  }\n\n  int count(const\
+    \ T& l, const T& r) const {\n    return less_than(r) - less_than(l);\n  }\n\n\
+    \  int count(const T& x) const {\n    const std::shared_ptr<Node> ptr = find(x);\n\
+    \    return ptr ? ptr->child : 0;\n  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>>\
+    \ lower_bound(\n      const T& x) const {\n    const int lt = less_than(x);\n\
+    \    if (lt == size()) return std::make_pair(nullptr, std::nullopt);\n    const\
+    \ auto [node, value] = find_nth(lt, 0);\n    return std::make_pair(node, std::make_optional(value));\n\
+    \  }\n\n  std::pair<std::shared_ptr<Node>, std::optional<T>> upper_bound(\n  \
+    \    const T& x) const {\n    return lower_bound(x + 1);\n  }\n\n  std::pair<std::shared_ptr<Node>,\
+    \ T> max_element(const T& x = 0) const {\n    return min_element(~x);\n  }\n\n\
+    \  std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const {\n \
+    \   assert(root);\n    std::shared_ptr<Node> node = root;\n    T res = 0;\n  \
+    \  for (int b = B - 1; b >= 0; --b) {\n      bool digit = x >> b & 1;\n      if\
+    \ (!node->nxt[digit]) digit = !digit;\n      node = node->nxt[digit];\n      if\
+    \ (digit) res |= static_cast<T>(1) << b;\n    }\n    return {node, res};\n  }\n\
+    \n private:\n  void erase(std::shared_ptr<Node>* node, const T& x, int b) {\n\
+    \    if (b == -1) {\n      if (--(*node)->child == 0) node->reset();\n      return;\n\
+    \    }\n    const bool digit = x >> b & 1;\n    if (!(*node)->nxt[digit]) return;\n\
+    \    (*node)->child -= (*node)->nxt[digit]->child;\n    erase(&(*node)->nxt[digit],\
+    \ x, b - 1);\n    if ((*node)->nxt[digit]) {\n      (*node)->child += (*node)->nxt[digit]->child;\n\
+    \    } else if ((*node)->child == 0) {\n      node->reset();\n    }\n  }\n};\n\
+    \n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_BINARY_TRIE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/data_structure/binary_trie.hpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/binary_trie.test.cpp
@@ -161,26 +152,26 @@ struct BinaryTrie;
 
 #### メンバ関数
 
-|名前|効果・戻り値|備考|対応バージョン|
-|:--|:--|:--|:--|
-|`BinaryTrie();`|集合 $S \mathrel{:=} \emptyset$ を表すオブジェクトを構築する|||
-|`void clear();`|$S \gets \emptyset$|||
-|`bool empty() const;`|$S = \emptyset$ を満たすか。|||
-|`int size() const;`|$\lvert S \rvert$|||
-|`void erase(const T& x);`|$S \gets S \setminus \lbrace x \rbrace$|$x \notin S$ を満たすときは何もしない。||
-|`std::shared_ptr<Node> find(const T& x) const;`|$x$ を指すノード。ただし $x \notin S$ を満たすときは `nullptr` を返す。||
-|`std::pair<std::shared_ptr<Node>, T> operator[](const int n) const;`|$n$ 番目 (0-based) の要素を指すノードと値|||
-|`std::pair<std::shared_ptr<Node>, T> find_nth(int n, const T& x) const;`|$\lbrace s \oplus x \mid s \in S \rbrace$ における $n$ 番目 (0-based) の要素を表すノードと値|||
-|`std::shared_ptr<Node> insert(const T& x);`|$S \gets S \cup \lbrace x \rbrace$ の操作後、$x$ を表すノードを返す。|||
-|`int less_than(const T& x) const;`|$\lvert \lbrace s \in S \mid s < x \rbrace \rvert$|||
-|`int count(const T& l, const T& r) const;`|$\lvert \lbrace s \in S \mid l \leq x < r \rbrace \rvert$|||
-|`int count(const T& x) const;`|$\lvert \lbrace s \in S \mid s = x \rbrace \rvert$|||
-|`std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const;`|$x$ より小さくない最初の要素を表すノードと値。ただしそのような要素が存在しないときは (`nullptr`, $-1$) を返す。||C++14以前|
-|`std::pair<std::shared_ptr<Node>, std::optional<T>> lower_bound(const T& x) const;`|$x$ より小さくない最初の要素を表すノードと値。ただしそのような要素が存在しないときは `(nullptr, std::nullopt)` を返す。||C++17|
-|`std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const;`|$x$ より大きい最初の要素を表すノードと値。ただし存在しないときは (`nullptr`, $-1$) を返す。||C++14以前|
-|`std::pair<std::shared_ptr<Node>, std::optional<T>> upper_bound(const T& x) const;`|$x$ より大きい最初の要素を表すノードと値。ただし存在しないときは `(nullptr, std::nullopt)` を返す。||C++17|
-|`std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0) const;`|$\mathrm{argmax} \lbrace s \oplus x \mid s \in S \rbrace$|||
-|`std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const;`|$\mathrm{argmin} \lbrace s \oplus x \mid s \in S \rbrace$|||
+|名前|効果・戻り値|備考|
+|:--|:--|:--|
+|`BinaryTrie();`|集合 $S \mathrel{:=} \emptyset$ を表すオブジェクトを構築する||
+|`void clear();`|$S \gets \emptyset$||
+|`bool empty() const;`|$S = \emptyset$ を満たすか。||
+|`int size() const;`|$\lvert S \rvert$||
+|`void erase(const T& x);`|$S \gets S \setminus \lbrace x \rbrace$|$x \notin S$ を満たすときは何もしない。|
+|`std::shared_ptr<Node> find(const T& x) const;`|$x$ を指すノード。ただし $x \notin S$ を満たすときは `nullptr` を返す。|
+|`std::pair<std::shared_ptr<Node>, T> operator[](const int n) const;`|$n$ 番目 (0-based) の要素を指すノードと値||
+|`std::pair<std::shared_ptr<Node>, T> find_nth(int n, const T& x) const;`|$\lbrace s \oplus x \mid s \in S \rbrace$ における $n$ 番目 (0-based) の要素を表すノードと値||
+|`std::shared_ptr<Node> insert(const T& x);`|$S \gets S \cup \lbrace x \rbrace$ の操作後、$x$ を表すノードを返す。||
+|`int less_than(const T& x) const;`|$\lvert \lbrace s \in S \mid s < x \rbrace \rvert$||
+|`int count(const T& l, const T& r) const;`|$\lvert \lbrace s \in S \mid l \leq x < r \rbrace \rvert$||
+|`int count(const T& x) const;`|$\lvert \lbrace s \in S \mid s = x \rbrace \rvert$||
+|`std::pair<std::shared_ptr<Node>, T> lower_bound(const T& x) const;`|$x$ より小さくない最初の要素を表すノードと値。ただしそのような要素が存在しないときは (`nullptr`, $-1$) を返す。||
+|`std::pair<std::shared_ptr<Node>, std::optional<T>> lower_bound(const T& x) const;`|$x$ より小さくない最初の要素を表すノードと値。ただしそのような要素が存在しないときは `(nullptr, std::nullopt)` を返す。||
+|`std::pair<std::shared_ptr<Node>, T> upper_bound(const T& x) const;`|$x$ より大きい最初の要素を表すノードと値。ただし存在しないときは (`nullptr`, $-1$) を返す。||
+|`std::pair<std::shared_ptr<Node>, std::optional<T>> upper_bound(const T& x) const;`|$x$ より大きい最初の要素を表すノードと値。ただし存在しないときは `(nullptr, std::nullopt)` を返す。||
+|`std::pair<std::shared_ptr<Node>, T> max_element(const T& x = 0) const;`|$\mathrm{argmax} \lbrace s \oplus x \mid s \in S \rbrace$||
+|`std::pair<std::shared_ptr<Node>, T> min_element(const T& x = 0) const;`|$\mathrm{argmin} \lbrace s \oplus x \mid s \in S \rbrace$||
 
 #### メンバ型
 

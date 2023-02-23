@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_factorization.hpp
     title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A
@@ -29,17 +29,17 @@ data:
     \ <iostream>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/prime_factorization.hpp\"\
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  const std::vector<std::pair<int,\
     \ int>> ans = emthrm::prime_factorization(n);\n  std::cout << n << \": \";\n \
-    \ for (int i = 0; i < static_cast<int>(ans.size()); ++i) {\n    for (int j = 0;\
-    \ j < ans[i].second; ++j) {\n      std::cout << ans[i].first\n               \
-    \ << \" \\n\"[i + 1 == static_cast<int>(ans.size()) &&\n                     \
-    \    j + 1 == ans[i].second];\n    }\n  }\n  return 0;\n}\n"
+    \ for (int i = 0; std::cmp_less(i, ans.size()); ++i) {\n    for (int j = 0; j\
+    \ < ans[i].second; ++j) {\n      std::cout << ans[i].first\n                <<\
+    \ \" \\n\"[std::cmp_equal(i + 1, ans.size())\n                         && j +\
+    \ 1 == ans[i].second];\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/prime_factorization.hpp
   isVerificationFile: true
   path: test/math/prime_factorization.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/prime_factorization.test.cpp
 layout: document

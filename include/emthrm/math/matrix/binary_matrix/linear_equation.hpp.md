@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
     title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/binary_matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u9023\u7ACB\
       \u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
     document_title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\
@@ -40,7 +40,7 @@ data:
     \                                  const std::vector<bool>& b) {\n  const int\
     \ m = a.nrow(), n = a.ncol();\n  BinaryMatrix<N> c(m, n + 1);\n  for (int i =\
     \ 0; i < m; ++i) {\n    for (int j = 0; j < n; ++j) {\n      c[i][j] = a[i][j];\n\
-    \    }\n    c[i][n] = b[i];\n  }\n  const int rank = gauss_jordan(&c, true);\n\
+    \    }\n    c[i][n] = b[i];\n  }\n  const int rank = gauss_jordan<true>(&c);\n\
     \  for (int row = rank; row < m; ++row) {\n    if (c[row][n]) return std::vector<bool>{};\n\
     \  }\n  std::vector<bool> res(n, false);\n  for (int i = 0, j = -1; i < rank;\
     \ ++i) {\n    j = (i == 0 ? c[i]._Find_first() : c[i]._Find_next(j));\n    res[j]\
@@ -51,8 +51,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
@@ -95,7 +95,7 @@ struct BinaryMatrix;
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <int N>`<br>`int gauss_jordan(BinaryMatrix<N>* a, const bool is_extended = false);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
+|`template <bool IS_EXTENDED = false, int N>`<br>`int gauss_jordan(BinaryMatrix<N>* a);`|行列 $A$ のランク|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
 ### [連立一次方程式](../linear_equation.md)

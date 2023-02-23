@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 21:19:33+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp

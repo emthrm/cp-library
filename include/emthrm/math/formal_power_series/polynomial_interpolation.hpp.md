@@ -1,18 +1,18 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
     title: multipoint evaluation
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/lagrange_interpolation.md
     document_title: "\u591A\u9805\u5F0F\u88DC\u9593"
@@ -23,27 +23,27 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/formal_power_series/polynomial_interpolation.hpp: line 12:\
+    \ include/emthrm/math/formal_power_series/polynomial_interpolation.hpp: line 11:\
     \ unable to process #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u591A\u9805\u5F0F\u88DC\u9593\n * @docs docs/math/lagrange_interpolation.md\n\
     \ */\n\n#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_\n\
     #define EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_\n\n#include\
-    \ <functional>\n#include <vector>\n\n#include \"emthrm/math/formal_power_series/multipoint_evaluation.hpp\"\
+    \ <vector>\n\n#include \"emthrm/math/formal_power_series/multipoint_evaluation.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
     C<T> polynomial_interpolation(const std::vector<T>& x,\n                     \
     \         const std::vector<T>& y) {\n  MultipointEvaluation<C, T> m(x);\n  m.build(m.subproduct_tree[1].differential());\n\
-    \  const int n = x.size();\n  const std::function<C<T>(int)> f = [&y, &m, n, &f](const\
-    \ int node) -> C<T> {\n    return node >= n ? C<T>{y[node - n] / m.f_x[node -\
-    \ n]} :\n                       f(node << 1) * m.subproduct_tree[(node << 1) +\
-    \ 1]\n                       + f((node << 1) + 1) * m.subproduct_tree[node <<\
-    \ 1];\n  };\n  return f(1);\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_\n"
+    \  const int n = x.size();\n  const auto f = [&y, &m, n](auto f, const int node)\
+    \ -> C<T> {\n    return node >= n ? C<T>{y[node - n] / m.f_x[node - n]} :\n  \
+    \                     f(f, node << 1) * m.subproduct_tree[(node << 1) + 1]\n \
+    \                      + f(f, (node << 1) + 1) * m.subproduct_tree[node << 1];\n\
+    \  };\n  return f(f, 1);\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_\n"
   dependsOn:
   - include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/polynomial_interpolation.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/polynomial_interpolation.hpp

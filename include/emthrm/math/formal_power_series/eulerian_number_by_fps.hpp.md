@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -30,10 +30,10 @@ data:
     \ <vector>\n\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
     \n#include \"emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\ntemplate <int T>\n\
     std::vector<MInt<T>> eulerian_number_init_by_fps(const int n) {\n  using ModInt\
-    \ = MInt<T>;\n  if (n == 0) return {1};\n  ModInt::init(n + 1);\n  const int m\
-    \ = (n + 1) >> 1;\n  FormalPowerSeries<ModInt> a(m - 1), b(m - 1);\n  for (int\
-    \ i = 0; i < m; ++i) {\n    a[i] = ModInt(i + 1).pow(n);\n  }\n  for (int i =\
-    \ 0; i < m; ++i) {\n    b[i] = (i & 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i))\n\
+    \ = MInt<T>;\n  if (n == 0) [[unlikely]] return {1};\n  ModInt::init(n + 1);\n\
+    \  const int m = (n + 1) >> 1;\n  FormalPowerSeries<ModInt> a(m - 1), b(m - 1);\n\
+    \  for (int i = 0; i < m; ++i) {\n    a[i] = ModInt(i + 1).pow(n);\n  }\n  for\
+    \ (int i = 0; i < m; ++i) {\n    b[i] = (i & 1 ? -ModInt::fact_inv(i) : ModInt::fact_inv(i))\n\
     \           * ModInt::fact_inv(n + 1 - i);\n  }\n  a *= b;\n  a.resize(n);\n \
     \ for (int i = 0; i < m; ++i) {\n    a[i] *= ModInt::fact(n + 1);\n    a[n - 1\
     \ - i] = a[i];\n  }\n  return a.coef;\n}\n\n}  // namespace emthrm\n\n#endif \
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp

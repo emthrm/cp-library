@@ -22,32 +22,31 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/detect_directed_cycle.hpp: line 13: unable to process #include\
+    \ include/emthrm/graph/detect_directed_cycle.hpp: line 12: unable to process #include\
     \ in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA\n * @docs docs/graph/detect_walk.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_\n#define EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_\n\
-    \n#include <algorithm>\n#include <functional>\n#include <vector>\n\n#include \"\
-    emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename CostType>\n\
-    std::vector<Edge<CostType>> detect_directed_cycle(\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>>\
+    \ detect_directed_cycle(\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph) {\n  const int n = graph.size();\n  std::vector<int> is_visited(n, 0);\n\
-    \  std::vector<Edge<CostType>> edges, cycle;\n  const std::function<bool(int)>\
-    \ dfs =\n      [&graph, &is_visited, &edges, &cycle, &dfs](const int ver) -> bool\
-    \ {\n        is_visited[ver] = 1;\n        for (const Edge<CostType>& e : graph[ver])\
-    \ {\n          if (is_visited[e.dst] == 1) {\n            cycle.emplace_back(e);\n\
-    \            while (cycle.back().src != e.dst) {\n              cycle.emplace_back(edges.back());\n\
-    \              edges.pop_back();\n            }\n            std::reverse(cycle.begin(),\
-    \ cycle.end());\n            return true;\n          } else if (is_visited[e.dst]\
-    \ == 0) {\n            edges.emplace_back(e);\n            if (dfs(e.dst)) return\
-    \ true;\n            edges.pop_back();\n          }\n        }\n        is_visited[ver]\
-    \ = 2;\n        return false;\n      };\n  for (int i = 0; i < n; ++i) {\n   \
-    \ if (is_visited[i] == 0 && dfs(i)) break;\n  }\n  return cycle;\n}\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_\n"
+    \  std::vector<Edge<CostType>> edges, cycle;\n  const auto dfs = [&graph, &is_visited,\
+    \ &edges, &cycle](\n      auto dfs, const int ver) -> bool {\n    is_visited[ver]\
+    \ = 1;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (is_visited[e.dst]\
+    \ == 1) {\n        cycle.emplace_back(e);\n        while (cycle.back().src !=\
+    \ e.dst) {\n          cycle.emplace_back(edges.back());\n          edges.pop_back();\n\
+    \        }\n        std::reverse(cycle.begin(), cycle.end());\n        return\
+    \ true;\n      } else if (is_visited[e.dst] == 0) {\n        edges.emplace_back(e);\n\
+    \        if (dfs(dfs, e.dst)) return true;\n        edges.pop_back();\n      }\n\
+    \    }\n    is_visited[ver] = 2;\n    return false;\n  };\n  for (int i = 0; i\
+    \ < n; ++i) {\n    if (is_visited[i] == 0 && dfs(dfs, i)) break;\n  }\n  return\
+    \ cycle;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_DETECT_DIRECTED_CYCLE_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/detect_directed_cycle.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/detect_directed_cycle.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
   - icon: ':question:'
@@ -57,7 +57,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

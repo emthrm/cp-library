@@ -32,28 +32,28 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_\n#define EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_\n\
-    \n#include <algorithm>\n#include <functional>\n#include <vector>\n\n#include \"\
-    emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename CostType>\n\
-    std::vector<Edge<CostType>> enumerate_bridges(\n    const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph) {\n  const int n = graph.size();\n  std::vector<Edge<CostType>> res;\n\
-    \  std::vector<int> depth(n, -1), imos(n, 0);\n  const std::function<void(int,\
-    \ int)> dfs = [&graph, &res, &depth, &imos, &dfs](\n      const int par, const\
-    \ int ver) -> void {\n    bool has_multiple_edges = false;\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\n      if (depth[e.dst] == -1) {\n        depth[e.dst] = depth[ver]\
-    \ + 1;\n        dfs(ver, e.dst);\n        if (imos[e.dst] == 0) {\n          res.emplace_back(std::min(ver,\
-    \ e.dst), std::max(ver, e.dst), e.cost);\n        }\n        imos[ver] += imos[e.dst];\n\
+    \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>>\
+    \ enumerate_bridges(\n    const std::vector<std::vector<Edge<CostType>>>& graph)\
+    \ {\n  const int n = graph.size();\n  std::vector<Edge<CostType>> res;\n  std::vector<int>\
+    \ depth(n, -1), imos(n, 0);\n  const auto dfs = [&graph, &res, &depth, &imos](\n\
+    \      auto dfs, const int par, const int ver) -> void {\n    bool has_multiple_edges\
+    \ = false;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (depth[e.dst]\
+    \ == -1) {\n        depth[e.dst] = depth[ver] + 1;\n        dfs(dfs, ver, e.dst);\n\
+    \        if (imos[e.dst] == 0) {\n          res.emplace_back(std::min(ver, e.dst),\
+    \ std::max(ver, e.dst), e.cost);\n        }\n        imos[ver] += imos[e.dst];\n\
     \      } else if (!has_multiple_edges && e.dst == par) {\n        has_multiple_edges\
     \ = true;\n      } else if (depth[e.dst] < depth[ver]) {\n        ++imos[ver];\n\
     \        --imos[e.dst];\n      }\n    }\n  };\n  for (int i = 0; i < n; ++i) {\n\
-    \    if (depth[i] == -1) {\n      depth[i] = 0;\n      dfs(-1, i);\n    }\n  }\n\
-    \  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_\n"
+    \    if (depth[i] == -1) {\n      depth[i] = 0;\n      dfs(dfs, -1, i);\n    }\n\
+    \  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_ENUMERATE_BRIDGES_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/enumerate_bridges.hpp
   requiredBy:
   - include/emthrm/graph/2-edge-connected_components_by_imos.hpp
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/enumerate_bridges.test.cpp

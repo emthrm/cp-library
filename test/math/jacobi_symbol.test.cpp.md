@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/jacobi_symbol.hpp
     title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/984
@@ -34,8 +34,8 @@ data:
   isVerificationFile: true
   path: test/math/jacobi_symbol.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/jacobi_symbol.test.cpp
 layout: document

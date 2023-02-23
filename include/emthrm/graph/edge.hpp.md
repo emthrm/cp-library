@@ -217,7 +217,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/basis.test.cpp
     title: "\u6570\u5B66/\u57FA\u5E95"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
   _isVerificationFailed: true
@@ -227,24 +227,18 @@ data:
     document_title: "\u8FBA"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @brief \u8FBA\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\nnamespace\
-    \ emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  int src, dst;\n \
-    \ CostType cost;\n  explicit Edge(const int src, const int dst, const CostType\
-    \ cost = 0)\n      : src(src), dst(dst), cost(cost) {}\n  inline bool operator<(const\
-    \ Edge& x) const {\n    if (cost != x.cost) return cost < x.cost;\n    return\
-    \ src != x.src ? src < x.src : dst < x.dst;\n  }\n  inline bool operator<=(const\
-    \ Edge& x) const { return !(x < *this); }\n  inline bool operator>(const Edge&\
-    \ x) const { return x < *this; }\n  inline bool operator>=(const Edge& x) const\
-    \ { return !(*this < x); }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n"
+    \ */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include\
+    \ <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge\
+    \ {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src, const\
+    \ int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\
+    \n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n"
   code: "/**\n * @brief \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
-    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  int src,\
-    \ dst;\n  CostType cost;\n  explicit Edge(const int src, const int dst, const\
-    \ CostType cost = 0)\n      : src(src), dst(dst), cost(cost) {}\n  inline bool\
-    \ operator<(const Edge& x) const {\n    if (cost != x.cost) return cost < x.cost;\n\
-    \    return src != x.src ? src < x.src : dst < x.dst;\n  }\n  inline bool operator<=(const\
-    \ Edge& x) const { return !(x < *this); }\n  inline bool operator>(const Edge&\
-    \ x) const { return x < *this; }\n  inline bool operator>=(const Edge& x) const\
-    \ { return !(*this < x); }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n"
+    \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
+    \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
+    \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
+    \ {}\n\n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/graph/edge.hpp
@@ -281,7 +275,7 @@ data:
   - include/emthrm/graph/lowlink.hpp
   - include/emthrm/graph/unicyclic_graph.hpp
   - include/emthrm/graph/kruskal.hpp
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp

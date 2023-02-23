@@ -29,21 +29,24 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA\
     \n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/cycle_detection\"\n\n\
-    #include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/detect_directed_cycle.hpp\"\
+    #include <iostream>\n#include <ranges>\n#include <vector>\n\n#include \"emthrm/graph/detect_directed_cycle.hpp\"\
     \n#include \"emthrm/graph/edge.hpp\"\n\nint main() {\n  int n, m;\n  std::cin\
     \ >> n >> m;\n  std::vector<std::vector<emthrm::Edge<int>>> graph(n);\n  for (int\
     \ i = 0; i < m; ++i) {\n    int u, v;\n    std::cin >> u >> v;\n    graph[u].emplace_back(u,\
-    \ v, i);\n  }\n  std::vector<int> e;\n  for (const emthrm::Edge<int>& edge : emthrm::detect_directed_cycle(graph))\
-    \ {\n    e.emplace_back(edge.cost);\n  }\n  if (e.empty()) {\n    std::cout <<\
-    \ \"-1\\n\";\n  } else {\n    std::cout << e.size() << '\\n';\n    for (const\
-    \ int ver : e) std::cout << ver << '\\n';\n  }\n  return 0;\n}\n"
+    \ v, i);\n  }\n  // GCC 12 adopted P2415.\n  const std::vector<emthrm::Edge<int>>\
+    \ cycle =\n      emthrm::detect_directed_cycle(graph);\n  const auto ev = cycle\
+    \ | std::views::transform(&emthrm::Edge<int>::cost);\n  // const auto ev = emthrm::detect_directed_cycle(graph)\n\
+    \  //               | std::views::transform(&emthrm::Edge<int>::cost);\n  const\
+    \ int l = ev.size();\n  if (l == 0) {\n    std::cout << \"-1\\n\";\n  } else {\n\
+    \    std::cout << l << '\\n';\n    for (const int e : ev) std::cout << e << '\\\
+    n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/detect_directed_cycle.hpp
   - include/emthrm/graph/edge.hpp
   isVerificationFile: true
   path: test/graph/detect_directed_cycle.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/detect_directed_cycle.test.cpp

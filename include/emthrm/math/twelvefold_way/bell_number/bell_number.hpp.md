@@ -6,12 +6,12 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/bell_number/bell_number.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     _deprecated_at_docs: docs/math/twelvefold_way/bell_number/bell_number.md
     document_title: "\u30D9\u30EB\u6570"
@@ -40,8 +40,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp

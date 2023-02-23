@@ -32,9 +32,9 @@ data:
     #include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/strongly_connected_components.hpp\"\
     \n\nint main() {\n  int n, m;\n  std::cin >> n >> m;\n  std::vector<std::vector<emthrm::Edge<bool>>>\
     \ graph(n);\n  while (m--) {\n    int a, b;\n    std::cin >> a >> b;\n    graph[a].emplace_back(a,\
-    \ b);\n  }\n  const std::vector<std::vector<int>> ans =\n      emthrm::StronglyConnectedComponents<bool>(graph,\
-    \ true).vertices;\n  const int k = ans.size();\n  std::cout << k << '\\n';\n \
-    \ for (int i = 0; i < k; ++i) {\n    const int l = ans[i].size();\n    std::cout\
+    \ b);\n  }\n  const std::vector<std::vector<int>> ans =\n      emthrm::StronglyConnectedComponents<bool,\
+    \ true>(graph).vertices;\n  const int k = ans.size();\n  std::cout << k << '\\\
+    n';\n  for (int i = 0; i < k; ++i) {\n    const int l = ans[i].size();\n    std::cout\
     \ << l << ' ';\n    for (int j = 0; j < l; ++j) {\n      std::cout << ans[i][j]\
     \ << \" \\n\"[j + 1 == l];\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/graph/strongly_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/strongly_connected_components.test.cpp

@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
+    title: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
@@ -12,8 +15,19 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp\"\
-    \n\n\n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/flow/maximum_flow/maximum_flow.hpp:\
+    \ line -1: no such header\n"
+  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
+    #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
+    \n#include \"emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\n\nnamespace emthrm\
+    \ {\n\ntemplate <template <typename> class C, typename T>\nrequires MaximumFlow<C,\
     \ T>\nstruct MaximumFlowWithLowerBoundConstraint {\n  explicit MaximumFlowWithLowerBoundConstraint(const\
     \ int n)\n      : n(n), sum_lb(0), mf(n + 2) {}\n\n  void add_edge(const int src,\
     \ const int dst, const T lb, const T ub) {\n    mf.add_edge(src, dst, ub - lb);\n\
@@ -22,24 +36,13 @@ data:
     \ n + 1);\n    const T b = mf.maximum_flow(s, n + 1);\n    const T c = mf.maximum_flow(n,\
     \ t);\n    const T d = mf.maximum_flow(s, t);\n    return a + b == sum_lb && b\
     \ == c ? b + d : -1;\n  }\n\n private:\n  const int n;\n  T sum_lb;\n  C<T> mf;\n\
-    };\n\n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
-    #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
-    \nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\nstruct\
-    \ MaximumFlowWithLowerBoundConstraint {\n  explicit MaximumFlowWithLowerBoundConstraint(const\
-    \ int n)\n      : n(n), sum_lb(0), mf(n + 2) {}\n\n  void add_edge(const int src,\
-    \ const int dst, const T lb, const T ub) {\n    mf.add_edge(src, dst, ub - lb);\n\
-    \    mf.add_edge(n, dst, lb);\n    mf.add_edge(src, n + 1, lb);\n    sum_lb +=\
-    \ lb;\n  }\n\n  T solve(const int s, const int t) {\n    const T a = mf.maximum_flow(n,\
-    \ n + 1);\n    const T b = mf.maximum_flow(s, n + 1);\n    const T c = mf.maximum_flow(n,\
-    \ t);\n    const T d = mf.maximum_flow(s, t);\n    return a + b == sum_lb && b\
-    \ == c ? b + d : -1;\n  }\n\n private:\n  const int n;\n  T sum_lb;\n  C<T> mf;\n\
     };\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n"
-  dependsOn: []
+  dependsOn:
+  - include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
@@ -58,7 +61,8 @@ title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
 
 ```cpp
 template <template <typename> class C, typename T>
-struct MaximumFlowWithLowerBoundConstraint;
+struct MaximumFlowWithLowerBoundConstraint
+requires MaximumFlow<C, T>;
 ```
 
 - `C`：最大流を表す構造体

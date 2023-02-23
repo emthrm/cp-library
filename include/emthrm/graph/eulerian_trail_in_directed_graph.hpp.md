@@ -24,39 +24,41 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/eulerian_trail_in_directed_graph.hpp: line 14: unable to\
+    \ include/emthrm/graph/eulerian_trail_in_directed_graph.hpp: line 15: unable to\
     \ process #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\
     \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_\n\
     #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
-    #include <functional>\n#include <iterator>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>>\
-    \ eulerian_trail_in_directed_graph(\n    std::vector<std::vector<Edge<CostType>>>\
-    \ graph, int s = -1) {\n  const int n = graph.size();\n  int edge_num = 0;\n \
-    \ std::vector<int> deg(n, 0);\n  for (int i = 0; i < n; ++i) {\n    edge_num +=\
-    \ graph[i].size();\n    deg[i] += graph[i].size();\n    for (const Edge<CostType>&\
-    \ e : graph[i]) --deg[e.dst];\n  }\n  if (edge_num == 0) return {};\n  const int\
-    \ not0 = n - std::count(deg.begin(), deg.end(), 0);\n  if (not0 == 0) {\n    if\
-    \ (s == -1) {\n      s = std::distance(\n          graph.begin(),\n          std::find_if_not(\n\
-    \              graph.begin(), graph.end(),\n              [](const std::vector<Edge<CostType>>&\
-    \ edges) -> bool {\n                return edges.empty();\n              }));\n\
-    \    }\n  } else if (not0 == 2) {\n    bool t_exists = false;\n    for (int i\
-    \ = 0; i < n; ++i) {\n      if (deg[i] == 0) continue;\n      if (deg[i] == 1)\
-    \ {\n        if (s == -1) s = i;\n        if (s != i) return {};\n      } else\
-    \ if (deg[i] == -1) {\n        if (t_exists) return {};\n        t_exists = true;\n\
-    \      } else {\n        return {};\n      }\n    }\n  } else {\n    return {};\n\
-    \  }\n  std::vector<Edge<CostType>> res;\n  const std::function<void(int)> dfs\
-    \ = [&graph, &res, &dfs](const int ver) {\n    while (!graph[ver].empty()) {\n\
-    \      const Edge<CostType> e = graph[ver].back();\n      graph[ver].pop_back();\n\
-    \      dfs(e.dst);\n      res.emplace_back(e);\n    }\n  };\n  dfs(s);\n  if (static_cast<int>(res.size())\
-    \ == edge_num) {\n    std::reverse(res.begin(), res.end());\n    return res;\n\
-    \  }\n  return {};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_\n"
+    #include <iterator>\n#include <ranges>\n#include <utility>\n#include <vector>\n\
+    \n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ CostType>\nstd::vector<Edge<CostType>> eulerian_trail_in_directed_graph(\n \
+    \   std::vector<std::vector<Edge<CostType>>> graph, int s = -1) {\n  const int\
+    \ n = graph.size();\n  int edge_num = 0;\n  std::vector<int> deg(n, 0);\n  for\
+    \ (int i = 0; i < n; ++i) {\n    edge_num += graph[i].size();\n    deg[i] += graph[i].size();\n\
+    \    for (const int e : graph[i] | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n      --deg[e];\n    }\n  }\n  if (edge_num == 0) [[unlikely]] return {};\n\
+    \  const int not0 = n - std::count(deg.begin(), deg.end(), 0);\n  if (not0 ==\
+    \ 0) {\n    if (s == -1) {\n      s = std::distance(\n          graph.begin(),\n\
+    \          std::find_if_not(\n              graph.begin(), graph.end(),\n    \
+    \          [](const std::vector<Edge<CostType>>& edges) -> bool {\n          \
+    \      return edges.empty();\n              }));\n    }\n  } else if (not0 ==\
+    \ 2) {\n    bool t_exists = false;\n    for (int i = 0; i < n; ++i) {\n      if\
+    \ (deg[i] == 0) continue;\n      if (deg[i] == 1) {\n        if (s == -1) s =\
+    \ i;\n        if (s != i) return {};\n      } else if (deg[i] == -1) {\n     \
+    \   if (t_exists) return {};\n        t_exists = true;\n      } else {\n     \
+    \   return {};\n      }\n    }\n  } else {\n    return {};\n  }\n  std::vector<Edge<CostType>>\
+    \ res;\n  const auto dfs = [&graph, &res](auto dfs, const int ver) -> void {\n\
+    \    while (!graph[ver].empty()) {\n      const Edge<CostType> e = graph[ver].back();\n\
+    \      graph[ver].pop_back();\n      dfs(dfs, e.dst);\n      res.emplace_back(e);\n\
+    \    }\n  };\n  dfs(dfs, s);\n  if (std::cmp_equal(res.size(), edge_num)) {\n\
+    \    std::reverse(res.begin(), res.end());\n    return res;\n  }\n  return {};\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/eulerian_trail_in_directed_graph.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/eulerian_trail_in_directed_graph.test.cpp

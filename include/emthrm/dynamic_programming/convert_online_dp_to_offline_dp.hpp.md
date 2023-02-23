@@ -13,28 +13,27 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
-    \n\n\n\n#include <functional>\n\nnamespace emthrm {\n\nvoid convert_online_dp_to_offline_dp(\n\
-    \    const int n, const std::function<void(int, int, int)> induce) {\n  const\
-    \ std::function<void(const int, const int)> solve =\n      [induce, &solve](const\
-    \ int l, const int r) -> void {\n        if (l + 1 == r) {\n          // dp(l)\
-    \ <- dp(l) \uFF65 b_l\n          return;\n        }\n        const int m = (l\
-    \ + r) >> 1;\n        solve(l, m);\n        induce(l, m, r);\n        solve(m,\
-    \ r);\n      };\n  if (n > 0) solve(0, n);\n}\n\n}  // namespace emthrm\n\n\n"
+    \n\n\n\n#include <functional>\n#include <numeric>\n\nnamespace emthrm {\n\nvoid\
+    \ convert_online_dp_to_offline_dp(\n    const int n, const std::function<void(int,\
+    \ int, int)> induce) {\n  const auto solve = [induce](auto solve, const int l,\
+    \ const int r) -> void {\n    if (l + 1 == r) {\n      // dp(l) <- dp(l) \uFF65\
+    \ b_l\n      return;\n    }\n    const int m = std::midpoint(l, r);\n    solve(solve,\
+    \ l, m);\n    induce(l, m, r);\n    solve(solve, m, r);\n  };\n  if (n > 0) [[likely]]\
+    \ solve(solve, 0, n);\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_\n\
     #define EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_\n\n#include\
-    \ <functional>\n\nnamespace emthrm {\n\nvoid convert_online_dp_to_offline_dp(\n\
+    \ <functional>\n#include <numeric>\n\nnamespace emthrm {\n\nvoid convert_online_dp_to_offline_dp(\n\
     \    const int n, const std::function<void(int, int, int)> induce) {\n  const\
-    \ std::function<void(const int, const int)> solve =\n      [induce, &solve](const\
-    \ int l, const int r) -> void {\n        if (l + 1 == r) {\n          // dp(l)\
-    \ <- dp(l) \uFF65 b_l\n          return;\n        }\n        const int m = (l\
-    \ + r) >> 1;\n        solve(l, m);\n        induce(l, m, r);\n        solve(m,\
-    \ r);\n      };\n  if (n > 0) solve(0, n);\n}\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_\n"
+    \ auto solve = [induce](auto solve, const int l, const int r) -> void {\n    if\
+    \ (l + 1 == r) {\n      // dp(l) <- dp(l) \uFF65 b_l\n      return;\n    }\n \
+    \   const int m = std::midpoint(l, r);\n    solve(solve, l, m);\n    induce(l,\
+    \ m, r);\n    solve(solve, m, r);\n  };\n  if (n > 0) [[likely]] solve(solve,\
+    \ 0, n);\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DYNAMIC_PROGRAMMING_CONVERT_ONLINE_DP_TO_OFFLINE_DP_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp

@@ -6,7 +6,7 @@ data:
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
       \u30FC\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/longest_common_prefix.hpp
     title: longest common prefix
   _extendedVerifiedWith:
@@ -17,56 +17,56 @@ data:
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
       \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/sparse_table.hpp\"\n\n\n\n\
-    #include <algorithm>\n#include <cassert>\n#include <functional>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename Band>\nstruct SparseTable {\n  using\
-    \ BinOp = std::function<Band(Band, Band)>;\n\n  SparseTable() = default;\n\n \
-    \ explicit SparseTable(const std::vector<Band>& a, const BinOp bin_op) {\n   \
-    \ init(a, bin_op);\n  }\n\n  void init(const std::vector<Band>& a, const BinOp\
-    \ bin_op_) {\n    bin_op = bin_op_;\n    int n = a.size(), table_h = 0;\n    lg.assign(n\
-    \ + 1, 0);\n    for (int i = 2; i <= n; ++i) {\n      lg[i] = lg[i >> 1] + 1;\n\
-    \    }\n    while ((1 << table_h) <= n) ++table_h;\n    data.assign(table_h, std::vector<Band>(n));\n\
-    \    std::copy(a.begin(), a.end(), data.front().begin());\n    for (int i = 1;\
-    \ i < table_h; ++i) {\n      for (int j = 0; j + (1 << i) <= n; ++j) {\n     \
-    \   data[i][j] = bin_op(data[i - 1][j], data[i - 1][j + (1 << (i - 1))]);\n  \
-    \    }\n    }\n  }\n\n  Band query(const int left, const int right) const {\n\
-    \    assert(left < right);\n    const int h = lg[right - left];\n    return bin_op(data[h][left],\
-    \ data[h][right - (1 << h)]);\n  }\n\n private:\n  BinOp bin_op;\n  std::vector<int>\
-    \ lg;\n  std::vector<std::vector<Band>> data;\n};\n\n}  // namespace emthrm\n\n\
-    \n"
+    #include <algorithm>\n#include <bit>\n#include <cassert>\n#include <functional>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename Band>\nstruct SparseTable\
+    \ {\n  using BinOp = std::function<Band(Band, Band)>;\n\n  SparseTable() = default;\n\
+    \n  explicit SparseTable(const std::vector<Band>& a, const BinOp bin_op) {\n \
+    \   init(a, bin_op);\n  }\n\n  void init(const std::vector<Band>& a, const BinOp\
+    \ bin_op_) {\n    bin_op = bin_op_;\n    const int n = a.size();\n    assert(n\
+    \ > 0);\n    lg.assign(n + 1, 0);\n    for (int i = 2; i <= n; ++i) {\n      lg[i]\
+    \ = lg[i >> 1] + 1;\n    }\n    const int table_h = std::countr_zero(std::bit_floor(a.size()))\
+    \ + 1;\n    data.assign(table_h, std::vector<Band>(n));\n    std::copy(a.begin(),\
+    \ a.end(), data.front().begin());\n    for (int i = 1; i < table_h; ++i) {\n \
+    \     for (int j = 0; j + (1 << i) <= n; ++j) {\n        data[i][j] = bin_op(data[i\
+    \ - 1][j], data[i - 1][j + (1 << (i - 1))]);\n      }\n    }\n  }\n\n  Band query(const\
+    \ int left, const int right) const {\n    assert(left < right);\n    const int\
+    \ h = lg[right - left];\n    return bin_op(data[h][left], data[h][right - (1 <<\
+    \ h)]);\n  }\n\n private:\n  BinOp bin_op;\n  std::vector<int> lg;\n  std::vector<std::vector<Band>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_\n\
-    \n#include <algorithm>\n#include <cassert>\n#include <functional>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename Band>\nstruct SparseTable {\n  using\
-    \ BinOp = std::function<Band(Band, Band)>;\n\n  SparseTable() = default;\n\n \
-    \ explicit SparseTable(const std::vector<Band>& a, const BinOp bin_op) {\n   \
-    \ init(a, bin_op);\n  }\n\n  void init(const std::vector<Band>& a, const BinOp\
-    \ bin_op_) {\n    bin_op = bin_op_;\n    int n = a.size(), table_h = 0;\n    lg.assign(n\
-    \ + 1, 0);\n    for (int i = 2; i <= n; ++i) {\n      lg[i] = lg[i >> 1] + 1;\n\
-    \    }\n    while ((1 << table_h) <= n) ++table_h;\n    data.assign(table_h, std::vector<Band>(n));\n\
-    \    std::copy(a.begin(), a.end(), data.front().begin());\n    for (int i = 1;\
-    \ i < table_h; ++i) {\n      for (int j = 0; j + (1 << i) <= n; ++j) {\n     \
-    \   data[i][j] = bin_op(data[i - 1][j], data[i - 1][j + (1 << (i - 1))]);\n  \
-    \    }\n    }\n  }\n\n  Band query(const int left, const int right) const {\n\
-    \    assert(left < right);\n    const int h = lg[right - left];\n    return bin_op(data[h][left],\
-    \ data[h][right - (1 << h)]);\n  }\n\n private:\n  BinOp bin_op;\n  std::vector<int>\
-    \ lg;\n  std::vector<std::vector<Band>> data;\n};\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_\n"
+    \n#include <algorithm>\n#include <bit>\n#include <cassert>\n#include <functional>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename Band>\nstruct SparseTable\
+    \ {\n  using BinOp = std::function<Band(Band, Band)>;\n\n  SparseTable() = default;\n\
+    \n  explicit SparseTable(const std::vector<Band>& a, const BinOp bin_op) {\n \
+    \   init(a, bin_op);\n  }\n\n  void init(const std::vector<Band>& a, const BinOp\
+    \ bin_op_) {\n    bin_op = bin_op_;\n    const int n = a.size();\n    assert(n\
+    \ > 0);\n    lg.assign(n + 1, 0);\n    for (int i = 2; i <= n; ++i) {\n      lg[i]\
+    \ = lg[i >> 1] + 1;\n    }\n    const int table_h = std::countr_zero(std::bit_floor(a.size()))\
+    \ + 1;\n    data.assign(table_h, std::vector<Band>(n));\n    std::copy(a.begin(),\
+    \ a.end(), data.front().begin());\n    for (int i = 1; i < table_h; ++i) {\n \
+    \     for (int j = 0; j + (1 << i) <= n; ++j) {\n        data[i][j] = bin_op(data[i\
+    \ - 1][j], data[i - 1][j + (1 << (i - 1))]);\n      }\n    }\n  }\n\n  Band query(const\
+    \ int left, const int right) const {\n    assert(left < right);\n    const int\
+    \ h = lg[right - left];\n    return bin_op(data[h][left], data[h][right - (1 <<\
+    \ h)]);\n  }\n\n private:\n  BinOp bin_op;\n  std::vector<int> lg;\n  std::vector<std::vector<Band>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_SPARSE_TABLE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/data_structure/sparse_table.hpp
   requiredBy:
   - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - include/emthrm/string/longest_common_prefix.hpp
-  timestamp: '2023-02-20 01:07:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/data_structure/sparse_table.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

@@ -7,7 +7,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -36,24 +36,25 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
     \u7684\u51AA\u7D1A\u6570 (mod_pow(exponend, md))\n */\n#define PROBLEM \"https://atcoder.jp/contests/abc135/tasks/abc135_d\"\
-    \n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include <vector>\n\
-    \n#include \"emthrm/math/convolution/mod_convolution.hpp\"\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include <utility>\n\
+    #include <vector>\n\n#include \"emthrm/math/convolution/mod_convolution.hpp\"\n\
+    #include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
+    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
     \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
     \   return emthrm::mod_convolution(a, b);\n      });\n  constexpr int D = 6, M\
     \ = 13;\n  std::string s;\n  std::cin >> s;\n  std::reverse(s.begin(), s.end());\n\
-    \  int q[D]{};\n  for (int i = 0; i < static_cast<int>(s.length()); ++i) {\n \
-    \   if (s[i] == '?') ++q[i % D];\n  }\n  std::vector<emthrm::FormalPowerSeries<ModInt>>\
+    \  int q[D]{};\n  for (int i = 0; std::cmp_less(i, s.length()); ++i) {\n    if\
+    \ (s[i] == '?') ++q[i % D];\n  }\n  std::vector<emthrm::FormalPowerSeries<ModInt>>\
     \ f(\n      D, emthrm::FormalPowerSeries<ModInt>(M));\n  emthrm::FormalPowerSeries<ModInt>\
     \ md(M);\n  md[0] = -1;\n  md[M] = 1;\n  for (int i = 0; i < D; ++i) {\n    int\
     \ base = 1;\n    for (int j = 0; j < i; ++j) {\n      base *= 10;\n    }\n   \
     \ for (int j = 0; j < 10; ++j) {\n      ++f[i][base * j % M];\n    }\n    f[i]\
     \ = f[i].mod_pow(q[i], md);\n  }\n  for (int i = 1; i < D; ++i) {\n    f.front()\
     \ *= f[i];\n  }\n  f.front() %= md;\n  int idx = D - 1, w = 1;\n  for (int i =\
-    \ 0; i < static_cast<int>(s.length()); ++i) {\n    if (s[i] != '?') {\n      idx\
-    \ = (idx - w * (s[i] - '0')) % M;\n      if (idx < 0) idx += M;\n    }\n    w\
-    \ = w * 10 % M;\n  }\n  std::cout << f.front()[idx] << '\\n';\n  return 0;\n}\n"
+    \ 0; std::cmp_less(i, s.length()); ++i) {\n    if (s[i] != '?') {\n      idx =\
+    \ (idx - w * (s[i] - '0')) % M;\n      if (idx < 0) idx += M;\n    }\n    w =\
+    \ w * 10 % M;\n  }\n  std::cout << f.front()[idx] << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/convolution/mod_convolution.hpp
   - include/emthrm/math/convolution/fast_fourier_transform.hpp
@@ -62,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp

@@ -33,7 +33,7 @@ data:
     #include <utility>\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_zeta_transform.hpp\"\
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<std::pair<int, int>>\
     \ a(1 << n, {0, 0});\n  for (int i = 0; i < (1 << n); ++i) {\n    std::cin >>\
-    \ a[i].first;\n  }\n  a = emthrm::fast_zeta_transform(\n          a, false, std::make_pair(0,\
+    \ a[i].first;\n  }\n  a = emthrm::fast_zeta_transform<false>(\n          a, std::make_pair(0,\
     \ 0),\n          [](const std::pair<int, int>& a, const std::pair<int, int>& b)\n\
     \              -> std::pair<int, int> {\n            std::array<int, 4> tmp{a.first,\
     \ a.second, b.first, b.second};\n            std::sort(tmp.begin(), tmp.end(),\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/math/convolution/fast_zeta_transform.test.cpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/convolution/fast_zeta_transform.test.cpp

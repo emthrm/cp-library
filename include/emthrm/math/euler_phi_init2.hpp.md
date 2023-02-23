@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
@@ -34,7 +34,7 @@ data:
     \        const long long high) {\n  std::vector<long long> phi(high - low), rem(high\
     \ - low);\n  std::iota(phi.begin(), phi.end(), low);\n  std::iota(rem.begin(),\
     \ rem.end(), low);\n  long long root = 1;\n  while ((root + 1) * (root + 1) <\
-    \ high) ++root;\n  for (const int p : prime_sieve(root, true)) {\n    for (long\
+    \ high) ++root;\n  for (const int p : prime_sieve<true>(root)) {\n    for (long\
     \ long i = (low + p - 1) / p * p; i < high; i += p) {\n      phi[i - low] -= phi[i\
     \ - low] / p;\n      while (rem[i - low] % p == 0) rem[i - low] /= p;\n    }\n\
     \  }\n  for (int i = 0; i < high - low; ++i) {\n    if (rem[i] > 1) phi[i] -=\
@@ -45,7 +45,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/euler_phi_init2.hpp
   requiredBy: []
-  timestamp: '2023-02-23 01:44:48+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi_init2.test.cpp

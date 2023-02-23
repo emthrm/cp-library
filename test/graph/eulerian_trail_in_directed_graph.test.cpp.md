@@ -34,7 +34,7 @@ data:
     \n\n#include <iostream>\n#include <string>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
     \n#include \"emthrm/graph/eulerian_trail_in_directed_graph.hpp\"\n\nint main()\
     \ {\n  constexpr int SIGMA = 26;\n  while (true) {\n    int n;\n    std::cin >>\
-    \ n;\n    if (n == 0) break;\n    std::vector<std::vector<emthrm::Edge<bool>>>\
+    \ n;\n    if (n == 0) [[unlikely]] break;\n    std::vector<std::vector<emthrm::Edge<bool>>>\
     \ graph(SIGMA);\n    while (n--) {\n      std::string word;\n      std::cin >>\
     \ word;\n      graph[word.front() - 'a'].emplace_back(word.front() - 'a',\n  \
     \                                           word.back() - 'a');\n    }\n    const\
@@ -47,7 +47,7 @@ data:
   isVerificationFile: true
   path: test/graph/eulerian_trail_in_directed_graph.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/eulerian_trail_in_directed_graph.test.cpp

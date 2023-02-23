@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_inv.hpp
     title: "\u9006\u5143 (inverse element)"
   _extendedRequiredBy: []
@@ -24,25 +24,22 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/mod_inv.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n#define EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n\
-    \n#if __cplusplus >= 201703L\n# include <numeric>\n#else\n# include <algorithm>\n\
-    #endif  // __cplusplus >= 201703L\n#include <utility>\n#include <vector>\n\n#include\
-    \ \"emthrm/math/mod_inv.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
-    std::pair<T, T> chinese_remainder_theorem(std::vector<T> b, std::vector<T> m)\
-    \ {\n  const int n = b.size();\n  T x = 0, md = 1;\n  for (int i = 0; i < n; ++i)\
-    \ {\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\n    if (md < m[i]) {\n      std::swap(x,\
-    \ b[i]);\n      std::swap(md, m[i]);\n    }\n    if (md % m[i] == 0) {\n     \
-    \ if (x % m[i] != b[i]) return {0, 0};\n      continue;\n    }\n#if __cplusplus\
-    \ >= 201703L\n    const T g = std::gcd(md, m[i]);\n#else\n    const T g = std::__gcd(md,\
-    \ m[i]);\n#endif  // __cplusplus >= 201703L\n    if ((b[i] - x) % g != 0) return\
-    \ {0, 0};\n    const T u_i = m[i] / g;\n    x += (b[i] - x) / g % u_i * mod_inv(md\
-    \ / g, u_i) % u_i * md;\n    md *= u_i;\n    if (x < 0) x += md;\n  }\n  return\
-    \ {x, md};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n"
+    \n#include <numeric>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/math/mod_inv.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::pair<T, T> chinese_remainder_theorem(std::vector<T>\
+    \ b, std::vector<T> m) {\n  const int n = b.size();\n  T x = 0, md = 1;\n  for\
+    \ (int i = 0; i < n; ++i) {\n    if ((b[i] %= m[i]) < 0) b[i] += m[i];\n    if\
+    \ (md < m[i]) {\n      std::swap(x, b[i]);\n      std::swap(md, m[i]);\n    }\n\
+    \    if (md % m[i] == 0) {\n      if (x % m[i] != b[i]) return {0, 0};\n     \
+    \ continue;\n    }\n    const T g = std::gcd(md, m[i]);\n    if ((b[i] - x) %\
+    \ g != 0) return {0, 0};\n    const T u_i = m[i] / g;\n    x += (b[i] - x) / g\
+    \ % u_i * mod_inv(md / g, u_i) % u_i * md;\n    md *= u_i;\n    if (x < 0) x +=\
+    \ md;\n  }\n  return {x, md};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CHINESE_REMAINDER_THEOREM_HPP_\n"
   dependsOn:
   - include/emthrm/math/mod_inv.hpp
   isVerificationFile: false
   path: include/emthrm/math/chinese_remainder_theorem.hpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/chinese_remainder_theorem.test.cpp

@@ -27,41 +27,40 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/2-edge-connected_components_by_imos.hpp: line 15: unable\
+    \ include/emthrm/graph/2-edge-connected_components_by_imos.hpp: line 16: unable\
     \ to process #include in #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\
     \u3082\u3059\u6CD5\u7248\n * @docs docs/graph/2-edge-connected_components.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_\n#define\
     \ EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_\n\n#include <algorithm>\n\
-    #include <set>\n#include <queue>\n#include <utility>\n#include <vector>\n\n#include\
-    \ \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/enumerate_bridges.hpp\"\n\
-    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct TwoEdgeConnectedComponentsByImos\
-    \ {\n  std::vector<int> id;\n  std::vector<Edge<CostType>> bridge;\n  std::vector<std::vector<int>>\
-    \ vertices;\n  std::vector<std::vector<Edge<CostType>>> g;\n\n  explicit TwoEdgeConnectedComponentsByImos(\n\
-    \      const std::vector<std::vector<Edge<CostType>>>& graph,\n      const bool\
-    \ is_full_ver = false)\n      : bridge(enumerate_bridges(graph)) {\n    const\
-    \ int n = graph.size();\n    id.assign(n, -1);\n    std::set<std::pair<int, int>>\
-    \ st;\n    for (const Edge<CostType>& e : bridge) st.emplace(e.src, e.dst);\n\
-    \    int m = 0;\n    std::queue<int> que;\n    for (int i = 0; i < n; ++i) {\n\
-    \      if (id[i] != -1) continue;\n      que.emplace(i);\n      id[i] = m++;\n\
-    \      if (is_full_ver) vertices.emplace_back(std::vector<int>{i});\n      while\
-    \ (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
-    \        for (const Edge<CostType>& e : graph[ver]) {\n          if (id[e.dst]\
-    \ == -1 && !st.count(std::minmax(ver, e.dst))) {\n            id[e.dst] = id[i];\n\
-    \            if (is_full_ver) vertices.back().emplace_back(e.dst);\n         \
-    \   que.emplace(e.dst);\n          }\n        }\n      }\n    }\n    g.resize(m);\n\
+    #include <set>\n#include <queue>\n#include <ranges>\n#include <utility>\n#include\
+    \ <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/enumerate_bridges.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType, bool IS_FULL_VER = false>\n\
+    struct TwoEdgeConnectedComponentsByImos {\n  std::vector<int> id;\n  std::vector<Edge<CostType>>\
+    \ bridge;\n  std::vector<std::vector<int>> vertices;\n  std::vector<std::vector<Edge<CostType>>>\
+    \ g;\n\n  explicit TwoEdgeConnectedComponentsByImos(\n      const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph)\n      : bridge(enumerate_bridges(graph)) {\n    const int n = graph.size();\n\
+    \    id.assign(n, -1);\n    std::set<std::pair<int, int>> st;\n    for (const\
+    \ Edge<CostType>& e : bridge) st.emplace(e.src, e.dst);\n    int m = 0;\n    std::queue<int>\
+    \ que;\n    for (int i = 0; i < n; ++i) {\n      if (id[i] != -1) continue;\n\
+    \      que.emplace(i);\n      id[i] = m++;\n      if constexpr (IS_FULL_VER) vertices.emplace_back(std::vector<int>{i});\n\
+    \      while (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
+    \        for (const int e : graph[ver]\n                         | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n          if (id[e] == -1 && !st.contains(std::minmax(ver, e))) {\n     \
+    \       id[e] = id[i];\n            if constexpr (IS_FULL_VER) vertices.back().emplace_back(e);\n\
+    \            que.emplace(e);\n          }\n        }\n      }\n    }\n    g.resize(m);\n\
     \    for (const Edge<CostType>& e : bridge) {\n      const int u = id[e.src],\
     \ v = id[e.dst];\n      g[u].emplace_back(u, v, e.cost);\n      g[v].emplace_back(v,\
-    \ u, e.cost);\n    }\n    if (is_full_ver) {\n      for (int i = 0; i < m; ++i)\
-    \ {\n        std::sort(vertices[i].begin(), vertices[i].end());\n      }\n   \
-    \ }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_\n"
+    \ u, e.cost);\n    }\n    if constexpr (IS_FULL_VER) {\n      for (int i = 0;\
+    \ i < m; ++i) {\n        std::sort(vertices[i].begin(), vertices[i].end());\n\
+    \      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_IMOS_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   - include/emthrm/graph/enumerate_bridges.hpp
   isVerificationFile: false
   path: include/emthrm/graph/2-edge-connected_components_by_imos.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/2-edge-connected_components_by_imos.test.cpp
@@ -98,11 +97,12 @@ title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\u3082\u305
 ### lowlink 版
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponents : Lowlink<CostType>;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -116,17 +116,18 @@ struct TwoEdgeConnectedComponents : Lowlink<CostType>;
 
 |名前|効果|
 |:--|:--|
-|`explicit TwoEdgeConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit TwoEdgeConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ### いもす法版
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct TwoEdgeConnectedComponentsByImos;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -141,7 +142,7 @@ struct TwoEdgeConnectedComponentsByImos;
 
 |名前|効果|
 |:--|:--|
-|`explicit TwoEdgeConnectedComponentsByImos(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit TwoEdgeConnectedComponentsByImos(const std::vector<std::vector<Edge<CostType>>>& graph);`|無向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 参考文献

@@ -32,7 +32,7 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3\n */\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/frequency_table_of_tree_distance\"\
-    \n\n#include <cmath>\n#include <functional>\n#include <iostream>\n#include <vector>\n\
+    \n\n#include <cmath>\n#include <iostream>\n#include <utility>\n#include <vector>\n\
     \n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/tree/centroid_decomposition.hpp\"\
     \n#include \"emthrm/math/convolution/fast_fourier_transform.hpp\"\n\nint main()\
     \ {\n  int n;\n  std::cin >> n;\n  std::vector<std::vector<emthrm::Edge<bool>>>\
@@ -40,30 +40,26 @@ data:
     \ >> a >> b;\n    graph[a].emplace_back(a, b);\n    graph[b].emplace_back(b, a);\n\
     \  }\n  emthrm::CentroidDecomposition<bool> centroid_decomposition(graph);\n \
     \ std::vector<bool> is_visited(n, false);\n  std::vector<long long> x(n, 0);\n\
-    \  const std::function<void(int)> f =\n      [n, &graph, &centroid_decomposition,\
-    \ &is_visited, &x, &f](const int root)\n          -> void {\n        is_visited[root]\
-    \ = true;\n        std::vector<int> nums{1};\n        for (const emthrm::Edge<bool>&\
-    \ child : graph[root]) {\n          if (is_visited[child.dst]) continue;\n   \
-    \       std::vector<int> nums_sub{0};\n          const std::function<void(int,\
-    \ int, int)> dfs =\n              [&graph, &is_visited, &nums, &nums_sub, &dfs](\n\
-    \                  const int par, const int ver, const int dist) -> void {\n \
-    \               if (static_cast<int>(nums.size()) <= dist) {\n               \
-    \   nums.resize(dist + 1, 0);\n                }\n                ++nums[dist];\n\
-    \                if (static_cast<int>(nums_sub.size()) <= dist) {\n          \
-    \        nums_sub.resize(dist + 1, 0);\n                }\n                ++nums_sub[dist];\n\
-    \                for (const emthrm::Edge<bool>& e : graph[ver]) {\n          \
-    \        if (!is_visited[e.dst] && e.dst != par) {\n                    dfs(ver,\
-    \ e.dst, dist + 1);\n                  }\n                }\n              };\n\
-    \          dfs(root, child.dst, 1);\n          const std::vector<emthrm::fast_fourier_transform::Real>\
-    \ fft =\n              emthrm::fast_fourier_transform::convolution(nums_sub, nums_sub);\n\
-    \          for (int i = 0; i < static_cast<int>(fft.size()) && i < n; ++i) {\n\
-    \            x[i] -= std::round(fft[i]);\n          }\n        }\n        const\
-    \ std::vector<emthrm::fast_fourier_transform::Real> fft =\n            emthrm::fast_fourier_transform::convolution(nums,\
-    \ nums);\n        for (int i = 0; i < static_cast<int>(fft.size()) && i < n; ++i)\
-    \ {\n          x[i] += std::round(fft[i]);\n        }\n        for (const int\
-    \ e : centroid_decomposition.g[root]) f(e);\n      };\n  f(centroid_decomposition.root);\n\
-    \  for (int i = 1; i < n; ++i) {\n    std::cout << x[i] / 2 << \" \\n\"[i + 1\
-    \ == n];\n  }\n  return 0;\n}\n"
+    \  const auto f = [n, &graph, &centroid_decomposition, &is_visited, &x](\n   \
+    \   auto f, const int root) -> void {\n    is_visited[root] = true;\n    std::vector<int>\
+    \ nums{1};\n    for (const emthrm::Edge<bool>& child : graph[root]) {\n      if\
+    \ (is_visited[child.dst]) continue;\n      std::vector<int> nums_sub{0};\n   \
+    \   const auto dfs = [&graph, &is_visited, &nums, &nums_sub](\n          auto\
+    \ dfs, const int par, const int ver, const int dist) -> void {\n        if (std::cmp_less_equal(nums.size(),\
+    \ dist)) nums.resize(dist + 1, 0);\n        ++nums[dist];\n        if (std::cmp_less_equal(nums_sub.size(),\
+    \ dist)) {\n          nums_sub.resize(dist + 1, 0);\n        }\n        ++nums_sub[dist];\n\
+    \        for (const emthrm::Edge<bool>& e : graph[ver]) {\n          if (!is_visited[e.dst]\
+    \ && e.dst != par) {\n            dfs(dfs, ver, e.dst, dist + 1);\n          }\n\
+    \        }\n      };\n      dfs(dfs, root, child.dst, 1);\n      const std::vector<emthrm::fast_fourier_transform::Real>\
+    \ fft =\n          emthrm::fast_fourier_transform::convolution(nums_sub, nums_sub);\n\
+    \      for (int i = 0; std::cmp_less(i, fft.size()) && i < n; ++i) {\n       \
+    \ x[i] -= std::round(fft[i]);\n      }\n    }\n    const std::vector<emthrm::fast_fourier_transform::Real>\
+    \ fft =\n        emthrm::fast_fourier_transform::convolution(nums, nums);\n  \
+    \  for (int i = 0; std::cmp_less(i, fft.size()) && i < n; ++i) {\n      x[i] +=\
+    \ std::round(fft[i]);\n    }\n    for (const int e : centroid_decomposition.g[root])\
+    \ f(f, e);\n  };\n  f(f, centroid_decomposition.root);\n  for (int i = 1; i <\
+    \ n; ++i) {\n    std::cout << x[i] / 2 << \" \\n\"[i + 1 == n];\n  }\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   - include/emthrm/graph/tree/centroid_decomposition.hpp
@@ -71,7 +67,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid_decomposition.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid_decomposition.test.cpp

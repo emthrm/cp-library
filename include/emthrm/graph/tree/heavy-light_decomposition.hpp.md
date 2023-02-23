@@ -65,22 +65,23 @@ data:
     \ int lowest_common_ancestor(int u, int v) const {\n    while (true) {\n     \
     \ if (id[u] > id[v]) std::swap(u, v);\n      if (head[u] == head[v]) break;\n\
     \      v = parent[head[v]];\n    }\n    return u;\n  }\n\n private:\n  std::vector<std::vector<Edge<CostType>>>\
-    \ graph;\n\n  void dfs1(const int ver) {\n    for (int i = 0; i < static_cast<int>(graph[ver].size());\
-    \ ++i) {\n      Edge<CostType>& e = graph[ver][i];\n      if (e.dst != parent[ver])\
-    \ {\n        parent[e.dst] = ver;\n        dfs1(e.dst);\n        subtree[ver]\
-    \ += subtree[e.dst];\n        if (subtree[e.dst] > subtree[graph[ver].front().dst])\
-    \ {\n          std::swap(e, graph[ver].front());\n        }\n      }\n    }\n\
-    \  }\n\n  void dfs2(const int ver, int* cur_id) {\n    id[ver] = (*cur_id)++;\n\
-    \    inv[id[ver]] = ver;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
-    \     if (e.dst != parent[ver]) {\n        head[e.dst] = (e.dst == graph[ver].front().dst\
-    \ ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n        dfs2(e.dst,\
-    \ cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_\n"
+    \ graph;\n\n  void dfs1(const int ver) {\n    for (int i = 0; std::cmp_less(i,\
+    \ graph[ver].size()); ++i) {\n      Edge<CostType>& e = graph[ver][i];\n     \
+    \ if (e.dst != parent[ver]) [[likely]] {\n        parent[e.dst] = ver;\n     \
+    \   dfs1(e.dst);\n        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst]\
+    \ > subtree[graph[ver].front().dst]) {\n          std::swap(e, graph[ver].front());\n\
+    \        }\n      }\n    }\n  }\n\n  void dfs2(const int ver, int* cur_id) {\n\
+    \    id[ver] = (*cur_id)++;\n    inv[id[ver]] = ver;\n    for (const Edge<CostType>&\
+    \ e : graph[ver]) {\n      if (e.dst != parent[ver]) [[likely]] {\n        head[e.dst]\
+    \ = (e.dst == graph[ver].front().dst ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n\
+    \        dfs2(e.dst, cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/heavy-light_decomposition.1.test.cpp

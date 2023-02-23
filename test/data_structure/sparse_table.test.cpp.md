@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
   _extendedRequiredBy: []
@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/sparse_table.test.cpp

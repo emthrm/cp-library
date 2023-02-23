@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/manacher.hpp
     title: Manacher
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/enumerate_palindromes
@@ -28,16 +28,16 @@ data:
     \n\n#include <iostream>\n#include <string>\n\n#include \"emthrm/string/manacher.hpp\"\
     \n\nint main() {\n  std::string s;\n  std::cin >> s;\n  const int n = s.length();\n\
     \  emthrm::Manacher manacher(s);\n  for (int i = 0; i < n; ++i) {\n    std::cout\
-    \ << (manacher.odd(i) - 1) * 2 + 1;\n    if (i + 1 == n) {\n      std::cout <<\
-    \ '\\n';\n    } else {\n      std::cout << ' ' << manacher.even(i) * 2 << ' ';\n\
-    \    }\n  }\n  return 0;\n}\n"
+    \ << (manacher.odd(i) - 1) * 2 + 1;\n    if (i + 1 == n) [[unlikely]] {\n    \
+    \  std::cout << '\\n';\n    } else {\n      std::cout << ' ' << manacher.even(i)\
+    \ * 2 << ' ';\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/manacher.hpp
   isVerificationFile: true
   path: test/string/manacher.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/manacher.test.cpp
 layout: document

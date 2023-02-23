@@ -28,17 +28,17 @@ data:
     #define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n\n#include <algorithm>\n\
     #include <iostream>\n#include <vector>\n\n#include \"emthrm/data_structure/disjoint_sparse_table.hpp\"\
     \n\nint main() {\n  int n, q;\n  std::cin >> n >> q;\n  std::vector<int> a(n);\n\
-    \  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  const auto fn\
-    \ = [](const int a, const int b) -> int {\n    return std::min(a, b);\n  };\n\
-    \  emthrm::DisjointSparseTable<int, decltype(fn)> disjoint_sparse_table(a, fn);\n\
-    \  while (q--) {\n    int l, r;\n    std::cin >> l >> r;\n    std::cout << disjoint_sparse_table.query(l,\
-    \ r) << '\\n';\n  }\n  return 0;\n}\n"
+    \  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  emthrm::DisjointSparseTable\
+    \ disjoint_sparse_table(\n      a, [](const int a, const int b) -> int { return\
+    \ std::min(a, b); });\n  while (q--) {\n    int l, r;\n    std::cin >> l >> r;\n\
+    \    std::cout << disjoint_sparse_table.query(l, r) << '\\n';\n  }\n  return 0;\n\
+    }\n"
   dependsOn:
   - include/emthrm/data_structure/disjoint_sparse_table.hpp
   isVerificationFile: true
   path: test/data_structure/disjoint_sparse_table.test.cpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/disjoint_sparse_table.test.cpp

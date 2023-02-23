@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/trie.hpp
     title: "\u30C8\u30E9\u30A4\u6728 (trie)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/aho-corasick.test.cpp
     title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -26,11 +26,11 @@ data:
   code: "#ifndef EMTHRM_STRING_AHO_CORASICK_HPP_\n#define EMTHRM_STRING_AHO_CORASICK_HPP_\n\
     \n#include <algorithm>\n#include <cassert>\n#include <iterator>\n#include <map>\n\
     #include <queue>\n#include <string>\n#include <vector>\n\n#include \"emthrm/string/trie.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <int Sigma = 26>\nstruct AhoCorasick : Trie<Sigma\
-    \ + 1> {\n  using Trie<Sigma + 1>::Trie;\n\n  std::vector<int> nums;\n\n  void\
-    \ build(const bool is_full_ver_ = false) {\n    is_full_ver = is_full_ver_;\n\
-    \    auto& vertices = this->nodes;\n    const int n = vertices.size();\n    nums.resize(n);\n\
-    \    for (int i = 0; i < n; ++i) {\n      if (is_full_ver) {\n        std::sort(vertices[i].tails.begin(),\
+    \n\nnamespace emthrm {\n\ntemplate <int Sigma = 26, bool IS_FULL_VER = false>\n\
+    struct AhoCorasick : Trie<Sigma + 1> {\n  using Trie<Sigma + 1>::Trie;\n\n  std::vector<int>\
+    \ nums;\n\n  void build() {\n    auto& vertices = this->nodes;\n    const int\
+    \ n = vertices.size();\n    nums.resize(n);\n    for (int i = 0; i < n; ++i) {\n\
+    \      if constexpr (IS_FULL_VER) {\n        std::sort(vertices[i].tails.begin(),\
     \ vertices[i].tails.end());\n      }\n      nums[i] = vertices[i].tails.size();\n\
     \    }\n    std::queue<int> que;\n    for (int i = 0; i < Sigma; ++i) {\n    \
     \  if (vertices.front().nxt[i] == -1) {\n        vertices.front().nxt[i] = 0;\n\
@@ -41,7 +41,7 @@ data:
     \ ++i) {\n        if (node.nxt[i] == -1) continue;\n        int on_failure = node.nxt[Sigma];\n\
     \        while (vertices[on_failure].nxt[i] == -1) {\n          on_failure = vertices[on_failure].nxt[Sigma];\n\
     \        }\n        vertices[node.nxt[i]].nxt[Sigma] = vertices[on_failure].nxt[i];\n\
-    \        if (is_full_ver) {\n          std::vector<int>& ids = vertices[node.nxt[i]].tails;\n\
+    \        if constexpr (IS_FULL_VER) {\n          std::vector<int>& ids = vertices[node.nxt[i]].tails;\n\
     \          std::vector<int> tmp;\n          std::set_union(ids.begin(), ids.end(),\n\
     \                         vertices[vertices[on_failure].nxt[i]].tails.begin(),\n\
     \                         vertices[vertices[on_failure].nxt[i]].tails.end(),\n\
@@ -53,18 +53,17 @@ data:
     \  }\n\n  int match(const std::string& t, int pos = 0) const {\n    int total\
     \ = 0;\n    for (const char c : t) {\n      pos = move(c, pos);\n      total +=\
     \ nums[pos];\n    }\n    return total;\n  }\n\n  std::map<int, int> match_fully(const\
-    \ std::string& t, int pos = 0) const {\n    assert(is_full_ver);\n    std::map<int,\
+    \ std::string& t, int pos = 0) const {\n    static_assert(IS_FULL_VER);\n    std::map<int,\
     \ int> mp;\n    for (const char c : t) {\n      pos = move(c, pos);\n      for\
     \ (const int id : this->nodes[pos].tails) ++mp[id];\n    }\n    return mp;\n \
-    \ }\n\n private:\n  bool is_full_ver = false;\n};\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_STRING_AHO_CORASICK_HPP_\n"
+    \ }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_STRING_AHO_CORASICK_HPP_\n"
   dependsOn:
   - include/emthrm/string/trie.hpp
   isVerificationFile: false
   path: include/emthrm/string/aho-corasick.hpp
   requiredBy: []
-  timestamp: '2023-01-20 03:45:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/aho-corasick.test.cpp
 documentation_of: include/emthrm/string/aho-corasick.hpp
@@ -83,11 +82,12 @@ title: "Aho\u2013Corasick algorithm"
 ## 仕様
 
 ```cpp
-template <int Sigma = 26>
+template <int Sigma = 26, bool IS_FULL_VER = false>
 struct AhoCorasick : Trie<Sigma + 1>;
 ```
 
 - `Sigma`：アルファベットサイズ
+- `IS_FULL_VER`：完全版かを表す変数
 
 #### メンバ変数
 
@@ -100,7 +100,7 @@ struct AhoCorasick : Trie<Sigma + 1>;
 |名前|効果・戻り値|要件|
 |:--|:--|:--|
 ||[継承コンストラクタ](./trie.md)||
-|`void build(const bool is_full_ver_ = false);`|オートマトンを構築する。||
+|`void build();`|オートマトンを構築する。||
 |`int move(char c, int pos) const;`|$\mathrm{pos}$ 番目のノードから見たときに、文字 $c$ に対応するノードのインデックス||
 |`int match(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードをから見たときに、文字列 $T$ とマッチする回数||
 |`std::map<int, int> match_fully(const std::string& t, int pos = 0) const;`|$\mathrm{pos}$ 番目のノードから見たときに、文字列 $T$ とそれぞれの文字列がマッチする回数|完全版|

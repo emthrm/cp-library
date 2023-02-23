@@ -17,9 +17,10 @@ data:
     \ msb;\n\n  Basis() = default;\n\n  bool add(std::bitset<D> val) {\n    const\
     \ int n = rank();\n    if (n == D) return false;\n    for (int i = 0; i < n; ++i)\
     \ {\n      if (val[msb[i]]) val ^= v[i];\n    }\n    if (val.none()) return false;\n\
-    \    int m = D - 1;\n    while (!val[m]) --m;\n    if (v.empty()) {\n      v.emplace_back(val);\n\
-    \      msb.emplace_back(m);\n      return true;\n    }\n    const int idx = std::distance(std::upper_bound(msb.rbegin(),\
-    \ msb.rend(), m),\n                                  msb.rend());\n    v.emplace(std::next(v.begin(),\
+    \    int m = D - 1;\n    while (!val[m]) --m;\n    if (v.empty()) [[unlikely]]\
+    \ {\n      v.emplace_back(val);\n      msb.emplace_back(m);\n      return true;\n\
+    \    }\n    const int idx = std::distance(std::upper_bound(msb.rbegin(), msb.rend(),\
+    \ m),\n                                  msb.rend());\n    v.emplace(std::next(v.begin(),\
     \ idx), val);\n    msb.emplace(std::next(msb.begin(), idx), m);\n    for (int\
     \ i = idx + 1; i <= n; ++i) {\n      if (v[idx][msb[i]]) v[idx] ^= v[i];\n   \
     \ }\n    for (int i = idx - 1; i >= 0; --i) {\n      if (v[i][m]) v[i] ^= v[idx];\n\
@@ -37,9 +38,9 @@ data:
     \ val) {\n    const int n = rank();\n    if (n == D) return false;\n    for (int\
     \ i = 0; i < n; ++i) {\n      if (val[msb[i]]) val ^= v[i];\n    }\n    if (val.none())\
     \ return false;\n    int m = D - 1;\n    while (!val[m]) --m;\n    if (v.empty())\
-    \ {\n      v.emplace_back(val);\n      msb.emplace_back(m);\n      return true;\n\
-    \    }\n    const int idx = std::distance(std::upper_bound(msb.rbegin(), msb.rend(),\
-    \ m),\n                                  msb.rend());\n    v.emplace(std::next(v.begin(),\
+    \ [[unlikely]] {\n      v.emplace_back(val);\n      msb.emplace_back(m);\n   \
+    \   return true;\n    }\n    const int idx = std::distance(std::upper_bound(msb.rbegin(),\
+    \ msb.rend(), m),\n                                  msb.rend());\n    v.emplace(std::next(v.begin(),\
     \ idx), val);\n    msb.emplace(std::next(msb.begin(), idx), m);\n    for (int\
     \ i = idx + 1; i <= n; ++i) {\n      if (v[idx][msb[i]]) v[idx] ^= v[i];\n   \
     \ }\n    for (int i = idx - 1; i >= 0; --i) {\n      if (v[i][m]) v[i] ^= v[idx];\n\
@@ -54,7 +55,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/basis.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/basis.test.cpp

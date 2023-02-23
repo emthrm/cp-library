@@ -9,36 +9,24 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/division.hpp\"\n\n\n\n#include <cassert>\n\
-    #include <type_traits>\n\nnamespace emthrm {\n\n#if __cplusplus >= 201402L\ntemplate\
-    \ <typename T, typename U>\nstd::common_type_t<T, U> floor_div(const T a, const\
-    \ U b) {\n  assert(b != 0);\n  return a / b - ((int{a < 0} ^ int{b < 0}) & int{a\
-    \ % b != 0});\n}\n\ntemplate <typename T, typename U>\nstd::common_type_t<T, U>\
-    \ ceil_div(const T a, const U b) {\n  assert(b != 0);\n  return a / b + int{(a\
-    \ < 0) == (b < 0) && a % b != 0};\n}\n#else\ntemplate <typename T, typename U>\n\
-    typename std::common_type<T, U>::type floor_div(const T a, const U b) {\n  assert(b\
-    \ != 0);\n  return a / b - ((int{a < 0} ^ int{b < 0}) & int{a % b != 0});\n}\n\
-    \ntemplate <typename T, typename U>\ntypename std::common_type<T, U>::type ceil_div(const\
-    \ T a, const U b) {\n  assert(b != 0);\n  return a / b + int{(a < 0) == (b < 0)\
-    \ && a % b != 0};\n}\n#endif  // __cplusplus >= 201402L\n\n}  // namespace emthrm\n\
-    \n\n"
+    #include <type_traits>\n\nnamespace emthrm {\n\ntemplate <typename T, typename\
+    \ U>\nstd::common_type_t<T, U> floor_div(const T a, const U b) {\n  assert(b !=\
+    \ 0);\n  return a / b - ((int{a < 0} ^ int{b < 0}) & int{a % b != 0});\n}\n\n\
+    template <typename T, typename U>\nstd::common_type_t<T, U> ceil_div(const T a,\
+    \ const U b) {\n  assert(b != 0);\n  return a / b + int{(a < 0) == (b < 0) &&\
+    \ a % b != 0};\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_DIVISION_HPP_\n#define EMTHRM_MATH_DIVISION_HPP_\n\n\
-    #include <cassert>\n#include <type_traits>\n\nnamespace emthrm {\n\n#if __cplusplus\
-    \ >= 201402L\ntemplate <typename T, typename U>\nstd::common_type_t<T, U> floor_div(const\
-    \ T a, const U b) {\n  assert(b != 0);\n  return a / b - ((int{a < 0} ^ int{b\
-    \ < 0}) & int{a % b != 0});\n}\n\ntemplate <typename T, typename U>\nstd::common_type_t<T,\
-    \ U> ceil_div(const T a, const U b) {\n  assert(b != 0);\n  return a / b + int{(a\
-    \ < 0) == (b < 0) && a % b != 0};\n}\n#else\ntemplate <typename T, typename U>\n\
-    typename std::common_type<T, U>::type floor_div(const T a, const U b) {\n  assert(b\
-    \ != 0);\n  return a / b - ((int{a < 0} ^ int{b < 0}) & int{a % b != 0});\n}\n\
-    \ntemplate <typename T, typename U>\ntypename std::common_type<T, U>::type ceil_div(const\
+    #include <cassert>\n#include <type_traits>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T, typename U>\nstd::common_type_t<T, U> floor_div(const T a, const U b) {\n\
+    \  assert(b != 0);\n  return a / b - ((int{a < 0} ^ int{b < 0}) & int{a % b !=\
+    \ 0});\n}\n\ntemplate <typename T, typename U>\nstd::common_type_t<T, U> ceil_div(const\
     \ T a, const U b) {\n  assert(b != 0);\n  return a / b + int{(a < 0) == (b < 0)\
-    \ && a % b != 0};\n}\n#endif  // __cplusplus >= 201402L\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_MATH_DIVISION_HPP_\n"
+    \ && a % b != 0};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_DIVISION_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/division.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:45+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/division.hpp

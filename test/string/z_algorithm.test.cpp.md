@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/z_algorithm.hpp
     title: Z algorithm
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
@@ -25,18 +25,18 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/string/z_algorithm.hpp:\
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6587\u5B57\u5217/Z algorithm\n */\n#define PROBLEM \"https://judge.yosupo.jp/problem/zalgorithm\"\
-    \n\n#include <iostream>\n#include <string>\n#include <vector>\n\n#include \"emthrm/string/z_algorithm.hpp\"\
-    \n\nint main() {\n  std::string s;\n  std::cin >> s;\n  const std::vector<int>\
-    \ ans = emthrm::z_algorithm(s);\n  for (int i = 0; i < static_cast<int>(s.length());\
-    \ ++i) {\n    std::cout << ans[i] << \" \\n\"[i + 1 == static_cast<int>(s.length())];\n\
-    \  }\n  return 0;\n}\n"
+    \n\n#include <iostream>\n#include <string>\n#include <utility>\n#include <vector>\n\
+    \n#include \"emthrm/string/z_algorithm.hpp\"\n\nint main() {\n  std::string s;\n\
+    \  std::cin >> s;\n  const std::vector<int> ans = emthrm::z_algorithm(s);\n  for\
+    \ (int i = 0; std::cmp_less(i, s.length()); ++i) {\n    std::cout << ans[i] <<\
+    \ \" \\n\"[std::cmp_equal(i + 1, s.length())];\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/z_algorithm.hpp
   isVerificationFile: true
   path: test/string/z_algorithm.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/z_algorithm.test.cpp
 layout: document

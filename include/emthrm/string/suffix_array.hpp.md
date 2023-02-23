@@ -2,19 +2,19 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/longest_common_prefix.hpp
     title: longest common prefix
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/suffix_array.test.cpp
     title: "\u6587\u5B57\u5217/\u63A5\u5C3E\u8F9E\u914D\u5217"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/suffix_array.hpp\"\n\n\n\n#include\
@@ -22,11 +22,41 @@ data:
     \ emthrm {\n\ntemplate <typename T = std::string>\nstruct SuffixArray {\n  std::vector<int>\
     \ sa, rank;\n\n  template <typename U = char>\n  explicit SuffixArray(const T&\
     \ s_, const U sentinel = 0) : s(s_) {\n    const int n = s.size();\n    s.push_back(sentinel);\n\
-    \    sa.resize(n + 1);\n    std::iota(sa.begin(), sa.end(), 0);\n    std::sort(sa.begin(),\
-    \ sa.end(), [this](const int a, const int b) -> bool {\n      return s[a] == s[b]\
-    \ ? a > b : s[a] < s[b];\n    });\n    rank.resize(n + 1);\n    for (int i = 0;\
-    \ i <= n; ++i) {\n      rank[i] = s[i];\n    }\n    std::vector<int> tmp(n + 1),\
-    \ prev_sa(n + 1);\n    for (int len = 1; len <= n; len <<= 1) {\n      tmp[sa[0]]\
+    \    sa.resize(n + 1);\n    std::iota(sa.rbegin(), sa.rend(), 0);\n    std::ranges::stable_sort(\n\
+    \        sa, {}, [this](const int index) -> int { return s[index]; });\n    rank.resize(n\
+    \ + 1);\n    for (int i = 0; i <= n; ++i) {\n      rank[i] = s[i];\n    }\n  \
+    \  std::vector<int> tmp(n + 1), prev_sa(n + 1);\n    for (int len = 1; len <=\
+    \ n; len <<= 1) {\n      tmp[sa[0]] = 0;\n      for (int i = 1; i <= n; ++i) {\n\
+    \        if (rank[sa[i - 1]] == rank[sa[i]] && sa[i - 1] + len <= n &&\n     \
+    \       rank[sa[i - 1] + (len >> 1)] == rank[sa[i] + (len >> 1)]) {\n        \
+    \  tmp[sa[i]] = tmp[sa[i - 1]];\n        } else {\n          tmp[sa[i]] = i;\n\
+    \        }\n      }\n      rank.swap(tmp);\n      std::iota(tmp.begin(), tmp.end(),\
+    \ 0);\n      std::copy(sa.begin(), sa.end(), prev_sa.begin());\n      for (int\
+    \ i = 0; i <= n; ++i) {\n        const int idx = prev_sa[i] - len;\n        if\
+    \ (idx >= 0) sa[tmp[rank[idx]]++] = idx;\n      }\n    }\n    for (int i = 0;\
+    \ i <= n; ++i) {\n      rank[sa[i]] = i;\n    }\n  }\n\n  std::vector<int> match(T*\
+    \ t) const {\n    const int lb = lower_bound(t);\n    ++t->back();\n    const\
+    \ int ub = lower_bound(t);\n    --t->back();\n    std::vector<int> res(ub - lb);\n\
+    \    std::copy(sa.begin() + lb, sa.begin() + ub, res.begin());\n    std::sort(res.begin(),\
+    \ res.end());\n    return res;\n  }\n\n private:\n  T s;\n\n  int lower_bound(const\
+    \ T* t) const {\n    const int s_size = s.size(), t_size = t->size();\n    int\
+    \ lb = 0, ub = s_size;\n    while (ub - lb > 1) {\n      const int mid = std::midpoint(lb,\
+    \ ub);\n      int s_idx = sa[mid], t_idx = 0;\n      bool finished = false;\n\
+    \      for (; s_idx < s_size && t_idx < t_size; ++s_idx, ++t_idx) {\n        if\
+    \ (s[s_idx] != (*t)[t_idx]) {\n          (s[s_idx] < (*t)[t_idx] ? lb : ub) =\
+    \ mid;\n          finished = true;\n          break;\n        }\n      }\n   \
+    \   if (!finished) (s_idx == s_size && t_idx < t_size ? lb : ub) = mid;\n    }\n\
+    \    return ub;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_STRING_SUFFIX_ARRAY_HPP_\n#define EMTHRM_STRING_SUFFIX_ARRAY_HPP_\n\
+    \n#include <algorithm>\n#include <numeric>\n#include <string>\n#include <vector>\n\
+    \nnamespace emthrm {\n\ntemplate <typename T = std::string>\nstruct SuffixArray\
+    \ {\n  std::vector<int> sa, rank;\n\n  template <typename U = char>\n  explicit\
+    \ SuffixArray(const T& s_, const U sentinel = 0) : s(s_) {\n    const int n =\
+    \ s.size();\n    s.push_back(sentinel);\n    sa.resize(n + 1);\n    std::iota(sa.rbegin(),\
+    \ sa.rend(), 0);\n    std::ranges::stable_sort(\n        sa, {}, [this](const\
+    \ int index) -> int { return s[index]; });\n    rank.resize(n + 1);\n    for (int\
+    \ i = 0; i <= n; ++i) {\n      rank[i] = s[i];\n    }\n    std::vector<int> tmp(n\
+    \ + 1), prev_sa(n + 1);\n    for (int len = 1; len <= n; len <<= 1) {\n      tmp[sa[0]]\
     \ = 0;\n      for (int i = 1; i <= n; ++i) {\n        if (rank[sa[i - 1]] == rank[sa[i]]\
     \ && sa[i - 1] + len <= n &&\n            rank[sa[i - 1] + (len >> 1)] == rank[sa[i]\
     \ + (len >> 1)]) {\n          tmp[sa[i]] = tmp[sa[i - 1]];\n        } else {\n\
@@ -40,39 +70,8 @@ data:
     \ - lb);\n    std::copy(sa.begin() + lb, sa.begin() + ub, res.begin());\n    std::sort(res.begin(),\
     \ res.end());\n    return res;\n  }\n\n private:\n  T s;\n\n  int lower_bound(const\
     \ T* t) const {\n    const int s_size = s.size(), t_size = t->size();\n    int\
-    \ lb = 0, ub = s_size;\n    while (ub - lb > 1) {\n      const int mid = (lb +\
-    \ ub) >> 1;\n      int s_idx = sa[mid], t_idx = 0;\n      bool finished = false;\n\
-    \      for (; s_idx < s_size && t_idx < t_size; ++s_idx, ++t_idx) {\n        if\
-    \ (s[s_idx] != (*t)[t_idx]) {\n          (s[s_idx] < (*t)[t_idx] ? lb : ub) =\
-    \ mid;\n          finished = true;\n          break;\n        }\n      }\n   \
-    \   if (!finished) (s_idx == s_size && t_idx < t_size ? lb : ub) = mid;\n    }\n\
-    \    return ub;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_STRING_SUFFIX_ARRAY_HPP_\n#define EMTHRM_STRING_SUFFIX_ARRAY_HPP_\n\
-    \n#include <algorithm>\n#include <numeric>\n#include <string>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T = std::string>\nstruct SuffixArray\
-    \ {\n  std::vector<int> sa, rank;\n\n  template <typename U = char>\n  explicit\
-    \ SuffixArray(const T& s_, const U sentinel = 0) : s(s_) {\n    const int n =\
-    \ s.size();\n    s.push_back(sentinel);\n    sa.resize(n + 1);\n    std::iota(sa.begin(),\
-    \ sa.end(), 0);\n    std::sort(sa.begin(), sa.end(), [this](const int a, const\
-    \ int b) -> bool {\n      return s[a] == s[b] ? a > b : s[a] < s[b];\n    });\n\
-    \    rank.resize(n + 1);\n    for (int i = 0; i <= n; ++i) {\n      rank[i] =\
-    \ s[i];\n    }\n    std::vector<int> tmp(n + 1), prev_sa(n + 1);\n    for (int\
-    \ len = 1; len <= n; len <<= 1) {\n      tmp[sa[0]] = 0;\n      for (int i = 1;\
-    \ i <= n; ++i) {\n        if (rank[sa[i - 1]] == rank[sa[i]] && sa[i - 1] + len\
-    \ <= n &&\n            rank[sa[i - 1] + (len >> 1)] == rank[sa[i] + (len >> 1)])\
-    \ {\n          tmp[sa[i]] = tmp[sa[i - 1]];\n        } else {\n          tmp[sa[i]]\
-    \ = i;\n        }\n      }\n      rank.swap(tmp);\n      std::iota(tmp.begin(),\
-    \ tmp.end(), 0);\n      std::copy(sa.begin(), sa.end(), prev_sa.begin());\n  \
-    \    for (int i = 0; i <= n; ++i) {\n        const int idx = prev_sa[i] - len;\n\
-    \        if (idx >= 0) sa[tmp[rank[idx]]++] = idx;\n      }\n    }\n    for (int\
-    \ i = 0; i <= n; ++i) {\n      rank[sa[i]] = i;\n    }\n  }\n\n  std::vector<int>\
-    \ match(T* t) const {\n    const int lb = lower_bound(t);\n    ++t->back();\n\
-    \    const int ub = lower_bound(t);\n    --t->back();\n    std::vector<int> res(ub\
-    \ - lb);\n    std::copy(sa.begin() + lb, sa.begin() + ub, res.begin());\n    std::sort(res.begin(),\
-    \ res.end());\n    return res;\n  }\n\n private:\n  T s;\n\n  int lower_bound(const\
-    \ T* t) const {\n    const int s_size = s.size(), t_size = t->size();\n    int\
-    \ lb = 0, ub = s_size;\n    while (ub - lb > 1) {\n      const int mid = (lb +\
-    \ ub) >> 1;\n      int s_idx = sa[mid], t_idx = 0;\n      bool finished = false;\n\
+    \ lb = 0, ub = s_size;\n    while (ub - lb > 1) {\n      const int mid = std::midpoint(lb,\
+    \ ub);\n      int s_idx = sa[mid], t_idx = 0;\n      bool finished = false;\n\
     \      for (; s_idx < s_size && t_idx < t_size; ++s_idx, ++t_idx) {\n        if\
     \ (s[s_idx] != (*t)[t_idx]) {\n          (s[s_idx] < (*t)[t_idx] ? lb : ub) =\
     \ mid;\n          finished = true;\n          break;\n        }\n      }\n   \
@@ -83,8 +82,8 @@ data:
   path: include/emthrm/string/suffix_array.hpp
   requiredBy:
   - include/emthrm/string/longest_common_prefix.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/longest_common_prefix.test.cpp
   - test/string/suffix_array.test.cpp

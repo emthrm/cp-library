@@ -35,7 +35,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/catalan_number.hpp
   requiredBy: []
-  timestamp: '2023-02-02 03:55:57+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/catalan_number.test.cpp

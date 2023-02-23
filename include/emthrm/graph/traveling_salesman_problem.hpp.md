@@ -29,7 +29,7 @@ data:
     \n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
     \ CostType>\nCostType traveling_salesman_problem(\n    const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\n    const CostType inf = std::numeric_limits<CostType>::max()) {\n \
-    \ const int n = graph.size();\n  if (n == 1) return 0;\n  std::vector<std::vector<CostType>>\
+    \ const int n = graph.size();\n  if (n == 1) [[unlikely]] return 0;\n  std::vector<std::vector<CostType>>\
     \ dp(1 << n, std::vector<CostType>(n, inf));\n  dp[1][0] = 0;\n  for (int i =\
     \ 1; i < (1 << n); ++i) {\n    for (int j = 0; j < n; ++j) {\n      if (dp[i][j]\
     \ == inf) continue;\n      for (const Edge<CostType>& e : graph[j]) {\n      \
@@ -44,7 +44,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/traveling_salesman_problem.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/traveling_salesman_problem.test.cpp

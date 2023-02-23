@@ -18,41 +18,33 @@ data:
   bundledCode: "#line 1 \"include/emthrm/math/lagrange_interpolation.hpp\"\n/**\n\
     \ * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u7248\
     \n * @docs docs/math/lagrange_interpolation.md\n */\n\n#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n\
-    #define EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n\n#include <algorithm>\n#if __cplusplus\
-    \ >= 201703L\n# include <functional>\n#endif  // __cplusplus >= 201703L\n#include\
-    \ <iterator>\n#if __cplusplus >= 201703L\n# include <numeric>\n#endif  // __cplusplus\
-    \ >= 201703L\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
-    T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y,\n \
-    \                        const T t) {\n  const auto it = std::find(x.begin(),\
-    \ x.end(), t);\n  if (it != x.end()) return y[std::distance(x.begin(), it)];\n\
-    \  const int n = x.size();\n  T res = 0;\n  for (int i = 0; i < n; ++i) {\n  \
-    \  T den = t - x[i];\n    for (int j = 0; j < n; ++j) {\n      if (j != i) den\
-    \ *= x[i] - x[j];\n    }\n    res += y[i] / den;\n  }\n#if __cplusplus >= 201703L\n\
-    \  return std::transform_reduce(\n      x.begin(), x.end(), res, std::multiplies<T>(),\n\
-    \      [t](const T& x_i) -> T { return t - x_i; })\n#else\n  for (int i = 0; i\
-    \ < n; ++i) {\n    res *= t - x[i];\n  }\n  return res;\n#endif  // __cplusplus\
-    \ >= 201703L\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n"
+    #define EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n\n#include <algorithm>\n#include\
+    \ <functional>\n#include <iterator>\n#include <numeric>\n#include <vector>\n\n\
+    namespace emthrm {\n\ntemplate <typename T>\nT lagrange_interpolation(const std::vector<T>&\
+    \ x, const std::vector<T>& y,\n                         const T t) {\n  const\
+    \ auto it = std::find(x.begin(), x.end(), t);\n  if (it != x.end()) return y[std::distance(x.begin(),\
+    \ it)];\n  const int n = x.size();\n  T res = 0;\n  for (int i = 0; i < n; ++i)\
+    \ {\n    T den = t - x[i];\n    for (int j = 0; j < n; ++j) {\n      if (j !=\
+    \ i) den *= x[i] - x[j];\n    }\n    res += y[i] / den;\n  }\n  return std::transform_reduce(\n\
+    \      x.begin(), x.end(), res, std::multiplies<T>(),\n      [t](const T& x_i)\
+    \ -> T { return t - x_i; });\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n"
   code: "/**\n * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
     \u7248\n * @docs docs/math/lagrange_interpolation.md\n */\n\n#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n\
-    #define EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n\n#include <algorithm>\n#if __cplusplus\
-    \ >= 201703L\n# include <functional>\n#endif  // __cplusplus >= 201703L\n#include\
-    \ <iterator>\n#if __cplusplus >= 201703L\n# include <numeric>\n#endif  // __cplusplus\
-    \ >= 201703L\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
-    T lagrange_interpolation(const std::vector<T>& x, const std::vector<T>& y,\n \
-    \                        const T t) {\n  const auto it = std::find(x.begin(),\
-    \ x.end(), t);\n  if (it != x.end()) return y[std::distance(x.begin(), it)];\n\
-    \  const int n = x.size();\n  T res = 0;\n  for (int i = 0; i < n; ++i) {\n  \
-    \  T den = t - x[i];\n    for (int j = 0; j < n; ++j) {\n      if (j != i) den\
-    \ *= x[i] - x[j];\n    }\n    res += y[i] / den;\n  }\n#if __cplusplus >= 201703L\n\
-    \  return std::transform_reduce(\n      x.begin(), x.end(), res, std::multiplies<T>(),\n\
-    \      [t](const T& x_i) -> T { return t - x_i; })\n#else\n  for (int i = 0; i\
-    \ < n; ++i) {\n    res *= t - x[i];\n  }\n  return res;\n#endif  // __cplusplus\
-    \ >= 201703L\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n"
+    #define EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n\n#include <algorithm>\n#include\
+    \ <functional>\n#include <iterator>\n#include <numeric>\n#include <vector>\n\n\
+    namespace emthrm {\n\ntemplate <typename T>\nT lagrange_interpolation(const std::vector<T>&\
+    \ x, const std::vector<T>& y,\n                         const T t) {\n  const\
+    \ auto it = std::find(x.begin(), x.end(), t);\n  if (it != x.end()) return y[std::distance(x.begin(),\
+    \ it)];\n  const int n = x.size();\n  T res = 0;\n  for (int i = 0; i < n; ++i)\
+    \ {\n    T den = t - x[i];\n    for (int j = 0; j < n; ++j) {\n      if (j !=\
+    \ i) den *= x[i] - x[j];\n    }\n    res += y[i] / den;\n  }\n  return std::transform_reduce(\n\
+    \      x.begin(), x.end(), res, std::multiplies<T>(),\n      [t](const T& x_i)\
+    \ -> T { return t - x_i; });\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/lagrange_interpolation.hpp
   requiredBy: []
-  timestamp: '2023-02-21 03:04:07+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/lagrange_interpolation.test.cpp

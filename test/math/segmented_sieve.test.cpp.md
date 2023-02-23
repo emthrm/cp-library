@@ -27,17 +27,15 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u6570\u5B66/segmented sieve\n */\n#define IGNORE\n#define\
     \ PROBLEM \"https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bt\"\
-    \n\n#include <algorithm>\n#include <iostream>\n#include <vector>\n\n#include \"\
-    emthrm/math/segmented_sieve.hpp\"\n\nint main() {\n  long long l, r;\n  std::cin\
-    \ >> l >> r;\n  const std::vector<bool> is_prime = emthrm::segmented_sieve(l,\
-    \ r + 1);\n  std::cout << std::count(is_prime.begin(), is_prime.end(), true) <<\
-    \ '\\n';\n  return 0;\n}\n"
+    \n\n#include <algorithm>\n#include <iostream>\n\n#include \"emthrm/math/segmented_sieve.hpp\"\
+    \n\nint main() {\n  long long l, r;\n  std::cin >> l >> r;\n  std::cout << std::ranges::count(emthrm::segmented_sieve(l,\
+    \ r + 1), true)\n            << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/segmented_sieve.hpp
   isVerificationFile: true
   path: test/math/segmented_sieve.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/segmented_sieve.test.cpp

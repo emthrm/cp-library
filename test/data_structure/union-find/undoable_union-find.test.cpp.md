@@ -40,17 +40,18 @@ data:
     \  std::vector<int> a(q), b(q);\n  for (int i = 0; i < q; ++i) {\n    std::cin\
     \ >> a[i] >> b[i];\n    --a[i]; --b[i];\n    queries[std::minmax(s[a[i]], s[b[i]])].emplace_back(i);\n\
     \  }\n  std::vector<int> ans(q);\n  for (const auto& sasb_query : queries) {\n\
-    \    if (edges.count(sasb_query.first)) {\n      for (const int id : edges[sasb_query.first])\
-    \ {\n        union_find.unite(u[id], v[id]);\n      }\n    }\n    for (const int\
-    \ id : sasb_query.second) {\n      ans[id] = union_find.is_same(a[id], b[id]);\n\
-    \    }\n    union_find.rollback();\n  }\n  for (int i = 0; i < q; ++i) {\n   \
-    \ std::cout << ans[i] << '\\n';\n  }\n  return 0;\n}\n"
+    \    if (const auto it = edges.find(sasb_query.first); it != edges.end()) {\n\
+    \      for (const int id : it->second) {\n        union_find.unite(u[id], v[id]);\n\
+    \      }\n    }\n    for (const int id : sasb_query.second) {\n      ans[id] =\
+    \ union_find.is_same(a[id], b[id]);\n    }\n    union_find.rollback();\n  }\n\
+    \  for (int i = 0; i < q; ++i) {\n    std::cout << ans[i] << '\\n';\n  }\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - include/emthrm/data_structure/union-find/undoable_union-find.hpp
   isVerificationFile: true
   path: test/data_structure/union-find/undoable_union-find.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/data_structure/union-find/undoable_union-find.test.cpp

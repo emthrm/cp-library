@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/string/rolling_hash.hpp
     title: rolling hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc141/tasks/abc141_e
@@ -29,16 +29,16 @@ data:
     \n\nint main() {\n  int n;\n  std::string s;\n  std::cin >> n >> s;\n  emthrm::RollingHash<>\
     \ rolling_hash(s);\n  for (int len = n - 1; len >= 1; --len) {\n    std::set<std::int64_t>\
     \ hashes;\n    for (int i = len; i + len <= n; ++i) {\n      hashes.emplace(rolling_hash.get(i\
-    \ - len, i));\n      if (hashes.count(rolling_hash.get(i, i + len))) {\n     \
-    \   std::cout << len << '\\n';\n        return 0;\n      }\n    }\n  }\n  std::cout\
+    \ - len, i));\n      if (hashes.contains(rolling_hash.get(i, i + len))) {\n  \
+    \      std::cout << len << '\\n';\n        return 0;\n      }\n    }\n  }\n  std::cout\
     \ << 0 << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/rolling_hash.hpp
   isVerificationFile: true
   path: test/string/rolling_hash.test.cpp
   requiredBy: []
-  timestamp: '2023-02-04 14:26:45+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/rolling_hash.test.cpp
 layout: document

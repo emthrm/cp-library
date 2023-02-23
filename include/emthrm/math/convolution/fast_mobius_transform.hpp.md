@@ -23,32 +23,28 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/convolution/fast_mobius_transform.hpp\"\
-    \n\n\n\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
-    \ fast_mobius_transform(std::vector<T> a,\n                                  \
-    \   const bool adds_superset, const T id = 0) {\n  int n = a.size(), p = 1;\n\
-    \  while ((1 << p) < n) ++p;\n  n = 1 << p;\n  a.resize(n, id);\n  if (adds_superset)\
-    \ {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n; ++s)\
-    \ {\n        if (s & i) continue;\n        a[s] -= a[s | i];\n      }\n    }\n\
-    \  } else {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s <\
-    \ n; ++s) {\n        if (s & i) continue;\n        a[s | i] -= a[s];\n      }\n\
-    \    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n\n"
+    \n\n\n\n#include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <bool\
+    \ ADDS_SUPERSET, typename T>\nstd::vector<T> fast_mobius_transform(std::vector<T>\
+    \ a, const T id = 0) {\n  const int n = std::bit_ceil(a.size());\n  a.resize(n,\
+    \ id);\n  for (int i = 1; i < n; i <<= 1) {\n    for (int s = 0; s < n; ++s) {\n\
+    \      if (s & i) continue;\n      if constexpr (ADDS_SUPERSET) {\n        a[s]\
+    \ -= a[s | i];\n      } else {\n        a[s | i] -= a[s];\n      }\n    }\n  }\n\
+    \  return a;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_\n#define EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_\n\
-    \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
-    \ fast_mobius_transform(std::vector<T> a,\n                                  \
-    \   const bool adds_superset, const T id = 0) {\n  int n = a.size(), p = 1;\n\
-    \  while ((1 << p) < n) ++p;\n  n = 1 << p;\n  a.resize(n, id);\n  if (adds_superset)\
-    \ {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s < n; ++s)\
-    \ {\n        if (s & i) continue;\n        a[s] -= a[s | i];\n      }\n    }\n\
-    \  } else {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s <\
-    \ n; ++s) {\n        if (s & i) continue;\n        a[s | i] -= a[s];\n      }\n\
-    \    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_\n"
+    \n#include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <bool ADDS_SUPERSET,\
+    \ typename T>\nstd::vector<T> fast_mobius_transform(std::vector<T> a, const T\
+    \ id = 0) {\n  const int n = std::bit_ceil(a.size());\n  a.resize(n, id);\n  for\
+    \ (int i = 1; i < n; i <<= 1) {\n    for (int s = 0; s < n; ++s) {\n      if (s\
+    \ & i) continue;\n      if constexpr (ADDS_SUPERSET) {\n        a[s] -= a[s |\
+    \ i];\n      } else {\n        a[s | i] -= a[s];\n      }\n    }\n  }\n  return\
+    \ a;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_FAST_MOBIUS_TRANSFORM_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/convolution/fast_mobius_transform.hpp
   requiredBy:
   - include/emthrm/math/convolution/and_convolution.hpp
   - include/emthrm/math/convolution/or_convolution.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp
@@ -72,7 +68,7 @@ $O(N\log{N})$
 
 |名前|戻り値|備考|
 |:--|:--|:--|
-|`template <typename T>`<br>`std::vector<T> fast_mobius_transform(std::vector<T> a, const bool adds_superset, const T id = 0);`|$A$ に高速メビウス変換を行ったもの|`adds_superset` は上位集合に対する変換かを表す。|
+|`template <bool ADDS_SUPERSET, typename T>`<br>`std::vector<T> fast_mobius_transform(std::vector<T> a, const T id = 0);`|$A$ に高速メビウス変換を行ったもの|`ADDS_SUPERSET` は上位集合に対する変換かを表す。|
 
 
 ## 参考文献

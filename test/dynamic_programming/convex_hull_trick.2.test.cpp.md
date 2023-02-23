@@ -29,18 +29,18 @@ data:
     \ <iostream>\n\n#include \"emthrm/dynamic_programming/convex_hull_trick.hpp\"\n\
     \nint main() {\n  int n;\n  long long c;\n  std::cin >> n >> c;\n  emthrm::ConvexHullTrick<long\
     \ long> convex_hull_trick;\n  for (int i = 0; i < n; ++i) {\n    int h;\n    std::cin\
-    \ >> h;\n    if (i == 0) {\n      convex_hull_trick.add(-2 * h, static_cast<long\
+    \ >> h;\n    if (i == 0) [[unlikely]] {\n      convex_hull_trick.add(-2 * h, static_cast<long\
     \ long>(h) * h);\n    } else {\n      const long long dp = convex_hull_trick.monotonically_increasing_query(h)\n\
     \                           + static_cast<long long>(h) * h + c;\n      if (i\
-    \ + 1 == n) {\n        std::cout << dp << '\\n';\n      } else {\n        convex_hull_trick.add(-2\
-    \ * h, dp + static_cast<long long>(h) * h);\n      }\n    }\n  }\n  return 0;\n\
-    }\n"
+    \ + 1 == n) [[unlikely]] {\n        std::cout << dp << '\\n';\n      } else {\n\
+    \        convex_hull_trick.add(-2 * h, dp + static_cast<long long>(h) * h);\n\
+    \      }\n    }\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/dynamic_programming/convex_hull_trick.hpp
   isVerificationFile: true
   path: test/dynamic_programming/convex_hull_trick.2.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/convex_hull_trick.2.test.cpp

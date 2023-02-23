@@ -31,17 +31,17 @@ data:
     \ w_i * depth(i) \u306E\u6700\u5C0F\u5024\nint main() {\n  int n;\n  std::cin\
     \ >> n;\n  std::vector<std::vector<long long>> w(n, std::vector<long long>(n));\n\
     \  for (int j = 0; j < n; ++j) {\n    std::cin >> w.front()[j];\n    if (j > 0)\
-    \ w.front()[j] += w.front()[j - 1];\n  }\n  for (int i = 1; i < n; ++i) {\n  \
-    \  for (int j = i; j < n; ++j) {\n      w[i][j] = w.front()[j] - w.front()[i -\
-    \ 1];\n    }\n  }\n  std::cout << emthrm::knuth_yao_speedup(\n               \
-    \    w, std::numeric_limits<long long>::max())[0][n - 1]\n            << '\\n';\n\
-    \  return 0;\n}\n"
+    \ [[likely]] w.front()[j] += w.front()[j - 1];\n  }\n  for (int i = 1; i < n;\
+    \ ++i) {\n    for (int j = i; j < n; ++j) {\n      w[i][j] = w.front()[j] - w.front()[i\
+    \ - 1];\n    }\n  }\n  std::cout << emthrm::knuth_yao_speedup(\n             \
+    \      w, std::numeric_limits<long long>::max())[0][n - 1]\n            << '\\\
+    n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/dynamic_programming/knuth_yao_speedup.hpp
   isVerificationFile: true
   path: test/dynamic_programming/knuth_yao_speedup.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/knuth_yao_speedup.test.cpp

@@ -9,7 +9,7 @@ data:
     path: include/emthrm/graph/flow/matching/maximum_matching.hpp
     title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/matrix/linear_equation.hpp
     title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation)"
   _extendedVerifiedWith:
@@ -17,12 +17,12 @@ data:
     path: test/graph/flow/matching/maximum_matching.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
       \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -36,20 +36,20 @@ data:
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_\n#define EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_\n\
     \n#include <utility>\n\n#include \"emthrm/math/matrix/matrix.hpp\"\n\nnamespace\
-    \ emthrm {\n\ntemplate <typename T>\nint gauss_jordan(Matrix<T>* a, const T eps\
-    \ = 1e-8,\n                 const bool is_extended = false) {\n  const int m =\
-    \ a->nrow(), n = a->ncol();\n  int rank = 0;\n  for (int col = 0; col < (is_extended\
-    \ ? n - 1 : n); ++col) {\n    int pivot = -1;\n    T mx = eps;\n    for (int row\
-    \ = rank; row < m; ++row) {\n      const T abs = ((*a)[row][col] < 0 ? -(*a)[row][col]\
-    \ : (*a)[row][col]);\n      if (abs > mx) {\n        pivot = row;\n        mx\
-    \ = abs;\n      }\n    }\n    if (pivot == -1) continue;\n    std::swap((*a)[rank],\
-    \ (*a)[pivot]);\n    T tmp = (*a)[rank][col];\n    for (int col2 = 0; col2 < n;\
-    \ ++col2) {\n      (*a)[rank][col2] /= tmp;\n    }\n    for (int row = 0; row\
-    \ < m; ++row) {\n      if (row != rank &&\n          ((*a)[row][col] < 0 ? -(*a)[row][col]\
-    \ : (*a)[row][col]) > eps) {\n        tmp = (*a)[row][col];\n        for (int\
-    \ col2 = 0; col2 < n; ++col2) {\n          (*a)[row][col2] -= (*a)[rank][col2]\
-    \ * tmp;\n        }\n      }\n    }\n    ++rank;\n  }\n  return rank;\n}\n\n}\
-    \  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_\n"
+    \ emthrm {\n\ntemplate <bool IS_EXTENDED = false, typename T>\nint gauss_jordan(Matrix<T>*\
+    \ a, const T eps = 1e-8) {\n  const int m = a->nrow(), n = a->ncol();\n  int rank\
+    \ = 0;\n  for (int col = 0; col < (IS_EXTENDED ? n - 1 : n); ++col) {\n    int\
+    \ pivot = -1;\n    T mx = eps;\n    for (int row = rank; row < m; ++row) {\n \
+    \     const T abs = ((*a)[row][col] < 0 ? -(*a)[row][col] : (*a)[row][col]);\n\
+    \      if (abs > mx) {\n        pivot = row;\n        mx = abs;\n      }\n   \
+    \ }\n    if (pivot == -1) continue;\n    std::swap((*a)[rank], (*a)[pivot]);\n\
+    \    T tmp = (*a)[rank][col];\n    for (int col2 = 0; col2 < n; ++col2) {\n  \
+    \    (*a)[rank][col2] /= tmp;\n    }\n    for (int row = 0; row < m; ++row) {\n\
+    \      if (row != rank &&\n          ((*a)[row][col] < 0 ? -(*a)[row][col] : (*a)[row][col])\
+    \ > eps) {\n        tmp = (*a)[row][col];\n        for (int col2 = 0; col2 < n;\
+    \ ++col2) {\n          (*a)[row][col2] -= (*a)[rank][col2] * tmp;\n        }\n\
+    \      }\n    }\n    ++rank;\n  }\n  return rank;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_MATH_MATRIX_GAUSS_JORDAN_HPP_\n"
   dependsOn:
   - include/emthrm/math/matrix/matrix.hpp
   isVerificationFile: false
@@ -57,8 +57,8 @@ data:
   requiredBy:
   - include/emthrm/math/matrix/linear_equation.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
@@ -80,7 +80,7 @@ $O(M^2 N)$
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <typename T>`<br>`int gauss_jordan(Matrix<T>* a, const T eps = 1e-8, const bool is_extended = false);`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|`is_extended` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
+|`template <bool IS_EXTENDED = false, typename T>`<br>`int gauss_jordan(Matrix<T>* a, const T eps = 1e-8);`|行列 $A$ のランク|要素の型は実数型または `ModInt` である。|`IS_EXTENDED` は $A$ が拡大係数行列かを表す。<br>$A$ は行階段形に変形される。|
 
 
 ## 参考文献

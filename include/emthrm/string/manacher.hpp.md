@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/string/manacher.test.cpp
     title: "\u6587\u5B57\u5217/Manacher"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/manacher.hpp\"\n\n\n\n#include <vector>\n\
@@ -46,7 +46,7 @@ data:
   path: include/emthrm/string/manacher.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/manacher.test.cpp
 documentation_of: include/emthrm/string/manacher.hpp

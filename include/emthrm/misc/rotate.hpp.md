@@ -3,46 +3,45 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/rotate.test.cpp
     title: "\u305D\u306E\u4ED6/\u56DE\u8EE2"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/misc/rotate.hpp\"\n\n\n\n#include <cassert>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>>\
-    \ rotate(const std::vector<std::vector<T>>& grid,\n                          \
-    \         const int angle, const T space = ' ') {\n  const int h = grid.size(),\
-    \ w = grid.front().size();\n  std::vector<std::vector<T>> rotated_grid;\n  if\
-    \ (angle == 45) {\n    rotated_grid.assign(h + w - 1, std::vector<T>(h + w - 1,\
-    \ space));\n    for (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j)\
-    \ {\n        rotated_grid[i + j][i - j + w - 1] = grid[i][j];\n      }\n    }\n\
-    \  } else if (angle == 90) {\n    rotated_grid.assign(w, std::vector<T>(h));\n\
-    \    for (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j) {\n    \
-    \    rotated_grid[w - 1 - j][i] = grid[i][j];\n      }\n    }\n  } else {\n  \
-    \  assert(false);\n  }\n  return rotated_grid;\n}\n\n}  // namespace emthrm\n\n\
-    \n"
-  code: "#ifndef EMTHRM_MISC_ROTATE_HPP_\n#define EMTHRM_MISC_ROTATE_HPP_\n\n#include\
-    \ <cassert>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <int ANGLE, typename T>\n\
     std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,\n\
-    \                                   const int angle, const T space = ' ') {\n\
-    \  const int h = grid.size(), w = grid.front().size();\n  std::vector<std::vector<T>>\
-    \ rotated_grid;\n  if (angle == 45) {\n    rotated_grid.assign(h + w - 1, std::vector<T>(h\
-    \ + w - 1, space));\n    for (int i = 0; i < h; ++i) {\n      for (int j = 0;\
-    \ j < w; ++j) {\n        rotated_grid[i + j][i - j + w - 1] = grid[i][j];\n  \
-    \    }\n    }\n  } else if (angle == 90) {\n    rotated_grid.assign(w, std::vector<T>(h));\n\
-    \    for (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j) {\n    \
-    \    rotated_grid[w - 1 - j][i] = grid[i][j];\n      }\n    }\n  } else {\n  \
-    \  assert(false);\n  }\n  return rotated_grid;\n}\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_MISC_ROTATE_HPP_\n"
+    \                                   const T space = ' ') {\n  static_assert(ANGLE\
+    \ == 45 || ANGLE == 90);\n  const int h = grid.size(), w = grid.front().size();\n\
+    \  std::vector<std::vector<T>> rotated_grid;\n  if constexpr (ANGLE == 45) {\n\
+    \    rotated_grid.assign(h + w - 1, std::vector<T>(h + w - 1, space));\n    for\
+    \ (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j) {\n        rotated_grid[i\
+    \ + j][i - j + w - 1] = grid[i][j];\n      }\n    }\n  } else {\n    rotated_grid.assign(w,\
+    \ std::vector<T>(h));\n    for (int i = 0; i < h; ++i) {\n      for (int j = 0;\
+    \ j < w; ++j) {\n        rotated_grid[w - 1 - j][i] = grid[i][j];\n      }\n \
+    \   }\n  }\n  return rotated_grid;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MISC_ROTATE_HPP_\n#define EMTHRM_MISC_ROTATE_HPP_\n\n#include\
+    \ <cassert>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <int ANGLE, typename\
+    \ T>\nstd::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid,\n\
+    \                                   const T space = ' ') {\n  static_assert(ANGLE\
+    \ == 45 || ANGLE == 90);\n  const int h = grid.size(), w = grid.front().size();\n\
+    \  std::vector<std::vector<T>> rotated_grid;\n  if constexpr (ANGLE == 45) {\n\
+    \    rotated_grid.assign(h + w - 1, std::vector<T>(h + w - 1, space));\n    for\
+    \ (int i = 0; i < h; ++i) {\n      for (int j = 0; j < w; ++j) {\n        rotated_grid[i\
+    \ + j][i - j + w - 1] = grid[i][j];\n      }\n    }\n  } else {\n    rotated_grid.assign(w,\
+    \ std::vector<T>(h));\n    for (int i = 0; i < h; ++i) {\n      for (int j = 0;\
+    \ j < w; ++j) {\n        rotated_grid[w - 1 - j][i] = grid[i][j];\n      }\n \
+    \   }\n  }\n  return rotated_grid;\n}\n\n}  // namespace emthrm\n\n#endif  //\
+    \ EMTHRM_MISC_ROTATE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/misc/rotate.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/rotate.test.cpp
 documentation_of: include/emthrm/misc/rotate.hpp
@@ -67,7 +66,7 @@ $O(HW)$
 
 |名前|戻り値|要件|
 |:--|:--|:--|
-|`template <typename T>`<br>`std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid, const int angle, const T space = ' ');`|グリッド $\mathrm{grid}$ を $\mathrm{angle}$ 度だけ回転させたもの|$\mathrm{angle} \in \lbrace 45, 90 \rbrace$|
+|`template <int ANGLE, typename T>`<br>`std::vector<std::vector<T>> rotate(const std::vector<std::vector<T>>& grid, const T space = ' ');`|グリッド $\mathrm{grid}$ を $\mathrm{ANGLE}$ 度だけ回転させたもの|$\mathrm{ANGLE} \in \lbrace 45, 90 \rbrace$|
 
 
 ## 参考文献

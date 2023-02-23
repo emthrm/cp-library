@@ -32,8 +32,8 @@ data:
     \ h.end());\n  emthrm::ConvexHullTrick<long long> convex_hull_trick;\n  convex_hull_trick.add(-2\
     \ * h.front(),\n                        static_cast<long long>(h.front()) * h.front());\n\
     \  for (int i = 1; i < n; ++i) {\n    const long long dp =\n        convex_hull_trick.monotonically_decreasing_query(h[i])\n\
-    \        + static_cast<long long>(h[i]) * h[i] + c;\n    if (i + 1 == n) {\n \
-    \     std::cout << dp << '\\n';\n    } else {\n      convex_hull_trick.add(-2\
+    \        + static_cast<long long>(h[i]) * h[i] + c;\n    if (i + 1 == n) [[unlikely]]\
+    \ {\n      std::cout << dp << '\\n';\n    } else {\n      convex_hull_trick.add(-2\
     \ * h[i],\n                            dp + static_cast<long long>(h[i]) * h[i]);\n\
     \    }\n  }\n  return 0;\n}\n"
   dependsOn:
@@ -41,7 +41,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/convex_hull_trick.3.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/convex_hull_trick.3.test.cpp

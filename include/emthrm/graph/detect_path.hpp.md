@@ -22,28 +22,26 @@ data:
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
     , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
     \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/detect_path.hpp: line 12: unable to process #include in\
+    \ include/emthrm/graph/detect_path.hpp: line 11: unable to process #include in\
     \ #if / #ifdef / #ifndef other than include guards\n"
   code: "/**\n * @brief \u9053\u306E\u691C\u51FA\n * @docs docs/graph/detect_walk.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_DETECT_PATH_HPP_\n#define EMTHRM_GRAPH_DETECT_PATH_HPP_\n\
-    \n#include <functional>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>>\
-    \ detect_path(\n    const std::vector<std::vector<Edge<CostType>>>& graph,\n \
-    \   const int s, const int t) {\n  std::vector<bool> is_visited(graph.size(),\
-    \ false);\n  std::vector<Edge<CostType>> path;\n  const std::function<bool(const\
-    \ int)> dfs =\n      [&graph, t, &is_visited, &path, &dfs](const int ver) -> bool\
-    \ {\n        if (ver == t) return true;\n        is_visited[ver] = true;\n   \
-    \     for (const Edge<CostType>& e : graph[ver]) {\n          if (!is_visited[e.dst])\
-    \ {\n            path.emplace_back(e);\n            if (dfs(e.dst)) return true;\n\
-    \            path.pop_back();\n          }\n        }\n        return false;\n\
-    \      };\n  dfs(s);\n  return path;\n}\n\n}  // namespace emthrm\n\n#endif  //\
-    \ EMTHRM_GRAPH_DETECT_PATH_HPP_\n"
+    \n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm\
+    \ {\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>> detect_path(\n\
+    \    const std::vector<std::vector<Edge<CostType>>>& graph,\n    const int s,\
+    \ const int t) {\n  std::vector<bool> is_visited(graph.size(), false);\n  std::vector<Edge<CostType>>\
+    \ path;\n  const auto dfs = [&graph, t, &is_visited, &path](auto dfs, const int\
+    \ ver)\n      -> bool {\n    if (ver == t) return true;\n    is_visited[ver] =\
+    \ true;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (!is_visited[e.dst])\
+    \ {\n        path.emplace_back(e);\n        if (dfs(dfs, e.dst)) return true;\n\
+    \        path.pop_back();\n      }\n    }\n    return false;\n  };\n  dfs(dfs,\
+    \ s);\n  return path;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_DETECT_PATH_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/detect_path.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/detect_path.test.cpp

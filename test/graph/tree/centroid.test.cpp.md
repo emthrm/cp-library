@@ -33,20 +33,19 @@ data:
     \ line -1: no such header\n"
   code: "/*\n * @brief \u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\n */\n#define PROBLEM\
     \ \"https://atcoder.jp/contests/arc087/tasks/arc087_f\"\n// #define PROBLEM \"\
-    https://atcoder.jp/contests/arc087/tasks/arc087_d\"\n\n#include <functional>\n\
-    #include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\
-    #include \"emthrm/graph/tree/centroid.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n;\n  std::cin\
-    \ >> n;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n  for (int\
-    \ i = 0; i < n - 1; ++i) {\n    int x, y;\n    std::cin >> x >> y;\n    --x; --y;\n\
-    \    graph[x].emplace_back(x, y);\n    graph[y].emplace_back(y, x);\n  }\n  const\
-    \ std::vector<int> centroids = emthrm::centroid(graph);\n  if (centroids.size()\
-    \ == 2) {\n    std::cout << ModInt::fact(n / 2) * ModInt::fact(n / 2) << '\\n';\n\
-    \  } else {\n    std::vector<int> subtree(n, 1);\n    const std::function<void(int,\
-    \ int)> dfs =\n        [&graph, &subtree, &dfs](const int par, const int ver)\
-    \ -> void {\n          for (const emthrm::Edge<bool>& e : graph[ver]) {\n    \
-    \        if (e.dst != par) {\n              dfs(ver, e.dst);\n              subtree[ver]\
-    \ += subtree[e.dst];\n            }\n          }\n        };\n    dfs(-1, centroids.front());\n\
+    https://atcoder.jp/contests/arc087/tasks/arc087_d\"\n\n#include <iostream>\n#include\
+    \ <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/tree/centroid.hpp\"\
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \  int n;\n  std::cin >> n;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n\
+    \  for (int i = 0; i < n - 1; ++i) {\n    int x, y;\n    std::cin >> x >> y;\n\
+    \    --x; --y;\n    graph[x].emplace_back(x, y);\n    graph[y].emplace_back(y,\
+    \ x);\n  }\n  const std::vector<int> centroids = emthrm::centroid(graph);\n  if\
+    \ (centroids.size() == 2) {\n    std::cout << ModInt::fact(n / 2) * ModInt::fact(n\
+    \ / 2) << '\\n';\n  } else {\n    std::vector<int> subtree(n, 1);\n    const auto\
+    \ dfs = [&graph, &subtree](auto dfs, const int par, const int ver)\n        ->\
+    \ void {\n      for (const emthrm::Edge<bool>& e : graph[ver]) {\n        if (e.dst\
+    \ != par) [[likely]] {\n          dfs(dfs, ver, e.dst);\n          subtree[ver]\
+    \ += subtree[e.dst];\n        }\n      }\n    };\n    dfs(dfs, -1, centroids.front());\n\
     \    std::vector<int> nums;\n    for (const emthrm::Edge<bool>& e : graph[centroids.front()])\
     \ {\n      nums.emplace_back(subtree[e.dst]);\n    }\n    const int m = nums.size();\n\
     \    std::vector<std::vector<ModInt>> dp(m + 1, std::vector<ModInt>(n + 1, 0));\n\
@@ -64,7 +63,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/centroid.test.cpp

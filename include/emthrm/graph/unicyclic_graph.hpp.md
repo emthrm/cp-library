@@ -33,11 +33,11 @@ data:
     \ -1), mapping(n, -1), n(n), graph(n) {}\n\n  void add_edge(const int src, const\
     \ int dst, const CostType cost = 0) {\n    const int id = srcs.size();\n    srcs.emplace_back(src);\n\
     \    dsts.emplace_back(dst);\n    costs.emplace_back(cost);\n    graph[src].emplace_back(id);\n\
-    \    if (dst != src) graph[dst].emplace_back(id);\n  }\n\n  void build() {\n \
-    \   dfs(-1, 0);\n    std::queue<int> que;\n    for (const Edge<CostType>& e :\
-    \ loop) {\n      const int root = e.src, forest_id = forest.size();\n      belong[root]\
-    \ = forest_id;\n      mapping[root] = 0;\n      std::vector<int> inv{root};\n\
-    \      std::vector<std::vector<Edge<CostType>>> tree(1);\n      que.emplace(root);\n\
+    \    if (dst != src) [[likely]] graph[dst].emplace_back(id);\n  }\n\n  void build()\
+    \ {\n    dfs(-1, 0);\n    std::queue<int> que;\n    for (const Edge<CostType>&\
+    \ e : loop) {\n      const int root = e.src, forest_id = forest.size();\n    \
+    \  belong[root] = forest_id;\n      mapping[root] = 0;\n      std::vector<int>\
+    \ inv{root};\n      std::vector<std::vector<Edge<CostType>>> tree(1);\n      que.emplace(root);\n\
     \      while (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
     \        for (const int id : graph[ver]) {\n          const int dst = destination(id,\
     \ ver);\n          if (belong[dst] == -1 && !is_in_loop[dst]) {\n            const\
@@ -52,9 +52,9 @@ data:
     \ graph;\n\n  int destination(const int id, const int s) const {\n    return (srcs[id]\
     \ == s ? dsts : srcs)[id];\n  }\n\n  bool dfs(const int prev_id, const int ver)\
     \ {\n    is_in_loop[ver] = true;\n    for (const int id : graph[ver]) {\n    \
-    \  if (id == prev_id) continue;\n      const int dst = destination(id, ver);\n\
-    \      loop.emplace_back(ver, dst, costs[id]);\n      if (is_in_loop[dst]) {\n\
-    \        for (int i = loop.size() - 1; i >= 0; --i) {\n          if (loop[i].src\
+    \  if (id == prev_id) [[unlikely]] continue;\n      const int dst = destination(id,\
+    \ ver);\n      loop.emplace_back(ver, dst, costs[id]);\n      if (is_in_loop[dst])\
+    \ {\n        for (int i = loop.size() - 1; i >= 0; --i) {\n          if (loop[i].src\
     \ == dst) {\n            for (int j = 0; j < i; ++j) {\n              is_in_loop[loop[j].src]\
     \ = false;\n            }\n            loop.erase(loop.begin(), std::next(loop.begin(),\
     \ i));\n            return true;\n          }\n        }\n        assert(false);\n\
@@ -66,7 +66,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/unicyclic_graph.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/unicyclic_graph.test.cpp

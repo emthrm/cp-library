@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/misc/mo.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -20,7 +20,7 @@ data:
     \ &rs, width](const int a, const int b) -> bool {\n                  if (ls[a]\
     \ / width != ls[b] / width) return ls[a] < ls[b];\n                  return (ls[a]\
     \ / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n              });\n  }\n\n  int\
-    \ process() {\n    if (ptr == n) return -1;\n    const int id = order[ptr++];\n\
+    \ process() {\n    if (ptr == n) [[unlikely]] return -1;\n    const int id = order[ptr++];\n\
     \    while (ls[id] < nl) add(--nl);\n    while (nr < rs[id]) add(nr++);\n    while\
     \ (nl < ls[id]) del(nl++);\n    while (rs[id] < nr) del(--nr);\n    return id;\n\
     \  }\n\n  void add(const int idx) const;\n\n  void del(const int idx) const;\n\
@@ -35,7 +35,7 @@ data:
     \ &rs, width](const int a, const int b) -> bool {\n                  if (ls[a]\
     \ / width != ls[b] / width) return ls[a] < ls[b];\n                  return (ls[a]\
     \ / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n              });\n  }\n\n  int\
-    \ process() {\n    if (ptr == n) return -1;\n    const int id = order[ptr++];\n\
+    \ process() {\n    if (ptr == n) [[unlikely]] return -1;\n    const int id = order[ptr++];\n\
     \    while (ls[id] < nl) add(--nl);\n    while (nr < rs[id]) add(nr++);\n    while\
     \ (nl < ls[id]) del(nl++);\n    while (rs[id] < nr) del(--nr);\n    return id;\n\
     \  }\n\n  void add(const int idx) const;\n\n  void del(const int idx) const;\n\
@@ -45,8 +45,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/misc/mo.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/misc/mo.test.cpp
 documentation_of: include/emthrm/misc/mo.hpp

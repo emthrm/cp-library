@@ -3,28 +3,29 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_prime.test.cpp
     title: "\u6570\u5B66/\u7D20\u6570\u5224\u5B9A"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/is_prime.hpp\"\n\n\n\nnamespace emthrm\
-    \ {\n\nbool is_prime(const long long n) {\n  if (n <= 1) return false;\n  for\
-    \ (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return false;\n  }\n\
-    \  return true;\n}\n\n}  // namespace emthrm\n\n\n"
+    \ {\n\nbool is_prime(const long long n) {\n  if (n <= 1) [[unlikely]] return false;\n\
+    \  for (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return false;\n\
+    \  }\n  return true;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_IS_PRIME_HPP_\n#define EMTHRM_MATH_IS_PRIME_HPP_\n\n\
-    namespace emthrm {\n\nbool is_prime(const long long n) {\n  if (n <= 1) return\
-    \ false;\n  for (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) return\
-    \ false;\n  }\n  return true;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_IS_PRIME_HPP_\n"
+    namespace emthrm {\n\nbool is_prime(const long long n) {\n  if (n <= 1) [[unlikely]]\
+    \ return false;\n  for (long long i = 2; i * i <= n; ++i) {\n    if (n % i ==\
+    \ 0) return false;\n  }\n  return true;\n}\n\n}  // namespace emthrm\n\n#endif\
+    \  // EMTHRM_MATH_IS_PRIME_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/is_prime.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/is_prime.test.cpp
 documentation_of: include/emthrm/math/is_prime.hpp

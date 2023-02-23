@@ -21,22 +21,22 @@ data:
     #define EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\n#include <numeric>\n#include <vector>\n\
     \nnamespace emthrm {\n\nstd::vector<int> euler_phi_init(const int n) {\n  std::vector<int>\
     \ phi(n + 1);\n  std::iota(phi.begin(), phi.end(), 0);\n  for (int i = 2; i <=\
-    \ n; ++i) {\n    if (phi[i] == i) {\n      for (int j = i; j <= n; j += i) {\n\
-    \        phi[j] -= phi[j] / i;\n      }\n    }\n  }\n  return phi;\n}\n\n}  //\
-    \ namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
+    \ n; ++i) {\n    if (phi[i] == i) [[unlikely]] {\n      for (int j = i; j <= n;\
+    \ j += i) {\n        phi[j] -= phi[j] / i;\n      }\n    }\n  }\n  return phi;\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
   code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
     \u6570\u8868\n * @docs docs/math/euler_phi.md\n */\n\n#ifndef EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\
     #define EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\n#include <numeric>\n#include <vector>\n\
     \nnamespace emthrm {\n\nstd::vector<int> euler_phi_init(const int n) {\n  std::vector<int>\
     \ phi(n + 1);\n  std::iota(phi.begin(), phi.end(), 0);\n  for (int i = 2; i <=\
-    \ n; ++i) {\n    if (phi[i] == i) {\n      for (int j = i; j <= n; j += i) {\n\
-    \        phi[j] -= phi[j] / i;\n      }\n    }\n  }\n  return phi;\n}\n\n}  //\
-    \ namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
+    \ n; ++i) {\n    if (phi[i] == i) [[unlikely]] {\n      for (int j = i; j <= n;\
+    \ j += i) {\n        phi[j] -= phi[j] / i;\n      }\n    }\n  }\n  return phi;\n\
+    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/euler_phi_init.hpp
   requiredBy: []
-  timestamp: '2023-02-23 01:44:48+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi_init.test.cpp

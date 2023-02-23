@@ -49,9 +49,9 @@ struct NumberTheoreticTransform;
 
 |名前|戻り値|要件|備考|
 |:--|:--|:--|:--|
-|`template <int T> std::vector<MInt<T>>`<br>`mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b, const int pre = 15);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`pre` は精度を表す。|
+|`template <int PRECISION = 15, int T>`<br>`std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a, const std::vector<MInt<T>>& b);`|$A$ と $B$ の畳み込み|$(\text{精度}) \geq \log_2{\sqrt{m}}$ でなければならない。|`PRECISION` は精度を表す。|
 
-e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$。
+e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$
 
 
 ## 参考文献

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   _extendedRequiredBy: []
@@ -31,7 +31,7 @@ data:
     #include <utility>\n#include <vector>\n\n#include \"emthrm/geometry/geometry.hpp\"\
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<emthrm::geometry::Point>\
     \ p(n);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> p[i];\n  }\n  emthrm::geometry::Polygon\
-    \ convex_hull = monotone_chain(p, false);\n  const int m = convex_hull.size();\n\
+    \ convex_hull = monotone_chain<false>(p);\n  const int m = convex_hull.size();\n\
     \  std::vector<std::pair<emthrm::geometry::Point, int>> ps;\n  ps.reserve(m);\n\
     \  for (int i = 0; i < m; ++i) {\n    ps.emplace_back(convex_hull[i], i);\n  }\n\
     \  std::sort(\n      ps.begin(), ps.end(),\n      [](const std::pair<emthrm::geometry::Point,\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.20.test.cpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:27+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.20.test.cpp

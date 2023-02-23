@@ -47,9 +47,9 @@ data:
     \  const std::vector<std::vector<Edge<CostType>>> graph;\n\n  void dfs(const int\
     \ par, const int ver, const int cur_depth) {\n    left[ver] = tour.size();\n \
     \   tour.emplace_back(ver);\n    depth.emplace_back(cur_depth);\n    for (const\
-    \ Edge<CostType>& e : graph[ver]) {\n      if (e.dst != par) {\n        down[e.dst]\
-    \ = cost.size();\n        cost.emplace_back(e.cost);\n        dfs(ver, e.dst,\
-    \ cur_depth + 1);\n        tour.emplace_back(ver);\n        depth.emplace_back(cur_depth);\n\
+    \ Edge<CostType>& e : graph[ver]) {\n      if (e.dst != par) [[likely]] {\n  \
+    \      down[e.dst] = cost.size();\n        cost.emplace_back(e.cost);\n      \
+    \  dfs(ver, e.dst, cur_depth + 1);\n        tour.emplace_back(ver);\n        depth.emplace_back(cur_depth);\n\
     \        up[e.dst] = cost.size();\n        cost.emplace_back(-e.cost);\n     \
     \ }\n    }\n    right[ver] = tour.size() - 1;\n  }\n};\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_\n"
@@ -59,7 +59,7 @@ data:
   path: include/emthrm/graph/tree/euler_tour.hpp
   requiredBy:
   - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

@@ -18,14 +18,14 @@ data:
   - icon: ':warning:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
     title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
     title: "\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
     title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
@@ -77,30 +77,30 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
       \u306E\u76F8\u4E57"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/formal_power_series.hpp\"\
@@ -119,17 +119,17 @@ data:
     \ Mult mult) { get_mult() = mult; }\n  static void set_sqrt(const Sqrt sqrt) {\
     \ get_sqrt() = sqrt; }\n\n  void resize(const int deg) { coef.resize(deg + 1,\
     \ 0); }\n  void shrink() {\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\n\
-    \  }\n  int degree() const { return static_cast<int>(coef.size()) - 1; }\n\n \
-    \ FormalPowerSeries& operator=(const std::vector<T>& coef_) {\n    coef = coef_;\n\
-    \    return *this;\n  }\n  FormalPowerSeries& operator=(const FormalPowerSeries&\
-    \ x) = default;\n\n  FormalPowerSeries& operator+=(const FormalPowerSeries& x)\
-    \ {\n    const int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n\
-    \    for (int i = 0; i <= deg_x; ++i) {\n      coef[i] += x[i];\n    }\n    return\
-    \ *this;\n  }\n  FormalPowerSeries& operator-=(const FormalPowerSeries& x) {\n\
-    \    const int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n\
-    \    for (int i = 0; i <= deg_x; ++i) {\n      coef[i] -= x[i];\n    }\n    return\
-    \ *this;\n  }\n  FormalPowerSeries& operator*=(const T x) {\n    for (T& e : coef)\
-    \ e *= x;\n    return *this;\n  }\n  FormalPowerSeries& operator*=(const FormalPowerSeries&\
+    \  }\n  int degree() const { return std::ssize(coef) - 1; }\n\n  FormalPowerSeries&\
+    \ operator=(const std::vector<T>& coef_) {\n    coef = coef_;\n    return *this;\n\
+    \  }\n  FormalPowerSeries& operator=(const FormalPowerSeries& x) = default;\n\n\
+    \  FormalPowerSeries& operator+=(const FormalPowerSeries& x) {\n    const int\
+    \ deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n    for (int\
+    \ i = 0; i <= deg_x; ++i) {\n      coef[i] += x[i];\n    }\n    return *this;\n\
+    \  }\n  FormalPowerSeries& operator-=(const FormalPowerSeries& x) {\n    const\
+    \ int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n    for (int\
+    \ i = 0; i <= deg_x; ++i) {\n      coef[i] -= x[i];\n    }\n    return *this;\n\
+    \  }\n  FormalPowerSeries& operator*=(const T x) {\n    for (T& e : coef) e *=\
+    \ x;\n    return *this;\n  }\n  FormalPowerSeries& operator*=(const FormalPowerSeries&\
     \ x) {\n    return *this = get_mult()(coef, x.coef);\n  }\n  FormalPowerSeries&\
     \ operator/=(const T x) {\n    assert(x != 0);\n    return *this *= static_cast<T>(1)\
     \ / x;\n  }\n  FormalPowerSeries& operator/=(const FormalPowerSeries& x) {\n \
@@ -146,10 +146,9 @@ data:
     \ < n) return *this = FormalPowerSeries();\n    coef.erase(coef.begin(), coef.begin()\
     \ + n);\n    return *this;\n  }\n\n  bool operator==(FormalPowerSeries x) const\
     \ {\n    x.shrink();\n    FormalPowerSeries y = *this;\n    y.shrink();\n    return\
-    \ x.coef == y.coef;\n  }\n  bool operator!=(const FormalPowerSeries& x) const\
-    \ { return !(*this == x); }\n\n  FormalPowerSeries operator+() const { return\
-    \ *this; }\n  FormalPowerSeries operator-() const {\n    FormalPowerSeries res\
-    \ = *this;\n    for (T& e : res.coef) e = -e;\n    return res;\n  }\n\n  FormalPowerSeries\
+    \ x.coef == y.coef;\n  }\n\n  FormalPowerSeries operator+() const { return *this;\
+    \ }\n  FormalPowerSeries operator-() const {\n    FormalPowerSeries res = *this;\n\
+    \    for (T& e : res.coef) e = -e;\n    return res;\n  }\n\n  FormalPowerSeries\
     \ operator+(const FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this)\
     \ += x;\n  }\n  FormalPowerSeries operator-(const FormalPowerSeries& x) const\
     \ {\n    return FormalPowerSeries(*this) -= x;\n  }\n  FormalPowerSeries operator*(const\
@@ -186,27 +185,27 @@ data:
     \    return integrand;\n  }\n  FormalPowerSeries log() const { return log(degree());\
     \ }\n\n  FormalPowerSeries pow(long long exponent, const int deg) const {\n  \
     \  const int n = coef.size();\n    if (exponent == 0) {\n      FormalPowerSeries\
-    \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
-    \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
-    \      if (i > deg / exponent) break;\n      const long long shift = exponent\
-    \ * i;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent; e\
-    \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
-    \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
-    \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
+    \ res(deg);\n      if (deg != -1) [[unlikely]] res[0] = 1;\n      return res;\n\
+    \    }\n    assert(deg >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i]\
+    \ == 0) continue;\n      if (i > deg / exponent) break;\n      const long long\
+    \ shift = exponent * i;\n      T tmp = 1, base = coef[i];\n      for (long long\
+    \ e = exponent; e > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base\
+    \ *= base;\n      }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg\
+    \ - shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
     \    }\n    return FormalPowerSeries(deg);\n  }\n  FormalPowerSeries pow(const\
     \ long long exponent) const {\n    return pow(exponent, degree());\n  }\n\n  FormalPowerSeries\
     \ mod_pow(long long exponent,\n                            const FormalPowerSeries&\
-    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
-    \    const FormalPowerSeries inv_rev_md =\n        FormalPowerSeries(md.coef.rbegin(),\
-    \ md.coef.rend()).inv();\n    const auto mod_mult = [&md, &inv_rev_md, deg](\n\
-    \        FormalPowerSeries* multiplicand, const FormalPowerSeries& multiplier)\n\
-    \        -> void {\n      *multiplicand *= multiplier;\n      if (deg < multiplicand->degree())\
-    \ {\n        const int n = multiplicand->degree() - deg;\n        const FormalPowerSeries\
-    \ quotient =\n            FormalPowerSeries(multiplicand->coef.rbegin(),\n   \
-    \                           std::next(multiplicand->coef.rbegin(), n))\n     \
-    \       * FormalPowerSeries(\n                  inv_rev_md.coef.begin(),\n   \
-    \               std::next(inv_rev_md.coef.begin(), std::min(deg + 2, n)));\n \
-    \       *multiplicand -=\n            FormalPowerSeries(std::prev(quotient.coef.rend(),\
+    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) [[unlikely]]\
+    \ return FormalPowerSeries(-1);\n    const FormalPowerSeries inv_rev_md =\n  \
+    \      FormalPowerSeries(md.coef.rbegin(), md.coef.rend()).inv();\n    const auto\
+    \ mod_mult = [&md, &inv_rev_md, deg](\n        FormalPowerSeries* multiplicand,\
+    \ const FormalPowerSeries& multiplier)\n        -> void {\n      *multiplicand\
+    \ *= multiplier;\n      if (deg < multiplicand->degree()) {\n        const int\
+    \ n = multiplicand->degree() - deg;\n        const FormalPowerSeries quotient\
+    \ =\n            FormalPowerSeries(multiplicand->coef.rbegin(),\n            \
+    \                  std::next(multiplicand->coef.rbegin(), n))\n            * FormalPowerSeries(\n\
+    \                  inv_rev_md.coef.begin(),\n                  std::next(inv_rev_md.coef.begin(),\
+    \ std::min(deg + 2, n)));\n        *multiplicand -=\n            FormalPowerSeries(std::prev(quotient.coef.rend(),\
     \ n),\n                              quotient.coef.rend()) * md;\n        multiplicand->resize(deg);\n\
     \      }\n      multiplicand->shrink();\n    };\n    FormalPowerSeries res{1},\
     \ base = *this;\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent\
@@ -259,17 +258,17 @@ data:
     \ Mult mult) { get_mult() = mult; }\n  static void set_sqrt(const Sqrt sqrt) {\
     \ get_sqrt() = sqrt; }\n\n  void resize(const int deg) { coef.resize(deg + 1,\
     \ 0); }\n  void shrink() {\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\n\
-    \  }\n  int degree() const { return static_cast<int>(coef.size()) - 1; }\n\n \
-    \ FormalPowerSeries& operator=(const std::vector<T>& coef_) {\n    coef = coef_;\n\
-    \    return *this;\n  }\n  FormalPowerSeries& operator=(const FormalPowerSeries&\
-    \ x) = default;\n\n  FormalPowerSeries& operator+=(const FormalPowerSeries& x)\
-    \ {\n    const int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n\
-    \    for (int i = 0; i <= deg_x; ++i) {\n      coef[i] += x[i];\n    }\n    return\
-    \ *this;\n  }\n  FormalPowerSeries& operator-=(const FormalPowerSeries& x) {\n\
-    \    const int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n\
-    \    for (int i = 0; i <= deg_x; ++i) {\n      coef[i] -= x[i];\n    }\n    return\
-    \ *this;\n  }\n  FormalPowerSeries& operator*=(const T x) {\n    for (T& e : coef)\
-    \ e *= x;\n    return *this;\n  }\n  FormalPowerSeries& operator*=(const FormalPowerSeries&\
+    \  }\n  int degree() const { return std::ssize(coef) - 1; }\n\n  FormalPowerSeries&\
+    \ operator=(const std::vector<T>& coef_) {\n    coef = coef_;\n    return *this;\n\
+    \  }\n  FormalPowerSeries& operator=(const FormalPowerSeries& x) = default;\n\n\
+    \  FormalPowerSeries& operator+=(const FormalPowerSeries& x) {\n    const int\
+    \ deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n    for (int\
+    \ i = 0; i <= deg_x; ++i) {\n      coef[i] += x[i];\n    }\n    return *this;\n\
+    \  }\n  FormalPowerSeries& operator-=(const FormalPowerSeries& x) {\n    const\
+    \ int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n    for (int\
+    \ i = 0; i <= deg_x; ++i) {\n      coef[i] -= x[i];\n    }\n    return *this;\n\
+    \  }\n  FormalPowerSeries& operator*=(const T x) {\n    for (T& e : coef) e *=\
+    \ x;\n    return *this;\n  }\n  FormalPowerSeries& operator*=(const FormalPowerSeries&\
     \ x) {\n    return *this = get_mult()(coef, x.coef);\n  }\n  FormalPowerSeries&\
     \ operator/=(const T x) {\n    assert(x != 0);\n    return *this *= static_cast<T>(1)\
     \ / x;\n  }\n  FormalPowerSeries& operator/=(const FormalPowerSeries& x) {\n \
@@ -286,10 +285,9 @@ data:
     \ < n) return *this = FormalPowerSeries();\n    coef.erase(coef.begin(), coef.begin()\
     \ + n);\n    return *this;\n  }\n\n  bool operator==(FormalPowerSeries x) const\
     \ {\n    x.shrink();\n    FormalPowerSeries y = *this;\n    y.shrink();\n    return\
-    \ x.coef == y.coef;\n  }\n  bool operator!=(const FormalPowerSeries& x) const\
-    \ { return !(*this == x); }\n\n  FormalPowerSeries operator+() const { return\
-    \ *this; }\n  FormalPowerSeries operator-() const {\n    FormalPowerSeries res\
-    \ = *this;\n    for (T& e : res.coef) e = -e;\n    return res;\n  }\n\n  FormalPowerSeries\
+    \ x.coef == y.coef;\n  }\n\n  FormalPowerSeries operator+() const { return *this;\
+    \ }\n  FormalPowerSeries operator-() const {\n    FormalPowerSeries res = *this;\n\
+    \    for (T& e : res.coef) e = -e;\n    return res;\n  }\n\n  FormalPowerSeries\
     \ operator+(const FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this)\
     \ += x;\n  }\n  FormalPowerSeries operator-(const FormalPowerSeries& x) const\
     \ {\n    return FormalPowerSeries(*this) -= x;\n  }\n  FormalPowerSeries operator*(const\
@@ -326,27 +324,27 @@ data:
     \    return integrand;\n  }\n  FormalPowerSeries log() const { return log(degree());\
     \ }\n\n  FormalPowerSeries pow(long long exponent, const int deg) const {\n  \
     \  const int n = coef.size();\n    if (exponent == 0) {\n      FormalPowerSeries\
-    \ res(deg);\n      if (deg != -1) res[0] = 1;\n      return res;\n    }\n    assert(deg\
-    \ >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i] == 0) continue;\n\
-    \      if (i > deg / exponent) break;\n      const long long shift = exponent\
-    \ * i;\n      T tmp = 1, base = coef[i];\n      for (long long e = exponent; e\
-    \ > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base *= base;\n  \
-    \    }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg -\
-    \ shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
+    \ res(deg);\n      if (deg != -1) [[unlikely]] res[0] = 1;\n      return res;\n\
+    \    }\n    assert(deg >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i]\
+    \ == 0) continue;\n      if (i > deg / exponent) break;\n      const long long\
+    \ shift = exponent * i;\n      T tmp = 1, base = coef[i];\n      for (long long\
+    \ e = exponent; e > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base\
+    \ *= base;\n      }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg\
+    \ - shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
     \    }\n    return FormalPowerSeries(deg);\n  }\n  FormalPowerSeries pow(const\
     \ long long exponent) const {\n    return pow(exponent, degree());\n  }\n\n  FormalPowerSeries\
     \ mod_pow(long long exponent,\n                            const FormalPowerSeries&\
-    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) return FormalPowerSeries(-1);\n\
-    \    const FormalPowerSeries inv_rev_md =\n        FormalPowerSeries(md.coef.rbegin(),\
-    \ md.coef.rend()).inv();\n    const auto mod_mult = [&md, &inv_rev_md, deg](\n\
-    \        FormalPowerSeries* multiplicand, const FormalPowerSeries& multiplier)\n\
-    \        -> void {\n      *multiplicand *= multiplier;\n      if (deg < multiplicand->degree())\
-    \ {\n        const int n = multiplicand->degree() - deg;\n        const FormalPowerSeries\
-    \ quotient =\n            FormalPowerSeries(multiplicand->coef.rbegin(),\n   \
-    \                           std::next(multiplicand->coef.rbegin(), n))\n     \
-    \       * FormalPowerSeries(\n                  inv_rev_md.coef.begin(),\n   \
-    \               std::next(inv_rev_md.coef.begin(), std::min(deg + 2, n)));\n \
-    \       *multiplicand -=\n            FormalPowerSeries(std::prev(quotient.coef.rend(),\
+    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) [[unlikely]]\
+    \ return FormalPowerSeries(-1);\n    const FormalPowerSeries inv_rev_md =\n  \
+    \      FormalPowerSeries(md.coef.rbegin(), md.coef.rend()).inv();\n    const auto\
+    \ mod_mult = [&md, &inv_rev_md, deg](\n        FormalPowerSeries* multiplicand,\
+    \ const FormalPowerSeries& multiplier)\n        -> void {\n      *multiplicand\
+    \ *= multiplier;\n      if (deg < multiplicand->degree()) {\n        const int\
+    \ n = multiplicand->degree() - deg;\n        const FormalPowerSeries quotient\
+    \ =\n            FormalPowerSeries(multiplicand->coef.rbegin(),\n            \
+    \                  std::next(multiplicand->coef.rbegin(), n))\n            * FormalPowerSeries(\n\
+    \                  inv_rev_md.coef.begin(),\n                  std::next(inv_rev_md.coef.begin(),\
+    \ std::min(deg + 2, n)));\n        *multiplicand -=\n            FormalPowerSeries(std::prev(quotient.coef.rend(),\
     \ n),\n                              quotient.coef.rend()) * md;\n        multiplicand->resize(deg);\n\
     \      }\n      multiplicand->shrink();\n    };\n    FormalPowerSeries res{1},\
     \ base = *this;\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent\
@@ -394,8 +392,8 @@ data:
   - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   - include/emthrm/math/formal_power_series/bernoulli_number.hpp
   - include/emthrm/dynamic_programming/subset_sum_problem.hpp
-  timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
@@ -522,7 +520,7 @@ struct FormalPowerSeries;
 |`FormalPowerSeries& operator%=(const FormalPowerSeries& x);`<br>`FormalPowerSeries operator%(const FormalPowerSeries& x) const;`|剰余演算||
 |`FormalPowerSeries& operator<<=(const int n);`<br>`FormalPowerSeries operator<<(const int n) const;`|$x^n f$||
 |`FormalPowerSeries& operator>>=(const int n);`<br>`FormalPowerSeries operator>>(const int n) const;`|$x^{-n} f$。ただし $\mathrm{deg}(f) < n$ のとき $0$ を返す。|
-|`bool operator==(FormalPowerSeries x) const;`<br>`bool operator!=(const FormalPowerSeries& x) const;`|比較演算子||
+|`bool operator==(FormalPowerSeries x) const;`|等値比較||
 |`FormalPowerSeries operator+() const;`|$+{f}$||
 |`FormalPowerSeries operator-() const;`|$-{f}$||
 |`T horner(const T x) const;`|$f(x)$||

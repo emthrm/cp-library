@@ -24,37 +24,38 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_\n#define EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_\n\
-    \n// #include <algorithm>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct StronglyConnectedComponents\
-    \ {\n  std::vector<int> id;\n  std::vector<std::vector<int>> vertices;\n  std::vector<std::vector<Edge<CostType>>>\
+    \n// #include <algorithm>\n#include <ranges>\n#include <vector>\n\n#include \"\
+    emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename CostType,\
+    \ bool IS_FULL_VER = false>\nstruct StronglyConnectedComponents {\n  std::vector<int>\
+    \ id;\n  std::vector<std::vector<int>> vertices;\n  std::vector<std::vector<Edge<CostType>>>\
     \ g;\n\n  explicit StronglyConnectedComponents(\n      const std::vector<std::vector<Edge<CostType>>>&\
-    \ graph,\n      const bool is_full_ver = false)\n      : is_full_ver(is_full_ver),\
-    \ n(graph.size()), is_used(n, false),\n        graph(graph), rgraph(n) {\n   \
-    \ for (int i = 0; i < n; ++i) {\n      if (!is_used[i]) dfs(i);\n    }\n    id.assign(n,\
-    \ -1);\n    order.reserve(n);\n    for (int i = 0; i < n; ++i) {\n      for (const\
-    \ Edge<CostType>& e : graph[i]) {\n        rgraph[e.dst].emplace_back(e.dst, e.src,\
-    \ e.cost);\n      }\n    }\n    int m = 0;\n    for (int i = n - 1; i >= 0; --i)\
-    \ {\n      if (id[order[i]] == -1) {\n        if (is_full_ver) vertices.emplace_back();\n\
-    \        rdfs(order[i], m++);\n      }\n    }\n    g.resize(m);\n    for (int\
-    \ i = 0; i < n; ++i) {\n      for (const Edge<CostType>& e : graph[i]) {\n   \
-    \     if (id[i] != id[e.dst]) g[id[i]].emplace_back(id[i], id[e.dst], e.cost);\n\
-    \      }\n    }\n    // if (is_full_ver) {\n    //   for (int i = 0; i < m; ++i)\
-    \ {\n    //     std::sort(vertices[i].begin(), vertices[i].end());\n    //   }\n\
-    \    // }\n  }\n\n private:\n  const bool is_full_ver;\n  const int n;\n  std::vector<bool>\
-    \ is_used;\n  std::vector<int> order;\n  const std::vector<std::vector<Edge<CostType>>>\
+    \ graph)\n      : n(graph.size()), is_used(n, false), graph(graph), rgraph(n)\
+    \ {\n    for (int i = 0; i < n; ++i) {\n      if (!is_used[i]) dfs(i);\n    }\n\
+    \    id.assign(n, -1);\n    order.reserve(n);\n    for (int i = 0; i < n; ++i)\
+    \ {\n      for (const Edge<CostType>& e : graph[i]) {\n        rgraph[e.dst].emplace_back(e.dst,\
+    \ e.src, e.cost);\n      }\n    }\n    int m = 0;\n    for (int i = n - 1; i >=\
+    \ 0; --i) {\n      if (id[order[i]] == -1) {\n        if constexpr (IS_FULL_VER)\
+    \ vertices.emplace_back();\n        rdfs(order[i], m++);\n      }\n    }\n   \
+    \ g.resize(m);\n    for (int i = 0; i < n; ++i) {\n      for (const Edge<CostType>&\
+    \ e : graph[i]) {\n        if (id[i] != id[e.dst]) g[id[i]].emplace_back(id[i],\
+    \ id[e.dst], e.cost);\n      }\n    }\n    // if constexpr (IS_FULL_VER) {\n \
+    \   //   for (int i = 0; i < m; ++i) {\n    //     std::sort(vertices[i].begin(),\
+    \ vertices[i].end());\n    //   }\n    // }\n  }\n\n private:\n  const int n;\n\
+    \  std::vector<bool> is_used;\n  std::vector<int> order;\n  const std::vector<std::vector<Edge<CostType>>>\
     \ graph;\n  std::vector<std::vector<Edge<CostType>>> rgraph;\n\n  void dfs(const\
-    \ int ver) {\n    is_used[ver] = true;\n    for (const Edge<CostType>& e : graph[ver])\
-    \ {\n      if (!is_used[e.dst]) dfs(e.dst);\n    }\n    order.emplace_back(ver);\n\
-    \  }\n\n  void rdfs(const int ver, const int m) {\n    id[ver] = m;\n    if (is_full_ver)\
-    \ vertices.back().emplace_back(ver);\n    for (const Edge<CostType>& e : rgraph[ver])\
-    \ {\n      if (id[e.dst] == -1) rdfs(e.dst, m);\n    }\n  }\n};\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_\n"
+    \ int ver) {\n    is_used[ver] = true;\n    for (const int e : graph[ver]\n  \
+    \                   | std::views::transform(&Edge<CostType>::dst)) {\n      if\
+    \ (!is_used[e]) dfs(e);\n    }\n    order.emplace_back(ver);\n  }\n\n  void rdfs(const\
+    \ int ver, const int m) {\n    id[ver] = m;\n    if constexpr (IS_FULL_VER) vertices.back().emplace_back(ver);\n\
+    \    for (const int e : rgraph[ver]\n                     | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n      if (id[e] == -1) rdfs(e, m);\n    }\n  }\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_STRONGLY_CONNECTED_COMPONENTS_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/strongly_connected_components.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/strongly_connected_components.test.cpp
@@ -76,11 +77,12 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 ### Kosaraju's algorithm
 
 ```cpp
-template <typename CostType>
+template <typename CostType, bool IS_FULL_VER = false>
 struct StronglyConnectedComponents;
 ```
 
 - `CostType`：辺のコストを表す型
+- `IS_FULL_VER`：完全版かを表す型
 
 #### メンバ変数
 
@@ -94,7 +96,7 @@ struct StronglyConnectedComponents;
 
 |名前|効果|
 |:--|:--|
-|`explicit StronglyConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph, const bool is_full_ver = false);`|有向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
+|`explicit StronglyConnectedComponents(const std::vector<std::vector<Edge<CostType>>>& graph);`|有向グラフ $\mathrm{graph}$ に対してオブジェクトを構築する。|
 
 
 ## 備考

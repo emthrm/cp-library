@@ -37,7 +37,7 @@ data:
   isVerificationFile: true
   path: test/math/divisor.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/divisor.test.cpp

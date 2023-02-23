@@ -2,36 +2,36 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/is_primitive_root.hpp
     title: "\u539F\u59CB\u6839\u5224\u5B9A"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/game/nim.test.cpp
     title: "\u30B2\u30FC\u30E0/\u30CB\u30E0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/prime_factorization.test.cpp
     title: "\u6570\u5B66/\u7D20\u56E0\u6570\u5206\u89E3"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/prime_factorization.hpp\"\n\n\n\n#include\
     \ <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
     std::vector<std::pair<T, int>> prime_factorization(T n) {\n  std::vector<std::pair<T,\
-    \ int>> res;\n  for (T i = 2; i * i <= n; ++i) {\n    if (n % i == 0) {\n    \
-    \  int exponent = 0;\n      for (; n % i == 0; n /= i) {\n        ++exponent;\n\
+    \ int>> res;\n  for (T i = 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]]\
+    \ {\n      int exponent = 0;\n      for (; n % i == 0; n /= i) {\n        ++exponent;\n\
     \      }\n      res.emplace_back(i, exponent);\n    }\n  }\n  if (n > 1) res.emplace_back(n,\
     \ 1);\n  return res;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_PRIME_FACTORIZATION_HPP_\n#define EMTHRM_MATH_PRIME_FACTORIZATION_HPP_\n\
     \n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
     \ T>\nstd::vector<std::pair<T, int>> prime_factorization(T n) {\n  std::vector<std::pair<T,\
-    \ int>> res;\n  for (T i = 2; i * i <= n; ++i) {\n    if (n % i == 0) {\n    \
-    \  int exponent = 0;\n      for (; n % i == 0; n /= i) {\n        ++exponent;\n\
+    \ int>> res;\n  for (T i = 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]]\
+    \ {\n      int exponent = 0;\n      for (; n % i == 0; n /= i) {\n        ++exponent;\n\
     \      }\n      res.emplace_back(i, exponent);\n    }\n  }\n  if (n > 1) res.emplace_back(n,\
     \ 1);\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_PRIME_FACTORIZATION_HPP_\n"
   dependsOn: []
@@ -39,8 +39,8 @@ data:
   path: include/emthrm/math/prime_factorization.hpp
   requiredBy:
   - include/emthrm/math/is_primitive_root.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/prime_factorization.test.cpp
   - test/math/is_primitive_root.test.cpp

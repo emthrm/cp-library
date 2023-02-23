@@ -14,8 +14,7 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/intervals_managed_by_set.hpp\"\
     \n\n\n\n#include <cassert>\n#include <iostream>\n#include <iterator>\n#include\
-    \ <limits>\n#include <set>\n#if __cplusplus < 201703L\n# include <tuple>\n#endif\
-    \  // __cplusplus < 201703L\n#include <utility>\n\nnamespace emthrm {\n\ntemplate\
+    \ <limits>\n#include <set>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate\
     \ <typename T>\nstruct IntervalsManagedBySet {\n  using IntervalsType = std::set<std::pair<T,\
     \ T>>;\n  IntervalsType intervals{\n      {std::numeric_limits<T>::lowest(), std::numeric_limits<T>::lowest()},\n\
     \      {std::numeric_limits<T>::max(), std::numeric_limits<T>::max()}};\n\n  IntervalsManagedBySet()\
@@ -25,28 +24,24 @@ data:
     \ bool> erase(const T x) {\n    typename IntervalsType::const_iterator it = intervals.lower_bound({x,\
     \ x});\n    if (it->first == x) {\n      const T right = it->second;\n      it\
     \ = intervals.erase(it);\n      if (x + 1 <= right) it = intervals.emplace(x +\
-    \ 1, right).first;\n    } else {\n      it = std::prev(it);\n#if __cplusplus >=\
-    \ 201703L\n      const auto [left, right] = *it;\n#else\n      T left, right;\n\
-    \      std::tie(left, right) = *it;\n#endif  // __cplusplus >= 201703L\n     \
-    \ if (right < x) return {std::next(it), false};\n      intervals.erase(it);\n\
-    \      it = std::next(intervals.emplace(left, x - 1).first);\n      if (x + 1\
-    \ <= right) it = intervals.emplace(x + 1, right).first;\n    }\n    return {it,\
-    \ true};\n  }\n\n  std::pair<typename IntervalsType::const_iterator, T> erase(\n\
-    \      const T left, const T right) {\n    assert(left <= right);\n    typename\
-    \ IntervalsType::const_iterator it =\n        intervals.lower_bound({left, left});\n\
-    \    T res = 0;\n    for (; it->second <= right; it = intervals.erase(it)) {\n\
-    \      res += it->second - it->first + 1;\n    }\n    if (it->first <= right)\
+    \ 1, right).first;\n    } else {\n      it = std::prev(it);\n      const auto\
+    \ [left, right] = *it;\n      if (right < x) return {std::next(it), false};\n\
+    \      intervals.erase(it);\n      it = std::next(intervals.emplace(left, x -\
+    \ 1).first);\n      if (x + 1 <= right) it = intervals.emplace(x + 1, right).first;\n\
+    \    }\n    return {it, true};\n  }\n\n  std::pair<typename IntervalsType::const_iterator,\
+    \ T> erase(\n      const T left, const T right) {\n    assert(left <= right);\n\
+    \    typename IntervalsType::const_iterator it =\n        intervals.lower_bound({left,\
+    \ left});\n    T res = 0;\n    for (; it->second <= right; it = intervals.erase(it))\
+    \ {\n      res += it->second - it->first + 1;\n    }\n    if (it->first <= right)\
     \ {\n      res += right - it->first + 1;\n      const T r = it->second;\n    \
     \  intervals.erase(it);\n      it = intervals.emplace(right + 1, r).first;\n \
-    \   }\n    if (left <= std::prev(it)->second) {\n      it = std::prev(it);\n#if\
-    \ __cplusplus >= 201703L\n      const auto [l, r] = *it;\n#else\n      T l, r;\n\
-    \      std::tie(l, r) = *it;\n#endif  // __cplusplus >= 201703L\n      intervals.erase(it);\n\
-    \      if (right < r) {\n        res += right - left + 1;\n        intervals.emplace(right\
-    \ + 1, r);\n      } else {\n        res += r - left + 1;\n      }\n      it =\
-    \ std::next(intervals.emplace(l, left - 1).first);\n    }\n    return {it, res};\n\
-    \  }\n\n  typename IntervalsType::const_iterator find(const T x) const {\n   \
-    \ return find(x, x);\n  }\n\n  typename IntervalsType::const_iterator find(\n\
-    \      const T left, const T right) const {\n    typename IntervalsType::const_iterator\
+    \   }\n    if (left <= std::prev(it)->second) {\n      it = std::prev(it);\n \
+    \     const auto [l, r] = *it;\n      intervals.erase(it);\n      if (right <\
+    \ r) {\n        res += right - left + 1;\n        intervals.emplace(right + 1,\
+    \ r);\n      } else {\n        res += r - left + 1;\n      }\n      it = std::next(intervals.emplace(l,\
+    \ left - 1).first);\n    }\n    return {it, res};\n  }\n\n  typename IntervalsType::const_iterator\
+    \ find(const T x) const {\n    return find(x, x);\n  }\n\n  typename IntervalsType::const_iterator\
+    \ find(\n      const T left, const T right) const {\n    typename IntervalsType::const_iterator\
     \ it =\n        intervals.lower_bound({left, left});\n    if (left < it->first)\
     \ it = std::prev(it);\n    return it->first <= left && right <= it->second ? it\
     \ : intervals.end();\n  }\n\n  std::pair<typename IntervalsType::const_iterator,\
@@ -78,9 +73,8 @@ data:
     \    }\n    return os;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DATA_STRUCTURE_INTERVALS_MANAGED_BY_SET_HPP_\n#define EMTHRM_DATA_STRUCTURE_INTERVALS_MANAGED_BY_SET_HPP_\n\
     \n#include <cassert>\n#include <iostream>\n#include <iterator>\n#include <limits>\n\
-    #include <set>\n#if __cplusplus < 201703L\n# include <tuple>\n#endif  // __cplusplus\
-    \ < 201703L\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
-    struct IntervalsManagedBySet {\n  using IntervalsType = std::set<std::pair<T,\
+    #include <set>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nstruct IntervalsManagedBySet {\n  using IntervalsType = std::set<std::pair<T,\
     \ T>>;\n  IntervalsType intervals{\n      {std::numeric_limits<T>::lowest(), std::numeric_limits<T>::lowest()},\n\
     \      {std::numeric_limits<T>::max(), std::numeric_limits<T>::max()}};\n\n  IntervalsManagedBySet()\
     \ = default;\n\n  bool contains(const T x) const { return contains(x, x); }\n\n\
@@ -89,28 +83,24 @@ data:
     \ bool> erase(const T x) {\n    typename IntervalsType::const_iterator it = intervals.lower_bound({x,\
     \ x});\n    if (it->first == x) {\n      const T right = it->second;\n      it\
     \ = intervals.erase(it);\n      if (x + 1 <= right) it = intervals.emplace(x +\
-    \ 1, right).first;\n    } else {\n      it = std::prev(it);\n#if __cplusplus >=\
-    \ 201703L\n      const auto [left, right] = *it;\n#else\n      T left, right;\n\
-    \      std::tie(left, right) = *it;\n#endif  // __cplusplus >= 201703L\n     \
-    \ if (right < x) return {std::next(it), false};\n      intervals.erase(it);\n\
-    \      it = std::next(intervals.emplace(left, x - 1).first);\n      if (x + 1\
-    \ <= right) it = intervals.emplace(x + 1, right).first;\n    }\n    return {it,\
-    \ true};\n  }\n\n  std::pair<typename IntervalsType::const_iterator, T> erase(\n\
-    \      const T left, const T right) {\n    assert(left <= right);\n    typename\
-    \ IntervalsType::const_iterator it =\n        intervals.lower_bound({left, left});\n\
-    \    T res = 0;\n    for (; it->second <= right; it = intervals.erase(it)) {\n\
-    \      res += it->second - it->first + 1;\n    }\n    if (it->first <= right)\
+    \ 1, right).first;\n    } else {\n      it = std::prev(it);\n      const auto\
+    \ [left, right] = *it;\n      if (right < x) return {std::next(it), false};\n\
+    \      intervals.erase(it);\n      it = std::next(intervals.emplace(left, x -\
+    \ 1).first);\n      if (x + 1 <= right) it = intervals.emplace(x + 1, right).first;\n\
+    \    }\n    return {it, true};\n  }\n\n  std::pair<typename IntervalsType::const_iterator,\
+    \ T> erase(\n      const T left, const T right) {\n    assert(left <= right);\n\
+    \    typename IntervalsType::const_iterator it =\n        intervals.lower_bound({left,\
+    \ left});\n    T res = 0;\n    for (; it->second <= right; it = intervals.erase(it))\
+    \ {\n      res += it->second - it->first + 1;\n    }\n    if (it->first <= right)\
     \ {\n      res += right - it->first + 1;\n      const T r = it->second;\n    \
     \  intervals.erase(it);\n      it = intervals.emplace(right + 1, r).first;\n \
-    \   }\n    if (left <= std::prev(it)->second) {\n      it = std::prev(it);\n#if\
-    \ __cplusplus >= 201703L\n      const auto [l, r] = *it;\n#else\n      T l, r;\n\
-    \      std::tie(l, r) = *it;\n#endif  // __cplusplus >= 201703L\n      intervals.erase(it);\n\
-    \      if (right < r) {\n        res += right - left + 1;\n        intervals.emplace(right\
-    \ + 1, r);\n      } else {\n        res += r - left + 1;\n      }\n      it =\
-    \ std::next(intervals.emplace(l, left - 1).first);\n    }\n    return {it, res};\n\
-    \  }\n\n  typename IntervalsType::const_iterator find(const T x) const {\n   \
-    \ return find(x, x);\n  }\n\n  typename IntervalsType::const_iterator find(\n\
-    \      const T left, const T right) const {\n    typename IntervalsType::const_iterator\
+    \   }\n    if (left <= std::prev(it)->second) {\n      it = std::prev(it);\n \
+    \     const auto [l, r] = *it;\n      intervals.erase(it);\n      if (right <\
+    \ r) {\n        res += right - left + 1;\n        intervals.emplace(right + 1,\
+    \ r);\n      } else {\n        res += r - left + 1;\n      }\n      it = std::next(intervals.emplace(l,\
+    \ left - 1).first);\n    }\n    return {it, res};\n  }\n\n  typename IntervalsType::const_iterator\
+    \ find(const T x) const {\n    return find(x, x);\n  }\n\n  typename IntervalsType::const_iterator\
+    \ find(\n      const T left, const T right) const {\n    typename IntervalsType::const_iterator\
     \ it =\n        intervals.lower_bound({left, left});\n    if (left < it->first)\
     \ it = std::prev(it);\n    return it->first <= left && right <= it->second ? it\
     \ : intervals.end();\n  }\n\n  std::pair<typename IntervalsType::const_iterator,\
@@ -144,7 +134,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/intervals_managed_by_set.hpp
   requiredBy: []
-  timestamp: '2023-01-27 16:06:19+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/intervals_managed_by_set.test.cpp

@@ -13,8 +13,12 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp\"\
-    \n\n\n\n#include <limits>\n\nnamespace emthrm {\n\ntemplate <template <typename,\
-    \ typename> class C, typename T, typename U>\nstruct MinimumCostFlowWithLowerBoundConstraint\
+    \n\n\n\n#include <concepts>\n#include <limits>\n#include <utility>\n\nnamespace\
+    \ emthrm {\n\ntemplate <template <typename, typename> class C, typename T, typename\
+    \ U>\nrequires requires (C<T, U> mcf) {\n  {mcf.add_edge(std::declval<int>(),\
+    \ std::declval<int>(),\n                std::declval<T>(), std::declval<U>())}\n\
+    \      -> std::same_as<void>;\n  {mcf.solve(std::declval<int>(), std::declval<int>(),\
+    \ std::declval<T>())}\n      -> std::same_as<U>;\n}\nstruct MinimumCostFlowWithLowerBoundConstraint\
     \ {\n  const U uinf;\n\n  explicit MinimumCostFlowWithLowerBoundConstraint(\n\
     \      const int n, const U m, const U uinf = std::numeric_limits<U>::max())\n\
     \      : uinf(uinf), m(m), sum_lb(0), mcf(n, uinf) {}\n\n  void add_edge(const\
@@ -26,8 +30,12 @@ data:
     \ U> mcf;\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
-    \n#include <limits>\n\nnamespace emthrm {\n\ntemplate <template <typename, typename>\
-    \ class C, typename T, typename U>\nstruct MinimumCostFlowWithLowerBoundConstraint\
+    \n#include <concepts>\n#include <limits>\n#include <utility>\n\nnamespace emthrm\
+    \ {\n\ntemplate <template <typename, typename> class C, typename T, typename U>\n\
+    requires requires (C<T, U> mcf) {\n  {mcf.add_edge(std::declval<int>(), std::declval<int>(),\n\
+    \                std::declval<T>(), std::declval<U>())}\n      -> std::same_as<void>;\n\
+    \  {mcf.solve(std::declval<int>(), std::declval<int>(), std::declval<T>())}\n\
+    \      -> std::same_as<U>;\n}\nstruct MinimumCostFlowWithLowerBoundConstraint\
     \ {\n  const U uinf;\n\n  explicit MinimumCostFlowWithLowerBoundConstraint(\n\
     \      const int n, const U m, const U uinf = std::numeric_limits<U>::max())\n\
     \      : uinf(uinf), m(m), sum_lb(0), mcf(n, uinf) {}\n\n  void add_edge(const\
@@ -41,7 +49,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
@@ -60,7 +68,14 @@ title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528
 
 ```cpp
 template <template <typename, typename> class C, typename T, typename U>
-struct MinimumCostFlowWithLowerBoundConstraint;
+struct MinimumCostFlowWithLowerBoundConstraint
+requires requires (C<T, U> mcf) {
+  {mcf.add_edge(std::declval<int>(), std::declval<int>(),
+                std::declval<T>(), std::declval<U>())}
+      -> std::same_as<void>;
+  {mcf.solve(std::declval<int>(), std::declval<int>(), std::declval<T>())}
+      -> std::same_as<U>;
+};
 ```
 
 - `C`：最小費用流を表す構造体

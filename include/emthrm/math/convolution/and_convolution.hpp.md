@@ -36,16 +36,16 @@ data:
     \ {\n\ntemplate <typename T>\nstd::vector<T> and_convolution(std::vector<T> a,\
     \ std::vector<T> b,\n                               const T id = 0) {\n  int n\
     \ = std::max(a.size(), b.size());\n  a.resize(n, id);\n  b.resize(n, id);\n  a\
-    \ = fast_zeta_transform(a, true, id);\n  b = fast_zeta_transform(b, true, id);\n\
+    \ = fast_zeta_transform<true>(a, id);\n  b = fast_zeta_transform<true>(b, id);\n\
     \  n = a.size();\n  for (int i = 0; i < n; ++i) {\n    a[i] *= b[i];\n  }\n  return\
-    \ fast_mobius_transform(a, true);\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_AND_CONVOLUTION_HPP_\n"
+    \ fast_mobius_transform<true>(a);\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_AND_CONVOLUTION_HPP_\n"
   dependsOn:
   - include/emthrm/math/convolution/fast_mobius_transform.hpp
   - include/emthrm/math/convolution/fast_zeta_transform.hpp
   isVerificationFile: false
   path: include/emthrm/math/convolution/and_convolution.hpp
   requiredBy: []
-  timestamp: '2023-02-20 01:07:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/and_convolution.test.cpp

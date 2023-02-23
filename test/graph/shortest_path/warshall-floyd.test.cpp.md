@@ -30,9 +30,9 @@ data:
     \n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/shortest_path/warshall-floyd.hpp\"\
     \n\nint main() {\n  constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\n  while\
     \ (true) {\n    int n, k;\n    std::cin >> n >> k;\n    if (n == 0 && k == 0)\
-    \ break;\n    std::vector<std::vector<long long>> graph(n,\n                 \
-    \                             std::vector<long long>(n, LINF));\n    for (int\
-    \ i = 0; i < n; ++i) {\n      graph[i][i] = 0;\n    }\n    emthrm::WarshallFloyd<long\
+    \ [[unlikely]] break;\n    std::vector<std::vector<long long>> graph(n,\n    \
+    \                                          std::vector<long long>(n, LINF));\n\
+    \    for (int i = 0; i < n; ++i) {\n      graph[i][i] = 0;\n    }\n    emthrm::WarshallFloyd<long\
     \ long> warshall_floyd(graph, LINF);\n    while (k--) {\n      int type;\n   \
     \   std::cin >> type;\n      if (type == 0) {\n        int a, b;\n        std::cin\
     \ >> a >> b;\n        --a; --b;\n        std::cout << (warshall_floyd.dist[a][b]\
@@ -46,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/graph/shortest_path/warshall-floyd.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/shortest_path/warshall-floyd.test.cpp

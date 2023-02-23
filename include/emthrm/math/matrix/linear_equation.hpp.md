@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
       \u6CD5 (Gauss\u2013Jordan elimination)"
@@ -10,12 +10,12 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -34,7 +34,7 @@ data:
     \ a, const std::vector<T>& b,\n                               const U eps = 1e-8)\
     \ {\n  const int m = a.nrow(), n = a.ncol();\n  Matrix<U> c(m, n + 1);\n  for\
     \ (int i = 0; i < m; ++i) {\n    std::copy(a[i].begin(), a[i].end(), c[i].begin());\n\
-    \    c[i].back() = b[i];\n  }\n  const int rank = gauss_jordan(&c, eps, true);\n\
+    \    c[i].back() = b[i];\n  }\n  const int rank = gauss_jordan<true>(&c, eps);\n\
     \  for (int row = rank; row < m; ++row) {\n    if ((c[row].back() < 0 ? -c[row].back()\
     \ : c[row].back()) > eps) {\n      return std::vector<U>{};\n    }\n  }\n  std::vector<U>\
     \ res(n, 0);\n  for (int i = 0, j = 0; i < rank; ++i) {\n    while ((c[i][j] <\
@@ -46,8 +46,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/linear_equation.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
 documentation_of: include/emthrm/math/matrix/linear_equation.hpp

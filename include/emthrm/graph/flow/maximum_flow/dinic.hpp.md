@@ -21,55 +21,55 @@ data:
   bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/dinic.hpp\"\n/**\n\
     \ * @brief Dinic \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n\
-    \n#include <algorithm>\n#include <limits>\n#include <queue>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T>\nstruct Dinic {\n  struct Edge {\n\
-    \    int dst, rev;\n    T cap;\n    explicit Edge(const int dst, const T cap,\
-    \ const int rev)\n        : dst(dst), rev(rev), cap(cap) {}\n  };\n\n  std::vector<std::vector<Edge>>\
-    \ graph;\n\n  explicit Dinic(const int n) : graph(n), level(n), itr(n) {}\n\n\
-    \  void add_edge(const int src, const int dst, const T cap) {\n    graph[src].emplace_back(dst,\
-    \ cap, graph[dst].size());\n    graph[dst].emplace_back(src, 0, graph[src].size()\
-    \ - 1);\n  }\n\n  T maximum_flow(const int s, const int t,\n                 T\
-    \ limit = std::numeric_limits<T>::max()) {\n    T res = 0;\n    while (limit >\
-    \ 0) {\n      std::fill(level.begin(), level.end(), -1);\n      level[s] = 0;\n\
-    \      std::queue<int> que;\n      que.emplace(s);\n      while (!que.empty())\
-    \ {\n        const int ver = que.front();\n        que.pop();\n        for (const\
-    \ Edge& e : graph[ver]) {\n          if (level[e.dst] == -1 && e.cap > 0) {\n\
-    \            level[e.dst] = level[ver] + 1;\n            que.emplace(e.dst);\n\
+    \n#include <algorithm>\n#include <limits>\n#include <queue>\n#include <utility>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Dinic\
+    \ {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    explicit Edge(const int\
+    \ dst, const T cap, const int rev)\n        : dst(dst), rev(rev), cap(cap) {}\n\
+    \  };\n\n  std::vector<std::vector<Edge>> graph;\n\n  explicit Dinic(const int\
+    \ n) : graph(n), level(n), itr(n) {}\n\n  void add_edge(const int src, const int\
+    \ dst, const T cap) {\n    graph[src].emplace_back(dst, cap, graph[dst].size());\n\
+    \    graph[dst].emplace_back(src, 0, graph[src].size() - 1);\n  }\n\n  T maximum_flow(const\
+    \ int s, const int t,\n                 T limit = std::numeric_limits<T>::max())\
+    \ {\n    T res = 0;\n    while (limit > 0) {\n      std::fill(level.begin(), level.end(),\
+    \ -1);\n      level[s] = 0;\n      std::queue<int> que;\n      que.emplace(s);\n\
+    \      while (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
+    \        for (const Edge& e : graph[ver]) {\n          if (level[e.dst] == -1\
+    \ && e.cap > 0) {\n            level[e.dst] = level[ver] + 1;\n            que.emplace(e.dst);\n\
     \          }\n        }\n      }\n      if (level[t] == -1) break;\n      std::fill(itr.begin(),\
     \ itr.end(), 0);\n      while (limit > 0) {\n        const T f = dfs(s, t, limit);\n\
     \        if (f == 0) break;\n        limit -= f;\n        res += f;\n      }\n\
     \    }\n    return res;\n  }\n\n private:\n  std::vector<int> level, itr;\n\n\
     \  T dfs(const int ver, const int t, const T flow) {\n    if (ver == t) return\
-    \ flow;\n    for (; itr[ver] < static_cast<int>(graph[ver].size()); ++itr[ver])\
-    \ {\n      Edge& e = graph[ver][itr[ver]];\n      if (level[ver] < level[e.dst]\
-    \ && e.cap > 0) {\n        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\n\
+    \ flow;\n    for (; std::cmp_less(itr[ver], graph[ver].size()); ++itr[ver]) {\n\
+    \      Edge& e = graph[ver][itr[ver]];\n      if (level[ver] < level[e.dst] &&\
+    \ e.cap > 0) {\n        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\n\
     \        if (tmp > 0) {\n          e.cap -= tmp;\n          graph[e.dst][e.rev].cap\
     \ += tmp;\n          return tmp;\n        }\n      }\n    }\n    return 0;\n \
     \ }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n"
   code: "/**\n * @brief Dinic \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n\
-    \n#include <algorithm>\n#include <limits>\n#include <queue>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T>\nstruct Dinic {\n  struct Edge {\n\
-    \    int dst, rev;\n    T cap;\n    explicit Edge(const int dst, const T cap,\
-    \ const int rev)\n        : dst(dst), rev(rev), cap(cap) {}\n  };\n\n  std::vector<std::vector<Edge>>\
-    \ graph;\n\n  explicit Dinic(const int n) : graph(n), level(n), itr(n) {}\n\n\
-    \  void add_edge(const int src, const int dst, const T cap) {\n    graph[src].emplace_back(dst,\
-    \ cap, graph[dst].size());\n    graph[dst].emplace_back(src, 0, graph[src].size()\
-    \ - 1);\n  }\n\n  T maximum_flow(const int s, const int t,\n                 T\
-    \ limit = std::numeric_limits<T>::max()) {\n    T res = 0;\n    while (limit >\
-    \ 0) {\n      std::fill(level.begin(), level.end(), -1);\n      level[s] = 0;\n\
-    \      std::queue<int> que;\n      que.emplace(s);\n      while (!que.empty())\
-    \ {\n        const int ver = que.front();\n        que.pop();\n        for (const\
-    \ Edge& e : graph[ver]) {\n          if (level[e.dst] == -1 && e.cap > 0) {\n\
-    \            level[e.dst] = level[ver] + 1;\n            que.emplace(e.dst);\n\
+    \n#include <algorithm>\n#include <limits>\n#include <queue>\n#include <utility>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Dinic\
+    \ {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    explicit Edge(const int\
+    \ dst, const T cap, const int rev)\n        : dst(dst), rev(rev), cap(cap) {}\n\
+    \  };\n\n  std::vector<std::vector<Edge>> graph;\n\n  explicit Dinic(const int\
+    \ n) : graph(n), level(n), itr(n) {}\n\n  void add_edge(const int src, const int\
+    \ dst, const T cap) {\n    graph[src].emplace_back(dst, cap, graph[dst].size());\n\
+    \    graph[dst].emplace_back(src, 0, graph[src].size() - 1);\n  }\n\n  T maximum_flow(const\
+    \ int s, const int t,\n                 T limit = std::numeric_limits<T>::max())\
+    \ {\n    T res = 0;\n    while (limit > 0) {\n      std::fill(level.begin(), level.end(),\
+    \ -1);\n      level[s] = 0;\n      std::queue<int> que;\n      que.emplace(s);\n\
+    \      while (!que.empty()) {\n        const int ver = que.front();\n        que.pop();\n\
+    \        for (const Edge& e : graph[ver]) {\n          if (level[e.dst] == -1\
+    \ && e.cap > 0) {\n            level[e.dst] = level[ver] + 1;\n            que.emplace(e.dst);\n\
     \          }\n        }\n      }\n      if (level[t] == -1) break;\n      std::fill(itr.begin(),\
     \ itr.end(), 0);\n      while (limit > 0) {\n        const T f = dfs(s, t, limit);\n\
     \        if (f == 0) break;\n        limit -= f;\n        res += f;\n      }\n\
     \    }\n    return res;\n  }\n\n private:\n  std::vector<int> level, itr;\n\n\
     \  T dfs(const int ver, const int t, const T flow) {\n    if (ver == t) return\
-    \ flow;\n    for (; itr[ver] < static_cast<int>(graph[ver].size()); ++itr[ver])\
-    \ {\n      Edge& e = graph[ver][itr[ver]];\n      if (level[ver] < level[e.dst]\
-    \ && e.cap > 0) {\n        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\n\
+    \ flow;\n    for (; std::cmp_less(itr[ver], graph[ver].size()); ++itr[ver]) {\n\
+    \      Edge& e = graph[ver][itr[ver]];\n      if (level[ver] < level[e.dst] &&\
+    \ e.cap > 0) {\n        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\n\
     \        if (tmp > 0) {\n          e.cap -= tmp;\n          graph[e.dst][e.rev].cap\
     \ += tmp;\n          return tmp;\n        }\n      }\n    }\n    return 0;\n \
     \ }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n"
@@ -77,7 +77,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/dinic.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp

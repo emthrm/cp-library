@@ -24,30 +24,30 @@ data:
     )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
     \ line -1: no such header\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n#define EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n\
-    \n#include <cassert>\n#include <functional>\n#include <tuple>\n#include <utility>\n\
+    \n#include <cassert>\n#include <ranges>\n#include <tuple>\n#include <utility>\n\
     #include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\
     \ntemplate <typename CostType>\nstd::pair<CostType, std::vector<int>> double_sweep(\n\
-    \    const std::vector<std::vector<Edge<CostType>>>& graph) {\n  const std::function<std::pair<CostType,\
-    \ int>(int, int)> dfs1 =\n      [&graph, &dfs1](const int par, const int ver)\n\
-    \          -> std::pair<CostType, int> {\n        std::pair<CostType, int> res{0,\
-    \ ver};\n        for (const Edge<CostType>& e : graph[ver]) {\n          if (e.dst\
-    \ != par) {\n            std::pair<CostType, int> child = dfs1(ver, e.dst);\n\
-    \            child.first += e.cost;\n            if (child.first > res.first)\
-    \ res = child;\n          }\n        }\n        return res;\n      };\n  const\
-    \ int s = dfs1(-1, 0).second;\n  CostType diameter;\n  int t;\n  std::tie(diameter,\
-    \ t) = dfs1(-1, s);\n  std::vector<int> path{s};\n  const std::function<bool(int,\
-    \ int)> dfs2 =\n      [&graph, t, &path, &dfs2](const int par, const int ver)\
-    \ -> bool {\n        if (ver == t) return true;\n        for (const Edge<CostType>&\
-    \ e : graph[ver]) {\n          if (e.dst != par) {\n            path.emplace_back(e.dst);\n\
-    \            if (dfs2(ver, e.dst)) return true;\n            path.pop_back();\n\
-    \          }\n        }\n        return false;\n      };\n  assert(dfs2(-1, s));\n\
-    \  return {diameter, path};\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n"
+    \    const std::vector<std::vector<Edge<CostType>>>& graph) {\n  const auto dfs1\
+    \ = [&graph](auto dfs1, const int par, const int ver)\n      -> std::pair<CostType,\
+    \ int> {\n    std::pair<CostType, int> res{0, ver};\n    for (const Edge<CostType>&\
+    \ e : graph[ver]) {\n      if (e.dst != par) [[unlikely]] {\n        std::pair<CostType,\
+    \ int> child = dfs1(dfs1, ver, e.dst);\n        child.first += e.cost;\n     \
+    \   if (child.first > res.first) res = child;\n      }\n    }\n    return res;\n\
+    \  };\n  const int s = dfs1(dfs1, -1, 0).second;\n  const auto [diameter, t] =\
+    \ dfs1(dfs1, -1, s);\n  std::vector<int> path{s};\n  const auto dfs2 = [&graph,\
+    \ t, &path](auto dfs2, const int par, const int ver)\n      -> bool {\n    if\
+    \ (ver == t) return true;\n    for (const int e : graph[ver]\n               \
+    \      | std::views::transform(&Edge<CostType>::dst)) {\n      if (e != par) [[likely]]\
+    \ {\n        path.emplace_back(e);\n        if (dfs2(dfs2, ver, e)) return true;\n\
+    \        path.pop_back();\n      }\n    }\n    return false;\n  };\n  assert(dfs2(dfs2,\
+    \ -1, s));\n  return {diameter, path};\n}\n\n}  // namespace emthrm\n\n#endif\
+    \  // EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/double_sweep.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/double_sweep.test.cpp

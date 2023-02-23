@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/osa_k.test.cpp
     title: "\u6570\u5B66/osa_k \u6CD5"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
@@ -26,7 +26,7 @@ data:
   code: "#ifndef EMTHRM_MATH_OSA_K_HPP_\n#define EMTHRM_MATH_OSA_K_HPP_\n\n#include\
     \ <utility>\n#include <vector>\n\n#include \"emthrm/math/prime_sieve.hpp\"\n\n\
     namespace emthrm {\n\nstruct OsaK {\n  const std::vector<int> smallest_prime_factor;\n\
-    \n  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve(n, false))\
+    \n  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve<false>(n))\
     \ {}\n\n  std::vector<std::pair<int, int>> query(int n) const {\n    std::vector<std::pair<int,\
     \ int>> res;\n    while (n > 1) {\n      const int prime = smallest_prime_factor[n];\n\
     \      int exponent = 0;\n      for (; smallest_prime_factor[n] == prime; n /=\
@@ -37,8 +37,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/osa_k.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/osa_k.test.cpp
 documentation_of: include/emthrm/math/osa_k.hpp

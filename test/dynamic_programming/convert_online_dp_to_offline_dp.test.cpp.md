@@ -5,7 +5,7 @@ data:
     path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
       \u63DB"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB"
   - icon: ':question:'
@@ -65,7 +65,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
   requiredBy: []
-  timestamp: '2023-01-30 16:05:09+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp

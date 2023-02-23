@@ -18,14 +18,14 @@ data:
     /**\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\n *\
     \ @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\
     #define EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\n#include <algorithm>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
-    \ xor_convolution(std::vector<T> a, std::vector<T> b,\n                      \
-    \         const T id = 0) {\n  int n = std::max(a.size(), b.size()), p = 1;\n\
-    \  while ((1 << p) < n) ++p;\n  n = 1 << p;\n  const auto fast_walsh_hadamard_transform\
-    \ = [n](std::vector<T>* v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n\
-    \      for (int s = 0; s < n; ++s) {\n        if (s & i) continue;\n        const\
-    \ T tmp1 = (*v)[s], tmp2 = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n    \
-    \    (*v)[s | i] = tmp1 - tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
+    #include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nstd::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b,\n   \
+    \                            const T id = 0) {\n  const int n = std::bit_ceil(std::max(a.size(),\
+    \ b.size()));\n  const auto fast_walsh_hadamard_transform = [n](std::vector<T>*\
+    \ v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s\
+    \ < n; ++s) {\n        if (s & i) continue;\n        const T tmp1 = (*v)[s], tmp2\
+    \ = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n        (*v)[s | i] = tmp1 -\
+    \ tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
     \  b.resize(n, id);\n  fast_walsh_hadamard_transform(&b);\n  for (int i = 0; i\
     \ < n; ++i) {\n    a[i] *= b[i];\n  }\n  fast_walsh_hadamard_transform(&a);\n\
     \  for (int i = 0; i < n; ++i) {\n    a[i] /= n;\n  }\n  return a;\n}\n\n}  //\
@@ -33,14 +33,14 @@ data:
   code: "/**\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\
     \n * @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\
     #define EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\n#include <algorithm>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
-    \ xor_convolution(std::vector<T> a, std::vector<T> b,\n                      \
-    \         const T id = 0) {\n  int n = std::max(a.size(), b.size()), p = 1;\n\
-    \  while ((1 << p) < n) ++p;\n  n = 1 << p;\n  const auto fast_walsh_hadamard_transform\
-    \ = [n](std::vector<T>* v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n\
-    \      for (int s = 0; s < n; ++s) {\n        if (s & i) continue;\n        const\
-    \ T tmp1 = (*v)[s], tmp2 = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n    \
-    \    (*v)[s | i] = tmp1 - tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
+    #include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nstd::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b,\n   \
+    \                            const T id = 0) {\n  const int n = std::bit_ceil(std::max(a.size(),\
+    \ b.size()));\n  const auto fast_walsh_hadamard_transform = [n](std::vector<T>*\
+    \ v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s\
+    \ < n; ++s) {\n        if (s & i) continue;\n        const T tmp1 = (*v)[s], tmp2\
+    \ = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n        (*v)[s | i] = tmp1 -\
+    \ tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
     \  b.resize(n, id);\n  fast_walsh_hadamard_transform(&b);\n  for (int i = 0; i\
     \ < n; ++i) {\n    a[i] *= b[i];\n  }\n  fast_walsh_hadamard_transform(&a);\n\
     \  for (int i = 0; i < n; ++i) {\n    a[i] /= n;\n  }\n  return a;\n}\n\n}  //\
@@ -49,7 +49,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/xor_convolution.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/xor_convolution.test.cpp

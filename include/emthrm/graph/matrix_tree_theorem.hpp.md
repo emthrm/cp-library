@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'
@@ -37,13 +37,13 @@ data:
     \ \"emthrm/math/matrix/matrix.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
     \ T, typename CostType>\nT matrix_tree_theorem(const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\n                      const T eps = 1e-8) {\n  const int n = graph.size();\n\
-    \  if (n == 1) return 1;\n  Matrix<int> laplacian(n, n, 0);\n  for (int i = 0;\
-    \ i < n; ++i) {\n    for (const Edge<CostType>& e : graph[i]) {\n      ++laplacian[e.src][e.src];\n\
-    \      --laplacian[e.src][e.dst];\n    }\n  }\n  Matrix<int> cofactor(n - 1, n\
-    \ - 1);\n  for (int i = 0; i < n - 1; ++i) {\n    std::copy(std::next(laplacian[i\
-    \ + 1].begin()), laplacian[i + 1].end(),\n              cofactor[i].begin());\n\
-    \  }\n  return det(cofactor, eps);\n}\n\n}  // namespace emthrm\n\n#endif  //\
-    \ EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_\n"
+    \  if (n == 1) [[unlikely]] return 1;\n  Matrix<int> laplacian(n, n, 0);\n  for\
+    \ (int i = 0; i < n; ++i) {\n    for (const Edge<CostType>& e : graph[i]) {\n\
+    \      ++laplacian[e.src][e.src];\n      --laplacian[e.src][e.dst];\n    }\n \
+    \ }\n  Matrix<int> cofactor(n - 1, n - 1);\n  for (int i = 0; i < n - 1; ++i)\
+    \ {\n    std::copy(std::next(laplacian[i + 1].begin()), laplacian[i + 1].end(),\n\
+    \              cofactor[i].begin());\n  }\n  return det(cofactor, eps);\n}\n\n\
+    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   - include/emthrm/math/matrix/determinant.hpp
@@ -51,7 +51,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/matrix_tree_theorem.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/matrix_tree_theorem.test.cpp

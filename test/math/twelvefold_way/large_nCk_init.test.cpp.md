@@ -4,14 +4,14 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://yukicoder.me/problems/no/2130
@@ -34,19 +34,17 @@ data:
     emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/large_nCk_init.hpp\"\
     \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  long long n;\n  int m;\n  std::cin >> n >> m;\n  const std::vector<ModInt>\
-    \ c = emthrm::large_nCk_init<MOD>(n, m - 1);\n#if __cplusplus >= 201703L\n  std::cout\
-    \ << ModInt(2).pow(n) - std::reduce(c.begin(), c.end(), ModInt(0))\n         \
-    \   << '\\n';\n#else\n  std::cout << ModInt(2).pow(n) - std::accumulate(c.begin(),\
-    \ c.end(), ModInt(0))\n            << '\\n';\n#endif  // __cplusplus >= 201703L\n\
-    \  return 0;\n}\n"
+    \ c = emthrm::large_nCk_init<MOD>(n, m - 1);\n  std::cout << ModInt(2).pow(n)\
+    \ - std::reduce(c.begin(), c.end(), ModInt(0))\n            << '\\n';\n  return\
+    \ 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
   - include/emthrm/math/twelvefold_way/large_nCk_init.hpp
   isVerificationFile: true
   path: test/math/twelvefold_way/large_nCk_init.test.cpp
   requiredBy: []
-  timestamp: '2023-02-21 03:10:55+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-02-23 21:59:12+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/large_nCk_init.test.cpp
 layout: document

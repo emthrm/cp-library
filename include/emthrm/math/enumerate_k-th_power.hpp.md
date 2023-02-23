@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
@@ -30,19 +30,19 @@ data:
   code: "#ifndef EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_\n#define EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_\n\
     \n#include <vector>\n\n#include \"emthrm/math/mod_pow.hpp\"\n#include \"emthrm/math/prime_sieve.hpp\"\
     \n\nnamespace emthrm {\n\nstd::vector<int> enumerate_kth_power(const int n, const\
-    \ int k, const int m) {\n  const std::vector<int> smallest_prime_factor = prime_sieve(n,\
-    \ false);\n  std::vector<int> res(n + 1, 0);\n  for (int i = 1; i <= n; ++i) {\n\
-    \    if (smallest_prime_factor[i] == i) {\n      res[i] = mod_pow(i, k, m);\n\
-    \    } else {\n      res[i] = static_cast<long long>(res[smallest_prime_factor[i]])\n\
-    \               * res[i / smallest_prime_factor[i]] % m;\n    }\n  }\n  return\
-    \ res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_\n"
+    \ int k, const int m) {\n  const std::vector<int> smallest_prime_factor = prime_sieve<false>(n);\n\
+    \  std::vector<int> res(n + 1, 0);\n  for (int i = 1; i <= n; ++i) {\n    if (smallest_prime_factor[i]\
+    \ == i) [[unlikely]] {\n      res[i] = mod_pow(i, k, m);\n    } else {\n     \
+    \ res[i] = static_cast<long long>(res[smallest_prime_factor[i]])\n           \
+    \    * res[i / smallest_prime_factor[i]] % m;\n    }\n  }\n  return res;\n}\n\n\
+    }  // namespace emthrm\n\n#endif  // EMTHRM_MATH_ENUMERATE_K_TH_POWER_HPP_\n"
   dependsOn:
   - include/emthrm/math/mod_pow.hpp
   - include/emthrm/math/prime_sieve.hpp
   isVerificationFile: false
   path: include/emthrm/math/enumerate_k-th_power.hpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/enumerate_k-th_power.test.cpp
