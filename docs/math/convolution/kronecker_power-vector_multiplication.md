@@ -4,6 +4,7 @@ documentation_of: include/emthrm/math/convolution/kronecker_power-vector_multipl
 ---
 
 $G \in K^{d \times d},\ \boldsymbol{v} \in K^{d^n}$ に対して $G^{\otimes n} \boldsymbol{v}$ を求める。ここで
+
 $$
 A \otimes B \mathrel{:=}
 \begin{pmatrix}
@@ -13,6 +14,7 @@ A \otimes B \mathrel{:=}
 \end{pmatrix}
 \quad (A \in K^{m \times n})
 $$
+
 はクロネッカー積である。
 
 
