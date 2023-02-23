@@ -37,16 +37,25 @@ jobs:
           has_error=false
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
             case "$file" in
-              "include/emthrm/data_structure/binary_trie.hpp" | "include/emthrm/math/convolution/lcm_convolution.hpp" | "include/emthrm/string/aho-corasick.hpp" )
+              "include/emthrm/data_structure/binary_trie.hpp" | \
+              "include/emthrm/math/convolution/lcm_convolution.hpp" | \
+              "include/emthrm/string/aho-corasick.hpp" )
                 cpplint --root=./include --filter=-build/include_what_you_use,-legal/copyright $file ;;
-              "include/emthrm/dynamic_programming/convex_hull_trick.hpp" | "include/emthrm/geometry/geometry.hpp" )
-                cpplint --root=./include --filter=-legal/copyright,-whitespace/line_length $file ;;
-              "include/emthrm/math/bigint.hpp" | "include/emthrm/math/modint.hpp" | "include/emthrm/math/rational.hpp" )
+
+              "include/emthrm/dynamic_programming/convex_hull_trick.hpp" )
+                cpplint --root=./include --filter=-legal/copyright,-whitespace/braces $file ;;
+
+              "include/emthrm/math/bigint.hpp" | \
+              "include/emthrm/math/modint.hpp" | \
+              "include/emthrm/math/rational.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int $file ;;
+
               "include/emthrm/util/timer.hpp" )
                 cpplint --root=./include --filter=-build/c++11,-legal/copyright,-runtime/int $file ;;
+
               *.test.cpp )
                 cpplint --filter=-legal/copyright,-runtime/int,-whitespace/line_length $file ;;
+
               * )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/int $file ;;
             esac
