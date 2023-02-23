@@ -25,18 +25,16 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
   constexpr int mask = (1 << PRECISION) - 1;
   std::vector<fast_fourier_transform::Complex> x(n), y(n);
   std::transform(
-        a.begin(), a.end(), x.begin(),
-        [mask, pre](const MInt<T>& a_i) -> fast_fourier_transform::Complex {
-          return fast_fourier_transform::Complex(a_i.v & mask,
-                                                 a_i.v >> PRECISION);
-        });
+      a.begin(), a.end(), x.begin(),
+      [mask](const MInt<T>& x) -> fast_fourier_transform::Complex {
+        return fast_fourier_transform::Complex(x.v & mask, x.v >> PRECISION);
+      });
   fast_fourier_transform::dft(&x);
   std::transform(
-        b.begin(), b.end(), y.begin(),
-        [mask, pre](const MInt<T>& b_i) -> fast_fourier_transform::Complex {
-          return fast_fourier_transform::Complex(b_i.v & mask,
-                                                 b_i.v >> PRECISION);
-        });
+      b.begin(), b.end(), y.begin(),
+      [mask](const MInt<T>& y) -> fast_fourier_transform::Complex {
+        return fast_fourier_transform::Complex(y.v & mask, y.v >> PRECISION);
+      });
   fast_fourier_transform::dft(&y);
   const int half = n >> 1;
   fast_fourier_transform::Complex tmp_a = x.front(), tmp_b = y.front();
