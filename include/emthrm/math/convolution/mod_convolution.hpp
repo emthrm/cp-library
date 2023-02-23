@@ -21,7 +21,7 @@ std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
                                      const std::vector<MInt<T>>& b) {
   using ModInt = MInt<T>;
   const int a_size = a.size(), b_size = b.size(), c_size = a_size + b_size - 1;
-  const int n = std::bit_ceil(static_cast<unsigned int>(c_size));
+  const int n = std::max(std::bit_ceil(static_cast<unsigned int>(c_size)), 2U);
   constexpr int mask = (1 << PRECISION) - 1;
   std::vector<fast_fourier_transform::Complex> x(n), y(n);
   std::transform(
