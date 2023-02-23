@@ -35,17 +35,10 @@ int chromatic_number(const std::vector<std::vector<Edge<CostType>>>& graph) {
       for (int i = 0; i < (1 << n); ++i) {
         f[i] = (f[i] * indep[i]) % mod;
       }
-#if __cplusplus >= 201703L
       if (std::reduce(f.begin(), f.end(), 0LL) % mod > 0) {
         res = c;
         break;
       }
-#else
-      if (std::accumulate(f.begin(), f.end(), 0LL) % mod > 0) {
-        res = c;
-        break;
-      }
-#endif  // __cplusplus >= 201703L
     }
   }
   return res;

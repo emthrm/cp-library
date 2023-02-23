@@ -17,12 +17,7 @@ int main() {
   int m;
   std::cin >> n >> m;
   const std::vector<ModInt> c = emthrm::large_nCk_init<MOD>(n, m - 1);
-#if __cplusplus >= 201703L
   std::cout << ModInt(2).pow(n) - std::reduce(c.begin(), c.end(), ModInt(0))
             << '\n';
-#else
-  std::cout << ModInt(2).pow(n) - std::accumulate(c.begin(), c.end(), ModInt(0))
-            << '\n';
-#endif  // __cplusplus >= 201703L
   return 0;
 }
