@@ -1,5 +1,5 @@
 /**
- * @brief 線形回帰数列の第 $N$ 項
+ * @title 線形回帰数列の第 $N$ 項
  * @docs docs/math/formal_power_series/bostan-mori.md
  */
 

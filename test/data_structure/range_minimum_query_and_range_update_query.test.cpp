@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/遅延伝播セグメント木 (range minimum query and range update query)
+ * @title データ構造/遅延伝播セグメント木 (range minimum query and range update query)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_F"
 

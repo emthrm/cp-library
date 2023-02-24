@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/rolling hash
+ * @title 文字列/rolling hash
  */
 #define PROBLEM "https://atcoder.jp/contests/abc141/tasks/abc141_e"
 

@@ -1,5 +1,5 @@
 /**
- * @brief 逆行列 バイナリ行列版
+ * @title 逆行列 バイナリ行列版
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 

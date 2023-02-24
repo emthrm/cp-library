@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/マッチング/一般グラフの最大マッチング
+ * @title グラフ/フロー/マッチング/一般グラフの最大マッチング
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3032"
 

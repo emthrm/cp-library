@@ -1,5 +1,5 @@
 /*
- * @brief 数学/素因数分解
+ * @title 数学/素因数分解
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
 

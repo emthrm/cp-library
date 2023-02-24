@@ -1,5 +1,5 @@
 /**
- * @brief 二重辺連結成分分解 lowlink 版
+ * @title 二重辺連結成分分解 lowlink 版
  * @docs docs/graph/2-edge-connected_components.md
  */
 

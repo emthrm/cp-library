@@ -1,5 +1,5 @@
 /*
- * @brief 数学/行列/バイナリ行列/連立一次方程式 バイナリ行列版
+ * @title 数学/行列/バイナリ行列/連立一次方程式 バイナリ行列版
  */
 #define PROBLEM "https://yukicoder.me/problems/no/1421"
 

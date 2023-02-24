@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/強連結成分分解
+ * @title グラフ/強連結成分分解
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/scc"
 

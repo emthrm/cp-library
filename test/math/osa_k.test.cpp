@@ -1,5 +1,5 @@
 /*
- * @brief 数学/osa_k 法
+ * @title 数学/osa_k 法
  */
 #define PROBLEM "https://atcoder.jp/contests/abc177/tasks/abc177_e"
 

@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/unicyclic graph
+ * @title グラフ/unicyclic graph
  */
 #define PROBLEM "https://yukicoder.me/problems/no/1254"
 

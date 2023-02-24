@@ -1,5 +1,5 @@
 /**
- * @brief 分割数
+ * @title 分割数
  * @docs docs/math/twelvefold_way/partition_function.md
  */
 

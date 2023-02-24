@@ -1,5 +1,5 @@
 /*
- * @brief 数学/離散対数問題
+ * @title 数学/離散対数問題
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod"
 

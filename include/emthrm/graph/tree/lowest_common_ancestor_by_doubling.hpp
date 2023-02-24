@@ -1,5 +1,5 @@
 /**
- * @brief 最小共通祖先 ダブリング版
+ * @title 最小共通祖先 ダブリング版
  * @docs docs/graph/tree/lowest_common_ancestor.md
  */
 

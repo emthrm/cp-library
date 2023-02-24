@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/彩色数
+ * @title グラフ/彩色数
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/chromatic_number"
 

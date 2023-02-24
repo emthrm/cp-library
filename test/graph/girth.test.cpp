@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/内周
+ * @title グラフ/内周
  */
 #define PROBLEM "https://yukicoder.me/problems/no/1320"
 

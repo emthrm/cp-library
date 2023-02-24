@@ -1,5 +1,5 @@
 /**
- * @brief Bellman–Ford 法
+ * @title Bellman–Ford 法
  * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md
  */
 

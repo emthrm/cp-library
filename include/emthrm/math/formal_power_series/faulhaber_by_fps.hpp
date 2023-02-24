@@ -1,5 +1,5 @@
 /**
- * @brief ファウルハーバーの公式 形式的冪級数版
+ * @title ファウルハーバーの公式 形式的冪級数版
  * @docs docs/math/formal_power_series/faulhaber.md
  */
 

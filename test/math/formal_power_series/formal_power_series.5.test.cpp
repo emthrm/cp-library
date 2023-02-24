@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/形式的冪級数 (mod_pow(exponend, md))
+ * @title 数学/形式的冪級数/形式的冪級数 (mod_pow(exponend, md))
  */
 #define PROBLEM "https://atcoder.jp/contests/abc135/tasks/abc135_d"
 

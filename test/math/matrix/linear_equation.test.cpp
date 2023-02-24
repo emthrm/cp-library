@@ -1,5 +1,5 @@
 /*
- * @brief 数学/行列/連立一次方程式
+ * @title 数学/行列/連立一次方程式
  */
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2171"
 #define ERROR "1e-8"

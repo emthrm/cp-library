@@ -1,5 +1,5 @@
 /**
- * @brief 最長増加部分列
+ * @title 最長増加部分列
  * @docs docs/dynamic_programming/longest_increasing_subsequence.md
  */
 

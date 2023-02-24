@@ -1,5 +1,5 @@
 /*
- * @brief 数学/拡張 Euclid の互除法
+ * @title 数学/拡張 Euclid の互除法
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E"
 

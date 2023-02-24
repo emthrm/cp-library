@@ -1,5 +1,5 @@
 /**
- * @brief 任意の法の下での畳み込み
+ * @title 任意の法の下での畳み込み
  * @docs docs/math/convolution/number_theoretic_transform.md
  */
 

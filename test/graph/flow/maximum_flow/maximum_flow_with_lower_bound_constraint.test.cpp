@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/最大流/最小流量制約付き最大流
+ * @title グラフ/フロー/最大流/最小流量制約付き最大流
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1615"
 

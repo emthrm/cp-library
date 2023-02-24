@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/オフライン・オンライン変換
+ * @title 動的計画法/オフライン・オンライン変換
  */
 #define PROBLEM "https://atcoder.jp/contests/abc213/tasks/abc213_h"
 

@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/セグメント木 (range minimum query)
+ * @title データ構造/セグメント木 (range minimum query)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_A"
 

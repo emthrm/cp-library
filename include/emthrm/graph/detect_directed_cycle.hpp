@@ -1,5 +1,5 @@
 /**
- * @brief 有向閉路の検出
+ * @title 有向閉路の検出
  * @docs docs/graph/detect_walk.md
  */
 

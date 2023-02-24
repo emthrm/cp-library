@@ -1,5 +1,5 @@
 /**
- * @brief 最大流コンセプト
+ * @title 最大流コンセプト
  */
 
 #ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_

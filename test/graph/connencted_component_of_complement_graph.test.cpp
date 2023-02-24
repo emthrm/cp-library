@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/補グラフの連結成分分解
+ * @title グラフ/補グラフの連結成分分解
  */
 #define IGNORE
 #define PROBLEM "https://codeforces.com/problemset/problem/1242/B"

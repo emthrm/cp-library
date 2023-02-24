@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/二重辺連結成分分解 いもす法版
+ * @title グラフ/二重辺連結成分分解 いもす法版
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
 

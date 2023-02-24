@@ -1,5 +1,5 @@
 /**
- * @brief オイラー路 無向グラフ版
+ * @title オイラー路 無向グラフ版
  * @docs docs/graph/eulerian_trail.md
  */
 

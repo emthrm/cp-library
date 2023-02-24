@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/重心分解
+ * @title グラフ/木/重心分解
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/frequency_table_of_tree_distance"
 

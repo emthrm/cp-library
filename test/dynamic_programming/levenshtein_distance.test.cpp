@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/レーベンシュタイン距離
+ * @title 動的計画法/レーベンシュタイン距離
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_1_E"
 

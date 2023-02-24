@@ -1,5 +1,5 @@
 /*
- * @brief 数学/畳み込み/高速ゼータ変換
+ * @title 数学/畳み込み/高速ゼータ変換
  */
 #define PROBLEM "https://atcoder.jp/contests/arc100/tasks/arc100_e"
 // #define PROBLEM "https://atcoder.jp/contests/arc100/tasks/arc100_c"

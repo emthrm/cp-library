@@ -1,5 +1,5 @@
 /**
- * @brief ヤコビ記号
+ * @title ヤコビ記号
  * @docs docs/math/quadratic_residue.md
  */
 

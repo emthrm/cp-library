@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/二重辺連結成分分解 lowlink 版
+ * @title グラフ/二重辺連結成分分解 lowlink 版
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/arc039/tasks/arc039_d"

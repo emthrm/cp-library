@@ -1,5 +1,5 @@
 /*
- * @brief 数学/カタラン数
+ * @title 数学/カタラン数
  */
 #define PROBLEM "https://yukicoder.me/problems/no/790"
 

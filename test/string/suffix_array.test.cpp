@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/接尾辞配列
+ * @title 文字列/接尾辞配列
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 

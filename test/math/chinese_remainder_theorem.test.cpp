@@ -1,5 +1,5 @@
 /*
- * @brief 数学/中国剰余定理
+ * @title 数学/中国剰余定理
  */
 #define PROBLEM "https://yukicoder.me/problems/no/186"
 

@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/sparse table
+ * @title データ構造/sparse table
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 

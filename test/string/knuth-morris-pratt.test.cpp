@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/Knuth–Morris–Pratt algorithm
+ * @title 文字列/Knuth–Morris–Pratt algorithm
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 

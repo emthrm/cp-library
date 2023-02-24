@@ -1,5 +1,5 @@
 /*
- * @brief 数学/ラグランジュ補間 評価版2
+ * @title 数学/ラグランジュ補間 評価版2
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/arc033/tasks/arc033_4"

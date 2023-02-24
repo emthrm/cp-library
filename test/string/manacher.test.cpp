@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/Manacher
+ * @title 文字列/Manacher
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 

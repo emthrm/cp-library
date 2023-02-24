@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/slope trick
+ * @title データ構造/slope trick
  */
 #define PROBLEM "https://atcoder.jp/contests/arc123/tasks/arc123_d"
 

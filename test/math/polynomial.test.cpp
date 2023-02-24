@@ -1,5 +1,5 @@
 /*
- * @brief 数学/多項式
+ * @title 数学/多項式
  */
 #define IGNORE
 #define PROBLEM "https://judge.yosupo.jp/problem/division_of_polynomials"

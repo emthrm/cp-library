@@ -1,5 +1,5 @@
 /**
- * @brief メビウス関数 約数版
+ * @title メビウス関数 約数版
  * @docs docs/math/mobius_mu.md
  */
 

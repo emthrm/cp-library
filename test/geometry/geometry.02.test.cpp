@@ -1,5 +1,5 @@
 /*
- * @brief 計算幾何学/計算幾何学 (最近点対)
+ * @title 計算幾何学/計算幾何学 (最近点対)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_5_A"
 #define ERROR "0.000001"

@@ -1,5 +1,5 @@
 /*
- * @brief 数学/多倍長整数 (剰余演算)
+ * @title 数学/多倍長整数 (剰余演算)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E"
 

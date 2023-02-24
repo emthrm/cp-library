@@ -1,5 +1,5 @@
 /**
- * @brief カーマイケル関数の数表
+ * @title カーマイケル関数の数表
  * @docs docs/math/carmichael_function.md
  */
 

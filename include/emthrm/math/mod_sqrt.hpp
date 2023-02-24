@@ -1,5 +1,5 @@
 /**
- * @brief 平方剰余
+ * @title 平方剰余
  * @docs docs/math/quadratic_residue.md
  */
 

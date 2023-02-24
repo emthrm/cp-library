@@ -1,5 +1,5 @@
 /*
- * @brief 数学/sum of floor of linear
+ * @title 数学/sum of floor of linear
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/sum_of_floor_of_linear"
 

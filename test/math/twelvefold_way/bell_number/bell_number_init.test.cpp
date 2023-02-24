@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/ベル数/ベル数の数表
+ * @title 数学/写像12相/ベル数/ベル数の数表
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G"
 

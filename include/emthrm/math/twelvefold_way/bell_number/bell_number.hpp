@@ -1,5 +1,5 @@
 /**
- * @brief ベル数
+ * @title ベル数
  * @docs docs/math/twelvefold_way/bell_number/bell_number.md
  */
 

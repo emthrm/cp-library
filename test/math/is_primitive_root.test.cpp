@@ -1,5 +1,5 @@
 /*
- * @brief 数学/原始根判定
+ * @title 数学/原始根判定
  */
 #define PROBLEM "https://yukicoder.me/problems/no/1409"
 

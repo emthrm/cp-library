@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/HL 分解
+ * @title グラフ/木/HL 分解
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667"
 

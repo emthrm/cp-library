@@ -1,5 +1,5 @@
 /**
- * @brief Prim 法
+ * @title Prim 法
  * @docs docs/graph/minimum_spanning_tree.md
  */
 

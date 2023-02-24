@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/二重頂点連結成分分解
+ * @title グラフ/二重頂点連結成分分解
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/nadafes2022_day2/tasks/nadafes2022_day2_h"

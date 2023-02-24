@@ -1,5 +1,5 @@
 /*
- * @brief 計算幾何学/計算幾何学 (線分と円の交点)
+ * @title 計算幾何学/計算幾何学 (線分と円の交点)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2316"
 

@@ -1,5 +1,5 @@
 /**
- * @brief 内周 無向グラフ版
+ * @title 内周 無向グラフ版
  * @docs docs/graph/girth.md
  */
 

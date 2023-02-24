@@ -1,5 +1,5 @@
 /*
- * @brief 数学/畳み込み/クロネッカー冪とベクトルの積
+ * @title 数学/畳み込み/クロネッカー冪とベクトルの積
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/abc288/tasks/abc288_g"

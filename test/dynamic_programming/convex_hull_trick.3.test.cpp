@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/convex full trick (monotonically_decreasing_query(x))
+ * @title 動的計画法/convex full trick (monotonically_decreasing_query(x))
  */
 #define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_z"
 

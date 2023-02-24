@@ -1,5 +1,5 @@
 /*
- * @brief 数学/ヤコビ記号
+ * @title 数学/ヤコビ記号
  */
 #define PROBLEM "https://yukicoder.me/problems/no/984"
 

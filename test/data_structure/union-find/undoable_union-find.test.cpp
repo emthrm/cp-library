@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/union-find/undo 可能 union-find
+ * @title データ構造/union-find/undo 可能 union-find
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/joi2022yo2/tasks/joi2022_yo2_e"

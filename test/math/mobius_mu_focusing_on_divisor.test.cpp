@@ -1,5 +1,5 @@
 /*
- * @brief 数学/メビウス関数/メビウス関数 約数版
+ * @title 数学/メビウス関数/メビウス関数 約数版
  */
 #define PROBLEM "https://atcoder.jp/contests/abc162/tasks/abc162_e"
 

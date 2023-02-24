@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/Z algorithm
+ * @title 文字列/Z algorithm
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 

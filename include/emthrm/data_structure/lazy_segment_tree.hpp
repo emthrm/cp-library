@@ -1,5 +1,5 @@
 /**
- * @brief 遅延伝播セグメント木
+ * @title 遅延伝播セグメント木
  * @docs docs/data_structure/segment_tree.md
  */
 

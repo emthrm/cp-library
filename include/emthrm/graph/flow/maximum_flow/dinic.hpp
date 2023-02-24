@@ -1,5 +1,5 @@
 /**
- * @brief Dinic 法
+ * @title Dinic 法
  * @docs docs/graph/flow/maximum_flow/maximum_flow.md
  */
 

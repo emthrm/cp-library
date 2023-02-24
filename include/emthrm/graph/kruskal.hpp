@@ -1,5 +1,5 @@
 /**
- * @brief Kruskal 法
+ * @title Kruskal 法
  * @docs docs/graph/minimum_spanning_tree.md
  */
 

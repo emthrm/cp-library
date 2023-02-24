@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/多項式列の相乗
+ * @title 数学/形式的冪級数/多項式列の相乗
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/product_of_polynomial_sequence"
 

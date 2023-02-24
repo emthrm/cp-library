@@ -1,5 +1,5 @@
 /*
- * @brief 数学/平方剰余
+ * @title 数学/平方剰余
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/sqrt_mod"
 

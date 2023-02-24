@@ -1,5 +1,5 @@
 /*
- * @brief 数学/多倍長整数 (冪演算)
+ * @title 数学/多倍長整数 (冪演算)
  */
 #define IGNORE
 #define PROBLEM "https://codeforces.com/problemsets/acmsguru/problem/99999/112"

@@ -1,5 +1,5 @@
 /**
- * @brief 多項式補間
+ * @title 多項式補間
  * @docs docs/math/lagrange_interpolation.md
  */
 

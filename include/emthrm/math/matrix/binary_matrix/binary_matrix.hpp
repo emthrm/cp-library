@@ -1,5 +1,5 @@
 /**
- * @brief バイナリ行列
+ * @title バイナリ行列
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 

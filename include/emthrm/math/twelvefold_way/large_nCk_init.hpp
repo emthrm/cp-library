@@ -1,5 +1,5 @@
 /**
- * @brief 二項係数の数表 巨大な $n$ 版
+ * @title 二項係数の数表 巨大な $n$ 版
  * @docs docs/math/twelvefold_way/binomial_coefficients.md
  */
 

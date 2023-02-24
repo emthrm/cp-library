@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/分割数
+ * @title 数学/写像12相/分割数
  */
 #define PROBLEM "https://yukicoder.me/problems/no/269"
 

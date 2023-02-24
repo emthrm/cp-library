@@ -1,5 +1,5 @@
 /**
- * @brief メビウス関数
+ * @title メビウス関数
  * @docs docs/math/mobius_mu.md
  */
 

@@ -1,5 +1,5 @@
 /**
- * @brief ガウス・ジョルダンの消去法 バイナリ行列版
+ * @title ガウス・ジョルダンの消去法 バイナリ行列版
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 

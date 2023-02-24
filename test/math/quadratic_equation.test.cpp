@@ -1,5 +1,5 @@
 /*
- * @brief 数学/一元二次方程式
+ * @title 数学/一元二次方程式
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1039"
 

@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/Fenwick tree/Fenwick tree (lower_bound(val))
+ * @title データ構造/Fenwick tree/Fenwick tree (lower_bound(val))
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/arc033/tasks/arc033_3"

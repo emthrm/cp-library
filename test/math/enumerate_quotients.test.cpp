@@ -1,5 +1,5 @@
 /*
- * @brief 数学/商の列挙
+ * @title 数学/商の列挙
  */
 #define PROBLEM "https://atcoder.jp/contests/abc230/tasks/abc230_e"
 

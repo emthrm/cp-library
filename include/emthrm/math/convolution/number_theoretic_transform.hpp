@@ -1,5 +1,5 @@
 /**
- * @brief 数論変換
+ * @title 数論変換
  * @docs docs/math/convolution/number_theoretic_transform.md
  */
 

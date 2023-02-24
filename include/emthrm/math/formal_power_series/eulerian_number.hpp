@@ -1,5 +1,5 @@
 /**
- * @brief Eulerian number
+ * @title Eulerian number
  * @docs docs/math/formal_power_series/eulerian_number.md
  */
 

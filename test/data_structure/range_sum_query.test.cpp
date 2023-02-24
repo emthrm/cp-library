@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/セグメント木 (range sum query)
+ * @title データ構造/セグメント木 (range sum query)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 

@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/道の検出
+ * @title グラフ/道の検出
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/past202112-open/tasks/past202112_g"

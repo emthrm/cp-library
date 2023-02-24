@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/Lucas の定理
+ * @title 数学/写像12相/Lucas の定理
  */
 #define PROBLEM "https://atcoder.jp/contests/arc117/tasks/arc117_c"
 

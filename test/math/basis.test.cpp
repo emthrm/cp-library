@@ -1,5 +1,5 @@
 /*
- * @brief 数学/基底
+ * @title 数学/基底
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2416"
 

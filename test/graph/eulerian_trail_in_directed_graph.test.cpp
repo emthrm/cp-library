@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/オイラー路 有向グラフ版
+ * @title グラフ/オイラー路 有向グラフ版
  */
 #define IGNORE
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225"

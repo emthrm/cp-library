@@ -1,5 +1,5 @@
 /**
- * @brief 原始根判定
+ * @title 原始根判定
  * @docs docs/math/primitive_root.md
  */
 

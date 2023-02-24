@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/Berlekamp–Massey algorithm
+ * @title 数学/形式的冪級数/Berlekamp–Massey algorithm
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/find_linear_recurrence"
 

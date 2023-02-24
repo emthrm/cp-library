@@ -1,5 +1,5 @@
 /**
- * @brief 第1種スターリング数の数表 形式的冪級数版
+ * @title 第1種スターリング数の数表 形式的冪級数版
  * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
  */
 

@@ -1,5 +1,5 @@
 /*
- * @brief 数学/行列/バイナリ行列/逆行列 バイナリ行列版
+ * @title 数学/行列/バイナリ行列/逆行列 バイナリ行列版
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2624"
 

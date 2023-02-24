@@ -1,5 +1,5 @@
 /*
- * @brief 数学/連立線形合同式
+ * @title 数学/連立線形合同式
  */
 #define PROBLEM "https://yukicoder.me/problems/no/186"
 

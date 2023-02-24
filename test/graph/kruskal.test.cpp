@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/Kruskal 法
+ * @title グラフ/Kruskal 法
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
 

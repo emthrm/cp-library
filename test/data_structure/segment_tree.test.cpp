@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/セグメント木
+ * @title データ構造/セグメント木
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 

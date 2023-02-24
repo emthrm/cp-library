@@ -1,5 +1,5 @@
 /*
- * @brief 数学/畳み込み/添え字 gcd での畳み込み
+ * @title 数学/畳み込み/添え字 gcd での畳み込み
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
 

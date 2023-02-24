@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/部分和問題
+ * @title 動的計画法/部分和問題
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/sharp_p_subset_sum"
 

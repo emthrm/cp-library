@@ -1,5 +1,5 @@
 /**
- * @brief 行列木定理
+ * @title 行列木定理
  * @docs docs/graph/spectral_graph_theory.md
  */
 

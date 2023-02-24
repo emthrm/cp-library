@@ -1,5 +1,5 @@
 /*
- * @brief 数学/畳み込み/高速フーリエ変換
+ * @title 数学/畳み込み/高速フーリエ変換
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/atc001/tasks/fft_c"

@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/二項係数
+ * @title 数学/写像12相/二項係数
  */
 #define PROBLEM "https://yukicoder.me/problems/no/117"
 

@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/巡回セールスマン問題
+ * @title グラフ/巡回セールスマン問題
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_2_A"
 

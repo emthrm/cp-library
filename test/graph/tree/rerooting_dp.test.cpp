@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/全方位木 DP
+ * @title グラフ/木/全方位木 DP
  */
 #define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_A"
 

@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/ランレングス圧縮
+ * @title 文字列/ランレングス圧縮
  */
 #define PROBLEM "https://atcoder.jp/contests/abc143/tasks/abc143_c"
 

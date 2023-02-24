@@ -1,5 +1,5 @@
 /**
- * @brief Bostan–Mori のアルゴリズム
+ * @title Bostan–Mori のアルゴリズム
  * @docs docs/math/formal_power_series/bostan-mori.md
  */
 

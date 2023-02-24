@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/有向非巡回グラフ上の到達可能性判定
+ * @title グラフ/有向非巡回グラフ上の到達可能性判定
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"

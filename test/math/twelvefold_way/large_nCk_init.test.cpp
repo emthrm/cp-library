@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/二項係数の数表 巨大な $n$ 版
+ * @title 数学/写像12相/二項係数の数表 巨大な $n$ 版
  */
 #define PROBLEM "https://yukicoder.me/problems/no/2130"
 

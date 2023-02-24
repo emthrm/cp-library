@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/最小費用流/最小費用 $s$-$t$-フロー 最短路反復法版 (minimum_cost_maximum_flow(s, t, flow))
+ * @title グラフ/フロー/最小費用流/最小費用 $s$-$t$-フロー 最短路反復法版 (minimum_cost_maximum_flow(s, t, flow))
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088"
 

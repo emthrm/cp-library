@@ -1,5 +1,5 @@
 /*
- * @brief 数学/モンモール数
+ * @title 数学/モンモール数
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/montmort_number_mod"
 

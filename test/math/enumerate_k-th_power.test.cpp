@@ -1,5 +1,5 @@
 /*
- * @brief 数学/$i^k \bmod m$ ($0 \leq i \leq n$)
+ * @title 数学/$i^k \bmod m$ ($0 \leq i \leq n$)
  */
 #define PROBLEM "https://yukicoder.me/problems/no/1409"
 

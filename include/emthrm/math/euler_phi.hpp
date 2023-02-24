@@ -1,5 +1,5 @@
 /**
- * @brief オイラーの $\varphi$ 関数
+ * @title オイラーの $\varphi$ 関数
  * @docs docs/math/euler_phi.md
  */
 

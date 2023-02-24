@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/遅延伝播セグメント木
+ * @title データ構造/遅延伝播セグメント木
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 

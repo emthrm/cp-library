@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/パスカルの三角形
+ * @title 数学/写像12相/パスカルの三角形
  */
 #define PROBLEM "https://atcoder.jp/contests/abc254/tasks/abc254_b"
 

@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/longest common prefix
+ * @title 文字列/longest common prefix
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 

@@ -1,5 +1,5 @@
 /**
- * @brief 道の検出
+ * @title 道の検出
  * @docs docs/graph/detect_walk.md
  */
 

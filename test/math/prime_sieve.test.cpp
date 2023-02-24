@@ -1,5 +1,5 @@
 /*
- * @brief 数学/prime sieve
+ * @title 数学/prime sieve
  */
 #define PROBLEM "https://yukicoder.me/problems/no/843"
 

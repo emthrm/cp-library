@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/マッチング/二部グラフの重み付き最大マッチング
+ * @title グラフ/フロー/マッチング/二部グラフの重み付き最大マッチング
  */
 #define IGNORE
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2429"

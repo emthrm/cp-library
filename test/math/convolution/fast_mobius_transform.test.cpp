@@ -1,5 +1,5 @@
 /*
- * @brief 数学/畳み込み/高速メビウス変換
+ * @title 数学/畳み込み/高速メビウス変換
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446"
 #define ERROR "1e-7"

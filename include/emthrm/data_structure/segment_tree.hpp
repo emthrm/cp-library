@@ -1,5 +1,5 @@
 /**
- * @brief セグメント木
+ * @title セグメント木
  * @docs docs/data_structure/segment_tree.md
  */
 

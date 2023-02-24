@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/ヒストグラム中の最大長方形
+ * @title 動的計画法/ヒストグラム中の最大長方形
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C"
 

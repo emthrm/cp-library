@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/区間に辺を張るテク
+ * @title グラフ/区間に辺を張るテク
  */
 #define IGNORE
 #define PROBLEM "https://codeforces.com/problemset/problem/786/B"

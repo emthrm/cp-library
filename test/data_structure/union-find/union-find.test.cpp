@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/union-find/union-find
+ * @title データ構造/union-find/union-find
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A"
 

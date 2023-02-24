@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/最小費用流/最小流量制約付き最小費用流
+ * @title グラフ/フロー/最小費用流/最小流量制約付き最小費用流
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2230"
 

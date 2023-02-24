@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/フロー/最大流/project selection problem
+ * @title グラフ/フロー/最大流/project selection problem
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903"
 

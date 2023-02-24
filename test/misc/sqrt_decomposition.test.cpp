@@ -1,5 +1,5 @@
 /*
- * @brief その他/平方分割
+ * @title その他/平方分割
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G"
 

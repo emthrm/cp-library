@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/最小共通祖先 ダブリング版
+ * @title グラフ/木/最小共通祖先 ダブリング版
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 

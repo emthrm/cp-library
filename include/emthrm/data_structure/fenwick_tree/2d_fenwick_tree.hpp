@@ -1,5 +1,5 @@
 /**
- * @brief 2次元 Fenwick tree
+ * @title 2次元 Fenwick tree
  * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
  */
 

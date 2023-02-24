@@ -1,5 +1,5 @@
 /**
- * @brief ファウルハーバーの公式 ラグランジュ補間版
+ * @title ファウルハーバーの公式 ラグランジュ補間版
  * @docs docs/math/formal_power_series/faulhaber.md
  */
 

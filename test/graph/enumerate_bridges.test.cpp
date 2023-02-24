@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/橋の列挙
+ * @title グラフ/橋の列挙
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B"
 

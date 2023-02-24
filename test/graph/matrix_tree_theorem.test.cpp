@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/行列木定理
+ * @title グラフ/行列木定理
  */
 #define IGNORE
 #define PROBLEM "https://atcoder.jp/contests/jsc2021/tasks/jsc2021_g"

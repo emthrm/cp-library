@@ -1,5 +1,5 @@
 /*
- * @brief 数学/畳み込み/数論変換
+ * @title 数学/畳み込み/数論変換
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 

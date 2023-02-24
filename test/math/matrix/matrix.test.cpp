@@ -1,5 +1,5 @@
 /*
- * @brief 数学/行列/行列
+ * @title 数学/行列/行列
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/matrix_product"
 

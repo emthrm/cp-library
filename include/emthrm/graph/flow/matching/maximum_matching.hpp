@@ -1,5 +1,5 @@
 /**
- * @brief 一般グラフの最大マッチング
+ * @title 一般グラフの最大マッチング
  * @docs docs/graph/flow/matching/matching.md
  */
 

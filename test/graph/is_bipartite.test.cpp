@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/二部グラフ判定
+ * @title グラフ/二部グラフ判定
  */
 #define PROBLEM "https://atcoder.jp/contests/arc099/tasks/arc099_e"
 // #define PROBLEM "https://atcoder.jp/contests/arc099/tasks/arc099_c"

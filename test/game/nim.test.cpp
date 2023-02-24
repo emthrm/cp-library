@@ -1,5 +1,5 @@
 /*
- * @brief ゲーム/ニム
+ * @title ゲーム/ニム
  */
 #define PROBLEM "https://yukicoder.me/problems/no/2"
 

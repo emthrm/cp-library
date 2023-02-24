@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/最短路問題/Dijkstra 法
+ * @title グラフ/最短路問題/Dijkstra 法
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 

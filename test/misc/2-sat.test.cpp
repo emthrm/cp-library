@@ -1,5 +1,5 @@
 /*
- * @brief その他/2-SAT
+ * @title その他/2-SAT
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 

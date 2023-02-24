@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/Li Chao tree (最大値)
+ * @title 動的計画法/Li Chao tree (最大値)
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/segment_add_get_min"
 

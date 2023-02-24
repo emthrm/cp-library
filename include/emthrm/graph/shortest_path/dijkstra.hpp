@@ -1,5 +1,5 @@
 /**
- * @brief Dijkstra 法
+ * @title Dijkstra 法
  * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md
  */
 

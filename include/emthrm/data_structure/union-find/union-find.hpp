@@ -1,5 +1,5 @@
 /**
- * @brief union-find
+ * @title union-find
  * @docs docs/data_structure/union-find/union-find.md
  */
 

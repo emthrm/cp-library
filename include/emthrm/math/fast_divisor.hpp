@@ -1,5 +1,5 @@
 /**
- * @brief 約数列挙
+ * @title 約数列挙
  */
 
 #ifndef EMTHRM_MATH_FAST_DIVISOR_HPP_

@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/分割数 $n = m$ 版
+ * @title 数学/写像12相/分割数 $n = m$ 版
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/partition_function"
 

@@ -1,5 +1,5 @@
 /**
- * @brief 部分永続 union-find
+ * @title 部分永続 union-find
  * @docs docs/data_structure/union-find/union-find.md
  */
 

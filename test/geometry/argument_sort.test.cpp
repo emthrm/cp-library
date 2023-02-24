@@ -1,5 +1,5 @@
 /*
- * @brief 計算幾何学/偏角ソート
+ * @title 計算幾何学/偏角ソート
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/sort_points_by_argument"
 

@@ -1,5 +1,5 @@
 /**
- * @brief ベル数の数表
+ * @title ベル数の数表
  * @docs docs/math/twelvefold_way/bell_number/bell_number.md
  */
 

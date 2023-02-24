@@ -1,5 +1,5 @@
 /**
- * @brief 分割数 $n = m$ 版
+ * @title 分割数 $n = m$ 版
  * @docs docs/math/twelvefold_way/partition_function.md
  */
 

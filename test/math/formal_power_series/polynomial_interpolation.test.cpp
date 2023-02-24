@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/多項式補間
+ * @title 数学/形式的冪級数/多項式補間
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/polynomial_interpolation"
 

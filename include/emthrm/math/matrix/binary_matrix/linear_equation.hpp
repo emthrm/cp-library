@@ -1,5 +1,5 @@
 /**
- * @brief 連立一次方程式 バイナリ行列版
+ * @title 連立一次方程式 バイナリ行列版
  * @docs docs/math/matrix/binary_matrix/binary_matrix.md
  */
 

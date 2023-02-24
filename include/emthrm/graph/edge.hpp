@@ -1,5 +1,5 @@
 /**
- * @brief 辺
+ * @title 辺
  */
 
 #ifndef EMTHRM_GRAPH_EDGE_HPP_

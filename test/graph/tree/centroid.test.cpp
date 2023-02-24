@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/重心
+ * @title グラフ/木/重心
  */
 #define PROBLEM "https://atcoder.jp/contests/arc087/tasks/arc087_f"
 // #define PROBLEM "https://atcoder.jp/contests/arc087/tasks/arc087_d"

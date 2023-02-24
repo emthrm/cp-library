@@ -1,5 +1,5 @@
 /*
- * @brief 数学/約数列挙
+ * @title 数学/約数列挙
  */
 #define PROBLEM "https://atcoder.jp/contests/abc170/tasks/abc170_d"
 

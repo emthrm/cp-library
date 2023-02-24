@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/Fenwick tree/区間加算クエリ対応2次元 Fenwick tree
+ * @title データ構造/Fenwick tree/区間加算クエリ対応2次元 Fenwick tree
  */
 #define PROBLEM "https://yukicoder.me/problems/no/1490"
 

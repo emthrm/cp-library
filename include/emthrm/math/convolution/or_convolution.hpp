@@ -1,5 +1,5 @@
 /**
- * @brief 添え字 or での畳み込み
+ * @title 添え字 or での畳み込み
  * @docs docs/math/convolution/convolution.md
  */
 

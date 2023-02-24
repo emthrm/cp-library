@@ -1,5 +1,5 @@
 /**
- * @brief 第2種スターリング数の数表
+ * @title 第2種スターリング数の数表
  * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
  */
 

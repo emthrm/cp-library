@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/ベルヌーイ数
+ * @title 数学/形式的冪級数/ベルヌーイ数
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
 

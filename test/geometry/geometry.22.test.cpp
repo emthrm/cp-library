@@ -1,5 +1,5 @@
 /*
- * @brief 計算幾何学/計算幾何学 (凸多角形の直径)
+ * @title 計算幾何学/計算幾何学 (凸多角形の直径)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B"
 #define ERROR "0.000001"

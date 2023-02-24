@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/HL 分解 (最小共通祖先)
+ * @title グラフ/木/HL 分解 (最小共通祖先)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_5_C"
 

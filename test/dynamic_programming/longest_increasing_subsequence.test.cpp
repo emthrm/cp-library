@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/最長増加部分列
+ * @title 動的計画法/最長増加部分列
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/longest_increasing_subsequence"
 

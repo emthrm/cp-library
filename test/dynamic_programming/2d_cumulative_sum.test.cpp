@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/2次元累積和
+ * @title 動的計画法/2次元累積和
  */
 #define PROBLEM "https://atcoder.jp/contests/arc089/tasks/arc089_d"
 // #define PROBLEM "https://atcoder.jp/contests/arc089/tasks/arc089_b"

@@ -1,5 +1,5 @@
 /*
- * @brief その他/回転
+ * @title その他/回転
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2953"
 

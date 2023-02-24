@@ -1,5 +1,5 @@
 /*
- * @brief 文字列/部分列 DP
+ * @title 文字列/部分列 DP
  */
 #define PROBLEM "https://atcoder.jp/contests/arc081/tasks/arc081_e"
 // #define PROBLEM "https://atcoder.jp/contests/arc081/tasks/arc081_c"

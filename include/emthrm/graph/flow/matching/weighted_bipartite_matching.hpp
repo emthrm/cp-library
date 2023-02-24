@@ -1,5 +1,5 @@
 /**
- * @brief 二部グラフの重み付き最大マッチング
+ * @title 二部グラフの重み付き最大マッチング
  * @docs docs/graph/flow/matching/matching.md
  */
 

@@ -1,5 +1,5 @@
 /*
- * @brief 計算幾何学/最小包含円
+ * @title 計算幾何学/最小包含円
  */
 #define PROBLEM "https://atcoder.jp/contests/abc151/tasks/abc151_f"
 #define ERROR "1e-6"

@@ -1,5 +1,5 @@
 /**
- * @brief パスカルの三角形
+ * @title パスカルの三角形
  * @docs docs/math/twelvefold_way/binomial_coefficients.md
  */
 

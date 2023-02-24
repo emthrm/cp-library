@@ -1,5 +1,5 @@
 /*
- * @brief データ構造/binary trie
+ * @title データ構造/binary trie
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/set_xor_min"
 

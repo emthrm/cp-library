@@ -1,5 +1,5 @@
 /*
- * @brief その他/Mo's algorithm
+ * @title その他/Mo's algorithm
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 

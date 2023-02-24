@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/木/double sweep
+ * @title グラフ/木/double sweep
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/tree_diameter"
 

@@ -1,5 +1,5 @@
 /*
- * @brief 数学/写像12相/スターリング数/第2種スターリング数
+ * @title 数学/写像12相/スターリング数/第2種スターリング数
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
 

@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/multipoint evaluation
+ * @title 数学/形式的冪級数/multipoint evaluation
  */
 #define PROBLEM "https://judge.yosupo.jp/problem/multipoint_evaluation"
 

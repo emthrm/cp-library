@@ -1,5 +1,5 @@
 /*
- * @brief グラフ/オイラー路 無向グラフ版
+ * @title グラフ/オイラー路 無向グラフ版
  */
 #define PROBLEM "https://yukicoder.me/problems/no/583"
 

@@ -1,5 +1,5 @@
 /*
- * @brief 動的計画法/スライド最小値
+ * @title 動的計画法/スライド最小値
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_3_D"
 

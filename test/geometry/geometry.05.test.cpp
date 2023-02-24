@@ -1,5 +1,5 @@
 /*
- * @brief 計算幾何学/計算幾何学 (平行 / 垂直)
+ * @title 計算幾何学/計算幾何学 (平行 / 垂直)
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_A"
 

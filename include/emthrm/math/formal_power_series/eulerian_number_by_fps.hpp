@@ -1,5 +1,5 @@
 /**
- * @brief Eulerian number 形式的冪級数版
+ * @title Eulerian number 形式的冪級数版
  * @docs docs/math/formal_power_series/eulerian_number.md
  */
 

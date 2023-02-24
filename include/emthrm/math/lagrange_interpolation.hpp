@@ -1,5 +1,5 @@
 /**
- * @brief ラグランジュ補間 評価版
+ * @title ラグランジュ補間 評価版
  * @docs docs/math/lagrange_interpolation.md
  */
 

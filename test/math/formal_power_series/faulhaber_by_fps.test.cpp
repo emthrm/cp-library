@@ -1,5 +1,5 @@
 /*
- * @brief 数学/形式的冪級数/ファウルハーバーの公式 形式的冪級数版
+ * @title 数学/形式的冪級数/ファウルハーバーの公式 形式的冪級数版
  */
 #define PROBLEM "https://yukicoder.me/problems/no/665"
 

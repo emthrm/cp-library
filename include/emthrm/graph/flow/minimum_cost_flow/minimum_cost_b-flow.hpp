@@ -1,5 +1,5 @@
 /**
- * @brief 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版
+ * @title 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版
  * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
  */
 

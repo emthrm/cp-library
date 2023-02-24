@@ -1,5 +1,5 @@
 /*
- * @brief 数学/オイラーの $\varphi$ 関数/オイラーの $\varphi$ 関数の数表2
+ * @title 数学/オイラーの $\varphi$ 関数/オイラーの $\varphi$ 関数の数表2
  */
 #define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_D"
 
