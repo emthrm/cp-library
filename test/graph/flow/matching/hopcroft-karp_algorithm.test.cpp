@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/マッチング/Hopcroft–Karp algorithm
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/bipartitematching
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/bipartitematching"
 
 #include <iostream>
 

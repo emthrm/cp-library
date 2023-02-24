@@ -1,7 +1,8 @@
 /*
  * @title 文字列/Manacher
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/enumerate_palindromes
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/enumerate_palindromes"
 
 #include <iostream>
 #include <string>

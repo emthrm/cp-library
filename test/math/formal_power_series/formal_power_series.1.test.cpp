@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/形式的冪級数 (指数)
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/exp_of_formal_power_series
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/exp_of_formal_power_series"
 
 #include <iostream>
 #include <vector>

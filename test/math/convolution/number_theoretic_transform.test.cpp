@@ -1,7 +1,8 @@
 /*
  * @title 数学/畳み込み/数論変換
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/convolution_mod
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/convolution_mod"
 
 #include <iostream>
 #include <vector>

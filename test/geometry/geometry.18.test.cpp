@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/計算幾何学 (多角形に対する点の内外判定)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_C"
 
 #include <iostream>
 

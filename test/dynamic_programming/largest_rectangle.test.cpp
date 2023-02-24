@@ -1,7 +1,8 @@
 /*
  * @title 動的計画法/ヒストグラム中の最大長方形
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_3_C"
 
 #include <iostream>
 #include <vector>

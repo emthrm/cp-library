@@ -1,4 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
+/*
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/two_edge_connected_components
+ */
 
 #include <iostream>
 #include <vector>

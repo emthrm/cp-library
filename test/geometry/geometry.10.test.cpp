@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/計算幾何学 (線分と円の交点)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2316
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2316"
 
 #include <algorithm>
 #include <cmath>

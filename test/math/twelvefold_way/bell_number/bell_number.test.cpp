@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/ベル数/ベル数
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_G"
 
 #include <iostream>
 

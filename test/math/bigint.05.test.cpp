@@ -1,7 +1,8 @@
 /*
  * @title 数学/多倍長整数 (除算)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_D"
 
 #include <iostream>
 

@@ -1,8 +1,9 @@
 /*
  * @title 数学/畳み込み/高速メビウス変換
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446
+ * verification-helper: ERROR 1e-7
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2446"
-#define ERROR "1e-7"
 
 #include <cmath>
 #include <iomanip>

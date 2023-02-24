@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/偏角ソート
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/sort_points_by_argument
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/sort_points_by_argument"
 
 #include <iostream>
 #include <utility>

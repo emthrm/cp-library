@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/最大流/最小流量制約付き最大流
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1615
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1615"
 
 #include <iostream>
 #include <vector>

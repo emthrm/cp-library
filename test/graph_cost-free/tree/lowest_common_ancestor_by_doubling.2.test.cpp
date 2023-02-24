@@ -1,4 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/jump_on_tree"
+/*
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/jump_on_tree
+ */
 
 #include <iostream>
 #include <vector>

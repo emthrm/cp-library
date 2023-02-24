@@ -1,5 +1,7 @@
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/jsc2021/tasks/jsc2021_g"
+/*
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/jsc2021/tasks/jsc2021_g
+ */
 
 #include <algorithm>
 #include <iostream>

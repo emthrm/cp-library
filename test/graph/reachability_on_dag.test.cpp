@@ -1,8 +1,9 @@
 /*
  * @title グラフ/有向非巡回グラフ上の到達可能性判定
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/typical90/tasks/typical90_bg
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
 
 #include <iostream>
 #include <vector>

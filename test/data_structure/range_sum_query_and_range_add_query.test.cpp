@@ -1,7 +1,8 @@
 /*
  * @title データ構造/遅延伝播セグメント木 (range sum query and range add query)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_G"
 
 #include <iostream>
 

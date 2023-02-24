@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/パスカルの三角形
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc254/tasks/abc254_b
  */
-#define PROBLEM "https://atcoder.jp/contests/abc254/tasks/abc254_b"
 
 #include <iostream>
 #include <vector>

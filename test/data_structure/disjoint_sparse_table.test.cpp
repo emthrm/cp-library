@@ -1,7 +1,8 @@
 /*
  * @title データ構造/disjoint sparse table
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/staticrmq
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/staticrmq"
 
 #include <algorithm>
 #include <iostream>

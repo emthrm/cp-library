@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/multipoint evaluation
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/multipoint_evaluation
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/multipoint_evaluation"
 
 #include <iostream>
 #include <vector>

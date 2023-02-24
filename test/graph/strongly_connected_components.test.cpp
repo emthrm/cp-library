@@ -1,7 +1,8 @@
 /*
  * @title グラフ/強連結成分分解
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/scc
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/scc"
 
 #include <iostream>
 #include <vector>

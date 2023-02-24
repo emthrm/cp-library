@@ -1,8 +1,9 @@
 /*
  * @title 数学/多項式
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/division_of_polynomials
  */
-#define IGNORE
-#define PROBLEM "https://judge.yosupo.jp/problem/division_of_polynomials"
 
 #include <iostream>
 

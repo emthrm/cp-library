@@ -1,7 +1,8 @@
 /*
  * @title 数学/素因数分解
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A"
 
 #include <iostream>
 #include <utility>

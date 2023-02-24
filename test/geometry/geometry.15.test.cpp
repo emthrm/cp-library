@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (2円の共通接線)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G
+ * verification-helper: ERROR 0.00001
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_G"
-#define ERROR "0.00001"
 
 #include <algorithm>
 #include <iomanip>

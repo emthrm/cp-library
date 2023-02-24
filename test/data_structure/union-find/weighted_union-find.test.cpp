@@ -1,7 +1,8 @@
 /*
  * @title データ構造/union-find/重みつき union-find
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_B"
 
 #include <iostream>
 

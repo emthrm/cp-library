@@ -1,4 +1,6 @@
-#define PROBLEM "https://yukicoder.me/problems/no/1254"
+/*
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/1254
+ */
 
 #include <algorithm>
 #include <iostream>

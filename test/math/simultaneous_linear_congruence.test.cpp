@@ -1,7 +1,8 @@
 /*
  * @title 数学/連立線形合同式
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/186
  */
-#define PROBLEM "https://yukicoder.me/problems/no/186"
 
 #include <iostream>
 #include <vector>

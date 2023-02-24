@@ -1,5 +1,7 @@
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/arc039/tasks/arc039_d"
+/*
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc039/tasks/arc039_d
+ */
 
 #include <iostream>
 #include <vector>

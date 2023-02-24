@@ -1,7 +1,8 @@
 /*
  * @title グラフ/木/double sweep
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/tree_diameter
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/tree_diameter"
 
 #include <iostream>
 #include <vector>

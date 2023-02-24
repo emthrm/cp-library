@@ -1,7 +1,8 @@
 /*
  * @title 数学/平方剰余
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/sqrt_mod
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/sqrt_mod"
 
 #include <iostream>
 

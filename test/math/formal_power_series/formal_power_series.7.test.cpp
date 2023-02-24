@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/形式的冪級数 (translate(c))
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/polynomial_taylor_shift
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/polynomial_taylor_shift"
 
 #include <iostream>
 #include <vector>

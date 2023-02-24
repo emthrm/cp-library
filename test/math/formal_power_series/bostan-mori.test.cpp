@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/Bostan–Mori のアルゴリズム
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/kth_term_of_linearly_recurrent_sequence"
 
 #include <iostream>
 

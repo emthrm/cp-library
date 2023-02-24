@@ -1,7 +1,8 @@
 /*
  * @title データ構造/binary trie
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/set_xor_min
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/set_xor_min"
 
 #include <iostream>
 

@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/多項式列の相乗
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/product_of_polynomial_sequence
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/product_of_polynomial_sequence"
 
 #include <cassert>
 #include <iostream>

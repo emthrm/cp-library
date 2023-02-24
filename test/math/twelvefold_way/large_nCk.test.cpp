@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/二項係数 巨大な $n$ 版
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3071"
 
 #include <iostream>
 #include "emthrm/math/modint.hpp"

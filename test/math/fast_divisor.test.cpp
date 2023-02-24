@@ -1,7 +1,8 @@
 /*
  * @title 数学/約数列挙
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc170/tasks/abc170_d
  */
-#define PROBLEM "https://atcoder.jp/contests/abc170/tasks/abc170_d"
 
 #include <algorithm>
 #include <iostream>

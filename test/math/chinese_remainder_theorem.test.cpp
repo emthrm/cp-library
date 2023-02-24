@@ -1,7 +1,8 @@
 /*
  * @title 数学/中国剰余定理
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/186
  */
-#define PROBLEM "https://yukicoder.me/problems/no/186"
 
 #include <iostream>
 #include <vector>

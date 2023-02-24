@@ -1,7 +1,8 @@
 /*
  * @title 数学/多倍長整数
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2679"
 
 #include <algorithm>
 #include <iostream>

@@ -1,7 +1,8 @@
 /*
  * @title 数学/拡張 Euclid の互除法
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_E"
 
 #include <iostream>
 

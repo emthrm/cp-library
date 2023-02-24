@@ -1,7 +1,8 @@
 /*
  * @title 数学/原始根判定
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/1409
  */
-#define PROBLEM "https://yukicoder.me/problems/no/1409"
 
 #include <algorithm>
 #include <iostream>

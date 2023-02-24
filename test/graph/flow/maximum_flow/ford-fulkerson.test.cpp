@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/最大流/Ford–Fulkerson 法
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A"
 
 #include <iostream>
 

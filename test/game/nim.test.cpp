@@ -1,7 +1,8 @@
 /*
  * @title ゲーム/ニム
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/2
  */
-#define PROBLEM "https://yukicoder.me/problems/no/2"
 
 #include <iostream>
 #include <ranges>

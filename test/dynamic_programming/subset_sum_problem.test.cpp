@@ -1,7 +1,8 @@
 /*
  * @title 動的計画法/部分和問題
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/sharp_p_subset_sum
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/sharp_p_subset_sum"
 
 #include <iostream>
 #include <vector>

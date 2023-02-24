@@ -1,8 +1,9 @@
 /*
  * @title 数学/畳み込み/クロネッカー冪とベクトルの積
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc288/tasks/abc288_g
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/abc288/tasks/abc288_g"
 
 #include <cmath>
 #include <iostream>

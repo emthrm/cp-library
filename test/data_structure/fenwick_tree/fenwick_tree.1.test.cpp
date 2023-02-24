@@ -1,7 +1,8 @@
 /*
  * @title データ構造/Fenwick tree/Fenwick tree (sum(left, right))
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B"
 
 #include <iostream>
 

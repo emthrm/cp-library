@@ -1,8 +1,9 @@
 /*
  * @title グラフ/二重頂点連結成分分解
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/nadafes2022_day2/tasks/nadafes2022_day2_h
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/nadafes2022_day2/tasks/nadafes2022_day2_h"
 
 #include <algorithm>
 #include <cassert>

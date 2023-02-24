@@ -1,7 +1,8 @@
 /*
  * @title 数学/メビウス関数/メビウス関数
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e
  */
-#define PROBLEM "https://atcoder.jp/contests/abc162/tasks/abc162_e"
 
 #include <iostream>
 

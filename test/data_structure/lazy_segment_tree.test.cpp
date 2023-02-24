@@ -1,7 +1,8 @@
 /*
  * @title データ構造/遅延伝播セグメント木
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/range_affine_range_sum
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/range_affine_range_sum"
 
 #include <iostream>
 #include <utility>

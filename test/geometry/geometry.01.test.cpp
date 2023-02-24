@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/計算幾何学 (ccw(a, b, c))
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C"
 
 #include <iostream>
 

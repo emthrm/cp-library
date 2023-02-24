@@ -1,7 +1,8 @@
 /*
  * @title 数学/畳み込み/添え字 xor での畳み込み
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/bitwise_xor_convolution
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/bitwise_xor_convolution"
 
 #include <iostream>
 #include <vector>

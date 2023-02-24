@@ -1,7 +1,8 @@
 /*
  * @title 数学/離散対数問題
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/discrete_logarithm_mod
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/discrete_logarithm_mod"
 
 #include <iostream>
 

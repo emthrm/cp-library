@@ -1,7 +1,8 @@
 /*
  * @title 数学/有理数
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2589
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2589"
 
 #include <algorithm>
 #include <iostream>

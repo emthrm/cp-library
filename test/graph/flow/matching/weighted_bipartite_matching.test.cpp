@@ -1,8 +1,9 @@
 /*
  * @title グラフ/フロー/マッチング/二部グラフの重み付き最大マッチング
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2429
  */
-#define IGNORE
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2429"
 
 #include <iostream>
 #include <string>

@@ -1,7 +1,8 @@
 /*
  * @title 文字列/Z algorithm
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/zalgorithm
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/zalgorithm"
 
 #include <iostream>
 #include <string>

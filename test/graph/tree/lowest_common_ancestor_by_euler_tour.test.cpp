@@ -1,7 +1,8 @@
 /*
  * @title グラフ/木/最小共通祖先 オイラーツアー版
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667"
 
 #include <iostream>
 #include <vector>

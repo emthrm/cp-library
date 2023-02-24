@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (線分と円の交差判定)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2276
+ * verification-helper: ERROR 1e-6
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2276"
-#define ERROR "1e-6"
 
 #include <algorithm>
 #include <cmath>

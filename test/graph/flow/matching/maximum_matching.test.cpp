@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/マッチング/一般グラフの最大マッチング
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3032
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=3032"
 
 #include <cmath>
 #include <iostream>

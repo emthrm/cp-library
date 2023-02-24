@@ -1,7 +1,8 @@
 /*
  * @title 数学/行列/行列
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/matrix_product
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/matrix_product"
 
 #include <iostream>
 

@@ -1,5 +1,7 @@
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/typical90/tasks/typical90_bg"
+/*
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/typical90/tasks/typical90_bg
+ */
 
 #include <iostream>
 #include <vector>

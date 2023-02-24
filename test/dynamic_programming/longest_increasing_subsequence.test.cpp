@@ -1,7 +1,8 @@
 /*
  * @title 動的計画法/最長増加部分列
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/longest_increasing_subsequence
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/longest_increasing_subsequence"
 
 #include <iostream>
 #include <vector>

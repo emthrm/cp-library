@@ -1,5 +1,7 @@
-#define PROBLEM "https://atcoder.jp/contests/arc099/tasks/arc099_e"
-// #define PROBLEM "https://atcoder.jp/contests/arc099/tasks/arc099_c"
+/*
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_e
+ * Link: "https://atcoder.jp/contests/arc099/tasks/arc099_c"
+ */
 
 #include <algorithm>
 #include <iostream>

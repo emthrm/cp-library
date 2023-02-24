@@ -1,4 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/scc"
+/*
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/scc
+ */
 
 #include <iostream>
 #include <vector>

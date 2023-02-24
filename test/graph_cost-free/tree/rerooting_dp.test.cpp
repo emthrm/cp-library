@@ -1,4 +1,6 @@
-#define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_v"
+/*
+ * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_v
+ */
 
 #include <functional>
 #include <iostream>

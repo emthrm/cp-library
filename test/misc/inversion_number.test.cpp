@@ -1,7 +1,8 @@
 /*
  * @title その他/転倒数
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D"
 
 #include <iostream>
 #include <vector>

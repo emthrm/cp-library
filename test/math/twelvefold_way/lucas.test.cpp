@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/Lucas の定理
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc117/tasks/arc117_c
  */
-#define PROBLEM "https://atcoder.jp/contests/arc117/tasks/arc117_c"
 
 #include <iostream>
 #include <map>

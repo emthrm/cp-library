@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/分割数 $n = m$ 版
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/partition_function
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/partition_function"
 
 #include <iostream>
 #include <vector>

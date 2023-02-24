@@ -1,8 +1,9 @@
 /*
  * @title 数学/畳み込み/任意の法の下での畳み込み
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/atc001/tasks/fft_c
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/atc001/tasks/fft_c"
 
 #include <iostream>
 #include <vector>

@@ -1,8 +1,9 @@
 /*
  * @title 文字列/部分列 DP
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc081/tasks/arc081_e
+ * Link: "https://atcoder.jp/contests/arc081/tasks/arc081_c"
  */
-#define PROBLEM "https://atcoder.jp/contests/arc081/tasks/arc081_e"
-// #define PROBLEM "https://atcoder.jp/contests/arc081/tasks/arc081_c"
 
 #include <iostream>
 #include <string>

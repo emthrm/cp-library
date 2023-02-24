@@ -1,7 +1,8 @@
 /*
  * @title 数学/行列/バイナリ行列/逆行列 バイナリ行列版
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2624
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2624"
 
 #include <bitset>
 #include <iostream>

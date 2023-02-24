@@ -1,4 +1,6 @@
-#define PROBLEM "https://judge.yosupo.jp/problem/chromatic_number"
+/*
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/chromatic_number
+ */
 
 #include <iostream>
 #include <vector>

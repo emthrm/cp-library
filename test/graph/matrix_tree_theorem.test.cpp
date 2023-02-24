@@ -1,8 +1,9 @@
 /*
  * @title グラフ/行列木定理
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/jsc2021/tasks/jsc2021_g
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/jsc2021/tasks/jsc2021_g"
 
 #include <algorithm>
 #include <iostream>

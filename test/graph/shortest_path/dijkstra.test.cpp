@@ -1,7 +1,8 @@
 /*
  * @title グラフ/最短路問題/Dijkstra 法
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/shortest_path
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/shortest_path"
 
 #include <iostream>
 #include <vector>

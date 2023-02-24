@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (凸多角形の直径)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B
+ * verification-helper: ERROR 0.000001
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_B"
-#define ERROR "0.000001"
 
 #include <iomanip>
 #include <iostream>

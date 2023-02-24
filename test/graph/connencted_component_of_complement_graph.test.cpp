@@ -1,8 +1,9 @@
 /*
  * @title グラフ/補グラフの連結成分分解
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://codeforces.com/problemset/problem/1242/B
  */
-#define IGNORE
-#define PROBLEM "https://codeforces.com/problemset/problem/1242/B"
 
 #include <iostream>
 #include <vector>

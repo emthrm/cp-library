@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/最小費用流/最小費用 $s$-$t$-フロー 最短路反復法版 (solve(s, t, flow))
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B"
 
 #include <iostream>
 

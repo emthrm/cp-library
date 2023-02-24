@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/形式的冪級数 (mod_pow(exponend, md))
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d
  */
-#define PROBLEM "https://atcoder.jp/contests/abc135/tasks/abc135_d"
 
 #include <algorithm>
 #include <iostream>

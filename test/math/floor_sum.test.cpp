@@ -1,7 +1,8 @@
 /*
  * @title 数学/sum of floor of linear
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/sum_of_floor_of_linear
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/sum_of_floor_of_linear"
 
 #include <iostream>
 

@@ -1,7 +1,8 @@
 /*
  * @title 数学/多倍長整数 (桁和)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_8_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_8_B"
 
 #include <iostream>
 

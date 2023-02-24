@@ -1,8 +1,9 @@
 /*
  * @title グラフ/二重辺連結成分分解 lowlink 版
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc039/tasks/arc039_d
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/arc039/tasks/arc039_d"
 
 #include <iostream>
 #include <vector>

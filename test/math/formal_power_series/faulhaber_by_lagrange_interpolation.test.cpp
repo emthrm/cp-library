@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/ファウルハーバーの公式 ラグランジュ補間版
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/665
  */
-#define PROBLEM "https://yukicoder.me/problems/no/665"
 
 #include <iostream>
 

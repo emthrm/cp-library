@@ -1,8 +1,9 @@
 /*
  * @title グラフ/オイラー路 有向グラフ版
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225
  */
-#define IGNORE
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225"
 
 #include <iostream>
 #include <string>

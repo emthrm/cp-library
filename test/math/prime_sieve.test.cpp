@@ -1,7 +1,8 @@
 /*
  * @title 数学/prime sieve
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/843
  */
-#define PROBLEM "https://yukicoder.me/problems/no/843"
 
 #include <iostream>
 #include <set>

@@ -1,8 +1,9 @@
 /*
  * @title 数学/多倍長整数 (桁数)
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015
  */
-#define IGNORE
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015"
 
 #include <iostream>
 

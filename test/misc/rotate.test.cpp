@@ -1,7 +1,8 @@
 /*
  * @title その他/回転
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2953
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2953"
 
 #include <algorithm>
 #include <iostream>

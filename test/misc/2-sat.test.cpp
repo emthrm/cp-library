@@ -1,7 +1,8 @@
 /*
  * @title その他/2-SAT
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/two_sat
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/two_sat"
 
 #include <iostream>
 #include <string>

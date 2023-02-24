@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/計算幾何学 (多角形の面積)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_A"
 
 #include <iomanip>
 #include <iostream>

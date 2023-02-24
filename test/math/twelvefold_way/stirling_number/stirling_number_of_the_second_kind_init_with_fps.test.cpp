@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/スターリング数/第2種スターリング数の数表 形式的冪級数版
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/stirling_number_of_the_second_kind"
 
 #include <iostream>
 #include <vector>

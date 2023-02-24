@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/マッチング/二部グラフの最大マッチング
+ *
+ * verification-helper: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A
  */
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_7_A"
 
 #include <iostream>
 

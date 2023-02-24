@@ -1,7 +1,8 @@
 /*
  * @title 数学/行列/行列式
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/matrix_det
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/matrix_det"
 
 #include <iostream>
 

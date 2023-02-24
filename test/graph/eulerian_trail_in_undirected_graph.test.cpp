@@ -1,7 +1,8 @@
 /*
  * @title グラフ/オイラー路 無向グラフ版
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/583
  */
-#define PROBLEM "https://yukicoder.me/problems/no/583"
 
 #include <iostream>
 

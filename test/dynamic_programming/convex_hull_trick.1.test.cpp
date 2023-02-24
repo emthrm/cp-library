@@ -1,7 +1,8 @@
 /*
  * @title 動的計画法/convex full trick (query(x))
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_z
  */
-#define PROBLEM "https://atcoder.jp/contests/dp/tasks/dp_z"
 
 #include <iostream>
 

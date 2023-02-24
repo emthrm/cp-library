@@ -1,7 +1,8 @@
 /*
  * @title グラフ/最短路問題/Warshall–Floyd 法
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0526"
 
 #include <iostream>
 #include <vector>

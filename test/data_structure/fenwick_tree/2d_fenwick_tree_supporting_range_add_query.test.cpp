@@ -1,7 +1,8 @@
 /*
  * @title データ構造/Fenwick tree/区間加算クエリ対応2次元 Fenwick tree
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/1490
  */
-#define PROBLEM "https://yukicoder.me/problems/no/1490"
 
 #include <algorithm>
 #include <iostream>

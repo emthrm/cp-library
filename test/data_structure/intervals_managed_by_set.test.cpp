@@ -1,7 +1,8 @@
 /*
  * @title データ構造/区間を std::set で管理するやつ
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2880"
 
 #include <algorithm>
 #include <iostream>

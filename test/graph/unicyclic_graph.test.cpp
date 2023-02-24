@@ -1,7 +1,8 @@
 /*
  * @title グラフ/unicyclic graph
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/1254
  */
-#define PROBLEM "https://yukicoder.me/problems/no/1254"
 
 #include <algorithm>
 #include <iostream>

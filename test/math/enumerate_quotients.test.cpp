@@ -1,7 +1,8 @@
 /*
  * @title 数学/商の列挙
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc230/tasks/abc230_e
  */
-#define PROBLEM "https://atcoder.jp/contests/abc230/tasks/abc230_e"
 
 #include <iostream>
 

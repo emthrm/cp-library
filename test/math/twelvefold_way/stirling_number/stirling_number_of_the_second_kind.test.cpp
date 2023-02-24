@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/スターリング数/第2種スターリング数
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DPL_5_I"
 
 #include <iostream>
 

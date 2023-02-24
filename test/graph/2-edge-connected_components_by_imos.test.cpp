@@ -1,7 +1,8 @@
 /*
  * @title グラフ/二重辺連結成分分解 いもす法版
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/two_edge_connected_components
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/two_edge_connected_components"
 
 #include <iostream>
 #include <vector>

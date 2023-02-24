@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/二項係数の数表 巨大な $n$ 版
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/2130
  */
-#define PROBLEM "https://yukicoder.me/problems/no/2130"
 
 #include <iostream>
 #include <numeric>

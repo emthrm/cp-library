@@ -1,7 +1,8 @@
 /*
  * @title 文字列/Aho–Corasick algorithm
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/430
  */
-#define PROBLEM "https://yukicoder.me/problems/no/430"
 
 #include <iostream>
 #include <string>

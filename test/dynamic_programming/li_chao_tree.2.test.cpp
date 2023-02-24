@@ -1,7 +1,8 @@
 /*
  * @title 動的計画法/Li Chao tree (最大値)
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/segment_add_get_min
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/segment_add_get_min"
 
 #include <iostream>
 #include <vector>

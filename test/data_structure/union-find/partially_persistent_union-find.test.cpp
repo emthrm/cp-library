@@ -1,7 +1,8 @@
 /*
  * @title データ構造/union-find/部分永続 union-find
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/agc002/tasks/agc002_d
  */
-#define PROBLEM "https://atcoder.jp/contests/agc002/tasks/agc002_d"
 
 #include <iostream>
 #include <numeric>

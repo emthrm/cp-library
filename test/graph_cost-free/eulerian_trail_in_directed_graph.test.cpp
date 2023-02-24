@@ -1,5 +1,7 @@
-#define IGNORE
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225"
+/*
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0225
+ */
 
 #include <iostream>
 #include <string>

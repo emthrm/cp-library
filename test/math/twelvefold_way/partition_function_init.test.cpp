@@ -1,7 +1,8 @@
 /*
  * @title 数学/写像12相/分割数
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/269
  */
-#define PROBLEM "https://yukicoder.me/problems/no/269"
 
 #include <iostream>
 

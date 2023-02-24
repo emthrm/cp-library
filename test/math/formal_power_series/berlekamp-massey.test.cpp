@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/Berlekamp–Massey algorithm
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/find_linear_recurrence
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/find_linear_recurrence"
 
 #include <iostream>
 #include <vector>

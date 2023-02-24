@@ -1,7 +1,8 @@
 /*
  * @title グラフ/彩色数
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/chromatic_number
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/chromatic_number"
 
 #include <iostream>
 #include <vector>

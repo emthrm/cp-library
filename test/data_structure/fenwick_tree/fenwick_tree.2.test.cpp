@@ -1,8 +1,9 @@
 /*
  * @title データ構造/Fenwick tree/Fenwick tree (lower_bound(val))
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc033/tasks/arc033_3
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/arc033/tasks/arc033_3"
 
 #include <iostream>
 

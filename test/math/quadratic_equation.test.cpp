@@ -1,7 +1,8 @@
 /*
  * @title 数学/一元二次方程式
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1039
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1039"
 
 #include <algorithm>
 #include <cmath>

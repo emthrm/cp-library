@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/計算幾何学 (凸包)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A"
 
 #include <algorithm>
 #include <cmath>

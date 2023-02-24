@@ -1,8 +1,9 @@
 /*
  * @title 数学/segmented sieve
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bt
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bt"
 
 #include <algorithm>
 #include <iostream>

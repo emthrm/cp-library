@@ -1,7 +1,8 @@
 /*
  * @title グラフ/Kruskal 法
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A"
 
 #include <iostream>
 #include <vector>

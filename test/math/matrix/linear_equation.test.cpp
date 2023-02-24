@@ -1,8 +1,9 @@
 /*
  * @title 数学/行列/連立一次方程式
+ *
+ * verification-helper: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2171
+ * verification-helper: ERROR 1e-8
  */
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2171"
-#define ERROR "1e-8"
 
 #include <iomanip>
 #include <iostream>

@@ -1,7 +1,8 @@
 /*
  * @title データ構造/セグメント木
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/point_set_range_composite
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/point_set_range_composite"
 
 #include <iostream>
 #include <utility>

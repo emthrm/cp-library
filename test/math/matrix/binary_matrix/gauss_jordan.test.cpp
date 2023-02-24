@@ -1,7 +1,8 @@
 /*
  * @title 数学/行列/バイナリ行列/ガウス・ジョルダンの消去法 バイナリ行列版
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/184
  */
-#define PROBLEM "https://yukicoder.me/problems/no/184"
 
 #include <bitset>
 #include <iostream>

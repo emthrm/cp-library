@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (2円の共通部分の面積)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I
+ * verification-helper: ERROR 0.000001
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_I"
-#define ERROR "0.000001"
 
 #include <iomanip>
 #include <iostream>

@@ -1,7 +1,8 @@
 /*
  * @title 数学/ヤコビ記号
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/984
  */
-#define PROBLEM "https://yukicoder.me/problems/no/984"
 
 #include <iostream>
 

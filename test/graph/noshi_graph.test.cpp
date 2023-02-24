@@ -1,8 +1,9 @@
 /*
  * @title グラフ/区間に辺を張るテク
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://codeforces.com/problemset/problem/786/B
  */
-#define IGNORE
-#define PROBLEM "https://codeforces.com/problemset/problem/786/B"
 
 #include <iostream>
 #include <vector>

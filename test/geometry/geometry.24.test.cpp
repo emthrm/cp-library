@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (点の回転)
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc259/tasks/abc259_b
+ * verification-helper: ERROR 1e-6
  */
-#define PROBLEM "https://atcoder.jp/contests/abc259/tasks/abc259_b"
-#define ERROR "1e-6"
 
 #include <iomanip>
 #include <iostream>

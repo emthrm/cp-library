@@ -1,7 +1,8 @@
 /*
  * @title グラフ/最短路問題/Bellman–Ford 法
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_1_B"
 
 #include <iostream>
 #include <vector>

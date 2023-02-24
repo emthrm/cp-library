@@ -1,7 +1,8 @@
 /*
  * @title 文字列/Morris–Pratt algorithm (match(t))
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B"
 
 #include <iostream>
 #include <string>

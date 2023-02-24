@@ -1,7 +1,8 @@
 /*
  * @title データ構造/Fenwick tree/2次元 Fenwick tree
+ *
+ * verification-helper: PROBLEM https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2842
  */
-#define PROBLEM "https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2842"
 
 #include <iostream>
 #include <tuple>

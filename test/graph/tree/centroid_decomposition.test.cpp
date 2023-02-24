@@ -1,7 +1,8 @@
 /*
  * @title グラフ/木/重心分解
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/frequency_table_of_tree_distance
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/frequency_table_of_tree_distance"
 
 #include <cmath>
 #include <iostream>

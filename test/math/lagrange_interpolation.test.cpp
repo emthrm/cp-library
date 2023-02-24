@@ -1,8 +1,9 @@
 /*
  * @title 数学/ラグランジュ補間 評価版
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc033/tasks/arc033_4
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/arc033/tasks/arc033_4"
 
 #include <iostream>
 #include <numeric>

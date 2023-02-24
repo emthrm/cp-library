@@ -1,7 +1,8 @@
 /*
  * @title 計算幾何学/計算幾何学 (2線分の交差判定)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_2_B"
 
 #include <iostream>
 

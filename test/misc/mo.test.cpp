@@ -1,7 +1,8 @@
 /*
  * @title その他/Mo's algorithm
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/static_range_inversions_query
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/static_range_inversions_query"
 
 #include <algorithm>
 #include <iostream>

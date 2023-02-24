@@ -1,8 +1,9 @@
 /*
  * @title 文字列/Morris–Pratt algorithm (period(idx))
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://codeforces.com/problemset/problem/1138/D
  */
-#define IGNORE
-#define PROBLEM "https://codeforces.com/problemset/problem/1138/D"
 
 #include <algorithm>
 #include <cassert>

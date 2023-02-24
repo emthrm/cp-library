@@ -1,7 +1,8 @@
 /*
  * @title 文字列/rolling hash
+ *
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc141/tasks/abc141_e
  */
-#define PROBLEM "https://atcoder.jp/contests/abc141/tasks/abc141_e"
 
 #include <iostream>
 #include <set>

@@ -1,7 +1,8 @@
 /*
  * @title グラフ/内周
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/1320
  */
-#define PROBLEM "https://yukicoder.me/problems/no/1320"
 
 #include <iostream>
 #include <limits>

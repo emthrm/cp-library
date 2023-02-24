@@ -1,7 +1,8 @@
 /*
  * @title 文字列/longest common prefix
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/number_of_substrings
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/number_of_substrings"
 
 #include <iostream>
 #include <string>

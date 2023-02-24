@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (最近点対)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_5_A
+ * verification-helper: ERROR 0.000001
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_5_A"
-#define ERROR "0.000001"
 
 #include <iomanip>
 #include <iostream>

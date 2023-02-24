@@ -1,7 +1,8 @@
 /*
  * @title グラフ/フロー/最大流/project selection problem
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903"
 
 #include <iostream>
 #include <string>

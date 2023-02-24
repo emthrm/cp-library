@@ -1,7 +1,8 @@
 /*
  * @title 数学/モンモール数
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/montmort_number_mod
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/montmort_number_mod"
 
 #include <iostream>
 #include <vector>

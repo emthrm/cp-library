@@ -1,7 +1,8 @@
 /*
  * @title グラフ/木/HL 分解
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667"
 
 #include <functional>
 #include <iostream>

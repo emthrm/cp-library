@@ -1,8 +1,9 @@
 /*
  * @title 数学/多倍長整数 (冪演算)
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://codeforces.com/problemsets/acmsguru/problem/99999/112
  */
-#define IGNORE
-#define PROBLEM "https://codeforces.com/problemsets/acmsguru/problem/99999/112"
 
 #include <iostream>
 

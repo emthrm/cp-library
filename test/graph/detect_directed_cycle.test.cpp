@@ -1,7 +1,8 @@
 /*
  * @title グラフ/有向閉路の検出
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/cycle_detection
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/cycle_detection"
 
 #include <iostream>
 #include <ranges>

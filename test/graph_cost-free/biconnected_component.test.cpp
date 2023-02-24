@@ -1,5 +1,7 @@
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/nadafes2022_day2/tasks/nadafes2022_day2_h"
+/*
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/nadafes2022_day2/tasks/nadafes2022_day2_h
+ */
 
 #include <algorithm>
 #include <cassert>

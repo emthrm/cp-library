@@ -1,7 +1,8 @@
 /*
  * @title 数学/カタラン数
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/790
  */
-#define PROBLEM "https://yukicoder.me/problems/no/790"
 
 #include <iostream>
 

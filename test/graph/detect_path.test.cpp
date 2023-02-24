@@ -1,8 +1,9 @@
 /*
  * @title グラフ/道の検出
+ *
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/past202112-open/tasks/past202112_g
  */
-#define IGNORE
-#define PROBLEM "https://atcoder.jp/contests/past202112-open/tasks/past202112_g"
 
 #include <algorithm>
 #include <iostream>

@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (直線と円の交点)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D
+ * verification-helper: ERROR 0.000001
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_D"
-#define ERROR "0.000001"
 
 #include <algorithm>
 #include <iomanip>

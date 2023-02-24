@@ -1,7 +1,8 @@
 /*
  * @title 数学/行列/逆行列
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/inverse_matrix
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/inverse_matrix"
 
 #include <iostream>
 

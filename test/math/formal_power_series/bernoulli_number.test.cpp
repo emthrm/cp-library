@@ -1,7 +1,8 @@
 /*
  * @title 数学/形式的冪級数/ベルヌーイ数
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/bernoulli_number
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/bernoulli_number"
 
 #include <iostream>
 #include <vector>

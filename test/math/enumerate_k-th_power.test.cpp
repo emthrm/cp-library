@@ -1,7 +1,8 @@
 /*
  * @title 数学/$i^k \bmod m$ ($0 \leq i \leq n$)
+ *
+ * verification-helper: PROBLEM https://yukicoder.me/problems/no/1409
  */
-#define PROBLEM "https://yukicoder.me/problems/no/1409"
 
 #include <iostream>
 #include <vector>

@@ -1,8 +1,9 @@
 /*
  * @title 計算幾何学/計算幾何学 (鏡映)
+ *
+ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
+ * verification-helper: ERROR 0.00000001
  */
-#define PROBLEM "http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B"
-#define ERROR "0.00000001"
 
 #include <iomanip>
 #include <iostream>

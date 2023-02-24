@@ -1,7 +1,8 @@
 /*
  * @title 数学/畳み込み/添え字 gcd での畳み込み
+ *
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/gcd_convolution
  */
-#define PROBLEM "https://judge.yosupo.jp/problem/gcd_convolution"
 
 #include <iostream>
 #include <vector>
