@@ -1,6 +1,6 @@
 ---
 title: 行列 (matrix)
-documentation_of: include/emthrm/math/matrix/matrix.hpp
+documentation_of: //include/emthrm/math/matrix/matrix.hpp
 ---
 
 

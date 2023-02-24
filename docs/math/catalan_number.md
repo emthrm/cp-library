@@ -1,6 +1,6 @@
 ---
 title: カタラン数 (Catalan number)
-documentation_of: include/emthrm/math/catalan_number.hpp
+documentation_of: //include/emthrm/math/catalan_number.hpp
 ---
 
 $$

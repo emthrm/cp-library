@@ -1,6 +1,6 @@
 ---
 title: Knuth–Yao speedup
-documentation_of: include/emthrm/dynamic_programming/knuth_yao_speedup.hpp
+documentation_of: //include/emthrm/dynamic_programming/knuth_yao_speedup.hpp
 ---
 
 $i \leq j$ を満たす $i, j \in \lbrace 1, 2, \ldots, n \rbrace$ で定義される二変数関数 $w(i, j)$ を考える。

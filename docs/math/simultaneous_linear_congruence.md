@@ -1,6 +1,6 @@
 ---
 title: 連立線形合同式 (simultaneous linear congruence)
-documentation_of: include/emthrm/math/simultaneous_linear_congruence.hpp
+documentation_of: //include/emthrm/math/simultaneous_linear_congruence.hpp
 ---
 
 $$

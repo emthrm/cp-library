@@ -1,6 +1,6 @@
 ---
 title: 巡回セールスマン問題 (traveling salesman problem)
-documentation_of: include/emthrm/graph/traveling_salesman_problem.hpp
+documentation_of: //include/emthrm/graph/traveling_salesman_problem.hpp
 ---
 
 重み付き有向グラフに対してコスト最小のハミルトン閉路を求める問題である。

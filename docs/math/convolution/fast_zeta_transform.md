@@ -1,6 +1,6 @@
 ---
 title: 高速ゼータ変換 (fast zeta transform)
-documentation_of: include/emthrm/math/convolution/fast_zeta_transform.hpp
+documentation_of: //include/emthrm/math/convolution/fast_zeta_transform.hpp
 ---
 
 $g(S) = \sum_{S \subseteq T} f(T)$ または $g(S) = \sum_{T \subseteq S} f(T)$ を高速に求める。

@@ -1,6 +1,6 @@
 ---
 title: 一元二次方程式 (quadratic equation)
-documentation_of: include/emthrm/math/quadratic_equation.hpp
+documentation_of: //include/emthrm/math/quadratic_equation.hpp
 ---
 
 $$

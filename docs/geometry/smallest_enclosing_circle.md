@@ -1,6 +1,6 @@
 ---
 title: 最小包含円 (smallest enclosing circle)
-documentation_of: include/emthrm/geometry/smallest_enclosing_circle.hpp
+documentation_of: //include/emthrm/geometry/smallest_enclosing_circle.hpp
 ---
 
 与えられた点集合に属するすべての点を内部または円周上に含む円の内、半径最小のものである。

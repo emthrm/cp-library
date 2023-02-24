@@ -1,6 +1,6 @@
 ---
 title: 行列式 (determinant)
-documentation_of: include/emthrm/math/matrix/determinant.hpp
+documentation_of: //include/emthrm/math/matrix/determinant.hpp
 ---
 
 

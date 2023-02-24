@@ -1,6 +1,6 @@
 ---
 title: 彩色数 (chromatic number)
-documentation_of: include/emthrm/graph/chromatic_number.hpp
+documentation_of: //include/emthrm/graph/chromatic_number.hpp
 ---
 
 隣接頂点間で色が異なるような頂点彩色に必要な最小の色の数である。

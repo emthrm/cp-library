@@ -1,6 +1,6 @@
 ---
 title: convex hull trick
-documentation_of: include/emthrm/dynamic_programming/convex_hull_trick.hpp
+documentation_of: //include/emthrm/dynamic_programming/convex_hull_trick.hpp
 ---
 
 $xy$ 平面上の直線集合 $L$ を考える。

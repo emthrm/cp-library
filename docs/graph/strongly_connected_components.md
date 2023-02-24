@@ -1,6 +1,6 @@
 ---
 title: 強連結成分 (strongly connected components) 分解
-documentation_of: include/emthrm/graph/strongly_connected_components.hpp
+documentation_of: //include/emthrm/graph/strongly_connected_components.hpp
 ---
 
 有向グラフを共通部分の存在しない強連結成分に分解することである。

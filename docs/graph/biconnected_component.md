@@ -1,6 +1,6 @@
 ---
 title: 二重頂点連結成分 (biconnected component) 分解
-documentation_of: include/emthrm/graph/biconnected_component.hpp
+documentation_of: //include/emthrm/graph/biconnected_component.hpp
 ---
 
 無向グラフを関節点の存在しない辺集合に分割することである。

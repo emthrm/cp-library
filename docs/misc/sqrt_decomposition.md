@@ -1,6 +1,6 @@
 ---
 title: 平方分割 (sqrt decomposition)
-documentation_of: include/emthrm/misc/sqrt_decomposition.hpp
+documentation_of: //include/emthrm/misc/sqrt_decomposition.hpp
 ---
 
 

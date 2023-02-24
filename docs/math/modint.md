@@ -1,6 +1,6 @@
 ---
 title: モジュラ計算
-documentation_of: include/emthrm/math/modint.hpp
+documentation_of: //include/emthrm/math/modint.hpp
 ---
 
 

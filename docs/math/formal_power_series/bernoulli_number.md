@@ -1,6 +1,6 @@
 ---
 title: ベルヌーイ数 (Bernoulli number)
-documentation_of: include/emthrm/math/formal_power_series/bernoulli_number.hpp
+documentation_of: //include/emthrm/math/formal_power_series/bernoulli_number.hpp
 ---
 
 $$

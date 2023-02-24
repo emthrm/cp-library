@@ -1,6 +1,6 @@
 ---
 title: $i^k \bmod m$ ($0 \leq i \leq n$)
-documentation_of: include/emthrm/math/enumerate_k-th_power.hpp
+documentation_of: //include/emthrm/math/enumerate_k-th_power.hpp
 ---
 
 

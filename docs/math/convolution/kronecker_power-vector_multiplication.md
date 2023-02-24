@@ -1,6 +1,6 @@
 ---
 title: クロネッカー冪 (Kronecker power) とベクトルの積
-documentation_of: include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
+documentation_of: //include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
 ---
 
 $G \in K^{d \times d},\ \boldsymbol{v} \in K^{d^n}$ に対して $G^{\otimes n} \boldsymbol{v}$ を求める。ここで

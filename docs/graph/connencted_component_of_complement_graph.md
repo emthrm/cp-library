@@ -1,6 +1,6 @@
 ---
 title: 補グラフの連結成分分解
-documentation_of: include/emthrm/graph/connencted_component_of_complement_graph.hpp
+documentation_of: //include/emthrm/graph/connencted_component_of_complement_graph.hpp
 ---
 
 

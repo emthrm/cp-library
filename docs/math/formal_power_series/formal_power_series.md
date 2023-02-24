@@ -1,6 +1,6 @@
 ---
 title: 形式的冪級数 (formal power series)
-documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
+documentation_of: //include/emthrm/math/formal_power_series/formal_power_series.hpp
 ---
 
 #### [重複組み合わせ](../modint.md)

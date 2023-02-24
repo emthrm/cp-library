@@ -1,6 +1,6 @@
 ---
 title: 素因数分解 (prime factorization)
-documentation_of: include/emthrm/math/prime_factorization.hpp
+documentation_of: //include/emthrm/math/prime_factorization.hpp
 ---
 
 

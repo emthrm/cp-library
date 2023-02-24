@@ -1,6 +1,6 @@
 ---
 title: 逆元 (inverse element)
-documentation_of: include/emthrm/math/mod_inv.hpp
+documentation_of: //include/emthrm/math/mod_inv.hpp
 ---
 
 $ax \equiv 1 \pmod{m}$ を満たす $x = a^{-1}$ である。

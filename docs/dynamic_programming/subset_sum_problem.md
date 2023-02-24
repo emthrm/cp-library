@@ -1,6 +1,6 @@
 ---
 title: 部分和問題 (subset sum problem)
-documentation_of: include/emthrm/dynamic_programming/subset_sum_problem.hpp
+documentation_of: //include/emthrm/dynamic_programming/subset_sum_problem.hpp
 ---
 
 $n$ 個の数の選び方の内、要素の和が特定の数となるものの存在性を判定する問題である。

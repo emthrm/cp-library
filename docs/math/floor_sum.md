@@ -1,6 +1,6 @@
 ---
 title: sum of floor of linear
-documentation_of: include/emthrm/math/floor_sum.hpp
+documentation_of: //include/emthrm/math/floor_sum.hpp
 ---
 
 $$

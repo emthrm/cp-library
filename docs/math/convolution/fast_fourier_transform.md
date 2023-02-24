@@ -1,6 +1,6 @@
 ---
 title: 高速フーリエ変換 (fast Fourier transform)
-documentation_of: include/emthrm/math/convolution/fast_fourier_transform.hpp
+documentation_of: //include/emthrm/math/convolution/fast_fourier_transform.hpp
 ---
 
 離散フーリエ変換 (discrete Fourier transform)

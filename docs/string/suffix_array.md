@@ -1,6 +1,6 @@
 ---
 title: 接尾辞配列 (suffix array)
-documentation_of: include/emthrm/string/suffix_array.hpp
+documentation_of: //include/emthrm/string/suffix_array.hpp
 ---
 
 文字列の全接尾辞を辞書順に並べた配列である。

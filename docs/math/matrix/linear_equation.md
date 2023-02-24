@@ -1,6 +1,6 @@
 ---
 title: 連立一次方程式 (linear equation)
-documentation_of: include/emthrm/math/matrix/linear_equation.hpp
+documentation_of: //include/emthrm/math/matrix/linear_equation.hpp
 ---
 
 

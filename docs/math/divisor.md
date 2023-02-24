@@ -1,6 +1,6 @@
 ---
 title: 約数列挙
-documentation_of: include/emthrm/math/divisor.hpp
+documentation_of: //include/emthrm/math/divisor.hpp
 ---
 
 

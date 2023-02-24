@@ -1,6 +1,6 @@
 ---
 title: ヒストグラム中の最大長方形 (largest rectangle in a histogram)
-documentation_of: include/emthrm/dynamic_programming/largest_rectangle.hpp
+documentation_of: //include/emthrm/dynamic_programming/largest_rectangle.hpp
 ---
 
 

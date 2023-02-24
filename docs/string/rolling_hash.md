@@ -1,6 +1,6 @@
 ---
 title: rolling hash
-documentation_of: include/emthrm/string/rolling_hash.hpp
+documentation_of: //include/emthrm/string/rolling_hash.hpp
 ---
 
 

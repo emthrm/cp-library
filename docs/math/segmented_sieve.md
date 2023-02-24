@@ -1,6 +1,6 @@
 ---
 title: segmented sieve
-documentation_of: include/emthrm/math/segmented_sieve.hpp
+documentation_of: //include/emthrm/math/segmented_sieve.hpp
 ---
 
 

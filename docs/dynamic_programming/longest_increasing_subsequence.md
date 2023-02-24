@@ -1,6 +1,6 @@
 ---
 title: 最長増加部分列 (longest increasing subsequence)
-documentation_of: include/emthrm/dynamic_programming/longest_increasing_subsequence.hpp
+documentation_of: //include/emthrm/dynamic_programming/longest_increasing_subsequence.hpp
 ---
 
 $i < j$ を満たす任意の $i, j$ に対して $A_i < A_j$ を満たす部分列 $A$ の内、最長のものである。

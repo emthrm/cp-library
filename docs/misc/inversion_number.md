@@ -1,6 +1,6 @@
 ---
 title: 転倒数 (inversion number)
-documentation_of: include/emthrm/misc/inversion_number.hpp
+documentation_of: //include/emthrm/misc/inversion_number.hpp
 ---
 
 数列 $A$ に対して $A_i > A_j$ を満たす組 $(i, j)$ ($i < j$) の個数である。

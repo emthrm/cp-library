@@ -1,6 +1,6 @@
 ---
 title: トライ木 (trie)
-documentation_of: include/emthrm/string/trie.hpp
+documentation_of: //include/emthrm/string/trie.hpp
 ---
 
 複数の文字列を高速に検索できる木である。

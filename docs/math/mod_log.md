@@ -1,6 +1,6 @@
 ---
 title: 離散対数問題 (discrete logarithm problem)
-documentation_of: include/emthrm/math/mod_log.hpp
+documentation_of: //include/emthrm/math/mod_log.hpp
 ---
 
 $g^x \equiv y \pmod{p}$ ($g = \text{const.},\ y \in \mathbb{Z},\ p \in \mathbb{P}$) を満たす $x$ を求める問題である。

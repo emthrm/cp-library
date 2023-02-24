@@ -1,6 +1,6 @@
 ---
 title: project selection problem
-documentation_of: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
+documentation_of: //include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
 ---
 
 

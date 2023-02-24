@@ -1,6 +1,6 @@
 ---
 title: Mo's algorithm
-documentation_of: include/emthrm/misc/mo.hpp
+documentation_of: //include/emthrm/misc/mo.hpp
 ---
 
 - オフラインである。

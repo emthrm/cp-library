@@ -1,6 +1,6 @@
 ---
 title: Z algorithm
-documentation_of: include/emthrm/string/z_algorithm.hpp
+documentation_of: //include/emthrm/string/z_algorithm.hpp
 ---
 
 文字列 $S$ に対して $S$ と `S[i:]` の最長共通接頭辞の長さを求めるアルゴリズムである。

@@ -1,6 +1,6 @@
 ---
 title: HL 分解 (heavy-light decomposition)
-documentation_of: include/emthrm/graph/tree/heavy-light_decomposition.hpp
+documentation_of: //include/emthrm/graph/tree/heavy-light_decomposition.hpp
 ---
 
 heavy edge と light edge に分類された辺を基にして、木を分解する方法である。

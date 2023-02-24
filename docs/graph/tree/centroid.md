@@ -1,6 +1,6 @@
 ---
 title: 重心 (centroid)
-documentation_of: include/emthrm/graph/tree/centroid.hpp
+documentation_of: //include/emthrm/graph/tree/centroid.hpp
 ---
 
 根としたときに任意の子の部分木の大きさが木の大きさの半分以下となる頂点である。

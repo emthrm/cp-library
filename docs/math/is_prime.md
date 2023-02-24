@@ -1,6 +1,6 @@
 ---
 title: 素数判定 (primality test)
-documentation_of: include/emthrm/math/is_prime.hpp
+documentation_of: //include/emthrm/math/is_prime.hpp
 ---
 
 

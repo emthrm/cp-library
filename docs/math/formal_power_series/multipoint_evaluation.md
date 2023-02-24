@@ -1,6 +1,6 @@
 ---
 title: multipoint evaluation
-documentation_of: include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
+documentation_of: //include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
 ---
 
 複数の $x$ に対して $f(x)$ を求めるアルゴリズムである。

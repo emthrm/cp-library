@@ -1,6 +1,6 @@
 ---
 title: 切り捨て除算 (floor division)・切り上げ除算
-documentation_of: include/emthrm/math/division.hpp
+documentation_of: //include/emthrm/math/division.hpp
 ---
 
 

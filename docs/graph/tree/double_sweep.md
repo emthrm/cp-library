@@ -1,6 +1,6 @@
 ---
 title: double sweep
-documentation_of: include/emthrm/graph/tree/double_sweep.hpp
+documentation_of: //include/emthrm/graph/tree/double_sweep.hpp
 ---
 
 木の直径を求めるアルゴリズムである。

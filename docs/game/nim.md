@@ -1,6 +1,6 @@
 ---
 title: ニム (nim)
-documentation_of: include/emthrm/game/nim.hpp
+documentation_of: //include/emthrm/game/nim.hpp
 ---
 
 $N$ 個の山のいずれかから一つ以上を二人が交互に取り、操作できなくなった方を負けとするゲームである。

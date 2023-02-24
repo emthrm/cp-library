@@ -1,6 +1,6 @@
 ---
 title: longest common prefix
-documentation_of: include/emthrm/string/longest_common_prefix.hpp
+documentation_of: //include/emthrm/string/longest_common_prefix.hpp
 ---
 
 

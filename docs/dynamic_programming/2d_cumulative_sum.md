@@ -1,6 +1,6 @@
 ---
 title: 2次元累積和
-documentation_of: include/emthrm/dynamic_programming/2d_cumulative_sum.hpp
+documentation_of: //include/emthrm/dynamic_programming/2d_cumulative_sum.hpp
 ---
 
 

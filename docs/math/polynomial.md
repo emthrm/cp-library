@@ -1,6 +1,6 @@
 ---
 title: 多項式 (polynomial)
-documentation_of: include/emthrm/math/polynomial.hpp
+documentation_of: //include/emthrm/math/polynomial.hpp
 ---
 
 

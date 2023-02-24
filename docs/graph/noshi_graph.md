@@ -1,6 +1,6 @@
 ---
 title: 区間に辺を張るテク
-documentation_of: include/emthrm/graph/noshi_graph.hpp
+documentation_of: //include/emthrm/graph/noshi_graph.hpp
 ---
 
 

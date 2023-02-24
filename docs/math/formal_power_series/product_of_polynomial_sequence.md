@@ -1,6 +1,6 @@
 ---
 title: 多項式列の相乗
-documentation_of: include/emthrm/math/formal_power_series/product_of_polynomial_sequence.hpp
+documentation_of: //include/emthrm/math/formal_power_series/product_of_polynomial_sequence.hpp
 ---
 
 $$
