@@ -1,3 +1,14 @@
+---
+title: [
+  内周 (girth) 有向グラフ版,
+  内周 (girth) 無向グラフ版
+]
+documentation_of: [
+  //include/emthrm/graph/girth_in_directed_graph.hpp,
+  //include/emthrm/graph/girth_in_undirected_graph.hpp
+]
+---
+
 # 内周 (girth)
 
 グラフに対する最小閉路長である。

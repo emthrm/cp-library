@@ -1,8 +1,3 @@
-/**
- * @title メビウス関数 約数版
- * @docs docs/math/mobius_mu.md
- */
-
 #ifndef EMTHRM_MATH_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_
 #define EMTHRM_MATH_MOBIUS_MU_FOCUSING_ON_DIVISOR_HPP_
 

@@ -1,8 +1,3 @@
-/**
- * @title Bellman–Ford 法
- * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md
- */
-
 #ifndef EMTHRM_GRAPH_SHORTEST_PATH_BELLMAN_FORD_HPP_
 #define EMTHRM_GRAPH_SHORTEST_PATH_BELLMAN_FORD_HPP_
 

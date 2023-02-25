@@ -1,8 +1,3 @@
-/**
- * @title 最長増加部分列
- * @docs docs/dynamic_programming/longest_increasing_subsequence.md
- */
-
 #ifndef EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_
 #define EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_
 

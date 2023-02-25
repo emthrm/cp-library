@@ -1,8 +1,3 @@
-/**
- * @title オイラー路 有向グラフ版
- * @docs docs/graph/eulerian_trail.md
- */
-
 #ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
 #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_DIRECTED_GRAPH_HPP_
 

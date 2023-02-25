@@ -1,8 +1,3 @@
-/**
- * @title Ford–Fulkerson 法
- * @docs docs/graph/flow/maximum_flow/maximum_flow.md
- */
-
 #ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_
 #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_
 

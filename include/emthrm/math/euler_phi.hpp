@@ -1,8 +1,3 @@
-/**
- * @title オイラーの $\varphi$ 関数
- * @docs docs/math/euler_phi.md
- */
-
 #ifndef EMTHRM_MATH_EULER_PHI_HPP_
 #define EMTHRM_MATH_EULER_PHI_HPP_
 

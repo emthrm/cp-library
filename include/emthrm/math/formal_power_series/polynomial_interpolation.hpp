@@ -1,8 +1,3 @@
-/**
- * @title 多項式補間
- * @docs docs/math/lagrange_interpolation.md
- */
-
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_POLYNOMIAL_INTERPOLATION_HPP_
 

@@ -1,8 +1,3 @@
-/**
- * @title 第2種スターリング数の数表
- * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
- */
-
 #ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_SECOND_KIND_INIT_HPP_
 #define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_SECOND_KIND_INIT_HPP_
 

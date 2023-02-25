@@ -1,8 +1,3 @@
-/**
- * @title メビウス関数の数表2
- * @docs docs/math/mobius_mu.md
- */
-
 #ifndef EMTHRM_MATH_MOBIUS_MU_INIT2_HPP_
 #define EMTHRM_MATH_MOBIUS_MU_INIT2_HPP_
 

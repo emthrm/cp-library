@@ -1,3 +1,14 @@
+---
+title: [
+  平方剰余 (quadratic residue),
+  ヤコビ記号 (Jacobi symbol)
+]
+documentation_of: [
+  //include/emthrm/math/mod_sqrt.hpp,
+  //include/emthrm/math/jacobi_symbol.hpp
+]
+---
+
 # 平方剰余 (quadratic residue)
 
 $x^2 \equiv a \pmod{p}$ を満たす $x$ が存在すれば、$a \in \mathbb{Z}$ は法 $p$ の下で平方剰余であり、そうでなければ平方非剰余である。
@@ -77,7 +88,7 @@ $$
 6. 4に戻る。
 
 
-### ヤコビ記号
+### ヤコビ記号 (Jacobi symbol)
 
 整数 $a$、正の奇数 $p$ に対して $p$ の素因数分解を $p = \prod_i p_i^{e_i}$ とすると
 

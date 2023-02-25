@@ -1,8 +1,3 @@
-/**
- * @title Morris–Pratt algorithm
- * @docs docs/string/knuth-morris-pratt.md
- */
-
 #ifndef EMTHRM_STRING_MORRIS_PRATT_HPP_
 #define EMTHRM_STRING_MORRIS_PRATT_HPP_
 

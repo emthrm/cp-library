@@ -1,3 +1,14 @@
+---
+title: [
+  Eulerian number,
+  Eulerian number 形式的冪級数版
+]
+documentation_of: [
+  //include/emthrm/math/formal_power_series/eulerian_number.hpp,
+  //include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
+]
+---
+
 # Eulerian number
 
 $$

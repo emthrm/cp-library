@@ -1,3 +1,14 @@
+---
+title: [
+  セグメント木 (segment tree),
+  遅延伝播セグメント木
+]
+documentation_of: [
+  //include/emthrm/data_structure/segment_tree.hpp,
+  //include/emthrm/data_structure/lazy_segment_tree.hpp
+]
+---
+
 # セグメント木 (segment tree)
 
 [モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。

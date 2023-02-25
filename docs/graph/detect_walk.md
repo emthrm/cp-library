@@ -1,3 +1,14 @@
+---
+title: [
+  道 (path) の検出,
+  有向閉路 (directed cycle) の検出
+]
+documentation_of: [
+  //include/emthrm/graph/detect_path.hpp,
+  //include/emthrm/graph/detect_directed_cycle.hpp
+]
+---
+
 # 歩道 (walk) の検出
 
 
@@ -8,14 +19,14 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-### 道 (path) の検出
+### 道の検出
 
 |名前|戻り値|
 |:--|:--|
 |`template <typename CostType>`<br>`std::vector<Edge<CostType>> detect_path(const std::vector<std::vector<Edge<CostType>>>& graph, const int s, const int t);`|有向グラフ $\mathrm{graph}$ における始点 $s$、終点 $t$ の道。ただし存在しないときは空配列を返す。|
 
 
-### 有向閉路 (directed cycle) の検出
+### 有向閉路の検出
 
 |名前|戻り値|
 |:--|:--|

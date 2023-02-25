@@ -1,3 +1,14 @@
+---
+title: [
+  最小共通祖先 (lowest common ancestor) ダブリング版,
+  最小共通祖先 (lowest common ancestor) オイラーツアー版
+]
+documentation_of: [
+  //include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp,
+  //include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
+]
+---
+
 # 最小共通祖先 (lowest common ancestor)
 
 根付き木のある2頂点に対して最も深い共通祖先である。

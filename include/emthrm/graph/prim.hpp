@@ -1,8 +1,3 @@
-/**
- * @title Prim 法
- * @docs docs/graph/minimum_spanning_tree.md
- */
-
 #ifndef EMTHRM_GRAPH_PRIM_HPP_
 #define EMTHRM_GRAPH_PRIM_HPP_
 

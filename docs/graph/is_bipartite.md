@@ -1,5 +1,5 @@
 ---
-title: 二部グラフ判定
+title: 二部グラフ (bipartite graph) 判定
 documentation_of: //include/emthrm/graph/is_bipartite.hpp
 ---
 

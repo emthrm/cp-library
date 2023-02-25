@@ -1,3 +1,14 @@
+---
+title: [
+  分割数 (partition function),
+  分割数 (partition function) $n = m$ 版
+]
+documentation_of: [
+  //include/emthrm/math/twelvefold_way/partition_function.hpp,
+  //include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
+]
+---
+
 # 分割数 (partition function)
 
 自然数 $n$ を $m$ 個以下の正の整数の和で表す方法の総数の内、$n = m$ を満たすもの。

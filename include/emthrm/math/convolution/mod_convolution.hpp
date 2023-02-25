@@ -1,8 +1,3 @@
-/**
- * @title 任意の法の下での畳み込み
- * @docs docs/math/convolution/number_theoretic_transform.md
- */
-
 #ifndef EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
 #define EMTHRM_MATH_CONVOLUTION_MOD_CONVOLUTION_HPP_
 

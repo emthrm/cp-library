@@ -1,8 +1,3 @@
-/**
- * @title 第1種スターリング数の数表 形式的冪級数版
- * @docs docs/math/twelvefold_way/stirling_number/stirling_number.md
- */
-
 #ifndef EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_
 #define EMTHRM_MATH_TWELVEFOLD_WAY_STIRLING_NUMBER_STIRLING_NUMBER_OF_THE_FIRST_KIND_INIT_BY_FPS_HPP_
 

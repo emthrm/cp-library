@@ -1,3 +1,14 @@
+---
+title: [
+  Bellman–Ford 法,
+  Dijkstra 法
+]
+documentation_of: [
+  //include/emthrm/graph/shortest_path/bellman-ford.hpp,
+  //include/emthrm/graph/shortest_path/dijkstra.hpp
+]
+---
+
 # 単一始点最短路問題 (single-source shortest path problem)
 
 始点から他の任意の頂点までの最短路を求める問題である。

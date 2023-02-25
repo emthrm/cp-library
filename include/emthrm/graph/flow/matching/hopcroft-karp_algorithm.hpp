@@ -1,8 +1,3 @@
-/**
- * @title Hopcroft–Karp algorithm
- * @docs docs/graph/flow/matching/matching.md
- */
-
 #ifndef EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_
 #define EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_
 

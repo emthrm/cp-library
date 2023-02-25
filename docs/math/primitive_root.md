@@ -1,3 +1,8 @@
+---
+title: 原始根 (primitive root) 判定
+documentation_of: //include/emthrm/math/is_primitive_root.hpp
+---
+
 # 原始根 (primitive root)
 
 $n \in \mathbb{N}^+,\ g \in \mathbb{Z}$ に対して $\mathrm{ord}_n(g) = \varphi(n)$ が成り立つとき、$g \bmod n$ を「$n$ を法とする原始根」と呼ぶ。

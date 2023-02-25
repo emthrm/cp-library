@@ -1,3 +1,14 @@
+---
+title: [
+  ファウルハーバーの公式 (Faulhaber's formula) 形式的冪級数版,
+  ファウルハーバーの公式 (Faulhaber's formula) ラグランジュ補間版
+]
+documentation_of: [
+  //include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp,
+  //include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
+]
+---
+
 # ファウルハーバーの公式 (Faulhaber's formula)
 
 $$

@@ -1,8 +1,3 @@
-/**
- * @title ベル数の数表 $n = k$ 版
- * @docs docs/math/twelvefold_way/bell_number/bell_number.md
- */
-
 #ifndef EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_BY_FPS_HPP_
 #define EMTHRM_MATH_TWELVEFOLD_WAY_BELL_NUMBER_BELL_NUMBER_INIT_BY_FPS_HPP_
 

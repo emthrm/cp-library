@@ -1,8 +1,3 @@
-/**
- * @title ファウルハーバーの公式 ラグランジュ補間版
- * @docs docs/math/formal_power_series/faulhaber.md
- */
-
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_LAGRANGE_INTERPOLATION_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_LAGRANGE_INTERPOLATION_HPP_
 

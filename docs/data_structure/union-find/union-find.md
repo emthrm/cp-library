@@ -1,3 +1,18 @@
+---
+title: [
+  union-find,
+  重みつき union-find,
+  部分永続 union-find,
+  undo 可能 union-find
+]
+documentation_of: [
+  //include/emthrm/data_structure/union-find/union-find.hpp,
+  //include/emthrm/data_structure/union-find/weighted_union-find.hpp,
+  //include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp,
+  //include/emthrm/data_structure/union-find/undoable_union-find.hpp
+]
+---
+
 # 素集合データ構造 (disjoint-set data structure)
 
 |名前|概要|

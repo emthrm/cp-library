@@ -1,8 +1,3 @@
-/**
- * @title 道の検出
- * @docs docs/graph/detect_walk.md
- */
-
 #ifndef EMTHRM_GRAPH_DETECT_PATH_HPP_
 #define EMTHRM_GRAPH_DETECT_PATH_HPP_
 

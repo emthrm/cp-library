@@ -1,8 +1,3 @@
-/**
- * @title Dijkstra 法
- * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md
- */
-
 #ifndef EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_
 #define EMTHRM_GRAPH_SHORTEST_PATH_DIJKSTRA_HPP_
 

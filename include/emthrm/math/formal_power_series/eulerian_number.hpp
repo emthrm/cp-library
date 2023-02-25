@@ -1,8 +1,3 @@
-/**
- * @title Eulerian number
- * @docs docs/math/formal_power_series/eulerian_number.md
- */
-
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_
 

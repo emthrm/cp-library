@@ -1,3 +1,14 @@
+---
+title: [
+  Bostan–Mori のアルゴリズム,
+  線形回帰数列 (linear recurrence sequence) の第 $N$ 項
+]
+documentation_of: [
+  //include/emthrm/math/formal_power_series/bostan-mori.hpp,
+  //include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
+]
+---
+
 # Bostan–Mori のアルゴリズム
 
 $d$-階線形回帰数列の第 $N$ 項を求めるアルゴリズムである。

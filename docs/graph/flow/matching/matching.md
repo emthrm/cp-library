@@ -1,3 +1,18 @@
+---
+title: [
+  二部グラフの最大マッチング,
+  Hopcroft–Karp algorithm,
+  二部グラフの重み付き最大マッチング,
+  一般グラフの最大マッチング (maximum matching)
+]
+documentation_of: [
+  //include/emthrm/graph/flow/matching/bipartite_matching.hpp,
+  //include/emthrm/graph/flow/matching/hopcroft-karp_algorithm.hpp,
+  //include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp,
+  //include/emthrm/graph/flow/matching/maximum_matching.hpp
+]
+---
+
 ### マッチング (matching)
 
 互いに端点を共有しない辺集合である。

@@ -1,8 +1,3 @@
-/**
- * @title 最小共通祖先 ダブリング版
- * @docs docs/graph/tree/lowest_common_ancestor.md
- */
-
 #ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
 #define EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_
 

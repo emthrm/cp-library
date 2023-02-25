@@ -1,8 +1,3 @@
-/**
- * @title セグメント木
- * @docs docs/data_structure/segment_tree.md
- */
-
 #ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_
 #define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_
 

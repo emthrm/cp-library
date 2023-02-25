@@ -1,8 +1,3 @@
-/**
- * @title 二重辺連結成分分解 lowlink 版
- * @docs docs/graph/2-edge-connected_components.md
- */
-
 #ifndef EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
 #define EMTHRM_GRAPH_2_EDGE_CONNECTED_COMPONENTS_BY_LOWLINK_HPP_
 

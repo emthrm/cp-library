@@ -1,8 +1,3 @@
-/**
- * @title 平方剰余
- * @docs docs/math/quadratic_residue.md
- */
-
 #ifndef EMTHRM_MATH_MOD_SQRT_HPP_
 #define EMTHRM_MATH_MOD_SQRT_HPP_
 

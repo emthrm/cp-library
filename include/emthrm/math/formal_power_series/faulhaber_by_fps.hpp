@@ -1,8 +1,3 @@
-/**
- * @title ファウルハーバーの公式 形式的冪級数版
- * @docs docs/math/formal_power_series/faulhaber.md
- */
-
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_FAULHABER_BY_FPS_HPP_
 

@@ -1,8 +1,3 @@
-/**
- * @title 内周 有向グラフ版
- * @docs docs/graph/girth.md
- */
-
 #ifndef EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_
 #define EMTHRM_GRAPH_GIRTH_IN_DIRECTED_GRAPH_HPP_
 

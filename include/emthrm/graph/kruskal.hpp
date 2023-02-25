@@ -1,8 +1,3 @@
-/**
- * @title Kruskal 法
- * @docs docs/graph/minimum_spanning_tree.md
- */
-
 #ifndef EMTHRM_GRAPH_KRUSKAL_HPP_
 #define EMTHRM_GRAPH_KRUSKAL_HPP_
 

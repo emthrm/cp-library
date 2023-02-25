@@ -1,8 +1,3 @@
-/**
- * @title 分割数
- * @docs docs/math/twelvefold_way/partition_function.md
- */
-
 #ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_
 #define EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_
 

@@ -1,3 +1,14 @@
+---
+title: [
+  パスカルの三角形 (Pascal's triangle),
+  二項係数 (binomial coefficients) の数表 巨大な $n$ 版
+]
+documentation_of: [
+  //include/emthrm/math/twelvefold_way/pascal.hpp,
+  //include/emthrm/math/twelvefold_way/large_nCk_init.hpp
+]
+---
+
 # 二項係数 (binomial coefficients)
 
 $$

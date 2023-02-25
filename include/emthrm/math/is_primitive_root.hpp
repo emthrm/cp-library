@@ -1,8 +1,3 @@
-/**
- * @title 原始根判定
- * @docs docs/math/primitive_root.md
- */
-
 #ifndef EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 #define EMTHRM_MATH_IS_PRIMITIVE_ROOT_HPP_
 

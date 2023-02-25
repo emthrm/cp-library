@@ -1,8 +1,3 @@
-/**
- * @title 2次元 Fenwick tree
- * @docs docs/data_structure/fenwick_tree/fenwick_tree.md
- */
-
 #ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_
 #define EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_
 

@@ -1,8 +1,3 @@
-/**
- * @title 連立一次方程式 バイナリ行列版
- * @docs docs/math/matrix/binary_matrix/binary_matrix.md
- */
-
 #ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_LINEAR_EQUATION_HPP_
 #define EMTHRM_MATH_MATRIX_BINARY_MATRIX_LINEAR_EQUATION_HPP_
 

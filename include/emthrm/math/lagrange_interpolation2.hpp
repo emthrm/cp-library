@@ -1,8 +1,3 @@
-/**
- * @title ラグランジュ補間 評価版2
- * @docs docs/math/lagrange_interpolation.md
- */
-
 #ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_
 #define EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_
 

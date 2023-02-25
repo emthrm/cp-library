@@ -1,3 +1,18 @@
+---
+title: [
+  バイナリ行列,
+  ガウス・ジョルダンの消去法 (Gauss–Jordan elimination) バイナリ行列版,
+  連立一次方程式 (linear equation) バイナリ行列版,
+  逆行列 (inverse matrix) バイナリ行列版
+]
+documentation_of: [
+  //include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp,
+  //include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp,
+  //include/emthrm/math/matrix/binary_matrix/linear_equation.hpp,
+  //include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
+]
+---
+
 # バイナリ行列
 
 有限体 $\mathbb{F}_2$ 上の行列である。

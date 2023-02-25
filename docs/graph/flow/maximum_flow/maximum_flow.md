@@ -1,3 +1,14 @@
+---
+title: [
+  Ford–Fulkerson 法,
+  Dinic 法
+]
+documentation_of: [
+  //include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp,
+  //include/emthrm/graph/flow/maximum_flow/dinic.hpp
+]
+---
+
 # 最大流 (maximum flow)
 
 ある始点からある終点までのフローの最大値である。

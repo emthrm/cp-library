@@ -1,3 +1,18 @@
+---
+title: [
+  Fenwick tree (binary indexed tree),
+  区間加算クエリ対応 Fenwick tree,
+  2次元 Fenwick tree,
+  区間加算クエリ対応2次元 Fenwick tree
+]
+documentation_of: [
+  //include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp,
+  //include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp,
+  //include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp,
+  //include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp
+]
+---
+
 # Fenwick tree (binary indexed tree)
 
 

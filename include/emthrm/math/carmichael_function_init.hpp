@@ -1,8 +1,3 @@
-/**
- * @title カーマイケル関数の数表
- * @docs docs/math/carmichael_function.md
- */
-
 #ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_
 #define EMTHRM_MATH_CARMICHAEL_FUNCTION_INIT_HPP_
 

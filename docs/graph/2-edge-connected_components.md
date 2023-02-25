@@ -1,3 +1,14 @@
+---
+title: [
+  二重辺連結成分 (2-edge-connected component) 分解 lowlink 版,
+  二重辺連結成分 (2-edge-connected component) 分解 いもす法版
+]
+documentation_of: [
+  //include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp,
+  //include/emthrm/graph/2-edge-connected_components_by_imos.hpp
+]
+---
+
 # 二重辺連結成分 (2-edge-connected component) 分解
 
 無向グラフを橋の存在しない部分グラフに分解することである。

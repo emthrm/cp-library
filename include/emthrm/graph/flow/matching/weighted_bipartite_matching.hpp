@@ -1,8 +1,3 @@
-/**
- * @title 二部グラフの重み付き最大マッチング
- * @docs docs/graph/flow/matching/matching.md
- */
-
 #ifndef EMTHRM_GRAPH_FLOW_MATCHING_WEIGHTED_BIPARTITE_MATCHING_HPP_
 #define EMTHRM_GRAPH_FLOW_MATCHING_WEIGHTED_BIPARTITE_MATCHING_HPP_
 

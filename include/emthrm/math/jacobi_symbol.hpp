@@ -1,8 +1,3 @@
-/**
- * @title ヤコビ記号
- * @docs docs/math/quadratic_residue.md
- */
-
 #ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_
 #define EMTHRM_MATH_JACOBI_SYMBOL_HPP_
 

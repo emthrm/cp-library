@@ -1,3 +1,16 @@
+---
+title: [
+  ラグランジュ補間 (Lagrange interpolation) 評価版,
+  ラグランジュ補間 (Lagrange interpolation) 評価版2,
+  多項式補間 (polynomial interpolation)
+]
+documentation_of: [
+  //include/emthrm/math/lagrange_interpolation.hpp,
+  //include/emthrm/math/lagrange_interpolation2.hpp,
+  //include/emthrm/math/formal_power_series/polynomial_interpolation.hpp
+]
+---
+
 # ラグランジュ補間 (Lagrange interpolation)
 
 $1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める。

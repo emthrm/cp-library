@@ -1,3 +1,8 @@
+---
+title: 行列木定理 (Kirchhoff's matrix tree theorem)
+documentation_of: //include/emthrm/graph/matrix_tree_theorem.hpp
+---
+
 # spectral graph theory
 
 

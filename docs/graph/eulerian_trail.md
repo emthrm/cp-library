@@ -1,3 +1,14 @@
+---
+title: [
+  オイラー路 (Eulerian trail) 有向グラフ版,
+  オイラー路 (Eulerian trail) 無向グラフ版
+]
+documentation_of: [
+  //include/emthrm/graph/eulerian_trail_in_directed_graph.hpp,
+  //include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp
+]
+---
+
 ## オイラー路 (Eulerian trail)
 
 グラフのすべての辺を一度だけ通る路である。

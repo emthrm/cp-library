@@ -1,3 +1,14 @@
+---
+title: [
+  カーマイケル関数 (Carmichael function),
+  カーマイケル関数 (Carmichael function) の数表
+]
+documentation_of: [
+  //include/emthrm/math/carmichael_function.hpp,
+  //include/emthrm/math/carmichael_function_init.hpp
+]
+---
+
 # カーマイケル関数 (Carmichael function)
 
 $n \in \mathbb{N}^+$ に対して

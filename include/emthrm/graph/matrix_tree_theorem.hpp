@@ -1,8 +1,3 @@
-/**
- * @title 行列木定理
- * @docs docs/graph/spectral_graph_theory.md
- */
-
 #ifndef EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_
 #define EMTHRM_GRAPH_MATRIX_TREE_THEOREM_HPP_
 

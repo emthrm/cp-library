@@ -1,8 +1,3 @@
-/**
- * @title 添え字 gcd での畳み込み
- * @docs docs/math/convolution/convolution.md
- */
-
 #ifndef EMTHRM_MATH_CONVOLUTION_GCD_CONVOLUTION_HPP_
 #define EMTHRM_MATH_CONVOLUTION_GCD_CONVOLUTION_HPP_
 

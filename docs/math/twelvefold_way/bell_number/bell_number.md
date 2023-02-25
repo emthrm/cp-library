@@ -1,3 +1,16 @@
+---
+title: [
+  ベル数 (Bell number),
+  ベル数 (Bell number) の数表,
+  ベル数 (Bell number) の数表 $n = k$ 版
+]
+documentation_of: [
+  //include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp,
+  //include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp,
+  //include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
+]
+---
+
 # ベル数 (Bell number)
 
 区別された $n$ 個を $k$ グループ以下に分割する場合の数を $B(n, k)$ とおくと

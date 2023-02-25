@@ -1,8 +1,3 @@
-/**
- * @title 線形回帰数列の第 $N$ 項
- * @docs docs/math/formal_power_series/bostan-mori.md
- */
-
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_
 

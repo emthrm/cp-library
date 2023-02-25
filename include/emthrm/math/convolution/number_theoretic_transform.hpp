@@ -1,8 +1,3 @@
-/**
- * @title 数論変換
- * @docs docs/math/convolution/number_theoretic_transform.md
- */
-
 #ifndef EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
 #define EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
 

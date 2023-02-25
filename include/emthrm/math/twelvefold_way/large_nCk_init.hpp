@@ -1,8 +1,3 @@
-/**
- * @title 二項係数の数表 巨大な $n$ 版
- * @docs docs/math/twelvefold_way/binomial_coefficients.md
- */
-
 #ifndef EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_
 #define EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_
 

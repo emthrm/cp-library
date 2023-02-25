@@ -1,8 +1,3 @@
-/**
- * @title undo 可能 union-find
- * @docs docs/data_structure/union-find/union-find.md
- */
-
 #ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_
 #define EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_
 

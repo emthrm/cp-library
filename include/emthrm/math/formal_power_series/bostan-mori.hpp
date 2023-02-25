@@ -1,8 +1,3 @@
-/**
- * @title Bostan–Mori のアルゴリズム
- * @docs docs/math/formal_power_series/bostan-mori.md
- */
-
 #ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_BOSTAN_MORI_HPP_
 #define EMTHRM_MATH_FORMAL_POWER_SERIES_BOSTAN_MORI_HPP_
 

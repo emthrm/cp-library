@@ -1,8 +1,3 @@
-/**
- * @title 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版
- * @docs docs/graph/flow/minimum_cost_flow/minimum_cost_flow.md
- */
-
 #ifndef EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_
 #define EMTHRM_GRAPH_FLOW_MINIMUM_COST_FLOW_MINIMUM_COST_B_FLOW_HPP_
 

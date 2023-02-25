@@ -1,3 +1,18 @@
+---
+title: [
+  メビウス関数 (Möbius function),
+  メビウス関数 (Möbius function) 約数版,
+  メビウス関数 (Möbius function) の数表,
+  メビウス関数 (Möbius function) の数表2
+]
+documentation_of: [
+  //include/emthrm/math/mobius_mu.hpp,
+  //include/emthrm/math/mobius_mu_focusing_on_divisor.hpp,
+  //include/emthrm/math/mobius_mu_init.hpp,
+  //include/emthrm/math/mobius_mu_init2.hpp
+]
+---
+
 # メビウス関数 (Möbius function)
 
 $n \in \mathbb{N}^+$ に対して

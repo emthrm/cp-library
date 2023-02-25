@@ -1,3 +1,14 @@
+---
+title: [
+  Kruskal 法,
+  Prim 法
+]
+documentation_of: [
+  //include/emthrm/graph/kruskal.hpp,
+  //include/emthrm/graph/prim.hpp
+]
+---
+
 # 最小全域木 (minimum spanning tree)
 
 

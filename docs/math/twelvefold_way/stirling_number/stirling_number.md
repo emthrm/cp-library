@@ -1,3 +1,20 @@
+---
+title: [
+  第1種スターリング数 (Stirling number of the first kind) の数表,
+  第1種スターリング数 (Stirling number of the first kind) の数表 形式的冪級数版,
+  第2種スターリング数 (Stirling number of the second kind),
+  第2種スターリング数 (Stirling number of the second kind) の数表,
+  第2種スターリング数 (Stirling number of the second kind) の数表 形式的冪級数版
+]
+documentation_of: [
+  //include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init.hpp,
+  //include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp,
+  //include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp,
+  //include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp,
+  //include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+]
+---
+
 # スターリング数 (Stirling number)
 
 

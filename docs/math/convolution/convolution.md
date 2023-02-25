@@ -1,3 +1,20 @@
+---
+title: [
+  添え字 and での畳み込み,
+  添え字 or での畳み込み,
+  添え字 xor での畳み込み,
+  添え字 gcd での畳み込み,
+  添え字 lcm での畳み込み
+]
+documentation_of: [
+  //include/emthrm/math/convolution/and_convolution.hpp,
+  //include/emthrm/math/convolution/or_convolution.hpp,
+  //include/emthrm/math/convolution/xor_convolution.hpp,
+  //include/emthrm/math/convolution/gcd_convolution.hpp,
+  //include/emthrm/math/convolution/lcm_convolution.hpp
+]
+---
+
 $C_k = \sum_{k = i \circ j} A_i B_j$ を求める。ただし $\circ$ は二項演算である。
 
 添え字 xor での畳み込みには『高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)』を用いる。

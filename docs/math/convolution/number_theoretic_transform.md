@@ -1,3 +1,14 @@
+---
+title: [
+  数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform),
+  任意の法の下での畳み込み
+]
+documentation_of: [
+  //include/emthrm/math/convolution/number_theoretic_transform.hpp,
+  //include/emthrm/math/convolution/mod_convolution.hpp
+]
+---
+
 # 数論変換 (number theoretic transform) / 高速剰余変換 (fast modulo transform)
 
 剰余環 $\mathbb{Z} / m\mathbb{Z}$ 上で離散フーリエ変換を高速に行うアルゴリズムである。

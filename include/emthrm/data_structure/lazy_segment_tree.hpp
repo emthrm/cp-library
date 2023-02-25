@@ -1,8 +1,3 @@
-/**
- * @title 遅延伝播セグメント木
- * @docs docs/data_structure/segment_tree.md
- */
-
 #ifndef EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_
 #define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_
 

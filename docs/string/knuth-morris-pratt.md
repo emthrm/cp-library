@@ -1,3 +1,14 @@
+---
+title: [
+  Knuth–Morris–Pratt algorithm,
+  Morris–Pratt algorithm
+]
+documentation_of: [
+  //include/emthrm/string/knuth-morris-pratt.hpp,
+  //include/emthrm/string/morris-pratt.hpp
+]
+---
+
 # Knuth–Morris–Pratt algorithm
 
 文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである。

@@ -1,3 +1,16 @@
+---
+title: [
+  オイラーの $\varphi$ 関数 (Euler's totient function),
+  オイラーの $\varphi$ 関数 (Euler's totient function) の数表,
+  オイラーの $\varphi$ 関数 (Euler's totient function) の数表2
+]
+documentation_of: [
+  //include/emthrm/math/euler_phi.hpp,
+  //include/emthrm/math/euler_phi_init.hpp,
+  //include/emthrm/math/euler_phi_init2.hpp
+]
+---
+
 # オイラーの $\varphi$ 関数 (Euler's totient function)
 
 $n \in \mathbb{N}^+$ に対して
@@ -35,11 +48,13 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 |:--|:--|
 |`long long euler_phi(long long n);`|$\varphi(n)$|
 
+
 ### 数表
 
 |名前|戻り値|
 |:--|:--|
 |`std::vector<int> euler_phi_init(const int n);`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
+
 
 ### 数表2
 

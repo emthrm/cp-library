@@ -1,3 +1,14 @@
+---
+title: [
+  最小費用 $s$-$t$-フロー (minimum cost $s$-$t$-flow) 最短路反復法 (successive shortest path algorithm) 版,
+  最小費用 $\boldsymbol{b}$-フロー (minimum cost $\boldsymbol{b}$-flow) 最短路反復法 (successive shortest path algorithm) 版
+]
+documentation_of: [
+  //include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp,
+  //include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
+]
+---
+
 # 最小費用流 (minimum cost flow)
 
 
@@ -7,7 +18,7 @@
 
 ||計算量|
 |:--|:--|
-|最小費用 $s$-$t$-フロー 最短路反復法 (successive shortest path algorithm) 版|$O(\lvert V \rvert \lvert E \rvert + F \lvert E \rvert \log{\lvert V \rvert})$|
+|最小費用 $s$-$t$-フロー 最短路反復法版|$O(\lvert V \rvert \lvert E \rvert + F \lvert E \rvert \log{\lvert V \rvert})$|
 |最小費用 $\boldsymbol{b}$-フロー 最短路反復法版|コスト負の辺の容量の総和を $F^{\prime}$ とおくと $O((F + F^{\prime})\lvert E \rvert \log{\lvert V \rvert})$。|
 
 
