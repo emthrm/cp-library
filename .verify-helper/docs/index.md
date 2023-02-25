@@ -1,11 +1,11 @@
 ## Documents
 
-### math
+### 数学
 
 - [代数的構造](https://emthrm.github.io/cp-library/algebraic_structure.html)
 - [双対問題](https://emthrm.github.io/cp-library/dual_problem.html)
 
-### misc
+### その他
 
 - [メモ](https://emthrm.github.io/cp-library/notes.html)
 - [TODO](https://emthrm.github.io/cp-library/todo.html)
