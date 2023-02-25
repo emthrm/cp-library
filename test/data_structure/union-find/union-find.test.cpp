@@ -1,5 +1,5 @@
 /*
- * @title データ構造/union-find/union-find
+ * @title データ構造/素集合データ構造/union-find
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_1_A
  */

@@ -1,5 +1,5 @@
 /*
- * @title データ構造/union-find/undo 可能 union-find
+ * @title データ構造/素集合データ構造/undo 可能 union-find
  *
  * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/joi2022yo2/tasks/joi2022_yo2_e
