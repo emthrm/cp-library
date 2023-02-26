@@ -20,7 +20,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip3 install -U git+https://github.com/emthrm/verification-helper.git
+        run: pip3 install -U git+https://github.com/emthrm/verification-helper.git@develop
 
       - name: Run tests
         env:
