@@ -48,4 +48,4 @@ struct CentroidDecomposition;
 
 ## Submissons
 
-https://judge.yosupo.jp/submission/12355
+https://atcoder.jp/contests/abc291/submissions/39252522

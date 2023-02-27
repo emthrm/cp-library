@@ -36,8 +36,9 @@ struct CentroidDecomposition {
     for (const int e : graph[centroid]
                      | std::views::transform(&Edge<CostType>::dst)) {
       if (is_alive[e]) {
-        g[centroid].emplace_back(build(e));
-        parent[e] = centroid;
+        const int child = build(e);
+        g[centroid].emplace_back(child);
+        parent[child] = centroid;
       }
     }
     is_alive[centroid] = true;

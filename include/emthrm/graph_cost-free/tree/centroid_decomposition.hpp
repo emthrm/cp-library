@@ -30,8 +30,9 @@ struct CentroidDecomposition {
     is_alive[centroid] = false;
     for (const int e : graph[centroid]) {
       if (is_alive[e]) {
-        g[centroid].emplace_back(build(e));
-        parent[e] = centroid;
+        const int child = build(e);
+        g[centroid].emplace_back(child);
+        parent[child] = centroid;
       }
     }
     is_alive[centroid] = true;
