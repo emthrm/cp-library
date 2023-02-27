@@ -11,13 +11,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
-    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left,\
-      \ right))"
+    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
   bundledCode: "#line 1 \"test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp\"\
-    \n/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left,\
-    \ right))\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\n\
+    \n/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree\n *\n\
+    \ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\n\
     \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp\"\
     \n\n\n\n#include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
     \ Abelian>\nstruct FenwickTree {\n  explicit FenwickTree(const int n, const Abelian\
@@ -40,8 +39,8 @@ data:
     \    if (com == 0) {\n      bit.add(x, y);\n    } else if (com == 1) {\n     \
     \ --y;\n      std::cout << bit.sum(x, y + 1) << '\\n';\n    }\n  }\n  return 0;\n\
     }\n"
-  code: "/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left,\
-    \ right))\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\n\
+  code: "/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree\n\
+    \ *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/data_structure/fenwick_tree/fenwick_tree.hpp\"\
     \n\nint main() {\n  int n, q;\n  std::cin >> n >> q;\n  emthrm::FenwickTree<long\
     \ long> bit(n);\n  while (q--) {\n    int com, x, y;\n    std::cin >> com >> x\
@@ -53,7 +52,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-02-27 16:52:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
@@ -61,5 +60,5 @@ layout: document
 redirect_from:
 - /verify/test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
 - /verify/test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp.html
-title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left, right))"
+title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree"
 ---

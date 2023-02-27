@@ -129,31 +129,31 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u6307\u6570)"
+      \u7D1A\u6570\uFF08\u6307\u6570\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u9006\u5143)"
+      \u7D1A\u6570\uFF08\u9006\u5143\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u5BFE\u6570)"
+      \u7D1A\u6570\uFF08\u5BFE\u6570\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u7D2F\u4E57)"
+      \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (mod_pow(exponend, md))"
+      \u7D1A\u6570 (mod_pow)"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u5E73\u65B9\u6839)"
+      \u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (translate(c))"
+      \u7D1A\u6570 ($f(x + c)$)"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"

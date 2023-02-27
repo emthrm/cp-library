@@ -11,8 +11,8 @@ data:
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\u901A\u7956\
-      \u5148)"
+    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\uFF08\u6700\u5C0F\u5171\u901A\
+      \u7956\u5148\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'

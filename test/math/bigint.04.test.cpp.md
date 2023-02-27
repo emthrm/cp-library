@@ -11,27 +11,28 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F
-    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
+    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u4E57\u7B97\
+      \uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F
   bundledCode: "#line 1 \"test/math/bigint.04.test.cpp\"\n/*\n * @title \u6570\u5B66\
-    /\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)\n *\n * verification-helper: PROBLEM\
-    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\n */\n\n#include\
-    \ <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <cmath>\n#include <compare>\n#include <iomanip>\n\
-    #line 10 \"include/emthrm/math/bigint.hpp\"\n#include <iterator>\n#include <limits>\n\
-    #include <sstream>\n#include <string>\n#include <utility>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <int LOG_B = 9, int B = 1000000000>  // B = 10^{LOG_B}\n\
-    struct BigInt {\n  int sgn;\n  std::vector<int> data;\n\n  BigInt(const long long\
-    \ val = 0) { *this = val; }\n  BigInt(const std::string& s) { *this = s; }\n\n\
-    \  std::vector<long long> convert_base(const int next_log_b,\n               \
-    \                       const int next_b) const {\n    assert(next_b == std::llround(std::pow(10,\
-    \ next_log_b)));\n    const int max_base = std::max(LOG_B, next_log_b);\n    std::vector<long\
-    \ long> p(max_base + 1, 1);\n    for (int i = 1; i <= max_base; ++i) {\n     \
-    \ p[i] = p[i - 1] * 10;\n    }\n    std::vector<long long> res;\n    long long\
-    \ cur_val = 0;\n    int cur_log_b = 0;\n    for (const int e : data) {\n     \
-    \ cur_val += p[cur_log_b] * e;\n      cur_log_b += LOG_B;\n      for (; cur_log_b\
-    \ >= next_log_b; cur_log_b -= next_log_b) {\n        res.emplace_back(cur_val\
+    /\u591A\u500D\u9577\u6574\u6570\uFF08\u4E57\u7B97\uFF09\n *\n * verification-helper:\
+    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\n */\n\
+    \n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\n#include\
+    \ <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n#include\
+    \ <iomanip>\n#line 10 \"include/emthrm/math/bigint.hpp\"\n#include <iterator>\n\
+    #include <limits>\n#include <sstream>\n#include <string>\n#include <utility>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <int LOG_B = 9, int B = 1000000000>\
+    \  // B = 10^{LOG_B}\nstruct BigInt {\n  int sgn;\n  std::vector<int> data;\n\n\
+    \  BigInt(const long long val = 0) { *this = val; }\n  BigInt(const std::string&\
+    \ s) { *this = s; }\n\n  std::vector<long long> convert_base(const int next_log_b,\n\
+    \                                      const int next_b) const {\n    assert(next_b\
+    \ == std::llround(std::pow(10, next_log_b)));\n    const int max_base = std::max(LOG_B,\
+    \ next_log_b);\n    std::vector<long long> p(max_base + 1, 1);\n    for (int i\
+    \ = 1; i <= max_base; ++i) {\n      p[i] = p[i - 1] * 10;\n    }\n    std::vector<long\
+    \ long> res;\n    long long cur_val = 0;\n    int cur_log_b = 0;\n    for (const\
+    \ int e : data) {\n      cur_val += p[cur_log_b] * e;\n      cur_log_b += LOG_B;\n\
+    \      for (; cur_log_b >= next_log_b; cur_log_b -= next_log_b) {\n        res.emplace_back(cur_val\
     \ % next_b);\n        cur_val /= next_b;\n      }\n    }\n    res.emplace_back(cur_val);\n\
     \    while (!res.empty() && res.back() == 0) res.pop_back();\n    return res;\n\
     \  }\n\n  int digit_sum() const {\n    assert(sgn == 1);\n    int res = 0;\n \
@@ -166,8 +167,8 @@ data:
     \  return a < b ? a : b;\n}\n\n}  // namespace std\n\n\n#line 10 \"test/math/bigint.04.test.cpp\"\
     \n\nint main() {\n  emthrm::BigInt<> a, b;\n  std::cin >> a >> b;\n  std::cout\
     \ << a * b << '\\n';\n  return 0;\n}\n"
-  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)\n\
-    \ *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\n\
+  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u4E57\u7B97\
+    \uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_F\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/math/bigint.hpp\"\n\nint main()\
     \ {\n  emthrm::BigInt<> a, b;\n  std::cin >> a >> b;\n  std::cout << a * b <<\
     \ '\\n';\n  return 0;\n}\n"
@@ -176,7 +177,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.04.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.04.test.cpp
@@ -184,5 +185,5 @@ layout: document
 redirect_from:
 - /verify/test/math/bigint.04.test.cpp
 - /verify/test/math/bigint.04.test.cpp.html
-title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
+title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u4E57\u7B97\uFF09"
 ---

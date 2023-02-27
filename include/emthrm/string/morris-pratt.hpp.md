@@ -5,10 +5,12 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/string/morris-pratt.1.test.cpp
-    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
+    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u30D1\u30BF\u30FC\
+      \u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\uFF09"
   - icon: ':warning:'
     path: test/string/morris-pratt.2.test.cpp
-    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
+    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u6700\u5C0F\u5468\
+      \u671F\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'

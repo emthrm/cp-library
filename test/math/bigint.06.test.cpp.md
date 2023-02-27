@@ -11,12 +11,12 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E
-    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\
-      \u7B97)"
+    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\
+      \u6F14\u7B97\uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E
   bundledCode: "#line 1 \"test/math/bigint.06.test.cpp\"\n/*\n * @title \u6570\u5B66\
-    /\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\u7B97)\n *\n * verification-helper:\
+    /\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\u6F14\u7B97\uFF09\n *\n * verification-helper:\
     \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E\n */\n\
     \n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n#include\
@@ -167,8 +167,8 @@ data:
     \  return a < b ? a : b;\n}\n\n}  // namespace std\n\n\n#line 10 \"test/math/bigint.06.test.cpp\"\
     \n\nint main() {\n  emthrm::BigInt<> a, b;\n  std::cin >> a >> b;\n  std::cout\
     \ << a % b << '\\n';\n  return 0;\n}\n"
-  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\
-    \u7B97)\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E\n\
+  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\
+    \u6F14\u7B97\uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_E\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/math/bigint.hpp\"\n\nint main()\
     \ {\n  emthrm::BigInt<> a, b;\n  std::cin >> a >> b;\n  std::cout << a % b <<\
     \ '\\n';\n  return 0;\n}\n"
@@ -177,7 +177,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.06.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.06.test.cpp
@@ -185,5 +185,5 @@ layout: document
 redirect_from:
 - /verify/test/math/bigint.06.test.cpp
 - /verify/test/math/bigint.06.test.cpp.html
-title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\u7B97)"
+title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\u6F14\u7B97\uFF09"
 ---

@@ -103,8 +103,8 @@ data:
   - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
 documentation_of: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
 layout: document
-title: "\u6700\u5C0F\u8CBB\u7528 $\boldsymbol{b}$-\u30D5\u30ED\u30FC (minimum cost\
-  \ $\boldsymbol{b}$-flow) \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5 (successive shortest\
+title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC (minimum cost\
+  \ $\\boldsymbol{b}$-flow) \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5 (successive shortest\
   \ path algorithm) \u7248"
 ---
 

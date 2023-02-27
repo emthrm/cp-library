@@ -24,10 +24,10 @@ data:
       \u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.1.test.cpp
-    title: "\u30B0\u30E9\u30D5/lowlink (\u6A4B)"
+    title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u6A4B\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/lowlink (\u95A2\u7BC0\u70B9)"
+    title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'

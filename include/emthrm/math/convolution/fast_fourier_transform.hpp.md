@@ -25,7 +25,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (mod_pow(exponend, md))"
+      \u7D1A\u6570 (mod_pow)"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'

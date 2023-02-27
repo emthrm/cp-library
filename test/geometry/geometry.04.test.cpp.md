@@ -13,12 +13,12 @@ data:
     ERROR: '0.00000001'
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-      \ (\u93E1\u6620)"
+      \uFF08\u93E1\u6620\uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B
   bundledCode: "#line 1 \"test/geometry/geometry.04.test.cpp\"\n/*\n * @title \u8A08\
-    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u93E1\u6620)\n *\n *\
-    \ verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
+    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u93E1\u6620\uFF09\
+    \n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
     \ * verification-helper: ERROR 0.00000001\n */\n\n#include <iomanip>\n#include\
     \ <iostream>\n\n#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\n#include\
     \ <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n#line\
@@ -244,7 +244,7 @@ data:
     \ ans = reflection(p1p2, p0);\n    std::cout << std::fixed << std::setprecision(9)\n\
     \              << ans.x << ' ' << ans.y << '\\n';\n  }\n  return 0;\n}\n"
   code: "/*\n * @title \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (\u93E1\u6620)\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
+    \uFF08\u93E1\u6620\uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_B\n\
     \ * verification-helper: ERROR 0.00000001\n */\n\n#include <iomanip>\n#include\
     \ <iostream>\n\n#include \"emthrm/geometry/geometry.hpp\"\n\nint main() {\n  emthrm::geometry::Point\
     \ p1, p2;\n  int q;\n  std::cin >> p1 >> p2 >> q;\n  const emthrm::geometry::Segment\
@@ -257,7 +257,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.04.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.04.test.cpp
@@ -265,6 +265,6 @@ layout: document
 redirect_from:
 - /verify/test/geometry/geometry.04.test.cpp
 - /verify/test/geometry/geometry.04.test.cpp.html
-title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u93E1\u6620\
-  )"
+title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u93E1\u6620\
+  \uFF09"
 ---

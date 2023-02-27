@@ -11,13 +11,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://atcoder.jp/contests/arc072/tasks/abc059_b
-    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\
-      \u8F03)"
+    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\
+      \u6BD4\u8F03\uFF09"
     links:
     - https://atcoder.jp/contests/abc059/tasks/abc059_b
     - https://atcoder.jp/contests/arc072/tasks/abc059_b
   bundledCode: "#line 1 \"test/math/bigint.07.test.cpp\"\n/*\n * @title \u6570\u5B66\
-    /\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)\n *\n * verification-helper:\
+    /\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\u6BD4\u8F03\uFF09\n *\n * verification-helper:\
     \ PROBLEM https://atcoder.jp/contests/arc072/tasks/abc059_b\n * Link: \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\
     \n */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\
     \n\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
@@ -170,8 +170,8 @@ data:
     \ {\n    std::cout << \"GREATER\\n\";\n  } else if (a < b) {\n    std::cout <<\
     \ \"LESS\\n\";\n  } else if (a == b) {\n    std::cout << \"EQUAL\\n\";\n  }\n\
     \  return 0;\n}\n"
-  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\
-    \u8F03)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc072/tasks/abc059_b\n\
+  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\
+    \u6BD4\u8F03\uFF09\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc072/tasks/abc059_b\n\
     \ * Link: \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\n */\n\n#include\
     \ <iostream>\n\n#include \"emthrm/math/bigint.hpp\"\n\nint main() {\n  emthrm::BigInt<>\
     \ a, b;\n  std::cin >> a >> b;\n  if (a > b) {\n    std::cout << \"GREATER\\n\"\
@@ -182,7 +182,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.07.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.07.test.cpp
@@ -190,5 +190,5 @@ layout: document
 redirect_from:
 - /verify/test/math/bigint.07.test.cpp
 - /verify/test/math/bigint.07.test.cpp.html
-title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)"
+title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\u6BD4\u8F03\uFF09"
 ---

@@ -12,14 +12,14 @@ data:
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-      \ (ccw(a, b, c))"
+      \ (ccw)"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
   bundledCode: "#line 1 \"test/geometry/geometry.01.test.cpp\"\n/*\n * @title \u8A08\
-    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw(a, b, c))\n *\n *\
-    \ verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
-    \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/geometry/geometry.hpp\"\
-    \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
+    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw)\n *\n * verification-helper:\
+    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n */\n\
+    \n#include <iostream>\n\n#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\
+    \n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
     #line 9 \"include/emthrm/geometry/geometry.hpp\"\n#include <iterator>\n#include\
     \ <limits>\n#include <numbers>\n#include <numeric>\n#include <tuple>\n#include\
     \ <utility>\n#include <vector>\n\nnamespace emthrm {\n\nnamespace geometry {\n\
@@ -245,7 +245,7 @@ data:
     ;\n    } else if (ans == 2) {\n      std::cout << \"ONLINE_BACK\\n\";\n    }\n\
     \  }\n  return 0;\n}\n"
   code: "/*\n * @title \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (ccw(a, b, c))\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
+    \ (ccw)\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/geometry/geometry.hpp\"\n\nint\
     \ main() {\n  emthrm::geometry::Point p0, p1;\n  int q;\n  std::cin >> p0 >> p1\
     \ >> q;\n  while (q--) {\n    emthrm::geometry::Point p2;\n    std::cin >> p2;\n\
@@ -260,7 +260,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.01.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:52:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.01.test.cpp
@@ -268,5 +268,5 @@ layout: document
 redirect_from:
 - /verify/test/geometry/geometry.01.test.cpp
 - /verify/test/geometry/geometry.01.test.cpp.html
-title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw(a, b, c))"
+title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw)"
 ---

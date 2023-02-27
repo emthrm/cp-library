@@ -15,13 +15,13 @@ data:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
     document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
       \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
-      \u53CD\u5FA9\u6CD5\u7248 (solve(s, t, flow))"
+      \u53CD\u5FA9\u6CD5\u7248"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B
   bundledCode: "#line 1 \"test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp\"\
     \n/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
     \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
-    \u5FA9\u6CD5\u7248 (solve(s, t, flow))\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\n\
+    \u5FA9\u6CD5\u7248\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\n\
     \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <functional>\n#include\
     \ <limits>\n#include <queue>\n#include <utility>\n#include <vector>\n\nnamespace\
@@ -84,7 +84,7 @@ data:
     \ ? -1 : ans) << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
     \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
-    \u5FA9\u6CD5\u7248 (solve(s, t, flow))\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\n\
+    \u5FA9\u6CD5\u7248\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_B\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \n\nint main() {\n  int v, e, f;\n  std::cin >> v >> e >> f;\n  emthrm::MinimumCostSTFlow<int,\
     \ int> minimum_cost_flow(v);\n  while (e--) {\n    int u, v, c, d;\n    std::cin\
@@ -96,7 +96,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-02-27 16:52:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
@@ -106,5 +106,5 @@ redirect_from:
 - /verify/test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp.html
 title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
   \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\
-  \u7248 (solve(s, t, flow))"
+  \u7248"
 ---

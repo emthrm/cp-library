@@ -16,17 +16,17 @@ data:
     path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
-      \u6CD5\u7248 (solve(s, t, flow))"
+      \u6CD5\u7248"
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
-      \u6CD5\u7248 (solve(s, t))"
+      \u6CD5\u7248\uFF08\u4EFB\u610F\u6D41\u91CF\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
-      \u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))"
+      \u6CD5\u7248\uFF08\u6700\u5C0F\u8CBB\u7528\u6700\u5927\u6D41\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.01.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"

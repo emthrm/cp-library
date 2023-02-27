@@ -21,7 +21,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u5E73\u65B9\u6839)"
+      \u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/is_primitive_root.test.cpp
     title: "\u6570\u5B66/\u539F\u59CB\u6839\u5224\u5B9A"

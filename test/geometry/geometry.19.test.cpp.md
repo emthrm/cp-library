@@ -12,12 +12,12 @@ data:
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-      \ (\u51F8\u6027\u5224\u5B9A)"
+      \uFF08\u51F8\u6027\u5224\u5B9A\uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B
   bundledCode: "#line 1 \"test/geometry/geometry.19.test.cpp\"\n/*\n * @title \u8A08\
-    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u6027\u5224\u5B9A\
-    )\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
+    \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u51F8\u6027\u5224\
+    \u5B9A\uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
     \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/geometry/geometry.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
     #line 9 \"include/emthrm/geometry/geometry.hpp\"\n#include <iterator>\n#include\
@@ -240,7 +240,7 @@ data:
     \  for (int i = 0; i < n; ++i) {\n    std::cin >> g[i];\n  }\n  std::cout << emthrm::geometry::is_convex(g)\
     \ << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (\u51F8\u6027\u5224\u5B9A)\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
+    \uFF08\u51F8\u6027\u5224\u5B9A\uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_3_B\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/geometry/geometry.hpp\"\n\nint\
     \ main() {\n  int n;\n  std::cin >> n;\n  emthrm::geometry::Polygon g(n);\n  for\
     \ (int i = 0; i < n; ++i) {\n    std::cin >> g[i];\n  }\n  std::cout << emthrm::geometry::is_convex(g)\
@@ -250,7 +250,7 @@ data:
   isVerificationFile: true
   path: test/geometry/geometry.19.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/geometry/geometry.19.test.cpp
@@ -258,6 +258,6 @@ layout: document
 redirect_from:
 - /verify/test/geometry/geometry.19.test.cpp
 - /verify/test/geometry/geometry.19.test.cpp.html
-title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u6027\
-  \u5224\u5B9A)"
+title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u51F8\u6027\
+  \u5224\u5B9A\uFF09"
 ---

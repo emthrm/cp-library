@@ -21,17 +21,16 @@ data:
   attributes:
     PROBLEM: https://atcoder.jp/contests/abc135/tasks/abc135_d
     document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-      \u7684\u51AA\u7D1A\u6570 (mod_pow(exponend, md))"
+      \u7684\u51AA\u7D1A\u6570 (mod_pow)"
     links:
     - https://atcoder.jp/contests/abc135/tasks/abc135_d
   bundledCode: "#line 1 \"test/math/formal_power_series/formal_power_series.5.test.cpp\"\
     \n/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570 (mod_pow(exponend, md))\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n */\n\n#include <algorithm>\n\
-    #include <iostream>\n#include <string>\n#include <utility>\n#include <vector>\n\
-    \n#line 1 \"include/emthrm/math/convolution/mod_convolution.hpp\"\n\n\n\n#line\
-    \ 5 \"include/emthrm/math/convolution/mod_convolution.hpp\"\n#include <bit>\n\
-    #include <cmath>\n#line 8 \"include/emthrm/math/convolution/mod_convolution.hpp\"\
+    \u7684\u51AA\u7D1A\u6570 (mod_pow)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include\
+    \ <utility>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/mod_convolution.hpp\"\
+    \n\n\n\n#line 5 \"include/emthrm/math/convolution/mod_convolution.hpp\"\n#include\
+    \ <bit>\n#include <cmath>\n#line 8 \"include/emthrm/math/convolution/mod_convolution.hpp\"\
     \n\n#line 1 \"include/emthrm/math/convolution/fast_fourier_transform.hpp\"\n\n\
     \n\n#line 6 \"include/emthrm/math/convolution/fast_fourier_transform.hpp\"\n#include\
     \ <cassert>\n#line 8 \"include/emthrm/math/convolution/fast_fourier_transform.hpp\"\
@@ -389,11 +388,11 @@ data:
     \ (idx - w * (s[i] - '0')) % M;\n      if (idx < 0) idx += M;\n    }\n    w =\
     \ w * 10 % M;\n  }\n  std::cout << f.front()[idx] << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570 (mod_pow(exponend, md))\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n */\n\n#include <algorithm>\n\
-    #include <iostream>\n#include <string>\n#include <utility>\n#include <vector>\n\
-    \n#include \"emthrm/math/convolution/mod_convolution.hpp\"\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \u7684\u51AA\u7D1A\u6570 (mod_pow)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include\
+    \ <utility>\n#include <vector>\n\n#include \"emthrm/math/convolution/mod_convolution.hpp\"\
+    \n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
+    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
     \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
     \   return emthrm::mod_convolution(a, b);\n      });\n  constexpr int D = 6, M\
@@ -417,7 +416,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-02-27 16:52:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp
@@ -426,5 +425,5 @@ redirect_from:
 - /verify/test/math/formal_power_series/formal_power_series.5.test.cpp
 - /verify/test/math/formal_power_series/formal_power_series.5.test.cpp.html
 title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-  \u7D1A\u6570 (mod_pow(exponend, md))"
+  \u7D1A\u6570 (mod_pow)"
 ---

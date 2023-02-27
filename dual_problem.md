@@ -299,7 +299,7 @@ $$
 
 有向グラフ $(V, E)$、頂点 $v \in V$ の流出量を $f_v$、辺 $e \in E$ の流量 $x_e$ ($0 \leq l_e \leq x_e \leq u_e$)、コスト $c_e$ とおく。
 
-主問題 (最小流量制約付き最小費用流)
+主問題（最小流量制約付き最小費用流）
 
 $$
   \min_{\boldsymbol{x}} \sum_{e \in E} c_e x_e \text{ s.t. }

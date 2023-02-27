@@ -26,14 +26,14 @@ data:
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
     document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-      \u7684\u51AA\u7D1A\u6570 (\u5E73\u65B9\u6839)"
+      \u7684\u51AA\u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
     links:
     - https://judge.yosupo.jp/problem/sqrt_of_formal_power_series
   bundledCode: "#line 1 \"test/math/formal_power_series/formal_power_series.6.test.cpp\"\
     \n/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570 (\u5E73\u65B9\u6839)\n *\n * verification-helper: PROBLEM\
-    \ https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n */\n\n#include\
-    \ <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \u7684\u51AA\u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09\n *\n * verification-helper:\
+    \ PROBLEM https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n */\n\n\
+    #include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <bit>\n#include <cassert>\n#include <iterator>\n\
     #include <utility>\n#line 10 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
     \n\n#line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n\
@@ -362,9 +362,9 @@ data:
     \  for (int i = 0; i < n; ++i) {\n      std::cout << a[i] << \" \\n\"[i + 1 ==\
     \ n];\n    }\n  }\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570 (\u5E73\u65B9\u6839)\n *\n * verification-helper: PROBLEM\
-    \ https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n */\n\n#include\
-    \ <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \u7684\u51AA\u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09\n *\n * verification-helper:\
+    \ PROBLEM https://judge.yosupo.jp/problem/sqrt_of_formal_power_series\n */\n\n\
+    #include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
     \n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
     \ \"emthrm/math/mod_sqrt.hpp\"\n#include \"emthrm/math/modint.hpp\"\n\nint main()\
     \ {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n \
@@ -389,7 +389,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.6.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.6.test.cpp
@@ -398,5 +398,5 @@ redirect_from:
 - /verify/test/math/formal_power_series/formal_power_series.6.test.cpp
 - /verify/test/math/formal_power_series/formal_power_series.6.test.cpp.html
 title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-  \u7D1A\u6570 (\u5E73\u65B9\u6839)"
+  \u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
 ---

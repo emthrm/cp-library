@@ -8,10 +8,11 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left, right))"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree"
   - icon: ':warning:'
     path: test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (lower_bound(val))"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree\uFF08\u4E8C\u5206\
+      \u63A2\u7D22\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/misc/inversion_number.test.cpp
     title: "\u305D\u306E\u4ED6/\u8EE2\u5012\u6570"

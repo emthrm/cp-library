@@ -11,13 +11,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/segment_add_get_min
-    document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024\
-      )"
+    document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5927\
+      \u5024\uFF09"
     links:
     - https://judge.yosupo.jp/problem/segment_add_get_min
   bundledCode: "#line 1 \"test/dynamic_programming/li_chao_tree.2.test.cpp\"\n/*\n\
-    \ * @title \u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024)\n\
-    \ *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/segment_add_get_min\n\
+    \ * @title \u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5927\u5024\
+    \uFF09\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/segment_add_get_min\n\
     \ */\n\n#include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/dynamic_programming/li_chao_tree.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <bit>\n#include <cassert>\n#include <iterator>\n\
     #include <numeric>\n#include <utility>\n#line 11 \"include/emthrm/dynamic_programming/li_chao_tree.hpp\"\
@@ -67,8 +67,8 @@ data:
     \    } else if (query[i] == 1) {\n      const long long ans = -li_chao_tree.query(p[i]);\n\
     \      if (ans == LINF) {\n        std::cout << \"INFINITY\\n\";\n      } else\
     \ {\n        std::cout << ans << '\\n';\n      }\n    }\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024\
-    )\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/segment_add_get_min\n\
+  code: "/*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5927\
+    \u5024\uFF09\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/segment_add_get_min\n\
     \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/dynamic_programming/li_chao_tree.hpp\"\
     \n\nint main() {\n  constexpr long long LINF = 0x3f3f3f3f3f3f3f3fLL;\n  int n,\
     \ q;\n  std::cin >> n >> q;\n  std::vector<int> query(q), l(n + q), r(n + q),\
@@ -89,7 +89,7 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/li_chao_tree.2.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/li_chao_tree.2.test.cpp
@@ -97,5 +97,5 @@ layout: document
 redirect_from:
 - /verify/test/dynamic_programming/li_chao_tree.2.test.cpp
 - /verify/test/dynamic_programming/li_chao_tree.2.test.cpp.html
-title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024)"
+title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5927\u5024\uFF09"
 ---

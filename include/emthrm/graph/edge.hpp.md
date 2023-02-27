@@ -154,10 +154,10 @@ data:
     title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.1.test.cpp
-    title: "\u30B0\u30E9\u30D5/lowlink (\u6A4B)"
+    title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u6A4B\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/lowlink (\u95A2\u7BC0\u70B9)"
+    title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
   - icon: ':warning:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
@@ -201,8 +201,8 @@ data:
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\u901A\u7956\
-      \u5148)"
+    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\uFF08\u6700\u5C0F\u5171\u901A\
+      \u7956\u5148\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\

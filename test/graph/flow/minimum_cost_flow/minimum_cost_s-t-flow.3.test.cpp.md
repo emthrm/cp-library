@@ -15,16 +15,16 @@ data:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088
     document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
       \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\
-      \u53CD\u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))"
+      \u53CD\u5FA9\u6CD5\u7248\uFF08\u6700\u5C0F\u8CBB\u7528\u6700\u5927\u6D41\uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088
   bundledCode: "#line 1 \"test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp\"\
     \n/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
     \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
-    \u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))\n *\n * verification-helper:\
-    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088\n */\n\
-    \n#include <algorithm>\n#include <iostream>\n#include <iterator>\n#include <utility>\n\
-    #include <vector>\n\n#line 1 \"include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
+    \u5FA9\u6CD5\u7248\uFF08\u6700\u5C0F\u8CBB\u7528\u6700\u5927\u6D41\uFF09\n *\n\
+    \ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <iterator>\n#include\
+    \ <utility>\n#include <vector>\n\n#line 1 \"include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \n\n\n\n#line 5 \"include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \n#include <cassert>\n#include <functional>\n#include <limits>\n#include <queue>\n\
     #line 11 \"include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
@@ -108,10 +108,10 @@ data:
     \    std::cout << ans_class << ' ' << ans_fare << '\\n';\n  }\n  return 0;\n}\n"
   code: "/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\
     \u6D41/\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\
-    \u5FA9\u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))\n *\n * verification-helper:\
-    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088\n */\n\
-    \n#include <algorithm>\n#include <iostream>\n#include <iterator>\n#include <utility>\n\
-    #include <vector>\n\n#include \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
+    \u5FA9\u6CD5\u7248\uFF08\u6700\u5C0F\u8CBB\u7528\u6700\u5927\u6D41\uFF09\n *\n\
+    \ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1088\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <iterator>\n#include\
+    \ <utility>\n#include <vector>\n\n#include \"emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp\"\
     \n\nint main() {\n  struct Train { int x, y, c; };\n  while (true) {\n    int\
     \ n;\n    std::cin >> n;\n    if (n == 0) break;\n    int num = 0;\n    std::vector<std::vector<Train>>\
     \ trains(n - 1);\n    std::vector<std::vector<int>> times(n - 1);\n    for (int\
@@ -143,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-02-27 16:52:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
@@ -153,5 +153,5 @@ redirect_from:
 - /verify/test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp.html
 title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
   \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5\
-  \u7248 (minimum_cost_maximum_flow(s, t, flow))"
+  \u7248\uFF08\u6700\u5C0F\u8CBB\u7528\u6700\u5927\u6D41\uFF09"
 ---

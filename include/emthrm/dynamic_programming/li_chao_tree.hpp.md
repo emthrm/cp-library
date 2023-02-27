@@ -5,10 +5,10 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/li_chao_tree.1.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5C0F\u5024)"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5C0F\u5024\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/li_chao_tree.2.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024)"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5927\u5024\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'

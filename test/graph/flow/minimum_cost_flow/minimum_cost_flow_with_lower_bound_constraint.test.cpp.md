@@ -6,8 +6,8 @@ data:
     title: "\u8FBA"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
-    title: "\u6700\u5C0F\u8CBB\u7528 $\boldsymbol{b}$-\u30D5\u30ED\u30FC (minimum\
-      \ cost $\boldsymbol{b}$-flow) \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5 (successive\
+    title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC (minimum\
+      \ cost $\\boldsymbol{b}$-flow) \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5 (successive\
       \ shortest path algorithm) \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp

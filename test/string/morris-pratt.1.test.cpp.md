@@ -11,12 +11,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
-    document_title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
+    document_title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u30D1\u30BF\
+      \u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B
   bundledCode: "#line 1 \"test/string/morris-pratt.1.test.cpp\"\n/*\n * @title \u6587\
-    \u5B57\u5217/Morris\u2013Pratt algorithm (match(t))\n *\n * verification-helper:\
-    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\n\
+    \u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\
+    \u30C1\u30F3\u30B0\uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\n\
     \ */\n\n#include <iostream>\n#include <string>\n\n#line 1 \"include/emthrm/string/morris-pratt.hpp\"\
     \n\n\n\n#line 5 \"include/emthrm/string/morris-pratt.hpp\"\n#include <vector>\n\
     \nnamespace emthrm {\n\nstruct MorrisPratt {\n  std::string s;\n  std::vector<int>\
@@ -33,8 +34,9 @@ data:
     \n\n#line 11 \"test/string/morris-pratt.1.test.cpp\"\n\nint main() {\n  std::string\
     \ t, p;\n  std::cin >> t >> p;\n  for (const int ans : emthrm::MorrisPratt(p).match(t))\
     \ {\n    std::cout << ans << '\\n';\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))\n\
-    \ *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\n\
+  code: "/*\n * @title \u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u30D1\u30BF\
+    \u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\uFF09\n *\n * verification-helper:\
+    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_14_B\n\
     \ */\n\n#include <iostream>\n#include <string>\n\n#include \"emthrm/string/morris-pratt.hpp\"\
     \n\nint main() {\n  std::string t, p;\n  std::cin >> t >> p;\n  for (const int\
     \ ans : emthrm::MorrisPratt(p).match(t)) {\n    std::cout << ans << '\\n';\n \
@@ -44,7 +46,7 @@ data:
   isVerificationFile: true
   path: test/string/morris-pratt.1.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-02-27 16:52:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/morris-pratt.1.test.cpp
@@ -52,5 +54,6 @@ layout: document
 redirect_from:
 - /verify/test/string/morris-pratt.1.test.cpp
 - /verify/test/string/morris-pratt.1.test.cpp.html
-title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
+title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u30D1\u30BF\u30FC\u30F3\
+  \u30DE\u30C3\u30C1\u30F3\u30B0\uFF09"
 ---

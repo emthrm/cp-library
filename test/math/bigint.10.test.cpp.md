@@ -12,12 +12,13 @@ data:
   attributes:
     IGNORE: ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015
-    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
+    document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u6570\
+      \uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015
   bundledCode: "#line 1 \"test/math/bigint.10.test.cpp\"\n/*\n * @title \u6570\u5B66\
-    /\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)\n *\n * verification-helper: IGNORE\n\
-    \ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015\n\
+    /\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u6570\uFF09\n *\n * verification-helper:\
+    \ IGNORE\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015\n\
     \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\
     \n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
     #include <iomanip>\n#line 10 \"include/emthrm/math/bigint.hpp\"\n#include <iterator>\n\
@@ -169,8 +170,8 @@ data:
     \ a, b;\n    std::cin >> a >> b;\n    emthrm::BigInt<> ans = a + b;\n    if (ans.length()\
     \ > 80) {\n      std::cout << \"overflow\\n\";\n    } else {\n      std::cout\
     \ << ans << '\\n';\n    }\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)\n\
-    \ *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015\n\
+  code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u6570\
+    \uFF09\n *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0015\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/math/bigint.hpp\"\n\nint main()\
     \ {\n  int t;\n  std::cin >> t;\n  while (t--) {\n    emthrm::BigInt<> a, b;\n\
     \    std::cin >> a >> b;\n    emthrm::BigInt<> ans = a + b;\n    if (ans.length()\
@@ -181,7 +182,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.10.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/bigint.10.test.cpp
@@ -189,5 +190,5 @@ layout: document
 redirect_from:
 - /verify/test/math/bigint.10.test.cpp
 - /verify/test/math/bigint.10.test.cpp.html
-title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
+title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u6570\uFF09"
 ---

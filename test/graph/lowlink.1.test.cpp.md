@@ -14,11 +14,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B
-    document_title: "\u30B0\u30E9\u30D5/lowlink (\u6A4B)"
+    document_title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u6A4B\uFF09"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B
   bundledCode: "#line 1 \"test/graph/lowlink.1.test.cpp\"\n/*\n * @title \u30B0\u30E9\
-    \u30D5/lowlink (\u6A4B)\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B\n\
+    \u30D5/lowlink\uFF08\u6A4B\uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B\n\
     \ */\n\n#include <algorithm>\n#include <iostream>\n#include <utility>\n#include\
     \ <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\
     \n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include\
@@ -60,7 +60,7 @@ data:
     \         return std::make_pair(e.src, e.dst);\n                    });\n  for\
     \ (const emthrm::Edge<bool>& bridge : l.bridges) {\n    std::cout << bridge.src\
     \ << ' ' << bridge.dst << '\\n';\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u30B0\u30E9\u30D5/lowlink (\u6A4B)\n *\n * verification-helper:\
+  code: "/*\n * @title \u30B0\u30E9\u30D5/lowlink\uFF08\u6A4B\uFF09\n *\n * verification-helper:\
     \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B\n */\n\
     \n#include <algorithm>\n#include <iostream>\n#include <utility>\n#include <vector>\n\
     \n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/lowlink.hpp\"\n\n\
@@ -78,7 +78,7 @@ data:
   isVerificationFile: true
   path: test/graph/lowlink.1.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-02-27 16:57:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/lowlink.1.test.cpp
@@ -86,5 +86,5 @@ layout: document
 redirect_from:
 - /verify/test/graph/lowlink.1.test.cpp
 - /verify/test/graph/lowlink.1.test.cpp.html
-title: "\u30B0\u30E9\u30D5/lowlink (\u6A4B)"
+title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u6A4B\uFF09"
 ---

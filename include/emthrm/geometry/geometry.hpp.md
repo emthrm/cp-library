@@ -8,20 +8,19 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.01.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw(a,\
-      \ b, c))"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw)"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.02.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u6700\u8FD1\
-      \u70B9\u5BFE)"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u6700\
+      \u8FD1\u70B9\u5BFE\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.03.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5C04\u5F71\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u5C04\
+      \u5F71\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.04.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u93E1\u6620\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u93E1\
+      \u6620\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.05.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5E73\u884C\
@@ -56,8 +55,8 @@ data:
       \u5206\u306E\u8DDD\u96E2)"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.13.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u63A5\u70B9\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u63A5\
+      \u70B9\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.14.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u5186\
@@ -80,12 +79,12 @@ data:
       \u5F62\u306B\u5BFE\u3059\u308B\u70B9\u306E\u5185\u5916\u5224\u5B9A)"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.19.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u6027\
-      \u5224\u5B9A)"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u51F8\
+      \u6027\u5224\u5B9A\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.20.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u5305\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u51F8\
+      \u5305\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.21.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u591A\

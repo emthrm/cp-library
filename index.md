@@ -453,8 +453,8 @@ data:
   minimumCostFlow:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
-    title: "\u6700\u5C0F\u8CBB\u7528 $\boldsymbol{b}$-\u30D5\u30ED\u30FC (minimum\
-      \ cost $\boldsymbol{b}$-flow) \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5 (successive\
+    title: "\u6700\u5C0F\u8CBB\u7528 $\\boldsymbol{b}$-\u30D5\u30ED\u30FC (minimum\
+      \ cost $\\boldsymbol{b}$-flow) \u6700\u77ED\u8DEF\u53CD\u5FA9\u6CD5 (successive\
       \ shortest path algorithm) \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp
@@ -625,10 +625,11 @@ data:
       \u30A8\u30EA\u5BFE\u5FDC2\u6B21\u5143 Fenwick tree"
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (sum(left, right))"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree"
   - icon: ':warning:'
     path: test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree (lower_bound(val))"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/Fenwick tree\uFF08\u4E8C\u5206\
+      \u63A2\u7D22\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/\u533A\u9593\u52A0\u7B97\u30AF\
@@ -699,13 +700,15 @@ data:
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convex_hull_trick.1.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (query(x))"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convex_hull_trick.2.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotonically_increasing_query(x))"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\u5358\
+      \u8ABF\u5897\u52A0\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convex_hull_trick.3.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotonically_decreasing_query(x))"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\u5358\
+      \u8ABF\u6E1B\u5C11\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/knuth_yao_speedup.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/Knuth\u2013Yao speedup"
@@ -719,10 +722,10 @@ data:
       \u30A4\u30F3\u8DDD\u96E2"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/li_chao_tree.1.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5C0F\u5024)"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5C0F\u5024\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/li_chao_tree.2.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree (\u6700\u5927\u5024)"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/Li Chao tree\uFF08\u6700\u5927\u5024\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/longest_common_subsequence.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u6700\u9577\u5171\u901A\u90E8\u5206\u5217"
@@ -743,20 +746,19 @@ data:
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u504F\u89D2\u30BD\u30FC\u30C8"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.01.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw(a,\
-      \ b, c))"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (ccw)"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.02.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u6700\u8FD1\
-      \u70B9\u5BFE)"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u6700\
+      \u8FD1\u70B9\u5BFE\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.03.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5C04\u5F71\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u5C04\
+      \u5F71\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.04.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u93E1\u6620\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u93E1\
+      \u6620\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.05.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5E73\u884C\
@@ -791,8 +793,8 @@ data:
       \u5206\u306E\u8DDD\u96E2)"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.13.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u63A5\u70B9\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u63A5\
+      \u70B9\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.14.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (2\u5186\
@@ -815,12 +817,12 @@ data:
       \u5F62\u306B\u5BFE\u3059\u308B\u70B9\u306E\u5185\u5916\u5224\u5B9A)"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.19.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u6027\
-      \u5224\u5B9A)"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u51F8\
+      \u6027\u5224\u5B9A\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.20.test.cpp
-    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u5305\
-      )"
+    title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\uFF08\u51F8\
+      \u5305\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/geometry/geometry.21.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u591A\
@@ -913,17 +915,17 @@ data:
     path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
-      \u6CD5\u7248 (solve(s, t, flow))"
+      \u6CD5\u7248"
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
-      \u6CD5\u7248 (solve(s, t))"
+      \u6CD5\u7248\uFF08\u4EFB\u610F\u6D41\u91CF\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
       \u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC \u6700\u77ED\u8DEF\u53CD\u5FA9\
-      \u6CD5\u7248 (minimum_cost_maximum_flow(s, t, flow))"
+      \u6CD5\u7248\uFF08\u6700\u5C0F\u8CBB\u7528\u6700\u5927\u6D41\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/girth.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5185\u5468"
@@ -935,10 +937,10 @@ data:
     title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.1.test.cpp
-    title: "\u30B0\u30E9\u30D5/lowlink (\u6A4B)"
+    title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u6A4B\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/lowlink (\u95A2\u7BC0\u70B9)"
+    title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
   - icon: ':warning:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
@@ -986,8 +988,8 @@ data:
     title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3 (\u6700\u5C0F\u5171\u901A\u7956\
-      \u5148)"
+    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\uFF08\u6700\u5C0F\u5171\u901A\
+      \u7956\u5148\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\
@@ -1010,31 +1012,33 @@ data:
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.02.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u52A0\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u52A0\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.03.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6E1B\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6E1B\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.04.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u4E57\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.05.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u9664\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u9664\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.06.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\u6F14\u7B97\
+      \uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.07.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\u6BD4\u8F03\
+      \uFF09"
   - icon: ':warning:'
     path: test/math/bigint.08.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u51AA\u6F14\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u51AA\u6F14\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.09.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u548C)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u548C\uFF09"
   - icon: ':warning:'
     path: test/math/bigint.10.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u6570\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/catalan_number.test.cpp
     title: "\u6570\u5B66/\u30AB\u30BF\u30E9\u30F3\u6570"
@@ -1132,31 +1136,31 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u6307\u6570)"
+      \u7D1A\u6570\uFF08\u6307\u6570\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u9006\u5143)"
+      \u7D1A\u6570\uFF08\u9006\u5143\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u5BFE\u6570)"
+      \u7D1A\u6570\uFF08\u5BFE\u6570\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u7D2F\u4E57)"
+      \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (mod_pow(exponend, md))"
+      \u7D1A\u6570 (mod_pow)"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (\u5E73\u65B9\u6839)"
+      \u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-      \u7D1A\u6570 (translate(c))"
+      \u7D1A\u6570 ($f(x + c)$)"
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
@@ -1340,10 +1344,12 @@ data:
     title: "\u6587\u5B57\u5217/Manacher"
   - icon: ':heavy_check_mark:'
     path: test/string/morris-pratt.1.test.cpp
-    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
+    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u30D1\u30BF\u30FC\
+      \u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\uFF09"
   - icon: ':warning:'
     path: test/string/morris-pratt.2.test.cpp
-    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
+    title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm\uFF08\u6700\u5C0F\u5468\
+      \u671F\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/string/rolling_hash.test.cpp
     title: "\u6587\u5B57\u5217/rolling hash"
@@ -1361,6 +1367,8 @@ data:
     title: "\u6587\u5B57\u5217/Z algorithm"
 layout: toppage
 ---
+This documentation is automatically generated by [online-judge-tools/verification-helper](https://github.com/online-judge-tools/verification-helper).
+
 ## Documents
 
 ### 数学 (math)

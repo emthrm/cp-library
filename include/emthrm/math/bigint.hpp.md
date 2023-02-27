@@ -8,31 +8,33 @@ data:
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.02.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u52A0\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u52A0\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.03.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6E1B\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6E1B\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.04.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u4E57\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u4E57\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.05.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u9664\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u9664\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.06.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5270\u4F59\u6F14\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\u6F14\u7B97\
+      \uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.07.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\u6BD4\u8F03\
+      \uFF09"
   - icon: ':warning:'
     path: test/math/bigint.08.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u51AA\u6F14\u7B97)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u51AA\u6F14\u7B97\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.09.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u548C)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u548C\uFF09"
   - icon: ':warning:'
     path: test/math/bigint.10.test.cpp
-    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
+    title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u6841\u6570\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'

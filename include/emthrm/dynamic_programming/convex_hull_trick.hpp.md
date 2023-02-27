@@ -5,13 +5,15 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convex_hull_trick.1.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (query(x))"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convex_hull_trick.2.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotonically_increasing_query(x))"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\u5358\
+      \u8ABF\u5897\u52A0\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convex_hull_trick.3.test.cpp
-    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick (monotonically_decreasing_query(x))"
+    title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\u5358\
+      \u8ABF\u6E1B\u5C11\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
