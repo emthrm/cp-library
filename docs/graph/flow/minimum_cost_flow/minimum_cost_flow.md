@@ -1,7 +1,7 @@
 ---
 title: [
-  最小費用 $s$-$t$-フロー (minimum cost $s$-$t$-flow) 最短路反復法 (successive shortest path algorithm) 版,
-  最小費用 $\boldsymbol{b}$-フロー (minimum cost $\boldsymbol{b}$-flow) 最短路反復法 (successive shortest path algorithm) 版
+  "最小費用 $s$-$t$-フロー (minimum cost $s$-$t$-flow) 最短路反復法 (successive shortest path algorithm) 版",
+  "最小費用 $\boldsymbol{b}$-フロー (minimum cost $\boldsymbol{b}$-flow) 最短路反復法 (successive shortest path algorithm) 版"
 ]
 documentation_of: [
   //include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp,
