@@ -1,5 +1,5 @@
 /*
- * @title グラフ/lowlink (関節点)
+ * @title グラフ/lowlink（関節点）
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_A
  */

@@ -1,5 +1,5 @@
 /*
- * @title グラフ/lowlink (橋)
+ * @title グラフ/lowlink（橋）
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_3_B
  */

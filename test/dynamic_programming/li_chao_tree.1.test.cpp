@@ -1,5 +1,5 @@
 /*
- * @title 動的計画法/Li Chao tree (最小値)
+ * @title 動的計画法/Li Chao tree（最小値）
  *
  * verification-helper: PROBLEM https://judge.yosupo.jp/problem/segment_add_get_min
  */

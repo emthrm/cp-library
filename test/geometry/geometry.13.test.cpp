@@ -1,5 +1,5 @@
 /*
- * @title 計算幾何学/計算幾何学 (接点)
+ * @title 計算幾何学/計算幾何学（接点）
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_7_F
  * verification-helper: ERROR 0.00001

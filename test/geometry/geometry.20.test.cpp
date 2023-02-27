@@ -1,5 +1,5 @@
 /*
- * @title 計算幾何学/計算幾何学 (凸包)
+ * @title 計算幾何学/計算幾何学（凸包）
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_4_A
  */

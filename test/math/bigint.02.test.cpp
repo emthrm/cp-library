@@ -1,5 +1,5 @@
 /*
- * @title 数学/多倍長整数 (加算)
+ * @title 数学/多倍長整数（加算）
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A
  */
