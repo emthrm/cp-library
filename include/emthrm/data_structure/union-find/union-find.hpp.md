@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
@@ -11,8 +11,9 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/union-find/union-find.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/union-find"
-  - icon: ':x:'
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\
+      \u9020/union-find"
+  - icon: ':warning:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
@@ -22,30 +23,25 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/kruskal.test.cpp
     title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/union-find/union-find.md
-    document_title: union-find
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/union-find/union-find.hpp\"\
-    \n/**\n * @brief union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n#define EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n\
-    \n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\nstruct UnionFind\
-    \ {\n  explicit UnionFind(const int n) : data(n, -1) {}\n\n  int root(const int\
-    \ ver) {\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\n  }\n\
-    \n  bool unite(int u, int v) {\n    u = root(u);\n    v = root(v);\n    if (u\
-    \ == v) return false;\n    if (data[u] > data[v]) std::swap(u, v);\n    data[u]\
-    \ += data[v];\n    data[v] = u;\n    return true;\n  }\n\n  bool is_same(const\
+    \n\n\n\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\nstruct\
+    \ UnionFind {\n  explicit UnionFind(const int n) : data(n, -1) {}\n\n  int root(const\
+    \ int ver) {\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\n\
+    \  }\n\n  bool unite(int u, int v) {\n    u = root(u);\n    v = root(v);\n   \
+    \ if (u == v) return false;\n    if (data[u] > data[v]) std::swap(u, v);\n   \
+    \ data[u] += data[v];\n    data[v] = u;\n    return true;\n  }\n\n  bool is_same(const\
     \ int u, const int v) { return root(u) == root(v); }\n\n  int size(const int ver)\
     \ { return -data[root(ver)]; }\n\n private:\n  std::vector<int> data;\n};\n\n\
-    }  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n"
-  code: "/**\n * @brief union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n#define EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n\
+    }  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n#define EMTHRM_DATA_STRUCTURE_UNION_FIND_UNION_FIND_HPP_\n\
     \n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\nstruct UnionFind\
     \ {\n  explicit UnionFind(const int n) : data(n, -1) {}\n\n  int root(const int\
     \ ver) {\n    return data[ver] < 0 ? ver : data[ver] = root(data[ver]);\n  }\n\
@@ -61,8 +57,8 @@ data:
   requiredBy:
   - include/emthrm/graph/connencted_component_of_complement_graph.hpp
   - include/emthrm/graph/kruskal.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-02-25 16:35:06+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/data_structure/union-find/union-find.test.cpp
   - test/graph/kruskal.test.cpp
@@ -71,11 +67,9 @@ data:
   - test/graph/connencted_component_of_complement_graph.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/union-find.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/union-find/union-find.hpp
-- /library/include/emthrm/data_structure/union-find/union-find.hpp.html
 title: union-find
 ---
+
 # 素集合データ構造 (disjoint-set data structure)
 
 |名前|概要|

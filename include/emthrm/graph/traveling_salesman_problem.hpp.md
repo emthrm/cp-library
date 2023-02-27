@@ -15,15 +15,28 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"include/emthrm/graph/traveling_salesman_problem.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <limits>\n#include <numeric>\n#include <vector>\n\
+    \n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n */\n\n#ifndef\
+    \ EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include <compare>\n\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  CostType\
+    \ cost;\n  int src, dst;\n\n  explicit Edge(const int src, const int dst, const\
+    \ CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\n  auto operator<=>(const\
+    \ Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n\
+    #line 10 \"include/emthrm/graph/traveling_salesman_problem.hpp\"\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename CostType>\nCostType traveling_salesman_problem(\n\
+    \    const std::vector<std::vector<Edge<CostType>>>& graph,\n    const CostType\
+    \ inf = std::numeric_limits<CostType>::max()) {\n  const int n = graph.size();\n\
+    \  if (n == 1) [[unlikely]] return 0;\n  std::vector<std::vector<CostType>> dp(1\
+    \ << n, std::vector<CostType>(n, inf));\n  dp[1][0] = 0;\n  for (int i = 1; i\
+    \ < (1 << n); ++i) {\n    for (int j = 0; j < n; ++j) {\n      if (dp[i][j] ==\
+    \ inf) continue;\n      for (const Edge<CostType>& e : graph[j]) {\n        if\
+    \ (i >> e.dst & 1) continue;\n        dp[i | (1 << e.dst)][e.dst] =\n        \
+    \    std::min(dp[i | (1 << e.dst)][e.dst], dp[i][j] + e.cost);\n      }\n    }\n\
+    \  }\n  CostType res = inf;\n  for (int j = 1; j < n; ++j) {\n    if (dp.back()[j]\
+    \ == inf) continue;\n    for (const Edge<CostType>& e : graph[j]) {\n      if\
+    \ (e.dst == 0) res = std::min(res, dp.back()[j] + e.cost);\n    }\n  }\n  return\
+    \ res;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_TRAVELING_SALESMAN_PROBLEM_HPP_\n#define EMTHRM_GRAPH_TRAVELING_SALESMAN_PROBLEM_HPP_\n\
     \n#include <algorithm>\n#include <limits>\n#include <numeric>\n#include <vector>\n\
     \n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
@@ -44,7 +57,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/traveling_salesman_problem.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/traveling_salesman_problem.test.cpp

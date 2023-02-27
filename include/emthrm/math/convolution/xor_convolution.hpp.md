@@ -11,36 +11,29 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/convolution/convolution.md
-    document_title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/convolution/xor_convolution.hpp\"\n\
-    /**\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\n *\
-    \ @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\
-    #define EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\n#include <algorithm>\n\
-    #include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ T>\nstd::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b,\n   \
-    \                            const T id = 0) {\n  const int n = std::bit_ceil(std::max(a.size(),\
-    \ b.size()));\n  const auto fast_walsh_hadamard_transform = [n](std::vector<T>*\
-    \ v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s\
-    \ < n; ++s) {\n        if (s & i) continue;\n        const T tmp1 = (*v)[s], tmp2\
-    \ = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n        (*v)[s | i] = tmp1 -\
-    \ tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
+  bundledCode: "#line 1 \"include/emthrm/math/convolution/xor_convolution.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <bit>\n#include <vector>\n\nnamespace emthrm\
+    \ {\n\ntemplate <typename T>\nstd::vector<T> xor_convolution(std::vector<T> a,\
+    \ std::vector<T> b,\n                               const T id = 0) {\n  const\
+    \ int n = std::bit_ceil(std::max(a.size(), b.size()));\n  const auto fast_walsh_hadamard_transform\
+    \ = [n](std::vector<T>* v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n\
+    \      for (int s = 0; s < n; ++s) {\n        if (s & i) continue;\n        const\
+    \ T tmp1 = (*v)[s], tmp2 = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n    \
+    \    (*v)[s | i] = tmp1 - tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
     \  b.resize(n, id);\n  fast_walsh_hadamard_transform(&b);\n  for (int i = 0; i\
     \ < n; ++i) {\n    a[i] *= b[i];\n  }\n  fast_walsh_hadamard_transform(&a);\n\
     \  for (int i = 0; i < n; ++i) {\n    a[i] /= n;\n  }\n  return a;\n}\n\n}  //\
-    \ namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n"
-  code: "/**\n * @brief \u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F\
-    \n * @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\
-    #define EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\n#include <algorithm>\n\
-    #include <bit>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ T>\nstd::vector<T> xor_convolution(std::vector<T> a, std::vector<T> b,\n   \
-    \                            const T id = 0) {\n  const int n = std::bit_ceil(std::max(a.size(),\
-    \ b.size()));\n  const auto fast_walsh_hadamard_transform = [n](std::vector<T>*\
-    \ v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n      for (int s = 0; s\
-    \ < n; ++s) {\n        if (s & i) continue;\n        const T tmp1 = (*v)[s], tmp2\
-    \ = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n        (*v)[s | i] = tmp1 -\
-    \ tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
+    \ namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n#define EMTHRM_MATH_CONVOLUTION_XOR_CONVOLUTION_HPP_\n\
+    \n#include <algorithm>\n#include <bit>\n#include <vector>\n\nnamespace emthrm\
+    \ {\n\ntemplate <typename T>\nstd::vector<T> xor_convolution(std::vector<T> a,\
+    \ std::vector<T> b,\n                               const T id = 0) {\n  const\
+    \ int n = std::bit_ceil(std::max(a.size(), b.size()));\n  const auto fast_walsh_hadamard_transform\
+    \ = [n](std::vector<T>* v) -> void {\n    for (int i = 1; i < n; i <<= 1) {\n\
+    \      for (int s = 0; s < n; ++s) {\n        if (s & i) continue;\n        const\
+    \ T tmp1 = (*v)[s], tmp2 = (*v)[s | i];\n        (*v)[s] = tmp1 + tmp2;\n    \
+    \    (*v)[s | i] = tmp1 - tmp2;\n      }\n    }\n  };\n  a.resize(n, id);\n  fast_walsh_hadamard_transform(&a);\n\
     \  b.resize(n, id);\n  fast_walsh_hadamard_transform(&b);\n  for (int i = 0; i\
     \ < n; ++i) {\n    a[i] *= b[i];\n  }\n  fast_walsh_hadamard_transform(&a);\n\
     \  for (int i = 0; i < n; ++i) {\n    a[i] /= n;\n  }\n  return a;\n}\n\n}  //\
@@ -49,17 +42,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/xor_convolution.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/xor_convolution.test.cpp
 documentation_of: include/emthrm/math/convolution/xor_convolution.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/convolution/xor_convolution.hpp
-- /library/include/emthrm/math/convolution/xor_convolution.hpp.html
 title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
+
 $C_k = \sum_{k = i \circ j} A_i B_j$ を求める。ただし $\circ$ は二項演算である。
 
 添え字 xor での畳み込みには『高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)』を用いる。

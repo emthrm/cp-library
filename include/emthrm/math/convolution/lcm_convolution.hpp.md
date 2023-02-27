@@ -11,51 +11,42 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/convolution/convolution.md
-    document_title: "\u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/convolution/lcm_convolution.hpp\"\n\
-    /**\n * @brief \u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F\n *\
-    \ @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n\
-    #define EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstd::vector<T> lcm_convolution(std::vector<T>\
-    \ a, std::vector<T> b,\n                               const int n = -1) {\n \
-    \ if (n == -1) return lcm_convolution(a, b, (a.size() - 1) * (b.size() - 1));\n\
-    \  a.resize(n + 1, 0);\n  b.resize(n + 1, 0);\n  const auto transform = [n](std::vector<T>*\
-    \ v) -> void {\n    for (int i = n; i >= 1; --i) {\n      for (int j = i << 1;\
-    \ j <= n; j += i) {\n        (*v)[j] += (*v)[i];\n      }\n    }\n  };\n  transform(&a);\n\
-    \  transform(&b);\n  for (int i = 1; i <= n; ++i) {\n    a[i] *= b[i];\n  }\n\
-    \  for (int i = 1; i <= n; ++i) {\n    for (int j = i << 1; j <= n; j += i) {\n\
-    \      a[j] -= a[i];\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n"
-  code: "/**\n * @brief \u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F\
-    \n * @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n\
-    #define EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstd::vector<T> lcm_convolution(std::vector<T>\
-    \ a, std::vector<T> b,\n                               const int n = -1) {\n \
-    \ if (n == -1) return lcm_convolution(a, b, (a.size() - 1) * (b.size() - 1));\n\
-    \  a.resize(n + 1, 0);\n  b.resize(n + 1, 0);\n  const auto transform = [n](std::vector<T>*\
-    \ v) -> void {\n    for (int i = n; i >= 1; --i) {\n      for (int j = i << 1;\
-    \ j <= n; j += i) {\n        (*v)[j] += (*v)[i];\n      }\n    }\n  };\n  transform(&a);\n\
-    \  transform(&b);\n  for (int i = 1; i <= n; ++i) {\n    a[i] *= b[i];\n  }\n\
-    \  for (int i = 1; i <= n; ++i) {\n    for (int j = i << 1; j <= n; j += i) {\n\
-    \      a[j] -= a[i];\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n\
-    #endif  // EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n"
+  bundledCode: "#line 1 \"include/emthrm/math/convolution/lcm_convolution.hpp\"\n\n\
+    \n\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
+    \ lcm_convolution(std::vector<T> a, std::vector<T> b,\n                      \
+    \         const int n = -1) {\n  if (n == -1) return lcm_convolution(a, b, (a.size()\
+    \ - 1) * (b.size() - 1));\n  a.resize(n + 1, 0);\n  b.resize(n + 1, 0);\n  const\
+    \ auto transform = [n](std::vector<T>* v) -> void {\n    for (int i = n; i >=\
+    \ 1; --i) {\n      for (int j = i << 1; j <= n; j += i) {\n        (*v)[j] +=\
+    \ (*v)[i];\n      }\n    }\n  };\n  transform(&a);\n  transform(&b);\n  for (int\
+    \ i = 1; i <= n; ++i) {\n    a[i] *= b[i];\n  }\n  for (int i = 1; i <= n; ++i)\
+    \ {\n    for (int j = i << 1; j <= n; j += i) {\n      a[j] -= a[i];\n    }\n\
+    \  }\n  return a;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n#define EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n\
+    \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T>\
+    \ lcm_convolution(std::vector<T> a, std::vector<T> b,\n                      \
+    \         const int n = -1) {\n  if (n == -1) return lcm_convolution(a, b, (a.size()\
+    \ - 1) * (b.size() - 1));\n  a.resize(n + 1, 0);\n  b.resize(n + 1, 0);\n  const\
+    \ auto transform = [n](std::vector<T>* v) -> void {\n    for (int i = n; i >=\
+    \ 1; --i) {\n      for (int j = i << 1; j <= n; j += i) {\n        (*v)[j] +=\
+    \ (*v)[i];\n      }\n    }\n  };\n  transform(&a);\n  transform(&b);\n  for (int\
+    \ i = 1; i <= n; ++i) {\n    a[i] *= b[i];\n  }\n  for (int i = 1; i <= n; ++i)\
+    \ {\n    for (int j = i << 1; j <= n; j += i) {\n      a[j] -= a[i];\n    }\n\
+    \  }\n  return a;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CONVOLUTION_LCM_CONVOLUTION_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/convolution/lcm_convolution.hpp
   requiredBy: []
-  timestamp: '2023-01-19 15:49:14+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/convolution/lcm_convolution.test.cpp
 documentation_of: include/emthrm/math/convolution/lcm_convolution.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/convolution/lcm_convolution.hpp
-- /library/include/emthrm/math/convolution/lcm_convolution.hpp.html
 title: "\u6DFB\u3048\u5B57 lcm \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
+
 $C_k = \sum_{k = i \circ j} A_i B_j$ を求める。ただし $\circ$ は二項演算である。
 
 添え字 xor での畳み込みには『高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)』を用いる。

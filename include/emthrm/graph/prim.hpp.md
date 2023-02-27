@@ -13,19 +13,26 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/minimum_spanning_tree.md
-    document_title: "Prim \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/prim.hpp: line 13: unable to process #include in #if /\
-    \ #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief Prim \u6CD5\n * @docs docs/graph/minimum_spanning_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_PRIM_HPP_\n#define EMTHRM_GRAPH_PRIM_HPP_\n\n#include\
+  bundledCode: "#line 1 \"include/emthrm/graph/prim.hpp\"\n\n\n\n#include <functional>\n\
+    #include <queue>\n#include <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\
+    \n/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
+    \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
+    \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
+    \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
+    \ {}\n\n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n#line 9 \"include/emthrm/graph/prim.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nCostType prim(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n              const int root = 0) {\n  const int n = graph.size();\n\
+    \  CostType res = 0;\n  std::vector<bool> is_visited(n, false);\n  is_visited[root]\
+    \ = true;\n  std::priority_queue<Edge<CostType>,\n                      std::vector<Edge<CostType>>,\n\
+    \                      std::greater<Edge<CostType>>> que;\n  for (const Edge<CostType>&\
+    \ e : graph[root]) {\n    if (e.dst != root) que.emplace(e);\n  }\n  while (!que.empty())\
+    \ {\n    const Edge<CostType> e1 = que.top();\n    que.pop();\n    if (is_visited[e1.dst])\
+    \ continue;\n    is_visited[e1.dst] = true;\n    res += e1.cost;\n    for (const\
+    \ Edge<CostType>& e2 : graph[e1.dst]) {\n      if (!is_visited[e2.dst]) que.emplace(e2);\n\
+    \    }\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_PRIM_HPP_\n#define EMTHRM_GRAPH_PRIM_HPP_\n\n#include\
     \ <functional>\n#include <queue>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nCostType prim(const std::vector<std::vector<Edge<CostType>>>&\
     \ graph,\n              const int root = 0) {\n  const int n = graph.size();\n\
@@ -42,17 +49,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/prim.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/prim.test.cpp
 documentation_of: include/emthrm/graph/prim.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/prim.hpp
-- /library/include/emthrm/graph/prim.hpp.html
 title: "Prim \u6CD5"
 ---
+
 # 最小全域木 (minimum spanning tree)
 
 

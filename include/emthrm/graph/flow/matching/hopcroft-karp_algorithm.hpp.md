@@ -11,19 +11,14 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/flow/matching/matching.md
-    document_title: "Hopcroft\u2013Karp algorithm"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/flow/matching/hopcroft-karp_algorithm.hpp\"\
-    \n/**\n * @brief Hopcroft\u2013Karp algorithm\n * @docs docs/graph/flow/matching/matching.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_\n#define\
-    \ EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_\n\n#include <algorithm>\n\
-    #include <queue>\n#include <vector>\n\nnamespace emthrm {\n\nstruct HopcroftKarp\
-    \ {\n  std::vector<int> match;\n\n  explicit HopcroftKarp(const int left, const\
-    \ int right)\n      : match(left + right, -1), left(left), t(0), level(left),\n\
-    \        is_used(left, -1), graph(left) {}\n\n  void add_edge(const int u, const\
-    \ int v) {\n    graph[u].emplace_back(left + v);\n  }\n\n  int solve() {\n   \
-    \ int res = 0;\n    while (true) {\n      std::fill(level.begin(), level.end(),\
+    \n\n\n\n#include <algorithm>\n#include <queue>\n#include <vector>\n\nnamespace\
+    \ emthrm {\n\nstruct HopcroftKarp {\n  std::vector<int> match;\n\n  explicit HopcroftKarp(const\
+    \ int left, const int right)\n      : match(left + right, -1), left(left), t(0),\
+    \ level(left),\n        is_used(left, -1), graph(left) {}\n\n  void add_edge(const\
+    \ int u, const int v) {\n    graph[u].emplace_back(left + v);\n  }\n\n  int solve()\
+    \ {\n    int res = 0;\n    while (true) {\n      std::fill(level.begin(), level.end(),\
     \ -1);\n      std::queue<int> que;\n      for (int i = 0; i < left; ++i) {\n \
     \       if (match[i] == -1) {\n          que.emplace(i);\n          level[i] =\
     \ 0;\n        }\n      }\n      while (!que.empty()) {\n        const int ver\
@@ -39,9 +34,8 @@ data:
     \      const int m = match[dst];\n      if (m == -1 || (is_used[m] < t && level[m]\
     \ == level[ver] + 1 && dfs(m))) {\n        is_used[ver] = t;\n        match[ver]\
     \ = dst;\n        match[dst] = ver;\n        return true;\n      }\n    }\n  \
-    \  return false;\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_\n"
-  code: "/**\n * @brief Hopcroft\u2013Karp algorithm\n * @docs docs/graph/flow/matching/matching.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_\n#define\
+    \  return false;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_\n#define\
     \ EMTHRM_GRAPH_FLOW_MATCHING_HOPCROFT_KARP_ALGORITHM_HPP_\n\n#include <algorithm>\n\
     #include <queue>\n#include <vector>\n\nnamespace emthrm {\n\nstruct HopcroftKarp\
     \ {\n  std::vector<int> match;\n\n  explicit HopcroftKarp(const int left, const\
@@ -69,17 +63,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/matching/hopcroft-karp_algorithm.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/hopcroft-karp_algorithm.test.cpp
 documentation_of: include/emthrm/graph/flow/matching/hopcroft-karp_algorithm.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/flow/matching/hopcroft-karp_algorithm.hpp
-- /library/include/emthrm/graph/flow/matching/hopcroft-karp_algorithm.hpp.html
 title: "Hopcroft\u2013Karp algorithm"
 ---
+
 ### マッチング (matching)
 
 互いに端点を共有しない辺集合である。

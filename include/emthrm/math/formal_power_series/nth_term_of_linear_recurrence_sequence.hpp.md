@@ -14,20 +14,30 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/formal_power_series/bostan-mori.md
-    document_title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217\u306E\u7B2C $N$ \u9805"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp:\
-    \ line 11: unable to process #include in #if / #ifdef / #ifndef other than include\
-    \ guards\n"
-  code: "/**\n * @brief \u7DDA\u5F62\u56DE\u5E30\u6570\u5217\u306E\u7B2C $N$ \u9805\
-    \n * @docs docs/math/formal_power_series/bostan-mori.md\n */\n\n#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
+    \n\n\n\n#include <cassert>\n\n#line 1 \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\
+    \n\n\n\n#line 5 \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\n\n\
+    namespace emthrm {\n\ntemplate <template <typename> class C, typename T>\nT bostan_mori(C<T>\
+    \ p, C<T> q, long long n) {\n  q.shrink();\n  const int d = q.degree();\n  assert(d\
+    \ >= 0 && q[0] != 0);\n  T res = 0;\n  p.shrink();\n  if (p.degree() >= d) {\n\
+    \    const C<T> quotient = p / q;\n    p -= quotient * q;\n    p.shrink();\n \
+    \   if (n <= quotient.degree()) res += quotient[n];\n  }\n  if (d == 0 || (p.degree()\
+    \ == 0 && p[0] == 0)) return res;\n  p.resize(d - 1);\n  for (; n > 0; n >>= 1)\
+    \ {\n    C<T> tmp = q;\n    for (int i = 1; i <= d; i += 2) {\n      tmp[i] =\
+    \ -tmp[i];\n    }\n    p *= tmp;\n    if (n & 1) {\n      for (int i = 0; i <\
+    \ d; ++i) {\n        p[i] = p[(i << 1) + 1];\n      }\n    } else {\n      for\
+    \ (int i = 1; i < d; ++i) {\n        p[i] = p[i << 1];\n      }\n    }\n    p.resize(d\
+    \ - 1);\n    q *= tmp;\n    for (int i = 1; i <= d; ++i) {\n      q[i] = q[i <<\
+    \ 1];\n    }\n    q.resize(d);\n  }\n  return res + p[0] / q[0];\n}\n\n}  // namespace\
+    \ emthrm\n\n\n#line 7 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
+    T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n) {\n\
+    \  q.shrink();\n  const int d = q.degree();\n  assert(d >= 0 && q[0] != 0);\n\
+    \  if (a.degree() >= n) return a[n];\n  assert(a.degree() >= d - 1);\n  a.resize(d\
+    \ - 1);\n  a *= q;\n  a.resize(d - 1);\n  return bostan_mori(a, q, n);\n}\n\n\
+    }  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_\n\
     #define EMTHRM_MATH_FORMAL_POWER_SERIES_NTH_TERM_OF_LINEAR_RECURRENCE_SEQUENCE_HPP_\n\
     \n#include <cassert>\n\n#include \"emthrm/math/formal_power_series/bostan-mori.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
@@ -41,17 +51,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/bostan-mori.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
-- /library/include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp.html
-title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217\u306E\u7B2C $N$ \u9805"
+title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217 (linear recurrence sequence) \u306E\u7B2C\
+  \ $N$ \u9805"
 ---
+
 # Bostan–Mori のアルゴリズム
 
 $d$-階線形回帰数列の第 $N$ 項を求めるアルゴリズムである。

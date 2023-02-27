@@ -11,19 +11,13 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/eulerian_trail.md
-    document_title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
-      \u7248"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp\"\
-    \n/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
-    \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\
-    #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <iterator>\n#include <utility>\n#include <vector>\n\
-    \nnamespace emthrm {\n\nstruct EulerianTrailInUndirectedGraph {\n  std::vector<int>\
-    \ trail;\n\n  explicit EulerianTrailInUndirectedGraph(const int n)\n      : n(n),\
-    \ is_visited(n), graph(n) {}\n\n  void add_edge(const int u, const int v) {\n\
-    \    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
+    \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <iterator>\n#include\
+    \ <utility>\n#include <vector>\n\nnamespace emthrm {\n\nstruct EulerianTrailInUndirectedGraph\
+    \ {\n  std::vector<int> trail;\n\n  explicit EulerianTrailInUndirectedGraph(const\
+    \ int n)\n      : n(n), is_visited(n), graph(n) {}\n\n  void add_edge(const int\
+    \ u, const int v) {\n    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
     \ graph[u].size() - 1);\n  }\n\n  bool build(int s = -1) {\n    trail.clear();\n\
     \    int odd_deg = 0, edge_num = 0;\n    for (int i = 0; i < n; ++i) {\n     \
     \ if (graph[i].size() & 1) {\n        ++odd_deg;\n        if (s == -1) s = i;\n\
@@ -45,15 +39,13 @@ data:
     \ (!is_visited[ver][i]) {\n        const int dst = graph[ver][i].dst;\n      \
     \  is_visited[ver][i] = true;\n        is_visited[dst][graph[ver][i].rev] = true;\n\
     \        dfs(dst);\n      }\n    }\n    trail.emplace_back(ver);\n  }\n};\n\n\
-    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n"
-  code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\
-    \u7248\n * @docs docs/graph/eulerian_trail.md\n */\n\n#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\
-    #define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <iterator>\n#include <utility>\n#include <vector>\n\
-    \nnamespace emthrm {\n\nstruct EulerianTrailInUndirectedGraph {\n  std::vector<int>\
-    \ trail;\n\n  explicit EulerianTrailInUndirectedGraph(const int n)\n      : n(n),\
-    \ is_visited(n), graph(n) {}\n\n  void add_edge(const int u, const int v) {\n\
-    \    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
+    }  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n#define EMTHRM_GRAPH_EULERIAN_TRAIL_IN_UNDIRECTED_GRAPH_HPP_\n\
+    \n#include <algorithm>\n#include <cassert>\n#include <iterator>\n#include <utility>\n\
+    #include <vector>\n\nnamespace emthrm {\n\nstruct EulerianTrailInUndirectedGraph\
+    \ {\n  std::vector<int> trail;\n\n  explicit EulerianTrailInUndirectedGraph(const\
+    \ int n)\n      : n(n), is_visited(n), graph(n) {}\n\n  void add_edge(const int\
+    \ u, const int v) {\n    graph[u].emplace_back(v, graph[v].size());\n    graph[v].emplace_back(u,\
     \ graph[u].size() - 1);\n  }\n\n  bool build(int s = -1) {\n    trail.clear();\n\
     \    int odd_deg = 0, edge_num = 0;\n    for (int i = 0; i < n; ++i) {\n     \
     \ if (graph[i].size() & 1) {\n        ++odd_deg;\n        if (s == -1) s = i;\n\
@@ -80,17 +72,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/eulerian_trail_in_undirected_graph.test.cpp
 documentation_of: include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp
-- /library/include/emthrm/graph/eulerian_trail_in_undirected_graph.hpp.html
-title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u7121\u5411\u30B0\u30E9\u30D5\u7248"
+title: "\u30AA\u30A4\u30E9\u30FC\u8DEF (Eulerian trail) \u7121\u5411\u30B0\u30E9\u30D5\
+  \u7248"
 ---
+
 ## オイラー路 (Eulerian trail)
 
 グラフのすべての辺を一度だけ通る路である。

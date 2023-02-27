@@ -10,24 +10,41 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
     document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013\
       Fulkerson \u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp:\
-    \ line -1: no such header\n"
-  code: "/*\n * @brief \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013\
-    Fulkerson \u6CD5\n */\n#define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\"\
-    \n\n#include <iostream>\n\n#include \"emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp\"\
+  bundledCode: "#line 1 \"test/graph/flow/maximum_flow/ford-fulkerson.test.cpp\"\n\
+    /*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013\
+    Fulkerson \u6CD5\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\n\
+    \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <limits>\n#include <vector>\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename T>\nstruct FordFulkerson {\n  struct Edge {\n\
+    \    int dst, rev;\n    T cap;\n    explicit Edge(const int dst, const T cap,\
+    \ const int rev)\n        : dst(dst), rev(rev), cap(cap) {}\n  };\n\n  std::vector<std::vector<Edge>>\
+    \ graph;\n\n  explicit FordFulkerson(const int n)\n      : graph(n), timestamp(0),\
+    \ is_used(n, -1) {}\n\n  void add_edge(const int src, const int dst, const T cap)\
+    \ {\n    graph[src].emplace_back(dst, cap, graph[dst].size());\n    graph[dst].emplace_back(src,\
+    \ 0, graph[src].size() - 1);\n  }\n\n  T maximum_flow(const int s, const int t,\n\
+    \                 T limit = std::numeric_limits<T>::max()) {\n    T res = 0;\n\
+    \    while (limit > 0) {\n      const T tmp = dfs(s, t, limit);\n      ++timestamp;\n\
+    \      if (tmp == 0) break;\n      limit -= tmp;\n      res += tmp;\n    }\n \
+    \   return res;\n  }\n\n private:\n  int timestamp;\n  std::vector<int> is_used;\n\
+    \n  T dfs(const int ver, const int t, const T flow) {\n    if (ver == t) return\
+    \ flow;\n    is_used[ver] = timestamp;\n    for (Edge& e : graph[ver]) {\n   \
+    \   if (is_used[e.dst] < timestamp && e.cap > 0) {\n        const T tmp = dfs(e.dst,\
+    \ t, std::min(flow, e.cap));\n        if (tmp > 0) {\n          e.cap -= tmp;\n\
+    \          graph[e.dst][e.rev].cap += tmp;\n          return tmp;\n        }\n\
+    \      }\n    }\n    return 0;\n  }\n};\n\n}  // namespace emthrm\n\n\n#line 10\
+    \ \"test/graph/flow/maximum_flow/ford-fulkerson.test.cpp\"\n\nint main() {\n \
+    \ int v, e;\n  std::cin >> v >> e;\n  emthrm::FordFulkerson<long long> ford_fulkerson(v);\n\
+    \  while (e--) {\n    int u_i, v_i, c_i;\n    std::cin >> u_i >> v_i >> c_i;\n\
+    \    ford_fulkerson.add_edge(u_i, v_i, c_i);\n  }\n  std::cout << ford_fulkerson.maximum_flow(0,\
+    \ v - 1) << '\\n';\n  return 0;\n}\n"
+  code: "/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/Ford\u2013\
+    Fulkerson \u6CD5\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_6_A\n\
+    \ */\n\n#include <iostream>\n\n#include \"emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp\"\
     \n\nint main() {\n  int v, e;\n  std::cin >> v >> e;\n  emthrm::FordFulkerson<long\
     \ long> ford_fulkerson(v);\n  while (e--) {\n    int u_i, v_i, c_i;\n    std::cin\
     \ >> u_i >> v_i >> c_i;\n    ford_fulkerson.add_edge(u_i, v_i, c_i);\n  }\n  std::cout\
@@ -37,7 +54,7 @@ data:
   isVerificationFile: true
   path: test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/flow/maximum_flow/ford-fulkerson.test.cpp

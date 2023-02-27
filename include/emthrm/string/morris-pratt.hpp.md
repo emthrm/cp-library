@@ -6,21 +6,17 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/string/morris-pratt.1.test.cpp
     title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (match(t))"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/string/morris-pratt.2.test.cpp
     title: "\u6587\u5B57\u5217/Morris\u2013Pratt algorithm (period(idx))"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/string/knuth-morris-pratt.md
-    document_title: "Morris\u2013Pratt algorithm"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/string/morris-pratt.hpp\"\n/**\n * @brief\
-    \ Morris\u2013Pratt algorithm\n * @docs docs/string/knuth-morris-pratt.md\n */\n\
-    \n#ifndef EMTHRM_STRING_MORRIS_PRATT_HPP_\n#define EMTHRM_STRING_MORRIS_PRATT_HPP_\n\
-    \n#include <string>\n#include <vector>\n\nnamespace emthrm {\n\nstruct MorrisPratt\
-    \ {\n  std::string s;\n  std::vector<int> border;\n\n  explicit MorrisPratt(const\
+  bundledCode: "#line 1 \"include/emthrm/string/morris-pratt.hpp\"\n\n\n\n#include\
+    \ <string>\n#include <vector>\n\nnamespace emthrm {\n\nstruct MorrisPratt {\n\
+    \  std::string s;\n  std::vector<int> border;\n\n  explicit MorrisPratt(const\
     \ std::string& s) : s(s), border({-1}), j(-1) {\n    const int n = s.length();\n\
     \    for (int i = 0; i < n; ++i) {\n      solve(i);\n    }\n  }\n\n  void add(const\
     \ char c) {\n    s += c;\n    solve(s.length() - 1);\n  }\n\n  std::vector<int>\
@@ -30,9 +26,8 @@ data:
     \ - n + 1);\n    }\n    return res;\n  }\n\n  int period(const int idx) const\
     \ { return idx - border[idx]; }\n\n private:\n  int j;\n\n  void solve(const int\
     \ idx) {\n    while (j >= 0 && s[idx] != s[j]) j = border[j];\n    border.emplace_back(++j);\n\
-    \  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_STRING_MORRIS_PRATT_HPP_\n"
-  code: "/**\n * @brief Morris\u2013Pratt algorithm\n * @docs docs/string/knuth-morris-pratt.md\n\
-    \ */\n\n#ifndef EMTHRM_STRING_MORRIS_PRATT_HPP_\n#define EMTHRM_STRING_MORRIS_PRATT_HPP_\n\
+    \  }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_STRING_MORRIS_PRATT_HPP_\n#define EMTHRM_STRING_MORRIS_PRATT_HPP_\n\
     \n#include <string>\n#include <vector>\n\nnamespace emthrm {\n\nstruct MorrisPratt\
     \ {\n  std::string s;\n  std::vector<int> border;\n\n  explicit MorrisPratt(const\
     \ std::string& s) : s(s), border({-1}), j(-1) {\n    const int n = s.length();\n\
@@ -49,18 +44,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/string/morris-pratt.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-02-25 16:35:06+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/string/morris-pratt.1.test.cpp
   - test/string/morris-pratt.2.test.cpp
 documentation_of: include/emthrm/string/morris-pratt.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/string/morris-pratt.hpp
-- /library/include/emthrm/string/morris-pratt.hpp.html
 title: "Morris\u2013Pratt algorithm"
 ---
+
 # Knuth–Morris–Pratt algorithm
 
 文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである。

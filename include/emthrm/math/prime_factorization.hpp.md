@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/is_primitive_root.hpp
-    title: "\u539F\u59CB\u6839\u5224\u5B9A"
+    title: "\u539F\u59CB\u6839 (primitive root) \u5224\u5B9A"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/game/nim.test.cpp

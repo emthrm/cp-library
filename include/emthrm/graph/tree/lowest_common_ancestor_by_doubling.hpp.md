@@ -6,7 +6,7 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/2-edge-connected_components_by_lowlink.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
       \ lowlink \u7248"
@@ -14,29 +14,52 @@ data:
     path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/graph/tree/lowest_common_ancestor.md
-    document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
-      \u30B0\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp: line 14: unable\
-    \ to process #include in #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\
-    \u30B0\u7248\n * @docs docs/graph/tree/lowest_common_ancestor.md\n */\n\n#ifndef\
-    \ EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n#define EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n\
-    \n#include <bit>\n#include <cassert>\n#include <utility>\n#include <vector>\n\n\
-    #include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ CostType>\nstruct LowestCommonAncestorByDoubling {\n  std::vector<int> depth;\n\
-    \  std::vector<CostType> dist;\n\n  explicit LowestCommonAncestorByDoubling(\n\
+  bundledCode: "#line 1 \"include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp\"\
+    \n\n\n\n#include <bit>\n#include <cassert>\n#include <utility>\n#include <vector>\n\
+    \n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n */\n\n#ifndef\
+    \ EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include <compare>\n\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  CostType\
+    \ cost;\n  int src, dst;\n\n  explicit Edge(const int src, const int dst, const\
+    \ CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\n  auto operator<=>(const\
+    \ Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n\
+    #line 10 \"include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp\"\n\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct LowestCommonAncestorByDoubling\
+    \ {\n  std::vector<int> depth;\n  std::vector<CostType> dist;\n\n  explicit LowestCommonAncestorByDoubling(\n\
+    \      const std::vector<std::vector<Edge<CostType>>>& graph)\n      : is_built(false),\
+    \ n(graph.size()),\n        table_h(std::countr_zero(std::bit_floor(graph.size()))\
+    \ + 1),\n        graph(graph) {\n    assert(n > 0);\n    depth.resize(n);\n  \
+    \  dist.resize(n);\n    parent.resize(table_h, std::vector<int>(n));\n  }\n\n\
+    \  void build(const int root = 0) {\n    is_built = true;\n    dfs(-1, root, 0,\
+    \ 0);\n    for (int i = 0; i + 1 < table_h; ++i) {\n      for (int ver = 0; ver\
+    \ < n; ++ver) {\n        parent[i + 1][ver] =\n            (parent[i][ver] ==\
+    \ -1 ? -1 : parent[i][parent[i][ver]]);\n      }\n    }\n  }\n\n  int query(int\
+    \ u, int v) const {\n    assert(is_built);\n    if (depth[u] > depth[v]) std::swap(u,\
+    \ v);\n    for (int i = 0; i < table_h; ++i) {\n      if ((depth[v] - depth[u])\
+    \ >> i & 1) v = parent[i][v];\n    }\n    if (u == v) return u;\n    for (int\
+    \ i = table_h - 1; i >= 0; --i) {\n      if (parent[i][u] != parent[i][v]) {\n\
+    \        u = parent[i][u];\n        v = parent[i][v];\n      }\n    }\n    return\
+    \ parent.front()[u];\n  }\n\n  CostType distance(const int u, const int v) const\
+    \ {\n    assert(is_built);\n    return dist[u] + dist[v] - dist[query(u, v)] *\
+    \ 2;\n  }\n\n  int level_ancestor(int v, const int d) const {\n    assert(is_built);\n\
+    \    if (depth[v] < d) return -1;\n    for (int i = depth[v] - d, bit = 0; i >\
+    \ 0; i >>= 1, ++bit) {\n      if (i & 1) v = parent[bit][v];\n    }\n    return\
+    \ v;\n  }\n\n private:\n  bool is_built;\n  const int n, table_h;\n  std::vector<std::vector<int>>\
+    \ parent;\n  const std::vector<std::vector<Edge<CostType>>> graph;\n\n  void dfs(const\
+    \ int par, const int ver, const int cur_depth,\n           const CostType cur_dist)\
+    \ {\n    depth[ver] = cur_depth;\n    dist[ver] = cur_dist;\n    parent.front()[ver]\
+    \ = par;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst !=\
+    \ par) [[likely]] {\n        dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n\
+    \      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n#define\
+    \ EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n\n#include <bit>\n\
+    #include <cassert>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct LowestCommonAncestorByDoubling\
+    \ {\n  std::vector<int> depth;\n  std::vector<CostType> dist;\n\n  explicit LowestCommonAncestorByDoubling(\n\
     \      const std::vector<std::vector<Edge<CostType>>>& graph)\n      : is_built(false),\
     \ n(graph.size()),\n        table_h(std::countr_zero(std::bit_floor(graph.size()))\
     \ + 1),\n        graph(graph) {\n    assert(n > 0);\n    depth.resize(n);\n  \
@@ -67,18 +90,17 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-02-25 16:35:06+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp
 documentation_of: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
-- /library/include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp.html
-title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
+title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\
+  \u30EA\u30F3\u30B0\u7248"
 ---
+
 # 最小共通祖先 (lowest common ancestor)
 
 根付き木のある2頂点に対して最も深い共通祖先である。

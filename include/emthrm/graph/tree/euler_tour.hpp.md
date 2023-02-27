@@ -7,8 +7,8 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
-      \u30FC\u7248"
+    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30AA\u30A4\
+      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
@@ -19,15 +19,37 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"include/emthrm/graph/tree/euler_tour.hpp\"\n\n\n\n#include\
+    \ <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\
+    \n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include\
+    \ <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge\
+    \ {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src, const\
+    \ int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\
+    \n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n#line 7 \"include/emthrm/graph/tree/euler_tour.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct EulerTour {\n \
+    \ std::vector<int> tour, depth, left, right, down, up;\n  std::vector<CostType>\
+    \ cost;\n\n  explicit EulerTour(const std::vector<std::vector<Edge<CostType>>>\
+    \ &graph,\n                     const int root = 0)\n      : graph(graph) {\n\
+    \    const int n = graph.size();\n    left.resize(n);\n    right.resize(n);\n\
+    \    down.assign(n, -1);\n    up.assign(n, (n - 1) << 1);\n    dfs(-1, root, 0);\n\
+    \  }\n\n  template <typename Fn>\n  void update_v(const int ver, const Fn f) const\
+    \ {\n    f(left[ver], right[ver] + 1);\n  }\n\n  template <typename T, typename\
+    \ Fn>\n  T query_v(const int ver, const Fn f) const {\n    return f(left[ver],\
+    \ right[ver] + 1);\n  }\n\n  template <typename T, typename Fn>\n  T query_e(const\
+    \ int u, const int v, const Fn f) const {\n    return f(down[u] + 1, down[v] +\
+    \ 1);\n  }\n\n  template <typename Fn>\n  void update_subtree_e(const int ver,\
+    \ const Fn f) const {\n    f(down[ver] + 1, up[ver]);\n  }\n\n  template <typename\
+    \ T, typename Fn>\n  T query_subtree_e(const int ver, const Fn f) const {\n  \
+    \  return f(down[ver] + 1, up[ver]);\n  }\n\n private:\n  const std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n\n  void dfs(const int par, const int ver, const int cur_depth) {\n\
+    \    left[ver] = tour.size();\n    tour.emplace_back(ver);\n    depth.emplace_back(cur_depth);\n\
+    \    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst != par) [[likely]]\
+    \ {\n        down[e.dst] = cost.size();\n        cost.emplace_back(e.cost);\n\
+    \        dfs(ver, e.dst, cur_depth + 1);\n        tour.emplace_back(ver);\n  \
+    \      depth.emplace_back(cur_depth);\n        up[e.dst] = cost.size();\n    \
+    \    cost.emplace_back(-e.cost);\n      }\n    }\n    right[ver] = tour.size()\
+    \ - 1;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_\n#define EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_\n\
     \n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm\
     \ {\n\ntemplate <typename CostType>\nstruct EulerTour {\n  std::vector<int> tour,\
@@ -59,7 +81,7 @@ data:
   path: include/emthrm/graph/tree/euler_tour.hpp
   requiredBy:
   - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp

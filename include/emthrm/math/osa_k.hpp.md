@@ -14,15 +14,23 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/prime_sieve.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"include/emthrm/math/osa_k.hpp\"\n\n\n\n#include <utility>\n\
+    #include <vector>\n\n#line 1 \"include/emthrm/math/prime_sieve.hpp\"\n\n\n\n#include\
+    \ <numeric>\n#line 6 \"include/emthrm/math/prime_sieve.hpp\"\n\nnamespace emthrm\
+    \ {\n\ntemplate <bool GETS_ONLY_PRIME>\nstd::vector<int> prime_sieve(const int\
+    \ n) {\n  std::vector<int> smallest_prime_factor(n + 1), prime;\n  std::iota(smallest_prime_factor.begin(),\
+    \ smallest_prime_factor.end(), 0);\n  for (int i = 2; i <= n; ++i) {\n    if (smallest_prime_factor[i]\
+    \ == i) [[unlikely]] prime.emplace_back(i);\n    for (const int p : prime) {\n\
+    \      if (i * p > n || p > smallest_prime_factor[i]) break;\n      smallest_prime_factor[i\
+    \ * p] = p;\n    }\n  }\n  return GETS_ONLY_PRIME ? prime : smallest_prime_factor;\n\
+    }\n\n}  // namespace emthrm\n\n\n#line 8 \"include/emthrm/math/osa_k.hpp\"\n\n\
+    namespace emthrm {\n\nstruct OsaK {\n  const std::vector<int> smallest_prime_factor;\n\
+    \n  explicit OsaK(const int n) : smallest_prime_factor(prime_sieve<false>(n))\
+    \ {}\n\n  std::vector<std::pair<int, int>> query(int n) const {\n    std::vector<std::pair<int,\
+    \ int>> res;\n    while (n > 1) {\n      const int prime = smallest_prime_factor[n];\n\
+    \      int exponent = 0;\n      for (; smallest_prime_factor[n] == prime; n /=\
+    \ prime) {\n        ++exponent;\n      }\n      res.emplace_back(prime, exponent);\n\
+    \    }\n    return res;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_OSA_K_HPP_\n#define EMTHRM_MATH_OSA_K_HPP_\n\n#include\
     \ <utility>\n#include <vector>\n\n#include \"emthrm/math/prime_sieve.hpp\"\n\n\
     namespace emthrm {\n\nstruct OsaK {\n  const std::vector<int> smallest_prime_factor;\n\

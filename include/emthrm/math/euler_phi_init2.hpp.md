@@ -14,48 +14,54 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/euler_phi.md
-    document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\
-      \u88682"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/euler_phi_init2.hpp: line 12: unable to process #include\
-    \ in #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
-    \u6570\u88682\n * @docs docs/math/euler_phi.md\n */\n\n#ifndef EMTHRM_MATH_EULER_PHI_INIT2_HPP_\n\
-    #define EMTHRM_MATH_EULER_PHI_INIT2_HPP_\n\n#include <numeric>\n#include <vector>\n\
-    \n#include \"emthrm/math/prime_sieve.hpp\"\n\nnamespace emthrm {\n\nstd::vector<long\
-    \ long> euler_phi_init2(const long long low,\n                               \
-    \        const long long high) {\n  std::vector<long long> phi(high - low), rem(high\
-    \ - low);\n  std::iota(phi.begin(), phi.end(), low);\n  std::iota(rem.begin(),\
-    \ rem.end(), low);\n  long long root = 1;\n  while ((root + 1) * (root + 1) <\
-    \ high) ++root;\n  for (const int p : prime_sieve<true>(root)) {\n    for (long\
-    \ long i = (low + p - 1) / p * p; i < high; i += p) {\n      phi[i - low] -= phi[i\
-    \ - low] / p;\n      while (rem[i - low] % p == 0) rem[i - low] /= p;\n    }\n\
-    \  }\n  for (int i = 0; i < high - low; ++i) {\n    if (rem[i] > 1) phi[i] -=\
-    \ phi[i] / rem[i];\n  }\n  return phi;\n}\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_MATH_EULER_PHI_INIT2_HPP_\n"
+  bundledCode: "#line 1 \"include/emthrm/math/euler_phi_init2.hpp\"\n\n\n\n#include\
+    \ <numeric>\n#include <vector>\n\n#line 1 \"include/emthrm/math/prime_sieve.hpp\"\
+    \n\n\n\n#line 6 \"include/emthrm/math/prime_sieve.hpp\"\n\nnamespace emthrm {\n\
+    \ntemplate <bool GETS_ONLY_PRIME>\nstd::vector<int> prime_sieve(const int n) {\n\
+    \  std::vector<int> smallest_prime_factor(n + 1), prime;\n  std::iota(smallest_prime_factor.begin(),\
+    \ smallest_prime_factor.end(), 0);\n  for (int i = 2; i <= n; ++i) {\n    if (smallest_prime_factor[i]\
+    \ == i) [[unlikely]] prime.emplace_back(i);\n    for (const int p : prime) {\n\
+    \      if (i * p > n || p > smallest_prime_factor[i]) break;\n      smallest_prime_factor[i\
+    \ * p] = p;\n    }\n  }\n  return GETS_ONLY_PRIME ? prime : smallest_prime_factor;\n\
+    }\n\n}  // namespace emthrm\n\n\n#line 8 \"include/emthrm/math/euler_phi_init2.hpp\"\
+    \n\nnamespace emthrm {\n\nstd::vector<long long> euler_phi_init2(const long long\
+    \ low,\n                                       const long long high) {\n  std::vector<long\
+    \ long> phi(high - low), rem(high - low);\n  std::iota(phi.begin(), phi.end(),\
+    \ low);\n  std::iota(rem.begin(), rem.end(), low);\n  long long root = 1;\n  while\
+    \ ((root + 1) * (root + 1) < high) ++root;\n  for (const int p : prime_sieve<true>(root))\
+    \ {\n    for (long long i = (low + p - 1) / p * p; i < high; i += p) {\n     \
+    \ phi[i - low] -= phi[i - low] / p;\n      while (rem[i - low] % p == 0) rem[i\
+    \ - low] /= p;\n    }\n  }\n  for (int i = 0; i < high - low; ++i) {\n    if (rem[i]\
+    \ > 1) phi[i] -= phi[i] / rem[i];\n  }\n  return phi;\n}\n\n}  // namespace emthrm\n\
+    \n\n"
+  code: "#ifndef EMTHRM_MATH_EULER_PHI_INIT2_HPP_\n#define EMTHRM_MATH_EULER_PHI_INIT2_HPP_\n\
+    \n#include <numeric>\n#include <vector>\n\n#include \"emthrm/math/prime_sieve.hpp\"\
+    \n\nnamespace emthrm {\n\nstd::vector<long long> euler_phi_init2(const long long\
+    \ low,\n                                       const long long high) {\n  std::vector<long\
+    \ long> phi(high - low), rem(high - low);\n  std::iota(phi.begin(), phi.end(),\
+    \ low);\n  std::iota(rem.begin(), rem.end(), low);\n  long long root = 1;\n  while\
+    \ ((root + 1) * (root + 1) < high) ++root;\n  for (const int p : prime_sieve<true>(root))\
+    \ {\n    for (long long i = (low + p - 1) / p * p; i < high; i += p) {\n     \
+    \ phi[i - low] -= phi[i - low] / p;\n      while (rem[i - low] % p == 0) rem[i\
+    \ - low] /= p;\n    }\n  }\n  for (int i = 0; i < high - low; ++i) {\n    if (rem[i]\
+    \ > 1) phi[i] -= phi[i] / rem[i];\n  }\n  return phi;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_MATH_EULER_PHI_INIT2_HPP_\n"
   dependsOn:
   - include/emthrm/math/prime_sieve.hpp
   isVerificationFile: false
   path: include/emthrm/math/euler_phi_init2.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi_init2.test.cpp
 documentation_of: include/emthrm/math/euler_phi_init2.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/euler_phi_init2.hpp
-- /library/include/emthrm/math/euler_phi_init2.hpp.html
-title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
+title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570 (Euler's totient function)\
+  \ \u306E\u6570\u88682"
 ---
+
 # オイラーの $\varphi$ 関数 (Euler's totient function)
 
 $n \in \mathbb{N}^+$ に対して
@@ -93,11 +99,13 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 |:--|:--|
 |`long long euler_phi(long long n);`|$\varphi(n)$|
 
+
 ### 数表
 
 |名前|戻り値|
 |:--|:--|
 |`std::vector<int> euler_phi_init(const int n);`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
+
 
 ### 数表2
 

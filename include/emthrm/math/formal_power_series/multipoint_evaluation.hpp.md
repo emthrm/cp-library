@@ -4,7 +4,7 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/polynomial_interpolation.hpp
-    title: "\u591A\u9805\u5F0F\u88DC\u9593"
+    title: "\u591A\u9805\u5F0F\u88DC\u9593 (polynomial interpolation)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp

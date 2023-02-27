@@ -5,14 +5,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
     title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\
-      \u6CD5 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
+      \u6CD5 (Gauss\u2013Jordan elimination) \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
-    title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
+    title: "\u9006\u884C\u5217 (inverse matrix) \u30D0\u30A4\u30CA\u30EA\u884C\u5217\
+      \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
-    title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F \u30D0\u30A4\u30CA\u30EA\u884C\
-      \u5217\u7248"
+    title: "\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F (linear equation) \u30D0\u30A4\
+      \u30CA\u30EA\u884C\u5217\u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
@@ -31,13 +32,9 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
-    document_title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp\"\
-    \n/**\n * @brief \u30D0\u30A4\u30CA\u30EA\u884C\u5217\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n\
-    \n#include <bitset>\n#include <string>\n#include <vector>\n\nnamespace emthrm\
+    \n\n\n\n#include <bitset>\n#include <string>\n#include <vector>\n\nnamespace emthrm\
     \ {\n\ntemplate <int N>\nstruct BinaryMatrix {\n  explicit BinaryMatrix(const\
     \ int m, const int n = N, const bool def = false)\n      : n(n), data(m, std::bitset<N>(std::string(n,\
     \ def ? '1' : '0'))) {}\n\n  int nrow() const { return data.size(); }\n  int ncol()\
@@ -58,9 +55,8 @@ data:
     \  }\n\n  BinaryMatrix operator+(const BinaryMatrix& x) const {\n    return BinaryMatrix(*this)\
     \ += x;\n  }\n  BinaryMatrix operator*(const BinaryMatrix& x) const {\n    return\
     \ BinaryMatrix(*this) *= x;\n  }\n\n private:\n  int n;\n  std::vector<std::bitset<N>>\
-    \ data;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n"
-  code: "/**\n * @brief \u30D0\u30A4\u30CA\u30EA\u884C\u5217\n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n\
+    \ data;\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_BINARY_MATRIX_HPP_\n\
     \n#include <bitset>\n#include <string>\n#include <vector>\n\nnamespace emthrm\
     \ {\n\ntemplate <int N>\nstruct BinaryMatrix {\n  explicit BinaryMatrix(const\
     \ int m, const int n = N, const bool def = false)\n      : n(n), data(m, std::bitset<N>(std::string(n,\
@@ -90,7 +86,7 @@ data:
   - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   - include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
@@ -98,11 +94,9 @@ data:
   - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
-- /library/include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp.html
 title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
 ---
+
 # バイナリ行列
 
 有限体 $\mathbb{F}_2$ 上の行列である。

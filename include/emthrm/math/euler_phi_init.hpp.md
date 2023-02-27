@@ -11,42 +11,34 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/euler_phi.md
-    document_title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\
-      \u8868"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/euler_phi_init.hpp\"\n/**\n * @brief\
-    \ \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\n *\
-    \ @docs docs/math/euler_phi.md\n */\n\n#ifndef EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\
-    #define EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\n#include <numeric>\n#include <vector>\n\
-    \nnamespace emthrm {\n\nstd::vector<int> euler_phi_init(const int n) {\n  std::vector<int>\
-    \ phi(n + 1);\n  std::iota(phi.begin(), phi.end(), 0);\n  for (int i = 2; i <=\
-    \ n; ++i) {\n    if (phi[i] == i) [[unlikely]] {\n      for (int j = i; j <= n;\
-    \ j += i) {\n        phi[j] -= phi[j] / i;\n      }\n    }\n  }\n  return phi;\n\
-    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
-  code: "/**\n * @brief \u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\
-    \u6570\u8868\n * @docs docs/math/euler_phi.md\n */\n\n#ifndef EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\
-    #define EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\n#include <numeric>\n#include <vector>\n\
-    \nnamespace emthrm {\n\nstd::vector<int> euler_phi_init(const int n) {\n  std::vector<int>\
-    \ phi(n + 1);\n  std::iota(phi.begin(), phi.end(), 0);\n  for (int i = 2; i <=\
-    \ n; ++i) {\n    if (phi[i] == i) [[unlikely]] {\n      for (int j = i; j <= n;\
-    \ j += i) {\n        phi[j] -= phi[j] / i;\n      }\n    }\n  }\n  return phi;\n\
-    }\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
+  bundledCode: "#line 1 \"include/emthrm/math/euler_phi_init.hpp\"\n\n\n\n#include\
+    \ <numeric>\n#include <vector>\n\nnamespace emthrm {\n\nstd::vector<int> euler_phi_init(const\
+    \ int n) {\n  std::vector<int> phi(n + 1);\n  std::iota(phi.begin(), phi.end(),\
+    \ 0);\n  for (int i = 2; i <= n; ++i) {\n    if (phi[i] == i) [[unlikely]] {\n\
+    \      for (int j = i; j <= n; j += i) {\n        phi[j] -= phi[j] / i;\n    \
+    \  }\n    }\n  }\n  return phi;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_EULER_PHI_INIT_HPP_\n#define EMTHRM_MATH_EULER_PHI_INIT_HPP_\n\
+    \n#include <numeric>\n#include <vector>\n\nnamespace emthrm {\n\nstd::vector<int>\
+    \ euler_phi_init(const int n) {\n  std::vector<int> phi(n + 1);\n  std::iota(phi.begin(),\
+    \ phi.end(), 0);\n  for (int i = 2; i <= n; ++i) {\n    if (phi[i] == i) [[unlikely]]\
+    \ {\n      for (int j = i; j <= n; j += i) {\n        phi[j] -= phi[j] / i;\n\
+    \      }\n    }\n  }\n  return phi;\n}\n\n}  // namespace emthrm\n\n#endif  //\
+    \ EMTHRM_MATH_EULER_PHI_INIT_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/euler_phi_init.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/euler_phi_init.test.cpp
 documentation_of: include/emthrm/math/euler_phi_init.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/euler_phi_init.hpp
-- /library/include/emthrm/math/euler_phi_init.hpp.html
-title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868"
+title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570 (Euler's totient function)\
+  \ \u306E\u6570\u8868"
 ---
+
 # オイラーの $\varphi$ 関数 (Euler's totient function)
 
 $n \in \mathbb{N}^+$ に対して
@@ -84,11 +76,13 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 |:--|:--|
 |`long long euler_phi(long long n);`|$\varphi(n)$|
 
+
 ### 数表
 
 |名前|戻り値|
 |:--|:--|
 |`std::vector<int> euler_phi_init(const int n);`|$\varphi(i)$ ($1 \leq i \leq n$) の数表|
+
 
 ### 数表2
 

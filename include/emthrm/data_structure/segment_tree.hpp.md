@@ -18,14 +18,10 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/segment_tree.md
-    document_title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/data_structure/segment_tree.hpp\"\n/**\n\
-    \ * @brief \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n * @docs docs/data_structure/segment_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
-    \n#include <algorithm>\n#include <bit>\n#include <limits>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid\
+  bundledCode: "#line 1 \"include/emthrm/data_structure/segment_tree.hpp\"\n\n\n\n\
+    #include <algorithm>\n#include <bit>\n#include <limits>\n#include <vector>\n\n\
+    namespace emthrm {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid\
     \ = typename T::Monoid;\n\n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
     \ T::id())) {}\n\n  explicit SegmentTree(const std::vector<Monoid>& a)\n     \
     \ : n(a.size()), p2(std::bit_ceil(a.size())) {\n    dat.assign(p2 << 1, T::id());\n\
@@ -64,9 +60,8 @@ data:
     \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeSumQuery {\n  using Monoid\
     \ = T;\n  static constexpr Monoid id() { return 0; }\n  static Monoid merge(const\
     \ Monoid& a, const Monoid& b) { return a + b; }\n};\n\n}  // namespace monoid\n\
-    \n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n"
-  code: "/**\n * @brief \u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n * @docs docs/data_structure/segment_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
+    \n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
     \n#include <algorithm>\n#include <bit>\n#include <limits>\n#include <vector>\n\
     \nnamespace emthrm {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid\
     \ = typename T::Monoid;\n\n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
@@ -112,7 +107,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/segment_tree.test.cpp
@@ -120,11 +115,9 @@ data:
   - test/data_structure/range_sum_query.test.cpp
 documentation_of: include/emthrm/data_structure/segment_tree.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/segment_tree.hpp
-- /library/include/emthrm/data_structure/segment_tree.hpp.html
-title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (segment tree)"
 ---
+
 # セグメント木 (segment tree)
 
 [モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。

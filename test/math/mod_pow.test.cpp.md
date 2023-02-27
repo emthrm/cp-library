@@ -11,23 +11,23 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B
     document_title: "\u6570\u5B66/\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/mod_pow.hpp:\
-    \ line -1: no such header\n"
-  code: "/*\n * @brief \u6570\u5B66/\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5\n */\n\
-    #define PROBLEM \"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B\"\
-    \n\n#include <iostream>\n\n#include \"emthrm/math/mod_pow.hpp\"\n\nint main()\
+  bundledCode: "#line 1 \"test/math/mod_pow.test.cpp\"\n/*\n * @title \u6570\u5B66\
+    /\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5\n *\n * verification-helper: PROBLEM\
+    \ http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B\n */\n\n#include\
+    \ <iostream>\n\n#line 1 \"include/emthrm/math/mod_pow.hpp\"\n\n\n\nnamespace emthrm\
+    \ {\n\nlong long mod_pow(long long x, long long n, const int m) {\n  if ((x %=\
+    \ m) < 0) x += m;\n  long long res = 1;\n  for (; n > 0; n >>= 1) {\n    if (n\
+    \ & 1) res = (res * x) % m;\n    x = (x * x) % m;\n  }\n  return res;\n}\n\n}\
+    \  // namespace emthrm\n\n\n#line 10 \"test/math/mod_pow.test.cpp\"\n\nint main()\
+    \ {\n  int m, n;\n  std::cin >> m >> n;\n  std::cout << emthrm::mod_pow(m, n,\
+    \ 1000000007) << '\\n';\n  return 0;\n}\n"
+  code: "/*\n * @title \u6570\u5B66/\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5\n *\n\
+    \ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_B\n\
+    \ */\n\n#include <iostream>\n\n#include \"emthrm/math/mod_pow.hpp\"\n\nint main()\
     \ {\n  int m, n;\n  std::cin >> m >> n;\n  std::cout << emthrm::mod_pow(m, n,\
     \ 1000000007) << '\\n';\n  return 0;\n}\n"
   dependsOn:
@@ -35,7 +35,7 @@ data:
   isVerificationFile: true
   path: test/math/mod_pow.test.cpp
   requiredBy: []
-  timestamp: '2022-12-16 05:33:31+09:00'
+  timestamp: '2023-02-25 01:48:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/mod_pow.test.cpp

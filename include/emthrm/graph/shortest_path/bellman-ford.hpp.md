@@ -13,19 +13,34 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/shortest_path/single-source_shortest_path_problem.md
-    document_title: "Bellman\u2013Ford \u6CD5"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/shortest_path/bellman-ford.hpp: line 14: unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief Bellman\u2013Ford \u6CD5\n * @docs docs/graph/shortest_path/single-source_shortest_path_problem.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_SHORTEST_PATH_BELLMAN_FORD_HPP_\n#define EMTHRM_GRAPH_SHORTEST_PATH_BELLMAN_FORD_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/graph/shortest_path/bellman-ford.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <cassert>\n#include <limits>\n#include <vector>\n\
+    \n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n */\n\n#ifndef\
+    \ EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include <compare>\n\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  CostType\
+    \ cost;\n  int src, dst;\n\n  explicit Edge(const int src, const int dst, const\
+    \ CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\n  auto operator<=>(const\
+    \ Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n\
+    #line 10 \"include/emthrm/graph/shortest_path/bellman-ford.hpp\"\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename CostType>\nstruct BellmanFord {\n  const CostType\
+    \ inf;\n  std::vector<CostType> dist;\n\n  BellmanFord(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n              const CostType inf = std::numeric_limits<CostType>::max())\n\
+    \      : inf(inf), is_built(false), graph(graph) {}\n\n  bool has_negative_cycle(const\
+    \ int s) {\n    is_built = true;\n    const int n = graph.size();\n    dist.assign(n,\
+    \ inf);\n    dist[s] = 0;\n    prev.assign(n, -1);\n    for (int step = 0; step\
+    \ < n; ++step) {\n      bool is_updated = false;\n      for (int i = 0; i < n;\
+    \ ++i) {\n        if (dist[i] == inf) continue;\n        for (const Edge<CostType>&\
+    \ e : graph[i]) {\n          if (dist[e.dst] > dist[i] + e.cost) {\n         \
+    \   dist[e.dst] = dist[i] + e.cost;\n            prev[e.dst] = i;\n          \
+    \  is_updated = true;\n          }\n        }\n      }\n      if (!is_updated)\
+    \ return false;\n    }\n    return true;\n  }\n\n  std::vector<int> build_path(int\
+    \ t) const {\n    assert(is_built);\n    std::vector<int> res;\n    for (; t !=\
+    \ -1; t = prev[t]) {\n      res.emplace_back(t);\n    }\n    std::reverse(res.begin(),\
+    \ res.end());\n    return res;\n  }\n\n private:\n  bool is_built;\n  std::vector<int>\
+    \ prev;\n  std::vector<std::vector<Edge<CostType>>> graph;\n};\n\n}  // namespace\
+    \ emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_SHORTEST_PATH_BELLMAN_FORD_HPP_\n#define EMTHRM_GRAPH_SHORTEST_PATH_BELLMAN_FORD_HPP_\n\
     \n#include <algorithm>\n#include <cassert>\n#include <limits>\n#include <vector>\n\
     \n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\ntemplate <typename\
     \ CostType>\nstruct BellmanFord {\n  const CostType inf;\n  std::vector<CostType>\
@@ -50,17 +65,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/shortest_path/bellman-ford.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/shortest_path/bellman-ford.test.cpp
 documentation_of: include/emthrm/graph/shortest_path/bellman-ford.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/shortest_path/bellman-ford.hpp
-- /library/include/emthrm/graph/shortest_path/bellman-ford.hpp.html
 title: "Bellman\u2013Ford \u6CD5"
 ---
+
 # 単一始点最短路問題 (single-source shortest path problem)
 
 始点から他の任意の頂点までの最短路を求める問題である。

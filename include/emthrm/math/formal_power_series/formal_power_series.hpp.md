@@ -13,22 +13,24 @@ data:
     title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
-    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
-      \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
+      \ formula) \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':warning:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-    title: "\u30D9\u30EB\u6570\u306E\u6570\u8868 $n = k$ \u7248"
+    title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
-    title: "\u5206\u5272\u6570 $n = m$ \u7248"
+    title: "\u5206\u5272\u6570 (partition function) $n = m$ \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
-    title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-      \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+    title: "\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number\
+      \ of the first kind) \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
+      \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-      \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number\
+      \ of the second kind) \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
+      \u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/subset_sum_problem.test.cpp

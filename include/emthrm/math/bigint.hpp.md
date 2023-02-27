@@ -24,16 +24,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.07.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u5927\u5C0F\u6BD4\u8F03)"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/bigint.08.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u51AA\u6F14\u7B97)"
   - icon: ':heavy_check_mark:'
     path: test/math/bigint.09.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u548C)"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/bigint.10.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570 (\u6841\u6570)"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -337,7 +337,7 @@ data:
   path: include/emthrm/math/bigint.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/bigint.07.test.cpp
   - test/math/bigint.05.test.cpp

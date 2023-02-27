@@ -31,16 +31,11 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/segment_tree.md
-    document_title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\n\
-    /**\n * @brief \u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\n\
-    \ * @docs docs/data_structure/segment_tree.md\n */\n\n#ifndef EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n\
-    #define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n\n#include <algorithm>\n\
-    #include <bit>\n// #include <cassert>\n#include <limits>\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstruct LazySegmentTree {\n  using\
-    \ Monoid = typename T::Monoid;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\
+  bundledCode: "#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#include <limits>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct LazySegmentTree\
+    \ {\n  using Monoid = typename T::Monoid;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\
     \n  explicit LazySegmentTree(const int n)\n      : LazySegmentTree(std::vector<Monoid>(n,\
     \ T::m_id())) {}\n\n  explicit LazySegmentTree(const std::vector<Monoid>& a)\n\
     \      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n   \
@@ -153,13 +148,11 @@ data:
     \              const OperatorMonoid& b) {\n    return a + b;\n  }\n  static Monoid\
     \ apply(const Monoid& a, const OperatorMonoid& b) {\n    return Monoid{a.sum +\
     \ b * a.len, a.len};\n  }\n};\n\n}  // namespace monoid\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n"
-  code: "/**\n * @brief \u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728\
-    \n * @docs docs/data_structure/segment_tree.md\n */\n\n#ifndef EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n\
-    #define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n\n#include <algorithm>\n\
-    #include <bit>\n// #include <cassert>\n#include <limits>\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstruct LazySegmentTree {\n  using\
-    \ Monoid = typename T::Monoid;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\
+    \n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n\
+    \n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#include <limits>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct LazySegmentTree\
+    \ {\n  using Monoid = typename T::Monoid;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\
     \n  explicit LazySegmentTree(const int n)\n      : LazySegmentTree(std::vector<Monoid>(n,\
     \ T::m_id())) {}\n\n  explicit LazySegmentTree(const std::vector<Monoid>& a)\n\
     \      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n   \
@@ -277,7 +270,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
@@ -288,11 +281,9 @@ data:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/lazy_segment_tree.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/lazy_segment_tree.hpp
-- /library/include/emthrm/data_structure/lazy_segment_tree.hpp.html
 title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
 ---
+
 # セグメント木 (segment tree)
 
 [モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。

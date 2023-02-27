@@ -15,15 +15,39 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/flow/maximum_flow/maximum_flow.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    \n\n\n\n#include <cassert>\n#include <limits>\n#include <vector>\n\n#line 1 \"\
+    include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\n/**\n * @title \u6700\
+    \u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8\n */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
+    #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\n#include <concepts>\n\
+    #include <utility>\n\nnamespace emthrm {\n\ntemplate <template <typename> class\
+    \ C, typename T>\nconcept MaximumFlow = requires (C<T> mf) {\n  {mf.add_edge(std::declval<int>(),\
+    \ std::declval<int>(), std::declval<T>())}\n      -> std::same_as<void>;\n  {mf.maximum_flow(std::declval<int>(),\
+    \ std::declval<int>())}\n      -> std::same_as<T>;\n};\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#line 9 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
+    requires MaximumFlow<C, T>\nstruct ProjectSelectionProblem {\n  explicit ProjectSelectionProblem(const\
+    \ int n)\n      : inf(std::numeric_limits<T>::max()), n(n), res(0) {}\n\n  void\
+    \ add_neq(const int u, const int v, const T cost) {\n    assert(cost >= 0);\n\
+    \    us.emplace_back(u);\n    vs.emplace_back(v);\n    costs.emplace_back(cost);\n\
+    \  }\n\n  void add(const int v, bool group, T cost) {\n    if (cost < 0) {\n \
+    \     cost = -cost;\n      res += cost;\n      group = !group;\n    }\n    if\
+    \ (group) {\n      add_neq(-2, v, cost);  // -2 represents S.\n    } else {\n\
+    \      add_neq(v, -1, cost);  // -1 represents T.\n    }\n  }\n\n  void add_or(const\
+    \ std::vector<int>& v, const bool group, const T cost) {\n    assert(cost >= 0);\n\
+    \    add(n, group, cost);\n    if (group) {\n      for (const int e : v) add_neq(n,\
+    \ e, inf);\n    } else {\n      for (const int e : v) add_neq(e, n, inf);\n  \
+    \  }\n    ++n;\n  }\n\n  void add_or(const int u, const int v, const bool group,\
+    \ const T cost) {\n    add_or({u, v}, group, cost);\n  }\n\n  void add_eq(const\
+    \ std::vector<int>& v, const bool group, T cost) {\n    assert(cost <= 0);\n \
+    \   cost = -cost;\n    res += cost;\n    add_or(v, !group, cost);\n  }\n\n  void\
+    \ add_eq(const int u, const int v, const bool group, const T cost) {\n    add_eq({u,\
+    \ v}, group, cost);\n  }\n\n  T solve() {\n    C<T> mf(n + 2);\n    const int\
+    \ neq_size = costs.size();\n    for (int i = 0; i < neq_size; ++i) {\n      mf.add_edge(us[i]\
+    \ < 0 ? us[i] + n + 2 : us[i],\n                  vs[i] < 0 ? vs[i] + n + 2 :\
+    \ vs[i], costs[i]);\n    }\n    return mf.maximum_flow(n, n + 1, inf) - res;\n\
+    \  }\n\n private:\n  const T inf;\n  int n;\n  T res;\n  std::vector<int> us,\
+    \ vs;\n  std::vector<T> costs;\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_\n#define\
     \ EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_\n\n#include <cassert>\n\
     #include <limits>\n#include <vector>\n\n#include \"emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\
@@ -55,7 +79,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
   requiredBy: []
-  timestamp: '2023-02-24 00:16:54+09:00'
+  timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp

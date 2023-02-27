@@ -10,22 +10,16 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/quadratic_residue.md
-    document_title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/jacobi_symbol.hpp\"\n/**\n * @brief\
-    \ \u30E4\u30B3\u30D3\u8A18\u53F7\n * @docs docs/math/quadratic_residue.md\n */\n\
-    \n#ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n#define EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n\
-    \n#include <bit>\n#include <cassert>\n#include <utility>\n\nnamespace emthrm {\n\
-    \nint jacobi_symbol(long long a, long long p) {\n  assert(p > 0 && p & 1);\n \
-    \ if (p == 1) [[unlikely]] return 1;\n  if ((a %= p) < 0) a += p;\n  if (a ==\
-    \ 0) [[unlikely]] return 0;\n  int res = 1;\n  while (a > 0) {\n    const int\
-    \ p2 = std::countr_zero(static_cast<unsigned long long>(a));\n    if ((p2 & 1)\
-    \ && ((p + 2) & 4)) res = -res;\n    a >>= p2;\n    if (a & p & 2) res = -res;\n\
-    \    std::swap(a, p);\n    a %= p;\n  }\n  return p == 1 ? res : 0;\n}\n\n}  //\
-    \ namespace emthrm\n\n#endif  // EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n"
-  code: "/**\n * @brief \u30E4\u30B3\u30D3\u8A18\u53F7\n * @docs docs/math/quadratic_residue.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n#define EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/math/jacobi_symbol.hpp\"\n\n\n\n#include\
+    \ <bit>\n#include <cassert>\n#include <utility>\n\nnamespace emthrm {\n\nint jacobi_symbol(long\
+    \ long a, long long p) {\n  assert(p > 0 && p & 1);\n  if (p == 1) [[unlikely]]\
+    \ return 1;\n  if ((a %= p) < 0) a += p;\n  if (a == 0) [[unlikely]] return 0;\n\
+    \  int res = 1;\n  while (a > 0) {\n    const int p2 = std::countr_zero(static_cast<unsigned\
+    \ long long>(a));\n    if ((p2 & 1) && ((p + 2) & 4)) res = -res;\n    a >>= p2;\n\
+    \    if (a & p & 2) res = -res;\n    std::swap(a, p);\n    a %= p;\n  }\n  return\
+    \ p == 1 ? res : 0;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n#define EMTHRM_MATH_JACOBI_SYMBOL_HPP_\n\
     \n#include <bit>\n#include <cassert>\n#include <utility>\n\nnamespace emthrm {\n\
     \nint jacobi_symbol(long long a, long long p) {\n  assert(p > 0 && p & 1);\n \
     \ if (p == 1) [[unlikely]] return 1;\n  if ((a %= p) < 0) a += p;\n  if (a ==\
@@ -38,17 +32,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/jacobi_symbol.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/jacobi_symbol.test.cpp
 documentation_of: include/emthrm/math/jacobi_symbol.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/jacobi_symbol.hpp
-- /library/include/emthrm/math/jacobi_symbol.hpp.html
-title: "\u30E4\u30B3\u30D3\u8A18\u53F7"
+title: "\u30E4\u30B3\u30D3\u8A18\u53F7 (Jacobi symbol)"
 ---
+
 # 平方剰余 (quadratic residue)
 
 $x^2 \equiv a \pmod{p}$ を満たす $x$ が存在すれば、$a \in \mathbb{Z}$ は法 $p$ の下で平方剰余であり、そうでなければ平方非剰余である。
@@ -128,7 +120,7 @@ $$
 6. 4に戻る。
 
 
-### ヤコビ記号
+### ヤコビ記号 (Jacobi symbol)
 
 整数 $a$、正の奇数 $p$ に対して $p$ の素因数分解を $p = \prod_i p_i^{e_i}$ とすると
 

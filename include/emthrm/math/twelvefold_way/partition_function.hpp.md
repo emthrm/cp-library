@@ -10,21 +10,15 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/twelvefold_way/partition_function.md
-    document_title: "\u5206\u5272\u6570"
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/twelvefold_way/partition_function.hpp\"\
-    \n/**\n * @brief \u5206\u5272\u6570\n * @docs docs/math/twelvefold_way/partition_function.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n#define EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n\
-    \n#include <algorithm>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ T>\nstd::vector<std::vector<T>> partition_function(const int n, const int m)\
-    \ {\n  std::vector<std::vector<T>> p(n + 1, std::vector<T>(m + 1, 0));\n  p[0][0]\
-    \ = 1;\n  for (int i = 1; i <= n; ++i) {\n    std::copy(p[i - 1].begin(), p[i\
-    \ - 1].end(), p[i].begin());\n    for (int j = i; j <= m; ++j) {\n      p[i][j]\
-    \ += p[i][j - i];\n    }\n  }\n  return p;\n}\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n"
-  code: "/**\n * @brief \u5206\u5272\u6570\n * @docs docs/math/twelvefold_way/partition_function.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n#define EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n\
+    \n\n\n\n#include <algorithm>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename T>\nstd::vector<std::vector<T>> partition_function(const int n, const\
+    \ int m) {\n  std::vector<std::vector<T>> p(n + 1, std::vector<T>(m + 1, 0));\n\
+    \  p[0][0] = 1;\n  for (int i = 1; i <= n; ++i) {\n    std::copy(p[i - 1].begin(),\
+    \ p[i - 1].end(), p[i].begin());\n    for (int j = i; j <= m; ++j) {\n      p[i][j]\
+    \ += p[i][j - i];\n    }\n  }\n  return p;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n#define EMTHRM_MATH_TWELVEFOLD_WAY_PARTITION_FUNCTION_HPP_\n\
     \n#include <algorithm>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
     \ T>\nstd::vector<std::vector<T>> partition_function(const int n, const int m)\
     \ {\n  std::vector<std::vector<T>> p(n + 1, std::vector<T>(m + 1, 0));\n  p[0][0]\
@@ -36,17 +30,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/partition_function.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/partition_function_init.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/partition_function.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/twelvefold_way/partition_function.hpp
-- /library/include/emthrm/math/twelvefold_way/partition_function.hpp.html
-title: "\u5206\u5272\u6570"
+title: "\u5206\u5272\u6570 (partition function)"
 ---
+
 # 分割数 (partition function)
 
 自然数 $n$ を $m$ 個以下の正の整数の和で表す方法の総数の内、$n = m$ を満たすもの。

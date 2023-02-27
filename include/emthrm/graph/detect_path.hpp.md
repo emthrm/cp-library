@@ -6,26 +6,32 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/detect_path.test.cpp
     title: "\u30B0\u30E9\u30D5/\u9053\u306E\u691C\u51FA"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/graph/detect_walk.md
-    document_title: "\u9053\u306E\u691C\u51FA"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/detect_path.hpp: line 11: unable to process #include in\
-    \ #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief \u9053\u306E\u691C\u51FA\n * @docs docs/graph/detect_walk.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_DETECT_PATH_HPP_\n#define EMTHRM_GRAPH_DETECT_PATH_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/graph/detect_path.hpp\"\n\n\n\n#include <vector>\n\
+    \n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n */\n\n#ifndef\
+    \ EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include <compare>\n\
+    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  CostType\
+    \ cost;\n  int src, dst;\n\n  explicit Edge(const int src, const int dst, const\
+    \ CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\n  auto operator<=>(const\
+    \ Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n\
+    #line 7 \"include/emthrm/graph/detect_path.hpp\"\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename CostType>\nstd::vector<Edge<CostType>> detect_path(\n    const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n    const int s, const int t) {\n  std::vector<bool> is_visited(graph.size(),\
+    \ false);\n  std::vector<Edge<CostType>> path;\n  const auto dfs = [&graph, t,\
+    \ &is_visited, &path](auto dfs, const int ver)\n      -> bool {\n    if (ver ==\
+    \ t) return true;\n    is_visited[ver] = true;\n    for (const Edge<CostType>&\
+    \ e : graph[ver]) {\n      if (!is_visited[e.dst]) {\n        path.emplace_back(e);\n\
+    \        if (dfs(dfs, e.dst)) return true;\n        path.pop_back();\n      }\n\
+    \    }\n    return false;\n  };\n  dfs(dfs, s);\n  return path;\n}\n\n}  // namespace\
+    \ emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_DETECT_PATH_HPP_\n#define EMTHRM_GRAPH_DETECT_PATH_HPP_\n\
     \n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm\
     \ {\n\ntemplate <typename CostType>\nstd::vector<Edge<CostType>> detect_path(\n\
     \    const std::vector<std::vector<Edge<CostType>>>& graph,\n    const int s,\
@@ -41,17 +47,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/detect_path.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-02-25 16:35:06+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/detect_path.test.cpp
 documentation_of: include/emthrm/graph/detect_path.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/detect_path.hpp
-- /library/include/emthrm/graph/detect_path.hpp.html
-title: "\u9053\u306E\u691C\u51FA"
+title: "\u9053 (path) \u306E\u691C\u51FA"
 ---
+
 # 歩道 (walk) の検出
 
 
@@ -62,14 +66,14 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-### 道 (path) の検出
+### 道の検出
 
 |名前|戻り値|
 |:--|:--|
 |`template <typename CostType>`<br>`std::vector<Edge<CostType>> detect_path(const std::vector<std::vector<Edge<CostType>>>& graph, const int s, const int t);`|有向グラフ $\mathrm{graph}$ における始点 $s$、終点 $t$ の道。ただし存在しないときは空配列を返す。|
 
 
-### 有向閉路 (directed cycle) の検出
+### 有向閉路の検出
 
 |名前|戻り値|
 |:--|:--|

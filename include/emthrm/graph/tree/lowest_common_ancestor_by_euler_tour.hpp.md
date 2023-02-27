@@ -20,23 +20,77 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/tree/lowest_common_ancestor.md
-    document_title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\
-      \u30C4\u30A2\u30FC\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp: line 13:\
-    \ unable to process #include in #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief \u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\
-    \u30C4\u30A2\u30FC\u7248\n * @docs docs/graph/tree/lowest_common_ancestor.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_\n\
-    #define EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_\n\n#include\
-    \ <algorithm>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/data_structure/sparse_table.hpp\"\
+  bundledCode: "#line 1 \"include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <utility>\n#include <vector>\n\n#line 1\
+    \ \"include/emthrm/data_structure/sparse_table.hpp\"\n\n\n\n#line 5 \"include/emthrm/data_structure/sparse_table.hpp\"\
+    \n#include <bit>\n#include <cassert>\n#include <functional>\n#line 9 \"include/emthrm/data_structure/sparse_table.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename Band>\nstruct SparseTable {\n  using\
+    \ BinOp = std::function<Band(Band, Band)>;\n\n  SparseTable() = default;\n\n \
+    \ explicit SparseTable(const std::vector<Band>& a, const BinOp bin_op) {\n   \
+    \ init(a, bin_op);\n  }\n\n  void init(const std::vector<Band>& a, const BinOp\
+    \ bin_op_) {\n    bin_op = bin_op_;\n    const int n = a.size();\n    assert(n\
+    \ > 0);\n    lg.assign(n + 1, 0);\n    for (int i = 2; i <= n; ++i) {\n      lg[i]\
+    \ = lg[i >> 1] + 1;\n    }\n    const int table_h = std::countr_zero(std::bit_floor(a.size()))\
+    \ + 1;\n    data.assign(table_h, std::vector<Band>(n));\n    std::copy(a.begin(),\
+    \ a.end(), data.front().begin());\n    for (int i = 1; i < table_h; ++i) {\n \
+    \     for (int j = 0; j + (1 << i) <= n; ++j) {\n        data[i][j] = bin_op(data[i\
+    \ - 1][j], data[i - 1][j + (1 << (i - 1))]);\n      }\n    }\n  }\n\n  Band query(const\
+    \ int left, const int right) const {\n    assert(left < right);\n    const int\
+    \ h = lg[right - left];\n    return bin_op(data[h][left], data[h][right - (1 <<\
+    \ h)]);\n  }\n\n private:\n  BinOp bin_op;\n  std::vector<int> lg;\n  std::vector<std::vector<Band>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\
+    \n/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
+    \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
+    \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
+    \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
+    \ {}\n\n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n#line 1 \"include/emthrm/graph/tree/euler_tour.hpp\"\
+    \n\n\n\n#line 5 \"include/emthrm/graph/tree/euler_tour.hpp\"\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\
+    \n/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
+    \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
+    \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
+    \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
+    \ {}\n\n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n#line 7 \"include/emthrm/graph/tree/euler_tour.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct EulerTour {\n \
+    \ std::vector<int> tour, depth, left, right, down, up;\n  std::vector<CostType>\
+    \ cost;\n\n  explicit EulerTour(const std::vector<std::vector<Edge<CostType>>>\
+    \ &graph,\n                     const int root = 0)\n      : graph(graph) {\n\
+    \    const int n = graph.size();\n    left.resize(n);\n    right.resize(n);\n\
+    \    down.assign(n, -1);\n    up.assign(n, (n - 1) << 1);\n    dfs(-1, root, 0);\n\
+    \  }\n\n  template <typename Fn>\n  void update_v(const int ver, const Fn f) const\
+    \ {\n    f(left[ver], right[ver] + 1);\n  }\n\n  template <typename T, typename\
+    \ Fn>\n  T query_v(const int ver, const Fn f) const {\n    return f(left[ver],\
+    \ right[ver] + 1);\n  }\n\n  template <typename T, typename Fn>\n  T query_e(const\
+    \ int u, const int v, const Fn f) const {\n    return f(down[u] + 1, down[v] +\
+    \ 1);\n  }\n\n  template <typename Fn>\n  void update_subtree_e(const int ver,\
+    \ const Fn f) const {\n    f(down[ver] + 1, up[ver]);\n  }\n\n  template <typename\
+    \ T, typename Fn>\n  T query_subtree_e(const int ver, const Fn f) const {\n  \
+    \  return f(down[ver] + 1, up[ver]);\n  }\n\n private:\n  const std::vector<std::vector<Edge<CostType>>>\
+    \ graph;\n\n  void dfs(const int par, const int ver, const int cur_depth) {\n\
+    \    left[ver] = tour.size();\n    tour.emplace_back(ver);\n    depth.emplace_back(cur_depth);\n\
+    \    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst != par) [[likely]]\
+    \ {\n        down[e.dst] = cost.size();\n        cost.emplace_back(e.cost);\n\
+    \        dfs(ver, e.dst, cur_depth + 1);\n        tour.emplace_back(ver);\n  \
+    \      depth.emplace_back(cur_depth);\n        up[e.dst] = cost.size();\n    \
+    \    cost.emplace_back(-e.cost);\n      }\n    }\n    right[ver] = tour.size()\
+    \ - 1;\n  }\n};\n\n}  // namespace emthrm\n\n\n#line 11 \"include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct LowestCommonAncestor\
+    \ : EulerTour<CostType> {\n  explicit LowestCommonAncestor(\n      const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph,\n      const int root = 0)\n      : EulerTour<CostType>(graph, root)\
+    \ {\n    const int n = this->tour.size();\n    std::vector<std::pair<int, int>>\
+    \ nodes(n);\n    for (int i = 0; i < n; ++i) {\n      nodes[i] = {this->depth[i],\
+    \ this->tour[i]};\n    }\n    sparse_table.init(\n        nodes,\n        [](const\
+    \ std::pair<int, int>& a, const std::pair<int, int>& b)\n            -> std::pair<int,\
+    \ int> {\n          return std::min(a, b);\n        });\n  }\n\n  int query(int\
+    \ u, int v) const {\n    u = this->left[u];\n    v = this->left[v];\n    if (u\
+    \ > v) std::swap(u, v);\n    return sparse_table.query(u, v + 1).second;\n  }\n\
+    \n private:\n  SparseTable<std::pair<int, int>> sparse_table;\n};\n\n}  // namespace\
+    \ emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_\n#define\
+    \ EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_\n\n#include <algorithm>\n\
+    #include <utility>\n#include <vector>\n\n#include \"emthrm/data_structure/sparse_table.hpp\"\
     \n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/tree/euler_tour.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct LowestCommonAncestor\
     \ : EulerTour<CostType> {\n  explicit LowestCommonAncestor(\n      const std::vector<std::vector<Edge<CostType>>>&\
@@ -57,18 +111,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-- /library/include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp.html
-title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC\
-  \u7248"
+title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30AA\u30A4\
+  \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
 ---
+
 # 最小共通祖先 (lowest common ancestor)
 
 根付き木のある2頂点に対して最も深い共通祖先である。

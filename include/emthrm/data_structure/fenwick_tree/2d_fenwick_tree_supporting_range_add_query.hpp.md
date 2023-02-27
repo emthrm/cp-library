@@ -11,17 +11,10 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/fenwick_tree/fenwick_tree.md
-    document_title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\
-      \u5143 Fenwick tree"
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp\"\
-    \n/**\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\
-    \u5143 Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_\n\
-    #define EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_\n\
-    \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename Abelian>\nstruct\
-    \ FenwickTree2DSupportingRangeAddQuery {\n  explicit FenwickTree2DSupportingRangeAddQuery(\n\
+    \n\n\n\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename Abelian>\n\
+    struct FenwickTree2DSupportingRangeAddQuery {\n  explicit FenwickTree2DSupportingRangeAddQuery(\n\
     \      const int height_, const int width_, const Abelian ID = 0)\n      : height(height_\
     \ + 1), width(width_ + 1), ID(ID) {\n    data_const.assign(height, std::vector<Abelian>(width,\
     \ ID));\n    data_linear[0].assign(height, std::vector<Abelian>(width, ID));\n\
@@ -54,10 +47,8 @@ data:
     \ - 1, x2) + sum(y1 - 1, x1 - 1);\n  }\n\n private:\n  const int height, width;\n\
     \  const Abelian ID;\n  std::vector<std::vector<Abelian>> data_const, data_quadratic;\n\
     \  std::vector<std::vector<Abelian>> data_linear[2];\n};\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_\n"
-  code: "/**\n * @brief \u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\
-    \u5143 Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_\n\
+    \n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_\n\
     #define EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_SUPPORTING_RANGE_ADD_QUERY_HPP_\n\
     \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename Abelian>\nstruct\
     \ FenwickTree2DSupportingRangeAddQuery {\n  explicit FenwickTree2DSupportingRangeAddQuery(\n\
@@ -98,18 +89,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp
-- /library/include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree_supporting_range_add_query.hpp.html
 title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC2\u6B21\u5143 Fenwick\
   \ tree"
 ---
+
 # Fenwick tree (binary indexed tree)
 
 

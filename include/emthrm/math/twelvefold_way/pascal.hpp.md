@@ -11,40 +11,32 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/twelvefold_way/binomial_coefficients.md
-    document_title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/twelvefold_way/pascal.hpp\"\n/**\n *\
-    \ @brief \u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62\n * @docs docs/math/twelvefold_way/binomial_coefficients.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n#define EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/math/twelvefold_way/pascal.hpp\"\n\n\n\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>>\
+    \ pascal(const int n) {\n  std::vector<std::vector<T>> c(n + 1, std::vector<T>(n\
+    \ + 1, 0));\n  for (int i = 0; i <= n; ++i) {\n    c[i][0] = 1;\n    for (int\
+    \ j = 1; j <= i; ++j) {\n      c[i][j] = c[i - 1][j - 1] + c[i - 1][j];\n    }\n\
+    \  }\n  return c;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n#define EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n\
     \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>>\
     \ pascal(const int n) {\n  std::vector<std::vector<T>> c(n + 1, std::vector<T>(n\
     \ + 1, 0));\n  for (int i = 0; i <= n; ++i) {\n    c[i][0] = 1;\n    for (int\
     \ j = 1; j <= i; ++j) {\n      c[i][j] = c[i - 1][j - 1] + c[i - 1][j];\n    }\n\
     \  }\n  return c;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n"
-  code: "/**\n * @brief \u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62\n * @docs\
-    \ docs/math/twelvefold_way/binomial_coefficients.md\n */\n\n#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n\
-    #define EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n\n#include <vector>\n\nnamespace\
-    \ emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>> pascal(const\
-    \ int n) {\n  std::vector<std::vector<T>> c(n + 1, std::vector<T>(n + 1, 0));\n\
-    \  for (int i = 0; i <= n; ++i) {\n    c[i][0] = 1;\n    for (int j = 1; j <=\
-    \ i; ++j) {\n      c[i][j] = c[i - 1][j - 1] + c[i - 1][j];\n    }\n  }\n  return\
-    \ c;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_PASCAL_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/twelvefold_way/pascal.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/twelvefold_way/pascal.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/pascal.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/twelvefold_way/pascal.hpp
-- /library/include/emthrm/math/twelvefold_way/pascal.hpp.html
-title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62"
+title: "\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\u89D2\u5F62 (Pascal's triangle)"
 ---
+
 # 二項係数 (binomial coefficients)
 
 $$

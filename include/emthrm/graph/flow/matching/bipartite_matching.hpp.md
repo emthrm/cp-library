@@ -11,37 +11,29 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/flow/matching/matching.md
-    document_title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
-      \u30F3\u30B0"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/flow/matching/bipartite_matching.hpp\"\
-    \n/**\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\
-    \u30F3\u30B0\n * @docs docs/graph/flow/matching/matching.md\n */\n\n#ifndef EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n\
-    #define EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n\n#include <vector>\n\
-    \nnamespace emthrm {\n\nstruct BipartiteMatching {\n  std::vector<int> match;\n\
-    \n  explicit BipartiteMatching(const int n)\n      : match(n, -1), n(n), t(0),\
-    \ is_alive(n, true), is_used(n, 0), graph(n) {}\n\n  void add_edge(const int u,\
-    \ const int v) {\n    graph[u].emplace_back(v);\n    graph[v].emplace_back(u);\n\
-    \  }\n\n  int solve() {\n    int res = 0;\n    for (int i = 0; i < n; ++i) {\n\
-    \      if (is_alive[i] && match[i] == -1) {\n        ++t;\n        res += dfs(i);\n\
-    \      }\n    }\n    return res;\n  }\n\n  void fix(const int ver) {\n    is_alive[ver]\
-    \ = false;\n    if (match[ver] != -1) is_alive[match[ver]] = false;\n  }\n\n \
-    \ int activate(const int ver) {\n    if (is_alive[ver]) return 0;\n    is_alive[ver]\
-    \ = true;\n    ++t;\n    return dfs(ver) ? 1 : 0;\n  }\n\n  int deactivate(const\
-    \ int ver) {\n    if (!is_alive[ver]) return 0;\n    is_alive[ver] = false;\n\
-    \    const int m = match[ver];\n    if (m == -1) return 0;\n    match[ver] = match[m]\
-    \ = -1;\n    ++t;\n    return dfs(m) ? 0 : -1;\n  }\n\n private:\n  const int\
-    \ n;\n  int t;\n  std::vector<bool> is_alive;\n  std::vector<int> is_used;\n \
-    \ std::vector<std::vector<int>> graph;\n\n  bool dfs(const int ver) {\n    is_used[ver]\
-    \ = t;\n    for (const int dst : graph[ver]) {\n      if (!is_alive[dst]) continue;\n\
-    \      const int m = match[dst];\n      if (m == -1 || (is_used[m] < t && dfs(m)))\
-    \ {\n        match[ver] = dst;\n        match[dst] = ver;\n        return true;\n\
-    \      }\n    }\n    return false;\n  }\n};\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n"
-  code: "/**\n * @brief \u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\
-    \u30C1\u30F3\u30B0\n * @docs docs/graph/flow/matching/matching.md\n */\n\n#ifndef\
-    \ EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n#define EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n\
+    \n\n\n\n#include <vector>\n\nnamespace emthrm {\n\nstruct BipartiteMatching {\n\
+    \  std::vector<int> match;\n\n  explicit BipartiteMatching(const int n)\n    \
+    \  : match(n, -1), n(n), t(0), is_alive(n, true), is_used(n, 0), graph(n) {}\n\
+    \n  void add_edge(const int u, const int v) {\n    graph[u].emplace_back(v);\n\
+    \    graph[v].emplace_back(u);\n  }\n\n  int solve() {\n    int res = 0;\n   \
+    \ for (int i = 0; i < n; ++i) {\n      if (is_alive[i] && match[i] == -1) {\n\
+    \        ++t;\n        res += dfs(i);\n      }\n    }\n    return res;\n  }\n\n\
+    \  void fix(const int ver) {\n    is_alive[ver] = false;\n    if (match[ver] !=\
+    \ -1) is_alive[match[ver]] = false;\n  }\n\n  int activate(const int ver) {\n\
+    \    if (is_alive[ver]) return 0;\n    is_alive[ver] = true;\n    ++t;\n    return\
+    \ dfs(ver) ? 1 : 0;\n  }\n\n  int deactivate(const int ver) {\n    if (!is_alive[ver])\
+    \ return 0;\n    is_alive[ver] = false;\n    const int m = match[ver];\n    if\
+    \ (m == -1) return 0;\n    match[ver] = match[m] = -1;\n    ++t;\n    return dfs(m)\
+    \ ? 0 : -1;\n  }\n\n private:\n  const int n;\n  int t;\n  std::vector<bool> is_alive;\n\
+    \  std::vector<int> is_used;\n  std::vector<std::vector<int>> graph;\n\n  bool\
+    \ dfs(const int ver) {\n    is_used[ver] = t;\n    for (const int dst : graph[ver])\
+    \ {\n      if (!is_alive[dst]) continue;\n      const int m = match[dst];\n  \
+    \    if (m == -1 || (is_used[m] < t && dfs(m))) {\n        match[ver] = dst;\n\
+    \        match[dst] = ver;\n        return true;\n      }\n    }\n    return false;\n\
+    \  }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n#define EMTHRM_GRAPH_FLOW_MATCHING_BIPARTITE_MATCHING_HPP_\n\
     \n#include <vector>\n\nnamespace emthrm {\n\nstruct BipartiteMatching {\n  std::vector<int>\
     \ match;\n\n  explicit BipartiteMatching(const int n)\n      : match(n, -1), n(n),\
     \ t(0), is_alive(n, true), is_used(n, 0), graph(n) {}\n\n  void add_edge(const\
@@ -66,17 +58,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/matching/bipartite_matching.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/bipartite_matching.test.cpp
 documentation_of: include/emthrm/graph/flow/matching/bipartite_matching.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/flow/matching/bipartite_matching.hpp
-- /library/include/emthrm/graph/flow/matching/bipartite_matching.hpp.html
 title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---
+
 ### マッチング (matching)
 
 互いに端点を共有しない辺集合である。

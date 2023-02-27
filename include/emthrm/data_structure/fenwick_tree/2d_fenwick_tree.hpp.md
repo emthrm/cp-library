@@ -10,31 +10,25 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/fenwick_tree/fenwick_tree.md
-    document_title: "2\u6B21\u5143 Fenwick tree"
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp\"\
-    \n/**\n * @brief 2\u6B21\u5143 Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_\n#define\
-    \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_\n\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename Abelian>\nstruct FenwickTree2D {\n\
-    \  explicit FenwickTree2D(\n      const int height_, const int width_, const Abelian\
-    \ ID = 0)\n      : height(height_ + 1), width(width_ + 1), ID(ID) {\n    data.assign(height,\
-    \ std::vector<Abelian>(width, ID));\n  }\n\n  void add(int y, int x, const Abelian\
-    \ val) {\n    ++y; ++x;\n    for (int i = y; i < height; i += i & -i) {\n    \
-    \  for (int j = x; j < width; j += j & -j) {\n        data[i][j] += val;\n   \
-    \   }\n    }\n  }\n\n  Abelian sum(int y, int x) const {\n    ++y; ++x;\n    Abelian\
-    \ res = ID;\n    for (int i = y; i > 0; i -= i & -i) {\n      for (int j = x;\
-    \ j > 0; j -= j & -j) {\n        res += data[i][j];\n      }\n    }\n    return\
-    \ res;\n  }\n\n  Abelian sum(const int y1, const int x1, const int y2, const int\
-    \ x2) const {\n    return y1 > y2 || x1 > x2 ? ID : sum(y2, x2) - sum(y2, x1 -\
-    \ 1)\n                                     - sum(y1 - 1, x2) + sum(y1 - 1, x1\
-    \ - 1);\n  }\n\n  Abelian get(const int y, const int x) const { return sum(y,\
-    \ x, y, x); }\n\n private:\n  const int height, width;\n  const Abelian ID;\n\
-    \  std::vector<std::vector<Abelian>> data;\n};\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_\n"
-  code: "/**\n * @brief 2\u6B21\u5143 Fenwick tree\n * @docs docs/data_structure/fenwick_tree/fenwick_tree.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_\n#define\
+    \n\n\n\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename Abelian>\n\
+    struct FenwickTree2D {\n  explicit FenwickTree2D(\n      const int height_, const\
+    \ int width_, const Abelian ID = 0)\n      : height(height_ + 1), width(width_\
+    \ + 1), ID(ID) {\n    data.assign(height, std::vector<Abelian>(width, ID));\n\
+    \  }\n\n  void add(int y, int x, const Abelian val) {\n    ++y; ++x;\n    for\
+    \ (int i = y; i < height; i += i & -i) {\n      for (int j = x; j < width; j +=\
+    \ j & -j) {\n        data[i][j] += val;\n      }\n    }\n  }\n\n  Abelian sum(int\
+    \ y, int x) const {\n    ++y; ++x;\n    Abelian res = ID;\n    for (int i = y;\
+    \ i > 0; i -= i & -i) {\n      for (int j = x; j > 0; j -= j & -j) {\n       \
+    \ res += data[i][j];\n      }\n    }\n    return res;\n  }\n\n  Abelian sum(const\
+    \ int y1, const int x1, const int y2, const int x2) const {\n    return y1 > y2\
+    \ || x1 > x2 ? ID : sum(y2, x2) - sum(y2, x1 - 1)\n                          \
+    \           - sum(y1 - 1, x2) + sum(y1 - 1, x1 - 1);\n  }\n\n  Abelian get(const\
+    \ int y, const int x) const { return sum(y, x, y, x); }\n\n private:\n  const\
+    \ int height, width;\n  const Abelian ID;\n  std::vector<std::vector<Abelian>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_\n#define\
     \ EMTHRM_DATA_STRUCTURE_FENWICK_TREE_2D_FENWICK_TREE_HPP_\n\n#include <vector>\n\
     \nnamespace emthrm {\n\ntemplate <typename Abelian>\nstruct FenwickTree2D {\n\
     \  explicit FenwickTree2D(\n      const int height_, const int width_, const Abelian\
@@ -56,17 +50,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/fenwick_tree/2d_fenwick_tree.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp
-- /library/include/emthrm/data_structure/fenwick_tree/2d_fenwick_tree.hpp.html
 title: "2\u6B21\u5143 Fenwick tree"
 ---
+
 # Fenwick tree (binary indexed tree)
 
 

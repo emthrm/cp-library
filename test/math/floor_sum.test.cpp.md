@@ -10,32 +10,39 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/sum_of_floor_of_linear
     document_title: "\u6570\u5B66/sum of floor of linear"
     links:
     - https://judge.yosupo.jp/problem/sum_of_floor_of_linear
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/floor_sum.hpp:\
-    \ line -1: no such header\n"
-  code: "/*\n * @brief \u6570\u5B66/sum of floor of linear\n */\n#define PROBLEM \"\
-    https://judge.yosupo.jp/problem/sum_of_floor_of_linear\"\n\n#include <iostream>\n\
-    \n#include \"emthrm/math/floor_sum.hpp\"\n\nint main() {\n  int t;\n  std::cin\
+  bundledCode: "#line 1 \"test/math/floor_sum.test.cpp\"\n/*\n * @title \u6570\u5B66\
+    /sum of floor of linear\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/sum_of_floor_of_linear\n\
+    \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/math/floor_sum.hpp\"\n\
+    \n\n\n#include <utility>\n\nnamespace emthrm {\n\nlong long floor_sum(long long\
+    \ a, long long b, long long m, long long n) {\n  long long res = 0;\n  if (a <\
+    \ 0) {\n    long long nxt_a = a % m;\n    if (nxt_a < 0) nxt_a += m;\n    res\
+    \ -= n * (n - 1) / 2 * ((nxt_a - a) / m);\n    a = nxt_a;\n  }\n  if (b < 0) {\n\
+    \    long long nxt_b = b % m;\n    if (nxt_b < 0) nxt_b += m;\n    res -= n *\
+    \ ((nxt_b - b) / m);\n    b = nxt_b;\n  }\n  while (true) {\n    if (a >= m) {\n\
+    \      res += n * (n - 1) / 2 * (a / m);\n      a %= m;\n    }\n    if (b >= m)\
+    \ {\n      res += n * (b / m);\n      b %= m;\n    }\n    const long long y_max\
+    \ = a * n + b;\n    if (y_max < m) break;\n    b = y_max % m;\n    n = y_max /\
+    \ m;\n    std::swap(a, m);\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\n\
+    \n#line 10 \"test/math/floor_sum.test.cpp\"\n\nint main() {\n  int t;\n  std::cin\
     \ >> t;\n  while (t--) {\n    int n, m, a, b;\n    std::cin >> n >> m >> a >>\
     \ b;\n    std::cout << emthrm::floor_sum(a, b, m, n) << '\\n';\n  }\n  return\
     \ 0;\n}\n"
+  code: "/*\n * @title \u6570\u5B66/sum of floor of linear\n *\n * verification-helper:\
+    \ PROBLEM https://judge.yosupo.jp/problem/sum_of_floor_of_linear\n */\n\n#include\
+    \ <iostream>\n\n#include \"emthrm/math/floor_sum.hpp\"\n\nint main() {\n  int\
+    \ t;\n  std::cin >> t;\n  while (t--) {\n    int n, m, a, b;\n    std::cin >>\
+    \ n >> m >> a >> b;\n    std::cout << emthrm::floor_sum(a, b, m, n) << '\\n';\n\
+    \  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/floor_sum.hpp
   isVerificationFile: true
   path: test/math/floor_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 01:48:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/floor_sum.test.cpp

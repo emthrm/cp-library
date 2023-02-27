@@ -3,35 +3,31 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/data_structure/union-find/undoable_union-find.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/undo \u53EF\u80FD union-find"
-  _isVerificationFailed: true
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\
+      \u9020/undo \u53EF\u80FD union-find"
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/union-find/union-find.md
-    document_title: "undo \u53EF\u80FD union-find"
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/union-find/undoable_union-find.hpp\"\
-    \n/**\n * @brief undo \u53EF\u80FD union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_\n#define\
-    \ EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_\n\n#include <utility>\n\
-    #include <vector>\n\nnamespace emthrm {\n\nstruct UndoableUnionFind {\n  explicit\
-    \ UndoableUnionFind(const int n) : data(n, -1) {}\n\n  int root(const int ver)\
-    \ const {\n    return data[ver] < 0 ? ver : root(data[ver]);\n  }\n\n  bool unite(int\
-    \ u, int v) {\n    u = root(u);\n    history.emplace_back(u, data[u]);\n    v\
-    \ = root(v);\n    history.emplace_back(v, data[v]);\n    if (u == v) return false;\n\
-    \    if (data[u] > data[v]) std::swap(u, v);\n    data[u] += data[v];\n    data[v]\
-    \ = u;\n    return true;\n  }\n\n  bool is_same(const int u, const int v) const\
-    \ { return root(u) == root(v); }\n\n  int size(const int ver) const { return -data[root(ver)];\
-    \ }\n\n  void undo() {\n    for (int i = 0; i < 2; ++i) {\n      data[history.back().first]\
-    \ = history.back().second;\n      history.pop_back();\n    }\n  }\n\n  void snapshot()\
-    \ { history.clear(); }\n\n  void rollback() {\n    while (!history.empty()) undo();\n\
-    \  }\n\n private:\n  std::vector<int> data;\n  std::vector<std::pair<int, int>>\
-    \ history;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_\n"
-  code: "/**\n * @brief undo \u53EF\u80FD union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_\n#define\
+    \n\n\n\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\nstruct\
+    \ UndoableUnionFind {\n  explicit UndoableUnionFind(const int n) : data(n, -1)\
+    \ {}\n\n  int root(const int ver) const {\n    return data[ver] < 0 ? ver : root(data[ver]);\n\
+    \  }\n\n  bool unite(int u, int v) {\n    u = root(u);\n    history.emplace_back(u,\
+    \ data[u]);\n    v = root(v);\n    history.emplace_back(v, data[v]);\n    if (u\
+    \ == v) return false;\n    if (data[u] > data[v]) std::swap(u, v);\n    data[u]\
+    \ += data[v];\n    data[v] = u;\n    return true;\n  }\n\n  bool is_same(const\
+    \ int u, const int v) const { return root(u) == root(v); }\n\n  int size(const\
+    \ int ver) const { return -data[root(ver)]; }\n\n  void undo() {\n    for (int\
+    \ i = 0; i < 2; ++i) {\n      data[history.back().first] = history.back().second;\n\
+    \      history.pop_back();\n    }\n  }\n\n  void snapshot() { history.clear();\
+    \ }\n\n  void rollback() {\n    while (!history.empty()) undo();\n  }\n\n private:\n\
+    \  std::vector<int> data;\n  std::vector<std::pair<int, int>> history;\n};\n\n\
+    }  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_\n#define\
     \ EMTHRM_DATA_STRUCTURE_UNION_FIND_UNDOABLE_UNION_FIND_HPP_\n\n#include <utility>\n\
     #include <vector>\n\nnamespace emthrm {\n\nstruct UndoableUnionFind {\n  explicit\
     \ UndoableUnionFind(const int n) : data(n, -1) {}\n\n  int root(const int ver)\
@@ -50,17 +46,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/union-find/undoable_union-find.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-02-25 16:35:06+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/data_structure/union-find/undoable_union-find.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/undoable_union-find.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/union-find/undoable_union-find.hpp
-- /library/include/emthrm/data_structure/union-find/undoable_union-find.hpp.html
 title: "undo \u53EF\u80FD union-find"
 ---
+
 # 素集合データ構造 (disjoint-set data structure)
 
 |名前|概要|

@@ -10,22 +10,22 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://atcoder.jp/contests/abc170/tasks/abc170_d
     document_title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
     links:
     - https://atcoder.jp/contests/abc170/tasks/abc170_d
   bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    , line 98, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
     \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
     , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    , line 403, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
     \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/fast_divisor.hpp:\
-    \ line -1: no such header\n"
-  code: "/*\n * @brief \u6570\u5B66/\u7D04\u6570\u5217\u6319\n */\n#define PROBLEM\
-    \ \"https://atcoder.jp/contests/abc170/tasks/abc170_d\"\n\n#include <algorithm>\n\
+    , line 402, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
+    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
+    \ include/emthrm/math/fast_divisor.hpp: line 11: unable to process #include in\
+    \ #if / #ifdef / #ifndef other than include guards\n"
+  code: "/*\n * @title \u6570\u5B66/\u7D04\u6570\u5217\u6319\n *\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc170/tasks/abc170_d\n */\n\n#include <algorithm>\n\
     #include <iostream>\n#include <set>\n#include <vector>\n\n#include \"emthrm/math/fast_divisor.hpp\"\
     \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a(n);\n  for\
     \ (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  const emthrm::Divisor\
@@ -42,7 +42,7 @@ data:
   isVerificationFile: true
   path: test/math/fast_divisor.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 01:48:23+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/fast_divisor.test.cpp

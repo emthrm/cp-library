@@ -16,28 +16,55 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
     document_title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/edge.hpp:\
-    \ line -1: no such header\n"
-  code: "/*\n * @brief \u30B0\u30E9\u30D5/Kruskal \u6CD5\n */\n#define PROBLEM \"\
-    http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\"\n\n#include\
-    \ <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n#include\
-    \ \"emthrm/graph/kruskal.hpp\"\n\nint main() {\n  int v, e;\n  std::cin >> v >>\
-    \ e;\n  std::vector<std::vector<emthrm::Edge<long long>>> edge(v);\n  for (int\
-    \ i = 0; i < e; ++i) {\n    int s, t, w;\n    std::cin >> s >> t >> w;\n    edge[s].emplace_back(s,\
-    \ t, w);\n    edge[t].emplace_back(t, s, w);\n  }\n  std::cout << emthrm::kruskal(edge)\
-    \ << '\\n';\n  return 0;\n}\n"
+  bundledCode: "#line 1 \"test/graph/kruskal.test.cpp\"\n/*\n * @title \u30B0\u30E9\
+    \u30D5/Kruskal \u6CD5\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\n\
+    \ */\n\n#include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\
+    \n/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
+    \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
+    \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
+    \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
+    \ {}\n\n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n#line 1 \"include/emthrm/graph/kruskal.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <ranges>\n#line 7 \"include/emthrm/graph/kruskal.hpp\"\
+    \n\n#line 1 \"include/emthrm/data_structure/union-find/union-find.hpp\"\n\n\n\n\
+    #include <utility>\n#line 6 \"include/emthrm/data_structure/union-find/union-find.hpp\"\
+    \n\nnamespace emthrm {\n\nstruct UnionFind {\n  explicit UnionFind(const int n)\
+    \ : data(n, -1) {}\n\n  int root(const int ver) {\n    return data[ver] < 0 ?\
+    \ ver : data[ver] = root(data[ver]);\n  }\n\n  bool unite(int u, int v) {\n  \
+    \  u = root(u);\n    v = root(v);\n    if (u == v) return false;\n    if (data[u]\
+    \ > data[v]) std::swap(u, v);\n    data[u] += data[v];\n    data[v] = u;\n   \
+    \ return true;\n  }\n\n  bool is_same(const int u, const int v) { return root(u)\
+    \ == root(v); }\n\n  int size(const int ver) { return -data[root(ver)]; }\n\n\
+    \ private:\n  std::vector<int> data;\n};\n\n}  // namespace emthrm\n\n\n#line\
+    \ 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n\
+    #define EMTHRM_GRAPH_EDGE_HPP_\n\n#include <compare>\n\nnamespace emthrm {\n\n\
+    template <typename CostType>\nstruct Edge {\n  CostType cost;\n  int src, dst;\n\
+    \n  explicit Edge(const int src, const int dst, const CostType cost = 0)\n   \
+    \   : cost(cost), src(src), dst(dst) {}\n\n  auto operator<=>(const Edge& x) const\
+    \ = default;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n\
+    #line 10 \"include/emthrm/graph/kruskal.hpp\"\n\nnamespace emthrm {\n\ntemplate\
+    \ <typename CostType>\nCostType kruskal(const std::vector<std::vector<Edge<CostType>>>&\
+    \ graph) {\n  const int n = graph.size();\n  const auto jv = graph | std::views::join;\n\
+    \  std::vector<Edge<CostType>> edges(jv.begin(), jv.end());\n  std::ranges::sort(edges);\n\
+    \  CostType res = 0;\n  UnionFind uf(n);\n  for (const Edge<CostType>& e : edges)\
+    \ {\n    if (uf.unite(e.src, e.dst)) res += e.cost;\n  }\n  return res;\n}\n\n\
+    }  // namespace emthrm\n\n\n#line 12 \"test/graph/kruskal.test.cpp\"\n\nint main()\
+    \ {\n  int v, e;\n  std::cin >> v >> e;\n  std::vector<std::vector<emthrm::Edge<long\
+    \ long>>> edge(v);\n  for (int i = 0; i < e; ++i) {\n    int s, t, w;\n    std::cin\
+    \ >> s >> t >> w;\n    edge[s].emplace_back(s, t, w);\n    edge[t].emplace_back(t,\
+    \ s, w);\n  }\n  std::cout << emthrm::kruskal(edge) << '\\n';\n  return 0;\n}\n"
+  code: "/*\n * @title \u30B0\u30E9\u30D5/Kruskal \u6CD5\n *\n * verification-helper:\
+    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=GRL_2_A\n */\n\
+    \n#include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
+    \n#include \"emthrm/graph/kruskal.hpp\"\n\nint main() {\n  int v, e;\n  std::cin\
+    \ >> v >> e;\n  std::vector<std::vector<emthrm::Edge<long long>>> edge(v);\n \
+    \ for (int i = 0; i < e; ++i) {\n    int s, t, w;\n    std::cin >> s >> t >> w;\n\
+    \    edge[s].emplace_back(s, t, w);\n    edge[t].emplace_back(t, s, w);\n  }\n\
+    \  std::cout << emthrm::kruskal(edge) << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   - include/emthrm/graph/kruskal.hpp
@@ -45,7 +72,7 @@ data:
   isVerificationFile: true
   path: test/graph/kruskal.test.cpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/kruskal.test.cpp

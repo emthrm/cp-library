@@ -4,58 +4,60 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/2-edge-connected_components_by_imos.hpp
-    title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 \u3044\u3082\u3059\
-      \u6CD5\u7248"
-  - icon: ':x:'
+    title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206 (2-edge-connected component)\
+      \ \u5206\u89E3 \u3044\u3082\u3059\u6CD5\u7248"
+  - icon: ':question:'
     path: include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp
-    title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3 lowlink \u7248"
-  - icon: ':x:'
+    title: "\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206 (2-edge-connected component)\
+      \ \u5206\u89E3 lowlink \u7248"
+  - icon: ':question:'
     path: include/emthrm/graph/biconnected_component.hpp
     title: "\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206 (biconnected component)\
       \ \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/chromatic_number.hpp
     title: "\u5F69\u8272\u6570 (chromatic number)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/detect_directed_cycle.hpp
-    title: "\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
-  - icon: ':x:'
+    title: "\u6709\u5411\u9589\u8DEF (directed cycle) \u306E\u691C\u51FA"
+  - icon: ':question:'
     path: include/emthrm/graph/detect_path.hpp
-    title: "\u9053\u306E\u691C\u51FA"
+    title: "\u9053 (path) \u306E\u691C\u51FA"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/enumerate_bridges.hpp
     title: "\u6A4B\u306E\u691C\u51FA"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/eulerian_trail_in_directed_graph.hpp
-    title: "\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\u30D5\u7248"
+    title: "\u30AA\u30A4\u30E9\u30FC\u8DEF (Eulerian trail) \u6709\u5411\u30B0\u30E9\
+      \u30D5\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/girth_in_directed_graph.hpp
-    title: "\u5185\u5468 \u6709\u5411\u30B0\u30E9\u30D5\u7248"
+    title: "\u5185\u5468 (girth) \u6709\u5411\u30B0\u30E9\u30D5\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/girth_in_undirected_graph.hpp
-    title: "\u5185\u5468 \u7121\u5411\u30B0\u30E9\u30D5\u7248"
+    title: "\u5185\u5468 (girth) \u7121\u5411\u30B0\u30E9\u30D5\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/is_bipartite.hpp
-    title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
+    title: "\u4E8C\u90E8\u30B0\u30E9\u30D5 (bipartite graph) \u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/kruskal.hpp
     title: "Kruskal \u6CD5"
   - icon: ':question:'
     path: include/emthrm/graph/lowlink.hpp
     title: lowlink
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
-    title: "\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+    title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
+  - icon: ':question:'
     path: include/emthrm/graph/noshi_graph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/prim.hpp
     title: "Prim \u6CD5"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/reachability_on_dag.hpp
     title: "\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\u306E\u5230\u9054\
       \u53EF\u80FD\u6027\u5224\u5B9A"
@@ -68,7 +70,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/strongly_connected_components.hpp
     title: "\u5F37\u9023\u7D50\u6210\u5206 (strongly connected components) \u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/topological_sort.hpp
     title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological sort)"
   - icon: ':heavy_check_mark:'
@@ -92,11 +94,12 @@ data:
     title: "HL \u5206\u89E3 (heavy-light decomposition)"
   - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
-    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\u30EA\u30F3\u30B0\u7248"
+    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\
+      \u30EA\u30F3\u30B0\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
-      \u30FC\u7248"
+    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30AA\u30A4\
+      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/rerooting_dp.hpp
     title: "\u5168\u65B9\u4F4D\u6728 DP"
@@ -108,31 +111,31 @@ data:
     path: test/graph/2-edge-connected_components_by_imos.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
       \ \u3044\u3082\u3059\u6CD5\u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/2-edge-connected_components_by_lowlink.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u8FBA\u9023\u7D50\u6210\u5206\u5206\u89E3\
       \ lowlink \u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/biconnected_component.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\u5206\u5206\
       \u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/chromatic_number.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F69\u8272\u6570"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
   - icon: ':heavy_check_mark:'
     path: test/graph/detect_directed_cycle.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6709\u5411\u9589\u8DEF\u306E\u691C\u51FA"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/detect_path.test.cpp
     title: "\u30B0\u30E9\u30D5/\u9053\u306E\u691C\u51FA"
   - icon: ':heavy_check_mark:'
     path: test/graph/enumerate_bridges.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6A4B\u306E\u5217\u6319"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/eulerian_trail_in_directed_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30AA\u30A4\u30E9\u30FC\u8DEF \u6709\u5411\u30B0\u30E9\
       \u30D5\u7248"
@@ -155,16 +158,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
     title: "\u30B0\u30E9\u30D5/lowlink (\u95A2\u7BC0\u70B9)"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/noshi_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
   - icon: ':heavy_check_mark:'
     path: test/graph/prim.test.cpp
     title: "\u30B0\u30E9\u30D5/Prim \u6CD5"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/reachability_on_dag.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6709\u5411\u975E\u5DE1\u56DE\u30B0\u30E9\u30D5\u4E0A\
       \u306E\u5230\u9054\u53EF\u80FD\u6027\u5224\u5B9A"
@@ -177,7 +180,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/strongly_connected_components.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F37\u9023\u7D50\u6210\u5206\u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/topological_sort.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8"
   - icon: ':heavy_check_mark:'
@@ -220,20 +223,20 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
     document_title: "\u8FBA"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @brief \u8FBA\n\
+  bundledCode: "#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n\
     \ */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include\
     \ <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge\
     \ {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src, const\
     \ int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\
     \n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n"
-  code: "/**\n * @brief \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
+  code: "/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
     \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
     \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
     \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
@@ -275,8 +278,8 @@ data:
   - include/emthrm/graph/lowlink.hpp
   - include/emthrm/graph/unicyclic_graph.hpp
   - include/emthrm/graph/kruskal.hpp
-  timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-02-24 21:17:22+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
   - test/math/basis.test.cpp

@@ -10,26 +10,21 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/dynamic_programming/longest_increasing_subsequence.md
-    document_title: "\u6700\u9577\u5897\u52A0\u90E8\u5206\u5217"
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/longest_increasing_subsequence.hpp\"\
-    \n/**\n * @brief \u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\n * @docs docs/dynamic_programming/longest_increasing_subsequence.md\n\
-    \ */\n\n#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_\n\
-    #define EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_\n\n#include\
-    \ <algorithm>\n#include <iterator>\n#include <limits>\n#include <vector>\n\nnamespace\
-    \ emthrm {\n\ntemplate <bool IS_STRICT = true, typename T>\nstd::vector<T> longest_increasing_subsequence(const\
-    \ std::vector<T>& a) {\n  const T inf = std::numeric_limits<T>::max();\n  const\
-    \ int n = a.size();\n  std::vector<int> idx(n);\n  std::vector<T> tmp(n, inf);\n\
-    \  for (int i = 0; i < n; ++i) {\n    idx[i] = std::distance(\n        tmp.begin(),\n\
-    \        IS_STRICT ? std::lower_bound(tmp.begin(), tmp.end(), a[i]) :\n      \
-    \              std::upper_bound(tmp.begin(), tmp.end(), a[i]));\n    tmp[idx[i]]\
-    \ = a[i];\n  }\n  int res_size =\n      std::distance(tmp.begin(), std::lower_bound(tmp.begin(),\
-    \ tmp.end(), inf));\n  std::vector<T> res(res_size--);\n  for (int i = n - 1;\
-    \ res_size >= 0 && i >= 0; --i) {\n    if (idx[i] == res_size) res[res_size--]\
-    \ = a[i];\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_\n"
-  code: "/**\n * @brief \u6700\u9577\u5897\u52A0\u90E8\u5206\u5217\n * @docs docs/dynamic_programming/longest_increasing_subsequence.md\n\
-    \ */\n\n#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_\n\
+    \n\n\n\n#include <algorithm>\n#include <iterator>\n#include <limits>\n#include\
+    \ <vector>\n\nnamespace emthrm {\n\ntemplate <bool IS_STRICT = true, typename\
+    \ T>\nstd::vector<T> longest_increasing_subsequence(const std::vector<T>& a) {\n\
+    \  const T inf = std::numeric_limits<T>::max();\n  const int n = a.size();\n \
+    \ std::vector<int> idx(n);\n  std::vector<T> tmp(n, inf);\n  for (int i = 0; i\
+    \ < n; ++i) {\n    idx[i] = std::distance(\n        tmp.begin(),\n        IS_STRICT\
+    \ ? std::lower_bound(tmp.begin(), tmp.end(), a[i]) :\n                    std::upper_bound(tmp.begin(),\
+    \ tmp.end(), a[i]));\n    tmp[idx[i]] = a[i];\n  }\n  int res_size =\n      std::distance(tmp.begin(),\
+    \ std::lower_bound(tmp.begin(), tmp.end(), inf));\n  std::vector<T> res(res_size--);\n\
+    \  for (int i = n - 1; res_size >= 0 && i >= 0; --i) {\n    if (idx[i] == res_size)\
+    \ res[res_size--] = a[i];\n  }\n  return res;\n}\n\n}  // namespace emthrm\n\n\
+    \n"
+  code: "#ifndef EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_\n\
     #define EMTHRM_DYNAMIC_PROGRAMMING_LONGEST_INCREASING_SUBSEQUENCE_HPP_\n\n#include\
     \ <algorithm>\n#include <iterator>\n#include <limits>\n#include <vector>\n\nnamespace\
     \ emthrm {\n\ntemplate <bool IS_STRICT = true, typename T>\nstd::vector<T> longest_increasing_subsequence(const\
@@ -46,7 +41,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/dynamic_programming/longest_increasing_subsequence.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/longest_increasing_subsequence.test.cpp

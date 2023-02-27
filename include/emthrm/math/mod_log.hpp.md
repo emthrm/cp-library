@@ -15,15 +15,25 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/math/mod_pow.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"include/emthrm/math/mod_log.hpp\"\n\n\n\n#include <map>\n\
+    \n#line 1 \"include/emthrm/math/mod_pow.hpp\"\n\n\n\nnamespace emthrm {\n\nlong\
+    \ long mod_pow(long long x, long long n, const int m) {\n  if ((x %= m) < 0) x\
+    \ += m;\n  long long res = 1;\n  for (; n > 0; n >>= 1) {\n    if (n & 1) res\
+    \ = (res * x) % m;\n    x = (x * x) % m;\n  }\n  return res;\n}\n\n}  // namespace\
+    \ emthrm\n\n\n#line 7 \"include/emthrm/math/mod_log.hpp\"\n\nnamespace emthrm\
+    \ {\n\nint mod_log(long long g, long long y, const int m) {\n  if (m == 1) [[unlikely]]\
+    \ return 0;\n  if ((g %= m) < 0) g += m;\n  if ((y %= m) < 0) y += m;\n  if (g\
+    \ == 0) [[unlikely]] {\n    if (y == 1) return 0;\n    if (y == 0) return 1;\n\
+    \    return -1;\n  }\n  int root = 1;\n  while (root * root < m) ++root;\n  std::map<long\
+    \ long, int> baby;\n  long long p = 1;\n  for (int i = 0; i < root; ++i) {\n \
+    \   if (p == y) return i;\n    baby[p * y % m] = i;\n    p = (p * g) % m;\n  }\n\
+    \  long long brute_force = p;\n  for (int i = root; i < 100; ++i) {\n    if (i\
+    \ == m) return -1;\n    if (brute_force == y) return i;\n    brute_force = (brute_force\
+    \ * g) % m;\n  }\n  long long giant = p;\n  for (int i = 1; i <= root; ++i) {\n\
+    \    if (const auto it = baby.find(giant); it != baby.end()) {\n      const int\
+    \ ans = static_cast<long long>(i) * root - it->second;\n      if (mod_pow(g, ans,\
+    \ m) == y) return ans;\n    }\n    giant = (giant * p) % m;\n  }\n  return -1;\n\
+    }\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_MOD_LOG_HPP_\n#define EMTHRM_MATH_MOD_LOG_HPP_\n\n#include\
     \ <map>\n\n#include \"emthrm/math/mod_pow.hpp\"\n\nnamespace emthrm {\n\nint mod_log(long\
     \ long g, long long y, const int m) {\n  if (m == 1) [[unlikely]] return 0;\n\

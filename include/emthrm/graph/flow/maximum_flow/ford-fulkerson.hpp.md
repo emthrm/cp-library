@@ -11,16 +11,12 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/flow/maximum_flow/maximum_flow.md
-    document_title: "Ford\u2013Fulkerson \u6CD5"
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp\"\
-    \n/**\n * @brief Ford\u2013Fulkerson \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n\
-    \n#include <algorithm>\n#include <limits>\n#include <vector>\n\nnamespace emthrm\
-    \ {\n\ntemplate <typename T>\nstruct FordFulkerson {\n  struct Edge {\n    int\
-    \ dst, rev;\n    T cap;\n    explicit Edge(const int dst, const T cap, const int\
-    \ rev)\n        : dst(dst), rev(rev), cap(cap) {}\n  };\n\n  std::vector<std::vector<Edge>>\
+    \n\n\n\n#include <algorithm>\n#include <limits>\n#include <vector>\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename T>\nstruct FordFulkerson {\n  struct Edge {\n\
+    \    int dst, rev;\n    T cap;\n    explicit Edge(const int dst, const T cap,\
+    \ const int rev)\n        : dst(dst), rev(rev), cap(cap) {}\n  };\n\n  std::vector<std::vector<Edge>>\
     \ graph;\n\n  explicit FordFulkerson(const int n)\n      : graph(n), timestamp(0),\
     \ is_used(n, -1) {}\n\n  void add_edge(const int src, const int dst, const T cap)\
     \ {\n    graph[src].emplace_back(dst, cap, graph[dst].size());\n    graph[dst].emplace_back(src,\
@@ -34,10 +30,8 @@ data:
     \   if (is_used[e.dst] < timestamp && e.cap > 0) {\n        const T tmp = dfs(e.dst,\
     \ t, std::min(flow, e.cap));\n        if (tmp > 0) {\n          e.cap -= tmp;\n\
     \          graph[e.dst][e.rev].cap += tmp;\n          return tmp;\n        }\n\
-    \      }\n    }\n    return 0;\n  }\n};\n\n}  // namespace emthrm\n\n#endif  //\
-    \ EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n"
-  code: "/**\n * @brief Ford\u2013Fulkerson \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n\
+    \      }\n    }\n    return 0;\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_FORD_FULKERSON_HPP_\n\
     \n#include <algorithm>\n#include <limits>\n#include <vector>\n\nnamespace emthrm\
     \ {\n\ntemplate <typename T>\nstruct FordFulkerson {\n  struct Edge {\n    int\
     \ dst, rev;\n    T cap;\n    explicit Edge(const int dst, const T cap, const int\
@@ -61,17 +55,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/ford-fulkerson.test.cpp
 documentation_of: include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp
-- /library/include/emthrm/graph/flow/maximum_flow/ford-fulkerson.hpp.html
 title: "Ford\u2013Fulkerson \u6CD5"
 ---
+
 # 最大流 (maximum flow)
 
 ある始点からある終点までのフローの最大値である。

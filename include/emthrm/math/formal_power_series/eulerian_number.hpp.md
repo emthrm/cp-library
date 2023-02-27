@@ -7,42 +7,33 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/math/formal_power_series/eulerian_number.md
-    document_title: Eulerian number
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/eulerian_number.hpp\"\
-    \n/**\n * @brief Eulerian number\n * @docs docs/math/formal_power_series/eulerian_number.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n#define\
-    \ EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>> eulerian_number(const\
-    \ int n, const int m) {\n  std::vector<std::vector<T>> a(n + 1, std::vector<T>(m\
-    \ + 1, 0));\n  a[0][0] = 1;\n  for (int i = 1; i <= n; ++i) {\n    a[i][0] = 1;\n\
-    \    for (int j = 1; j < i; ++j) {\n      a[i][j] = a[i - 1][j - 1] * (i - j)\
-    \ + a[i - 1][j] * (j + 1);\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n"
-  code: "/**\n * @brief Eulerian number\n * @docs docs/math/formal_power_series/eulerian_number.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n#define\
-    \ EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>> eulerian_number(const\
-    \ int n, const int m) {\n  std::vector<std::vector<T>> a(n + 1, std::vector<T>(m\
-    \ + 1, 0));\n  a[0][0] = 1;\n  for (int i = 1; i <= n; ++i) {\n    a[i][0] = 1;\n\
-    \    for (int j = 1; j < i; ++j) {\n      a[i][j] = a[i - 1][j - 1] * (i - j)\
-    \ + a[i - 1][j] * (j + 1);\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n"
+    \n\n\n\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>>\
+    \ eulerian_number(const int n, const int m) {\n  std::vector<std::vector<T>> a(n\
+    \ + 1, std::vector<T>(m + 1, 0));\n  a[0][0] = 1;\n  for (int i = 1; i <= n; ++i)\
+    \ {\n    a[i][0] = 1;\n    for (int j = 1; j < i; ++j) {\n      a[i][j] = a[i\
+    \ - 1][j - 1] * (i - j) + a[i - 1][j] * (j + 1);\n    }\n  }\n  return a;\n}\n\
+    \n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n#define EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n\
+    \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<std::vector<T>>\
+    \ eulerian_number(const int n, const int m) {\n  std::vector<std::vector<T>> a(n\
+    \ + 1, std::vector<T>(m + 1, 0));\n  a[0][0] = 1;\n  for (int i = 1; i <= n; ++i)\
+    \ {\n    a[i][0] = 1;\n    for (int j = 1; j < i; ++j) {\n      a[i][j] = a[i\
+    \ - 1][j - 1] * (i - j) + a[i - 1][j] * (j + 1);\n    }\n  }\n  return a;\n}\n\
+    \n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_FORMAL_POWER_SERIES_EULERIAN_NUMBER_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/eulerian_number.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/formal_power_series/eulerian_number.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/formal_power_series/eulerian_number.hpp
-- /library/include/emthrm/math/formal_power_series/eulerian_number.hpp.html
 title: Eulerian number
 ---
+
 # Eulerian number
 
 $$

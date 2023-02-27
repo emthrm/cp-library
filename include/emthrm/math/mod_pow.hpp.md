@@ -7,13 +7,13 @@ data:
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/is_primitive_root.hpp
-    title: "\u539F\u59CB\u6839\u5224\u5B9A"
+    title: "\u539F\u59CB\u6839 (primitive root) \u5224\u5B9A"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_log.hpp
     title: "\u96E2\u6563\u5BFE\u6570\u554F\u984C (discrete logarithm problem)"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_sqrt.hpp
-    title: "\u5E73\u65B9\u5270\u4F59"
+    title: "\u5E73\u65B9\u5270\u4F59 (quadratic residue)"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp

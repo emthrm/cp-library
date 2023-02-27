@@ -9,11 +9,11 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/convolution/fast_fourier_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\
       \u5909\u63DB"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/convolution/mod_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\
       \u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -26,7 +26,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow(exponend, md))"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -153,7 +153,7 @@ data:
   requiredBy:
   - include/emthrm/math/convolution/mod_convolution.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/convolution/mod_convolution.test.cpp
   - test/math/convolution/fast_fourier_transform.test.cpp

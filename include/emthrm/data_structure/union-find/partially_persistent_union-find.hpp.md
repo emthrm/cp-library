@@ -5,35 +5,30 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/union-find/partially_persistent_union-find.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/union-find/\u90E8\u5206\u6C38\u7D9A union-find"
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\
+      \u9020/\u90E8\u5206\u6C38\u7D9A union-find"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_structure/union-find/union-find.md
-    document_title: "\u90E8\u5206\u6C38\u7D9A union-find"
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp\"\
-    \n/**\n * @brief \u90E8\u5206\u6C38\u7D9A union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_\n\
-    #define EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_\n\
-    \n#include <algorithm>\n#include <iterator>\n#include <utility>\n#include <vector>\n\
-    \nnamespace emthrm {\n\nstruct PartiallyPersistentUnionFind {\n  explicit PartiallyPersistentUnionFind(const\
-    \ int n)\n      : data(n, -1), last(n, -1), history(n, {{-1, -1}}) {}\n\n  int\
-    \ root(const int t, const int ver) const {\n    return last[ver] == -1 || t <\
-    \ last[ver] ? ver : root(t, data[ver]);\n  }\n\n  bool unite(const int t, int\
-    \ u, int v) {\n    u = root(t, u);\n    v = root(t, v);\n    if (u == v) return\
-    \ false;\n    if (data[u] > data[v]) std::swap(u, v);\n    data[u] += data[v];\n\
-    \    data[v] = u;\n    last[v] = t;\n    history[u].emplace_back(t, data[u]);\n\
-    \    return true;\n  }\n\n  bool is_same(const int t, const int u, const int v)\
-    \ const {\n    return root(t, u) == root(t, v);\n  }\n\n  int size(const int t,\
-    \ int ver) const {\n    ver = root(t, ver);\n    return -std::prev(std::lower_bound(history[ver].begin(),\n\
+    \n\n\n\n#include <algorithm>\n#include <iterator>\n#include <utility>\n#include\
+    \ <vector>\n\nnamespace emthrm {\n\nstruct PartiallyPersistentUnionFind {\n  explicit\
+    \ PartiallyPersistentUnionFind(const int n)\n      : data(n, -1), last(n, -1),\
+    \ history(n, {{-1, -1}}) {}\n\n  int root(const int t, const int ver) const {\n\
+    \    return last[ver] == -1 || t < last[ver] ? ver : root(t, data[ver]);\n  }\n\
+    \n  bool unite(const int t, int u, int v) {\n    u = root(t, u);\n    v = root(t,\
+    \ v);\n    if (u == v) return false;\n    if (data[u] > data[v]) std::swap(u,\
+    \ v);\n    data[u] += data[v];\n    data[v] = u;\n    last[v] = t;\n    history[u].emplace_back(t,\
+    \ data[u]);\n    return true;\n  }\n\n  bool is_same(const int t, const int u,\
+    \ const int v) const {\n    return root(t, u) == root(t, v);\n  }\n\n  int size(const\
+    \ int t, int ver) const {\n    ver = root(t, ver);\n    return -std::prev(std::lower_bound(history[ver].begin(),\n\
     \                                       history[ver].end(),\n                \
     \                       std::make_pair(t, 0)))->second;\n  }\n\n private:\n  std::vector<int>\
     \ data, last;\n  std::vector<std::vector<std::pair<int, int>>> history;\n};\n\n\
-    }  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_\n"
-  code: "/**\n * @brief \u90E8\u5206\u6C38\u7D9A union-find\n * @docs docs/data_structure/union-find/union-find.md\n\
-    \ */\n\n#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_\n\
+    }  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_\n\
     #define EMTHRM_DATA_STRUCTURE_UNION_FIND_PARTIALLY_PERSISTENT_UNION_FIND_HPP_\n\
     \n#include <algorithm>\n#include <iterator>\n#include <utility>\n#include <vector>\n\
     \nnamespace emthrm {\n\nstruct PartiallyPersistentUnionFind {\n  explicit PartiallyPersistentUnionFind(const\
@@ -54,17 +49,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/union-find/partially_persistent_union-find.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp
-- /library/include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp.html
 title: "\u90E8\u5206\u6C38\u7D9A union-find"
 ---
+
 # 素集合データ構造 (disjoint-set data structure)
 
 |名前|概要|

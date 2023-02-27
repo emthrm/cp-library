@@ -13,21 +13,34 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/math/convolution/convolution.md
-    document_title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/convolution/or_convolution.hpp: line 12: unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief \u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F\
-    \n * @docs docs/math/convolution/convolution.md\n */\n\n#ifndef EMTHRM_MATH_CONVOLUTION_OR_CONVOLUTION_HPP_\n\
-    #define EMTHRM_MATH_CONVOLUTION_OR_CONVOLUTION_HPP_\n\n#include <algorithm>\n\
-    #include <vector>\n\n#include \"emthrm/math/convolution/fast_mobius_transform.hpp\"\
+  bundledCode: "#line 1 \"include/emthrm/math/convolution/or_convolution.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/fast_mobius_transform.hpp\"\
+    \n\n\n\n#include <bit>\n#line 6 \"include/emthrm/math/convolution/fast_mobius_transform.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <bool ADDS_SUPERSET, typename T>\nstd::vector<T>\
+    \ fast_mobius_transform(std::vector<T> a, const T id = 0) {\n  const int n = std::bit_ceil(a.size());\n\
+    \  a.resize(n, id);\n  for (int i = 1; i < n; i <<= 1) {\n    for (int s = 0;\
+    \ s < n; ++s) {\n      if (s & i) continue;\n      if constexpr (ADDS_SUPERSET)\
+    \ {\n        a[s] -= a[s | i];\n      } else {\n        a[s | i] -= a[s];\n  \
+    \    }\n    }\n  }\n  return a;\n}\n\n}  // namespace emthrm\n\n\n#line 1 \"include/emthrm/math/convolution/fast_zeta_transform.hpp\"\
+    \n\n\n\n#line 5 \"include/emthrm/math/convolution/fast_zeta_transform.hpp\"\n\
+    #include <functional>\n#line 7 \"include/emthrm/math/convolution/fast_zeta_transform.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <bool ADDS_SUPERSET, typename Ring, typename\
+    \ BinOp = std::plus<Ring>>\nstd::vector<Ring> fast_zeta_transform(\n    std::vector<Ring>\
+    \ a, const Ring ID = 0, const BinOp bin_op = BinOp()) {\n  const int n = std::bit_ceil(a.size());\n\
+    \  a.resize(n, ID);\n  for (int i = 1; i < n; i <<= 1) {\n    for (int s = 0;\
+    \ s < n; ++s) {\n      if (s & i) continue;\n      if constexpr (ADDS_SUPERSET)\
+    \ {\n        a[s] = bin_op(a[s], a[s | i]);\n      } else {\n        a[s | i]\
+    \ = bin_op(a[s | i], a[s]);\n      }\n    }\n  }\n  return a;\n}\n\n}  // namespace\
+    \ emthrm\n\n\n#line 9 \"include/emthrm/math/convolution/or_convolution.hpp\"\n\
+    \nnamespace emthrm {\n\ntemplate <typename T>\nstd::vector<T> or_convolution(std::vector<T>\
+    \ a, std::vector<T> b,\n                              const T id = 0) {\n  int\
+    \ n = std::max(a.size(), b.size());\n  a.resize(n, id);\n  a = fast_zeta_transform<false>(a,\
+    \ id);\n  b.resize(n, id);\n  b = fast_zeta_transform<false>(b, id);\n  n = a.size();\n\
+    \  for (int i = 0; i < n; ++i) {\n    a[i] *= b[i];\n  }\n  return fast_mobius_transform<false>(a);\n\
+    }\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_CONVOLUTION_OR_CONVOLUTION_HPP_\n#define EMTHRM_MATH_CONVOLUTION_OR_CONVOLUTION_HPP_\n\
+    \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/math/convolution/fast_mobius_transform.hpp\"\
     \n#include \"emthrm/math/convolution/fast_zeta_transform.hpp\"\n\nnamespace emthrm\
     \ {\n\ntemplate <typename T>\nstd::vector<T> or_convolution(std::vector<T> a,\
     \ std::vector<T> b,\n                              const T id = 0) {\n  int n\
@@ -41,16 +54,14 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/or_convolution.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/convolution/or_convolution.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/convolution/or_convolution.hpp
-- /library/include/emthrm/math/convolution/or_convolution.hpp.html
 title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
 ---
+
 $C_k = \sum_{k = i \circ j} A_i B_j$ を求める。ただし $\circ$ は二項演算である。
 
 添え字 xor での畳み込みには『高速ウォルシュ・アダマール変換 (fast Walsh-Hadamard transform)』を用いる。

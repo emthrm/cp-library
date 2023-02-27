@@ -5,7 +5,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/matching/maximum_matching.hpp
     title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
-      \u30B0"
+      \u30B0 (maximum matching)"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/catalan_number.hpp
     title: "\u30AB\u30BF\u30E9\u30F3\u6570 (Catalan number)"
@@ -14,40 +14,45 @@ data:
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
-    title: "\u6570\u8AD6\u5909\u63DB"
+    title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
+      \u4F59\u5909\u63DB (fast modulo transform)"
   - icon: ':warning:'
     path: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
     title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
-    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\
-      \u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
+      \ formula) \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
-    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
-      \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
+    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
+      \ formula) \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number.hpp
-    title: "\u30D9\u30EB\u6570"
+    title: "\u30D9\u30EB\u6570 (Bell number)"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
-    title: "\u30D9\u30EB\u6570\u306E\u6570\u8868"
+    title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
-    title: "\u4E8C\u9805\u4FC2\u6570\u306E\u6570\u8868 \u5DE8\u5927\u306A $n$ \u7248"
+    title: "\u4E8C\u9805\u4FC2\u6570 (binomial coefficients) \u306E\u6570\u8868 \u5DE8\
+      \u5927\u306A $n$ \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/lucas.hpp
     title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind.hpp
-    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570"
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number\
+      \ of the second kind)"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
-    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868"
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number\
+      \ of the second kind) \u306E\u6570\u8868"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
-      \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+    title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number\
+      \ of the second kind) \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
+      \u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/lazy_segment_tree.test.cpp
@@ -67,7 +72,7 @@ data:
     path: test/graph/flow/matching/maximum_matching.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
       \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':heavy_check_mark:'
@@ -88,7 +93,7 @@ data:
     path: test/math/convolution/lcm_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 lcm \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/convolution/mod_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\
       \u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -160,11 +165,11 @@ data:
     path: test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
       \u306E\u76F8\u4E57"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/lagrange_interpolation.test.cpp
     title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
       \u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/lagrange_interpolation2.test.cpp
     title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
       \u72482"
@@ -196,7 +201,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/montmort_number.test.cpp
     title: "\u6570\u5B66/\u30E2\u30F3\u30E2\u30FC\u30EB\u6570"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/polynomial.test.cpp
     title: "\u6570\u5B66/\u591A\u9805\u5F0F"
   - icon: ':heavy_check_mark:'
@@ -244,7 +249,7 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -484,7 +489,7 @@ data:
   - include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/catalan_number.test.cpp
   - test/math/montmort_number.test.cpp

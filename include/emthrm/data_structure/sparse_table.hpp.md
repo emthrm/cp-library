@@ -4,8 +4,8 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\
-      \u30FC\u7248"
+    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30AA\u30A4\
+      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/string/longest_common_prefix.hpp
     title: longest common prefix

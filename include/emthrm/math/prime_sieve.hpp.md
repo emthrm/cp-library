@@ -4,17 +4,19 @@ data:
   _extendedRequiredBy:
   - icon: ':warning:'
     path: include/emthrm/math/carmichael_function_init.hpp
-    title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\u306E\u6570\u8868"
+    title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570 (Carmichael function)\
+      \ \u306E\u6570\u8868"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/euler_phi_init2.hpp
-    title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u8868\
-      2"
+    title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570 (Euler's totient\
+      \ function) \u306E\u6570\u88682"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mobius_mu_init2.hpp
-    title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
+    title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
+      \u88682"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/osa_k.hpp
     title: "osa_k \u6CD5"

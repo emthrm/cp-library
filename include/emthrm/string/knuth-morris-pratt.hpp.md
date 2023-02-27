@@ -10,25 +10,20 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/string/knuth-morris-pratt.md
-    document_title: "Knuth\u2013Morris\u2013Pratt algorithm"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/string/knuth-morris-pratt.hpp\"\n/**\n *\
-    \ @brief Knuth\u2013Morris\u2013Pratt algorithm\n * @docs docs/string/knuth-morris-pratt.md\n\
-    \ */\n\n#ifndef EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n#define EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n\
-    \n#include <string>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ T = std::string>\nstruct KnuthMorrisPratt {\n  std::vector<int> border;\n\n\
-    \  explicit KnuthMorrisPratt(const T& s) : s(s) {\n    const int n = s.size();\n\
-    \    border.assign(n + 1, -1);\n    for (int i = 0, j = -1; i < n; ++i) {\n  \
-    \    while (j >= 0 && s[i] != s[j]) j = border[j];\n      ++j;\n      border[i\
-    \ + 1] = (i + 1 < n && s[i + 1] == s[j] ? border[j] : j);\n    }\n  }\n\n  std::vector<int>\
-    \ match(const T& t) const {\n    const int n = s.size(), m = t.size();\n    std::vector<int>\
+  bundledCode: "#line 1 \"include/emthrm/string/knuth-morris-pratt.hpp\"\n\n\n\n#include\
+    \ <string>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T =\
+    \ std::string>\nstruct KnuthMorrisPratt {\n  std::vector<int> border;\n\n  explicit\
+    \ KnuthMorrisPratt(const T& s) : s(s) {\n    const int n = s.size();\n    border.assign(n\
+    \ + 1, -1);\n    for (int i = 0, j = -1; i < n; ++i) {\n      while (j >= 0 &&\
+    \ s[i] != s[j]) j = border[j];\n      ++j;\n      border[i + 1] = (i + 1 < n &&\
+    \ s[i + 1] == s[j] ? border[j] : j);\n    }\n  }\n\n  std::vector<int> match(const\
+    \ T& t) const {\n    const int n = s.size(), m = t.size();\n    std::vector<int>\
     \ res;\n    for (int i = 0, k = 0; i < m; ++i) {\n      while (k >= 0 && t[i]\
     \ != s[k]) k = border[k];\n      if (++k == n) res.emplace_back(i - n + 1);\n\
     \    }\n    return res;\n  }\n\n private:\n  const T s;\n};\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n"
-  code: "/**\n * @brief Knuth\u2013Morris\u2013Pratt algorithm\n * @docs docs/string/knuth-morris-pratt.md\n\
-    \ */\n\n#ifndef EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n#define EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n\
+    \ emthrm\n\n\n"
+  code: "#ifndef EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n#define EMTHRM_STRING_KNUTH_MORRIS_PRATT_HPP_\n\
     \n#include <string>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
     \ T = std::string>\nstruct KnuthMorrisPratt {\n  std::vector<int> border;\n\n\
     \  explicit KnuthMorrisPratt(const T& s) : s(s) {\n    const int n = s.size();\n\
@@ -44,17 +39,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/string/knuth-morris-pratt.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/knuth-morris-pratt.test.cpp
 documentation_of: include/emthrm/string/knuth-morris-pratt.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/string/knuth-morris-pratt.hpp
-- /library/include/emthrm/string/knuth-morris-pratt.hpp.html
 title: "Knuth\u2013Morris\u2013Pratt algorithm"
 ---
+
 # Knuth–Morris–Pratt algorithm
 
 文字列 $S$ に対して `S[0:i]` の接頭辞と接尾辞の最大共通文字数 ($< i$) を求めるアルゴリズムである。

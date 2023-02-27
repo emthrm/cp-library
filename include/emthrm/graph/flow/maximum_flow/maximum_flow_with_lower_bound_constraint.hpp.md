@@ -15,15 +15,27 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: emthrm/graph/flow/maximum_flow/maximum_flow.hpp:\
-    \ line -1: no such header\n"
+  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp\"\
+    \n\n\n\n#line 1 \"include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\n\
+    /**\n * @title \u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8\n */\n\n#ifndef\
+    \ EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
+    \n#include <concepts>\n#include <utility>\n\nnamespace emthrm {\n\ntemplate <template\
+    \ <typename> class C, typename T>\nconcept MaximumFlow = requires (C<T> mf) {\n\
+    \  {mf.add_edge(std::declval<int>(), std::declval<int>(), std::declval<T>())}\n\
+    \      -> std::same_as<void>;\n  {mf.maximum_flow(std::declval<int>(), std::declval<int>())}\n\
+    \      -> std::same_as<T>;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
+    #line 5 \"include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
+    requires MaximumFlow<C, T>\nstruct MaximumFlowWithLowerBoundConstraint {\n  explicit\
+    \ MaximumFlowWithLowerBoundConstraint(const int n)\n      : n(n), sum_lb(0), mf(n\
+    \ + 2) {}\n\n  void add_edge(const int src, const int dst, const T lb, const T\
+    \ ub) {\n    mf.add_edge(src, dst, ub - lb);\n    mf.add_edge(n, dst, lb);\n \
+    \   mf.add_edge(src, n + 1, lb);\n    sum_lb += lb;\n  }\n\n  T solve(const int\
+    \ s, const int t) {\n    const T a = mf.maximum_flow(n, n + 1);\n    const T b\
+    \ = mf.maximum_flow(s, n + 1);\n    const T c = mf.maximum_flow(n, t);\n    const\
+    \ T d = mf.maximum_flow(s, t);\n    return a + b == sum_lb && b == c ? b + d :\
+    \ -1;\n  }\n\n private:\n  const int n;\n  T sum_lb;\n  C<T> mf;\n};\n\n}  //\
+    \ namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_WITH_LOWER_BOUND_CONSTRAINT_HPP_\n\
     \n#include \"emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\n\nnamespace emthrm\
@@ -42,7 +54,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
   requiredBy: []
-  timestamp: '2023-02-24 00:16:54+09:00'
+  timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp

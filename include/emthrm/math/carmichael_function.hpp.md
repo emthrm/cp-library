@@ -7,12 +7,15 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/math/carmichael_function.md
-    document_title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/carmichael_function.hpp\"\n/**\n * @brief\
-    \ \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\n * @docs docs/math/carmichael_function.md\n\
-    \ */\n\n#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n#define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/math/carmichael_function.hpp\"\n\n\n\n#include\
+    \ <numeric>\n\nnamespace emthrm {\n\nlong long carmichael_function(long long n)\
+    \ {\n  long long lambda = 1;\n  if (n % 8 == 0) n >>= 1;\n  for (long long i =\
+    \ 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n      n /= i;\n \
+    \     long long phi = i - 1;\n      for (; n % i == 0; n /= i) {\n        phi\
+    \ *= i;\n      }\n      lambda = std::lcm(lambda, phi);\n    }\n  }\n  return\
+    \ n > 1 ? std::lcm(lambda, n - 1) : lambda;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n#define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\
     \n#include <numeric>\n\nnamespace emthrm {\n\nlong long carmichael_function(long\
     \ long n) {\n  long long lambda = 1;\n  if (n % 8 == 0) n >>= 1;\n  for (long\
     \ long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n      n\
@@ -20,29 +23,18 @@ data:
     \      phi *= i;\n      }\n      lambda = std::lcm(lambda, phi);\n    }\n  }\n\
     \  return n > 1 ? std::lcm(lambda, n - 1) : lambda;\n}\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n"
-  code: "/**\n * @brief \u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570\n * @docs\
-    \ docs/math/carmichael_function.md\n */\n\n#ifndef EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\
-    #define EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n\n#include <numeric>\n\nnamespace\
-    \ emthrm {\n\nlong long carmichael_function(long long n) {\n  long long lambda\
-    \ = 1;\n  if (n % 8 == 0) n >>= 1;\n  for (long long i = 2; i * i <= n; ++i) {\n\
-    \    if (n % i == 0) [[unlikely]] {\n      n /= i;\n      long long phi = i -\
-    \ 1;\n      for (; n % i == 0; n /= i) {\n        phi *= i;\n      }\n      lambda\
-    \ = std::lcm(lambda, phi);\n    }\n  }\n  return n > 1 ? std::lcm(lambda, n -\
-    \ 1) : lambda;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_CARMICHAEL_FUNCTION_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/carmichael_function.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: include/emthrm/math/carmichael_function.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/carmichael_function.hpp
-- /library/include/emthrm/math/carmichael_function.hpp.html
-title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570"
+title: "\u30AB\u30FC\u30DE\u30A4\u30B1\u30EB\u95A2\u6570 (Carmichael function)"
 ---
+
 # カーマイケル関数 (Carmichael function)
 
 $n \in \mathbb{N}^+$ に対して

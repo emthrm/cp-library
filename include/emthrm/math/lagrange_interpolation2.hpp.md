@@ -4,64 +4,57 @@ data:
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
-    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\
-      \u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
+    title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
+      \ formula) \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\
       \u88DC\u9593\u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/lagrange_interpolation2.test.cpp
     title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
       \u72482"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
-    _deprecated_at_docs: docs/math/lagrange_interpolation.md
-    document_title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
-      \u72482"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/math/lagrange_interpolation2.hpp\"\n/**\n\
-    \ * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u7248\
-    2\n * @docs docs/math/lagrange_interpolation.md\n */\n\n#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\
-    #define EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\n#include <cassert>\n#include\
-    \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nT lagrange_interpolation(const\
-    \ std::vector<T>& y, const T t) {\n  const int n = y.size();\n  assert(t < 0 ||\
-    \ t >= n);\n  std::vector<T> fact(n, 1);\n  for (int i = 1; i < n; ++i) {\n  \
-    \  fact[i] = fact[i - 1] * i;\n  }\n  T res = 0;\n  for (int i = 0; i < n; ++i)\
-    \ {\n    res += ((n - 1 - i) & 1 ? -y[i] : y[i])\n           / ((t - i) * fact[i]\
-    \ * fact[n - 1 - i]);\n  }\n  for (int i = 0; i < n; ++i) {\n    res *= t - i;\n\
-    \  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
-  code: "/**\n * @brief \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
-    \u72482\n * @docs docs/math/lagrange_interpolation.md\n */\n\n#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\
-    #define EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\n#include <cassert>\n#include\
-    \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nT lagrange_interpolation(const\
-    \ std::vector<T>& y, const T t) {\n  const int n = y.size();\n  assert(t < 0 ||\
-    \ t >= n);\n  std::vector<T> fact(n, 1);\n  for (int i = 1; i < n; ++i) {\n  \
-    \  fact[i] = fact[i - 1] * i;\n  }\n  T res = 0;\n  for (int i = 0; i < n; ++i)\
-    \ {\n    res += ((n - 1 - i) & 1 ? -y[i] : y[i])\n           / ((t - i) * fact[i]\
-    \ * fact[n - 1 - i]);\n  }\n  for (int i = 0; i < n; ++i) {\n    res *= t - i;\n\
-    \  }\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
+  bundledCode: "#line 1 \"include/emthrm/math/lagrange_interpolation2.hpp\"\n\n\n\n\
+    #include <cassert>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nT lagrange_interpolation(const std::vector<T>& y, const T t) {\n  const\
+    \ int n = y.size();\n  assert(t < 0 || t >= n);\n  std::vector<T> fact(n, 1);\n\
+    \  for (int i = 1; i < n; ++i) {\n    fact[i] = fact[i - 1] * i;\n  }\n  T res\
+    \ = 0;\n  for (int i = 0; i < n; ++i) {\n    res += ((n - 1 - i) & 1 ? -y[i] :\
+    \ y[i])\n           / ((t - i) * fact[i] * fact[n - 1 - i]);\n  }\n  for (int\
+    \ i = 0; i < n; ++i) {\n    res *= t - i;\n  }\n  return res;\n}\n\n}  // namespace\
+    \ emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n#define EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n\
+    \n#include <cassert>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nT lagrange_interpolation(const std::vector<T>& y, const T t) {\n  const\
+    \ int n = y.size();\n  assert(t < 0 || t >= n);\n  std::vector<T> fact(n, 1);\n\
+    \  for (int i = 1; i < n; ++i) {\n    fact[i] = fact[i - 1] * i;\n  }\n  T res\
+    \ = 0;\n  for (int i = 0; i < n; ++i) {\n    res += ((n - 1 - i) & 1 ? -y[i] :\
+    \ y[i])\n           / ((t - i) * fact[i] * fact[n - 1 - i]);\n  }\n  for (int\
+    \ i = 0; i < n; ++i) {\n    res *= t - i;\n  }\n  return res;\n}\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_MATH_LAGRANGE_INTERPOLATION2_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/lagrange_interpolation2.hpp
   requiredBy:
   - include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
-  timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2023-02-25 16:35:06+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/lagrange_interpolation2.test.cpp
   - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
 documentation_of: include/emthrm/math/lagrange_interpolation2.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/lagrange_interpolation2.hpp
-- /library/include/emthrm/math/lagrange_interpolation2.hpp.html
-title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\u72482"
+title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 (Lagrange interpolation)\
+  \ \u8A55\u4FA1\u72482"
 ---
+
 # ラグランジュ補間 (Lagrange interpolation)
 
 $1 \leq i < j \leq N,\ x_i \neq x_j$ を満たす $(x_i, y_i)$ に対して $f(x_i) = y_i$ を満たす $N - 1$ 次以下の多項式 $f$ を求める。

@@ -15,12 +15,8 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/graph/flow/maximum_flow/maximum_flow.md
-    document_title: "Dinic \u6CD5"
     links: []
-  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/dinic.hpp\"\n/**\n\
-    \ * @brief Dinic \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n\
+  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/dinic.hpp\"\n\n\n\
     \n#include <algorithm>\n#include <limits>\n#include <queue>\n#include <utility>\n\
     #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Dinic\
     \ {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    explicit Edge(const int\
@@ -45,9 +41,8 @@ data:
     \ e.cap > 0) {\n        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\n\
     \        if (tmp > 0) {\n          e.cap -= tmp;\n          graph[e.dst][e.rev].cap\
     \ += tmp;\n          return tmp;\n        }\n      }\n    }\n    return 0;\n \
-    \ }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n"
-  code: "/**\n * @brief Dinic \u6CD5\n * @docs docs/graph/flow/maximum_flow/maximum_flow.md\n\
-    \ */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n\
+    \ }\n};\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_DINIC_HPP_\n\
     \n#include <algorithm>\n#include <limits>\n#include <queue>\n#include <utility>\n\
     #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Dinic\
     \ {\n  struct Edge {\n    int dst, rev;\n    T cap;\n    explicit Edge(const int\
@@ -77,18 +72,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/dinic.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
 documentation_of: include/emthrm/graph/flow/maximum_flow/dinic.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/graph/flow/maximum_flow/dinic.hpp
-- /library/include/emthrm/graph/flow/maximum_flow/dinic.hpp.html
 title: "Dinic \u6CD5"
 ---
+
 # 最大流 (maximum flow)
 
 ある始点からある終点までのフローの最大値である。

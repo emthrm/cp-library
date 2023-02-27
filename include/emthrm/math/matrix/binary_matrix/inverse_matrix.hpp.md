@@ -14,21 +14,44 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/math/matrix/binary_matrix/binary_matrix.md
-    document_title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 400, in update\n    raise BundleErrorAt(path, i + 1, \"unable to process\
-    \ #include in #if / #ifdef / #ifndef other than include guards\")\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt:\
-    \ include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp: line 12: unable\
-    \ to process #include in #if / #ifdef / #ifndef other than include guards\n"
-  code: "/**\n * @brief \u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248\
-    \n * @docs docs/math/matrix/binary_matrix/binary_matrix.md\n */\n\n#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_\n\
-    #define EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_\n\n#include <cassert>\n\
-    #include <utility>\n\n#include \"emthrm/math/matrix/binary_matrix/binary_matrix.hpp\"\
+  bundledCode: "#line 1 \"include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp\"\
+    \n\n\n\n#include <cassert>\n#include <utility>\n\n#line 1 \"include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp\"\
+    \n\n\n\n#include <bitset>\n#include <string>\n#include <vector>\n\nnamespace emthrm\
+    \ {\n\ntemplate <int N>\nstruct BinaryMatrix {\n  explicit BinaryMatrix(const\
+    \ int m, const int n = N, const bool def = false)\n      : n(n), data(m, std::bitset<N>(std::string(n,\
+    \ def ? '1' : '0'))) {}\n\n  int nrow() const { return data.size(); }\n  int ncol()\
+    \ const { return n; }\n\n  BinaryMatrix pow(long long exponent) const {\n    BinaryMatrix\
+    \ res(n, n), tmp = *this;\n    for (int i = 0; i < n; ++i) {\n      res[i].set(i);\n\
+    \    }\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent & 1) res\
+    \ *= tmp;\n      tmp *= tmp;\n    }\n    return res;\n  }\n\n  inline const std::bitset<N>&\
+    \ operator[](const int i) const { return data[i]; }\n  inline std::bitset<N>&\
+    \ operator[](const int i) { return data[i]; }\n\n  BinaryMatrix& operator=(const\
+    \ BinaryMatrix& x) = default;\n\n  BinaryMatrix& operator+=(const BinaryMatrix&\
+    \ x) {\n    const int m = nrow();\n    for (int i = 0; i < m; ++i) {\n      data[i]\
+    \ ^= x[i];\n    }\n    return *this;\n  }\n\n  BinaryMatrix& operator*=(const\
+    \ BinaryMatrix& x) {\n    const int m = nrow(), l = x.ncol();\n    BinaryMatrix\
+    \ t_x(l, n), res(m, l);\n    for (int i = 0; i < l; ++i) {\n      for (int j =\
+    \ 0; j < n; ++j) {\n        t_x[i][j] = x[j][i];\n      }\n    }\n    for (int\
+    \ i = 0; i < m; ++i) {\n      for (int j = 0; j < l; ++j) {\n        if ((data[i]\
+    \ & t_x[j]).count() & 1) res[i].set(j);\n      }\n    }\n    return *this = res;\n\
+    \  }\n\n  BinaryMatrix operator+(const BinaryMatrix& x) const {\n    return BinaryMatrix(*this)\
+    \ += x;\n  }\n  BinaryMatrix operator*(const BinaryMatrix& x) const {\n    return\
+    \ BinaryMatrix(*this) *= x;\n  }\n\n private:\n  int n;\n  std::vector<std::bitset<N>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n\n#line 8 \"include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <int N>\nBinaryMatrix<N> inverse_matrix(const\
+    \ BinaryMatrix<N>& a) {\n  const int n = a.nrow();\n  BinaryMatrix<N> b(n, n <<\
+    \ 1, 0);\n  for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n\
+    \      b[i][j] = a[i][j];\n    }\n    b[i][n + i] = 1;\n  }\n  for (int col =\
+    \ 0; col < n; ++col) {\n    int pivot = -1;\n    for (int row = col; row < n;\
+    \ ++row) {\n      if (b[row][col]) {\n        pivot = row;\n        break;\n \
+    \     }\n    }\n    if (pivot == -1) return BinaryMatrix<N>(0, 0);\n    std::swap(b[col],\
+    \ b[pivot]);\n    for (int row = 0; row < n; ++row) {\n      if (row != col &&\
+    \ b[row][col]) b[row] ^= b[col];\n    }\n  }\n  BinaryMatrix<N> inv(n, n);\n \
+    \ for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      inv[i][j]\
+    \ = b[i][n + j];\n    }\n  }\n  return inv;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_\n#define EMTHRM_MATH_MATRIX_BINARY_MATRIX_INVERSE_MATRIX_HPP_\n\
+    \n#include <cassert>\n#include <utility>\n\n#include \"emthrm/math/matrix/binary_matrix/binary_matrix.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <int N>\nBinaryMatrix<N> inverse_matrix(const\
     \ BinaryMatrix<N>& a) {\n  const int n = a.nrow();\n  BinaryMatrix<N> b(n, n <<\
     \ 1, 0);\n  for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n\
@@ -46,17 +69,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   requiredBy: []
-  timestamp: '2022-12-15 22:18:37+09:00'
+  timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
 layout: document
-redirect_from:
-- /library/include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
-- /library/include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp.html
-title: "\u9006\u884C\u5217 \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
+title: "\u9006\u884C\u5217 (inverse matrix) \u30D0\u30A4\u30CA\u30EA\u884C\u5217\u7248"
 ---
+
 # バイナリ行列
 
 有限体 $\mathbb{F}_2$ 上の行列である。

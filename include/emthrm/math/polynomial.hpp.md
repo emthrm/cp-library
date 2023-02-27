@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/polynomial.test.cpp
     title: "\u6570\u5B66/\u591A\u9805\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/polynomial.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -162,7 +162,7 @@ data:
   path: include/emthrm/math/polynomial.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/polynomial.test.cpp
 documentation_of: include/emthrm/math/polynomial.hpp
