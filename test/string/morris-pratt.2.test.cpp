@@ -1,5 +1,5 @@
 /*
- * @title 文字列/Morris–Pratt algorithm (period(idx))
+ * @title 文字列/Morris–Pratt algorithm（最小周期）
  *
  * verification-helper: IGNORE
  * verification-helper: PROBLEM https://codeforces.com/problemset/problem/1138/D

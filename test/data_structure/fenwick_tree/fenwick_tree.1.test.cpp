@@ -1,5 +1,5 @@
 /*
- * @title データ構造/Fenwick tree/Fenwick tree (sum(left, right))
+ * @title データ構造/Fenwick tree/Fenwick tree
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_B
  */

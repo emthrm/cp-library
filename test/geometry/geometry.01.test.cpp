@@ -1,5 +1,5 @@
 /*
- * @title 計算幾何学/計算幾何学 (ccw(a, b, c))
+ * @title 計算幾何学/計算幾何学 (ccw)
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=CGL_1_C
  */

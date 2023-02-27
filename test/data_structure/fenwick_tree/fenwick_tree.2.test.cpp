@@ -1,5 +1,5 @@
 /*
- * @title データ構造/Fenwick tree/Fenwick tree (lower_bound(val))
+ * @title データ構造/Fenwick tree/Fenwick tree（二分探索）
  *
  * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/arc033/tasks/arc033_3
