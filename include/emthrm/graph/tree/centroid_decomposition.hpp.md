@@ -6,12 +6,12 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/tree/centroid_decomposition.hpp\"\n\
@@ -32,15 +32,16 @@ data:
     \ int s) {\n    const int centroid = search_centroid(-1, s, calc_subtree(-1, s)\
     \ / 2);\n    is_alive[centroid] = false;\n    for (const int e : graph[centroid]\n\
     \                     | std::views::transform(&Edge<CostType>::dst)) {\n     \
-    \ if (is_alive[e]) {\n        g[centroid].emplace_back(build(e));\n        parent[e]\
-    \ = centroid;\n      }\n    }\n    is_alive[centroid] = true;\n    return centroid;\n\
-    \  }\n\n  int calc_subtree(const int par, const int ver) {\n    subtree[ver] =\
-    \ 1;\n    for (const int e : graph[ver]\n                     | std::views::transform(&Edge<CostType>::dst))\
-    \ {\n      if (e != par && is_alive[e]) {\n        subtree[ver] += calc_subtree(ver,\
-    \ e);\n      }\n    }\n    return subtree[ver];\n  }\n\n  int search_centroid(const\
-    \ int par, const int ver, const int half) const {\n    for (const int e : graph[ver]\n\
-    \                     | std::views::transform(&Edge<CostType>::dst)) {\n     \
-    \ if (e != par && is_alive[e] && subtree[e] > half) {\n        return search_centroid(ver,\
+    \ if (is_alive[e]) {\n        const int child = build(e);\n        g[centroid].emplace_back(child);\n\
+    \        parent[child] = centroid;\n      }\n    }\n    is_alive[centroid] = true;\n\
+    \    return centroid;\n  }\n\n  int calc_subtree(const int par, const int ver)\
+    \ {\n    subtree[ver] = 1;\n    for (const int e : graph[ver]\n              \
+    \       | std::views::transform(&Edge<CostType>::dst)) {\n      if (e != par &&\
+    \ is_alive[e]) {\n        subtree[ver] += calc_subtree(ver, e);\n      }\n   \
+    \ }\n    return subtree[ver];\n  }\n\n  int search_centroid(const int par, const\
+    \ int ver, const int half) const {\n    for (const int e : graph[ver]\n      \
+    \               | std::views::transform(&Edge<CostType>::dst)) {\n      if (e\
+    \ != par && is_alive[e] && subtree[e] > half) {\n        return search_centroid(ver,\
     \ e, half);\n      }\n    }\n    return ver;\n  }\n};\n\n}  // namespace emthrm\n\
     \n\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_CENTROID_DECOMPOSITION_HPP_\n#define EMTHRM_GRAPH_TREE_CENTROID_DECOMPOSITION_HPP_\n\
@@ -55,15 +56,16 @@ data:
     \ int s) {\n    const int centroid = search_centroid(-1, s, calc_subtree(-1, s)\
     \ / 2);\n    is_alive[centroid] = false;\n    for (const int e : graph[centroid]\n\
     \                     | std::views::transform(&Edge<CostType>::dst)) {\n     \
-    \ if (is_alive[e]) {\n        g[centroid].emplace_back(build(e));\n        parent[e]\
-    \ = centroid;\n      }\n    }\n    is_alive[centroid] = true;\n    return centroid;\n\
-    \  }\n\n  int calc_subtree(const int par, const int ver) {\n    subtree[ver] =\
-    \ 1;\n    for (const int e : graph[ver]\n                     | std::views::transform(&Edge<CostType>::dst))\
-    \ {\n      if (e != par && is_alive[e]) {\n        subtree[ver] += calc_subtree(ver,\
-    \ e);\n      }\n    }\n    return subtree[ver];\n  }\n\n  int search_centroid(const\
-    \ int par, const int ver, const int half) const {\n    for (const int e : graph[ver]\n\
-    \                     | std::views::transform(&Edge<CostType>::dst)) {\n     \
-    \ if (e != par && is_alive[e] && subtree[e] > half) {\n        return search_centroid(ver,\
+    \ if (is_alive[e]) {\n        const int child = build(e);\n        g[centroid].emplace_back(child);\n\
+    \        parent[child] = centroid;\n      }\n    }\n    is_alive[centroid] = true;\n\
+    \    return centroid;\n  }\n\n  int calc_subtree(const int par, const int ver)\
+    \ {\n    subtree[ver] = 1;\n    for (const int e : graph[ver]\n              \
+    \       | std::views::transform(&Edge<CostType>::dst)) {\n      if (e != par &&\
+    \ is_alive[e]) {\n        subtree[ver] += calc_subtree(ver, e);\n      }\n   \
+    \ }\n    return subtree[ver];\n  }\n\n  int search_centroid(const int par, const\
+    \ int ver, const int half) const {\n    for (const int e : graph[ver]\n      \
+    \               | std::views::transform(&Edge<CostType>::dst)) {\n      if (e\
+    \ != par && is_alive[e] && subtree[e] > half) {\n        return search_centroid(ver,\
     \ e, half);\n      }\n    }\n    return ver;\n  }\n};\n\n}  // namespace emthrm\n\
     \n#endif  // EMTHRM_GRAPH_TREE_CENTROID_DECOMPOSITION_HPP_\n"
   dependsOn:
@@ -71,8 +73,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/tree/centroid_decomposition.hpp
   requiredBy: []
-  timestamp: '2023-02-24 21:17:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2023-02-27 17:26:42+09:00'
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: include/emthrm/graph/tree/centroid_decomposition.hpp
@@ -125,4 +127,4 @@ struct CentroidDecomposition;
 
 ## Submissons
 
-https://judge.yosupo.jp/submission/12355
+https://atcoder.jp/contests/abc291/submissions/39252522

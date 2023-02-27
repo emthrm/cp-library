@@ -6,9 +6,6 @@ data:
     path: include/emthrm/math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
-    path: test/graph/tree/centroid_decomposition.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
   - icon: ':warning:'
     path: test/math/convolution/fast_fourier_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\
@@ -159,7 +156,6 @@ data:
   - test/math/convolution/fast_fourier_transform.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/graph/tree/centroid_decomposition.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_fourier_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"

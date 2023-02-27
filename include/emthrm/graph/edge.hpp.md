@@ -80,7 +80,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/centroid_decomposition.hpp
     title: "\u91CD\u5FC3\u5206\u89E3 (centroid decompositon)"
   - icon: ':heavy_check_mark:'
@@ -190,7 +190,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/graph/tree/centroid_decomposition.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\u5206\u89E3"
   - icon: ':heavy_check_mark:'
