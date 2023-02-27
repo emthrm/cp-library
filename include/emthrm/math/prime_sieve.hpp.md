@@ -29,9 +29,6 @@ data:
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
   - icon: ':heavy_check_mark:'
-    path: test/math/fast_divisor.test.cpp
-    title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  - icon: ':heavy_check_mark:'
     path: test/math/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
@@ -76,7 +73,6 @@ data:
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/fast_divisor.test.cpp
   - test/math/prime_sieve.test.cpp
   - test/math/osa_k.test.cpp
   - test/math/enumerate_k-th_power.test.cpp

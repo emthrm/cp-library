@@ -3,18 +3,24 @@
 <h3>データ構造 (data structure)</h3>
 <ul>
     {% for item in page.data.dataStructure %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
     <h3>Fenwick tree (binary indexed tree)</h3>
     <ul type="circle">
         {% for item in page.data.fenwickTree %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
     </ul>
     <h3>素集合データ構造 (disjoint-set data structure)</h3>
     <ul type="circle">
         {% for item in page.data.unionFind %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
     </ul>
 </ul>
@@ -22,39 +28,51 @@
 <h3>動的計画法 (dynamic programming)</h3>
 <ul>
     {% for item in page.data.dynamicProgramming %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>
 
 <h3>ゲーム (game)</h3>
 <ul>
     {% for item in page.data.game %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>
 
 <h3>計算幾何学 (computational geometry)</h3>
 <ul>
     {% for item in page.data.geometry %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>
 
 <h3>グラフ (graph)</h3>
 <ul>
     {% for item in page.data.graph %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
     <h3>最短路問題 (shortest path problem)</h3>
     <ul type="circle">
         {% for item in page.data.shortestPath %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
     </ul>
     <h3>木 (tree)</h3>
     <ul type="circle">
         {% for item in page.data.tree %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
     </ul>
     <h3>フロー (flow)</h3>
@@ -62,19 +80,25 @@
         <h3>マッチング (matching)</h3>
         <ul type="sqare">
             {% for item in page.data.matching %}
-            {% include item.html icon=item.icon path=item.path title=item.title }
+            <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+                {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+            </a></li>
             {% endfor %}
         </ul>
         <h3>最大流 (maximum flow)</h3>
         <ul type="sqare">
             {% for item in page.data.maximumFlow %}
-            {% include item.html icon=item.icon path=item.path title=item.title }
+            <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+                {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+            </a></li>
             {% endfor %}
         </ul>
         <h3>最小費用流 (minimum cost flow)</h3>
         <ul type="sqare">
             {% for item in page.data.minimumCostFlow %}
-            {% include item.html icon=item.icon path=item.path title=item.title }
+            <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+                {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+            </a></li>
             {% endfor %}
         </ul>
     </ul>
@@ -83,47 +107,63 @@
 <h3>数学 (math)</h3>
 <ul>
     {% for item in page.data.math %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
     <h3>畳み込み (convolution)</h3>
     <ul type="circle">
         {% for item in page.data.convolution %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
     </ul>
     <h3>形式的冪級数 (formal power series)</h3>
     <ul type="circle">
         {% for item in page.data.formalPowerSeries %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
     </ul>
     <h3>行列 (matrix)</h3>
     <ul type="circle">
         {% for item in page.data.matrix %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
         <h3>バイナリ行列</h3>
         <ul type="sqare">
             {% for item in page.data.binaryMatrix %}
-            {% include item.html icon=item.icon path=item.path title=item.title }
+            <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+                {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+            </a></li>
             {% endfor %}
         </ul>
     </ul>
     <h3>写像12相 (twelvefold way)</h3>
     <ul type="circle">
         {% for item in page.data.twelvefoldWay %}
-        {% include item.html icon=item.icon path=item.path title=item.title }
+        <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+            {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+        </a></li>
         {% endfor %}
         <h3>ベル数 (Bell number)</h3>
         <ul type="sqare">
             {% for item in page.data.bellNumber %}
-            {% include item.html icon=item.icon path=item.path title=item.title }
+            <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+                {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+            </a></li>
             {% endfor %}
         </ul>
         <h3>スターリング数 (Stirling number)</h3>
         <ul type="sqare">
             {% for item in page.data.stirling_number %}
-            {% include item.html icon=item.icon path=item.path title=item.title }
+            <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+                {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+            </a></li>
             {% endfor %}
         </ul>
     </ul>
@@ -132,21 +172,27 @@
 <h3>文字列 (string)</h3>
 <ul>
     {% for item in page.data.string %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>
 
 <h3>ユーティリティ (utility)</h3>
 <ul>
     {% for item in page.data.util %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>
 
 <h3>その他 (misc)</h3>
 <ul>
     {% for item in page.data.misc %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>
 
@@ -154,6 +200,8 @@
 
 <ul>
     {% for item in page.data.verificationPages %}
-    {% include item.html icon=item.icon path=item.path title=item.title }
+    <li><a href="{{ item.path | absolute_url }}">{{ item.icon }} {{ item.title }}
+        {% if item.title != item.path %}<small>({{ item.path }})</small>{% endif %}
+    </a></li>
     {% endfor %}
 </ul>

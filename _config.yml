@@ -4,7 +4,7 @@ exclude:
 - include/emthrm/graph_cost-free
 - include/emthrm/math/fast_divisor.hpp
 - test/graph_cost-free
-- test/math/fast_divisor.hpp
+- test/math/fast_divisor.test.cpp
 plugins:
 - jemoji
 - jekyll-redirect-from

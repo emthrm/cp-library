@@ -1105,9 +1105,6 @@ data:
     path: test/math/ext_gcd.test.cpp
     title: "\u6570\u5B66/\u62E1\u5F35 Euclid \u306E\u4E92\u9664\u6CD5"
   - icon: ':heavy_check_mark:'
-    path: test/math/fast_divisor.test.cpp
-    title: "\u6570\u5B66/\u7D04\u6570\u5217\u6319"
-  - icon: ':heavy_check_mark:'
     path: test/math/floor_sum.test.cpp
     title: "\u6570\u5B66/sum of floor of linear"
   - icon: ':heavy_check_mark:'
