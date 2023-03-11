@@ -4,11 +4,13 @@
 #include <cassert>
 
 #include "emthrm/math/formal_power_series/bostan-mori.hpp"
+#include "emthrm/math/formal_power_series/formal_power_series.hpp"
 
 namespace emthrm {
 
-template <template <typename> class C, typename T>
-T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n) {
+template <typename T>
+T nth_term_of_linear_recurrence_sequence(
+    FormalPowerSeries<T> a, FormalPowerSeries<T> q, const long long n) {
   q.shrink();
   const int d = q.degree();
   assert(d >= 0 && q[0] != 0);
