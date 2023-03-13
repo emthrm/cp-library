@@ -92,3 +92,15 @@ $$
 $$
 
 > https://math.stackexchange.com/questions/657855/a-bb-cc-a-2-max-a-b-c-min-a-b-c
+
+---
+
+$b \mid a$ を満たす $a \in \mathbb{Z},\ b \in \mathbb{N}^+$ に対して
+
+$$
+  \frac{a}{b} \bmod{m} = \frac{a \bmod{bm}}{b}
+$$
+
+が成り立つ。
+
+> http://techtipshoge.blogspot.com/2015/02/mod-n.html
