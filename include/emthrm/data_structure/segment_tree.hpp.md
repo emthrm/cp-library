@@ -110,9 +110,9 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/segment_tree.test.cpp
   - test/data_structure/range_minimum_query.test.cpp
   - test/data_structure/range_sum_query.test.cpp
+  - test/data_structure/segment_tree.test.cpp
 documentation_of: include/emthrm/data_structure/segment_tree.hpp
 layout: document
 title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (segment tree)"

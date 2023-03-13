@@ -37,8 +37,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/mod_inv.hpp
   requiredBy:
-  - include/emthrm/math/chinese_remainder_theorem.hpp
   - include/emthrm/math/simultaneous_linear_congruence.hpp
+  - include/emthrm/math/chinese_remainder_theorem.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:

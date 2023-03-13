@@ -122,6 +122,7 @@ $O(N^2)$
 - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/math/Monge.md
 
 Monge property
+- https://hackmd.io/@tatyam-prime/monge1
 - https://noshi91.hatenablog.com/entry/2021/04/06/004409
 
 

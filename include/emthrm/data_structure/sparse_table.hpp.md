@@ -63,14 +63,14 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/sparse_table.hpp
   requiredBy:
-  - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   - include/emthrm/string/longest_common_prefix.hpp
+  - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/sparse_table.test.cpp
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
   - test/string/longest_common_prefix.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/sparse_table.hpp
 layout: document
 title: sparse table

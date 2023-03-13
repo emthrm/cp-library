@@ -49,8 +49,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/string/morris-pratt.1.test.cpp
   - test/string/morris-pratt.2.test.cpp
+  - test/string/morris-pratt.1.test.cpp
 documentation_of: include/emthrm/string/morris-pratt.hpp
 layout: document
 title: "Morris\u2013Pratt algorithm"

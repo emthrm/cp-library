@@ -330,27 +330,28 @@ data:
     \  }\n};\n\n}  // namespace emthrm\n\n\n#line 1 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
     \n\n\n\n#line 5 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
     \n\n#line 1 \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\n\n\n\n\
-    #line 5 \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\n\nnamespace\
-    \ emthrm {\n\ntemplate <template <typename> class C, typename T>\nT bostan_mori(C<T>\
-    \ p, C<T> q, long long n) {\n  q.shrink();\n  const int d = q.degree();\n  assert(d\
-    \ >= 0 && q[0] != 0);\n  T res = 0;\n  p.shrink();\n  if (p.degree() >= d) {\n\
-    \    const C<T> quotient = p / q;\n    p -= quotient * q;\n    p.shrink();\n \
-    \   if (n <= quotient.degree()) res += quotient[n];\n  }\n  if (d == 0 || (p.degree()\
+    #line 5 \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\n\n#line 7\
+    \ \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\n\nnamespace emthrm\
+    \ {\n\ntemplate <typename T>\nT bostan_mori(FormalPowerSeries<T> p, FormalPowerSeries<T>\
+    \ q, long long n) {\n  q.shrink();\n  const int d = q.degree();\n  assert(d >=\
+    \ 0 && q[0] != 0);\n  T res = 0;\n  p.shrink();\n  if (p.degree() >= d) {\n  \
+    \  const FormalPowerSeries<T> quotient = p / q;\n    p -= quotient * q;\n    p.shrink();\n\
+    \    if (n <= quotient.degree()) res += quotient[n];\n  }\n  if (d == 0 || (p.degree()\
     \ == 0 && p[0] == 0)) return res;\n  p.resize(d - 1);\n  for (; n > 0; n >>= 1)\
-    \ {\n    C<T> tmp = q;\n    for (int i = 1; i <= d; i += 2) {\n      tmp[i] =\
-    \ -tmp[i];\n    }\n    p *= tmp;\n    if (n & 1) {\n      for (int i = 0; i <\
-    \ d; ++i) {\n        p[i] = p[(i << 1) + 1];\n      }\n    } else {\n      for\
-    \ (int i = 1; i < d; ++i) {\n        p[i] = p[i << 1];\n      }\n    }\n    p.resize(d\
-    \ - 1);\n    q *= tmp;\n    for (int i = 1; i <= d; ++i) {\n      q[i] = q[i <<\
-    \ 1];\n    }\n    q.resize(d);\n  }\n  return res + p[0] / q[0];\n}\n\n}  // namespace\
-    \ emthrm\n\n\n#line 7 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
-    T nth_term_of_linear_recurrence_sequence(C<T> a, C<T> q, const long long n) {\n\
-    \  q.shrink();\n  const int d = q.degree();\n  assert(d >= 0 && q[0] != 0);\n\
-    \  if (a.degree() >= n) return a[n];\n  assert(a.degree() >= d - 1);\n  a.resize(d\
-    \ - 1);\n  a *= q;\n  a.resize(d - 1);\n  return bostan_mori(a, q, n);\n}\n\n\
-    }  // namespace emthrm\n\n\n#line 13 \"test/math/formal_power_series/bostan-mori.test.cpp\"\
-    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
+    \ {\n    FormalPowerSeries<T> tmp = q;\n    for (int i = 1; i <= d; i += 2) {\n\
+    \      tmp[i] = -tmp[i];\n    }\n    p *= tmp;\n    if (n & 1) {\n      for (int\
+    \ i = 0; i < d; ++i) {\n        p[i] = p[(i << 1) + 1];\n      }\n    } else {\n\
+    \      for (int i = 1; i < d; ++i) {\n        p[i] = p[i << 1];\n      }\n   \
+    \ }\n    p.resize(d - 1);\n    q *= tmp;\n    for (int i = 1; i <= d; ++i) {\n\
+    \      q[i] = q[i << 1];\n    }\n    q.resize(d);\n  }\n  return res + p[0] /\
+    \ q[0];\n}\n\n}  // namespace emthrm\n\n\n#line 8 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T>\nT nth_term_of_linear_recurrence_sequence(\n\
+    \    FormalPowerSeries<T> a, FormalPowerSeries<T> q, const long long n) {\n  q.shrink();\n\
+    \  const int d = q.degree();\n  assert(d >= 0 && q[0] != 0);\n  if (a.degree()\
+    \ >= n) return a[n];\n  assert(a.degree() >= d - 1);\n  a.resize(d - 1);\n  a\
+    \ *= q;\n  a.resize(d - 1);\n  return bostan_mori(a, q, n);\n}\n\n}  // namespace\
+    \ emthrm\n\n\n#line 13 \"test/math/formal_power_series/bostan-mori.test.cpp\"\n\
+    \nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
     \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
     \   static emthrm::NumberTheoreticTransform<MOD> ntt;\n        return ntt.convolution(a,\
@@ -384,7 +385,7 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/bostan-mori.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-03-11 17:00:55+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/formal_power_series/bostan-mori.test.cpp

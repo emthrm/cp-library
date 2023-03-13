@@ -8,6 +8,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/bernoulli_number.hpp
     title: "\u30D9\u30EB\u30CC\u30FC\u30A4\u6570 (Bernoulli number)"
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/math/formal_power_series/bostan-mori.hpp
+    title: "Bostan\u2013Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
   - icon: ':warning:'
     path: include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
     title: "Eulerian number \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
@@ -15,6 +18,10 @@ data:
     path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
       \ formula) \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
+    title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217 (linear recurrence sequence) \u306E\
+      \u7B2C $N$ \u9805"
   - icon: ':warning:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
     title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
@@ -386,34 +393,36 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
+  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
+  - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
   - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
+  - include/emthrm/math/formal_power_series/bostan-mori.hpp
   - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
   - include/emthrm/math/formal_power_series/bernoulli_number.hpp
-  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/dynamic_programming/subset_sum_problem.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
-  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/formal_power_series.3.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
   - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
