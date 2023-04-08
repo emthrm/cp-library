@@ -59,7 +59,7 @@ template <typename Abelian>
 struct WeightedUnionFind;
 ```
 
-- `Abelian`：[アーベル群](../../../.verify-helper/docs/static/algebraic_structure.md)である要素型
+- `Abelian`：アーベル群である要素型
 
 #### メンバ関数
 

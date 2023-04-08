@@ -3,8 +3,6 @@ title: sparse table
 documentation_of: //include/emthrm/data_structure/sparse_table.hpp
 ---
 
-[帯](../../.verify-helper/docs/static/algebraic_structure.md)であるデータを含んだ区間に対して高速に演算を行うデータ構造である。
-
 
 ## 時間計算量
 
@@ -18,7 +16,7 @@ template <typename Band>
 struct SparseTable;
 ```
 
-- `Band`：帯である要素型
+- `Band`：[帯](../../.verify-helper/docs/static/algebraic_structure.md)である要素型
 
 #### メンバ変数
 

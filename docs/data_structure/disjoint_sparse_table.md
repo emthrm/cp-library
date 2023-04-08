@@ -3,8 +3,6 @@ title: disjoint sparse table
 documentation_of: //include/emthrm/data_structure/disjoint_sparse_table.hpp
 ---
 
-[半群](../../.verify-helper/docs/static/algebraic_structure.md)であるデータを含んだ区間に対して高速に演算を行うデータ構造である。
-
 
 ## 時間計算量
 
@@ -18,7 +16,7 @@ template <typename Semigroup, typename BinOp>
 struct DisjointSparseTable;
 ```
 
-- `Semigroup`：半群である要素型
+- `Semigroup`：[半群](../../.verify-helper/docs/static/algebraic_structure.md)である要素型
 - `BinOp`：二項演算を表す型
 
 #### メンバ関数
