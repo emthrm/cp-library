@@ -134,7 +134,6 @@ jobs:
               *.test.cpp )
                 cpplint --filter=-legal/copyright,-runtime/int,-whitespace/line_length $file ;;
 
-
               * )
                 cpplint --root=./include --filter=-legal/copyright,-runtime/int $file ;;
             esac
