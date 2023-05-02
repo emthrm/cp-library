@@ -37,4 +37,4 @@ $O(\sqrt{N})$
 
 ## Submissons
 
-https://atcoder.jp/contests/abc230/submissions/28839379
+https://judge.yosupo.jp/submission/137127
