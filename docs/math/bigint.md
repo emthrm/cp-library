@@ -29,6 +29,7 @@ Knuth's Algorithm D
 - https://qiita.com/square1001/items/1aa12e04934b6e749962
 - http://xn--w6q13e505b.jp/method/
 - http://poset.jp/ompa/node3.html
+- https://judge.yosupo.jp/problem/division_of_big_integers
 - 乗算の高速化
   - http://xn--w6q13e505b.jp/method/mult.html
   - http://fussy.web.fc2.com/algo/math3_mult.htm

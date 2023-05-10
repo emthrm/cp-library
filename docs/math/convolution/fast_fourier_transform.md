@@ -169,8 +169,16 @@ $$
   - https://en.wikipedia.org/wiki/Split-radix_FFT_algorithm
   - http://xn--w6q13e505b.jp/method/fft/radix.html
   - http://wwwa.pikara.ne.jp/okojisan/stockham/stockham3.html
+- chirp Z-transform
+  - https://en.wikipedia.org/wiki/Chirp_Z-transform
+  - https://noshi91.github.io/algorithm-encyclopedia/chirp-z-transform
+  - https://yoneh.hatenadiary.org/entry/20080109/1199862684
+  - https://qiita.com/HMMNRST/items/14b990534d7b6d04307d
+  - https://scrapbox.io/mrsekut-p/Chirp_Z%E5%A4%89%E6%8F%9B
+  - https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
+  - https://twitter.com/noshi91/status/1478716471136366593
   - https://judge.yosupo.jp/problem/multivariate_convolution
   - https://judge.yosupo.jp/problem/multivariate_convolution_cyclic
   - https://nyaannyaan.github.io/library/ntt/multivariate-multiplication.hpp

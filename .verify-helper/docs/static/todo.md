@@ -188,6 +188,7 @@
 - https://yukicoder.me/problems/no/1787
 - https://yukicoder.me/problems/no/1976
 - https://yukicoder.me/submissions/769888
+- https://yukicoder.me/problems/no/2258
 
 
 # triangle enumeration
@@ -485,14 +486,17 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - https://ja.wikipedia.org/wiki/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8
 - https://www.slideshare.net/iwiwi/2-12188757
 - https://scrapbox.io/data-structures/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%88%86%E6%8E%A2%E7%B4%A2%E6%9C%A8%E3%81%A8%E3%81%AF
+- https://drive.google.com/file/d/1B4DnRVF6aasxZtdgTqIWXY7x3d6Y07Mk
 - https://twitter.com/hamamu_kyopro/status/1615009114484248577
 - https://twitter.com/noimi_kyopro/status/1619940049348616192
 - https://twitter.com/noshi91/status/1425120446169501697
+- https://twitter.com/hotmanww/status/1636877141198639104
 - http://yosupo.hatenablog.com/entry/2014/12/09/222401
 - https://github.com/ei1333/library/tree/master/structure/bbst
 - https://github.com/beet-aizu/library/tree/master/bbst
 - ~~https://lumakernel.github.io/ecasdqina/data-structure/BBST~~
 - ~~https://competitive12.blogspot.com/2019/04/treap.html~~
+- https://judge.yosupo.jp/problem/range_reverse_range_sum
 - randomized binary search tree
   - https://en.wikipedia.org/wiki/Random_binary_tree
   - https://ei1333.github.io/algorithm/rbst.html
@@ -548,6 +552,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - スプレー木 (splay tree)
   - https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%97%E3%83%AC%E3%83%BC%E6%9C%A8
   - ~~http://www.prefield.com/algorithm/container/splay_tree.html~~
+  - https://gist.github.com/hotman78/264dc72248075fcc4b7f85f25ea0c27b
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/splay_tree.cc
   - https://www.youtube.com/watch?v=M6LcINhgXeM
   - https://mugen1337.github.io/procon/BinarySearchTree/SplayTree.cpp

@@ -187,7 +187,7 @@ Hopcroft–Karp algorithm
 ## TODO
 
 - https://www.slideshare.net/wata_orz/ss-12131479
-- https://drive.google.com/file/d/1RD66csuDTAYXPmuCsiPi3HWBwtLg95T5/view
+- https://drive.google.com/file/d/1RD66csuDTAYXPmuCsiPi3HWBwtLg95T5
 - 一般グラフの最大マッチング
   - ~~https://min-25.hatenablog.com/entry/2016/11/21/222625~~
   - https://judge.yosupo.jp/problem/general_matching

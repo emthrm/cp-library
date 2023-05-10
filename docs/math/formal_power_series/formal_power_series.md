@@ -199,6 +199,8 @@ struct FormalPowerSeries;
   - https://twitter.com/tatyam_prime/status/1446841586252324866
 - $\sum_{n = 0}^\infty \frac{n^a}{n!} x^n$
   - https://qiita.com/hotman78/items/90dba287b98629767d6c
+- ${\lbrack x^n \rbrack} f^k$ ($k = 0, 1, \ldots, m$)
+  - https://twitter.com/noshi91/status/1641318777399951365
 - 多項式ハッシュ
   - https://yukicoder.me/wiki/polynomial_techniques
   - https://github.com/beet-aizu/library/blob/master/polynomial/hash.cpp

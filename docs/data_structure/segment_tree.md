@@ -194,6 +194,7 @@ struct LazySegmentTree;
   - https://codeforces.com/contest/1654/problem/F
   - https://twitter.com/SSRS_cp/status/1505543549601054720
   - https://yukicoder.me/problems/no/1891
+  - https://yukicoder.me/problems/no/2265
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 

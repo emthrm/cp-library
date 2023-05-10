@@ -210,11 +210,11 @@ struct Circle;
   - https://github.com/beet-aizu/library/blob/master/geometry/geometry.cpp
   - https://tubo28.me/compprog/algorithm/segment-arrangement/
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/segment_arrangement.cc
-  - http://www.prefield.com/algorithm/geometry/segment_arrangement.html
+  - ~~http://www.prefield.com/algorithm/geometry/segment_arrangement.html~~
   - https://github.com/primenumber/ProconLib/blob/master/Geometry/Arrangement.cpp
   - https://onlinejudge.u-aizu.ac.jp/problems/1033
 - 直線アレンジメント
-  - http://www.prefield.com/algorithm/geometry/walk_arrangement.html
+  - ~~http://www.prefield.com/algorithm/geometry/walk_arrangement.html~~
   - https://nya3.jp/libicpc/#%E5%B9%BE%E4%BD%95/%E3%81%9D%E3%81%AE%E4%BB%96/%E3%82%A2%E3%83%AC%E3%83%B3%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88
 - 円と多角形の共通部分の面積
   - https://github.com/ei1333/library/blob/master/geometry/template.cpp
@@ -230,12 +230,13 @@ struct Circle;
 - 点と半直線の距離
   - https://sen-comp.hatenablog.com/entry/2020/03/14/183251#distanceBetweenPointAndRay%E7%82%B9%E3%81%A8%E5%8D%8A%E7%9B%B4%E7%B7%9A%E3%81%AE%E8%B7%9D%E9%9B%A2
 - 凸多角形の共通部分
-  - http://www.prefield.com/algorithm/geometry/convex_intersect.html
+  - ~~http://www.prefield.com/algorithm/geometry/convex_intersect.html~~
   - http://gihyo.jp/dev/serial/01/geometry/0009
 - 点の凸多角形に対する内外判定
-  - http://www.prefield.com/algorithm/geometry/convex_contains.html
+  - ~~http://www.prefield.com/algorithm/geometry/convex_contains.html~~
+  - https://atcoder.jp/contests/abc296/editorial/6109
 - 直線から最も遠い凸多角形上の点
-  - http://www.prefield.com/algorithm/geometry/convex_extreme.html
+  - ~~http://www.prefield.com/algorithm/geometry/convex_extreme.html~~
 - 二等分線
   - https://sotanishy.github.io/cp-library-cpp/geometry/bisector.hpp
   - https://github.com/beet-aizu/library/blob/master/geometry/geometry.cpp
@@ -248,12 +249,12 @@ struct Circle;
   - https://github.com/drken1215/algorithm/blob/master/Geometry/All.cpp
   - https://onlinejudge.u-aizu.ac.jp/problems/1039
 - 3点を通る円
-  - http://www.prefield.com/algorithm/geometry/misc.html
+  - ~~http://www.prefield.com/algorithm/geometry/misc.html~~
 - ピックの定理 (Pick's theorem)
   - https://ja.wikipedia.org/wiki/%E3%83%94%E3%83%83%E3%82%AF%E3%81%AE%E5%AE%9A%E7%90%86
   - https://mugen1337.github.io/procon/GeometryInt/CountLattice.cpp
 - 線分の併合
-  - http://www.prefield.com/algorithm/geometry/merge_segments.html
+  - ~~http://www.prefield.com/algorithm/geometry/merge_segments.html~~
   - https://github.com/ei1333/library/blob/master/geometry/template.cpp
   - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
   - https://onlinejudge.u-aizu.ac.jp/problems/1033
@@ -262,21 +263,21 @@ struct Circle;
   - http://www.orsj.or.jp/~wiki/wiki/index.php/%E7%82%B9%E4%BD%8D%E7%BD%AE%E6%B1%BA%E5%AE%9A
   - https://ikatakos.com/pot/programming_algorithm/geometry/planar_point_location
   - http://www-imai.is.s.u-tokyo.ac.jp/~tsuyoshi/tmp/compgeo-20040608.pdf
-  - http://www.prefield.com/algorithm/geometry/point_location.html
+  - ~~http://www.prefield.com/algorithm/geometry/point_location.html~~
 - 串刺し問題
-  - http://www.prefield.com/algorithm/geometry/stabbing_line.html
+  - ~~http://www.prefield.com/algorithm/geometry/stabbing_line.html~~
 - 耳分解 (ear decomposition)
   - https://en.wikipedia.org/wiki/Ear_decomposition
-  - http://www.prefield.com/algorithm/geometry/triangulate.html
+  - ~~http://www.prefield.com/algorithm/geometry/triangulate.html~~
 - 多角形の平行移動
-  - http://www.prefield.com/algorithm/geometry/shrink_polygon.html
+  - ~~http://www.prefield.com/algorithm/geometry/shrink_polygon.html~~
 - ドロネー図 (delaunay diagram)
   - https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%AD%E3%83%8D%E3%83%BC%E5%9B%B3
   - https://www.slideshare.net/Kinokkory/ss-25736696
   - http://www.orsj.or.jp/~wiki/wiki/index.php/%E3%83%89%E3%83%AD%E3%83%8D%E3%83%BC%E5%9B%B3
   - http://www.thothchildren.com/chapter/5bded85141f88f267247fdc6
   - http://hadashia.hatenablog.com/entry/2018/10/11/194602
-  - http://www.prefield.com/algorithm/geometry/delaunay.html
+  - ~~http://www.prefield.com/algorithm/geometry/delaunay.html~~
   - https://sotanishy.github.io/cp-library-cpp/geometry/delaunay_diagram.hpp
 - kd 木 (k-d tree)
   - https://ja.wikipedia.org/wiki/Kd%E6%9C%A8
@@ -286,7 +287,7 @@ struct Circle;
   - https://github.com/beet-aizu/library/blob/master/datastructure/kdtree.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Structure/kdTree.cpp
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/kd_tree.cc
-  - http://www.prefield.com/algorithm/geometry/kdtree.html
+  - ~~http://www.prefield.com/algorithm/geometry/kdtree.html~~
   - https://tjkendev.github.io/procon-library/cpp/range_query/kd-tree.html
   - https://mugen1337.github.io/procon/DataStructure/KDTree.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/kd_tree.cpp
@@ -308,7 +309,7 @@ struct Circle;
   - https://en.wikipedia.org/wiki/Rectilinear_minimum_spanning_tree
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/rectilinear_mst.cc
 - 双対変換
-  - http://www.prefield.com/algorithm/geometry/dual_transformation.html
+  - ~~http://www.prefield.com/algorithm/geometry/dual_transformation.html~~
 - 双対グラフ (dual graph)
   - https://en.wikipedia.org/wiki/Dual_graph
   - https://firiexp.github.io/library/library/geometry/dualgraph.cpp.html

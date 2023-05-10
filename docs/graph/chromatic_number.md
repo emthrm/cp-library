@@ -41,8 +41,11 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
   - http://www.prefield.com/algorithm/graph/bipartite_coloring.html
   - https://judge.yosupo.jp/problem/bipartite_edge_coloring
   - https://yukicoder.me/problems/no/3071
+- $\#k$-彩色 ($\#k$-coloring)
+  - https://atcoder.jp/contests/abc294/tasks/abc294_h
+  - https://twitter.com/noshi91/status/1637451650402234373
 - 彩色多項式
-  - https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp
+  - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp~~
 
 
 ## Submissons

@@ -43,7 +43,7 @@ struct CentroidDecomposition;
 
 ## TODO
 
-- https://twitter.com/beet_aizu/status/1142651943971540992
+- ~~https://twitter.com/beet_aizu/status/1142651943971540992~~
 
 
 ## Submissons

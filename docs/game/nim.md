@@ -27,6 +27,7 @@ $O(N)$
 
 - nim product
   - https://drive.google.com/file/d/16g1tfSHUU4NXNTDgaD8FSA1WB4FtJCyV
+  - https://twitter.com/kyopro_friends/status/1646458244628611072
   - https://github.com/yosupo06/library-checker-problems/issues/317
   - https://sotanishy.github.io/cp-library-cpp/math/nimber.hpp
   - https://judge.yosupo.jp/problem/nim_product_64

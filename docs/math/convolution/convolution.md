@@ -98,6 +98,7 @@ $O(N\log{N})$
   - https://twitter.com/noshi91/status/1315347967990140928
   - https://twitter.com/noshi91/status/1315504267927584768
   - ~~https://twitter.com/beet_aizu/status/1339049679728779264~~
+  - https://twitter.com/noimi_kyopro/status/1642585862373515265
   - https://twitter.com/noshi91/status/1339077655715430401
   - https://ngtkana.hatenablog.com/entry/2021/04/25/135636
   - https://atcoder.jp/contests/xmascon20/tasks/xmascon20_h
@@ -117,6 +118,13 @@ $O(N\log{N})$
   - https://twitter.com/noshi91/status/1485246655419260939
   - https://yukicoder.me/problems/no/1901
   - https://atcoder.jp/contests/abc253/editorial/4028
+  - https://atcoder.jp/contests/abc294/tasks/abc294_h
+  - https://twitter.com/noshi91/status/1637451650402234373
+  - set power series
+    - https://codeforces.com/blog/entry/92183
+    - https://suisen-kyopro.hatenablog.com/entry/2023/04/07/041318
+    - https://judge.yosupo.jp/problem/polynomial_composite_set_power_series
+    - https://judge.yosupo.jp/problem/exp_of_set_power_series
 - 凸性のある畳み込み
   - https://twitter.com/hotmanww/status/1482185138125832192
 - relaxed multiplication

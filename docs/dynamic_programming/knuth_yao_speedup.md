@@ -84,6 +84,7 @@ Monge property
 ## TODO
 
 - https://home.wakatabe.com/ryo/wiki/index.php?%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0#d1c516d3
+- https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu
 - 最適二分探索木問題
   - https://atcoder.jp/contests/atc002/tasks/atc002_c
   - Hu–Tucker algorithm
@@ -123,6 +124,7 @@ Monge property
   - https://drive.google.com/drive/folders/1FMOglXlDlyg6FJiP5QTJ0iSMq7XA2mqy
   - https://noshi91.github.io/Library/algorithm/smawk.cpp
   - https://sotanishy.github.io/cp-library-cpp/dp/smawk.cpp
+  - https://twitter.com/noshi91/status/1640731216243740673
   - https://yukicoder.me/problems/no/912
   - https://twitter.com/noshi91/status/1185199846061305861
   - 凸性のある $(\max, +)$-convolution
