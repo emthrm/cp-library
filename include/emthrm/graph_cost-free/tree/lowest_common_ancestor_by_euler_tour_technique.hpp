@@ -1,23 +1,23 @@
-#ifndef EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_
-#define EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_TECHNIQUE_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_TECHNIQUE_HPP_
 
 #include <algorithm>
 #include <utility>
 #include <vector>
 
 #include "emthrm/data_structure/sparse_table.hpp"
-#include "emthrm/graph_cost-free/tree/euler_tour.hpp"
+#include "emthrm/graph_cost-free/tree/euler_tour_technique.hpp"
 
 namespace emthrm {
 
-struct LowestCommonAncestor : EulerTour {
+struct LowestCommonAncestor : EulerTourTechnique {
   explicit LowestCommonAncestor(const std::vector<std::vector<int>>& graph,
                                 const int root = 0)
-      : EulerTour(graph, root) {
-    const int n = this->tour.size();
+      : EulerTourTechnique(graph, root) {
+    const int n = this->preorder.size();
     std::vector<std::pair<int, int>> nodes(n);
     for (int i = 0; i < n; ++i) {
-      nodes[i] = {this->depth[i], this->tour[i]};
+      nodes[i] = {this->depth[i], this->preorder[i]};
     }
     sparse_table.init(
         nodes,
@@ -40,4 +40,4 @@ struct LowestCommonAncestor : EulerTour {
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_HPP_
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_LOWEST_COMMON_ANCESTOR_BY_EULER_TOUR_TECHNIQUE_HPP_

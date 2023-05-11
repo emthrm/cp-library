@@ -1,26 +1,23 @@
-#ifndef EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_
-#define EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_
+#ifndef EMTHRM_GRAPH_COST_FREE_TREE_EULER_TOUR_TECHNIQUE_HPP_
+#define EMTHRM_GRAPH_COST_FREE_TREE_EULER_TOUR_TECHNIQUE_HPP_
 
 #include <vector>
 
-#include "emthrm/graph/edge.hpp"
-
 namespace emthrm {
 
-template <typename CostType>
-struct EulerTour {
-  std::vector<int> tour, depth, left, right, down, up;
-  std::vector<CostType> cost;
+struct EulerTourTechnique {
+  std::vector<int> preorder, depth, left, right, down, up;
 
-  explicit EulerTour(const std::vector<std::vector<Edge<CostType>>> &graph,
-                     const int root = 0)
+  explicit EulerTourTechnique(const std::vector<std::vector<int>>& graph,
+                              const int root = 0)
       : graph(graph) {
     const int n = graph.size();
     left.resize(n);
     right.resize(n);
     down.assign(n, -1);
     up.assign(n, (n - 1) << 1);
-    dfs(-1, root, 0);
+    int idx = 0;
+    dfs(-1, root, 0, &idx);
   }
 
   template <typename Fn>
@@ -49,27 +46,25 @@ struct EulerTour {
   }
 
  private:
-  const std::vector<std::vector<Edge<CostType>>> graph;
+  const std::vector<std::vector<int>> graph;
 
-  void dfs(const int par, const int ver, const int cur_depth) {
-    left[ver] = tour.size();
-    tour.emplace_back(ver);
+  void dfs(const int par, const int ver, int cur_depth, int* idx) {
+    left[ver] = preorder.size();
+    preorder.emplace_back(ver);
     depth.emplace_back(cur_depth);
-    for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != par) [[likely]] {
-        down[e.dst] = cost.size();
-        cost.emplace_back(e.cost);
-        dfs(ver, e.dst, cur_depth + 1);
-        tour.emplace_back(ver);
+    for (const int e : graph[ver]) {
+      if (e != par) [[likely]] {
+        down[e] = (*idx)++;
+        dfs(ver, e, cur_depth + 1, idx);
+        preorder.emplace_back(ver);
         depth.emplace_back(cur_depth);
-        up[e.dst] = cost.size();
-        cost.emplace_back(-e.cost);
+        up[e] = (*idx)++;
       }
     }
-    right[ver] = tour.size() - 1;
+    right[ver] = preorder.size() - 1;
   }
 };
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_GRAPH_TREE_EULER_TOUR_HPP_
+#endif  // EMTHRM_GRAPH_COST_FREE_TREE_EULER_TOUR_TECHNIQUE_HPP_

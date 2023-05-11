@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "emthrm/data_structure/lazy_segment_tree.hpp"
-#include "emthrm/graph_cost-free/tree/lowest_common_ancestor_by_euler_tour.hpp"
+#include "emthrm/graph_cost-free/tree/lowest_common_ancestor_by_euler_tour_technique.hpp"
 
 int main() {
   int n, q;

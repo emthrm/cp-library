@@ -1,5 +1,5 @@
 /*
- * @title グラフ/木/最小共通祖先 オイラーツアー版
+ * @title グラフ/木/最小共通祖先 Euler tour technique 版
  *
  * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667
  */
@@ -9,7 +9,7 @@
 
 #include "emthrm/data_structure/lazy_segment_tree.hpp"
 #include "emthrm/graph/edge.hpp"
-#include "emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp"
+#include "emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp"
 
 int main() {
   int n, q;

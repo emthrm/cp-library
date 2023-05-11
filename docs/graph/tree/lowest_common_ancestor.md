@@ -1,11 +1,11 @@
 ---
 title: [
   最小共通祖先 (lowest common ancestor) ダブリング版,
-  最小共通祖先 (lowest common ancestor) オイラーツアー版
+  最小共通祖先 (lowest common ancestor) Euler tour technique 版
 ]
 documentation_of: [
   //include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp,
-  //include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
+  //include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
 ]
 ---
 
@@ -19,7 +19,7 @@ documentation_of: [
 ||時間計算量|
 |:--|:--|
 |ダブリング版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(\log{\lvert V \rvert}) \rangle$|
-|オイラーツアー版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(1) \rangle$|
+|Euler tour technique 版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(1) \rangle$|
 
 
 ## 仕様
@@ -52,11 +52,11 @@ struct LowestCommonAncestorByDoubling;
 |`int jump(const int u, const int v, const int d) const;`|頂点 $u$ から頂点 $v$ まで距離 $d$ だけ進んだときの頂点。ただし $d > \mathrm{dist}(u, v)$ を満たすときは $-1$ を返す。|cost-free 版|
 
 
-### [オイラーツアー](euler_tour.md)版
+### [Euler tour technique](euler_tour_technique.md)版
 
 ```cpp
 template <typename CostType>
-struct LowestCommonAncestor : EulerTour<CostType>;
+struct LowestCommonAncestor : EulerTourTechnique<CostType>;
 ```
 
 - `CostType`：辺のコストを表す型
@@ -69,7 +69,7 @@ struct LowestCommonAncestor : EulerTour<CostType>;
 |`int query(int u, int v) const;`|頂点 $u, v$ の最小共通祖先|
 
 
-### [HL 分解版](heavy-light_decomposition.md)
+### [heavy-light decomposition 版](heavy-light_decomposition.md)
 
 
 ## 参考文献
@@ -80,7 +80,8 @@ struct LowestCommonAncestor : EulerTour<CostType>;
 level ancestor problem
 - https://en.wikipedia.org/wiki/Level_ancestor_problem
 
-オイラーツアー版
+Euler tour technique 版
+- Omer Berkman and Uzi Vishkin: Recursive Star-Tree Parallel Data Structure, *SIAM Journal on Computing*, Vol. 22, No. 2, pp. 221–242 (1993). https://doi.org/10.1137/0222017
 - https://github.com/drken1215/algorithm/blob/efb8cf052b095e49e70135a6fb628308d06f49b2/DataStructureOnTree/euler_tour_on_nodes.cpp
 
 
@@ -106,5 +107,5 @@ level ancestor problem
 
 - [ダブリング版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4084783/emthrm/C++14)
   - [level ancestor problem](https://judge.yosupo.jp/submission/122542)
-- [オイラーツアー版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2667/review/4084875/emthrm/C++14)
-- [HL 分解版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4093404/emthrm/C++14)
+- [Euler tour technique 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2667/review/4084875/emthrm/C++14)
+- [heavy-light decomposition 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4093404/emthrm/C++14)

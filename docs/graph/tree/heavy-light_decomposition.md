@@ -1,5 +1,5 @@
 ---
-title: HL 分解 (heavy-light decomposition)
+title: heavy-light decomposition
 documentation_of: //include/emthrm/graph/tree/heavy-light_decomposition.hpp
 ---
 
@@ -49,6 +49,7 @@ struct HeavyLightDecomposition;
 
 ## 参考文献
 
+- Daniel D. Sleator and Robert Endre Tarjan: A data structure for dynamic trees, *Journal of Computer and System Sciences*, Vol. 26, No. 3, pp. 362–391 (1983). https://doi.org/10.1016/0022-0000(83)90006-5
 - https://www.slideshare.net/hcpc_hokudai/study-20150107
 - http://beet-aizu.hatenablog.com/entry/2017/12/12/235950
 - https://github.com/beet-aizu/library/blob/627950ae389af108b3c3f431f057c58891b0ba72/tree/heavylightdecomposition.cpp

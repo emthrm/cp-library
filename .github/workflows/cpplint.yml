@@ -80,11 +80,11 @@ jobs:
               "include/emthrm/graph/tree/double_sweep.hpp" )
                 cpplint --root=./include --filter=-build/include_order,-build/include_what_you_use,-legal/copyright,-readability/braces $file ;;
 
-              "include/emthrm/graph/tree/euler_tour.hpp" | \
+              "include/emthrm/graph/tree/euler_tour_technique.hpp" | \
               "include/emthrm/graph/tree/heavy-light_decomposition.hpp" | \
               "include/emthrm/graph/tree/rerooting_dp.hpp" | \
               "include/emthrm/graph_cost-free/tree/centroid.hpp" | \
-              "include/emthrm/graph_cost-free/tree/euler_tour.hpp" | \
+              "include/emthrm/graph_cost-free/tree/euler_tour_technique.hpp" | \
               "include/emthrm/graph_cost-free/tree/double_sweep.hpp" | \
               "include/emthrm/graph_cost-free/tree/heavy-light_decomposition.hpp" | \
               "include/emthrm/graph_cost-free/tree/rerooting_dp.hpp" | \
