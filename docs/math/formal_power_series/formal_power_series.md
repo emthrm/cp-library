@@ -144,7 +144,7 @@ struct FormalPowerSeries;
 - https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
 - https://yukicoder.me/wiki/polynomial_techniques
 
-#### 係数の和
+係数の和
 - https://www.youtube.com/watch?v=bOXCLR3Wric
 
 

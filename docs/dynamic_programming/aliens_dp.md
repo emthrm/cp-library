@@ -22,7 +22,7 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 
 ## 参考文献
 
-- https://dic.kimiyuki.net/d-edge-shortest-path-monge
+- https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge
 - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/dynamic-programming/speedup/AlienDP.md
 - https://twitter.com/kyort0n/status/1378225258289766406
 - https://twitter.com/noshi91/status/1481498494808784901
@@ -34,10 +34,10 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 - 通る辺の本数を $\lbrack d - k, d \rbrack$ とするとき
   - https://noshi91.hatenablog.com/entry/2022/01/13/001217
   - https://twitter.com/noshi91/status/1481465898062213123
-  - https://dic.kimiyuki.net/d-edge-shortest-path-monge#%E3%81%9D%E3%81%AE%E4%BB%96
+  - https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge#%E3%81%9D%E3%81%AE%E4%BB%96
   - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/dynamic-programming/speedup/AlienDP.md#k%E3%82%92%E3%81%82%E3%82%8B%E7%AF%84%E5%9B%B2%E3%81%A8%E3%81%99%E3%82%8B%E3%81%A8%E3%81%8D
 - [LARSCH algorithm](./knuth_yao_speedup.md) を用いた高速化
-  - https://dic.kimiyuki.net/d-edge-shortest-path-monge#%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
+  - https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge#%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
 - 三分探索の上界と下界
   - https://twitter.com/noshi91/status/1481302364330274817
 - $l(\lambda)$ を満たす最短路の内、通る辺の数が最小のもの

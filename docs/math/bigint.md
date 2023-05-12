@@ -18,9 +18,11 @@ documentation_of: //include/emthrm/math/bigint.hpp
 - https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
 
 カラツバ法
+- A. Karatsuba and Yu. Ofman: Multiplication of many-digital numbers by automatic computers, *Doklady Akademii Nauk SSSR*, Vol. 145, No. 2, pp. 293–294 (1962).
 - http://xn--w6q13e505b.jp/method/karatsuba.html
 
 Knuth's Algorithm D
+- Donald E. Knuth: The Art of Computer Programming, Volume 2: Seminumerical Algorithms, Addison-Wesley, 3rd edition (1997).
 - http://yamatyuu.net/computer/program/long/div/index.html
 
 

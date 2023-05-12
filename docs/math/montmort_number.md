@@ -48,9 +48,10 @@ $O(N)$
 
 ## 参考文献
 
+- Pierre Remond de Montmort: Essay d'analyse sur les jeux de hazard, 2nd edition (1713).
+- https://en.wikipedia.org/wiki/Derangement
 - https://mathtrain.jp/montmort
 - http://kyuridenamida.hatenablog.com/entry/2016/04/27/015414
-- https://en.wikipedia.org/wiki/Derangement
 
 
 ## Submissons

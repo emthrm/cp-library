@@ -83,6 +83,7 @@ $$
 
 ## 参考文献
 
+- A.F. Möbius: Über eine besondere Art von Umkehrung der Reihen, *誌名*, Vol. 9, pp. 105–123 (1832). https://doi.org/10.1515/crll.1832.9.105
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.265-268，マイナビ出版（2012）
 - https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E9%96%A2%E6%95%B0
 - https://ja.wikipedia.org/wiki/%E3%83%A1%E3%83%93%E3%82%A6%E3%82%B9%E3%81%AE%E5%8F%8D%E8%BB%A2%E5%85%AC%E5%BC%8F

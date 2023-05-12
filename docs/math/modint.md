@@ -30,7 +30,7 @@ documentation_of: //include/emthrm/math/modint.hpp
 
 - モンゴメリ乗算
   - https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%A1%E3%83%AA%E4%B9%97%E7%AE%97
-  - https://dic.kimiyuki.net/montgomery-multiplication
+  - https://noshi91.github.io/algorithm-encyclopedia/montgomery-multiplication
   - https://ikatakos.com/pot/programming_algorithm/number_theory/montgomery_multiplication
   - https://yukicoder.me/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%A1%E3%83%AA%E4%B9%97%E7%AE%97
   - https://lumakernel.github.io/ecasdqina/math/Montgomery

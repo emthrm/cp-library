@@ -33,6 +33,7 @@ struct TwoSat;
 
 ## 参考文献
 
+- Bengt Aspvall, Michael F. Plass, and Robert Endre Tarjan: A linear-time algorithm for testing the truth of certain quantified boolean formulas, *Information Processing Letters*, Vol. 8, No. 3, pp. 121–123 (1979). https://doi.org/10.1016/0020-0190(79)90002-4
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.288-290，マイナビ出版（2012）
 - https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 

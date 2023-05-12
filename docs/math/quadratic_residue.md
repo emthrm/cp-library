@@ -126,12 +126,18 @@ $$
 ## 参考文献
 
 平方剰余
-- https://lumakernel.github.io/ecasdqina/math/number-theory/Tonelli-Shanks
+- Carl Friedrich Gauss: Disquisitiones Arithmeticae (1801).
+- Daniel Shanks: Five number-theoretic algorithms, *Proceedings of the second Manitoba conference on numerical mathematics*, pp. 51–70 (1973).
+- ~~https://lumakernel.github.io/ecasdqina/math/number-theory/Tonelli-Shanks~~
 - https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm
-- http://sugarknri.hatenablog.com/entry/2018/02/16/115740
+- ~~http://sugarknri.hatenablog.com/entry/2018/02/16/115740~~
 - https://github.com/ei1333/library/blob/e24eaf375ae60018ba6af9079f690db319719e09/math/combinatorics/mod-sqrt.cpp
 
+ルジャンドル記号
+- Adrien Marie Legendre: Essai sur la Théorie des Nombres (1798).
+
 ヤコビ記号
+- Carl Gustav Jacob Jacobi: Über die Kreistheilung und ihre Anwendung auf die Zahlentheorie, *Journal für die reine und angewandte Mathematik*, Vol. 30, pp. 166–182 (1846).
 - https://en.wikipedia.org/wiki/Jacobi_symbol
 - https://judge.yosupo.jp/submission/300
 

@@ -42,6 +42,7 @@ struct UnicyclicGraph;
 
 ## 参考文献
 
+- "Harold N. Gabow and Robert E. Tarjan: A linear-time algorithm for finding a minimum spanning pseudoforest, *Information Processing Letters*, Vol. 27, No. 5, pp. 259–263 (1988). https://doi.org/10.1016/0020-0190(88)90089-0" の Introduction
 - https://en.wikipedia.org/wiki/Pseudoforest
 
 

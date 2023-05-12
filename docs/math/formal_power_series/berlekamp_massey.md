@@ -95,6 +95,8 @@ $n = \min \lbrace S_i \neq 0 \mid i \in \mathbb{N} \rbrace$ のとき、$C^\prim
 
 ## 参考文献
 
+- Elwyn Berlekamp: Algebraic Coding Theory (1984).
+- James L. Massey: Shift-register synthesis and BCH decoding, *IEEE Transactions on Information Theory*, Vol. 15, No. 1, pp. 122–127 (1969). https://doi.org/10.1109/TIT.1969.1054260
 - https://en.wikipedia.org/wiki/Berlekamp%E2%80%93Massey_algorithm
 - https://mzhang2021.github.io/cp-blog/berlekamp-massey/
 - https://37zigen.com/berlekamp-massey/

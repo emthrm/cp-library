@@ -65,6 +65,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 ## 参考文献
 
+- Leonhard Euler: Theoremata arithmetica nova methodo demonstrata, *Novi Commentarii academiae scientiarum Petropolitanae*, Vol. 8, pp. 74–104 (1763).
 - https://ei1333.github.io/algorithm/euler-phi.html
 
 数表2

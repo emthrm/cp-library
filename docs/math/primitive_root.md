@@ -38,11 +38,12 @@ $n$ を法とする原始根を $g$ とすると、任意の $a \in \mathbb{Z}$ 
 
 ## 参考文献
 
+- Carl Friedrich Gauss: Disquisitiones Arithmeticae (1801).
 - https://ja.wikipedia.org/wiki/%E6%8C%87%E6%95%B0_(%E5%88%9D%E7%AD%89%E6%95%B4%E6%95%B0%E8%AB%96)
 - https://37zigen.com/primitive-root/
 
 原始根判定
-- https://lumakernel.github.io/ecasdqina/math/general
+- ~~https://lumakernel.github.io/ecasdqina/math/general~~
 - https://hackmd.io/@qLethon/SJV41ERNL
 
 

@@ -20,6 +20,7 @@ $O(N)$
 
 ## 参考文献
 
+- Charles L. Bouton: Nim, A Game with a Complete Mathematical Theory, *Annals of Mathematics*, Vol. 3, No. 14, pp. 35–39 (1901–1902). https://doi.org/10.2307/1967631
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.277-278，マイナビ出版（2012）
 
 

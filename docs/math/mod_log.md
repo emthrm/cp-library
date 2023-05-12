@@ -22,6 +22,7 @@ $O(\sqrt{P} \log{P})$
 
 ## 参考文献
 
+- Daniel Shanks: Class number, a theory of factorization, and genera, *Proceedings of Symposia in Pure Mathematics*, Vol. 20, pp. 415–440 (1969).
 - http://sonickun.hatenablog.com/entry/2016/11/20/192743
 
 

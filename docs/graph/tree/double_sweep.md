@@ -25,7 +25,8 @@ $O(\lvert V \rvert)$
 
 ## 参考文献
 
-- http://www.prefield.com/algorithm/graph/tree_diameter.html
+- Gabriel Y. Handler: Minimax Location of a Facility in an Undirected Tree Graph, *Transportation Science*, Vol. 7, No. 3, pp. 287–293 (1973). https://doi.org/10.1287/trsc.7.3.287
+- ~~http://www.prefield.com/algorithm/graph/tree_diameter.html~~
 
 
 ## TODO

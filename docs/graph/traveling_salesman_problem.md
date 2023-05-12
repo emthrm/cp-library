@@ -13,6 +13,8 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ## 仕様
 
+### Held–Karp algorithm
+
 |名前|戻り値|
 |:--|:--|
 |`template <typename CostType>`<br>`CostType traveling_salesman_problem(const std::vector<std::vector<Edge<CostType>>>& graph, const CostType inf = std::numeric_limits<CostType>::max());`|グラフ $\mathrm{graph}$ の巡回セールスマン問題の解のコスト。ただし解が存在しないときは $\infty$ を返す。|
@@ -20,6 +22,8 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ## 参考文献
 
+Held–Karp algorithm
+- Richard Bellman: Dynamic Programming Treatment of the Travelling Salesman Problem, *Journal of the ACM*, Vol. 9, No. 1, pp. 61–63 (1962). https://doi.org/10.1145/321105.321111
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.173-175，マイナビ出版（2012）
 
 
@@ -35,4 +39,4 @@ $O(2^{\lvert V \rvert} {\lvert V \rvert}^2)$
 
 ## Submissons
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/5219970/emthrm/C++17
+- [Held–Karp algorithm](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_2_A/review/5219970/emthrm/C++17)

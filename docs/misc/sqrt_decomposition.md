@@ -46,7 +46,7 @@ struct SqrtDecomposition;
 
 - https://www.hamayanhamayan.com/entry/2017/04/12/180257
 - 指定された頂点たちの最小共通祖先関係を保って木を圧縮してできる補助的な木
-  - https://dic.kimiyuki.net/auxiliary-tree
+  - https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree
   - https://www.slideshare.net/iwiwi/2-12188845/7
   - http://drken1215.hatenablog.com/entry/2018/08/14/193500
   - https://sotanishy.github.io/cp-library-cpp/tree/auxiliary_tree.cpp

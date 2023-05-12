@@ -150,7 +150,7 @@
 # sack (DSU on tree)
 
 ## TODO
-- https://dic.kimiyuki.net/dsu-on-tree
+- https://noshi91.github.io/algorithm-encyclopedia/dsu-on-tree
 - https://codeforces.com/blog/entry/44351
 - https://camypaper.bitbucket.io/2016/12/18/adc2016/
 - https://github.com/beet-aizu/library/blob/master/tree/sack.cpp
@@ -584,7 +584,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
   - http://monyone.github.io/teihen_library/#ShiftAnd
 - ボイヤー・ムーア文字列検索アルゴリズム (Boyer–Moore string search algorithm)
   - https://ja.wikipedia.org/wiki/%E3%83%9C%E3%82%A4%E3%83%A4%E3%83%BC-%E3%83%A0%E3%83%BC%E3%82%A2%E6%96%87%E5%AD%97%E5%88%97%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
-  - https://dic.kimiyuki.net/boyer-moore
+  - https://noshi91.github.io/algorithm-encyclopedia/boyer-moore
   - https://algoful.com/Archive/Algorithm/BMSearch
   - https://g940425.hatenadiary.org/entry/20100522/1274520718
   - ~~http://www.prefield.com/algorithm/string/boyer_moore.html~~

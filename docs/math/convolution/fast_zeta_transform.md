@@ -13,6 +13,8 @@ $O(N\log{N})$
 
 ## 仕様
 
+### Yates's algorithm
+
 |名前|戻り値|
 |:--|:--|
 |`template <bool ADDS_SUPERSET, typename Ring, typename BinOp = std::plus<Ring>>`<br>`std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const Ring ID = 0, const BinOp bin_op = BinOp());`|$A$ に高速ゼータ変換を行ったもの|`ADDS_SUPERSET` は上位集合に対する変換かを表す。|
@@ -20,6 +22,7 @@ $O(N\log{N})$
 
 ## 参考文献
 
+- F. Yates: The Design and Analysis of Factorial Experiments, *Technical Communication*, Vol. 35 (1937).
 - https://qiita.com/convexineq/items/afc84dfb9ee4ec4a67d5
 - https://naoyat.hatenablog.jp/entry/zeta-moebius
 - https://todo314.hatenadiary.org/entry/20120614/1339695202

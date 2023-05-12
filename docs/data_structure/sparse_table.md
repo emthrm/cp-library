@@ -36,6 +36,7 @@ struct SparseTable;
 
 ## 参考文献
 
+- Michael A. Bender and Martín Farach-Colton: The LCA Problem Revisited, *LATIN 2000: Theoretical Informatics*, pp. 88–94 (2000). https://doi.org/10.1007/10719839_9
 - http://tookunn.hatenablog.com/entry/2016/07/13/211148
 - https://github.com/drken1215/algorithm/blob/0db023d94ca9c79a24ef13f5905e6bab056bdafe/DataStructure/sparse_table.cpp
 

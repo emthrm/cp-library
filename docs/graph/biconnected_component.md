@@ -57,7 +57,8 @@ struct BiconnectedComponent : Lowlink<CostType>;
 
 ## 参考文献
 
-- https://www.learning-algorithms.com/entry/2018/03/21/152148
+- John Hopcroft and Robert Tarjan: Algorithm 447: efficient algorithms for graph manipulation, *Communications of the ACM*, Vol. 16, No. 6, pp. 372–378 (1973). https://doi.org/10.1145/362248.362272
+- ~~https://www.learning-algorithms.com/entry/2018/03/21/152148~~
 - https://ei1333.github.io/luzhiled/snippets/graph/bi-connected-components.html
 - https://codeforces.com/blog/entry/14832
 

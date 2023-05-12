@@ -52,6 +52,9 @@ $$
 
 http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
+パスカルの三角形
+- Blaise Pascal: Traité du triangle arithmétique , avec quelques autres petits traitez sur la mesme matière (1665).
+
 
 ## TODO
 

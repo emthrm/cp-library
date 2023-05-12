@@ -115,6 +115,8 @@ struct UndoableUnionFind;
 - https://ei1333.github.io/algorithm/union-find.html
 
 union-find
+- Bernard A. Galler and Michael J. Fisher: An improved equivalence algorithm, *Communications of the ACM*, Vol. 7, No. 5, pp. 301–303 (1964). https://doi.org/10.1145/364099.364331
+- Michael L. Fredman and Michael E. Saks: The cell probe complexity of dynamic data structures, *Proceedings of the twenty-first annual ACM symposium on Theory of computing*, pp. 345–354 (1989). https://doi.org/10.1145/73007.73040
 - https://github.com/spaghetti-source/algorithm/blob/6c4a86dea5a487dbdd5fe96b3589d950e42c370d/data_structure/union_find.cc
 
 重みつき union-find

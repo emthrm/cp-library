@@ -67,6 +67,7 @@ $$
 
 ## 参考文献
 
+- Leonhard Euler: Institutiones calculi differentialis (1755).
 - https://en.wikipedia.org/wiki/Eulerian_number
 - http://oeis.org/wiki/Eulerian_numbers,_triangle_of
 - https://min-25.hatenablog.com/entry/2015/04/07/160154

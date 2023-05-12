@@ -62,6 +62,7 @@ struct Node
 
 ## 参考文献
 
+- Edward Fredkin: Trie Memory, *Communications of the ACM*, Vol. 3, No. 9, pp. 490–499 (1960). https://doi.org/10.1145/367390.367400
 - https://github.com/beet-aizu/library/blob/2ecdc969043f5276c3782a7752592bd3fe856524/string/trie.cpp
 
 

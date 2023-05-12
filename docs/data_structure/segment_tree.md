@@ -11,7 +11,7 @@ documentation_of: [
 
 # セグメント木 (segment tree)
 
-[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。
+[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する（完全）二分木である。
 
 
 ## 時間計算量
@@ -95,6 +95,7 @@ struct LazySegmentTree;
 - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
 - https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 - http://kagamiz.hatenablog.com/entry/2012/12/18/220849
+- https://kmyk.github.io/blog/blog/2020/03/04/segment-tree-is-not-complete-binary-tree/
 
 セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/29/204841

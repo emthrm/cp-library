@@ -140,6 +140,7 @@ $$
 
 ## 参考文献
 
+- James W. Cooley and John W. Tukey: An algorithm for the machine calculation of complex Fourier series, *Mathematics of Computation*, Vol. 19, pp. 297–301 (1965). https://doi.org/10.1090/S0025-5718-1965-0178586-1
 - https://www.slideshare.net/chokudai/fft-49066791
 - ~~https://lumakernel.github.io/ecasdqina/math/FFT/introduction~~
 - https://www.creativ.xyz/fast-fourier-transform

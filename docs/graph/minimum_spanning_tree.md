@@ -36,9 +36,11 @@ $O(\lvert E \rvert \log{\lvert V \rvert})$
 ## 参考文献
 
 Prim 法
-- http://www.prefield.com/algorithm/graph/prim.html
+- Robert C. Prim: Shortest connection networks and some generalizations, *The Bell System Technical Journal*, Vol. 36, No. 6, pp. 1389–1401 (1957). https://doi.org/10.1002/j.1538-7305.1957.tb01515.x
+- ~~http://www.prefield.com/algorithm/graph/prim.html~~
 
 Kruskal 法
+- Joseph B. Kruskal: On the shortest spanning subtree of a graph and the traveling salesman problem, *Proceedings of the American Mathematical Society*, Vol. 7, pp. 48–50 (1956). https://doi.org/10.1090/S0002-9939-1956-0078686-7
 - https://github.com/spaghetti-source/algorithm/blob/64d34fb9b940a3e933cf36c4dd26b7457b42f50b/graph/kruskal.cc
 
 
@@ -68,7 +70,7 @@ Kruskal 法
   - https://sotanishy.github.io/cp-library-cpp/graph/minimum_steiner_tree.hpp
 - 最小全域有向木
   - https://37zigen.com/gabow-galil-spencer-tarjan/
-  - https://dic.kimiyuki.net/chu-liu-edmonds
+  - https://noshi91.github.io/algorithm-encyclopedia/chu-liu-edmonds
   - http://joisino.hatenablog.com/entry/2017/01/11/230141
   - https://ark4rk.hatenablog.com/entry/2017/09/15/011937
   - https://twitter.com/nuo_chocorusk/status/1187055311422574593

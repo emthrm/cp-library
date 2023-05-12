@@ -59,13 +59,16 @@ $$
 - https://www.slideshare.net/irrrrr/ss-25911553
 
 行列木定理
+- http://www2.yukawa.kyoto-u.ac.jp/~kanehisa.takasaki/res/tsuda2021history.pdf
 - https://mizuwater0.hatenablog.com/entry/2018/11/25/233547
 - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf
 
 ケイリーの公式
+- Arthur Cayley: A theorem on trees, *The Quarterly Journal of Pure and Applied Mathematics*, Vol. 23, pp. 376–378 (1889).
 - http://joisino.hatenablog.com/entry/2017/08/20/200000
 
 Lindström–Gessel–Viennot lemma
+- Ira Gessel and Gérard Viennot: Binomial determinants, paths, and hook length formulae, *Advances in Mathematics*, Vol. 58, No. 3, pp. 300–321 (1985). https://doi.org/10.1016/0001-8708(85)90121-5
 - https://en.wikipedia.org/wiki/Lindstr%C3%B6m%E2%80%93Gessel%E2%80%93Viennot_lemma
 - https://suikaba.hatenablog.com/entry/2018/12/19/025636
 - https://www.ioi-jp.org/camp/2017/2017-sp_camp-kumabe2.pdf

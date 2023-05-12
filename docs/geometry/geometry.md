@@ -157,6 +157,7 @@ struct Circle;
 - https://ei1333.github.io/luzhiled/snippets/geometry/template.html
 
 最近点対
+- Jon Louis Bentley and Michael Ian Shamos: Divide-and-conquer in multidimensional space, *STOC '76: Proceedings of the eighth annual ACM symposium on Theory of computing*, pp. 220–230 (1976). https://doi.org/10.1145/800113.803652
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.324-326，マイナビ出版（2012）
 
 接点
@@ -176,6 +177,13 @@ struct Circle;
 
 点の多角形に対する内外判定
 - https://www.nttpc.co.jp/technology/number_algorithm.html
+
+monotone chain
+- A.M. Andrew: Another efficient algorithm for convex hulls in two dimensions, *
+Information Processing Letters*, Vol. 9, No. 5, pp. 216–219 (1979). https://doi.org/10.1016/0020-0190(79)90072-3
+
+キャリパー法
+- Michael Ian Shamos: Computational geometry (1978).
 
 
 ## TODO

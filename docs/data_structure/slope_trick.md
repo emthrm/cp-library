@@ -58,6 +58,7 @@ struct SegmentTree;
 
 ## 参考文献
 
+- https://codeforces.com/blog/entry/47821
 - https://maspypy.com/slope-trick-1-%e8%a7%a3%e8%aa%ac%e7%b7%a8
 - https://github.com/ei1333/library/blob/6c2f9fa7ff07da182f3832f827c0c84d52e2e8d8/structure/others/slope-trick.cpp
 

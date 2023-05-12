@@ -76,9 +76,12 @@ struct Dijkstra
 ## 参考文献
 
 Bellman–Ford 法
-- http://www.prefield.com/algorithm/graph/bellman_ford.html
+- Richard Bellman: On a routing problem, *Quarterly of Applied Mathematics*, Vol. 16, pp. 87–90 (1958). https://doi.org/10.1090/qam/102435
+- L. R. Ford Jr. and D. R. Fulkerson: Flows in Networks, Princeton University Press (1962).
+- ~~http://www.prefield.com/algorithm/graph/bellman_ford.html~~
 
 Dijkstra 法
+- Edsger W. Dijkstra: A note on two problems in connexion with graphs, *Numerische Mathematik*, Vol. 1, pp. 269–271 (1959). https://doi.org/10.1007/BF01386390
 - https://github.com/spaghetti-source/algorithm/blob/af9a22a92953e903c474e98e79107103adbd0a53/graph/dijkstra.cc
 
 
@@ -86,7 +89,7 @@ Dijkstra 法
 
 - shortest path faster algorithm
   - https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm
-  - https://dic.kimiyuki.net/spfa
+  - https://noshi91.github.io/algorithm-encyclopedia/spfa
   - http://hogloid.hatenablog.com/entry/20120409/1333973448
   - https://ei1333.github.io/algorithm/shortest-path-faster-algorithm.html
   - https://ei1333.github.io/luzhiled/snippets/graph/shortest-path-faster-algorithm.html
@@ -108,13 +111,13 @@ Dijkstra 法
 - k shortest path routing (Yen's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing
   - https://en.wikipedia.org/wiki/Yen%27s_algorithm
-  - https://dic.kimiyuki.net/yen-algorithm
+  - https://noshi91.github.io/algorithm-encyclopedia/yen-algorithm
   - http://inarizuuuushi.hatenablog.com/entry/2018/08/30/222605
   - https://mugen1337.github.io/procon/Graph2/Yen.cpp
   - https://yukicoder.me/problems/no/1069
 - k shortest walk (Eppstein's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing#Variations
-  - https://dic.kimiyuki.net/eppstein-algorithm
+  - https://noshi91.github.io/algorithm-encyclopedia/eppstein-algorithm
   - https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e
   - https://qiita.com/nariaki3551/items/0ab83541814f98eab322
   - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
@@ -125,7 +128,7 @@ Dijkstra 法
   - https://misawa.github.io/others/flow/cost_scaling_shortest_path.html
 - Dial's algorithm
   - https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#Specialized_variants
-  - https://dic.kimiyuki.net/dial
+  - https://noshi91.github.io/algorithm-encyclopedia/dial
   - http://bin.t.u-tokyo.ac.jp/startup16/file/6-1.pdf
   - https://tjkendev.github.io/procon-library/python/graph/dial.html
 - shortest non-zero path in group-labeled graphs

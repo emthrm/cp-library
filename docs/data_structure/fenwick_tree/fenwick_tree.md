@@ -170,6 +170,7 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき、加算前の $
 
 ## 参考文献
 
+- Peter M. Fenwick: A new data structure for cumulative frequency tables, *Software: Practice and Experience*, Vol. 24, No. 3, pp. 327–336 (1994). https://doi.org/10.1002/spe.4380240306
 - http://hos.ac/slides/20140319_bit.pdf
 
 

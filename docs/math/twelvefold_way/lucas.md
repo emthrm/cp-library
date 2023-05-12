@@ -26,6 +26,10 @@ $O(P + \log_P{N})$
 
 ## 参考文献
 
+- Edouard Lucas: Théorie des Fonctions Numériques Simplement Périodiques, *American Journal of Mathematics*, Vol. 1 (1878).
+  - No. 2, pp. 184–196. https://doi.org/10.2307/2369308
+  - No. 3, pp. 197–240. https://doi.org/10.2307/2369311
+  - No. 4, pp. 289–321. https://doi.org/10.2307/2369373
 - https://manabitimes.jp/math/1324
 
 

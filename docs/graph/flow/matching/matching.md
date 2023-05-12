@@ -44,7 +44,7 @@ documentation_of: [
 
 2. (最大独立集合のサイズ) + (最小頂点被覆のサイズ) = (頂点数)
 
-3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ。ただし $A$ は $a_{ij} = \begin{cases} 1 & ((U_i, V_j) \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である。
+3. 二部グラフ $(U, V, E)$ に対して $\lvert U \rvert = \lvert V \rvert \implies (\text{完全二部マッチングの個数}) \equiv \lvert A \rvert \pmod{2}$ が成り立つ。ただし $A$ は $a_{ij} = \begin{cases} 1 & (\lbrace U_i, V_j \rbrace \in E), \\\\ 0 & (\text{otherwise}) \end{cases}$ を満たす $\lvert U \rvert \times \lvert V \rvert$ 型行列である。
 
 4. 二部グラフに対して、最大マッチングのサイズは最小頂点被覆のサイズに等しい。
 
@@ -163,24 +163,28 @@ struct WeightedBipartiteMatching;
 - https://pekempey.hatenablog.com/entry/2016/11/29/200605
 
 性質5・Dilworth's theorem
+- Robert P. Dilworth: A Decomposition Theorem for Partially Ordered Sets, *Annals of Mathematics*, Vol. 51, No. 1, pp. 161–166 (1950). https://doi.org/10.2307/1969503
 - https://en.wikipedia.org/wiki/Dilworth%27s_theorem
 - ~~https://lumakernel.github.io/ecasdqina/math/dilworth-theorem~~
 - https://anta1.hatenadiary.org/entry/20120816/1345046832
 
 Hall's theorem
+- Philip Hall: On Representatives of Subsets, *Journal of the London Mathematical Society*, Vol. s1-10, No. 1, pp. 26–30 (1935). https://doi.org/10.1112/jlms/s1-10.37.26
 - https://mathtrain.jp/hall
 
 二部グラフの最大マッチング
 - https://ei1333.github.io/algorithm/bipartite-matching.html
 
 Hopcroft–Karp algorithm
-- https://misteer.hatenablog.com/entry/hopcroft-karp
+- John E. Hopcroft and Richard M. Karp: An $n^{5/2}$ Algorithm for Maximum Matchings in Bipartite Graphs, *SIAM Journal on Computing*, Vol. 2, No. 4, pp. 225–231 (1973). https://doi.org/10.1137/0202019
+- https://tiramister.net/blog/posts/hopcroft-karp/
 - https://ei1333.github.io/luzhiled/snippets/graph/hopcroft-karp.html
 
 二部グラフの重み付き最大マッチング
 - https://qiita.com/drken/items/e805e3f514acceb87602
 
 一般グラフの最大マッチング
+- W. T. Tutte: The Factorization of Linear Graphs, *Journal of the London Mathematical Society*, Vol. s1-22, No. 2, pp. 107–111 (1947). https://doi.org/10.1112/jlms/s1-22.2.107
 - https://kopricky.github.io/code/Academic/maximum_matching_memo.html
 
 

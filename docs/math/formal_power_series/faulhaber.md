@@ -50,6 +50,7 @@ $$
 
 ## 参考文献
 
+- Jacob Bernoulli: Ars Conjectandi (1713).
 - https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A6%E3%83%AB%E3%83%8F%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AE%E5%85%AC%E5%BC%8F
 
 

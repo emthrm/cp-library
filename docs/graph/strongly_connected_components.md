@@ -48,6 +48,7 @@ struct StronglyConnectedComponents;
 ## 参考文献
 
 Kosaraju's algorithm
+- Micha Sharir: A strong-connectivity algorithm and its applications in data flow analysis, *Computers & Mathematics with Applications*, Vol. 7, No. 1, pp. 67–72 (1981). https://doi.org/10.1016/0898-1221(81)90008-0
 - https://github.com/beet-aizu/library/blob/346558ee0881bd18b10c0d32d7678b033d6b0326/graph/stronglyconnectedcomponent.cpp
 
 備考

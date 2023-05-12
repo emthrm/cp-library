@@ -54,6 +54,7 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
 
 ## 参考文献
 
+- Marvin Künnemann, Ramamohan Paturi, and Stefan Schneider: On the Fine-Grained Complexity of One-Dimensional Dynamic Programming, *44th International Colloquium on Automata, Languages, and Programming (ICALP 2017)*, Vol. 80, No. 21, pp. 1–15 (2017). https://doi.org/10.4230/LIPIcs.ICALP.2017.21
 - https://qiita.com/tmaehara/items/0687af2cfb807cde7860
 - https://motsu-xe.hatenablog.com/entry/2020/10/13/195949
 

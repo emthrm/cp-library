@@ -33,6 +33,7 @@ $O(N\log{N})$
 
 ## 参考文献
 
+- Jacob Bernoulli: Ars Conjectandi (1713).
 - https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%AB%E3%83%8C%E3%83%BC%E3%82%A4%E6%95%B0
 
 

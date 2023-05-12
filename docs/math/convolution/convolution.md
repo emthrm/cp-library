@@ -70,6 +70,7 @@ $O(N\log{N})$
 - ~~https://lumakernel.github.io/ecasdqina/algorithm/FastZetaTransform~~
 
 高速ウォルシュ・アダマール変換
+- Bernard J. Fino and V. Ralph Algazi: Unified Matrix Treatment of the Fast Walsh-Hadamard Transform, *IEEE Transactions on Computers*, Vol. C-25, No. 11, pp. 1142–1146 (1976). https://doi.org/10.1109/TC.1976.1674569
 - https://sapphire15.hatenablog.com/entry/2021/09/13/114900
 - https://cympfh.cc/aiura/hadamard-xor-convolution
 - https://pctprobability.hatenadiary.com/entry/2022/01/10/185418

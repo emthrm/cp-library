@@ -124,6 +124,7 @@ $$
 
 ## 参考文献
 
+- James Stirling: Methodus differentialis: sive tractatus de summatione et interpolatione serierum infinitarum (1730).
 - https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E6%95%B0
 
 第2種スターリング数

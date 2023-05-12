@@ -67,6 +67,7 @@ e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$
 
 ## 参考文献
 
+- Ramesh Agarwal and C. Sidney Burrus: Fast Convolution using fermat number transforms with applications to digital filtering, *IEEE Transactions on Acoustics, Speech, and Signal Processing*, Vol. 22, No. 2, pp. 87–97 (1974). https://doi.org/10.1109/TASSP.1974.1162555
 - https://ei1333.github.io/luzhiled/snippets/math/fast-fourier-transform.html
 - ~~https://lumakernel.github.io/ecasdqina/math/FFT/NumberTheoreticTransform~~
 - http://xn--w6q13e505b.jp/method/fft/modular.html

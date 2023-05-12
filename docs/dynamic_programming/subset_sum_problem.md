@@ -24,6 +24,7 @@ $O(N + D\log{D})$
 
 ## 参考文献
 
+- Ce Jin and Hongxun Wu: A Simple Near-Linear Pseudopolynomial Time Randomized Algorithm for Subset Sum, *2nd Symposium on Simplicity in Algorithms (SOSA 2019)*, Vol. 69, No. 17, pp. 1–6 (2018). https://doi.org/10.4230/OASIcs.SOSA.2019.17
 - https://yukicoder.me/wiki/polynomial_techniques
 
 

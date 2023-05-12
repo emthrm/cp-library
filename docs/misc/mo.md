@@ -33,6 +33,7 @@ struct Mo;
 
 ## 参考文献
 
+- https://codeforces.com/blog/entry/81716
 - https://ei1333.hateblo.jp/entry/2017/09/11/211011
 - https://snuke.hatenablog.com/entry/2016/07/01/000000
 
