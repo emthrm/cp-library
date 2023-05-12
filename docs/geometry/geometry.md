@@ -191,13 +191,13 @@ Information Processing Letters*, Vol. 9, No. 5, pp. 216–219 (1979). https://do
 - https://github.com/spaghetti-source/algorithm/blob/master/geometry/_geom.cc
 - 3次元幾何学
   - https://github.com/beet-aizu/library/tree/master/geometry/3D
-  - https://lumakernel.github.io/ecasdqina/geometory/geometory3D
+  - ~~https://lumakernel.github.io/ecasdqina/geometory/geometory3D~~
   - https://github.com/drken1215/algorithm/blob/master/Geometry/basic_elements_3D.cpp
   - https://github.com/primenumber/ProconLib/blob/master/Geometry/3DGeometry.cpp
   - https://mugen1337.github.io/procon/Geometry3D/all.cpp
   - https://sotanishy.github.io/cp-library-cpp/geometry/geometry3d.hpp
   - 3次元凸包
-    - https://lumakernel.github.io/ecasdqina/geometory/ConvexHull3D
+    - ~~https://lumakernel.github.io/ecasdqina/geometory/ConvexHull3D~~
     - https://www.slideshare.net/abc3141/3-65377198
 - monotone chain 以外の凸包を求めるアルゴリズム
   - https://www.jaist.ac.jp/~uehara/course/2014/i481f/pdf/ppt-3.pdf

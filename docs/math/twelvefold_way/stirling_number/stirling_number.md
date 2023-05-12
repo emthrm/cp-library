@@ -132,7 +132,7 @@ $$
 - https://mathtrain.jp/zensya
 
 形式的冪級数版
-- https://min-25.hatenablog.com/entry/2015/04/07/160154
+- ~~https://min-25.hatenablog.com/entry/2015/04/07/160154~~
 
 
 ## TODO

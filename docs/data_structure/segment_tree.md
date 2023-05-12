@@ -117,7 +117,7 @@ struct LazySegmentTree;
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
   - https://lorent-kyopro.hatenablog.com/entry/2021/03/12/025644
   - http://degwer.hatenablog.com/entry/20131211/1386757368
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree~~
   - https://mugen1337.github.io/procon/DataStructure/BinaryTrieMonoid.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_segment_tree.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_lazy_segment_tree.cpp
@@ -129,7 +129,7 @@ struct LazySegmentTree;
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://codeforces.com/blog/entry/74181?#comment-583268
   - https://github.com/ei1333/library/blob/master/structure/segment-tree-2d-2.cpp
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp
   - https://algoogle.hadrori.jp/algorithm/2d-segment-tree.html
   - https://judge.yosupo.jp/problem/point_add_rectangle_sum
@@ -143,7 +143,7 @@ struct LazySegmentTree;
     - https://www.slideshare.net/okuraofvegetable/ss-65377588
     - https://www.slideshare.net/satashun/2013-25814388
     - https://qiita.com/nariaki3551/items/3c5e59b3ece31a4dfce8
-    - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree
+    - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree~~
   - range tree
     - https://en.wikipedia.org/wiki/Range_tree
     - https://kopricky.github.io/code/SegmentTrees/rangetree_pointupdate.html
@@ -160,8 +160,8 @@ struct LazySegmentTree;
   - https://ei1333.github.io/algorithm/segment-tree.html
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://github.com/beet-aizu/library/blob/master/segtree/persistent/ushi.cpp
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentSegmentTree
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentSegmentTree~~
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/persistent_segment_tree.cpp
@@ -182,7 +182,7 @@ struct LazySegmentTree;
   - https://onlinejudge.u-aizu.ac.jp/problems/0427
   - https://atcoder.jp/contests/abc256/tasks/abc256_h
 - 双対セグメント木
-  - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
+  - ~~https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/~~
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
   - https://judge.yosupo.jp/problem/range_affine_point_get

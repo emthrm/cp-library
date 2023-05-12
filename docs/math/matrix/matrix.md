@@ -43,7 +43,7 @@ struct Matrix;
 
 ## TODO
 
-- https://github.com/eandbsoftware/libraryCPP/blob/master/!Matrix.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!Matrix.cpp~~
 - 疎行列 (sparse matrix)
   - https://ja.wikipedia.org/wiki/%E7%96%8E%E8%A1%8C%E5%88%97
   - https://github.com/ei1333/library/blob/master/math/sparse-matrix.cpp
@@ -57,7 +57,7 @@ struct Matrix;
   - https://github.com/primenumber/ProconLib/blob/master/Math/SquareMatrix.cpp
 - 固有値, 固有ベクトル
   - https://ja.wikipedia.org/wiki/%E5%9B%BA%E6%9C%89%E5%80%A4
-  - http://www.prefield.com/algorithm/math/eigensystem.html
+  - ~~http://www.prefield.com/algorithm/math/eigensystem.html~~
 - ハフニアン (hafnian)
   - https://mathtrain.jp/pfaffian
   - https://en.wikipedia.org/wiki/Hafnian

@@ -36,7 +36,7 @@ requires MaximumFlow<C, T>;
 
 ## 参考文献
 
-- https://kimiyuki.net/blog/2017/12/05/minimum-cut-and-project-selection-problem/
+- ~~https://kimiyuki.net/blog/2017/12/05/minimum-cut-and-project-selection-problem/~~
 - https://ei1333.github.io/algorithm/dinic.html
 - https://koyumeishi.hatenablog.com/entry/2021/01/14/052223
 

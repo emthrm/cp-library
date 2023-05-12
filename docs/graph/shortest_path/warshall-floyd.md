@@ -49,7 +49,7 @@ struct WarshallFloyd;
 ## TODO
 
 - Johnson's algorithm
-  - http://www.prefield.com/algorithm/graph/johnson.html
+  - ~~http://www.prefield.com/algorithm/graph/johnson.html~~
   - https://inzkyk.github.io/algorithms/all_pairs_shortest_paths/johnsons_algorithm/
 
 

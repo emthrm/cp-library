@@ -58,7 +58,7 @@ Kosaraju's algorithm
 ## TODO
 
 - Tarjan's algorithm
-  - http://www.prefield.com/algorithm/graph/strongly_connected_components.html
+  - ~~http://www.prefield.com/algorithm/graph/strongly_connected_components.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/strongly_connected_component_tarjan.cc
   - https://tubo28.me/compprog/algorithm/tarjan-scc/
 - Gabow's algorithm

@@ -54,7 +54,7 @@ Kruskal 法
   - https://inzkyk.github.io/algorithms/minimum_spanning_trees/boruvka_algorithms/
   - https://twitter.com/yamerarenaku/status/1166349080022462465
   - https://ei1333.github.io/luzhiled/snippets/graph/boruvka.html
-  - https://lumakernel.github.io/ecasdqina/graph/boruvka
+  - ~~https://lumakernel.github.io/ecasdqina/graph/boruvka~~
 - Fibonacchi heap を用いた Prim 法の高速化
   - https://github.com/ei1333/library/blob/master/graph/prim-fibonacchi-heap.cpp
 - Euclidean minimum spanning tree
@@ -65,7 +65,7 @@ Kruskal 法
 - 最小シュタイナー木
   - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%8A%E3%83%BC%E6%9C%A8
   - https://www.slideshare.net/wata_orz/ss-12131479
-  - http://www.prefield.com/algorithm/dp/steiner_tree.html
+  - ~~http://www.prefield.com/algorithm/dp/steiner_tree.html~~
   - http://monyone.github.io/teihen_library/#MinimumSteinerTree
   - https://sotanishy.github.io/cp-library-cpp/graph/minimum_steiner_tree.hpp
 - 最小全域有向木
@@ -79,8 +79,8 @@ Kruskal 法
   - https://ei1333.github.io/luzhiled/snippets/graph/chu-liu-edmond.html
   - https://github.com/beet-aizu/library/blob/master/graph/arborescence_edmond.cpp
   - https://github.com/beet-aizu/library/blob/master/graph/arborescence_tarjan.cpp
-  - https://lumakernel.github.io/ecasdqina/graph/MinimumSpanningArborescence
-  - http://www.prefield.com/algorithm/graph/chu_liu_edmonds.html
+  - ~~https://lumakernel.github.io/ecasdqina/graph/MinimumSpanningArborescence~~
+  - ~~http://www.prefield.com/algorithm/graph/chu_liu_edmonds.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/arborescence.cc
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/arborescence2.cc
   - https://github.com/primenumber/ProconLib/blob/master/Graph/MinimumArborescence.cpp
@@ -89,7 +89,7 @@ Kruskal 法
   - https://onlinejudge.u-aizu.ac.jp/courses/library/5/GRL/2/GRL_2_B
   - https://judge.yosupo.jp/problem/directedmst
 - minimum diameter spanning tree
-  - http://www.prefield.com/algorithm/graph/minimum_diameter_spanning_tree.html
+  - ~~http://www.prefield.com/algorithm/graph/minimum_diameter_spanning_tree.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/kariv_hakimi.cc
 
 

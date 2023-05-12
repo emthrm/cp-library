@@ -88,7 +88,7 @@ Euler tour technique 版
 ## TODO
 
 - Tarjan's off-line lowest common ancestors algorithm
-  - http://www.prefield.com/algorithm/graph/least_common_ancestor.html
+  - ~~http://www.prefield.com/algorithm/graph/least_common_ancestor.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/least_common_ancestor_tarjan.cc
   - http://monyone.github.io/teihen_library/#OfflineLCA
 - level ancestor problem $\langle O(\lvert V \rvert), O(1) \rangle$

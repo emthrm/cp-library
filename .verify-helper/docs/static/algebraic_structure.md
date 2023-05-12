@@ -92,7 +92,7 @@ e.g. $(\mathbb{N}, \oplus, \land, 0, \text{0xFFFF...})$
 単位的半群
 - http://koba-e964.hatenablog.com/entry/2016/12/14/214132
 - https://ja.wikipedia.org/wiki/%E3%83%A2%E3%83%8E%E3%82%A4%E3%83%89
-- http://beet-aizu.hatenablog.com/entry/2017/09/10/132258
+- ~~http://beet-aizu.hatenablog.com/entry/2017/09/10/132258~~
 
 半環
 - https://ja.wikipedia.org/wiki/%E5%8D%8A%E7%92%B0

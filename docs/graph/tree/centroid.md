@@ -24,7 +24,7 @@ $O(\lvert V \rvert)$
 
 - Camille Jordan: Sur les assemblages de lignes, *Journal für die reine und angewandte Mathematik*, Vol. 70, pp. 185–190 (1869). https://doi.org/10.1515/crll.1869.70.185
 - https://qiita.com/drken/items/4b4c3f1824339b090202
-- https://lumakernel.github.io/ecasdqina/graph/Centroid
+- ~~https://lumakernel.github.io/ecasdqina/graph/Centroid~~
 - https://img.atcoder.jp/arc087/editorial.pdf
 
 

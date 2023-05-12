@@ -33,7 +33,7 @@ documentation_of: //include/emthrm/math/modint.hpp
   - https://noshi91.github.io/algorithm-encyclopedia/montgomery-multiplication
   - https://ikatakos.com/pot/programming_algorithm/number_theory/montgomery_multiplication
   - https://yukicoder.me/wiki/%E3%83%A2%E3%83%B3%E3%82%B4%E3%83%A1%E3%83%AA%E4%B9%97%E7%AE%97
-  - https://lumakernel.github.io/ecasdqina/math/Montgomery
+  - ~~https://lumakernel.github.io/ecasdqina/math/Montgomery~~
   - http://dec9ue.hatenablog.com/entry/2013/04/25/003258
 - Barrett reduction
   - https://en.wikipedia.org/wiki/Barrett_reduction

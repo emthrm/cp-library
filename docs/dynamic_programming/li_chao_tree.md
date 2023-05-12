@@ -63,7 +63,7 @@ struct Line;
 ## 参考文献
 
 - https://smijake3.hatenablog.com/entry/2018/06/16/144548
-- https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/LiChaoTree
+- ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/LiChaoTree~~
 - https://ei1333.github.io/luzhiled/snippets/structure/li-chao-tree.html
 
 
@@ -78,14 +78,14 @@ struct Line;
   - http://kazuma8128.hatenablog.com/entry/2018/02/28/102130
   - https://github.com/ei1333/library/blob/master/structure/dynamic-li-chao-tree.cpp
   - https://github.com/beet-aizu/library/blob/master/datastructure/nonmonotonicconvexhulltrick.cpp
-  - https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/DynamicLiChaoTree
+  - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/DynamicLiChaoTree~~
   - https://github.com/drken1215/algorithm/blob/master/DP/convex_hull_trick.cpp
   - https://atcoder.jp/contests/colopl2018-final-open/submissions/3219122
   - https://github.com/satanic0258/Cpp_snippet/blob/master/src/technique/ConvexHullTrick.cpp
   - https://tjkendev.github.io/procon-library/cpp/convex_hull_trick/li_chao_tree_dynamic.html
 - 永続動的 Li Chao tree
   - https://github.com/ei1333/library/blob/master/structure/persistent-dynamic-li-chao-tree.cpp
-  - https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/DynamicPersistentLiChaoTree
+  - ~~https://lumakernel.github.io/ecasdqina/dynamic-programming/convex-hull-trick/DynamicPersistentLiChaoTree~~
 
 
 ## Submissons

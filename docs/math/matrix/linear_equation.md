@@ -23,7 +23,7 @@ $O(M^2 N)$
 - LU 分解
   - https://ja.wikipedia.org/wiki/LU%E5%88%86%E8%A7%A3
   - https://github.com/satanic0258/Cpp_snippet/blob/master/src/math/LUdecomposition.cpp
-  - http://www.prefield.com/algorithm/math/LU.html
+  - ~~http://www.prefield.com/algorithm/math/LU.html~~
 - 疎行列の連立一次方程式
   - https://drive.google.com/file/d/1D7sRmUy-0XnZCay8Tr1PldJVFRM2NII5
 

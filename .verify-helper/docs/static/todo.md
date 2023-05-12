@@ -240,10 +240,10 @@
 - https://github.com/ei1333/library/tree/master/structure/wavelet
 - https://github.com/beet-aizu/library/blob/master/datastructure/waveletmatrix.cpp
 - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/wavelet_matrix.cc
-- https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletMatrix.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletMatrix.cpp~~
 - https://sotanishy.github.io/cp-library-cpp/data-structure/wavelet_matrix.cpp
 - https://ferin-tech.hatenablog.com/entry/2019/11/09/yukicoder_No.924_%E7%B4%B2%E6%98%9F
-- https://wiki.kimiyuki.net/wavelet%20matrix
+- ~~https://wiki.kimiyuki.net/wavelet%20matrix~~
 - https://noshi91.hatenablog.com/entry/2021/06/02/165408
 - https://judge.yosupo.jp/problem/rectangle_sum
 
@@ -254,7 +254,7 @@
 - https://www.slideshare.net/pfi/ss-15916040
 - https://takeda25.hatenablog.jp/entry/20120804/1344066875
 - https://echizen-tm.hatenadiary.org/entry/20100822/1282489619
-- https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletTree.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23WaveletTree.cpp~~
 - https://jetbead.hatenablog.com/entry/20130202/1359735146
 - https://drive.google.com/file/d/1NQb6ZXrPZuWI0gNBhJUQAvONjGqFxgUX
 
@@ -546,7 +546,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
   - http://wwwa.pikara.ne.jp/okojisan/avl-tree/index.html
   - https://qiita.com/mikecat_mixc/items/e9f8248de2ae7f7a0a29
   - https://qiita.com/QCFium/items/3cf26a6dc2d49ef490d7
-  - http://www.prefield.com/algorithm/container/avl_tree.html
+  - ~~http://www.prefield.com/algorithm/container/avl_tree.html~~
   - https://tubo28.me/compprog/algorithm/avl_tree/
   - https://codeforces.com/contest/785/submission/25572561
 - スプレー木 (splay tree)

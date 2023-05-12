@@ -29,7 +29,7 @@ $O(NM)$
 - https://judge.yosupo.jp/problem/prefix_substring_lcs
 - https://github.com/yosupo06/library-checker-problems/issues/732
 - 高速化
-  - http://www.prefield.com/algorithm/dp/lcs_hs.html
+  - ~~http://www.prefield.com/algorithm/dp/lcs_hs.html~~
 
 
 ## Submissons

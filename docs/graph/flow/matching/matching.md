@@ -196,14 +196,14 @@ Hopcroft–Karp algorithm
   - ~~https://min-25.hatenablog.com/entry/2016/11/21/222625~~
   - https://judge.yosupo.jp/problem/general_matching
   - Edmonds' Algorithm
-    - http://www.prefield.com/algorithm/graph/maximum_matching.html
+    - ~~http://www.prefield.com/algorithm/graph/maximum_matching.html~~
     - https://github.com/spaghetti-source/algorithm/blob/master/graph/gabow_edmonds.cc
     - https://www.dropbox.com/sh/7uhazzp6wvx9mi7/AACpEgmn--Grp9nVD3NOD9Hia
     - https://www.slideshare.net/hcpc_hokudai/ss-120540096
     - https://qiita.com/Kutimoti_T/items/5b579773e0a24d650bdf
 - 一般グラフの重み付き最大マッチング
   - ~~https://min-25.hatenablog.com/entry/2016/11/21/222625~~
-  - http://www.prefield.com/algorithm/graph/minimum_weight_matching.html
+  - ~~http://www.prefield.com/algorithm/graph/minimum_weight_matching.html~~
   - https://judge.yosupo.jp/problem/general_weighted_matching
 - 木の最小辺被覆
   - https://twitter.com/Ymgch_K/status/964058288747831296
@@ -233,7 +233,7 @@ Hopcroft–Karp algorithm
 - ハンガリアン法 (Hungarian method)
   - https://ei1333.github.io/algorithm/hungarian.html
   - https://ei1333.github.io/luzhiled/snippets/graph/hungarian.html
-  - http://www.prefield.com/algorithm/math/hungarian.html
+  - ~~http://www.prefield.com/algorithm/math/hungarian.html~~
   - https://github.com/primenumber/ProconLib/blob/master/Graph/Hungarian.cpp
   - https://judge.yosupo.jp/problem/assignment
 - 安定マッチング (stable matching)

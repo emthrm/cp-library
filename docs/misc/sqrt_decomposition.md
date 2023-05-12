@@ -52,7 +52,7 @@ struct SqrtDecomposition;
   - https://sotanishy.github.io/cp-library-cpp/tree/auxiliary_tree.cpp
   - https://atcoder.jp/contests/typical90/tasks/typical90_ai
 - 木の平方分割
-  - http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376
+  - ~~http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376~~
   - https://tubo28.me/compprog/algorithm/sqrt-decomp-tree/
   - http://noshi91.hatenablog.com/entry/2019/12/07/140433
 

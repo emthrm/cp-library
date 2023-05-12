@@ -46,7 +46,7 @@ struct Manacher;
   - https://mugen1337.github.io/procon/String/PalindromicTree.cpp
   - https://sotanishy.github.io/cp-library-cpp/string/palindromic_tree.hpp
 - distinct な部分回文をすべて求める。
-  - https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp
+  - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp~~
 
 
 ## Submissons

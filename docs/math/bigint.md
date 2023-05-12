@@ -14,7 +14,7 @@ documentation_of: //include/emthrm/math/bigint.hpp
 
 ## 参考文献
 
-- https://lumakernel.github.io/ecasdqina/misc/BigInteger
+- ~~https://lumakernel.github.io/ecasdqina/misc/BigInteger~~
 - https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
 
 カラツバ法
@@ -58,7 +58,7 @@ Knuth's Algorithm D
 - 平方根
   - https://codeforces.com/blog/entry/22566
   - http://poset.jp/ompa/node2.html#SECTION00024000000000000000
-  - http://www.prefield.com/algorithm/math/bignum.html
+  - ~~http://www.prefield.com/algorithm/math/bignum.html~~
 
 
 ## Submissons

@@ -120,7 +120,7 @@ Dijkstra 法
   - https://noshi91.github.io/algorithm-encyclopedia/eppstein-algorithm
   - https://qiita.com/hotman78/items/42534a01c4bd05ed5e1e
   - https://qiita.com/nariaki3551/items/0ab83541814f98eab322
-  - http://www.prefield.com/algorithm/graph/k_shortest_paths.html
+  - ~~http://www.prefield.com/algorithm/graph/k_shortest_paths.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/k_shortest_walks.cc
   - https://mugen1337.github.io/procon/Graph2/Eppstein.cpp
   - https://judge.yosupo.jp/problem/k_shortest_walk
