@@ -13,8 +13,8 @@ documentation_of: //include/emthrm/graph/flow/maximum_flow/maximum_flow_with_low
 
 ```cpp
 template <template <typename> class C, typename T>
-struct MaximumFlowWithLowerBoundConstraint
-requires MaximumFlow<C, T>;
+requires MaximumFlow<C, T>
+struct MaximumFlowWithLowerBoundConstraint;
 ```
 
 - `C`：最大流を表す構造体

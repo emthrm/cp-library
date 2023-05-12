@@ -5,11 +5,27 @@
 #include <bit>
 // #include <cassert>
 #include <limits>
+#include <type_traits>
 #include <vector>
 
 namespace emthrm {
 
 template <typename T>
+requires requires {
+  typename T::Monoid;
+  typename T::OperatorMonoid;
+  {T::m_id()} -> std::same_as<typename T::Monoid>;
+  {T::o_id()} -> std::same_as<typename T::OperatorMonoid>;
+  {T::m_merge(std::declval<typename T::Monoid>(),
+              std::declval<typename T::Monoid>())}
+      -> std::same_as<typename T::Monoid>;
+  {T::o_merge(std::declval<typename T::OperatorMonoid>(),
+              std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::OperatorMonoid>;
+  {T::apply(std::declval<typename T::Monoid>(),
+            std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::Monoid>;
+}
 struct LazySegmentTree {
   using Monoid = typename T::Monoid;
   using OperatorMonoid = typename T::OperatorMonoid;

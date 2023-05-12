@@ -13,14 +13,14 @@ documentation_of: //include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flo
 
 ```cpp
 template <template <typename, typename> class C, typename T, typename U>
-struct MinimumCostFlowWithLowerBoundConstraint
 requires requires (C<T, U> mcf) {
   {mcf.add_edge(std::declval<int>(), std::declval<int>(),
                 std::declval<T>(), std::declval<U>())}
       -> std::same_as<void>;
   {mcf.solve(std::declval<int>(), std::declval<int>(), std::declval<T>())}
       -> std::same_as<U>;
-};
+}
+struct MinimumCostFlowWithLowerBoundConstraint;
 ```
 
 - `C`：最小費用流を表す構造体

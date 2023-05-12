@@ -4,11 +4,19 @@
 #include <algorithm>
 #include <bit>
 #include <limits>
+#include <type_traits>
 #include <vector>
 
 namespace emthrm {
 
 template <typename T>
+requires requires {
+  typename T::Monoid;
+  {T::id()} -> std::same_as<typename T::Monoid>;
+  {T::merge(std::declval<typename T::Monoid>(),
+            std::declval<typename T::Monoid>())}
+      -> std::same_as<typename T::Monoid>;
+}
 struct SegmentTree {
   using Monoid = typename T::Monoid;
 

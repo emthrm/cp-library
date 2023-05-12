@@ -13,8 +13,8 @@ documentation_of: //include/emthrm/graph/flow/maximum_flow/project_selection_pro
 
 ```cpp
 template <template <typename> class C, typename T>
-struct ProjectSelectionProblem
-requires MaximumFlow<C, T>;
+requires MaximumFlow<C, T>
+struct ProjectSelectionProblem;
 ```
 
 - `C`：最大流を表す構造体
