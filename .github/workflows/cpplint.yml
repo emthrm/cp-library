@@ -52,6 +52,7 @@ jobs:
               "include/emthrm/data_structure/sparse_table.hpp" | \
               "include/emthrm/data_structure/segment_tree.hpp" | \
               "include/emthrm/dynamic_programming/li_chao_tree.hpp" | \
+              "include/emthrm/graph/tree/centroid.hpp" | \
               "include/emthrm/graph/2-edge-connected_components_by_imos.hpp" | \
               "include/emthrm/graph/eulerian_trail_in_directed_graph.hpp" | \
               "include/emthrm/graph/kruskal.hpp" | \
@@ -67,7 +68,6 @@ jobs:
 
               "include/emthrm/geometry/geometry.hpp" | \
               "include/emthrm/geometry/integral_geometry.hpp" | \
-              "include/emthrm/graph/tree/centroid.hpp" | \
               "include/emthrm/math/convolution/number_theoretic_transform.hpp" )
                 cpplint --root=./include --filter=-build/include_order,-legal/copyright,-readability/braces,-runtime/int $file ;;
 
@@ -77,17 +77,6 @@ jobs:
               "include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-whitespace/parens $file ;;
 
-              "include/emthrm/graph/tree/double_sweep.hpp" )
-                cpplint --root=./include --filter=-build/include_order,-build/include_what_you_use,-legal/copyright,-readability/braces $file ;;
-
-              "include/emthrm/graph/tree/euler_tour_technique.hpp" | \
-              "include/emthrm/graph/tree/heavy-light_decomposition.hpp" | \
-              "include/emthrm/graph/tree/rerooting_dp.hpp" | \
-              "include/emthrm/graph_cost-free/tree/centroid.hpp" | \
-              "include/emthrm/graph_cost-free/tree/euler_tour_technique.hpp" | \
-              "include/emthrm/graph_cost-free/tree/double_sweep.hpp" | \
-              "include/emthrm/graph_cost-free/tree/heavy-light_decomposition.hpp" | \
-              "include/emthrm/graph_cost-free/tree/rerooting_dp.hpp" | \
               "include/emthrm/math/basis.hpp" | \
               "include/emthrm/math/carmichael_function.hpp" | \
               "include/emthrm/math/divisor.hpp" | \
@@ -101,6 +90,7 @@ jobs:
               "include/emthrm/math/segmented_sieve.hpp" )
                 cpplint --root=./include --filter=-legal/copyright,-readability/braces,-runtime/int $file ;;
 
+              "include/emthrm/graph/tree/double_sweep.hpp" | \
               "include/emthrm/graph/chromatic_number.hpp" | \
               "include/emthrm/graph/topological_sort.hpp" )
                 cpplint --root=./include --filter=-build/include_order,-build/include_what_you_use,-legal/copyright,-runtime/int $file ;;
@@ -124,12 +114,6 @@ jobs:
               "test/graph/detect_directed_cycle.test.cpp" | \
               "test/math/osa_k.test.cpp" )
                 cpplint --filter=-build/include_order,-legal/copyright,-whitespace/line_length $file ;;
-
-              "test/graph/tree/centroid.test.cpp" | \
-              "test/graph/biconnected_component.test.cpp" | \
-              "test/graph_cost-free/tree/centroid.test.cpp" | \
-              "test/graph_cost-free/biconnected_component.test.cpp" )
-                cpplint --filter=-legal/copyright,-readability/braces,-runtime/int,-whitespace/line_length $file ;;
 
               *.test.cpp )
                 cpplint --filter=-legal/copyright,-runtime/int,-whitespace/line_length $file ;;

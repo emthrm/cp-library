@@ -79,9 +79,7 @@ struct LowestCommonAncestorByDoubling {
     dist[ver] = cur_dist;
     parent.front()[ver] = par;
     for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != par) [[likely]] {
-        dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);
-      }
+      if (e.dst != par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);
     }
   }
 };

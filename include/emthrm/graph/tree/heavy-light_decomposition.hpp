@@ -122,7 +122,7 @@ struct HeavyLightDecomposition {
   void dfs1(const int ver) {
     for (int i = 0; std::cmp_less(i, graph[ver].size()); ++i) {
       Edge<CostType>& e = graph[ver][i];
-      if (e.dst != parent[ver]) [[likely]] {
+      if (e.dst != parent[ver]) {
         parent[e.dst] = ver;
         dfs1(e.dst);
         subtree[ver] += subtree[e.dst];
@@ -137,7 +137,7 @@ struct HeavyLightDecomposition {
     id[ver] = (*cur_id)++;
     inv[id[ver]] = ver;
     for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != parent[ver]) [[likely]] {
+      if (e.dst != parent[ver]) {
         head[e.dst] = (e.dst == graph[ver].front().dst ? head[ver] : e.dst);
         cost.emplace_back(e.cost);
         dfs2(e.dst, cur_id);

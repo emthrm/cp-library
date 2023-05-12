@@ -18,7 +18,7 @@ std::pair<CostType, std::vector<int>> double_sweep(
       -> std::pair<CostType, int> {
     std::pair<CostType, int> res{0, ver};
     for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != par) [[unlikely]] {
+      if (e.dst != par) {
         std::pair<CostType, int> child = dfs1(dfs1, ver, e.dst);
         child.first += e.cost;
         if (child.first > res.first) res = child;
@@ -34,7 +34,7 @@ std::pair<CostType, std::vector<int>> double_sweep(
     if (ver == t) return true;
     for (const int e : graph[ver]
                      | std::views::transform(&Edge<CostType>::dst)) {
-      if (e != par) [[likely]] {
+      if (e != par) {
         path.emplace_back(e);
         if (dfs2(dfs2, ver, e)) return true;
         path.pop_back();

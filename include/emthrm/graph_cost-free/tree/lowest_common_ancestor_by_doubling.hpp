@@ -80,7 +80,7 @@ struct LowestCommonAncestorByDoubling {
     depth[ver] = cur_depth;
     parent.front()[ver] = par;
     for (const int e : graph[ver]) {
-      if (e != par) [[likely]] dfs(ver, e, cur_depth + 1);
+      if (e != par) dfs(ver, e, cur_depth + 1);
     }
   }
 };

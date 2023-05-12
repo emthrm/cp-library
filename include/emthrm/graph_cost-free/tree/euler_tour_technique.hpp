@@ -53,7 +53,7 @@ struct EulerTourTechnique {
     preorder.emplace_back(ver);
     depth.emplace_back(cur_depth);
     for (const int e : graph[ver]) {
-      if (e != par) [[likely]] {
+      if (e != par) {
         down[e] = (*idx)++;
         dfs(ver, e, cur_depth + 1, idx);
         preorder.emplace_back(ver);

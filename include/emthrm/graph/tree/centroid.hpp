@@ -19,7 +19,7 @@ std::vector<int> centroid(
     bool is_centroid = true;
     for (const int e : graph[ver]
                      | std::views::transform(&Edge<CostType>::dst)) {
-      if (e != par) [[likely]] {
+      if (e != par) {
         dfs(dfs, ver, e);
         subtree[ver] += subtree[e];
         is_centroid &= subtree[e] <= n / 2;

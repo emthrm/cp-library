@@ -14,7 +14,7 @@ std::pair<int, std::vector<int>> double_sweep(
       -> std::pair<int, int> {
     std::pair<int, int> res{0, ver};
     for (const int e : graph[ver]) {
-      if (e != par) [[likely]] {
+      if (e != par) {
         std::pair<int, int> child = dfs1(dfs1, ver, e);
         ++child.first;
         if (child.first > res.first) res = child;
@@ -29,7 +29,7 @@ std::pair<int, std::vector<int>> double_sweep(
       -> bool {
     if (ver == t) return true;
     for (const int e : graph[ver]) {
-      if (e != par) [[likely]] {
+      if (e != par) {
         path.emplace_back(e);
         if (dfs2(dfs2, ver, e)) return true;
         path.pop_back();

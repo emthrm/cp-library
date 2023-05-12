@@ -56,7 +56,7 @@ struct EulerTourTechnique {
     preorder.emplace_back(ver);
     depth.emplace_back(cur_depth);
     for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst != par) [[likely]] {
+      if (e.dst != par) {
         down[e.dst] = tour.size();
         tour.emplace_back(e.cost);
         dfs(ver, e.dst, cur_depth + 1);

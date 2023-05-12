@@ -23,7 +23,7 @@ std::vector<CommutativeSemigroup> rerooting_dp(
     children[ver].reserve(graph[ver].size());
     CommutativeSemigroup dp = def[ver];
     for (const Edge<CostType>& e : graph[ver]) {
-      if (e.dst == par) [[unlikely]] {
+      if (e.dst == par) {
         children[ver].emplace_back();
       } else {
         children[ver].emplace_back(f(dfs1(dfs1, ver, e.dst), e));
@@ -39,7 +39,7 @@ std::vector<CommutativeSemigroup> rerooting_dp(
           -> void {
     const int c = graph[ver].size();
     for (int i = 0; i < c; ++i) {
-      if (graph[ver][i].dst == par) [[unlikely]] {
+      if (graph[ver][i].dst == par) {
         children[ver][i] = f(m, graph[ver][i]);
         break;
       }
@@ -59,7 +59,7 @@ std::vector<CommutativeSemigroup> rerooting_dp(
       std::reverse(right.begin(), right.end());
     }
     for (int i = 0; i < c; ++i) {
-      if (graph[ver][i].dst != par) [[likely]] {
+      if (graph[ver][i].dst != par) {
         dfs2(dfs2, ver, graph[ver][i].dst,
              g(i + 1 == c ? left[i] : merge(left[i], right[i]), ver));
       }
