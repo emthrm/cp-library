@@ -13,15 +13,22 @@
 namespace emthrm {
 
 #ifndef ARBITRARY_MODINT
-template <int M>
+template <unsigned int M>
 struct MInt {
   unsigned int v;
 
-  MInt() : v(0) {}
-  MInt(const long long x) : v(x >= 0 ? x % M : x % M + M) {}
+  constexpr MInt() : v(0) {}
+  constexpr MInt(const long long x) : v(x >= 0 ? x % M : x % M + M) {}
+  static constexpr MInt raw(const int x) {
+    MInt x_;
+    x_.v = x;
+    return x_;
+  }
 
   static constexpr int get_mod() { return M; }
-  static void set_mod(const int divisor) { assert(divisor == M); }
+  static constexpr void set_mod(const int divisor) {
+    assert(std::cmp_equal(divisor, M));
+  }
 
   static void init(const int x) {
     inv<true>(x);
@@ -39,7 +46,7 @@ struct MInt {
       // "n!" and "M" must be disjoint.
       inverse.resize(n + 1);
       for (int i = prev; i <= n; ++i) {
-        inverse[i] = -inverse[M % i] * (M / i);
+        inverse[i] = -inverse[M % i] * raw(M / i);
       }
       return inverse[n];
     }
@@ -54,8 +61,7 @@ struct MInt {
 
   static MInt fact(const int n) {
     static std::vector<MInt> factorial{1};
-    const int prev = factorial.size();
-    if (n >= prev) {
+    if (const int prev = factorial.size(); n >= prev) {
       factorial.resize(n + 1);
       for (int i = prev; i <= n; ++i) {
         factorial[i] = factorial[i - 1] * i;
@@ -66,8 +72,7 @@ struct MInt {
 
   static MInt fact_inv(const int n) {
     static std::vector<MInt> f_inv{1};
-    const int prev = f_inv.size();
-    if (n >= prev) {
+    if (const int prev = f_inv.size(); n >= prev) {
       f_inv.resize(n + 1);
       f_inv[n] = inv(fact(n).v);
       for (int i = n; i > prev; --i) {
@@ -78,19 +83,19 @@ struct MInt {
   }
 
   static MInt nCk(const int n, const int k) {
-    if (n < 0 || n < k || k < 0) return 0;
+    if (n < 0 || n < k || k < 0) [[unlikely]] return MInt();
     return fact(n) * (n - k < k ? fact_inv(k) * fact_inv(n - k) :
                                   fact_inv(n - k) * fact_inv(k));
   }
   static MInt nPk(const int n, const int k) {
-    return n < 0 || n < k || k < 0 ? 0 : fact(n) * fact_inv(n - k);
+    return n < 0 || n < k || k < 0 ? MInt() : fact(n) * fact_inv(n - k);
   }
   static MInt nHk(const int n, const int k) {
-    return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k));
+    return n < 0 || k < 0 ? MInt() : (k == 0 ? 1 : nCk(n + k - 1, k));
   }
 
   static MInt large_nCk(long long n, const int k) {
-    if (n < 0 || n < k || k < 0) return 0;
+    if (n < 0 || n < k || k < 0) [[unlikely]] return MInt();
     inv<true>(k);
     MInt res = 1;
     for (int i = 1; i <= k; ++i) {
@@ -99,7 +104,7 @@ struct MInt {
     return res;
   }
 
-  MInt pow(long long exponent) const {
+  constexpr MInt pow(long long exponent) const {
     MInt res = 1, tmp = *this;
     for (; exponent > 0; exponent >>= 1) {
       if (exponent & 1) res *= tmp;
@@ -108,47 +113,47 @@ struct MInt {
     return res;
   }
 
-  MInt& operator+=(const MInt& x) {
-    if (std::cmp_greater_equal(v += x.v, M)) v -= M;
+  constexpr MInt& operator+=(const MInt& x) {
+    if ((v += x.v) >= M) v -= M;
     return *this;
   }
-  MInt& operator-=(const MInt& x) {
-    if (std::cmp_greater_equal(v += M - x.v, M)) v -= M;
+  constexpr MInt& operator-=(const MInt& x) {
+    if ((v += M - x.v) >= M) v -= M;
     return *this;
   }
-  MInt& operator*=(const MInt& x) {
-    v = static_cast<unsigned long long>(v) * x.v % M;
+  constexpr MInt& operator*=(const MInt& x) {
+    v = (unsigned long long){v} * x.v % M;
     return *this;
   }
   MInt& operator/=(const MInt& x) { return *this *= inv(x.v); }
 
-  auto operator<=>(const MInt& x) const = default;
+  constexpr auto operator<=>(const MInt& x) const = default;
 
-  MInt& operator++() {
-    if (std::cmp_equal(++v, M)) v = 0;
+  constexpr MInt& operator++() {
+    if (++v == M) [[unlikely]] v = 0;
     return *this;
   }
-  MInt operator++(int) {
+  constexpr MInt operator++(int) {
     const MInt res = *this;
     ++*this;
     return res;
   }
-  MInt& operator--() {
+  constexpr MInt& operator--() {
     v = (v == 0 ? M - 1 : v - 1);
     return *this;
   }
-  MInt operator--(int) {
+  constexpr MInt operator--(int) {
     const MInt res = *this;
     --*this;
     return res;
   }
 
-  MInt operator+() const { return *this; }
-  MInt operator-() const { return MInt(v ? M - v : 0); }
+  constexpr MInt operator+() const { return *this; }
+  constexpr MInt operator-() const { return raw(v ? M - v : 0); }
 
-  MInt operator+(const MInt& x) const { return MInt(*this) += x; }
-  MInt operator-(const MInt& x) const { return MInt(*this) -= x; }
-  MInt operator*(const MInt& x) const { return MInt(*this) *= x; }
+  constexpr MInt operator+(const MInt& x) const { return MInt(*this) += x; }
+  constexpr MInt operator-(const MInt& x) const { return MInt(*this) -= x; }
+  constexpr MInt operator*(const MInt& x) const { return MInt(*this) *= x; }
   MInt operator/(const MInt& x) const { return MInt(*this) /= x; }
 
   friend std::ostream& operator<<(std::ostream& os, const MInt& x) {
@@ -166,11 +171,16 @@ template <int ID>
 struct MInt {
   unsigned int v;
 
-  MInt() : v(0) {}
+  constexpr MInt() : v(0) {}
   MInt(const long long x) : v(x >= 0 ? x % mod() : x % mod() + mod()) {}
+  static constexpr MInt raw(const int x) {
+    MInt x_;
+    x_.v = x;
+    return x_;
+  }
 
   static int get_mod() { return mod(); }
-  static void set_mod(const int divisor) { mod() = divisor; }
+  static void set_mod(const unsigned int divisor) { mod() = divisor; }
 
   static void init(const int x) {
     inv<true>(x);
@@ -188,7 +198,7 @@ struct MInt {
       // "n!" and "M" must be disjoint.
       inverse.resize(n + 1);
       for (int i = prev; i <= n; ++i) {
-        inverse[i] = -inverse[mod() % i] * (mod() / i);
+        inverse[i] = -inverse[mod() % i] * raw(mod() / i);
       }
       return inverse[n];
     }
@@ -203,8 +213,7 @@ struct MInt {
 
   static MInt fact(const int n) {
     static std::vector<MInt> factorial{1};
-    const int prev = factorial.size();
-    if (n >= prev) {
+    if (const int prev = factorial.size(); n >= prev) {
       factorial.resize(n + 1);
       for (int i = prev; i <= n; ++i) {
         factorial[i] = factorial[i - 1] * i;
@@ -215,8 +224,7 @@ struct MInt {
 
   static MInt fact_inv(const int n) {
     static std::vector<MInt> f_inv{1};
-    const int prev = f_inv.size();
-    if (n >= prev) {
+    if (const int prev = f_inv.size(); n >= prev) {
       f_inv.resize(n + 1);
       f_inv[n] = inv(fact(n).v);
       for (int i = n; i > prev; --i) {
@@ -227,19 +235,19 @@ struct MInt {
   }
 
   static MInt nCk(const int n, const int k) {
-    if (n < 0 || n < k || k < 0) return 0;
+    if (n < 0 || n < k || k < 0) [[unlikely]] return MInt();
     return fact(n) * (n - k < k ? fact_inv(k) * fact_inv(n - k) :
                                   fact_inv(n - k) * fact_inv(k));
   }
   static MInt nPk(const int n, const int k) {
-    return n < 0 || n < k || k < 0 ? 0 : fact(n) * fact_inv(n - k);
+    return n < 0 || n < k || k < 0 ? MInt() : fact(n) * fact_inv(n - k);
   }
   static MInt nHk(const int n, const int k) {
-    return n < 0 || k < 0 ? 0 : (k == 0 ? 1 : nCk(n + k - 1, k));
+    return n < 0 || k < 0 ? MInt() : (k == 0 ? 1 : nCk(n + k - 1, k));
   }
 
   static MInt large_nCk(long long n, const int k) {
-    if (n < 0 || n < k || k < 0) return 0;
+    if (n < 0 || n < k || k < 0) [[unlikely]] return MInt();
     inv<true>(k);
     MInt res = 1;
     for (int i = 1; i <= k; ++i) {
@@ -258,15 +266,15 @@ struct MInt {
   }
 
   MInt& operator+=(const MInt& x) {
-    if (std::cmp_greater_equal(v += x.v, mod())) v -= mod();
+    if ((v += x.v) >= mod()) v -= mod();
     return *this;
   }
   MInt& operator-=(const MInt& x) {
-    if (std::cmp_greater_equal(v += mod() - x.v, mod())) v -= mod();
+    if ((v += mod() - x.v) >= mod()) v -= mod();
     return *this;
   }
   MInt& operator*=(const MInt& x) {
-    v = static_cast<unsigned long long>(v) * x.v % mod();
+    v = (unsigned long long){v} * x.v % mod();
     return *this;
     }
   MInt& operator/=(const MInt& x) { return *this *= inv(x.v); }
@@ -274,7 +282,7 @@ struct MInt {
   auto operator<=>(const MInt& x) const = default;
 
   MInt& operator++() {
-    if (std::cmp_equal(++v, mod())) v = 0;
+    if (++v == mod()) [[unlikely]] v = 0;
     return *this;
   }
   MInt operator++(int) {
@@ -293,7 +301,7 @@ struct MInt {
   }
 
   MInt operator+() const { return *this; }
-  MInt operator-() const { return MInt(v ? mod() - v : 0); }
+  MInt operator-() const { return raw(v ? mod() - v : 0); }
 
   MInt operator+(const MInt& x) const { return MInt(*this) += x; }
   MInt operator-(const MInt& x) const { return MInt(*this) -= x; }
@@ -311,8 +319,8 @@ struct MInt {
   }
 
  private:
-  static int& mod() {
-    static int divisor = 0;
+  static unsigned int& mod() {
+    static unsigned int divisor = 0;
     return divisor;
   }
 };

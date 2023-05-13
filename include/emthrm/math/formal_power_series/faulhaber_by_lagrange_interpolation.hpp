@@ -8,7 +8,7 @@
 
 namespace emthrm {
 
-template <int T>
+template <unsigned int T>
 MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k) {
   using ModInt = MInt<T>;
   if (n < 1) [[unlikely]] return 0;

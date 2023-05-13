@@ -7,10 +7,10 @@
 
 namespace emthrm {
 
-template <int T>
+template <unsigned int T>
 MInt<T> stirling_number_of_the_second_kind(const int n, const int k) {
   using ModInt = MInt<T>;
-  if (n < k) return 0;
+  if (n < k) [[unlikely]] return 0;
   ModInt::init(k);
   ModInt s = 0;
   for (int i = 1; i <= k; ++i) {

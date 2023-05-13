@@ -38,14 +38,14 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`MInt<T> faulhaber_by_fps(const long long n, const int k);`|$S_k(n)$|
+|`template <unsigned int T>`<br>`MInt<T> faulhaber_by_fps(const long long n, const int k);`|$S_k(n)$|
 
 
 ### ラグランジュ補間版
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k);`|$S_k(n)$|
+|`template <unsigned int T>`<br>`MInt<T> faulhaber_by_lagrange_interpolation(const long long n, const int k);`|$S_k(n)$|
 
 
 ## 参考文献

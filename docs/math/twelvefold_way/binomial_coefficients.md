@@ -45,7 +45,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
+|`template <unsigned int T>`<br>`std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
 
 
 ## 参考文献

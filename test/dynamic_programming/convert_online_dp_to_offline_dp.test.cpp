@@ -20,7 +20,7 @@ int main() {
   int n, m, t;
   std::cin >> n >> m >> t;
   std::vector<int> a(m), b(m);
-  std::vector<std::vector<ModInt>> p(m, std::vector<ModInt>(t + 1, 0));
+  std::vector p(m, std::vector(t + 1, ModInt(0)));
   for (int i = 0; i < m; ++i) {
     std::cin >> a[i] >> b[i];
     --a[i]; --b[i];
@@ -28,7 +28,7 @@ int main() {
       std::cin >> p[i][j];
     }
   }
-  std::vector<std::vector<ModInt>> dp(n, std::vector<ModInt>(t + 1, 0));
+  std::vector dp(n, std::vector(t + 1, ModInt(0)));
   dp[0][0] = 1;
   const std::function<void(int, int, int)> induce =
       [m, &a, &b, &p, &dp](const int l, const int mid, const int r) -> void {

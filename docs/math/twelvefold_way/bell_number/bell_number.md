@@ -51,7 +51,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
+|`template <unsigned int T>`<br>`MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
 
 
 ### 数表

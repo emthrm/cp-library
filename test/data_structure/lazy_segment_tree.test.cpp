@@ -18,8 +18,8 @@ int main() {
   struct M {
     using Monoid = std::pair<ModInt, int>;
     using OperatorMonoid = std::pair<ModInt, ModInt>;
-    static Monoid m_id() { return {0, 0}; }
-    static OperatorMonoid o_id() { return {1, 0}; }
+    static constexpr Monoid m_id() { return {0, 0}; }
+    static constexpr OperatorMonoid o_id() { return {1, 0}; }
     static Monoid m_merge(const Monoid& a, const Monoid& b) {
       return {a.first + b.first, a.second + b.second};
     }

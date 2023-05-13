@@ -41,7 +41,7 @@ int main() {
       nums.emplace_back(subtree[e]);
     }
     const int m = nums.size();
-    std::vector<std::vector<ModInt>> dp(m + 1, std::vector<ModInt>(n + 1, 0));
+    std::vector dp(m + 1, std::vector(n + 1, ModInt(0)));
     dp[0][0] = 1;
     for (int i = 0; i < m; ++i) {
       for (int j = 0; j <= n; ++j) {

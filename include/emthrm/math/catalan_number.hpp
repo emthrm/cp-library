@@ -7,7 +7,7 @@
 
 namespace emthrm {
 
-template <int T>
+template <unsigned int T>
 std::vector<MInt<T>> catalan_number(const int n) {
   using ModInt = MInt<T>;
   ModInt::template inv<true>(n + 1);

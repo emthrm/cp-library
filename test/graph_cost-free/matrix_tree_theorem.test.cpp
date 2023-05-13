@@ -16,7 +16,7 @@ int main() {
   using ModInt = emthrm::MInt<1000000007>;
   int n;
   std::cin >> n;
-  std::vector<std::vector<int>> a(n, std::vector<int>(n));
+  std::vector a(n, std::vector(n, -2));
   for (int i = 0; i < n; ++i) {
     for (int j = 0; j < n; ++j) {
       std::cin >> a[i][j];

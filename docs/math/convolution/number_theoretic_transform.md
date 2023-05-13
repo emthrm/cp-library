@@ -36,7 +36,7 @@ $O(N\log{N})$
 ## 仕様
 
 ```cpp
-template <int T>
+template <unsigned int T>
 struct NumberTheoreticTransform;
 ```
 

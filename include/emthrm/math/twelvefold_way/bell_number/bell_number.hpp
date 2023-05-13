@@ -9,7 +9,7 @@
 
 namespace emthrm {
 
-template <int T>
+template <unsigned int T>
 MInt<T> bell_number(const int n, int k) {
   using ModInt = MInt<T>;
   if (k > n) k = n;

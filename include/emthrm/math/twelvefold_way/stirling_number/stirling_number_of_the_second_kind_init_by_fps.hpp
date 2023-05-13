@@ -8,7 +8,7 @@
 
 namespace emthrm {
 
-template <int T>
+template <unsigned int T>
 std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(
     const int n) {
   using ModInt = MInt<T>;

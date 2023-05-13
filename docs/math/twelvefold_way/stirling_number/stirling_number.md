@@ -105,7 +105,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
+|`template <unsigned int T>`<br>`MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
 
 
 ### 第2種スターリング数の数表
@@ -119,7 +119,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
+|`template <unsigned int T>`<br>`std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
 
 
 ## 参考文献

@@ -11,7 +11,7 @@
 
 namespace emthrm {
 
-template <int PRECISION = 15, int T>
+template <int PRECISION = 15, unsigned int T>
 std::vector<MInt<T>> mod_convolution(const std::vector<MInt<T>>& a,
                                      const std::vector<MInt<T>>& b) {
   using ModInt = MInt<T>;

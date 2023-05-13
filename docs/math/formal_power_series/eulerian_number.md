@@ -62,7 +62,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`std::vector<MInt<T>> eulerian_number_init_by_fps(const int n);`|Eulerian number $A(n, j)$ ($0 \leq j \leq n$) の数表|
+|`template <unsigned int T>`<br>`std::vector<MInt<T>> eulerian_number_init_by_fps(const int n);`|Eulerian number $A(n, j)$ ($0 \leq j \leq n$) の数表|
 
 
 ## 参考文献

@@ -11,7 +11,7 @@
 namespace emthrm {
 
 int maximum_matching(const std::vector<std::vector<int>>& graph) {
-  constexpr int P = 1000000007;
+  constexpr unsigned int P = 1000000007;
   using ModInt = MInt<P>;
   ModInt::set_mod(P);
   static std::mt19937_64 engine(std::random_device {} ());
@@ -21,7 +21,7 @@ int maximum_matching(const std::vector<std::vector<int>>& graph) {
   for (int i = 0; i < n; ++i) {
     for (const int j : graph[i]) {
       if (j > i) {
-        const ModInt x = dist(engine);
+        const ModInt x = ModInt::raw(dist(engine));
         tutte_matrix[i][j] = x;
         tutte_matrix[j][i] = -x;
       }

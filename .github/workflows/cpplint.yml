@@ -99,7 +99,7 @@ jobs:
                 cpplint --root=./include --filter=-build/include_order,-legal/copyright,-runtime/explicit,-runtime/int $file ;;
 
               "include/emthrm/math/modint.hpp" )
-                cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int $file ;;
+                cpplint --root=./include --filter=-legal/copyright,-runtime/explicit,-runtime/int,-whitespace/braces $file ;;
 
               "include/emthrm/math/rational.hpp" )
                 cpplint --root=./include --filter=-build/include_what_you_use,-legal/copyright,-runtime/explicit,-runtime/int $file ;;

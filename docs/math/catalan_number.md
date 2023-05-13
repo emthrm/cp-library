@@ -35,7 +35,7 @@ $O(N)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`std::vector<MInt<T>> catalan_number(const int n);`|カタラン数 $c_i$ ($0 \leq i \leq n$) の数表|
+|`template <unsigned int T>`<br>`std::vector<MInt<T>> catalan_number(const int n);`|カタラン数 $c_i$ ($0 \leq i \leq n$) の数表|
 
 
 ## 参考文献

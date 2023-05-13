@@ -12,7 +12,7 @@
 
 namespace emthrm {
 
-template <int T>
+template <unsigned int T>
 struct NumberTheoreticTransform {
   using ModInt = MInt<T>;
 
