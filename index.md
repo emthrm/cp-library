@@ -321,7 +321,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_quotients.hpp
     title: "\u5546\u306E\u5217\u6319"
   - icon: ':heavy_check_mark:'
@@ -1090,7 +1090,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/enumerate_quotients.test.cpp
     title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
   - icon: ':heavy_check_mark:'
