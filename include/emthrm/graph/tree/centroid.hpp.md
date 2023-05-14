@@ -6,12 +6,12 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/tree/centroid.hpp\"\n\n\n\n#include\
@@ -50,7 +50,7 @@ data:
   path: include/emthrm/graph/tree/centroid.hpp
   requiredBy: []
   timestamp: '2023-05-12 15:57:02+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/tree/centroid.test.cpp
 documentation_of: include/emthrm/graph/tree/centroid.hpp

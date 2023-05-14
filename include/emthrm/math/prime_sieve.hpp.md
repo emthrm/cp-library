@@ -13,7 +13,7 @@ data:
     path: include/emthrm/math/euler_phi_init2.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570 (Euler's totient\
       \ function) \u306E\u6570\u88682"
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u88682"
@@ -28,7 +28,7 @@ data:
     path: test/math/euler_phi_init2.test.cpp
     title: "\u6570\u5B66/\u30AA\u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570/\u30AA\
       \u30A4\u30E9\u30FC\u306E $\\varphi$ \u95A2\u6570\u306E\u6570\u88682"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/math/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
@@ -38,7 +38,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/prime_sieve.test.cpp
     title: "\u6570\u5B66/prime sieve"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -71,7 +71,7 @@ data:
   - include/emthrm/math/enumerate_k-th_power.hpp
   - include/emthrm/math/osa_k.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/prime_sieve.test.cpp
   - test/math/enumerate_k-th_power.test.cpp

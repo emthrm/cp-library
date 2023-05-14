@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function)"
   - icon: ':question:'
@@ -9,11 +9,10 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc162/tasks/abc162_e
     document_title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
       \u30A6\u30B9\u95A2\u6570"
@@ -21,7 +20,7 @@ data:
     - https://atcoder.jp/contests/abc162/tasks/abc162_e
   bundledCode: "#line 1 \"test/math/mobius_mu.test.cpp\"\n/*\n * @title \u6570\u5B66\
     /\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\n *\n\
-    \ * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
     \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/math/mobius_mu.hpp\"\n\
     \n\n\nnamespace emthrm {\n\nint mobius_mu(long long n) {\n  int num = 0;\n  for\
     \ (long long i = 2; i * i <= n; ++i) {\n    if (n % i == 0) [[unlikely]] {\n \
@@ -139,29 +138,28 @@ data:
     \ is, MInt& x) {\n    long long v;\n    is >> v;\n    x = MInt(v);\n    return\
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
-    }  // namespace emthrm\n\n\n#line 12 \"test/math/mobius_mu.test.cpp\"\n\nint main()\
+    }  // namespace emthrm\n\n\n#line 11 \"test/math/mobius_mu.test.cpp\"\n\nint main()\
     \ {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, k;\n  std::cin >> n\
     \ >> k;\n  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways\
     \ = 0;\n    for (int mul = 1; g * mul <= k; ++mul) {\n      ways += ModInt(k /\
     \ (g * mul)).pow(n) * emthrm::mobius_mu(mul);\n    }\n    ans += ways * g;\n \
     \ }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
-    \u30A6\u30B9\u95A2\u6570\n *\n * verification-helper: IGNORE\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n */\n\n#include <iostream>\n\
-    \n#include \"emthrm/math/mobius_mu.hpp\"\n#include \"emthrm/math/modint.hpp\"\n\
-    \nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, k;\n  std::cin\
-    \ >> n >> k;\n  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt\
-    \ ways = 0;\n    for (int mul = 1; g * mul <= k; ++mul) {\n      ways += ModInt(k\
-    \ / (g * mul)).pow(n) * emthrm::mobius_mu(mul);\n    }\n    ans += ways * g;\n\
-    \  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \u30A6\u30B9\u95A2\u6570\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
+    \ */\n\n#include <iostream>\n\n#include \"emthrm/math/mobius_mu.hpp\"\n#include\
+    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \  int n, k;\n  std::cin >> n >> k;\n  ModInt ans = 0;\n  for (int g = 1; g <=\
+    \ k; ++g) {\n    ModInt ways = 0;\n    for (int mul = 1; g * mul <= k; ++mul)\
+    \ {\n      ways += ModInt(k / (g * mul)).pow(n) * emthrm::mobius_mu(mul);\n  \
+    \  }\n    ans += ways * g;\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/mobius_mu.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
   path: test/math/mobius_mu.test.cpp
   requiredBy: []
-  timestamp: '2023-05-14 15:41:07+09:00'
-  verificationStatus: TEST_WAITING_JUDGE
+  timestamp: '2023-05-14 18:31:39+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mobius_mu.test.cpp
 layout: document

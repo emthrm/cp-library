@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u88682"
@@ -13,11 +13,10 @@ data:
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc162/tasks/abc162_e
     document_title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
       \u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682"
@@ -25,11 +24,10 @@ data:
     - https://atcoder.jp/contests/abc162/tasks/abc162_e
   bundledCode: "#line 1 \"test/math/mobius_mu_init2.test.cpp\"\n/*\n * @title \u6570\
     \u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\
-    \u306E\u6570\u88682\n *\n * verification-helper: IGNORE\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n */\n\n#include <iostream>\n\
-    #include <vector>\n\n#line 1 \"include/emthrm/math/mobius_mu_init2.hpp\"\n\n\n\
-    \n#include <numeric>\n#line 6 \"include/emthrm/math/mobius_mu_init2.hpp\"\n\n\
-    #line 1 \"include/emthrm/math/prime_sieve.hpp\"\n\n\n\n#line 6 \"include/emthrm/math/prime_sieve.hpp\"\
+    \u306E\u6570\u88682\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
+    \ */\n\n#include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/math/mobius_mu_init2.hpp\"\
+    \n\n\n\n#include <numeric>\n#line 6 \"include/emthrm/math/mobius_mu_init2.hpp\"\
+    \n\n#line 1 \"include/emthrm/math/prime_sieve.hpp\"\n\n\n\n#line 6 \"include/emthrm/math/prime_sieve.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <bool GETS_ONLY_PRIME>\nstd::vector<int> prime_sieve(const\
     \ int n) {\n  std::vector<int> smallest_prime_factor(n + 1), prime;\n  std::iota(smallest_prime_factor.begin(),\
     \ smallest_prime_factor.end(), 0);\n  for (int i = 2; i <= n; ++i) {\n    if (smallest_prime_factor[i]\
@@ -158,7 +156,7 @@ data:
     \ is, MInt& x) {\n    long long v;\n    is >> v;\n    x = MInt(v);\n    return\
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
-    }  // namespace emthrm\n\n\n#line 13 \"test/math/mobius_mu_init2.test.cpp\"\n\n\
+    }  // namespace emthrm\n\n\n#line 12 \"test/math/mobius_mu_init2.test.cpp\"\n\n\
     int main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, k;\n  std::cin\
     \ >> n >> k;\n  const std::vector<int> mu = emthrm::mobius_mu_init2(1, k + 1);\n\
     \  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways = 0;\n \
@@ -166,10 +164,10 @@ data:
     \ * mu[mul - 1];\n    }\n    ans += ways * g;\n  }\n  std::cout << ans << '\\\
     n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
-    \u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682\n *\n * verification-helper: IGNORE\n\
-    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
-    \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/mobius_mu_init2.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \u30A6\u30B9\u95A2\u6570\u306E\u6570\u88682\n *\n * verification-helper: PROBLEM\
+    \ https://atcoder.jp/contests/abc162/tasks/abc162_e\n */\n\n#include <iostream>\n\
+    #include <vector>\n\n#include \"emthrm/math/mobius_mu_init2.hpp\"\n#include \"\
+    emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  int n, k;\n  std::cin >> n >> k;\n  const std::vector<int> mu = emthrm::mobius_mu_init2(1,\
     \ k + 1);\n  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways\
     \ = 0;\n    for (int mul = 1; g * mul <= k; ++mul) {\n      ways += ModInt(k /\
@@ -182,8 +180,8 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu_init2.test.cpp
   requiredBy: []
-  timestamp: '2023-05-14 15:41:07+09:00'
-  verificationStatus: TEST_WAITING_JUDGE
+  timestamp: '2023-05-14 18:31:39+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/mobius_mu_init2.test.cpp
 layout: document

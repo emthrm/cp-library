@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
       \u63DB"
@@ -14,11 +14,10 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc213/tasks/abc213_h
     document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\
       \u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
@@ -26,10 +25,10 @@ data:
     - https://atcoder.jp/contests/abc213/tasks/abc213_h
   bundledCode: "#line 1 \"test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp\"\
     \n/*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\
-    \u30AA\u30F3\u30E9\u30A4\u30F3\u5909\u63DB\n *\n * verification-helper: IGNORE\n\
-    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc213/tasks/abc213_h\n\
-    \ */\n\n#include <algorithm>\n#include <functional>\n#include <iostream>\n#include\
-    \ <iterator>\n#include <vector>\n\n#line 1 \"include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
+    \u30AA\u30F3\u30E9\u30A4\u30F3\u5909\u63DB\n *\n * verification-helper: PROBLEM\
+    \ https://atcoder.jp/contests/abc213/tasks/abc213_h\n */\n\n#include <algorithm>\n\
+    #include <functional>\n#include <iostream>\n#include <iterator>\n#include <vector>\n\
+    \n#line 1 \"include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
     \n\n\n\n#line 5 \"include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
     \n#include <numeric>\n\nnamespace emthrm {\n\nvoid convert_online_dp_to_offline_dp(\n\
     \    const int n, const std::function<void(int, int, int)> induce) {\n  const\
@@ -224,7 +223,7 @@ data:
     \ ModInt tmp = (*a)[i + j + block] * omega[den][j];\n          (*a)[i + j + block]\
     \ = (*a)[i + j] - tmp;\n          (*a)[i + j] += tmp;\n        }\n      }\n  \
     \  }\n  }\n};\n\n#endif  // __has_include(<atcoder/convolution>)\n\n}  // namespace\
-    \ emthrm\n\n\n#line 17 \"test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp\"\
+    \ emthrm\n\n\n#line 16 \"test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp\"\
     \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
     \  int n, m, t;\n  std::cin >> n >> m >> t;\n  std::vector<int> a(m), b(m);\n\
     \  std::vector p(m, std::vector(t + 1, ModInt(0)));\n  for (int i = 0; i < m;\
@@ -247,10 +246,10 @@ data:
     \ << dp[0][t] << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\
     \u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\u63DB\n *\n * verification-helper:\
-    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc213/tasks/abc213_h\n\
-    \ */\n\n#include <algorithm>\n#include <functional>\n#include <iostream>\n#include\
-    \ <iterator>\n#include <vector>\n\n#include \"emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
-    \n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\n#include\
+    \ PROBLEM https://atcoder.jp/contests/abc213/tasks/abc213_h\n */\n\n#include <algorithm>\n\
+    #include <functional>\n#include <iostream>\n#include <iterator>\n#include <vector>\n\
+    \n#include \"emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\n\
+    #include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\n#include\
     \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 998244353;\n\
     \  using ModInt = emthrm::MInt<MOD>;\n  int n, m, t;\n  std::cin >> n >> m >>\
     \ t;\n  std::vector<int> a(m), b(m);\n  std::vector p(m, std::vector(t + 1, ModInt(0)));\n\
@@ -278,8 +277,8 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
   requiredBy: []
-  timestamp: '2023-05-14 15:41:07+09:00'
-  verificationStatus: TEST_WAITING_JUDGE
+  timestamp: '2023-05-14 18:31:39+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
 layout: document
