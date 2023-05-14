@@ -38,6 +38,9 @@ documentation_of: //include/emthrm/math/modint.hpp
 - Barrett reduction
   - https://en.wikipedia.org/wiki/Barrett_reduction
   - https://natsugiri.hatenablog.com/entry/2020/04/06/030559
+- rational reconstruction
+  - https://en.wikipedia.org/wiki/Rational_reconstruction_(mathematics)
+  - https://rsk0315.hatenablog.com/entry/2023/04/29/043512
 - 実行時 ModInt の高速化
   - https://twitter.com/risujiroh/status/1302857570462228483
 - $\bmod 998244353$ の高速化

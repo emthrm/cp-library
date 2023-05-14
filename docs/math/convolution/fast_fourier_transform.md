@@ -152,6 +152,7 @@ $$
 ## TODO
 
 - https://www.slideshare.net/chokudai/fft-49066791
+- https://tayu0110.hatenablog.com/entry/2023/05/06/023244
 - four-step fast Fourier transform / six-step fast Fourier transform
   - http://xn--w6q13e505b.jp/method/fft/2dfft.html
   - ~~https://lumakernel.github.io/ecasdqina/math/FFT/FFT2~~
@@ -173,6 +174,7 @@ $$
 - chirp Z-transform
   - https://en.wikipedia.org/wiki/Chirp_Z-transform
   - https://noshi91.github.io/algorithm-encyclopedia/chirp-z-transform
+  - https://noshi91.github.io/algorithm-encyclopedia/polynomial-interpolation-geometric
   - https://yoneh.hatenadiary.org/entry/20080109/1199862684
   - https://qiita.com/HMMNRST/items/14b990534d7b6d04307d
   - https://scrapbox.io/mrsekut-p/Chirp_Z%E5%A4%89%E6%8F%9B

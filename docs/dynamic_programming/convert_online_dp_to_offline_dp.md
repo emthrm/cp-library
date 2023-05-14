@@ -65,6 +65,12 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
   - https://qiita.com/tmaehara/items/0687af2cfb807cde7860#%E5%86%92%E9%A0%AD%E3%81%AE%E5%95%8F%E9%A1%8C%E9%96%A2%E9%80%A3%E7%A0%94%E7%A9%B6
   - https://ei1333.github.io/luzhiled/snippets/dp/monotone-minima.html
   - https://fumofumofuni.hatenablog.com/entry/2021/10/29/002145
+- 下限・上限制約付き単調増加列の数え上げ
+  - https://twitter.com/nok0_kyopro/status/1529832533042802694
+  - https://twitter.com/noimi_kyopro/status/1639567295570919425
+  - https://twitter.com/pctprobability/status/1639951979358334977
+  - https://codeforces.com/gym/102220/problem/I
+  - https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/L
 
 
 ## Submissons

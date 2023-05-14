@@ -220,6 +220,8 @@ struct LazySegmentTree;
   - https://yukicoder.me/problems/no/2265
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
+- 円環版 `get`
+  - https://twitter.com/risujiroh/status/1654163763971358723
 
 
 ## Submissons

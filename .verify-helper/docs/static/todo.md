@@ -107,6 +107,7 @@
 - https://judge.yosupo.jp/problem/dynamic_tree_subtree_add_subtree_sum
 - https://atcoder.jp/contests/abc235/tasks/abc235_e
 - https://atcoder.jp/contests/pakencamp-2021-day3/tasks/pakencamp_2021_day3_g
+- https://yukicoder.me/problems/no/2296
 
 
 # Menger's theorem

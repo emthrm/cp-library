@@ -122,6 +122,7 @@ $O(N\log{N})$
   - https://atcoder.jp/contests/abc294/tasks/abc294_h
   - https://twitter.com/noshi91/status/1637451650402234373
   - set power series
+    - https://maspypy.com/category/%e9%9b%86%e5%90%88%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0
     - https://codeforces.com/blog/entry/92183
     - https://suisen-kyopro.hatenablog.com/entry/2023/04/07/041318
     - https://judge.yosupo.jp/problem/polynomial_composite_set_power_series
