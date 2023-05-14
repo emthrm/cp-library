@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mobius_mu_init.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u8868"
@@ -10,10 +10,11 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc162/tasks/abc162_e
     document_title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
       \u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868"
@@ -21,38 +22,39 @@ data:
     - https://atcoder.jp/contests/abc162/tasks/abc162_e
   bundledCode: "#line 1 \"test/math/mobius_mu_init.test.cpp\"\n/*\n * @title \u6570\
     \u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570\
-    \u306E\u6570\u8868\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
-    \ */\n\n#include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/math/mobius_mu_init.hpp\"\
-    \n\n\n\n#line 5 \"include/emthrm/math/mobius_mu_init.hpp\"\n\nnamespace emthrm\
-    \ {\n\nstd::vector<int> mobius_mu_init(const int n) {\n  std::vector<bool> is_prime(n\
-    \ + 1, true);\n  is_prime[0] = false;\n  if (n >= 1) [[likely]] is_prime[1] =\
-    \ false;\n  std::vector<int> mu(n + 1, 1);\n  mu[0] = 0;\n  for (int i = 2; i\
-    \ <= n; ++i) {\n    if (is_prime[i]) [[unlikely]] {\n      mu[i] = -mu[i];\n \
-    \     for (int j = i * 2; j <= n; j += i) {\n        is_prime[j] = false;\n  \
-    \      mu[j] = ((j / i) % i == 0 ? 0 : -mu[j]);\n      }\n    }\n  }\n  return\
-    \ mu;\n}\n\n}  // namespace emthrm\n\n\n#line 1 \"include/emthrm/math/modint.hpp\"\
-    \n\n\n\n#ifndef ARBITRARY_MODINT\n# include <cassert>\n#endif\n#include <compare>\n\
-    #line 9 \"include/emthrm/math/modint.hpp\"\n// #include <numeric>\n#include <utility>\n\
-    #line 12 \"include/emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\n\
-    template <unsigned int M>\nstruct MInt {\n  unsigned int v;\n\n  constexpr MInt()\
-    \ : v(0) {}\n  constexpr MInt(const long long x) : v(x >= 0 ? x % M : x % M +\
-    \ M) {}\n  static constexpr MInt raw(const int x) {\n    MInt x_;\n    x_.v =\
-    \ x;\n    return x_;\n  }\n\n  static constexpr int get_mod() { return M; }\n\
-    \  static constexpr void set_mod(const int divisor) {\n    assert(std::cmp_equal(divisor,\
-    \ M));\n  }\n\n  static void init(const int x) {\n    inv<true>(x);\n    fact(x);\n\
-    \    fact_inv(x);\n  }\n\n  template <bool MEMOIZES = false>\n  static MInt inv(const\
-    \ int n) {\n    // assert(0 <= n && n < M && std::gcd(n, M) == 1);\n    static\
-    \ std::vector<MInt> inverse{0, 1};\n    const int prev = inverse.size();\n   \
-    \ if (n < prev) return inverse[n];\n    if constexpr (MEMOIZES) {\n      // \"\
-    n!\" and \"M\" must be disjoint.\n      inverse.resize(n + 1);\n      for (int\
-    \ i = prev; i <= n; ++i) {\n        inverse[i] = -inverse[M % i] * raw(M / i);\n\
-    \      }\n      return inverse[n];\n    }\n    int u = 1, v = 0;\n    for (unsigned\
-    \ int a = n, b = M; b;) {\n      const unsigned int q = a / b;\n      std::swap(a\
-    \ -= q * b, b);\n      std::swap(u -= q * v, v);\n    }\n    return u;\n  }\n\n\
-    \  static MInt fact(const int n) {\n    static std::vector<MInt> factorial{1};\n\
-    \    if (const int prev = factorial.size(); n >= prev) {\n      factorial.resize(n\
-    \ + 1);\n      for (int i = prev; i <= n; ++i) {\n        factorial[i] = factorial[i\
-    \ - 1] * i;\n      }\n    }\n    return factorial[n];\n  }\n\n  static MInt fact_inv(const\
+    \u306E\u6570\u8868\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n */\n\n#include <iostream>\n\
+    #include <vector>\n\n#line 1 \"include/emthrm/math/mobius_mu_init.hpp\"\n\n\n\n\
+    #line 5 \"include/emthrm/math/mobius_mu_init.hpp\"\n\nnamespace emthrm {\n\nstd::vector<int>\
+    \ mobius_mu_init(const int n) {\n  std::vector<bool> is_prime(n + 1, true);\n\
+    \  is_prime[0] = false;\n  if (n >= 1) [[likely]] is_prime[1] = false;\n  std::vector<int>\
+    \ mu(n + 1, 1);\n  mu[0] = 0;\n  for (int i = 2; i <= n; ++i) {\n    if (is_prime[i])\
+    \ [[unlikely]] {\n      mu[i] = -mu[i];\n      for (int j = i * 2; j <= n; j +=\
+    \ i) {\n        is_prime[j] = false;\n        mu[j] = ((j / i) % i == 0 ? 0 :\
+    \ -mu[j]);\n      }\n    }\n  }\n  return mu;\n}\n\n}  // namespace emthrm\n\n\
+    \n#line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n\
+    # include <cassert>\n#endif\n#include <compare>\n#line 9 \"include/emthrm/math/modint.hpp\"\
+    \n// #include <numeric>\n#include <utility>\n#line 12 \"include/emthrm/math/modint.hpp\"\
+    \n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\ntemplate <unsigned int M>\n\
+    struct MInt {\n  unsigned int v;\n\n  constexpr MInt() : v(0) {}\n  constexpr\
+    \ MInt(const long long x) : v(x >= 0 ? x % M : x % M + M) {}\n  static constexpr\
+    \ MInt raw(const int x) {\n    MInt x_;\n    x_.v = x;\n    return x_;\n  }\n\n\
+    \  static constexpr int get_mod() { return M; }\n  static constexpr void set_mod(const\
+    \ int divisor) {\n    assert(std::cmp_equal(divisor, M));\n  }\n\n  static void\
+    \ init(const int x) {\n    inv<true>(x);\n    fact(x);\n    fact_inv(x);\n  }\n\
+    \n  template <bool MEMOIZES = false>\n  static MInt inv(const int n) {\n    //\
+    \ assert(0 <= n && n < M && std::gcd(n, M) == 1);\n    static std::vector<MInt>\
+    \ inverse{0, 1};\n    const int prev = inverse.size();\n    if (n < prev) return\
+    \ inverse[n];\n    if constexpr (MEMOIZES) {\n      // \"n!\" and \"M\" must be\
+    \ disjoint.\n      inverse.resize(n + 1);\n      for (int i = prev; i <= n; ++i)\
+    \ {\n        inverse[i] = -inverse[M % i] * raw(M / i);\n      }\n      return\
+    \ inverse[n];\n    }\n    int u = 1, v = 0;\n    for (unsigned int a = n, b =\
+    \ M; b;) {\n      const unsigned int q = a / b;\n      std::swap(a -= q * b, b);\n\
+    \      std::swap(u -= q * v, v);\n    }\n    return u;\n  }\n\n  static MInt fact(const\
+    \ int n) {\n    static std::vector<MInt> factorial{1};\n    if (const int prev\
+    \ = factorial.size(); n >= prev) {\n      factorial.resize(n + 1);\n      for\
+    \ (int i = prev; i <= n; ++i) {\n        factorial[i] = factorial[i - 1] * i;\n\
+    \      }\n    }\n    return factorial[n];\n  }\n\n  static MInt fact_inv(const\
     \ int n) {\n    static std::vector<MInt> f_inv{1};\n    if (const int prev = f_inv.size();\
     \ n >= prev) {\n      f_inv.resize(n + 1);\n      f_inv[n] = inv(fact(n).v);\n\
     \      for (int i = n; i > prev; --i) {\n        f_inv[i - 1] = f_inv[i] * i;\n\
@@ -142,7 +144,7 @@ data:
     \ is, MInt& x) {\n    long long v;\n    is >> v;\n    x = MInt(v);\n    return\
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
-    }  // namespace emthrm\n\n\n#line 12 \"test/math/mobius_mu_init.test.cpp\"\n\n\
+    }  // namespace emthrm\n\n\n#line 13 \"test/math/mobius_mu_init.test.cpp\"\n\n\
     int main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, k;\n  std::cin\
     \ >> n >> k;\n  const std::vector<int> mu = emthrm::mobius_mu_init(k);\n  ModInt\
     \ ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways = 0;\n    for (int\
@@ -150,10 +152,10 @@ data:
     \ * mu[mul];\n    }\n    ans += ways * g;\n  }\n  std::cout << ans << '\\n';\n\
     \  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
-    \u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868\n *\n * verification-helper: PROBLEM\
-    \ https://atcoder.jp/contests/abc162/tasks/abc162_e\n */\n\n#include <iostream>\n\
-    #include <vector>\n\n#include \"emthrm/math/mobius_mu_init.hpp\"\n#include \"\
-    emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \u30A6\u30B9\u95A2\u6570\u306E\u6570\u8868\n *\n * verification-helper: IGNORE\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
+    \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/mobius_mu_init.hpp\"\
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  int n, k;\n  std::cin >> n >> k;\n  const std::vector<int> mu = emthrm::mobius_mu_init(k);\n\
     \  ModInt ans = 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways = 0;\n \
     \   for (int mul = 1; g * mul <= k; ++mul) {\n      ways += ModInt(k / (g * mul)).pow(n)\
@@ -165,8 +167,8 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu_init.test.cpp
   requiredBy: []
-  timestamp: '2023-05-13 18:14:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-05-14 15:41:07+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/mobius_mu_init.test.cpp
 layout: document

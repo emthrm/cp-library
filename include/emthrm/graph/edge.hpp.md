@@ -77,7 +77,7 @@ data:
     path: include/emthrm/graph/traveling_salesman_problem.hpp
     title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
       \ salesman problem)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -187,7 +187,7 @@ data:
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
   - icon: ':warning:'
@@ -223,7 +223,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -279,7 +279,7 @@ data:
   - include/emthrm/graph/biconnected_component.hpp
   - include/emthrm/graph/lowlink.hpp
   timestamp: '2023-02-24 21:17:22+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/basis.test.cpp
   - test/math/matrix/linear_equation.test.cpp

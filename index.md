@@ -91,7 +91,7 @@ data:
   - icon: ':warning:'
     path: include/emthrm/dynamic_programming/aliens_dp.hpp
     title: Aliens DP
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
       \u63DB"
@@ -359,18 +359,18 @@ data:
     path: include/emthrm/math/lagrange_interpolation2.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 (Lagrange interpolation)\
       \ \u8A55\u4FA1\u72482"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mobius_mu.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u7D04\u6570\
       \u7248"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mobius_mu_init.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u8868"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u88682"
@@ -549,7 +549,7 @@ data:
     path: include/emthrm/string/z_algorithm.hpp
     title: Z algorithm
   tree:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -580,7 +580,7 @@ data:
     path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570 (binomial coefficients) \u306E\u6570\u8868 \u5DE8\
       \u5927\u306A $n$ \u7248"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/twelvefold_way/lucas.hpp
     title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
   - icon: ':heavy_check_mark:'
@@ -694,7 +694,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/2d_cumulative_sum.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
@@ -974,7 +974,7 @@ data:
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
   - icon: ':warning:'
@@ -1149,7 +1149,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow)"
@@ -1214,19 +1214,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/mobius_mu.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/mobius_mu_focusing_on_divisor.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570 \u7D04\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/mobius_mu_init.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u8868"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
@@ -1284,7 +1284,7 @@ data:
     path: test/math/twelvefold_way/large_nCk_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
       \u8868 \u5DE8\u5927\u306A $n$ \u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/twelvefold_way/lucas.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
   - icon: ':heavy_check_mark:'

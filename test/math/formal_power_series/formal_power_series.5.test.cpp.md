@@ -15,10 +15,11 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc135/tasks/abc135_d
     document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
       \u7684\u51AA\u7D1A\u6570 (mod_pow)"
@@ -26,11 +27,12 @@ data:
     - https://atcoder.jp/contests/abc135/tasks/abc135_d
   bundledCode: "#line 1 \"test/math/formal_power_series/formal_power_series.5.test.cpp\"\
     \n/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570 (mod_pow)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n\
-    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include\
-    \ <utility>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/mod_convolution.hpp\"\
-    \n\n\n\n#line 5 \"include/emthrm/math/convolution/mod_convolution.hpp\"\n#include\
-    \ <bit>\n#include <cmath>\n#line 8 \"include/emthrm/math/convolution/mod_convolution.hpp\"\
+    \u7684\u51AA\u7D1A\u6570 (mod_pow)\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n */\n\n#include <algorithm>\n\
+    #include <iostream>\n#include <string>\n#include <utility>\n#include <vector>\n\
+    \n#line 1 \"include/emthrm/math/convolution/mod_convolution.hpp\"\n\n\n\n#line\
+    \ 5 \"include/emthrm/math/convolution/mod_convolution.hpp\"\n#include <bit>\n\
+    #include <cmath>\n#line 8 \"include/emthrm/math/convolution/mod_convolution.hpp\"\
     \n\n#line 1 \"include/emthrm/math/convolution/fast_fourier_transform.hpp\"\n\n\
     \n\n#line 6 \"include/emthrm/math/convolution/fast_fourier_transform.hpp\"\n#include\
     \ <cassert>\n#line 8 \"include/emthrm/math/convolution/fast_fourier_transform.hpp\"\
@@ -376,7 +378,7 @@ data:
     \ m; ++j) {\n          res[i + j] += a[i] * b[j];\n        }\n      }\n      return\
     \ res;\n    };\n    return mult;\n  }\n  static Sqrt& get_sqrt() {\n    static\
     \ Sqrt sqrt = [](const T&, T*) -> bool { return false; };\n    return sqrt;\n\
-    \  }\n};\n\n}  // namespace emthrm\n\n\n#line 16 \"test/math/formal_power_series/formal_power_series.5.test.cpp\"\
+    \  }\n};\n\n}  // namespace emthrm\n\n\n#line 17 \"test/math/formal_power_series/formal_power_series.5.test.cpp\"\
     \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  emthrm::FormalPowerSeries<ModInt>::set_mult(\n\
     \      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)\n      \
     \    -> std::vector<ModInt> {\n        return emthrm::mod_convolution(a, b);\n\
@@ -393,11 +395,11 @@ data:
     \ (idx - w * (s[i] - '0')) % M;\n      if (idx < 0) idx += M;\n    }\n    w =\
     \ w * 10 % M;\n  }\n  std::cout << f.front()[idx] << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570 (mod_pow)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n\
-    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <string>\n#include\
-    \ <utility>\n#include <vector>\n\n#include \"emthrm/math/convolution/mod_convolution.hpp\"\
-    \n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
-    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \u7684\u51AA\u7D1A\u6570 (mod_pow)\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc135/tasks/abc135_d\n */\n\n#include <algorithm>\n\
+    #include <iostream>\n#include <string>\n#include <utility>\n#include <vector>\n\
+    \n#include \"emthrm/math/convolution/mod_convolution.hpp\"\n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
     \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
     \   return emthrm::mod_convolution(a, b);\n      });\n  constexpr int D = 6, M\
@@ -421,8 +423,8 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.5.test.cpp
   requiredBy: []
-  timestamp: '2023-05-13 18:14:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-05-14 15:41:07+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.5.test.cpp
 layout: document

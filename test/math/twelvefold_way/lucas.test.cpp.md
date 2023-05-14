@@ -4,23 +4,24 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/twelvefold_way/lucas.hpp
     title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/arc117/tasks/arc117_c
     document_title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
     links:
     - https://atcoder.jp/contests/arc117/tasks/arc117_c
   bundledCode: "#line 1 \"test/math/twelvefold_way/lucas.test.cpp\"\n/*\n * @title\
     \ \u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/arc117/tasks/arc117_c\n */\n\n#include <iostream>\n\
-    #include <map>\n#include <string>\n\n#line 1 \"include/emthrm/math/modint.hpp\"\
+    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc117/tasks/arc117_c\n\
+    \ */\n\n#include <iostream>\n#include <map>\n#include <string>\n\n#line 1 \"include/emthrm/math/modint.hpp\"\
     \n\n\n\n#ifndef ARBITRARY_MODINT\n# include <cassert>\n#endif\n#include <compare>\n\
     #line 9 \"include/emthrm/math/modint.hpp\"\n// #include <numeric>\n#include <utility>\n\
     #include <vector>\n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\ntemplate\
@@ -138,7 +139,7 @@ data:
     \ ModInt = MInt<P>;\n  if (n < 0 || n < k || k < 0) [[unlikely]] return 0;\n \
     \ ModInt::init(P - 1);\n  ModInt binom = 1;\n  for (; n > 0 || k > 0; n /= P,\
     \ k /= P) {\n    binom *= ModInt::nCk(n % P, k % P);\n  }\n  return binom;\n}\n\
-    \n}  // namespace emthrm\n\n\n#line 13 \"test/math/twelvefold_way/lucas.test.cpp\"\
+    \n}  // namespace emthrm\n\n\n#line 14 \"test/math/twelvefold_way/lucas.test.cpp\"\
     \n\nint main() {\n  constexpr int C = 3;\n  using ModInt = emthrm::MInt<C>;\n\
     \  const std::string color = \"BWR\";\n  std::map<char, int> mp;\n  for (int i\
     \ = 0; i < C; ++i) {\n    mp[color[i]] = i;\n  }\n  int n;\n  std::cin >> n;\n\
@@ -146,7 +147,7 @@ data:
     \ n; ++i) {\n    ans += emthrm::lucas<C>(n - 1, i) * mp[c[i]];\n  }\n  if (n %\
     \ 2 == 0) ans = -ans;\n  std::cout << color[ans.v] << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406\n\
-    \ *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc117/tasks/arc117_c\n\
+    \ *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc117/tasks/arc117_c\n\
     \ */\n\n#include <iostream>\n#include <map>\n#include <string>\n\n#include \"\
     emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/lucas.hpp\"\n\n\
     int main() {\n  constexpr int C = 3;\n  using ModInt = emthrm::MInt<C>;\n  const\
@@ -161,8 +162,8 @@ data:
   isVerificationFile: true
   path: test/math/twelvefold_way/lucas.test.cpp
   requiredBy: []
-  timestamp: '2023-05-13 18:14:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-05-14 15:41:07+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/twelvefold_way/lucas.test.cpp
 layout: document

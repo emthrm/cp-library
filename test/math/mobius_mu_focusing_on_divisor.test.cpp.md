@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u7D04\u6570\
       \u7248"
@@ -10,10 +10,11 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc162/tasks/abc162_e
     document_title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
       \u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248"
@@ -21,7 +22,8 @@ data:
     - https://atcoder.jp/contests/abc162/tasks/abc162_e
   bundledCode: "#line 1 \"test/math/mobius_mu_focusing_on_divisor.test.cpp\"\n/*\n\
     \ * @title \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\
-    \u30B9\u95A2\u6570 \u7D04\u6570\u7248\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
+    \u30B9\u95A2\u6570 \u7D04\u6570\u7248\n *\n * verification-helper: IGNORE\n *\
+    \ verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
     \ */\n\n#include <iostream>\n#include <map>\n\n#line 1 \"include/emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\
     \n\n\n\n#include <bit>\n#line 6 \"include/emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\
     \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstd::map<T,\
@@ -144,7 +146,7 @@ data:
     \ is, MInt& x) {\n    long long v;\n    is >> v;\n    x = MInt(v);\n    return\
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
-    }  // namespace emthrm\n\n\n#line 12 \"test/math/mobius_mu_focusing_on_divisor.test.cpp\"\
+    }  // namespace emthrm\n\n\n#line 13 \"test/math/mobius_mu_focusing_on_divisor.test.cpp\"\
     \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, k;\n  std::cin\
     \ >> n >> k;\n  std::map<int, int> mu;\n  ModInt ans = 0;\n  for (int g = 1; g\
     \ <= k; ++g) {\n    ModInt ways = 0;\n    for (int m = k / g; m >= 1; --m) {\n\
@@ -153,10 +155,10 @@ data:
     \ * m)).pow(n) * mu[m];\n    }\n    ans += ways * g;\n  }\n  std::cout << ans\
     \ << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\
-    \u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\n *\n * verification-helper: PROBLEM\
-    \ https://atcoder.jp/contests/abc162/tasks/abc162_e\n */\n\n#include <iostream>\n\
-    #include <map>\n\n#include \"emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\n\
-    #include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
+    \u30A6\u30B9\u95A2\u6570 \u7D04\u6570\u7248\n *\n * verification-helper: IGNORE\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc162/tasks/abc162_e\n\
+    \ */\n\n#include <iostream>\n#include <map>\n\n#include \"emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\
+    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n\
     \  int n, k;\n  std::cin >> n >> k;\n  std::map<int, int> mu;\n  ModInt ans =\
     \ 0;\n  for (int g = 1; g <= k; ++g) {\n    ModInt ways = 0;\n    for (int m =\
     \ k / g; m >= 1; --m) {\n      if (!mu.contains(m)) {\n        for (const auto&\
@@ -169,8 +171,8 @@ data:
   isVerificationFile: true
   path: test/math/mobius_mu_focusing_on_divisor.test.cpp
   requiredBy: []
-  timestamp: '2023-05-13 18:14:57+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-05-14 15:41:07+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/mobius_mu_focusing_on_divisor.test.cpp
 layout: document

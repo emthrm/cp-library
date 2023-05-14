@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/math/mobius_mu_focusing_on_divisor.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570 \u7D04\u6570\u7248"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/mobius_mu_focusing_on_divisor.hpp\"\n\
@@ -37,7 +37,7 @@ data:
   path: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
   requiredBy: []
   timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/mobius_mu_focusing_on_divisor.test.cpp
 documentation_of: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
