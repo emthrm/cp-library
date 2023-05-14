@@ -112,6 +112,7 @@ jobs:
               "test/geometry/geometry.10.test.cpp" | \
               "test/geometry/geometry.15.test.cpp" | \
               "test/graph/detect_directed_cycle.test.cpp" | \
+              "test/math/enumerate_quotients.test.cpp" | \
               "test/math/osa_k.test.cpp" )
                 cpplint --filter=-build/include_order,-legal/copyright,-whitespace/line_length $file ;;
 
