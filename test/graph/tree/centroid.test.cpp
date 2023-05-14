@@ -1,6 +1,7 @@
 /*
  * @title グラフ/木/重心
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/arc087/tasks/arc087_f
  * Link: "https://atcoder.jp/contests/arc087/tasks/arc087_d"
  */
