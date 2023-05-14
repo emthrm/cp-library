@@ -1,9 +1,10 @@
 description: C++ Library for Competitive Programming
 exclude:
+- ac-library/
 - include/emthrm/geometry/integral_geometry.hpp
-- include/emthrm/graph_cost-free
+- include/emthrm/graph_cost-free/
 - include/emthrm/math/fast_divisor.hpp
-- test/graph_cost-free
+- test/graph_cost-free/
 - test/math/fast_divisor.test.cpp
 plugins:
 - jemoji
