@@ -1,7 +1,6 @@
 /*
  * @title 動的計画法/オフライン・オンライン変換
  *
- * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/abc213/tasks/abc213_h
  */
 
