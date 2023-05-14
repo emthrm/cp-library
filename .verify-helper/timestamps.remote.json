@@ -125,6 +125,7 @@
 "test/math/convolution/xor_convolution.test.cpp": "2023-05-13 18:14:57 +0900",
 "test/math/divisor.test.cpp": "2023-02-25 01:48:23 +0900",
 "test/math/enumerate_k-th_power.test.cpp": "2023-02-25 01:48:23 +0900",
+"test/math/enumerate_quotients.test.cpp": "2023-05-14 14:59:26 +0900",
 "test/math/euler_phi.test.cpp": "2023-02-25 16:35:06 +0900",
 "test/math/euler_phi_init.test.cpp": "2023-02-25 16:35:06 +0900",
 "test/math/euler_phi_init2.test.cpp": "2023-02-25 16:35:06 +0900",
