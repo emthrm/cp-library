@@ -21,11 +21,19 @@ data:
     \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_I\n */\n\
     \n#include <iostream>\n\n#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#include\
-    \ <limits>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\n\
-    struct LazySegmentTree {\n  using Monoid = typename T::Monoid;\n  using OperatorMonoid\
-    \ = typename T::OperatorMonoid;\n\n  explicit LazySegmentTree(const int n)\n \
-    \     : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}\n\n  explicit LazySegmentTree(const\
-    \ std::vector<Monoid>& a)\n      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n\
+    \ <limits>\n#include <type_traits>\n#include <vector>\n\nnamespace emthrm {\n\n\
+    template <typename T>\nrequires requires {\n  typename T::Monoid;\n  typename\
+    \ T::OperatorMonoid;\n  {T::m_id()} -> std::same_as<typename T::Monoid>;\n  {T::o_id()}\
+    \ -> std::same_as<typename T::OperatorMonoid>;\n  {T::m_merge(std::declval<typename\
+    \ T::Monoid>(),\n              std::declval<typename T::Monoid>())}\n      ->\
+    \ std::same_as<typename T::Monoid>;\n  {T::o_merge(std::declval<typename T::OperatorMonoid>(),\n\
+    \              std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::apply(std::declval<typename T::Monoid>(),\n     \
+    \       std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::Monoid>;\n}\nstruct LazySegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \  using OperatorMonoid = typename T::OperatorMonoid;\n\n  explicit LazySegmentTree(const\
+    \ int n)\n      : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}\n\n  explicit\
+    \ LazySegmentTree(const std::vector<Monoid>& a)\n      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n\
     \        p2(1 << height) {\n    lazy.assign(p2, T::o_id());\n    data.assign(p2\
     \ << 1, T::m_id());\n    std::copy(a.begin(), a.end(), data.begin() + p2);\n \
     \   for (int i = p2 - 1; i > 0; --i) {\n      data[i] = T::m_merge(data[i << 1],\
@@ -158,7 +166,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/range_sum_query_and_range_update_query.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/range_sum_query_and_range_update_query.test.cpp

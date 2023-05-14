@@ -69,15 +69,15 @@ data:
     \ cutpoint[i].end());\n    //   }\n    // }\n  }\n\n private:\n  std::vector<bool>\
     \ is_articulation_point;\n  std::vector<Edge<CostType>> tmp;\n\n  void dfs(const\
     \ int par, const int ver) {\n    id[ver] = -1;\n    for (const Edge<CostType>&\
-    \ e : this->graph[ver]) {\n      if (e.dst == par) [[unlikely]] continue;\n  \
-    \    int src = ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n\
-    \      if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver]) {\n     \
-    \   tmp.emplace_back(src, dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n\
-    \        dfs(ver, e.dst);\n        if (this->lowlink[e.dst] >= this->order[ver])\
-    \ {\n          const int idx = block.size();\n          block.emplace_back();\n\
-    \          std::set<int> st;\n          while (true) {\n            const Edge<CostType>\
-    \ edge = tmp.back();\n            tmp.pop_back();\n            block.back().emplace_back(edge);\n\
-    \            if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
+    \ e : this->graph[ver]) {\n      if (e.dst == par) continue;\n      int src =\
+    \ ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n      if (id[e.dst]\
+    \ == -2 || this->order[e.dst] < this->order[ver]) {\n        tmp.emplace_back(src,\
+    \ dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n        dfs(ver, e.dst);\n\
+    \        if (this->lowlink[e.dst] >= this->order[ver]) {\n          const int\
+    \ idx = block.size();\n          block.emplace_back();\n          std::set<int>\
+    \ st;\n          while (true) {\n            const Edge<CostType> edge = tmp.back();\n\
+    \            tmp.pop_back();\n            block.back().emplace_back(edge);\n \
+    \           if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
     \              st.emplace(edge.dst);\n            }\n            if (edge.src\
     \ == src && edge.dst == dst) break;\n          }\n          if constexpr (IS_FULL_VER)\
     \ {\n            vertices.emplace_back();\n            for (const int el : st)\
@@ -105,15 +105,15 @@ data:
     \ cutpoint[i].end());\n    //   }\n    // }\n  }\n\n private:\n  std::vector<bool>\
     \ is_articulation_point;\n  std::vector<Edge<CostType>> tmp;\n\n  void dfs(const\
     \ int par, const int ver) {\n    id[ver] = -1;\n    for (const Edge<CostType>&\
-    \ e : this->graph[ver]) {\n      if (e.dst == par) [[unlikely]] continue;\n  \
-    \    int src = ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n\
-    \      if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver]) {\n     \
-    \   tmp.emplace_back(src, dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n\
-    \        dfs(ver, e.dst);\n        if (this->lowlink[e.dst] >= this->order[ver])\
-    \ {\n          const int idx = block.size();\n          block.emplace_back();\n\
-    \          std::set<int> st;\n          while (true) {\n            const Edge<CostType>\
-    \ edge = tmp.back();\n            tmp.pop_back();\n            block.back().emplace_back(edge);\n\
-    \            if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
+    \ e : this->graph[ver]) {\n      if (e.dst == par) continue;\n      int src =\
+    \ ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n      if (id[e.dst]\
+    \ == -2 || this->order[e.dst] < this->order[ver]) {\n        tmp.emplace_back(src,\
+    \ dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n        dfs(ver, e.dst);\n\
+    \        if (this->lowlink[e.dst] >= this->order[ver]) {\n          const int\
+    \ idx = block.size();\n          block.emplace_back();\n          std::set<int>\
+    \ st;\n          while (true) {\n            const Edge<CostType> edge = tmp.back();\n\
+    \            tmp.pop_back();\n            block.back().emplace_back(edge);\n \
+    \           if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
     \              st.emplace(edge.dst);\n            }\n            if (edge.src\
     \ == src && edge.dst == dst) break;\n          }\n          if constexpr (IS_FULL_VER)\
     \ {\n            vertices.emplace_back();\n            for (const int el : st)\
@@ -127,7 +127,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/biconnected_component.hpp
   requiredBy: []
-  timestamp: '2023-02-24 21:17:22+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/biconnected_component.test.cpp
@@ -191,7 +191,8 @@ struct BiconnectedComponent : Lowlink<CostType>;
 
 ## 参考文献
 
-- https://www.learning-algorithms.com/entry/2018/03/21/152148
+- John Hopcroft and Robert Tarjan: Algorithm 447: efficient algorithms for graph manipulation, *Communications of the ACM*, Vol. 16, No. 6, pp. 372–378 (1973). https://doi.org/10.1145/362248.362272
+- ~~https://www.learning-algorithms.com/entry/2018/03/21/152148~~
 - https://ei1333.github.io/luzhiled/snippets/graph/bi-connected-components.html
 - https://codeforces.com/blog/entry/14832
 

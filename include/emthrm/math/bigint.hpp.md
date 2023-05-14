@@ -341,16 +341,16 @@ data:
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/math/bigint.06.test.cpp
-  - test/math/bigint.04.test.cpp
+  - test/math/bigint.07.test.cpp
   - test/math/bigint.01.test.cpp
   - test/math/bigint.03.test.cpp
-  - test/math/bigint.10.test.cpp
-  - test/math/bigint.05.test.cpp
-  - test/math/bigint.07.test.cpp
-  - test/math/bigint.02.test.cpp
   - test/math/bigint.09.test.cpp
+  - test/math/bigint.05.test.cpp
+  - test/math/bigint.02.test.cpp
   - test/math/bigint.08.test.cpp
+  - test/math/bigint.04.test.cpp
+  - test/math/bigint.06.test.cpp
+  - test/math/bigint.10.test.cpp
 documentation_of: include/emthrm/math/bigint.hpp
 layout: document
 title: "\u591A\u500D\u9577\u6574\u6570"
@@ -367,13 +367,15 @@ title: "\u591A\u500D\u9577\u6574\u6570"
 
 ## 参考文献
 
-- https://lumakernel.github.io/ecasdqina/misc/BigInteger
+- ~~https://lumakernel.github.io/ecasdqina/misc/BigInteger~~
 - https://github.com/spaghetti-source/algorithm/blob/b9b6e0b7c50600d985b2c0114fb569ee2d3102dc/math/bigint.cc
 
 カラツバ法
+- A. Karatsuba and Yu. Ofman: Multiplication of many-digital numbers by automatic computers, *Doklady Akademii Nauk SSSR*, Vol. 145, No. 2, pp. 293–294 (1962).
 - http://xn--w6q13e505b.jp/method/karatsuba.html
 
 Knuth's Algorithm D
+- Donald E. Knuth: The Art of Computer Programming, Volume 2: Seminumerical Algorithms, Addison-Wesley, 3rd edition (1997).
 - http://yamatyuu.net/computer/program/long/div/index.html
 
 
@@ -382,6 +384,7 @@ Knuth's Algorithm D
 - https://qiita.com/square1001/items/1aa12e04934b6e749962
 - http://xn--w6q13e505b.jp/method/
 - http://poset.jp/ompa/node3.html
+- https://judge.yosupo.jp/problem/division_of_big_integers
 - 乗算の高速化
   - http://xn--w6q13e505b.jp/method/mult.html
   - http://fussy.web.fc2.com/algo/math3_mult.htm
@@ -408,7 +411,7 @@ Knuth's Algorithm D
 - 平方根
   - https://codeforces.com/blog/entry/22566
   - http://poset.jp/ompa/node2.html#SECTION00024000000000000000
-  - http://www.prefield.com/algorithm/math/bignum.html
+  - ~~http://www.prefield.com/algorithm/math/bignum.html~~
 
 
 ## Submissons

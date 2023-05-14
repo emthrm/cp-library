@@ -239,6 +239,7 @@ struct Edge;
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.199-205，マイナビ出版（2012）
 
 最小費用 $s$-$t$-フロー 最短路反復法版
+- Jack Edmonds, Richard M. Karp: Theoretical Improvements in Algorithmic Efficiency for Network Flow Problems, *Journal of the ACM*, Vol. 19, No. 2, pp. 248–264 (1972). https://doi.org/10.1145/321694.321699
 - http://sigma425.hatenablog.com/entry/2014/10/12/122018
 
 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版

@@ -65,10 +65,10 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
-  - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
   - test/misc/inversion_number.test.cpp
   - test/misc/mo.test.cpp
+  - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
+  - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp
 layout: document
 title: Fenwick tree (binary indexed tree)
@@ -231,6 +231,7 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき、加算前の $
 
 ## 参考文献
 
+- Peter M. Fenwick: A new data structure for cumulative frequency tables, *Software: Practice and Experience*, Vol. 24, No. 3, pp. 327–336 (1994). https://doi.org/10.1002/spe.4380240306
 - http://hos.ac/slides/20140319_bit.pdf
 
 
@@ -241,8 +242,10 @@ $S \mathrel{:=} \sum_{i = 1}^y \sum_{j = 1}^x A_{ij}$ とおき、加算前の $
   - https://scrapbox.io/ecasdqina-cp/BIT_%E3%81%AE%E5%AE%9A%E6%95%B0%E5%80%8D%E9%AB%98%E9%80%9F%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6
 - 単調非減少な一点変更、区間最大値のクエリを処理できる Fenwick tree
   - http://hos.ac/slides/20140319_bit.pdf
-- $d$ 次元Fenwick tree
+- $d$ 次元 Fenwick tree
   - https://suisen-kyopro.hatenablog.com/entry/2022/09/09/013334
+- 非可換群上の Fenwick tree
+  - https://github.com/noshi91/n91lib_rs/blob/c9bd9cf36cbf4637884a049a4fe44f45b06ff71f/src/data_structure/fenwick_tree.rs
 
 
 ## Submissons

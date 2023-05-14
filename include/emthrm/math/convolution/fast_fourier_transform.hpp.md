@@ -19,11 +19,11 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow)"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -150,12 +150,12 @@ data:
   requiredBy:
   - include/emthrm/math/convolution/mod_convolution.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/convolution/fast_fourier_transform.test.cpp
+  - test/math/convolution/mod_convolution.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/convolution/mod_convolution.test.cpp
-  - test/math/convolution/fast_fourier_transform.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_fourier_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
@@ -298,6 +298,7 @@ $$
 
 ## 参考文献
 
+- James W. Cooley and John W. Tukey: An algorithm for the machine calculation of complex Fourier series, *Mathematics of Computation*, Vol. 19, pp. 297–301 (1965). https://doi.org/10.1090/S0025-5718-1965-0178586-1
 - https://www.slideshare.net/chokudai/fft-49066791
 - ~~https://lumakernel.github.io/ecasdqina/math/FFT/introduction~~
 - https://www.creativ.xyz/fast-fourier-transform
@@ -309,6 +310,7 @@ $$
 ## TODO
 
 - https://www.slideshare.net/chokudai/fft-49066791
+- https://tayu0110.hatenablog.com/entry/2023/05/06/023244
 - four-step fast Fourier transform / six-step fast Fourier transform
   - http://xn--w6q13e505b.jp/method/fft/2dfft.html
   - ~~https://lumakernel.github.io/ecasdqina/math/FFT/FFT2~~
@@ -327,8 +329,17 @@ $$
   - https://en.wikipedia.org/wiki/Split-radix_FFT_algorithm
   - http://xn--w6q13e505b.jp/method/fft/radix.html
   - http://wwwa.pikara.ne.jp/okojisan/stockham/stockham3.html
+- chirp Z-transform
+  - https://en.wikipedia.org/wiki/Chirp_Z-transform
+  - https://noshi91.github.io/algorithm-encyclopedia/chirp-z-transform
+  - https://noshi91.github.io/algorithm-encyclopedia/polynomial-interpolation-geometric
+  - https://yoneh.hatenadiary.org/entry/20080109/1199862684
+  - https://qiita.com/HMMNRST/items/14b990534d7b6d04307d
+  - https://scrapbox.io/mrsekut-p/Chirp_Z%E5%A4%89%E6%8F%9B
+  - https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
+  - https://twitter.com/noshi91/status/1478716471136366593
   - https://judge.yosupo.jp/problem/multivariate_convolution
   - https://judge.yosupo.jp/problem/multivariate_convolution_cyclic
   - https://nyaannyaan.github.io/library/ntt/multivariate-multiplication.hpp

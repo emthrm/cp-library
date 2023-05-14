@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy:
@@ -230,6 +230,7 @@ $d$ 次多項式同士の乗算の算術計算量を $\mathsf{M}(d)$ とおく�
 
 ## TODO
 
+- https://noshi91.hatenablog.com/entry/2023/03/29/215553
 - $x^N \bmod \Gamma(x)$
   - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
 

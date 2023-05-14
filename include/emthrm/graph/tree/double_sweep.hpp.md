@@ -27,18 +27,18 @@ data:
     \ double_sweep(\n    const std::vector<std::vector<Edge<CostType>>>& graph) {\n\
     \  const auto dfs1 = [&graph](auto dfs1, const int par, const int ver)\n     \
     \ -> std::pair<CostType, int> {\n    std::pair<CostType, int> res{0, ver};\n \
-    \   for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst != par) [[unlikely]]\
-    \ {\n        std::pair<CostType, int> child = dfs1(dfs1, ver, e.dst);\n      \
-    \  child.first += e.cost;\n        if (child.first > res.first) res = child;\n\
-    \      }\n    }\n    return res;\n  };\n  const int s = dfs1(dfs1, -1, 0).second;\n\
-    \  const auto [diameter, t] = dfs1(dfs1, -1, s);\n  std::vector<int> path{s};\n\
-    \  const auto dfs2 = [&graph, t, &path](auto dfs2, const int par, const int ver)\n\
-    \      -> bool {\n    if (ver == t) return true;\n    for (const int e : graph[ver]\n\
+    \   for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst != par) {\n\
+    \        std::pair<CostType, int> child = dfs1(dfs1, ver, e.dst);\n        child.first\
+    \ += e.cost;\n        if (child.first > res.first) res = child;\n      }\n   \
+    \ }\n    return res;\n  };\n  const int s = dfs1(dfs1, -1, 0).second;\n  const\
+    \ auto [diameter, t] = dfs1(dfs1, -1, s);\n  std::vector<int> path{s};\n  const\
+    \ auto dfs2 = [&graph, t, &path](auto dfs2, const int par, const int ver)\n  \
+    \    -> bool {\n    if (ver == t) return true;\n    for (const int e : graph[ver]\n\
     \                     | std::views::transform(&Edge<CostType>::dst)) {\n     \
-    \ if (e != par) [[likely]] {\n        path.emplace_back(e);\n        if (dfs2(dfs2,\
-    \ ver, e)) return true;\n        path.pop_back();\n      }\n    }\n    return\
-    \ false;\n  };\n  assert(dfs2(dfs2, -1, s));\n  return {diameter, path};\n}\n\n\
-    }  // namespace emthrm\n\n\n"
+    \ if (e != par) {\n        path.emplace_back(e);\n        if (dfs2(dfs2, ver,\
+    \ e)) return true;\n        path.pop_back();\n      }\n    }\n    return false;\n\
+    \  };\n  assert(dfs2(dfs2, -1, s));\n  return {diameter, path};\n}\n\n}  // namespace\
+    \ emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n#define EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n\
     \n#include <cassert>\n#include <ranges>\n#include <tuple>\n#include <utility>\n\
     #include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\n\nnamespace emthrm {\n\
@@ -46,24 +46,23 @@ data:
     \    const std::vector<std::vector<Edge<CostType>>>& graph) {\n  const auto dfs1\
     \ = [&graph](auto dfs1, const int par, const int ver)\n      -> std::pair<CostType,\
     \ int> {\n    std::pair<CostType, int> res{0, ver};\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\n      if (e.dst != par) [[unlikely]] {\n        std::pair<CostType,\
-    \ int> child = dfs1(dfs1, ver, e.dst);\n        child.first += e.cost;\n     \
-    \   if (child.first > res.first) res = child;\n      }\n    }\n    return res;\n\
-    \  };\n  const int s = dfs1(dfs1, -1, 0).second;\n  const auto [diameter, t] =\
-    \ dfs1(dfs1, -1, s);\n  std::vector<int> path{s};\n  const auto dfs2 = [&graph,\
-    \ t, &path](auto dfs2, const int par, const int ver)\n      -> bool {\n    if\
-    \ (ver == t) return true;\n    for (const int e : graph[ver]\n               \
-    \      | std::views::transform(&Edge<CostType>::dst)) {\n      if (e != par) [[likely]]\
-    \ {\n        path.emplace_back(e);\n        if (dfs2(dfs2, ver, e)) return true;\n\
-    \        path.pop_back();\n      }\n    }\n    return false;\n  };\n  assert(dfs2(dfs2,\
-    \ -1, s));\n  return {diameter, path};\n}\n\n}  // namespace emthrm\n\n#endif\
-    \  // EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n"
+    \ e : graph[ver]) {\n      if (e.dst != par) {\n        std::pair<CostType, int>\
+    \ child = dfs1(dfs1, ver, e.dst);\n        child.first += e.cost;\n        if\
+    \ (child.first > res.first) res = child;\n      }\n    }\n    return res;\n  };\n\
+    \  const int s = dfs1(dfs1, -1, 0).second;\n  const auto [diameter, t] = dfs1(dfs1,\
+    \ -1, s);\n  std::vector<int> path{s};\n  const auto dfs2 = [&graph, t, &path](auto\
+    \ dfs2, const int par, const int ver)\n      -> bool {\n    if (ver == t) return\
+    \ true;\n    for (const int e : graph[ver]\n                     | std::views::transform(&Edge<CostType>::dst))\
+    \ {\n      if (e != par) {\n        path.emplace_back(e);\n        if (dfs2(dfs2,\
+    \ ver, e)) return true;\n        path.pop_back();\n      }\n    }\n    return\
+    \ false;\n  };\n  assert(dfs2(dfs2, -1, s));\n  return {diameter, path};\n}\n\n\
+    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_DOUBLE_SWEEP_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/double_sweep.hpp
   requiredBy: []
-  timestamp: '2023-02-24 21:17:22+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/double_sweep.test.cpp
@@ -94,7 +93,8 @@ $O(\lvert V \rvert)$
 
 ## 参考文献
 
-- http://www.prefield.com/algorithm/graph/tree_diameter.html
+- Gabriel Y. Handler: Minimax Location of a Facility in an Undirected Tree Graph, *Transportation Science*, Vol. 7, No. 3, pp. 287–293 (1973). https://doi.org/10.1287/trsc.7.3.287
+- ~~http://www.prefield.com/algorithm/graph/tree_diameter.html~~
 
 
 ## TODO

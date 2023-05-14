@@ -122,8 +122,8 @@ data:
     \ int par, const int ver, const int cur_depth,\n           const CostType cur_dist)\
     \ {\n    depth[ver] = cur_depth;\n    dist[ver] = cur_dist;\n    parent.front()[ver]\
     \ = par;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst !=\
-    \ par) [[likely]] {\n        dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n\
-    \      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n#line 14 \"test/graph/2-edge-connected_components_by_lowlink.test.cpp\"\
+    \ par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n    }\n  }\n};\n\n\
+    }  // namespace emthrm\n\n\n#line 14 \"test/graph/2-edge-connected_components_by_lowlink.test.cpp\"\
     \n\nint main() {\n  int n, m;\n  std::cin >> n >> m;\n  std::vector<std::vector<emthrm::Edge<int>>>\
     \ graph(n);\n  while (m--) {\n    int x, y;\n    std::cin >> x >> y;\n    --x;\
     \ --y;\n    graph[x].emplace_back(x, y, 1);\n    graph[y].emplace_back(y, x, 1);\n\
@@ -159,7 +159,7 @@ data:
   isVerificationFile: true
   path: test/graph/2-edge-connected_components_by_lowlink.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/graph/2-edge-connected_components_by_lowlink.test.cpp

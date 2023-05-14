@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/enumerate_quotients.test.cpp
     title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/enumerate_quotients.hpp\"\n\n\n\n#include\
@@ -28,7 +28,7 @@ data:
   path: include/emthrm/math/enumerate_quotients.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/enumerate_quotients.test.cpp
 documentation_of: include/emthrm/math/enumerate_quotients.hpp
@@ -70,4 +70,4 @@ $O(\sqrt{N})$
 
 ## Submissons
 
-https://atcoder.jp/contests/abc230/submissions/28839379
+https://judge.yosupo.jp/submission/137127

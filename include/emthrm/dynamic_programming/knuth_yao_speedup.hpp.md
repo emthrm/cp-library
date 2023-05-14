@@ -116,12 +116,13 @@ $O(N^2)$
 
 ## 参考文献
 
-- Yao, F. F.: Speed-Up in Dynamic Programming, SIAM Journal on Algebraic Discrete Methods, Vol. 3, No. 4, pp. 532–540 (1982).
-- Bein, W., Golin, M. J., Larmore, L. L. and Zhang, Y.: The Knuth-Yao Quadrangle-Inequality Speedup is a Consequence of Total Monotonicity, ACM Trans. Algorithms, Vol. 6, No. 1 (2010).
+- F. Frances Yao: Speed-Up in Dynamic Programming, *SIAM Journal on Algebraic Discrete Methods*, Vol. 3, No. 4, pp. 532–540 (1982). https://doi.org/10.1137/0603055
+- Wolfgang Bein, Mordecai J. Golin , Lawrence L. Larmore, and Yan Zhang: The Knuth-Yao Quadrangle-Inequality Speedup is a Consequence of Total Monotonicity, *ACM Trans. Algorithms*, Vol. 6, No. 1 (2010). https://doi.org/10.1145/1644015.1644032
 - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120915/1347668163.html
 - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/math/Monge.md
 
 Monge property
+- Gaspard Monge: Mémoire sur la théorie des déblais et des remblais (1781).
 - https://hackmd.io/@tatyam-prime/monge1
 - https://noshi91.hatenablog.com/entry/2021/04/06/004409
 
@@ -129,6 +130,7 @@ Monge property
 ## TODO
 
 - https://home.wakatabe.com/ryo/wiki/index.php?%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0#d1c516d3
+- https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu
 - 最適二分探索木問題
   - https://atcoder.jp/contests/atc002/tasks/atc002_c
   - Hu–Tucker algorithm
@@ -149,7 +151,7 @@ Monge property
 - anti-Monge matrix
   - https://twitter.com/noshi91/status/1499821624266493952
 - monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
-  - https://dic.kimiyuki.net/monotone-minima
+  - https://noshi91.github.io/algorithm-encyclopedia/monotone-minima
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://lorent-kyopro.hatenablog.com/entry/2021/04/04/133958
@@ -163,11 +165,12 @@ Monge property
   - https://docs.google.com/presentation/d/1cgPtVG4j4Ima6Exf_Kw1IdYVfmfDJSGwaEgOMgPkWHg/
 - SMAWK algorithm: totally monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n)$ 時間で求めるアルゴリズム
   - https://en.wikipedia.org/wiki/SMAWK_algorithm
-  - https://dic.kimiyuki.net/smawk-algorithm
+  - https://noshi91.github.io/algorithm-encyclopedia/smawk-algorithm
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120923/1348327542.html
   - https://drive.google.com/drive/folders/1FMOglXlDlyg6FJiP5QTJ0iSMq7XA2mqy
   - https://noshi91.github.io/Library/algorithm/smawk.cpp
   - https://sotanishy.github.io/cp-library-cpp/dp/smawk.cpp
+  - https://twitter.com/noshi91/status/1640731216243740673
   - https://yukicoder.me/problems/no/912
   - https://twitter.com/noshi91/status/1185199846061305861
   - 凸性のある $(\max, +)$-convolution

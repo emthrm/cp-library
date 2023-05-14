@@ -57,6 +57,7 @@ $O(\lvert S \rvert)$
 
 ## 参考文献
 
+- Dan Gusfield: Algorithms on Strings, Trees, and Sequences: Computer Science and Computational Biology, Cambridge University Press, pp. 9–10 (1997). https://doi.org/10.1017/CBO9780511574931
 - https://snuke.hatenablog.com/entry/2014/12/03/214243
 - https://sen-comp.hatenablog.com/entry/2020/01/16/174230
 

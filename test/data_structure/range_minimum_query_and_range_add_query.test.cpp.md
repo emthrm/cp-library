@@ -20,9 +20,18 @@ data:
     \u30E1\u30F3\u30C8\u6728 (range minimum query and range add query)\n *\n * verification-helper:\
     \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H\n */\n\
     \n#include <iostream>\n#include <limits>\n#include <vector>\n\n#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\
-    \n\n\n\n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#line 9 \"\
-    include/emthrm/data_structure/lazy_segment_tree.hpp\"\n\nnamespace emthrm {\n\n\
-    template <typename T>\nstruct LazySegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \n\n\n\n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#line 8 \"\
+    include/emthrm/data_structure/lazy_segment_tree.hpp\"\n#include <type_traits>\n\
+    #line 10 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\n\nnamespace\
+    \ emthrm {\n\ntemplate <typename T>\nrequires requires {\n  typename T::Monoid;\n\
+    \  typename T::OperatorMonoid;\n  {T::m_id()} -> std::same_as<typename T::Monoid>;\n\
+    \  {T::o_id()} -> std::same_as<typename T::OperatorMonoid>;\n  {T::m_merge(std::declval<typename\
+    \ T::Monoid>(),\n              std::declval<typename T::Monoid>())}\n      ->\
+    \ std::same_as<typename T::Monoid>;\n  {T::o_merge(std::declval<typename T::OperatorMonoid>(),\n\
+    \              std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::apply(std::declval<typename T::Monoid>(),\n     \
+    \       std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::Monoid>;\n}\nstruct LazySegmentTree {\n  using Monoid = typename T::Monoid;\n\
     \  using OperatorMonoid = typename T::OperatorMonoid;\n\n  explicit LazySegmentTree(const\
     \ int n)\n      : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}\n\n  explicit\
     \ LazySegmentTree(const std::vector<Monoid>& a)\n      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n\
@@ -159,7 +168,7 @@ data:
   isVerificationFile: true
   path: test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/range_minimum_query_and_range_add_query.test.cpp

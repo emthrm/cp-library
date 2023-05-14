@@ -8,11 +8,11 @@ data:
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.1.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
+    title: "\u30B0\u30E9\u30D5/\u6728/heavy-light decomposition"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\uFF08\u6700\u5C0F\u5171\u901A\
-      \u7956\u5148\uFF09"
+    title: "\u30B0\u30E9\u30D5/\u6728/heavy-light decomposition\uFF08\u6700\u5C0F\u5171\
+      \u901A\u7956\u5148\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -65,15 +65,14 @@ data:
     \      v = parent[head[v]];\n    }\n    return u;\n  }\n\n private:\n  std::vector<std::vector<Edge<CostType>>>\
     \ graph;\n\n  void dfs1(const int ver) {\n    for (int i = 0; std::cmp_less(i,\
     \ graph[ver].size()); ++i) {\n      Edge<CostType>& e = graph[ver][i];\n     \
-    \ if (e.dst != parent[ver]) [[likely]] {\n        parent[e.dst] = ver;\n     \
-    \   dfs1(e.dst);\n        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst]\
-    \ > subtree[graph[ver].front().dst]) {\n          std::swap(e, graph[ver].front());\n\
-    \        }\n      }\n    }\n  }\n\n  void dfs2(const int ver, int* cur_id) {\n\
-    \    id[ver] = (*cur_id)++;\n    inv[id[ver]] = ver;\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\n      if (e.dst != parent[ver]) [[likely]] {\n        head[e.dst]\
-    \ = (e.dst == graph[ver].front().dst ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n\
-    \        dfs2(e.dst, cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\
-    \n\n"
+    \ if (e.dst != parent[ver]) {\n        parent[e.dst] = ver;\n        dfs1(e.dst);\n\
+    \        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst] > subtree[graph[ver].front().dst])\
+    \ {\n          std::swap(e, graph[ver].front());\n        }\n      }\n    }\n\
+    \  }\n\n  void dfs2(const int ver, int* cur_id) {\n    id[ver] = (*cur_id)++;\n\
+    \    inv[id[ver]] = ver;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
+    \     if (e.dst != parent[ver]) {\n        head[e.dst] = (e.dst == graph[ver].front().dst\
+    \ ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n        dfs2(e.dst,\
+    \ cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_\n#define EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_\n\
     \n#include <algorithm>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct HeavyLightDecomposition\
@@ -114,28 +113,27 @@ data:
     \      v = parent[head[v]];\n    }\n    return u;\n  }\n\n private:\n  std::vector<std::vector<Edge<CostType>>>\
     \ graph;\n\n  void dfs1(const int ver) {\n    for (int i = 0; std::cmp_less(i,\
     \ graph[ver].size()); ++i) {\n      Edge<CostType>& e = graph[ver][i];\n     \
-    \ if (e.dst != parent[ver]) [[likely]] {\n        parent[e.dst] = ver;\n     \
-    \   dfs1(e.dst);\n        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst]\
-    \ > subtree[graph[ver].front().dst]) {\n          std::swap(e, graph[ver].front());\n\
-    \        }\n      }\n    }\n  }\n\n  void dfs2(const int ver, int* cur_id) {\n\
-    \    id[ver] = (*cur_id)++;\n    inv[id[ver]] = ver;\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\n      if (e.dst != parent[ver]) [[likely]] {\n        head[e.dst]\
-    \ = (e.dst == graph[ver].front().dst ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n\
-    \        dfs2(e.dst, cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_\n"
+    \ if (e.dst != parent[ver]) {\n        parent[e.dst] = ver;\n        dfs1(e.dst);\n\
+    \        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst] > subtree[graph[ver].front().dst])\
+    \ {\n          std::swap(e, graph[ver].front());\n        }\n      }\n    }\n\
+    \  }\n\n  void dfs2(const int ver, int* cur_id) {\n    id[ver] = (*cur_id)++;\n\
+    \    inv[id[ver]] = ver;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
+    \     if (e.dst != parent[ver]) {\n        head[e.dst] = (e.dst == graph[ver].front().dst\
+    \ ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n        dfs2(e.dst,\
+    \ cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_HEAVY_LIGHT_DECOMPOSITION_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
   requiredBy: []
-  timestamp: '2023-02-24 21:17:22+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/graph/tree/heavy-light_decomposition.2.test.cpp
+  - test/graph/tree/heavy-light_decomposition.1.test.cpp
 documentation_of: include/emthrm/graph/tree/heavy-light_decomposition.hpp
 layout: document
-title: "HL \u5206\u89E3 (heavy-light decomposition)"
+title: heavy-light decomposition
 ---
 
 heavy edge と light edge に分類された辺を基にして、木を分解する方法である。
@@ -184,8 +182,9 @@ struct HeavyLightDecomposition;
 
 ## 参考文献
 
+- Daniel D. Sleator and Robert Endre Tarjan: A data structure for dynamic trees, *Journal of Computer and System Sciences*, Vol. 26, No. 3, pp. 362–391 (1983). https://doi.org/10.1016/0022-0000(83)90006-5
 - https://www.slideshare.net/hcpc_hokudai/study-20150107
-- http://beet-aizu.hatenablog.com/entry/2017/12/12/235950
+- ~~http://beet-aizu.hatenablog.com/entry/2017/12/12/235950~~
 - https://github.com/beet-aizu/library/blob/627950ae389af108b3c3f431f057c58891b0ba72/tree/heavylightdecomposition.cpp
 - https://codeforces.com/blog/entry/53170
 

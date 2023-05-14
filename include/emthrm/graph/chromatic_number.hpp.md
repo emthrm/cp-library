@@ -87,7 +87,7 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
 
 - https://www.slideshare.net/wata_orz/ss-12131479
 - http://drken1215.hatenablog.com/entry/2019/01/16/030000
-- https://www.learning-algorithms.com/entry/2018/01/27/235959
+- ~~https://www.learning-algorithms.com/entry/2018/01/27/235959~~
 - https://github.com/spaghetti-source/algorithm/blob/b541e0b06aa4145592527b7de8e2caa8720bac22/graph/chromatic_number.cc
 
 
@@ -103,11 +103,14 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
   - https://twitter.com/snuke_/status/1246630370415538176
   - https://twitter.com/noshi91/status/1247010856040165377
   - https://github.com/ei1333/library/blob/master/structure/union-find/bipartite-graph.cpp
-  - http://www.prefield.com/algorithm/graph/bipartite_coloring.html
+  - ~~http://www.prefield.com/algorithm/graph/bipartite_coloring.html~~
   - https://judge.yosupo.jp/problem/bipartite_edge_coloring
   - https://yukicoder.me/problems/no/3071
+- $\#k$-彩色 ($\#k$-coloring)
+  - https://atcoder.jp/contests/abc294/tasks/abc294_h
+  - https://twitter.com/noshi91/status/1637451650402234373
 - 彩色多項式
-  - https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp
+  - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp~~
 
 
 ## Submissons

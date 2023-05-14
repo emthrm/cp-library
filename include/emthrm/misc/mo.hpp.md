@@ -84,6 +84,7 @@ struct Mo;
 
 ## 参考文献
 
+- https://codeforces.com/blog/entry/81716
 - https://ei1333.hateblo.jp/entry/2017/09/11/211011
 - https://snuke.hatenablog.com/entry/2016/07/01/000000
 
@@ -93,7 +94,7 @@ struct Mo;
 - https://www.hamayanhamayan.com/entry/2017/04/18/012937
 - Rollback 平方分割
   - https://snuke.hatenablog.com/entry/2016/07/01/000000
-  - https://lumakernel.github.io/ecasdqina/algorithm/MoEx
+  - ~~https://lumakernel.github.io/ecasdqina/algorithm/MoEx~~
   - https://github.com/ei1333/library/blob/master/other/mo-rollback.cpp
 - 木上の Mo's algorithm、時空間 Mo's algorithm
   - https://ei1333.hateblo.jp/entry/2017/09/11/211011

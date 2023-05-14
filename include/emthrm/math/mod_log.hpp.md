@@ -82,11 +82,15 @@ $O(\sqrt{P} \log{P})$
 
 ## 参考文献
 
+- Daniel Shanks: Class number, a theory of factorization, and genera, *Proceedings of Symposia in Pure Mathematics*, Vol. 20, pp. 415–440 (1969).
 - http://sonickun.hatenablog.com/entry/2016/11/20/192743
 
 
 ## TODO
 
+- 一般化
+  - https://maspypy.com/%e3%83%a2%e3%83%8e%e3%82%a4%e3%83%89%e4%bd%9c%e7%94%a8%e3%81%ab%e9%96%a2%e3%81%99%e3%82%8b%e9%9b%a2%e6%95%a3%e5%af%be%e6%95%b0%e5%95%8f%e9%a1%8c
+  - https://twitter.com/kotatsugame_t/status/1640549382658605056
 - Pohlig–Hellman algorithm
   - http://sonickun.hatenablog.com/entry/2016/11/20/192743
   - https://yukicoder.me/problems/no/950

@@ -93,6 +93,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 ## 参考文献
 
+- Leonhard Euler: Theoremata arithmetica nova methodo demonstrata, *Novi Commentarii academiae scientiarum Petropolitanae*, Vol. 8, pp. 74–104 (1763).
 - https://ei1333.github.io/algorithm/euler-phi.html
 
 数表2
@@ -103,7 +104,7 @@ $n \perp a$ を満たす $n, a \in \mathbb{N}^+$ に対して $a^{\varphi(n)} \e
 
 - $\sum_{i = 1}^n \varphi(i)$ を $O(N^{\frac{2}{3}})$ で求める。
   - https://yukicoder.me/wiki/sum_totient
-  - https://min-25.hatenablog.com/entry/2018/11/11/172216
+  - ~~https://min-25.hatenablog.com/entry/2018/11/11/172216~~
   - https://judge.yosupo.jp/problem/sum_of_totient_function
 
 

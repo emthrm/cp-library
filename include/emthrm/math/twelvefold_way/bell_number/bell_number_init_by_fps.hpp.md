@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
@@ -216,7 +216,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
+|`template <unsigned int T>`<br>`MInt<T> bell_number(const int n, int k);`|$B(n, k)$|
 
 
 ### 数表
@@ -235,8 +235,10 @@ $$
 
 ## 参考文献
 
-- https://qiita.com/drken/items/f2ea4b58b0d21621bd51
+- Eric Temple Bell: The Iterated Exponential Integers, *Annals of Mathematics*, Vol. 39, No. 3, pp. 539–557 (1938). https://doi.org/10.2307/1968633
+- H. W. Becker and John Riordan: The Arithmetic of Bell and Stirling Numbers, *American Journal of Mathematics*, Vol. 70, No. 2, pp. 385–394 (1948). https://doi.org/10.2307/2372336
 - https://ja.wikipedia.org/wiki/ベル数
+- https://qiita.com/drken/items/f2ea4b58b0d21621bd51
 
 
 ## Submissons

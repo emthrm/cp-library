@@ -46,13 +46,13 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/fast_zeta_transform.hpp
   requiredBy:
-  - include/emthrm/math/convolution/or_convolution.hpp
   - include/emthrm/math/convolution/and_convolution.hpp
+  - include/emthrm/math/convolution/or_convolution.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/convolution/fast_zeta_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp
+  - test/math/convolution/fast_zeta_transform.test.cpp
 documentation_of: include/emthrm/math/convolution/fast_zeta_transform.hpp
 layout: document
 title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
@@ -68,6 +68,8 @@ $O(N\log{N})$
 
 ## 仕様
 
+### Yates's algorithm
+
 |名前|戻り値|
 |:--|:--|
 |`template <bool ADDS_SUPERSET, typename Ring, typename BinOp = std::plus<Ring>>`<br>`std::vector<Ring> fast_zeta_transform(std::vector<Ring> a, const Ring ID = 0, const BinOp bin_op = BinOp());`|$A$ に高速ゼータ変換を行ったもの|`ADDS_SUPERSET` は上位集合に対する変換かを表す。|
@@ -75,6 +77,7 @@ $O(N\log{N})$
 
 ## 参考文献
 
+- F. Yates: The Design and Analysis of Factorial Experiments, *Technical Communication*, Vol. 35 (1937).
 - https://qiita.com/convexineq/items/afc84dfb9ee4ec4a67d5
 - https://naoyat.hatenablog.jp/entry/zeta-moebius
 - https://todo314.hatenadiary.org/entry/20120614/1339695202

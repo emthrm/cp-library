@@ -9,7 +9,7 @@ data:
     title: "\u8FBA"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
-    title: "HL \u5206\u89E3 (heavy-light decomposition)"
+    title: heavy-light decomposition
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,11 +17,11 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667
-    document_title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
+    document_title: "\u30B0\u30E9\u30D5/\u6728/heavy-light decomposition"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667
   bundledCode: "#line 1 \"test/graph/tree/heavy-light_decomposition.1.test.cpp\"\n\
-    /*\n * @title \u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\n *\n * verification-helper:\
+    /*\n * @title \u30B0\u30E9\u30D5/\u6728/heavy-light decomposition\n *\n * verification-helper:\
     \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667\n */\n\
     \n#include <functional>\n#include <iostream>\n#include <vector>\n\n#line 1 \"\
     include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp\"\
@@ -94,17 +94,17 @@ data:
     \      v = parent[head[v]];\n    }\n    return u;\n  }\n\n private:\n  std::vector<std::vector<Edge<CostType>>>\
     \ graph;\n\n  void dfs1(const int ver) {\n    for (int i = 0; std::cmp_less(i,\
     \ graph[ver].size()); ++i) {\n      Edge<CostType>& e = graph[ver][i];\n     \
-    \ if (e.dst != parent[ver]) [[likely]] {\n        parent[e.dst] = ver;\n     \
-    \   dfs1(e.dst);\n        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst]\
-    \ > subtree[graph[ver].front().dst]) {\n          std::swap(e, graph[ver].front());\n\
-    \        }\n      }\n    }\n  }\n\n  void dfs2(const int ver, int* cur_id) {\n\
-    \    id[ver] = (*cur_id)++;\n    inv[id[ver]] = ver;\n    for (const Edge<CostType>&\
-    \ e : graph[ver]) {\n      if (e.dst != parent[ver]) [[likely]] {\n        head[e.dst]\
-    \ = (e.dst == graph[ver].front().dst ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n\
-    \        dfs2(e.dst, cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\
-    \n\n#line 14 \"test/graph/tree/heavy-light_decomposition.1.test.cpp\"\n\nint main()\
-    \ {\n  int n, q;\n  std::cin >> n >> q;\n  std::vector<std::vector<emthrm::Edge<long\
-    \ long>>> graph(n);\n  for (int i = 0; i < n - 1; ++i) {\n    int a, b;\n    std::cin\
+    \ if (e.dst != parent[ver]) {\n        parent[e.dst] = ver;\n        dfs1(e.dst);\n\
+    \        subtree[ver] += subtree[e.dst];\n        if (subtree[e.dst] > subtree[graph[ver].front().dst])\
+    \ {\n          std::swap(e, graph[ver].front());\n        }\n      }\n    }\n\
+    \  }\n\n  void dfs2(const int ver, int* cur_id) {\n    id[ver] = (*cur_id)++;\n\
+    \    inv[id[ver]] = ver;\n    for (const Edge<CostType>& e : graph[ver]) {\n \
+    \     if (e.dst != parent[ver]) {\n        head[e.dst] = (e.dst == graph[ver].front().dst\
+    \ ? head[ver] : e.dst);\n        cost.emplace_back(e.cost);\n        dfs2(e.dst,\
+    \ cur_id);\n      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n#line 14 \"\
+    test/graph/tree/heavy-light_decomposition.1.test.cpp\"\n\nint main() {\n  int\
+    \ n, q;\n  std::cin >> n >> q;\n  std::vector<std::vector<emthrm::Edge<long long>>>\
+    \ graph(n);\n  for (int i = 0; i < n - 1; ++i) {\n    int a, b;\n    std::cin\
     \ >> a >> b;\n    graph[a].emplace_back(a, b, 0);\n    graph[b].emplace_back(b,\
     \ a, 0);\n  }\n  emthrm::HeavyLightDecomposition<long long>\n      heavy_light_decomposition(graph,\
     \ 0);\n  emthrm::FenwickTreeSupportingRangeAddQuery<long long> bit(n - 1);\n \
@@ -117,10 +117,10 @@ data:
     \   std::cin >> v >> x;\n      heavy_light_decomposition.update_subtree_e(\n \
     \         v,\n          [&bit, x](const int l, const int r) -> void {\n      \
     \      return bit.add(l, r, x);\n          });\n    }\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\n *\n * verification-helper:\
-    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667\n */\n\
-    \n#include <functional>\n#include <iostream>\n#include <vector>\n\n#include \"\
-    emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp\"\
+  code: "/*\n * @title \u30B0\u30E9\u30D5/\u6728/heavy-light decomposition\n *\n *\
+    \ verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2667\n\
+    \ */\n\n#include <functional>\n#include <iostream>\n#include <vector>\n\n#include\
+    \ \"emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp\"\
     \n#include \"emthrm/graph/edge.hpp\"\n#include \"emthrm/graph/tree/heavy-light_decomposition.hpp\"\
     \n\nint main() {\n  int n, q;\n  std::cin >> n >> q;\n  std::vector<std::vector<emthrm::Edge<long\
     \ long>>> graph(n);\n  for (int i = 0; i < n - 1; ++i) {\n    int a, b;\n    std::cin\
@@ -143,7 +143,7 @@ data:
   isVerificationFile: true
   path: test/graph/tree/heavy-light_decomposition.1.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/tree/heavy-light_decomposition.1.test.cpp
@@ -151,5 +151,5 @@ layout: document
 redirect_from:
 - /verify/test/graph/tree/heavy-light_decomposition.1.test.cpp
 - /verify/test/graph/tree/heavy-light_decomposition.1.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
+title: "\u30B0\u30E9\u30D5/\u6728/heavy-light decomposition"
 ---

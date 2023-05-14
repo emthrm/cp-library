@@ -117,12 +117,12 @@ struct CentroidDecomposition;
 ## 参考文献
 
 - http://compro.tsutajiro.com/archive/190207_divcon.pdf
-- https://lumakernel.github.io/ecasdqina/graph/CentroidDecomposition
+- ~~https://lumakernel.github.io/ecasdqina/graph/CentroidDecomposition~~
 
 
 ## TODO
 
-- https://twitter.com/beet_aizu/status/1142651943971540992
+- ~~https://twitter.com/beet_aizu/status/1142651943971540992~~
 
 
 ## Submissons

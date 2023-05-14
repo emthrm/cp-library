@@ -153,11 +153,11 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
   - test/math/bigint.01.test.cpp
+  - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.3.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.1.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.2.test.cpp
 documentation_of: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_s-t-flow.hpp
 layout: document
 title: "\u6700\u5C0F\u8CBB\u7528 $s$-$t$-\u30D5\u30ED\u30FC (minimum cost $s$-$t$-flow)\
@@ -295,6 +295,7 @@ struct Edge;
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.199-205，マイナビ出版（2012）
 
 最小費用 $s$-$t$-フロー 最短路反復法版
+- Jack Edmonds, Richard M. Karp: Theoretical Improvements in Algorithmic Efficiency for Network Flow Problems, *Journal of the ACM*, Vol. 19, No. 2, pp. 248–264 (1972). https://doi.org/10.1145/321694.321699
 - http://sigma425.hatenablog.com/entry/2014/10/12/122018
 
 最小費用 $\boldsymbol{b}$-フロー 最短路反復法版

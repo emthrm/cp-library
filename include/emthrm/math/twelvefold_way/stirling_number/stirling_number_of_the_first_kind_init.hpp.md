@@ -126,7 +126,7 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
+|`template <unsigned int T>`<br>`MInt<T> stirling_number_of_the_second_kind(const int n, const int k);`|第2種スターリング数 $S(n,k)$|
 
 
 ### 第2種スターリング数の数表
@@ -140,11 +140,12 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
+|`template <unsigned int T>`<br>`std::vector<MInt<T>> stirling_number_of_the_second_kind_init_by_fps(const int n);`|第2種スターリング数 $S(n, k)$ ($0 \leq k \leq n$) の数表|
 
 
 ## 参考文献
 
+- James Stirling: Methodus differentialis: sive tractatus de summatione et interpolatione serierum infinitarum (1730).
 - https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E6%95%B0
 
 第2種スターリング数
@@ -152,7 +153,7 @@ $$
 - https://mathtrain.jp/zensya
 
 形式的冪級数版
-- https://min-25.hatenablog.com/entry/2015/04/07/160154
+- ~~https://min-25.hatenablog.com/entry/2015/04/07/160154~~
 
 
 ## TODO

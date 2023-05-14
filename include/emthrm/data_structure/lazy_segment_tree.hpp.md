@@ -25,8 +25,8 @@ data:
       \u30F3\u30C8\u6728 (range sum query and range update query)"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
-      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 Euler tour\
+      \ technique \u7248"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -34,42 +34,51 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\n\n\
     \n\n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#include <limits>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct LazySegmentTree\
-    \ {\n  using Monoid = typename T::Monoid;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\
-    \n  explicit LazySegmentTree(const int n)\n      : LazySegmentTree(std::vector<Monoid>(n,\
-    \ T::m_id())) {}\n\n  explicit LazySegmentTree(const std::vector<Monoid>& a)\n\
-    \      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n   \
-    \     p2(1 << height) {\n    lazy.assign(p2, T::o_id());\n    data.assign(p2 <<\
-    \ 1, T::m_id());\n    std::copy(a.begin(), a.end(), data.begin() + p2);\n    for\
-    \ (int i = p2 - 1; i > 0; --i) {\n      data[i] = T::m_merge(data[i << 1], data[(i\
-    \ << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val) {\n    idx\
-    \ += p2;\n    for (int i = height; i > 0; --i) {\n      propagate(idx >> i);\n\
-    \    }\n    data[idx] = val;\n    for (int i = 1; i <= height; ++i) {\n      const\
-    \ int current_idx = idx >> i;\n      data[current_idx] =\n          T::m_merge(data[current_idx\
-    \ << 1], data[(current_idx << 1) + 1]);\n    }\n  }\n\n  void apply(int idx, const\
-    \ OperatorMonoid val) {\n    idx += p2;\n    for (int i = height; i > 0; --i)\
-    \ {\n      propagate(idx >> i);\n    }\n    data[idx] = T::apply(data[idx], val);\n\
-    \    for (int i = 1; i <= height; ++i) {\n      const int current_idx = idx >>\
-    \ i;\n      data[current_idx] =\n          T::m_merge(data[current_idx << 1],\
-    \ data[(current_idx << 1) + 1]);\n    }\n  }\n\n  void apply(int left, int right,\
-    \ const OperatorMonoid val) {\n    if (right <= left) [[unlikely]] return;\n \
-    \   left += p2;\n    right += p2;\n    const int ctz_left = std::countr_zero(static_cast<unsigned\
-    \ int>(left));\n    for (int i = height; i > ctz_left; --i) {\n      propagate(left\
-    \ >> i);\n    }\n    const int ctz_right = std::countr_zero(static_cast<unsigned\
-    \ int>(right));\n    for (int i = height; i > ctz_right; --i) {\n      propagate(right\
-    \ >> i);\n    }\n    for (int l = left, r = right; l < r; l >>= 1, r >>= 1) {\n\
-    \      if (l & 1) apply_sub(l++, val);\n      if (r & 1) apply_sub(--r, val);\n\
-    \    }\n    for (int i = left >> (ctz_left + 1); i > 0; i >>= 1) {\n      data[i]\
-    \ = T::m_merge(data[i << 1], data[(i << 1) + 1]);\n    }\n    for (int i = right\
-    \ >> (ctz_right + 1); i > 0; i >>= 1) {\n      data[i] = T::m_merge(data[i <<\
-    \ 1], data[(i << 1) + 1]);\n    }\n  }\n\n  Monoid get(int left, int right) {\n\
-    \    if (right <= left) [[unlikely]] return T::m_id();\n    left += p2;\n    right\
-    \ += p2;\n    const int ctz_left = std::countr_zero(static_cast<unsigned int>(left));\n\
+    #include <type_traits>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nrequires requires {\n  typename T::Monoid;\n  typename T::OperatorMonoid;\n\
+    \  {T::m_id()} -> std::same_as<typename T::Monoid>;\n  {T::o_id()} -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::m_merge(std::declval<typename T::Monoid>(),\n   \
+    \           std::declval<typename T::Monoid>())}\n      -> std::same_as<typename\
+    \ T::Monoid>;\n  {T::o_merge(std::declval<typename T::OperatorMonoid>(),\n   \
+    \           std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::apply(std::declval<typename T::Monoid>(),\n     \
+    \       std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::Monoid>;\n}\nstruct LazySegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \  using OperatorMonoid = typename T::OperatorMonoid;\n\n  explicit LazySegmentTree(const\
+    \ int n)\n      : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}\n\n  explicit\
+    \ LazySegmentTree(const std::vector<Monoid>& a)\n      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n\
+    \        p2(1 << height) {\n    lazy.assign(p2, T::o_id());\n    data.assign(p2\
+    \ << 1, T::m_id());\n    std::copy(a.begin(), a.end(), data.begin() + p2);\n \
+    \   for (int i = p2 - 1; i > 0; --i) {\n      data[i] = T::m_merge(data[i << 1],\
+    \ data[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val) {\n\
+    \    idx += p2;\n    for (int i = height; i > 0; --i) {\n      propagate(idx >>\
+    \ i);\n    }\n    data[idx] = val;\n    for (int i = 1; i <= height; ++i) {\n\
+    \      const int current_idx = idx >> i;\n      data[current_idx] =\n        \
+    \  T::m_merge(data[current_idx << 1], data[(current_idx << 1) + 1]);\n    }\n\
+    \  }\n\n  void apply(int idx, const OperatorMonoid val) {\n    idx += p2;\n  \
+    \  for (int i = height; i > 0; --i) {\n      propagate(idx >> i);\n    }\n   \
+    \ data[idx] = T::apply(data[idx], val);\n    for (int i = 1; i <= height; ++i)\
+    \ {\n      const int current_idx = idx >> i;\n      data[current_idx] =\n    \
+    \      T::m_merge(data[current_idx << 1], data[(current_idx << 1) + 1]);\n   \
+    \ }\n  }\n\n  void apply(int left, int right, const OperatorMonoid val) {\n  \
+    \  if (right <= left) [[unlikely]] return;\n    left += p2;\n    right += p2;\n\
+    \    const int ctz_left = std::countr_zero(static_cast<unsigned int>(left));\n\
     \    for (int i = height; i > ctz_left; --i) {\n      propagate(left >> i);\n\
     \    }\n    const int ctz_right = std::countr_zero(static_cast<unsigned int>(right));\n\
     \    for (int i = height; i > ctz_right; --i) {\n      propagate(right >> i);\n\
-    \    }\n    Monoid res_l = T::m_id(), res_r = T::m_id();\n    for (; left < right;\
-    \ left >>= 1, right >>= 1) {\n      if (left & 1) res_l = T::m_merge(res_l, data[left++]);\n\
+    \    }\n    for (int l = left, r = right; l < r; l >>= 1, r >>= 1) {\n      if\
+    \ (l & 1) apply_sub(l++, val);\n      if (r & 1) apply_sub(--r, val);\n    }\n\
+    \    for (int i = left >> (ctz_left + 1); i > 0; i >>= 1) {\n      data[i] = T::m_merge(data[i\
+    \ << 1], data[(i << 1) + 1]);\n    }\n    for (int i = right >> (ctz_right + 1);\
+    \ i > 0; i >>= 1) {\n      data[i] = T::m_merge(data[i << 1], data[(i << 1) +\
+    \ 1]);\n    }\n  }\n\n  Monoid get(int left, int right) {\n    if (right <= left)\
+    \ [[unlikely]] return T::m_id();\n    left += p2;\n    right += p2;\n    const\
+    \ int ctz_left = std::countr_zero(static_cast<unsigned int>(left));\n    for (int\
+    \ i = height; i > ctz_left; --i) {\n      propagate(left >> i);\n    }\n    const\
+    \ int ctz_right = std::countr_zero(static_cast<unsigned int>(right));\n    for\
+    \ (int i = height; i > ctz_right; --i) {\n      propagate(right >> i);\n    }\n\
+    \    Monoid res_l = T::m_id(), res_r = T::m_id();\n    for (; left < right; left\
+    \ >>= 1, right >>= 1) {\n      if (left & 1) res_l = T::m_merge(res_l, data[left++]);\n\
     \      if (right & 1) res_r = T::m_merge(data[--right], res_r);\n    }\n    return\
     \ T::m_merge(res_l, res_r);\n  }\n\n  Monoid operator[](const int idx) {\n   \
     \ const int node = idx + p2;\n    for (int i = height; i > 0; --i) {\n      propagate(node\
@@ -151,42 +160,51 @@ data:
     \n\n"
   code: "#ifndef EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_LAZY_SEGMENT_TREE_HPP_\n\
     \n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#include <limits>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct LazySegmentTree\
-    \ {\n  using Monoid = typename T::Monoid;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\
-    \n  explicit LazySegmentTree(const int n)\n      : LazySegmentTree(std::vector<Monoid>(n,\
-    \ T::m_id())) {}\n\n  explicit LazySegmentTree(const std::vector<Monoid>& a)\n\
-    \      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n   \
-    \     p2(1 << height) {\n    lazy.assign(p2, T::o_id());\n    data.assign(p2 <<\
-    \ 1, T::m_id());\n    std::copy(a.begin(), a.end(), data.begin() + p2);\n    for\
-    \ (int i = p2 - 1; i > 0; --i) {\n      data[i] = T::m_merge(data[i << 1], data[(i\
-    \ << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val) {\n    idx\
-    \ += p2;\n    for (int i = height; i > 0; --i) {\n      propagate(idx >> i);\n\
-    \    }\n    data[idx] = val;\n    for (int i = 1; i <= height; ++i) {\n      const\
-    \ int current_idx = idx >> i;\n      data[current_idx] =\n          T::m_merge(data[current_idx\
-    \ << 1], data[(current_idx << 1) + 1]);\n    }\n  }\n\n  void apply(int idx, const\
-    \ OperatorMonoid val) {\n    idx += p2;\n    for (int i = height; i > 0; --i)\
-    \ {\n      propagate(idx >> i);\n    }\n    data[idx] = T::apply(data[idx], val);\n\
-    \    for (int i = 1; i <= height; ++i) {\n      const int current_idx = idx >>\
-    \ i;\n      data[current_idx] =\n          T::m_merge(data[current_idx << 1],\
-    \ data[(current_idx << 1) + 1]);\n    }\n  }\n\n  void apply(int left, int right,\
-    \ const OperatorMonoid val) {\n    if (right <= left) [[unlikely]] return;\n \
-    \   left += p2;\n    right += p2;\n    const int ctz_left = std::countr_zero(static_cast<unsigned\
-    \ int>(left));\n    for (int i = height; i > ctz_left; --i) {\n      propagate(left\
-    \ >> i);\n    }\n    const int ctz_right = std::countr_zero(static_cast<unsigned\
-    \ int>(right));\n    for (int i = height; i > ctz_right; --i) {\n      propagate(right\
-    \ >> i);\n    }\n    for (int l = left, r = right; l < r; l >>= 1, r >>= 1) {\n\
-    \      if (l & 1) apply_sub(l++, val);\n      if (r & 1) apply_sub(--r, val);\n\
-    \    }\n    for (int i = left >> (ctz_left + 1); i > 0; i >>= 1) {\n      data[i]\
-    \ = T::m_merge(data[i << 1], data[(i << 1) + 1]);\n    }\n    for (int i = right\
-    \ >> (ctz_right + 1); i > 0; i >>= 1) {\n      data[i] = T::m_merge(data[i <<\
-    \ 1], data[(i << 1) + 1]);\n    }\n  }\n\n  Monoid get(int left, int right) {\n\
-    \    if (right <= left) [[unlikely]] return T::m_id();\n    left += p2;\n    right\
-    \ += p2;\n    const int ctz_left = std::countr_zero(static_cast<unsigned int>(left));\n\
+    #include <type_traits>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nrequires requires {\n  typename T::Monoid;\n  typename T::OperatorMonoid;\n\
+    \  {T::m_id()} -> std::same_as<typename T::Monoid>;\n  {T::o_id()} -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::m_merge(std::declval<typename T::Monoid>(),\n   \
+    \           std::declval<typename T::Monoid>())}\n      -> std::same_as<typename\
+    \ T::Monoid>;\n  {T::o_merge(std::declval<typename T::OperatorMonoid>(),\n   \
+    \           std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::apply(std::declval<typename T::Monoid>(),\n     \
+    \       std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::Monoid>;\n}\nstruct LazySegmentTree {\n  using Monoid = typename T::Monoid;\n\
+    \  using OperatorMonoid = typename T::OperatorMonoid;\n\n  explicit LazySegmentTree(const\
+    \ int n)\n      : LazySegmentTree(std::vector<Monoid>(n, T::m_id())) {}\n\n  explicit\
+    \ LazySegmentTree(const std::vector<Monoid>& a)\n      : n(a.size()), height(std::countr_zero(std::bit_ceil(a.size()))),\n\
+    \        p2(1 << height) {\n    lazy.assign(p2, T::o_id());\n    data.assign(p2\
+    \ << 1, T::m_id());\n    std::copy(a.begin(), a.end(), data.begin() + p2);\n \
+    \   for (int i = p2 - 1; i > 0; --i) {\n      data[i] = T::m_merge(data[i << 1],\
+    \ data[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val) {\n\
+    \    idx += p2;\n    for (int i = height; i > 0; --i) {\n      propagate(idx >>\
+    \ i);\n    }\n    data[idx] = val;\n    for (int i = 1; i <= height; ++i) {\n\
+    \      const int current_idx = idx >> i;\n      data[current_idx] =\n        \
+    \  T::m_merge(data[current_idx << 1], data[(current_idx << 1) + 1]);\n    }\n\
+    \  }\n\n  void apply(int idx, const OperatorMonoid val) {\n    idx += p2;\n  \
+    \  for (int i = height; i > 0; --i) {\n      propagate(idx >> i);\n    }\n   \
+    \ data[idx] = T::apply(data[idx], val);\n    for (int i = 1; i <= height; ++i)\
+    \ {\n      const int current_idx = idx >> i;\n      data[current_idx] =\n    \
+    \      T::m_merge(data[current_idx << 1], data[(current_idx << 1) + 1]);\n   \
+    \ }\n  }\n\n  void apply(int left, int right, const OperatorMonoid val) {\n  \
+    \  if (right <= left) [[unlikely]] return;\n    left += p2;\n    right += p2;\n\
+    \    const int ctz_left = std::countr_zero(static_cast<unsigned int>(left));\n\
     \    for (int i = height; i > ctz_left; --i) {\n      propagate(left >> i);\n\
     \    }\n    const int ctz_right = std::countr_zero(static_cast<unsigned int>(right));\n\
     \    for (int i = height; i > ctz_right; --i) {\n      propagate(right >> i);\n\
-    \    }\n    Monoid res_l = T::m_id(), res_r = T::m_id();\n    for (; left < right;\
-    \ left >>= 1, right >>= 1) {\n      if (left & 1) res_l = T::m_merge(res_l, data[left++]);\n\
+    \    }\n    for (int l = left, r = right; l < r; l >>= 1, r >>= 1) {\n      if\
+    \ (l & 1) apply_sub(l++, val);\n      if (r & 1) apply_sub(--r, val);\n    }\n\
+    \    for (int i = left >> (ctz_left + 1); i > 0; i >>= 1) {\n      data[i] = T::m_merge(data[i\
+    \ << 1], data[(i << 1) + 1]);\n    }\n    for (int i = right >> (ctz_right + 1);\
+    \ i > 0; i >>= 1) {\n      data[i] = T::m_merge(data[i << 1], data[(i << 1) +\
+    \ 1]);\n    }\n  }\n\n  Monoid get(int left, int right) {\n    if (right <= left)\
+    \ [[unlikely]] return T::m_id();\n    left += p2;\n    right += p2;\n    const\
+    \ int ctz_left = std::countr_zero(static_cast<unsigned int>(left));\n    for (int\
+    \ i = height; i > ctz_left; --i) {\n      propagate(left >> i);\n    }\n    const\
+    \ int ctz_right = std::countr_zero(static_cast<unsigned int>(right));\n    for\
+    \ (int i = height; i > ctz_right; --i) {\n      propagate(right >> i);\n    }\n\
+    \    Monoid res_l = T::m_id(), res_r = T::m_id();\n    for (; left < right; left\
+    \ >>= 1, right >>= 1) {\n      if (left & 1) res_l = T::m_merge(res_l, data[left++]);\n\
     \      if (right & 1) res_r = T::m_merge(data[--right], res_r);\n    }\n    return\
     \ T::m_merge(res_l, res_r);\n  }\n\n  Monoid operator[](const int idx) {\n   \
     \ const int node = idx + p2;\n    for (int i = height; i > 0; --i) {\n      propagate(node\
@@ -270,14 +288,14 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
   - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
-  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+  - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/lazy_segment_tree.test.cpp
+  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/lazy_segment_tree.hpp
 layout: document
@@ -286,7 +304,7 @@ title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
 
 # セグメント木 (segment tree)
 
-[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。
+[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する（完全）二分木である。
 
 
 ## 時間計算量
@@ -300,6 +318,13 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ```cpp
 template <typename T>
+requires requires {
+  typename T::Monoid;
+  {T::id()} -> std::same_as<typename T::Monoid>;
+  {T::merge(std::declval<typename T::Monoid>(),
+            std::declval<typename T::Monoid>())}
+      -> std::same_as<typename T::Monoid>;
+}
 struct SegmentTree;
 ```
 
@@ -331,6 +356,21 @@ struct SegmentTree;
 
 ```cpp
 template <typename T>
+requires requires {
+  typename T::Monoid;
+  typename T::OperatorMonoid;
+  {T::m_id()} -> std::same_as<typename T::Monoid>;
+  {T::o_id()} -> std::same_as<typename T::OperatorMonoid>;
+  {T::m_merge(std::declval<typename T::Monoid>(),
+              std::declval<typename T::Monoid>())}
+      -> std::same_as<typename T::Monoid>;
+  {T::o_merge(std::declval<typename T::OperatorMonoid>(),
+              std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::OperatorMonoid>;
+  {T::apply(std::declval<typename T::Monoid>(),
+            std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::Monoid>;
+}
 struct LazySegmentTree;
 ```
 
@@ -370,6 +410,7 @@ struct LazySegmentTree;
 - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
 - https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 - http://kagamiz.hatenablog.com/entry/2012/12/18/220849
+- https://kmyk.github.io/blog/blog/2020/03/04/segment-tree-is-not-complete-binary-tree/
 
 セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/29/204841
@@ -391,7 +432,7 @@ struct LazySegmentTree;
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
   - https://lorent-kyopro.hatenablog.com/entry/2021/03/12/025644
   - http://degwer.hatenablog.com/entry/20131211/1386757368
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree~~
   - https://mugen1337.github.io/procon/DataStructure/BinaryTrieMonoid.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_segment_tree.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_lazy_segment_tree.cpp
@@ -403,7 +444,7 @@ struct LazySegmentTree;
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://codeforces.com/blog/entry/74181?#comment-583268
   - https://github.com/ei1333/library/blob/master/structure/segment-tree-2d-2.cpp
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp
   - https://algoogle.hadrori.jp/algorithm/2d-segment-tree.html
   - https://judge.yosupo.jp/problem/point_add_rectangle_sum
@@ -417,7 +458,7 @@ struct LazySegmentTree;
     - https://www.slideshare.net/okuraofvegetable/ss-65377588
     - https://www.slideshare.net/satashun/2013-25814388
     - https://qiita.com/nariaki3551/items/3c5e59b3ece31a4dfce8
-    - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree
+    - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree~~
   - range tree
     - https://en.wikipedia.org/wiki/Range_tree
     - https://kopricky.github.io/code/SegmentTrees/rangetree_pointupdate.html
@@ -434,8 +475,8 @@ struct LazySegmentTree;
   - https://ei1333.github.io/algorithm/segment-tree.html
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://github.com/beet-aizu/library/blob/master/segtree/persistent/ushi.cpp
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentSegmentTree
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentSegmentTree~~
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/persistent_segment_tree.cpp
@@ -456,7 +497,7 @@ struct LazySegmentTree;
   - https://onlinejudge.u-aizu.ac.jp/problems/0427
   - https://atcoder.jp/contests/abc256/tasks/abc256_h
 - 双対セグメント木
-  - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
+  - ~~https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/~~
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
   - https://judge.yosupo.jp/problem/range_affine_point_get
@@ -469,8 +510,11 @@ struct LazySegmentTree;
   - https://codeforces.com/contest/1654/problem/F
   - https://twitter.com/SSRS_cp/status/1505543549601054720
   - https://yukicoder.me/problems/no/1891
+  - https://yukicoder.me/problems/no/2265
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
+- 円環版 `get`
+  - https://twitter.com/risujiroh/status/1654163763971358723
 
 
 ## Submissons

@@ -73,8 +73,8 @@ title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
 
 ```cpp
 template <template <typename> class C, typename T>
-struct MaximumFlowWithLowerBoundConstraint
-requires MaximumFlow<C, T>;
+requires MaximumFlow<C, T>
+struct MaximumFlowWithLowerBoundConstraint;
 ```
 
 - `C`：最大流を表す構造体

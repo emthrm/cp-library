@@ -53,8 +53,8 @@ data:
     \ int par, const int ver, const int cur_depth,\n           const CostType cur_dist)\
     \ {\n    depth[ver] = cur_depth;\n    dist[ver] = cur_dist;\n    parent.front()[ver]\
     \ = par;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst !=\
-    \ par) [[likely]] {\n        dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n\
-    \      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n\n"
+    \ par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n    }\n  }\n};\n\n\
+    }  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n#define\
     \ EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n\n#include <bit>\n\
     #include <cassert>\n#include <utility>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
@@ -83,18 +83,18 @@ data:
     \ int par, const int ver, const int cur_depth,\n           const CostType cur_dist)\
     \ {\n    depth[ver] = cur_depth;\n    dist[ver] = cur_dist;\n    parent.front()[ver]\
     \ = par;\n    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst !=\
-    \ par) [[likely]] {\n        dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n\
-    \      }\n    }\n  }\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n"
+    \ par) dfs(ver, e.dst, cur_depth + 1, cur_dist + e.cost);\n    }\n  }\n};\n\n\
+    }  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_LOWEST_COMMON_ANCESTOR_BY_DOUBLING_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
 documentation_of: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
 layout: document
 title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\
@@ -111,7 +111,7 @@ title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30
 ||時間計算量|
 |:--|:--|
 |ダブリング版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(\log{\lvert V \rvert}) \rangle$|
-|オイラーツアー版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(1) \rangle$|
+|Euler tour technique 版|$\langle O(\lvert V \rvert \log{\lvert V \rvert}), O(1) \rangle$|
 
 
 ## 仕様
@@ -144,11 +144,11 @@ struct LowestCommonAncestorByDoubling;
 |`int jump(const int u, const int v, const int d) const;`|頂点 $u$ から頂点 $v$ まで距離 $d$ だけ進んだときの頂点。ただし $d > \mathrm{dist}(u, v)$ を満たすときは $-1$ を返す。|cost-free 版|
 
 
-### [オイラーツアー](euler_tour.md)版
+### [Euler tour technique](euler_tour_technique.md)版
 
 ```cpp
 template <typename CostType>
-struct LowestCommonAncestor : EulerTour<CostType>;
+struct LowestCommonAncestor : EulerTourTechnique<CostType>;
 ```
 
 - `CostType`：辺のコストを表す型
@@ -161,7 +161,7 @@ struct LowestCommonAncestor : EulerTour<CostType>;
 |`int query(int u, int v) const;`|頂点 $u, v$ の最小共通祖先|
 
 
-### [HL 分解版](heavy-light_decomposition.md)
+### [heavy-light decomposition 版](heavy-light_decomposition.md)
 
 
 ## 参考文献
@@ -172,14 +172,15 @@ struct LowestCommonAncestor : EulerTour<CostType>;
 level ancestor problem
 - https://en.wikipedia.org/wiki/Level_ancestor_problem
 
-オイラーツアー版
+Euler tour technique 版
+- Omer Berkman and Uzi Vishkin: Recursive Star-Tree Parallel Data Structure, *SIAM Journal on Computing*, Vol. 22, No. 2, pp. 221–242 (1993). https://doi.org/10.1137/0222017
 - https://github.com/drken1215/algorithm/blob/efb8cf052b095e49e70135a6fb628308d06f49b2/DataStructureOnTree/euler_tour_on_nodes.cpp
 
 
 ## TODO
 
 - Tarjan's off-line lowest common ancestors algorithm
-  - http://www.prefield.com/algorithm/graph/least_common_ancestor.html
+  - ~~http://www.prefield.com/algorithm/graph/least_common_ancestor.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/least_common_ancestor_tarjan.cc
   - http://monyone.github.io/teihen_library/#OfflineLCA
 - level ancestor problem $\langle O(\lvert V \rvert), O(1) \rangle$
@@ -198,5 +199,5 @@ level ancestor problem
 
 - [ダブリング版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4084783/emthrm/C++14)
   - [level ancestor problem](https://judge.yosupo.jp/submission/122542)
-- [オイラーツアー版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2667/review/4084875/emthrm/C++14)
-- [HL 分解版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4093404/emthrm/C++14)
+- [Euler tour technique 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2667/review/4084875/emthrm/C++14)
+- [heavy-light decomposition 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_5_C/review/4093404/emthrm/C++14)

@@ -20,36 +20,39 @@ data:
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/segment_tree.hpp\"\n\n\n\n\
-    #include <algorithm>\n#include <bit>\n#include <limits>\n#include <vector>\n\n\
-    namespace emthrm {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid\
-    \ = typename T::Monoid;\n\n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
-    \ T::id())) {}\n\n  explicit SegmentTree(const std::vector<Monoid>& a)\n     \
-    \ : n(a.size()), p2(std::bit_ceil(a.size())) {\n    dat.assign(p2 << 1, T::id());\n\
-    \    std::copy(a.begin(), a.end(), dat.begin() + p2);\n    for (int i = p2 - 1;\
-    \ i > 0; --i) {\n      dat[i] = T::merge(dat[i << 1], dat[(i << 1) + 1]);\n  \
-    \  }\n  }\n\n  void set(int idx, const Monoid val) {\n    idx += p2;\n    dat[idx]\
-    \ = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx << 1], dat[(idx <<\
-    \ 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const {\n    Monoid res_l\
-    \ = T::id(), res_r = T::id();\n    for (left += p2, right += p2; left < right;\
-    \ left >>= 1, right >>= 1) {\n      if (left & 1) res_l = T::merge(res_l, dat[left++]);\n\
-    \      if (right & 1) res_r = T::merge(dat[--right], res_r);\n    }\n    return\
-    \ T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const int idx) const { return\
-    \ dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int left, const\
-    \ G g) {\n    if (left >= n) [[unlikely]] return n;\n    Monoid val = T::id();\n\
-    \    left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n      Monoid\
-    \ nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n        while (left <\
-    \ p2) {\n          left <<= 1;\n          nxt = T::merge(val, dat[left]);\n  \
-    \        if (g(nxt)) {\n            val = nxt;\n            ++left;\n        \
-    \  }\n        }\n        return left - p2;\n      }\n      val = nxt;\n      ++left;\n\
-    \    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n    return\
-    \ n;\n  }\n\n  template <typename G>\n  int find_left(int right, const G g) {\n\
-    \    if (right <= 0) [[unlikely]] return -1;\n    Monoid val = T::id();\n    right\
-    \ += p2;\n    do {\n      --right;\n      while (right > 1 && (right & 1)) right\
-    \ >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if (!g(nxt)) {\n\
-    \        while (right < p2) {\n          right = (right << 1) + 1;\n         \
-    \ nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n            val =\
-    \ nxt;\n            --right;\n          }\n        }\n        return right - p2;\n\
-    \      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
+    #include <algorithm>\n#include <bit>\n#include <limits>\n#include <type_traits>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nrequires requires\
+    \ {\n  typename T::Monoid;\n  {T::id()} -> std::same_as<typename T::Monoid>;\n\
+    \  {T::merge(std::declval<typename T::Monoid>(),\n            std::declval<typename\
+    \ T::Monoid>())}\n      -> std::same_as<typename T::Monoid>;\n}\nstruct SegmentTree\
+    \ {\n  using Monoid = typename T::Monoid;\n\n  explicit SegmentTree(const int\
+    \ n)\n      : SegmentTree(std::vector<Monoid>(n, T::id())) {}\n\n  explicit SegmentTree(const\
+    \ std::vector<Monoid>& a)\n      : n(a.size()), p2(std::bit_ceil(a.size())) {\n\
+    \    dat.assign(p2 << 1, T::id());\n    std::copy(a.begin(), a.end(), dat.begin()\
+    \ + p2);\n    for (int i = p2 - 1; i > 0; --i) {\n      dat[i] = T::merge(dat[i\
+    \ << 1], dat[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val)\
+    \ {\n    idx += p2;\n    dat[idx] = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx\
+    \ << 1], dat[(idx << 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const\
+    \ {\n    Monoid res_l = T::id(), res_r = T::id();\n    for (left += p2, right\
+    \ += p2; left < right; left >>= 1, right >>= 1) {\n      if (left & 1) res_l =\
+    \ T::merge(res_l, dat[left++]);\n      if (right & 1) res_r = T::merge(dat[--right],\
+    \ res_r);\n    }\n    return T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const\
+    \ int idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
+    \ left, const G g) {\n    if (left >= n) [[unlikely]] return n;\n    Monoid val\
+    \ = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n\
+    \      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n        while\
+    \ (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val, dat[left]);\n\
+    \          if (g(nxt)) {\n            val = nxt;\n            ++left;\n      \
+    \    }\n        }\n        return left - p2;\n      }\n      val = nxt;\n    \
+    \  ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
+    \    return n;\n  }\n\n  template <typename G>\n  int find_left(int right, const\
+    \ G g) {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val = T::id();\n\
+    \    right += p2;\n    do {\n      --right;\n      while (right > 1 && (right\
+    \ & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if\
+    \ (!g(nxt)) {\n        while (right < p2) {\n          right = (right << 1) +\
+    \ 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n  \
+    \          val = nxt;\n            --right;\n          }\n        }\n        return\
+    \ right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
     \ int>(right)));\n    return -1;\n  }\n\n private:\n  const int n, p2;\n  std::vector<Monoid>\
     \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
     \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
@@ -62,36 +65,39 @@ data:
     \ Monoid& a, const Monoid& b) { return a + b; }\n};\n\n}  // namespace monoid\n\
     \n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
-    \n#include <algorithm>\n#include <bit>\n#include <limits>\n#include <vector>\n\
-    \nnamespace emthrm {\n\ntemplate <typename T>\nstruct SegmentTree {\n  using Monoid\
-    \ = typename T::Monoid;\n\n  explicit SegmentTree(const int n)\n      : SegmentTree(std::vector<Monoid>(n,\
-    \ T::id())) {}\n\n  explicit SegmentTree(const std::vector<Monoid>& a)\n     \
-    \ : n(a.size()), p2(std::bit_ceil(a.size())) {\n    dat.assign(p2 << 1, T::id());\n\
-    \    std::copy(a.begin(), a.end(), dat.begin() + p2);\n    for (int i = p2 - 1;\
-    \ i > 0; --i) {\n      dat[i] = T::merge(dat[i << 1], dat[(i << 1) + 1]);\n  \
-    \  }\n  }\n\n  void set(int idx, const Monoid val) {\n    idx += p2;\n    dat[idx]\
-    \ = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx << 1], dat[(idx <<\
-    \ 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const {\n    Monoid res_l\
-    \ = T::id(), res_r = T::id();\n    for (left += p2, right += p2; left < right;\
-    \ left >>= 1, right >>= 1) {\n      if (left & 1) res_l = T::merge(res_l, dat[left++]);\n\
-    \      if (right & 1) res_r = T::merge(dat[--right], res_r);\n    }\n    return\
-    \ T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const int idx) const { return\
-    \ dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int left, const\
-    \ G g) {\n    if (left >= n) [[unlikely]] return n;\n    Monoid val = T::id();\n\
-    \    left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n      Monoid\
-    \ nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n        while (left <\
-    \ p2) {\n          left <<= 1;\n          nxt = T::merge(val, dat[left]);\n  \
-    \        if (g(nxt)) {\n            val = nxt;\n            ++left;\n        \
-    \  }\n        }\n        return left - p2;\n      }\n      val = nxt;\n      ++left;\n\
-    \    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n    return\
-    \ n;\n  }\n\n  template <typename G>\n  int find_left(int right, const G g) {\n\
-    \    if (right <= 0) [[unlikely]] return -1;\n    Monoid val = T::id();\n    right\
-    \ += p2;\n    do {\n      --right;\n      while (right > 1 && (right & 1)) right\
-    \ >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if (!g(nxt)) {\n\
-    \        while (right < p2) {\n          right = (right << 1) + 1;\n         \
-    \ nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n            val =\
-    \ nxt;\n            --right;\n          }\n        }\n        return right - p2;\n\
-    \      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
+    \n#include <algorithm>\n#include <bit>\n#include <limits>\n#include <type_traits>\n\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nrequires requires\
+    \ {\n  typename T::Monoid;\n  {T::id()} -> std::same_as<typename T::Monoid>;\n\
+    \  {T::merge(std::declval<typename T::Monoid>(),\n            std::declval<typename\
+    \ T::Monoid>())}\n      -> std::same_as<typename T::Monoid>;\n}\nstruct SegmentTree\
+    \ {\n  using Monoid = typename T::Monoid;\n\n  explicit SegmentTree(const int\
+    \ n)\n      : SegmentTree(std::vector<Monoid>(n, T::id())) {}\n\n  explicit SegmentTree(const\
+    \ std::vector<Monoid>& a)\n      : n(a.size()), p2(std::bit_ceil(a.size())) {\n\
+    \    dat.assign(p2 << 1, T::id());\n    std::copy(a.begin(), a.end(), dat.begin()\
+    \ + p2);\n    for (int i = p2 - 1; i > 0; --i) {\n      dat[i] = T::merge(dat[i\
+    \ << 1], dat[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val)\
+    \ {\n    idx += p2;\n    dat[idx] = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx\
+    \ << 1], dat[(idx << 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const\
+    \ {\n    Monoid res_l = T::id(), res_r = T::id();\n    for (left += p2, right\
+    \ += p2; left < right; left >>= 1, right >>= 1) {\n      if (left & 1) res_l =\
+    \ T::merge(res_l, dat[left++]);\n      if (right & 1) res_r = T::merge(dat[--right],\
+    \ res_r);\n    }\n    return T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const\
+    \ int idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
+    \ left, const G g) {\n    if (left >= n) [[unlikely]] return n;\n    Monoid val\
+    \ = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n\
+    \      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n        while\
+    \ (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val, dat[left]);\n\
+    \          if (g(nxt)) {\n            val = nxt;\n            ++left;\n      \
+    \    }\n        }\n        return left - p2;\n      }\n      val = nxt;\n    \
+    \  ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
+    \    return n;\n  }\n\n  template <typename G>\n  int find_left(int right, const\
+    \ G g) {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val = T::id();\n\
+    \    right += p2;\n    do {\n      --right;\n      while (right > 1 && (right\
+    \ & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if\
+    \ (!g(nxt)) {\n        while (right < p2) {\n          right = (right << 1) +\
+    \ 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n  \
+    \          val = nxt;\n            --right;\n          }\n        }\n        return\
+    \ right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
     \ int>(right)));\n    return -1;\n  }\n\n private:\n  const int n, p2;\n  std::vector<Monoid>\
     \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
     \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
@@ -107,12 +113,12 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_minimum_query.test.cpp
   - test/data_structure/range_sum_query.test.cpp
   - test/data_structure/segment_tree.test.cpp
+  - test/data_structure/range_minimum_query.test.cpp
 documentation_of: include/emthrm/data_structure/segment_tree.hpp
 layout: document
 title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (segment tree)"
@@ -120,7 +126,7 @@ title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (segment tree)"
 
 # セグメント木 (segment tree)
 
-[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する完全二分木である。
+[モノイド](../../.verify-helper/docs/static/algebraic_structure.md)であるデータに対して高速に区間クエリを処理する（完全）二分木である。
 
 
 ## 時間計算量
@@ -134,6 +140,13 @@ $\langle O(N), O(\log{N}) \rangle$
 
 ```cpp
 template <typename T>
+requires requires {
+  typename T::Monoid;
+  {T::id()} -> std::same_as<typename T::Monoid>;
+  {T::merge(std::declval<typename T::Monoid>(),
+            std::declval<typename T::Monoid>())}
+      -> std::same_as<typename T::Monoid>;
+}
 struct SegmentTree;
 ```
 
@@ -165,6 +178,21 @@ struct SegmentTree;
 
 ```cpp
 template <typename T>
+requires requires {
+  typename T::Monoid;
+  typename T::OperatorMonoid;
+  {T::m_id()} -> std::same_as<typename T::Monoid>;
+  {T::o_id()} -> std::same_as<typename T::OperatorMonoid>;
+  {T::m_merge(std::declval<typename T::Monoid>(),
+              std::declval<typename T::Monoid>())}
+      -> std::same_as<typename T::Monoid>;
+  {T::o_merge(std::declval<typename T::OperatorMonoid>(),
+              std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::OperatorMonoid>;
+  {T::apply(std::declval<typename T::Monoid>(),
+            std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::Monoid>;
+}
 struct LazySegmentTree;
 ```
 
@@ -204,6 +232,7 @@ struct LazySegmentTree;
 - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
 - https://beet-aizu.hatenablog.com/entry/2019/11/27/125906
 - http://kagamiz.hatenablog.com/entry/2012/12/18/220849
+- https://kmyk.github.io/blog/blog/2020/03/04/segment-tree-is-not-complete-binary-tree/
 
 セグメント木
 - https://tsutaj.hatenablog.com/entry/2017/03/29/204841
@@ -225,7 +254,7 @@ struct LazySegmentTree;
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
   - https://lorent-kyopro.hatenablog.com/entry/2021/03/12/025644
   - http://degwer.hatenablog.com/entry/20131211/1386757368
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/DynamicSegmentTree~~
   - https://mugen1337.github.io/procon/DataStructure/BinaryTrieMonoid.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_segment_tree.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_lazy_segment_tree.cpp
@@ -237,7 +266,7 @@ struct LazySegmentTree;
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://codeforces.com/blog/entry/74181?#comment-583268
   - https://github.com/ei1333/library/blob/master/structure/segment-tree-2d-2.cpp
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp
   - https://algoogle.hadrori.jp/algorithm/2d-segment-tree.html
   - https://judge.yosupo.jp/problem/point_add_rectangle_sum
@@ -251,7 +280,7 @@ struct LazySegmentTree;
     - https://www.slideshare.net/okuraofvegetable/ss-65377588
     - https://www.slideshare.net/satashun/2013-25814388
     - https://qiita.com/nariaki3551/items/3c5e59b3ece31a4dfce8
-    - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree
+    - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/FractionalCascadingSegmentTree~~
   - range tree
     - https://en.wikipedia.org/wiki/Range_tree
     - https://kopricky.github.io/code/SegmentTrees/rangetree_pointupdate.html
@@ -268,8 +297,8 @@ struct LazySegmentTree;
   - https://ei1333.github.io/algorithm/segment-tree.html
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://github.com/beet-aizu/library/blob/master/segtree/persistent/ushi.cpp
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentSegmentTree
-  - https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentSegmentTree~~
+  - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/PersistentLazySegmentTree~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTreePersistent.cpp
   - http://monyone.github.io/teihen_library/#PersistentDynamicSumSegmentTree
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/persistent_segment_tree.cpp
@@ -290,7 +319,7 @@ struct LazySegmentTree;
   - https://onlinejudge.u-aizu.ac.jp/problems/0427
   - https://atcoder.jp/contests/abc256/tasks/abc256_h
 - 双対セグメント木
-  - https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/
+  - ~~https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/~~
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
   - https://judge.yosupo.jp/problem/range_affine_point_get
@@ -303,8 +332,11 @@ struct LazySegmentTree;
   - https://codeforces.com/contest/1654/problem/F
   - https://twitter.com/SSRS_cp/status/1505543549601054720
   - https://yukicoder.me/problems/no/1891
+  - https://yukicoder.me/problems/no/2265
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
+- 円環版 `get`
+  - https://twitter.com/risujiroh/status/1654163763971358723
 
 
 ## Submissons

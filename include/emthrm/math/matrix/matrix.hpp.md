@@ -111,23 +111,23 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/matrix.hpp
   requiredBy:
-  - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  - include/emthrm/graph/matrix_tree_theorem.hpp
   - include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
-  - include/emthrm/math/matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/linear_equation.hpp
+  - include/emthrm/math/matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/inverse_matrix.hpp
   - include/emthrm/math/matrix/determinant.hpp
+  - include/emthrm/graph/flow/matching/maximum_matching.hpp
+  - include/emthrm/graph/matrix_tree_theorem.hpp
   timestamp: '2022-12-15 22:18:37+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/flow/matching/maximum_matching.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
   - test/math/convolution/kronecker_power-vector_multiplication.test.cpp
-  - test/math/matrix/matrix.test.cpp
   - test/math/matrix/inverse_matrix.test.cpp
   - test/math/matrix/determinant.test.cpp
   - test/math/matrix/linear_equation.test.cpp
+  - test/math/matrix/matrix.test.cpp
+  - test/graph/flow/matching/maximum_matching.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: include/emthrm/math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"
@@ -173,7 +173,7 @@ struct Matrix;
 
 ## TODO
 
-- https://github.com/eandbsoftware/libraryCPP/blob/master/!Matrix.cpp
+- ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!Matrix.cpp~~
 - 疎行列 (sparse matrix)
   - https://ja.wikipedia.org/wiki/%E7%96%8E%E8%A1%8C%E5%88%97
   - https://github.com/ei1333/library/blob/master/math/sparse-matrix.cpp
@@ -187,7 +187,7 @@ struct Matrix;
   - https://github.com/primenumber/ProconLib/blob/master/Math/SquareMatrix.cpp
 - 固有値, 固有ベクトル
   - https://ja.wikipedia.org/wiki/%E5%9B%BA%E6%9C%89%E5%80%A4
-  - http://www.prefield.com/algorithm/math/eigensystem.html
+  - ~~http://www.prefield.com/algorithm/math/eigensystem.html~~
 - ハフニアン (hafnian)
   - https://mathtrain.jp/pfaffian
   - https://en.wikipedia.org/wiki/Hafnian

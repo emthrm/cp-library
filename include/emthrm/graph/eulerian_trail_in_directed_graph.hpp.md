@@ -116,14 +116,14 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
-### オイラー路 有向グラフ版
+### Hierholzer's algorithm 有向グラフ版
 
 |名前|戻り値|
 |:--|:--|
 |`template <typename CostType>`<br>`std::vector<Edge<CostType>> eulerian_trail_in_directed_graph(std::vector<std::vector<Edge<CostType>>> graph, int s = -1);`|有向グラフ $\mathrm{graph}$ における始点 $s$ のオイラー路。ただし存在しないときは空配列を返す。|
 
 
-### オイラー路 無向グラフ版
+### Hierholzer's algorithm 無向グラフ版
 
 ```cpp
 struct EulerianTrailInUndirectedGraph;
@@ -146,10 +146,11 @@ struct EulerianTrailInUndirectedGraph;
 
 ## 参考文献
 
+- Carl Hierholzer: Ueber die Möglichkeit, einen Linienzug ohne Wiederholung und ohne Unterbrechung zu umfahren, *Mathematische Annalen *, Vol. 6, pp. 30–32 (1873). https://doi.org/10.1007/BF01442866
 - https://kokiymgch.hatenablog.com/entry/2017/12/07/193238
 
 オイラー路 有向グラフ版
-- http://www.prefield.com/algorithm/graph/directed_euler_path.html
+- ~~http://www.prefield.com/algorithm/graph/directed_euler_path.html~~
 
 オイラー路 無向グラフ版
 - https://github.com/spaghetti-source/algorithm/blob/2c70d7af4d132513fa699a5de5b2aaf21aaf7890/graph/eulerian_path_undirected.cc

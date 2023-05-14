@@ -67,7 +67,8 @@ $O(N\log{N})$
 
 ## 参考文献
 
-- http://www.prefield.com/algorithm/dp/lis_fast.html
+- Craige Schensted: Longest Increasing and Decreasing Subsequences, *Canadian Journal of Mathematics*, Vol. 13, pp. 179–191 (1961). https://doi.org/10.4153/CJM-1961-015-3
+- ~~http://www.prefield.com/algorithm/dp/lis_fast.html~~
 - http://noshi91.hatenablog.com/entry/2018/02/03/204950
 
 

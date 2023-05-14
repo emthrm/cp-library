@@ -129,9 +129,11 @@ struct KnuthMorrisPratt;
 ## 参考文献
 
 Morris–Pratt algorithm
+- James H. Morris, Jr. and Vaughan R. Pratt: A Linear Pattern Matching Algorithm (1970).
 - https://snuke.hatenablog.com/entry/2014/12/01/235807
 
 Knuth–Morris–Pratt algorithm
+- Donald E. Knuth, James H. Morris, Jr., and Vaughan R. Pratt: Fast Pattern Matching in Strings, *SIAM Journal on Computing*, Vol. 6, No. 2, pp. 323–350 (1977). https://doi.org/10.1137/0206024
 - https://snuke.hatenablog.com/entry/2017/07/18/101026
 - http://potetisensei.hatenablog.com/entry/2017/07/10/174908
 

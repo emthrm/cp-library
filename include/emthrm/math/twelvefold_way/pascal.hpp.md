@@ -73,18 +73,22 @@ $$
 
 |名前|戻り値|
 |:--|:--|
-|`template <int T>`<br>`std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
+|`template <unsigned int T>`<br>`std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
 
 
 ## 参考文献
 
 http://drken1215.hatenablog.com/entry/2018/06/08/210000
 
+パスカルの三角形
+- Blaise Pascal: Traité du triangle arithmétique , avec quelques autres petits traitez sur la mesme matière (1665).
+
 
 ## TODO
 
 - https://w.atwiki.jp/uwicoder/pages/2118.html
 - https://ferin-tech.hatenablog.com/entry/2018/01/17/010829
+- https://qiita.com/Kiri8128/items/dfdadf85ba2ea14026b6
 - https://judge.yosupo.jp/problem/binomial_coefficient
 - $\sum_{i = 0}^M \binom{N}{i}$
   - https://nyaannyaan.github.io/library/modulo/multipoint-binomial-sum.hpp.html

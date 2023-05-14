@@ -151,6 +151,7 @@ struct AhoCorasick : Trie<Sigma + 1>;
 
 ## 参考文献
 
+- Alfred V. Aho and Margaret J. Corasick: Efficient string matching: an aid to bibliographic search, *Communications of the ACM*, Vol. 18, No. 6, pp. 333–340 (1975). https://doi.org/10.1145/360825.360855
 - https://naoya-2.hatenadiary.org/entry/20090405/aho_corasick
 - https://ei1333.github.io/luzhiled/snippets/string/aho-corasick.html
 - https://github.com/beet-aizu/library/blob/02578ddfa9d2a46e3c724df82e84797dd41eabac/string/ahocorasick.cpp

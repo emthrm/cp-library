@@ -63,7 +63,7 @@ $O\left(\sqrt{H}\log{\log{H}} + \frac{(H - L)\sqrt{H}}{\log{H}}\right)$ ?
 
 ## 参考文献
 
-- http://www.prefield.com/algorithm/math/segment_sieve.html
+- ~~http://www.prefield.com/algorithm/math/segment_sieve.html~~
 
 
 ## TODO

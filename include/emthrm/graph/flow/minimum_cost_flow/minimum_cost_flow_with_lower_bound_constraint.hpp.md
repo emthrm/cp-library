@@ -68,14 +68,14 @@ title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5C0F\u8CBB\u7528
 
 ```cpp
 template <template <typename, typename> class C, typename T, typename U>
-struct MinimumCostFlowWithLowerBoundConstraint
 requires requires (C<T, U> mcf) {
   {mcf.add_edge(std::declval<int>(), std::declval<int>(),
                 std::declval<T>(), std::declval<U>())}
       -> std::same_as<void>;
   {mcf.solve(std::declval<int>(), std::declval<int>(), std::declval<T>())}
       -> std::same_as<U>;
-};
+}
+struct MinimumCostFlowWithLowerBoundConstraint;
 ```
 
 - `C`：最小費用流を表す構造体

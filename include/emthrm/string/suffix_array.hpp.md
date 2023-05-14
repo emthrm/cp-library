@@ -134,15 +134,15 @@ struct SuffixArray;
 ## TODO
 
 - パターンマッチングを $O(M + \log{N})$ に高速化する。
-  - http://www.prefield.com/algorithm/string/suffix_array.html
+  - ~~http://www.prefield.com/algorithm/string/suffix_array.html~~
 - SA-IS
   - https://qiita.com/flare/items/ac11972dbc590a91980d
-  - https://topcoder.g.hatena.ne.jp/iwiwi/20110720/1311168147
+  - ~~https://topcoder.g.hatena.ne.jp/iwiwi/20110720/1311168147~~
   - https://mametter.hatenablog.com/entry/20180130/p1
   - https://shogo82148.github.io/homepage/memo/algorithm/suffix-array/sa-is.html
   - http://gasin.hatenadiary.jp/entry/2017/06/08/101525
   - http://sile.hatenablog.jp/entry/20101213/1292190698
-  - https://lumakernel.github.io/ecasdqina/string/SA-IS
+  - ~~https://lumakernel.github.io/ecasdqina/string/SA-IS~~
   - https://github.com/atcoder/ac-library/blob/master/atcoder/string.hpp#L51
   - https://gist.github.com/tjkendev/99d7330fe5642004b68268b31ba38ad4
   - https://docs.google.com/presentation/d/1R9ZgXqX4bpkO3nYkVoqU9Ng2uCIKLbf-UJ2C6hlVYFI
@@ -158,7 +158,7 @@ struct SuffixArray;
   - https://qiita.com/goonew/items/548fe90e9f68c6bba9e9
   - https://docs.google.com/presentation/d/1m-FpwlEg47kHCQx7FSImN0bPY7XJToRVbSMeCsLpI7g
   - https://github.com/spaghetti-source/algorithm/blob/master/string/suffix_tree.cc
-  - https://github.com/eandbsoftware/libraryCPP/tree/master/Ukkonen
+  - ~~https://github.com/eandbsoftware/libraryCPP/tree/master/Ukkonen~~
 
 
 ## Submissons

@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp\"\
@@ -34,7 +34,7 @@ data:
   path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
 documentation_of: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
@@ -93,6 +93,7 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
 
 ## 参考文献
 
+- Marvin Künnemann, Ramamohan Paturi, and Stefan Schneider: On the Fine-Grained Complexity of One-Dimensional Dynamic Programming, *44th International Colloquium on Automata, Languages, and Programming (ICALP 2017)*, Vol. 80, No. 21, pp. 1–15 (2017). https://doi.org/10.4230/LIPIcs.ICALP.2017.21
 - https://qiita.com/tmaehara/items/0687af2cfb807cde7860
 - https://motsu-xe.hatenablog.com/entry/2020/10/13/195949
 
@@ -103,6 +104,12 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
   - https://qiita.com/tmaehara/items/0687af2cfb807cde7860#%E5%86%92%E9%A0%AD%E3%81%AE%E5%95%8F%E9%A1%8C%E9%96%A2%E9%80%A3%E7%A0%94%E7%A9%B6
   - https://ei1333.github.io/luzhiled/snippets/dp/monotone-minima.html
   - https://fumofumofuni.hatenablog.com/entry/2021/10/29/002145
+- 下限・上限制約付き単調増加列の数え上げ
+  - https://twitter.com/nok0_kyopro/status/1529832533042802694
+  - https://twitter.com/noimi_kyopro/status/1639567295570919425
+  - https://twitter.com/pctprobability/status/1639951979358334977
+  - https://codeforces.com/gym/102220/problem/I
+  - https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/L
 
 
 ## Submissons

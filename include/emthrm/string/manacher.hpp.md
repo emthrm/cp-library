@@ -80,6 +80,7 @@ struct Manacher;
 
 ## 参考文献
 
+- Glenn Manacher: A New Linear-Time ``On-Line'' Algorithm for Finding the Smallest Initial Palindrome of a String, *Journal of the ACM*, Vol. 22, No. 3, pp. 346–351 (1975). https://doi.org/10.1145/321892.321896
 - https://snuke.hatenablog.com/entry/2014/12/02/235837
 - https://github.com/drken1215/algorithm/blob/d4d987bfd9205655862986b3d27339381b1ffaf7/String/manacher.cpp
 
@@ -96,7 +97,7 @@ struct Manacher;
   - https://mugen1337.github.io/procon/String/PalindromicTree.cpp
   - https://sotanishy.github.io/cp-library-cpp/string/palindromic_tree.hpp
 - distinct な部分回文をすべて求める。
-  - https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp
+  - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/!SubPalindrome.cpp~~
 
 
 ## Submissons

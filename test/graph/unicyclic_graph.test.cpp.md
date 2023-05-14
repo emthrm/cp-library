@@ -61,9 +61,9 @@ data:
     \ graph;\n\n  int destination(const int id, const int s) const {\n    return (srcs[id]\
     \ == s ? dsts : srcs)[id];\n  }\n\n  bool dfs(const int prev_id, const int ver)\
     \ {\n    is_in_loop[ver] = true;\n    for (const int id : graph[ver]) {\n    \
-    \  if (id == prev_id) [[unlikely]] continue;\n      const int dst = destination(id,\
-    \ ver);\n      loop.emplace_back(ver, dst, costs[id]);\n      if (is_in_loop[dst])\
-    \ {\n        for (int i = loop.size() - 1; i >= 0; --i) {\n          if (loop[i].src\
+    \  if (id == prev_id) continue;\n      const int dst = destination(id, ver);\n\
+    \      loop.emplace_back(ver, dst, costs[id]);\n      if (is_in_loop[dst]) {\n\
+    \        for (int i = loop.size() - 1; i >= 0; --i) {\n          if (loop[i].src\
     \ == dst) {\n            for (int j = 0; j < i; ++j) {\n              is_in_loop[loop[j].src]\
     \ = false;\n            }\n            loop.erase(loop.begin(), std::next(loop.begin(),\
     \ i));\n            return true;\n          }\n        }\n        assert(false);\n\
@@ -99,7 +99,7 @@ data:
   isVerificationFile: true
   path: test/graph/unicyclic_graph.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/unicyclic_graph.test.cpp

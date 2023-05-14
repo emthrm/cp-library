@@ -79,9 +79,9 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
+  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
 layout: document
 title: "\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5\

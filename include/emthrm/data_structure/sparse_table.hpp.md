@@ -3,9 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30AA\u30A4\
-      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
+    path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
+    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
+      \ technique \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/string/longest_common_prefix.hpp
     title: longest common prefix
@@ -15,8 +15,8 @@ data:
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
-      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 Euler tour\
+      \ technique \u7248"
   - icon: ':heavy_check_mark:'
     path: test/string/longest_common_prefix.test.cpp
     title: "\u6587\u5B57\u5217/longest common prefix"
@@ -63,20 +63,18 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/sparse_table.hpp
   requiredBy:
+  - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
   - include/emthrm/string/longest_common_prefix.hpp
-  - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/sparse_table.test.cpp
-  - test/string/longest_common_prefix.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
+  - test/string/longest_common_prefix.test.cpp
 documentation_of: include/emthrm/data_structure/sparse_table.hpp
 layout: document
 title: sparse table
 ---
-
-[帯](../../.verify-helper/docs/static/algebraic_structure.md)であるデータを含んだ区間に対して高速に演算を行うデータ構造である。
 
 
 ## 時間計算量
@@ -91,7 +89,7 @@ template <typename Band>
 struct SparseTable;
 ```
 
-- `Band`：帯である要素型
+- `Band`：[帯](../../.verify-helper/docs/static/algebraic_structure.md)である要素型
 
 #### メンバ変数
 
@@ -111,6 +109,7 @@ struct SparseTable;
 
 ## 参考文献
 
+- Michael A. Bender and Martín Farach-Colton: The LCA Problem Revisited, *LATIN 2000: Theoretical Informatics*, pp. 88–94 (2000). https://doi.org/10.1007/10719839_9
 - http://tookunn.hatenablog.com/entry/2016/07/13/211148
 - https://github.com/drken1215/algorithm/blob/0db023d94ca9c79a24ef13f5905e6bab056bdafe/DataStructure/sparse_table.cpp
 

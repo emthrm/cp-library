@@ -78,15 +78,15 @@ data:
     \ cutpoint[i].end());\n    //   }\n    // }\n  }\n\n private:\n  std::vector<bool>\
     \ is_articulation_point;\n  std::vector<Edge<CostType>> tmp;\n\n  void dfs(const\
     \ int par, const int ver) {\n    id[ver] = -1;\n    for (const Edge<CostType>&\
-    \ e : this->graph[ver]) {\n      if (e.dst == par) [[unlikely]] continue;\n  \
-    \    int src = ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n\
-    \      if (id[e.dst] == -2 || this->order[e.dst] < this->order[ver]) {\n     \
-    \   tmp.emplace_back(src, dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n\
-    \        dfs(ver, e.dst);\n        if (this->lowlink[e.dst] >= this->order[ver])\
-    \ {\n          const int idx = block.size();\n          block.emplace_back();\n\
-    \          std::set<int> st;\n          while (true) {\n            const Edge<CostType>\
-    \ edge = tmp.back();\n            tmp.pop_back();\n            block.back().emplace_back(edge);\n\
-    \            if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
+    \ e : this->graph[ver]) {\n      if (e.dst == par) continue;\n      int src =\
+    \ ver, dst = e.dst;\n      if (src > dst) std::swap(src, dst);\n      if (id[e.dst]\
+    \ == -2 || this->order[e.dst] < this->order[ver]) {\n        tmp.emplace_back(src,\
+    \ dst, e.cost);\n      }\n      if (id[e.dst] == -2) {\n        dfs(ver, e.dst);\n\
+    \        if (this->lowlink[e.dst] >= this->order[ver]) {\n          const int\
+    \ idx = block.size();\n          block.emplace_back();\n          std::set<int>\
+    \ st;\n          while (true) {\n            const Edge<CostType> edge = tmp.back();\n\
+    \            tmp.pop_back();\n            block.back().emplace_back(edge);\n \
+    \           if constexpr (IS_FULL_VER) {\n              st.emplace(edge.src);\n\
     \              st.emplace(edge.dst);\n            }\n            if (edge.src\
     \ == src && edge.dst == dst) break;\n          }\n          if constexpr (IS_FULL_VER)\
     \ {\n            vertices.emplace_back();\n            for (const int el : st)\
@@ -123,14 +123,14 @@ data:
     \ ans = static_cast<long long>(n) * (n - 1) / 2 * x;\n  const auto dfs = [n, x,\
     \ &block_cut_tree, &weight, &ans](\n      auto dfs, const int par, const int ver)\
     \ -> int {\n    int subtree = weight[ver];\n    if (ver < x) {\n      for (const\
-    \ int e : block_cut_tree[ver]) {\n        if (e != par) [[likely]] {\n       \
-    \   const int child = dfs(dfs, ver, e);\n          ans -= static_cast<long long>(child)\
-    \ * (child - 1) / 2 + child;\n          subtree += child;\n        }\n      }\n\
+    \ int e : block_cut_tree[ver]) {\n        if (e != par) {\n          const int\
+    \ child = dfs(dfs, ver, e);\n          ans -= static_cast<long long>(child) *\
+    \ (child - 1) / 2 + child;\n          subtree += child;\n        }\n      }\n\
     \      ans -= static_cast<long long>(n - subtree) * (n - subtree - 1) / 2\n  \
     \           + (n - subtree);\n    } else {\n      for (const int e : block_cut_tree[ver])\
-    \ {\n        if (e != par) [[likely]] subtree += dfs(dfs, ver, e);\n      }\n\
-    \    }\n    return subtree;\n  };\n  assert(dfs(dfs, -1, 0) == n);\n  std::cout\
-    \ << ans << '\\n';\n  return 0;\n}\n"
+    \ {\n        if (e != par) subtree += dfs(dfs, ver, e);\n      }\n    }\n    return\
+    \ subtree;\n  };\n  assert(dfs(dfs, -1, 0) == n);\n  std::cout << ans << '\\n';\n\
+    \  return 0;\n}\n"
   code: "/*\n * @title \u30B0\u30E9\u30D5/\u4E8C\u91CD\u9802\u70B9\u9023\u7D50\u6210\
     \u5206\u5206\u89E3\n *\n * verification-helper: IGNORE\n * verification-helper:\
     \ PROBLEM https://atcoder.jp/contests/nadafes2022_day2/tasks/nadafes2022_day2_h\n\
@@ -159,14 +159,14 @@ data:
     \ ans = static_cast<long long>(n) * (n - 1) / 2 * x;\n  const auto dfs = [n, x,\
     \ &block_cut_tree, &weight, &ans](\n      auto dfs, const int par, const int ver)\
     \ -> int {\n    int subtree = weight[ver];\n    if (ver < x) {\n      for (const\
-    \ int e : block_cut_tree[ver]) {\n        if (e != par) [[likely]] {\n       \
-    \   const int child = dfs(dfs, ver, e);\n          ans -= static_cast<long long>(child)\
-    \ * (child - 1) / 2 + child;\n          subtree += child;\n        }\n      }\n\
+    \ int e : block_cut_tree[ver]) {\n        if (e != par) {\n          const int\
+    \ child = dfs(dfs, ver, e);\n          ans -= static_cast<long long>(child) *\
+    \ (child - 1) / 2 + child;\n          subtree += child;\n        }\n      }\n\
     \      ans -= static_cast<long long>(n - subtree) * (n - subtree - 1) / 2\n  \
     \           + (n - subtree);\n    } else {\n      for (const int e : block_cut_tree[ver])\
-    \ {\n        if (e != par) [[likely]] subtree += dfs(dfs, ver, e);\n      }\n\
-    \    }\n    return subtree;\n  };\n  assert(dfs(dfs, -1, 0) == n);\n  std::cout\
-    \ << ans << '\\n';\n  return 0;\n}\n"
+    \ {\n        if (e != par) subtree += dfs(dfs, ver, e);\n      }\n    }\n    return\
+    \ subtree;\n  };\n  assert(dfs(dfs, -1, 0) == n);\n  std::cout << ans << '\\n';\n\
+    \  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/biconnected_component.hpp
   - include/emthrm/graph/edge.hpp
@@ -174,7 +174,7 @@ data:
   isVerificationFile: true
   path: test/graph/biconnected_component.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/graph/biconnected_component.test.cpp

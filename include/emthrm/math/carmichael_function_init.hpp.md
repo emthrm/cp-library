@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
@@ -105,6 +105,7 @@ $$
 
 ## 参考文献
 
+- Robert D. Carmichael: Note on a new number theory function, *Bulletin of the American Mathematical Society*, Vol. 16, pp. 232–238 (1910). https://doi.org/10.1090/S0002-9904-1910-01892-9
 - http://integers.hatenablog.com/entry/2017/06/08/191649
 - https://en.wikipedia.org/wiki/Carmichael_function
 - https://github.com/spaghetti-source/algorithm/blob/8af3698b8a7583035857280ab324c8ae75c70374/number_theory/carmichael_lambda.cc

@@ -128,14 +128,16 @@ struct WarshallFloyd;
 
 ## 参考文献
 
-- http://www.prefield.com/algorithm/graph/floyd_warshall.html
+- Robert W. Floyd: Algorithm 97: Shortest path, *Communications of the ACM*, Vol. 5, No. 6, p. 345 (1962). https://doi.org/10.1145/367766.368168
+- Stephen Warshall: A Theorem on Boolean Matrices, *Journal of the ACM*, Vol. 9, No. 1, pp. 11–12 (1962). https://doi.org/10.1145/321105.321107
+- ~~http://www.prefield.com/algorithm/graph/floyd_warshall.html~~
 - https://ei1333.github.io/luzhiled/snippets/graph/warshall-floyd.html
 
 
 ## TODO
 
 - Johnson's algorithm
-  - http://www.prefield.com/algorithm/graph/johnson.html
+  - ~~http://www.prefield.com/algorithm/graph/johnson.html~~
   - https://inzkyk.github.io/algorithms/all_pairs_shortest_paths/johnsons_algorithm/
 
 

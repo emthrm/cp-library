@@ -52,7 +52,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/convolution/mod_convolution.hpp
     title: "\u4EFB\u610F\u306E\u6CD5\u306E\u4E0B\u3067\u306E\u7573\u307F\u8FBC\u307F"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
@@ -91,7 +91,7 @@ data:
   - icon: ':warning:'
     path: include/emthrm/dynamic_programming/aliens_dp.hpp
     title: Aliens DP
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\
       \u63DB"
@@ -162,7 +162,7 @@ data:
     path: include/emthrm/math/formal_power_series/faulhaber_by_lagrange_interpolation.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
       \ formula) \u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':heavy_check_mark:'
@@ -321,7 +321,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/enumerate_k-th_power.hpp
     title: $i^k \bmod m$ ($0 \leq i \leq n$)
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/enumerate_quotients.hpp
     title: "\u5546\u306E\u5217\u6319"
   - icon: ':heavy_check_mark:'
@@ -359,18 +359,18 @@ data:
     path: include/emthrm/math/lagrange_interpolation2.hpp
     title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 (Lagrange interpolation)\
       \ \u8A55\u4FA1\u72482"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_focusing_on_divisor.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u7D04\u6570\
       \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_init.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u8868"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/mobius_mu_init2.hpp
     title: "\u30E1\u30D3\u30A6\u30B9\u95A2\u6570 (M\xF6bius function) \u306E\u6570\
       \u88682"
@@ -402,7 +402,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/prime_factorization.hpp
     title: "\u7D20\u56E0\u6570\u5206\u89E3 (prime factorization)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   - icon: ':heavy_check_mark:'
@@ -549,7 +549,7 @@ data:
     path: include/emthrm/string/z_algorithm.hpp
     title: Z algorithm
   tree:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -559,19 +559,19 @@ data:
     path: include/emthrm/graph/tree/double_sweep.hpp
     title: double sweep
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/tree/euler_tour.hpp
-    title: "\u30AA\u30A4\u30E9\u30FC\u30C4\u30A2\u30FC (Euler tour)"
+    path: include/emthrm/graph/tree/euler_tour_technique.hpp
+    title: Euler tour technique
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/heavy-light_decomposition.hpp
-    title: "HL \u5206\u89E3 (heavy-light decomposition)"
+    title: heavy-light decomposition
   - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour.hpp
-    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30AA\u30A4\
-      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
+    path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
+    title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
+      \ technique \u7248"
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/rerooting_dp.hpp
     title: "\u5168\u65B9\u4F4D\u6728 DP"
@@ -580,7 +580,7 @@ data:
     path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
     title: "\u4E8C\u9805\u4FC2\u6570 (binomial coefficients) \u306E\u6570\u8868 \u5DE8\
       \u5927\u306A $n$ \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/twelvefold_way/lucas.hpp
     title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
   - icon: ':heavy_check_mark:'
@@ -694,7 +694,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/2d_cumulative_sum.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
@@ -974,7 +974,7 @@ data:
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
   - icon: ':warning:'
@@ -985,19 +985,19 @@ data:
     title: "\u30B0\u30E9\u30D5/\u6728/double sweep"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.1.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3"
+    title: "\u30B0\u30E9\u30D5/\u6728/heavy-light decomposition"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/heavy-light_decomposition.2.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/HL \u5206\u89E3\uFF08\u6700\u5C0F\u5171\u901A\
-      \u7956\u5148\uFF09"
+    title: "\u30B0\u30E9\u30D5/\u6728/heavy-light decomposition\uFF08\u6700\u5C0F\u5171\
+      \u901A\u7956\u5148\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 \u30AA\u30A4\
-      \u30E9\u30FC\u30C4\u30A2\u30FC\u7248"
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 Euler tour\
+      \ technique \u7248"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/rerooting_dp.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u5168\u65B9\u4F4D\u6728 DP"
@@ -1090,7 +1090,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/enumerate_k-th_power.test.cpp
     title: "\u6570\u5B66/$i^k \\bmod m$ ($0 \\leq i \\leq n$)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/enumerate_quotients.test.cpp
     title: "\u6570\u5B66/\u5546\u306E\u5217\u6319"
   - icon: ':heavy_check_mark:'
@@ -1149,7 +1149,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow)"
@@ -1214,19 +1214,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu_focusing_on_divisor.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570 \u7D04\u6570\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu_init.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u8868"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/mobius_mu_init2.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\
       \u95A2\u6570\u306E\u6570\u88682"
@@ -1284,7 +1284,7 @@ data:
     path: test/math/twelvefold_way/large_nCk_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
       \u8868 \u5DE8\u5927\u306A $n$ \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/twelvefold_way/lucas.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
   - icon: ':heavy_check_mark:'

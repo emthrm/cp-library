@@ -71,7 +71,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow)"
@@ -107,9 +107,9 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/formal_power_series.hpp\"\
@@ -393,36 +393,36 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
+  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
-  - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
-  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
-  - include/emthrm/math/formal_power_series/bostan-mori.hpp
   - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
+  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   - include/emthrm/math/formal_power_series/bernoulli_number.hpp
+  - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
+  - include/emthrm/math/formal_power_series/bostan-mori.hpp
+  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/dynamic_programming/subset_sum_problem.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
   - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
   - test/math/formal_power_series/formal_power_series.2.test.cpp
   - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
@@ -569,7 +569,7 @@ struct FormalPowerSeries;
 - https://github.com/ei1333/library/tree/d7e8da80351ac962978692b1a60d2728783afb26/math/fps
 - https://yukicoder.me/wiki/polynomial_techniques
 
-#### 係数の和
+係数の和
 - https://www.youtube.com/watch?v=bOXCLR3Wric
 
 
@@ -579,6 +579,7 @@ struct FormalPowerSeries;
 - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae
 - https://37zigen.com/exponential-generating-function/
 - https://drive.google.com/drive/folders/1CI4P9TUWcK_sGLkUBsA4ORNilIcNjB-N
+- https://noshi91.hatenablog.com/entry/2023/05/10/010831
 - 疎な形式的冪級数
   - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc7
   - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc42
@@ -624,6 +625,8 @@ struct FormalPowerSeries;
   - https://twitter.com/tatyam_prime/status/1446841586252324866
 - $\sum_{n = 0}^\infty \frac{n^a}{n!} x^n$
   - https://qiita.com/hotman78/items/90dba287b98629767d6c
+- ${\lbrack x^n \rbrack} f^k$ ($k = 0, 1, \ldots, m$)
+  - https://twitter.com/noshi91/status/1641318777399951365
 - 多項式ハッシュ
   - https://yukicoder.me/wiki/polynomial_techniques
   - https://github.com/beet-aizu/library/blob/master/polynomial/hash.cpp

@@ -64,8 +64,8 @@ data:
   timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/topological_sort.test.cpp
   - test/graph/reachability_on_dag.test.cpp
+  - test/graph/topological_sort.test.cpp
 documentation_of: include/emthrm/graph/topological_sort.hpp
 layout: document
 title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological sort)"
@@ -86,6 +86,8 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 仕様
 
+### Kahn's algorithm
+
 |名前|戻り値|
 |:--|:--|
 |`template <typename CostType>`<br>`std::vector<int> topological_sort(const std::vector<std::vector<Edge<CostType>>>& graph);`|グラフ $\mathrm{graph}$ のトポロジカル順序。ただし存在しないときは空配列を返す。|
@@ -93,10 +95,12 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## 参考文献
 
+Kahn's algorithm
+- A. B. Kahn: Topological sorting of large networks, *Communications of the ACM*, Vol. 5, No. 11, pp. 558–562 (1962). https://doi.org/10.1145/368996.369025
 - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.89-90，マイナビ出版（2012）
 - https://github.com/spaghetti-source/algorithm/blob/8b1daaa3e80e5d954aac2632ef2299b1b86c55ed/graph/topological_sort.cc
 
 
 ## Submissons
 
-https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_4_B/review/4082498/emthrm/C++14
+- [Kahn's algorithm](https://onlinejudge.u-aizu.ac.jp/solutions/problem/GRL_4_B/review/4082498/emthrm/C++14)

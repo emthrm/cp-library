@@ -31,14 +31,14 @@ data:
     \ children(n);\n  const auto dfs1 = [&graph, &def, merge, f, g, &children](\n\
     \      auto dfs1, const int par, const int ver) -> CommutativeSemigroup {\n  \
     \  children[ver].reserve(graph[ver].size());\n    CommutativeSemigroup dp = def[ver];\n\
-    \    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst == par) [[unlikely]]\
-    \ {\n        children[ver].emplace_back();\n      } else {\n        children[ver].emplace_back(f(dfs1(dfs1,\
+    \    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst == par) {\n\
+    \        children[ver].emplace_back();\n      } else {\n        children[ver].emplace_back(f(dfs1(dfs1,\
     \ ver, e.dst), e));\n        dp = merge(dp, children[ver].back());\n      }\n\
     \    }\n    return g(dp, ver);\n  };\n  dfs1(dfs1, -1, 0);\n  std::vector<CommutativeSemigroup>\
     \ dp = def;\n  const auto dfs2 = [&graph, &def, merge, f, g, &children, &dp](\n\
     \      auto dfs2, const int par, const int ver, const CommutativeSemigroup& m)\n\
     \          -> void {\n    const int c = graph[ver].size();\n    for (int i = 0;\
-    \ i < c; ++i) {\n      if (graph[ver][i].dst == par) [[unlikely]] {\n        children[ver][i]\
+    \ i < c; ++i) {\n      if (graph[ver][i].dst == par) {\n        children[ver][i]\
     \ = f(m, graph[ver][i]);\n        break;\n      }\n    }\n    std::vector<CommutativeSemigroup>\
     \ left{def[ver]}, right;\n    left.reserve(c);\n    for (int i = 0; i < c - 1;\
     \ ++i) {\n      left.emplace_back(merge(left[i], children[ver][i]));\n    }\n\
@@ -47,10 +47,9 @@ data:
     \      for (int i = c - 2; i > 0; --i) {\n        right.emplace_back(merge(children[ver][i],\
     \ right[c - 2 - i]));\n      }\n      std::reverse(right.begin(), right.end());\n\
     \    }\n    for (int i = 0; i < c; ++i) {\n      if (graph[ver][i].dst != par)\
-    \ [[likely]] {\n        dfs2(dfs2, ver, graph[ver][i].dst,\n             g(i +\
-    \ 1 == c ? left[i] : merge(left[i], right[i]), ver));\n      }\n    }\n  };\n\
-    \  dfs2(dfs2, -1, 0, CommutativeSemigroup());\n  return dp;\n}\n\n}  // namespace\
-    \ emthrm\n\n\n"
+    \ {\n        dfs2(dfs2, ver, graph[ver][i].dst,\n             g(i + 1 == c ? left[i]\
+    \ : merge(left[i], right[i]), ver));\n      }\n    }\n  };\n  dfs2(dfs2, -1, 0,\
+    \ CommutativeSemigroup());\n  return dp;\n}\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_\n#define EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_\n\
     \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <typename CostType, typename CommutativeSemigroup,\n\
@@ -62,14 +61,14 @@ data:
     \ children(n);\n  const auto dfs1 = [&graph, &def, merge, f, g, &children](\n\
     \      auto dfs1, const int par, const int ver) -> CommutativeSemigroup {\n  \
     \  children[ver].reserve(graph[ver].size());\n    CommutativeSemigroup dp = def[ver];\n\
-    \    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst == par) [[unlikely]]\
-    \ {\n        children[ver].emplace_back();\n      } else {\n        children[ver].emplace_back(f(dfs1(dfs1,\
+    \    for (const Edge<CostType>& e : graph[ver]) {\n      if (e.dst == par) {\n\
+    \        children[ver].emplace_back();\n      } else {\n        children[ver].emplace_back(f(dfs1(dfs1,\
     \ ver, e.dst), e));\n        dp = merge(dp, children[ver].back());\n      }\n\
     \    }\n    return g(dp, ver);\n  };\n  dfs1(dfs1, -1, 0);\n  std::vector<CommutativeSemigroup>\
     \ dp = def;\n  const auto dfs2 = [&graph, &def, merge, f, g, &children, &dp](\n\
     \      auto dfs2, const int par, const int ver, const CommutativeSemigroup& m)\n\
     \          -> void {\n    const int c = graph[ver].size();\n    for (int i = 0;\
-    \ i < c; ++i) {\n      if (graph[ver][i].dst == par) [[unlikely]] {\n        children[ver][i]\
+    \ i < c; ++i) {\n      if (graph[ver][i].dst == par) {\n        children[ver][i]\
     \ = f(m, graph[ver][i]);\n        break;\n      }\n    }\n    std::vector<CommutativeSemigroup>\
     \ left{def[ver]}, right;\n    left.reserve(c);\n    for (int i = 0; i < c - 1;\
     \ ++i) {\n      left.emplace_back(merge(left[i], children[ver][i]));\n    }\n\
@@ -78,16 +77,16 @@ data:
     \      for (int i = c - 2; i > 0; --i) {\n        right.emplace_back(merge(children[ver][i],\
     \ right[c - 2 - i]));\n      }\n      std::reverse(right.begin(), right.end());\n\
     \    }\n    for (int i = 0; i < c; ++i) {\n      if (graph[ver][i].dst != par)\
-    \ [[likely]] {\n        dfs2(dfs2, ver, graph[ver][i].dst,\n             g(i +\
-    \ 1 == c ? left[i] : merge(left[i], right[i]), ver));\n      }\n    }\n  };\n\
-    \  dfs2(dfs2, -1, 0, CommutativeSemigroup());\n  return dp;\n}\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_\n"
+    \ {\n        dfs2(dfs2, ver, graph[ver][i].dst,\n             g(i + 1 == c ? left[i]\
+    \ : merge(left[i], right[i]), ver));\n      }\n    }\n  };\n  dfs2(dfs2, -1, 0,\
+    \ CommutativeSemigroup());\n  return dp;\n}\n\n}  // namespace emthrm\n\n#endif\
+    \  // EMTHRM_GRAPH_TREE_REROOTING_DP_HPP_\n"
   dependsOn:
   - include/emthrm/graph/edge.hpp
   isVerificationFile: false
   path: include/emthrm/graph/tree/rerooting_dp.hpp
   requiredBy: []
-  timestamp: '2023-02-24 21:17:22+09:00'
+  timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/tree/rerooting_dp.test.cpp
@@ -127,3 +126,8 @@ title: "\u5168\u65B9\u4F4D\u6728 DP"
 - https://rsk0315.hatenablog.com/entry/2021/06/27/013506
 - https://null-mn.hatenablog.com/entry/2020/04/14/124151
 - https://twitter.com/noshi91/status/1438937367847456772
+
+
+## Submissons
+
+https://judge.yosupo.jp/submission/138885

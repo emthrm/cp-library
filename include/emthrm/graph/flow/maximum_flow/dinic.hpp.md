@@ -75,8 +75,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
   - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
 documentation_of: include/emthrm/graph/flow/maximum_flow/dinic.hpp
 layout: document
 title: "Dinic \u6CD5"
@@ -238,9 +238,11 @@ struct Edge;
 - https://twitter.com/kotatsugame_t/status/1192092085479858176
 
 Ford–Fulkerson 法
+- L. R. Ford Jr. and D. R. Fulkerson: Maximal Flow Through a Network, *Canadian Journal of Mathematics*, Vol. 8, pp. 399–404 (1956). https://doi.org/10.4153/CJM-1956-045-5
 - https://ei1333.github.io/luzhiled/snippets/graph/ford-fulkerson.html
 
 Dinic 法
+- Yefim Dinitz: Algorithm for Solution of a Problem of Maximum Flow in a Network with Power Estimation, *Soviet Math Doklady*, Vol. 11, pp. 1277–1280 (1970).
 - https://misawa.github.io/others/flow/dinic_time_complexity.html
 
 
@@ -248,7 +250,7 @@ Dinic 法
 
 - エドモンズ・カープのアルゴリズム (Edmonds–Karp algorithm)
   - https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%89%E3%83%A2%E3%83%B3%E3%82%BA%E3%83%BB%E3%82%AB%E3%83%BC%E3%83%97%E3%81%AE%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0
-  - http://www.prefield.com/algorithm/graph/edmonds_karp.html
+  - ~~http://www.prefield.com/algorithm/graph/edmonds_karp.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/maximum_flow_edmonds_karp.cc
   - https://inzkyk.github.io/algorithms/maximum_flows_minimum_cuts/edmonds_and_karps_algorithms/
 - 容量スケーリング版 Dinic 法
@@ -257,7 +259,7 @@ Dinic 法
 - push-relabel algorithm
   - https://kenkoooo.hatenablog.com/entry/2016/12/22/143638
   - https://ei1333.github.io/luzhiled/snippets/graph/push-relabel.html
-  - http://www.prefield.com/algorithm/graph/goldberg_tarjan.html
+  - ~~http://www.prefield.com/algorithm/graph/goldberg_tarjan.html~~
   - https://tubo28.me/compprog/algorithm/edmonds-kerp/
   - https://qiita.com/a-lilas/items/3bf338c7929f6951fa41
   - https://qiita.com/nariaki3551/items/65baee3c6ef0a6ffa136
@@ -266,7 +268,7 @@ Dinic 法
 - 動的木を用いた Dinic 法
   - https://misawa.github.io/others/flow/dinic_time_complexity.html
 - 全域最小カット
-  - http://www.prefield.com/algorithm/graph/minimum_cut.html
+  - ~~http://www.prefield.com/algorithm/graph/minimum_cut.html~~
   - https://github.com/primenumber/ProconLib/blob/master/Graph/GlobalMinimumCut.cpp
   - http://monyone.github.io/teihen_library/#MinimumCutStoerWagner
   - https://www.slideshare.net/hcpc_hokudai/flow-cut
