@@ -18,9 +18,10 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: |
-          pip3 install -U git+https://github.com/luzhiled1333/verification-helper.git
-          git clone https://github.com/atcoder/ac-library.git ${{ github.workspace }}/../ac-library
+        run: pip3 install -U git+https://github.com/luzhiled1333/verification-helper.git
+
+      - name: Clone AC Library
+        run: cd ${{ github.workspace }}/../ && git clone https://github.com/atcoder/ac-library.git
 
       - name: Run tests
         env:
