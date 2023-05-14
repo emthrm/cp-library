@@ -1,36 +1,70 @@
 #ifndef EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
 #define EMTHRM_MATH_CONVOLUTION_NUMBER_THEORETIC_TRANSFORM_HPP_
 
-#include <algorithm>
-#include <bit>
-#include <cassert>
-#include <iterator>
-#include <utility>
+#if __has_include(<atcoder/convolution>)
+# include <atcoder/convolution>
+# include <atcoder/modint>
+#else
+# include <algorithm>
+# include <bit>
+# include <cassert>
+# include <iterator>
+# include <map>
+# include <utility>
+#endif
 #include <vector>
 
 #include "emthrm/math/modint.hpp"
 
 namespace emthrm {
 
+#if __has_include(<atcoder/convolution>)
+
 template <unsigned int T>
 struct NumberTheoreticTransform {
   using ModInt = MInt<T>;
 
-  NumberTheoreticTransform() {
-    for (int i = 0; i < 23; ++i) {
-      if (primes[i][0] == ModInt::get_mod()) [[unlikely]] {
-        n_max = 1 << primes[i][2];
-        root = ModInt(primes[i][1]).pow((primes[i][0] - 1) >> primes[i][2]);
-        return;
-      }
+  NumberTheoreticTransform() = default;
+
+  template <typename U>
+  std::vector<ModInt> dft(const std::vector<U>& a);
+
+  void idft(std::vector<ModInt>* a);
+
+  template <typename U>
+  std::vector<ModInt> convolution(const std::vector<U>& a,
+                                  const std::vector<U>& b) {
+    const int a_size = a.size(), b_size = b.size();
+    std::vector<atcoder::static_modint<T>> c(a_size), d(b_size);
+    for (int i = 0; i < a_size; ++i) {
+      c[i] = atcoder::static_modint<T>::raw(ModInt(a[i]).v);
     }
-    assert(false);
+    for (int i = 0; i < b_size; ++i) {
+      d[i] = atcoder::static_modint<T>::raw(ModInt(b[i]).v);
+    }
+    c = atcoder::convolution(c, d);
+    const int c_size = c.size();
+    std::vector<ModInt> res(c_size);
+    for (int i = 0; i < c_size; ++i) {
+      res[i] = ModInt::raw(c[i].val());
+    }
+    return res;
   }
+};
+
+#else  // __has_include(<atcoder/convolution>)
+
+template <unsigned int T>
+struct NumberTheoreticTransform {
+  using ModInt = MInt<T>;
+
+  NumberTheoreticTransform()
+      : n_max(1 << init().first), root(ModInt::raw(init().second)) {}
 
   template <typename U>
   std::vector<ModInt> dft(const std::vector<U>& a) {
     std::vector<ModInt> b(std::bit_ceil(a.size()), 0);
-    std::copy(a.begin(), a.end(), b.begin());
+    std::ranges::copy(a, b.begin());
     calc(&b);
     return b;
   }
@@ -51,11 +85,28 @@ struct NumberTheoreticTransform {
                                   const std::vector<U>& b) {
     const int a_size = a.size(), b_size = b.size();
     const int c_size = a_size + b_size - 1;
+    if (std::min(a_size, b_size) <= 60) {
+      std::vector<ModInt> c(c_size, 0);
+      if (a_size > b_size) {
+        for (int i = 0; i < a_size; ++i) {
+          for (int j = 0; j < b_size; ++j) {
+            c[i + j] += ModInt(a[i]) * b[j];
+          }
+        }
+      } else {
+        for (int j = 0; j < b_size; ++j) {
+          for (int i = 0; i < a_size; ++i) {
+            c[i + j] += ModInt(b[j]) * a[i];
+          }
+        }
+      }
+      return c;
+    }
     const int n = std::bit_ceil(static_cast<unsigned int>(c_size));
     std::vector<ModInt> c(n, 0), d(n, 0);
-    std::copy(a.begin(), a.end(), c.begin());
+    std::ranges::copy(a, c.begin());
     calc(&c);
-    std::copy(b.begin(), b.end(), d.begin());
+    std::ranges::copy(b, d.begin());
     calc(&d);
     for (int i = 0; i < n; ++i) {
       c[i] *= d[i];
@@ -66,34 +117,37 @@ struct NumberTheoreticTransform {
   }
 
  private:
-  const int primes[23][3]{
-    {16957441, 329, 14},
-    {17006593, 26, 15},
-    {19529729, 770, 17},
-    {167772161, 3, 25},
-    {469762049, 3, 26},
-    {645922817, 3, 23},
-    {897581057, 3, 23},
-    {924844033, 5, 21},
-    {935329793, 3, 22},
-    {943718401, 7, 22},
-    {950009857, 7, 21},
-    {962592769, 7, 21},
-    {975175681, 17, 21},
-    {976224257, 3, 20},
-    {985661441, 3, 22},
-    {998244353, 3, 23},
-    {1004535809, 3, 21},
-    {1007681537, 3, 20},
-    {1012924417, 5, 21},
-    {1045430273, 3, 20},
-    {1051721729, 6, 20},
-    {1053818881, 7, 20},
-    {1224736769, 3, 24}
-  };
+  static std::pair<int, int> init() {
+    static const std::map<int, std::pair<int, int>> primes{
+        {16957441, {14, 102066830}},  // 329
+        {17006593, {15, 608991743}},  // 26
+        {19529729, {17, 927947839}},  // 770
+        {167772161, {25, 243}},  // 3
+        {469762049, {26, 2187}},  // 3
+        {645922817, {23, 680782677}},  // 3
+        {897581057, {23, 126991183}},  // 3
+        {924844033, {21, 480100938}},  // 5
+        {935329793, {22, 945616399}},  // 3
+        {943718401, {22, 39032610}},  // 7
+        {950009857, {21, 912960248}},  // 7
+        {962592769, {21, 762567211}},  // 7
+        {975175681, {21, 973754139}},  // 17
+        {976224257, {20, 168477898}},  // 3
+        {985661441, {22, 157780640}},  // 3
+        {998244353, {23, 15311432}},  // 3
+        {1004535809, {21, 840453100}},  // 3
+        {1007681537, {20, 283888334}},  // 3
+        {1012924417, {21, 428116421}},  // 5
+        {1045430273, {20, 328125745}},  // 3
+        {1051721729, {20, 234350985}},  // 6
+        {1053818881, {20, 309635616}},  // 7
+        {1224736769, {24, 304180829}}};  // 3
+    return primes.at(T);
+  }
 
-  int n_max;
-  ModInt root;
+  const int n_max;
+  const ModInt root;
+
   std::vector<int> butterfly{0};
   std::vector<std::vector<ModInt>> omega{{1}};
 
@@ -136,6 +190,8 @@ struct NumberTheoreticTransform {
     }
   }
 };
+
+#endif  // __has_include(<atcoder/convolution>)
 
 }  // namespace emthrm
 

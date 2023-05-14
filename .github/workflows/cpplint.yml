@@ -59,6 +59,7 @@ jobs:
               "include/emthrm/graph_cost-free/topological_sort.hpp" | \
               "include/emthrm/math/convolution/fast_fourier_transform.hpp" | \
               "include/emthrm/math/convolution/mod_convolution.hpp" | \
+              "include/emthrm/math/convolution/number_theoretic_transform.hpp" | \
               "include/emthrm/math/convolution/xor_convolution.hpp" | \
               "include/emthrm/math/is_primitive_root.hpp" )
                 cpplint --root=./include --filter=-build/include_order,-legal/copyright,-runtime/int $file ;;
@@ -67,8 +68,7 @@ jobs:
                 cpplint --root=./include --filter=-legal/copyright,-whitespace/braces $file ;;
 
               "include/emthrm/geometry/geometry.hpp" | \
-              "include/emthrm/geometry/integral_geometry.hpp" | \
-              "include/emthrm/math/convolution/number_theoretic_transform.hpp" )
+              "include/emthrm/geometry/integral_geometry.hpp" )
                 cpplint --root=./include --filter=-build/include_order,-legal/copyright,-readability/braces,-runtime/int $file ;;
 
               "include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp" )

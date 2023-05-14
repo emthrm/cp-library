@@ -98,5 +98,5 @@ e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$
 
 ## Submissons
 
-- [数論変換](https://judge.yosupo.jp/submission/3591)
+- [数論変換](https://judge.yosupo.jp/submission/139526)
 - [任意の法の下での畳み込み](https://atcoder.jp/contests/atc001/submissions/25084524)
