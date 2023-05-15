@@ -50,7 +50,7 @@ struct SegmentTree {
   Monoid operator[](const int idx) const { return dat[idx + p2]; }
 
   template <typename G>
-  int find_right(int left, const G g) {
+  int find_right(int left, const G g) const {
     if (left >= n) [[unlikely]] return n;
     Monoid val = T::id();
     left += p2;
@@ -75,7 +75,7 @@ struct SegmentTree {
   }
 
   template <typename G>
-  int find_left(int right, const G g) {
+  int find_left(int right, const G g) const {
     if (right <= 0) [[unlikely]] return -1;
     Monoid val = T::id();
     right += p2;
