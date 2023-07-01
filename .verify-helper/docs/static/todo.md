@@ -110,6 +110,15 @@
 - https://yukicoder.me/problems/no/2296
 
 
+# Lyndon factorization
+
+## TODO
+- https://en.wikipedia.org/wiki/Lyndon_word
+- https://qiita.com/nakashi18/items/66882bd6e0127174267a
+- https://codeforces.com/blog/entry/89629
+- https://judge.yosupo.jp/problem/lyndon_factorization
+
+
 # Menger's theorem
 
 ## TODO
