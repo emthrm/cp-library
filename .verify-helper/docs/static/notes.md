@@ -104,3 +104,16 @@ $$
 が成り立つ。
 
 > http://techtipshoge.blogspot.com/2015/02/mod-n.html
+
+---
+
+自然数列 $(A_1, \ldots, A_n)$ に対して
+
+$$
+  \min \lbrace A_i \oplus A_j \mid 1 \leq i < j \leq n \rbrace = \min \lbrace A_i \oplus A_{i + 1} \mid 1 \leq i < n \rbrace
+$$
+
+が成り立つ。
+
+> https://twitter.com/pro_anyone/status/1666487254175604736
+> https://atcoder.jp/contests/abc308/editorial/6707
