@@ -6,12 +6,14 @@
 
 namespace emthrm {
 
-template <typename T = char, typename U>
-std::vector<std::pair<T, int>> run_length_encoding(const U& s) {
+template <typename T>
+requires requires { typename T::value_type; }
+std::vector<std::pair<typename T::value_type, int>> run_length_encoding(
+    const T& s) {
   const int n = s.size();
-  std::vector<std::pair<T, int>> res;
+  std::vector<std::pair<typename T::value_type, int>> res;
   if (n == 0) [[unlikely]] return res;
-  T ch = s.front();
+  typename T::value_type ch = s.front();
   int num = 1;
   for (int i = 1; i < n; ++i) {
     if (s[i] != ch) {

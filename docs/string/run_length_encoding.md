@@ -13,7 +13,7 @@ $O(\lvert S \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T = char, typename U>`<br>`std::vector<std::pair<T, int>> run_length_encoding(const U& s);`|$S$ のランレングス圧縮|
+|`template <typename T = char, typename U>`<br>`requires requires { typename T::value_type; }`<br>`std::vector<std::pair<typename T::value_type, int>> run_length_encoding(const T& s);`|$S$ のランレングス圧縮|
 
 
 ## Submissons

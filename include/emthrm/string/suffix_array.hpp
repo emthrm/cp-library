@@ -9,11 +9,12 @@
 namespace emthrm {
 
 template <typename T = std::string>
+requires requires { typename T::value_type; }
 struct SuffixArray {
   std::vector<int> sa, rank;
 
-  template <typename U = char>
-  explicit SuffixArray(const T& s_, const U sentinel = 0) : s(s_) {
+  explicit SuffixArray(const T& s_, const typename T::value_type sentinel = 0)
+      : s(s_) {
     const int n = s.size();
     s.push_back(sentinel);
     sa.resize(n + 1);

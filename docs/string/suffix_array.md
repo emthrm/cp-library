@@ -15,6 +15,7 @@ documentation_of: //include/emthrm/string/suffix_array.hpp
 
 ```cpp
 template <typename T = std::string>
+requires requires { typename T::value_type; }
 struct SuffixArray;
 ```
 
@@ -31,7 +32,7 @@ struct SuffixArray;
 
 |名前|効果・戻り値|
 |:--|:--|
-|`template <typename U = char>`<br>`explicit SuffixArray(const T& s_, const U sentinel = 0);`|$S$ に対してオブジェクトを構築する。|
+|`explicit SuffixArray(const T& s_, const typename T::value_type sentinel = 0);`|$S$ に対してオブジェクトを構築する。|
 |`std::vector<int> match(T* t) const;`|$T$ が出現する文字列 $S$ 中の位置|
 
 
