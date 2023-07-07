@@ -13,25 +13,29 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/run_length_encoding.hpp\"\n\n\n\n\
     #include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ T = char, typename U>\nstd::vector<std::pair<T, int>> run_length_encoding(const\
-    \ U& s) {\n  const int n = s.size();\n  std::vector<std::pair<T, int>> res;\n\
-    \  if (n == 0) [[unlikely]] return res;\n  T ch = s.front();\n  int num = 1;\n\
-    \  for (int i = 1; i < n; ++i) {\n    if (s[i] != ch) {\n      res.emplace_back(ch,\
-    \ num);\n      num = 0;\n    }\n    ch = s[i];\n    ++num;\n  }\n  res.emplace_back(ch,\
-    \ num);\n  return res;\n}\n\n}  // namespace emthrm\n\n\n"
+    \ T>\nrequires requires { typename T::value_type; }\nstd::vector<std::pair<typename\
+    \ T::value_type, int>> run_length_encoding(\n    const T& s) {\n  const int n\
+    \ = s.size();\n  std::vector<std::pair<typename T::value_type, int>> res;\n  if\
+    \ (n == 0) [[unlikely]] return res;\n  typename T::value_type ch = s.front();\n\
+    \  int num = 1;\n  for (int i = 1; i < n; ++i) {\n    if (s[i] != ch) {\n    \
+    \  res.emplace_back(ch, num);\n      num = 0;\n    }\n    ch = s[i];\n    ++num;\n\
+    \  }\n  res.emplace_back(ch, num);\n  return res;\n}\n\n}  // namespace emthrm\n\
+    \n\n"
   code: "#ifndef EMTHRM_STRING_RUN_LENGTH_ENCODING_HPP_\n#define EMTHRM_STRING_RUN_LENGTH_ENCODING_HPP_\n\
     \n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
-    \ T = char, typename U>\nstd::vector<std::pair<T, int>> run_length_encoding(const\
-    \ U& s) {\n  const int n = s.size();\n  std::vector<std::pair<T, int>> res;\n\
-    \  if (n == 0) [[unlikely]] return res;\n  T ch = s.front();\n  int num = 1;\n\
-    \  for (int i = 1; i < n; ++i) {\n    if (s[i] != ch) {\n      res.emplace_back(ch,\
-    \ num);\n      num = 0;\n    }\n    ch = s[i];\n    ++num;\n  }\n  res.emplace_back(ch,\
-    \ num);\n  return res;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_STRING_RUN_LENGTH_ENCODING_HPP_\n"
+    \ T>\nrequires requires { typename T::value_type; }\nstd::vector<std::pair<typename\
+    \ T::value_type, int>> run_length_encoding(\n    const T& s) {\n  const int n\
+    \ = s.size();\n  std::vector<std::pair<typename T::value_type, int>> res;\n  if\
+    \ (n == 0) [[unlikely]] return res;\n  typename T::value_type ch = s.front();\n\
+    \  int num = 1;\n  for (int i = 1; i < n; ++i) {\n    if (s[i] != ch) {\n    \
+    \  res.emplace_back(ch, num);\n      num = 0;\n    }\n    ch = s[i];\n    ++num;\n\
+    \  }\n  res.emplace_back(ch, num);\n  return res;\n}\n\n}  // namespace emthrm\n\
+    \n#endif  // EMTHRM_STRING_RUN_LENGTH_ENCODING_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/string/run_length_encoding.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-07-07 02:42:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/string/run_length_encoding.test.cpp
@@ -50,7 +54,7 @@ $O(\lvert S \rvert)$
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T = char, typename U>`<br>`std::vector<std::pair<T, int>> run_length_encoding(const U& s);`|$S$ のランレングス圧縮|
+|`template <typename T = char, typename U>`<br>`requires requires { typename T::value_type; }`<br>`std::vector<std::pair<typename T::value_type, int>> run_length_encoding(const T& s);`|$S$ のランレングス圧縮|
 
 
 ## Submissons

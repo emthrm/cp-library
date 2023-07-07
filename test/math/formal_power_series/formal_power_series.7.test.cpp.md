@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
@@ -13,9 +13,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/polynomial_taylor_shift
     document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
@@ -147,10 +147,10 @@ data:
     \ <unsigned int T>\nstruct NumberTheoreticTransform {\n  using ModInt = MInt<T>;\n\
     \n  NumberTheoreticTransform() = default;\n\n  template <typename U>\n  std::vector<ModInt>\
     \ dft(const std::vector<U>& a);\n\n  void idft(std::vector<ModInt>* a);\n\n  template\
-    \ <typename U>\n  std::vector<ModInt> convolution(const std::vector<U>& a,\n \
-    \                                 const std::vector<U>& b) {\n    const int a_size\
-    \ = a.size(), b_size = b.size();\n    std::vector<atcoder::static_modint<T>> c(a_size),\
-    \ d(b_size);\n    for (int i = 0; i < a_size; ++i) {\n      c[i] = atcoder::static_modint<T>::raw(ModInt(a[i]).v);\n\
+    \ <typename U>\n  std::vector<ModInt> convolution(\n      const std::vector<U>&\
+    \ a, const std::vector<U>& b) const {\n    const int a_size = a.size(), b_size\
+    \ = b.size();\n    std::vector<atcoder::static_modint<T>> c(a_size), d(b_size);\n\
+    \    for (int i = 0; i < a_size; ++i) {\n      c[i] = atcoder::static_modint<T>::raw(ModInt(a[i]).v);\n\
     \    }\n    for (int i = 0; i < b_size; ++i) {\n      d[i] = atcoder::static_modint<T>::raw(ModInt(b[i]).v);\n\
     \    }\n    c = atcoder::convolution(c, d);\n    const int c_size = c.size();\n\
     \    std::vector<ModInt> res(c_size);\n    for (int i = 0; i < c_size; ++i) {\n\
@@ -164,36 +164,35 @@ data:
     \    calc(a);\n    std::reverse(std::next(a->begin()), a->end());\n    const int\
     \ n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0;\
     \ i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
-    \  std::vector<ModInt> convolution(const std::vector<U>& a,\n                \
-    \                  const std::vector<U>& b) {\n    const int a_size = a.size(),\
-    \ b_size = b.size();\n    const int c_size = a_size + b_size - 1;\n    if (std::min(a_size,\
-    \ b_size) <= 60) {\n      std::vector<ModInt> c(c_size, 0);\n      if (a_size\
-    \ > b_size) {\n        for (int i = 0; i < a_size; ++i) {\n          for (int\
-    \ j = 0; j < b_size; ++j) {\n            c[i + j] += ModInt(a[i]) * b[j];\n  \
-    \        }\n        }\n      } else {\n        for (int j = 0; j < b_size; ++j)\
-    \ {\n          for (int i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j])\
-    \ * a[i];\n          }\n        }\n      }\n      return c;\n    }\n    const\
-    \ int n = std::bit_ceil(static_cast<unsigned int>(c_size));\n    std::vector<ModInt>\
-    \ c(n, 0), d(n, 0);\n    std::ranges::copy(a, c.begin());\n    calc(&c);\n   \
-    \ std::ranges::copy(b, d.begin());\n    calc(&d);\n    for (int i = 0; i < n;\
-    \ ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n    c.resize(c_size);\n \
-    \   return c;\n  }\n\n private:\n  static std::pair<int, int> init() {\n    static\
-    \ const std::map<int, std::pair<int, int>> primes{\n        {16957441, {14, 102066830}},\
-    \  // 329\n        {17006593, {15, 608991743}},  // 26\n        {19529729, {17,\
-    \ 927947839}},  // 770\n        {167772161, {25, 243}},  // 3\n        {469762049,\
-    \ {26, 2187}},  // 3\n        {645922817, {23, 680782677}},  // 3\n        {897581057,\
-    \ {23, 126991183}},  // 3\n        {924844033, {21, 480100938}},  // 5\n     \
-    \   {935329793, {22, 945616399}},  // 3\n        {943718401, {22, 39032610}},\
-    \  // 7\n        {950009857, {21, 912960248}},  // 7\n        {962592769, {21,\
-    \ 762567211}},  // 7\n        {975175681, {21, 973754139}},  // 17\n        {976224257,\
-    \ {20, 168477898}},  // 3\n        {985661441, {22, 157780640}},  // 3\n     \
-    \   {998244353, {23, 15311432}},  // 3\n        {1004535809, {21, 840453100}},\
-    \  // 3\n        {1007681537, {20, 283888334}},  // 3\n        {1012924417, {21,\
-    \ 428116421}},  // 5\n        {1045430273, {20, 328125745}},  // 3\n        {1051721729,\
-    \ {20, 234350985}},  // 6\n        {1053818881, {20, 309635616}},  // 7\n    \
-    \    {1224736769, {24, 304180829}}};  // 3\n    return primes.at(T);\n  }\n\n\
-    \  const int n_max;\n  const ModInt root;\n\n  std::vector<int> butterfly{0};\n\
-    \  std::vector<std::vector<ModInt>> omega{{1}};\n\n  void calc(std::vector<ModInt>*\
+    \  std::vector<ModInt> convolution(\n      const std::vector<U>& a, const std::vector<U>&\
+    \ b) const {\n    const int a_size = a.size(), b_size = b.size();\n    const int\
+    \ c_size = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n \
+    \     std::vector<ModInt> c(c_size, 0);\n      if (a_size > b_size) {\n      \
+    \  for (int i = 0; i < a_size; ++i) {\n          for (int j = 0; j < b_size; ++j)\
+    \ {\n            c[i + j] += ModInt(a[i]) * b[j];\n          }\n        }\n  \
+    \    } else {\n        for (int j = 0; j < b_size; ++j) {\n          for (int\
+    \ i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j]) * a[i];\n  \
+    \        }\n        }\n      }\n      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
+    \ int>(c_size));\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::ranges::copy(a,\
+    \ c.begin());\n    calc(&c);\n    std::ranges::copy(b, d.begin());\n    calc(&d);\n\
+    \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
+    \    c.resize(c_size);\n    return c;\n  }\n\n private:\n  static std::pair<int,\
+    \ int> init() {\n    static const std::map<int, std::pair<int, int>> primes{\n\
+    \        {16957441, {14, 102066830}},  // 329\n        {17006593, {15, 608991743}},\
+    \  // 26\n        {19529729, {17, 927947839}},  // 770\n        {167772161, {25,\
+    \ 243}},  // 3\n        {469762049, {26, 2187}},  // 3\n        {645922817, {23,\
+    \ 680782677}},  // 3\n        {897581057, {23, 126991183}},  // 3\n        {924844033,\
+    \ {21, 480100938}},  // 5\n        {935329793, {22, 945616399}},  // 3\n     \
+    \   {943718401, {22, 39032610}},  // 7\n        {950009857, {21, 912960248}},\
+    \  // 7\n        {962592769, {21, 762567211}},  // 7\n        {975175681, {21,\
+    \ 973754139}},  // 17\n        {976224257, {20, 168477898}},  // 3\n        {985661441,\
+    \ {22, 157780640}},  // 3\n        {998244353, {23, 15311432}},  // 3\n      \
+    \  {1004535809, {21, 840453100}},  // 3\n        {1007681537, {20, 283888334}},\
+    \  // 3\n        {1012924417, {21, 428116421}},  // 5\n        {1045430273, {20,\
+    \ 328125745}},  // 3\n        {1051721729, {20, 234350985}},  // 6\n        {1053818881,\
+    \ {20, 309635616}},  // 7\n        {1224736769, {24, 304180829}}};  // 3\n   \
+    \ return primes.at(T);\n  }\n\n  const int n_max;\n  const ModInt root;\n\n  std::vector<int>\
+    \ butterfly{0};\n  std::vector<std::vector<ModInt>> omega{{1}};\n\n  void calc(std::vector<ModInt>*\
     \ a) {\n    const int n = a->size(), prev_n = butterfly.size();\n    if (n > prev_n)\
     \ {\n      assert(n <= n_max);\n      butterfly.resize(n);\n      const int prev_lg\
     \ = omega.size(), lg = std::countr_zero(a->size());\n      for (int i = 1; i <\
@@ -378,8 +377,8 @@ data:
   isVerificationFile: true
   path: test/math/formal_power_series/formal_power_series.7.test.cpp
   requiredBy: []
-  timestamp: '2023-05-14 13:29:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-07 12:32:05+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/math/formal_power_series/formal_power_series.7.test.cpp
 layout: document

@@ -93,8 +93,8 @@ data:
   timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
+  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
 documentation_of: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
 layout: document
 title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\

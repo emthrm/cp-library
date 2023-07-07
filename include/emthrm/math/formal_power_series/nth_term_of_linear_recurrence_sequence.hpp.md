@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/formal_power_series/bostan-mori.hpp
     title: "Bostan\u2013Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
   - icon: ':question:'
@@ -9,13 +9,13 @@ data:
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp\"\
@@ -197,7 +197,7 @@ data:
   path: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
   requiredBy: []
   timestamp: '2023-03-11 17:00:55+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/math/formal_power_series/bostan-mori.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
@@ -237,6 +237,8 @@ $d$ 次多項式同士の乗算の算術計算量を $\mathsf{M}(d)$ とおく�
 - https://noshi91.hatenablog.com/entry/2023/03/29/215553
 - $x^N \bmod \Gamma(x)$
   - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
+- 高速化
+  - https://twitter.com/noya2ruler/status/1654157396627927042
 
 
 ## Submissons

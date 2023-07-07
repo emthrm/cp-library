@@ -2,20 +2,20 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: include/emthrm/math/formal_power_series/polynomial_interpolation.hpp
     title: "\u591A\u9805\u5F0F\u88DC\u9593 (polynomial interpolation)"
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/multipoint_evaluation.hpp\"\
@@ -51,10 +51,10 @@ data:
   requiredBy:
   - include/emthrm/math/formal_power_series/polynomial_interpolation.hpp
   timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
   - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
 layout: document
 title: multipoint evaluation

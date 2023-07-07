@@ -8,47 +8,58 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
+  - icon: ':x:'
+    path: include/emthrm/string/wildcard_pattern_matching.hpp
+    title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
+      \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: true
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/convolution_mod
-    document_title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
+    PROBLEM: https://atcoder.jp/contests/abc305/tasks/abc305_h
+    document_title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\
+      \ ? \u3092\u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\
+      \u30B0"
     links:
-    - https://judge.yosupo.jp/problem/convolution_mod
-  bundledCode: "#line 1 \"test/math/convolution/number_theoretic_transform.test.cpp\"\
-    \n/*\n * @title \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB\
-    \n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/convolution_mod\n\
-    \ */\n\n#include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    - https://atcoder.jp/contests/abc305/tasks/abc305_h
+  bundledCode: "#line 1 \"test/string/wildcard_pattern_matching.test.cpp\"\n/*\n *\
+    \ @title \u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
+    \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\n *\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc305/tasks/abc305_h\n\
+    \ */\n\n#include <iostream>\n#include <string>\n\n#line 1 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <map>\n#include <numeric>\n\
+    #line 9 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\n#include <tuple>\n\
+    #include <vector>\n\n#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
     \n\n\n\n#if __has_include(<atcoder/convolution>)\n# include <atcoder/convolution>\n\
-    # include <atcoder/modint>\n#else\n# include <algorithm>\n# include <bit>\n# include\
-    \ <cassert>\n# include <iterator>\n# include <map>\n# include <utility>\n#endif\n\
-    #line 16 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\n\n\
-    #line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n#\
-    \ include <cassert>\n#endif\n#include <compare>\n#line 9 \"include/emthrm/math/modint.hpp\"\
-    \n// #include <numeric>\n#include <utility>\n#line 12 \"include/emthrm/math/modint.hpp\"\
-    \n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\ntemplate <unsigned int M>\n\
-    struct MInt {\n  unsigned int v;\n\n  constexpr MInt() : v(0) {}\n  constexpr\
-    \ MInt(const long long x) : v(x >= 0 ? x % M : x % M + M) {}\n  static constexpr\
-    \ MInt raw(const int x) {\n    MInt x_;\n    x_.v = x;\n    return x_;\n  }\n\n\
-    \  static constexpr int get_mod() { return M; }\n  static constexpr void set_mod(const\
-    \ int divisor) {\n    assert(std::cmp_equal(divisor, M));\n  }\n\n  static void\
-    \ init(const int x) {\n    inv<true>(x);\n    fact(x);\n    fact_inv(x);\n  }\n\
-    \n  template <bool MEMOIZES = false>\n  static MInt inv(const int n) {\n    //\
-    \ assert(0 <= n && n < M && std::gcd(n, M) == 1);\n    static std::vector<MInt>\
-    \ inverse{0, 1};\n    const int prev = inverse.size();\n    if (n < prev) return\
-    \ inverse[n];\n    if constexpr (MEMOIZES) {\n      // \"n!\" and \"M\" must be\
-    \ disjoint.\n      inverse.resize(n + 1);\n      for (int i = prev; i <= n; ++i)\
-    \ {\n        inverse[i] = -inverse[M % i] * raw(M / i);\n      }\n      return\
-    \ inverse[n];\n    }\n    int u = 1, v = 0;\n    for (unsigned int a = n, b =\
-    \ M; b;) {\n      const unsigned int q = a / b;\n      std::swap(a -= q * b, b);\n\
-    \      std::swap(u -= q * v, v);\n    }\n    return u;\n  }\n\n  static MInt fact(const\
-    \ int n) {\n    static std::vector<MInt> factorial{1};\n    if (const int prev\
-    \ = factorial.size(); n >= prev) {\n      factorial.resize(n + 1);\n      for\
-    \ (int i = prev; i <= n; ++i) {\n        factorial[i] = factorial[i - 1] * i;\n\
-    \      }\n    }\n    return factorial[n];\n  }\n\n  static MInt fact_inv(const\
+    # include <atcoder/modint>\n#else\n#line 9 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n# include <bit>\n#line 11 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n# include <iterator>\n#line 13 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n# include <utility>\n#endif\n#line 16 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n\n#line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n\
+    #line 6 \"include/emthrm/math/modint.hpp\"\n#endif\n#include <compare>\n#line\
+    \ 9 \"include/emthrm/math/modint.hpp\"\n// #include <numeric>\n#include <utility>\n\
+    #line 12 \"include/emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\n\
+    template <unsigned int M>\nstruct MInt {\n  unsigned int v;\n\n  constexpr MInt()\
+    \ : v(0) {}\n  constexpr MInt(const long long x) : v(x >= 0 ? x % M : x % M +\
+    \ M) {}\n  static constexpr MInt raw(const int x) {\n    MInt x_;\n    x_.v =\
+    \ x;\n    return x_;\n  }\n\n  static constexpr int get_mod() { return M; }\n\
+    \  static constexpr void set_mod(const int divisor) {\n    assert(std::cmp_equal(divisor,\
+    \ M));\n  }\n\n  static void init(const int x) {\n    inv<true>(x);\n    fact(x);\n\
+    \    fact_inv(x);\n  }\n\n  template <bool MEMOIZES = false>\n  static MInt inv(const\
+    \ int n) {\n    // assert(0 <= n && n < M && std::gcd(n, M) == 1);\n    static\
+    \ std::vector<MInt> inverse{0, 1};\n    const int prev = inverse.size();\n   \
+    \ if (n < prev) return inverse[n];\n    if constexpr (MEMOIZES) {\n      // \"\
+    n!\" and \"M\" must be disjoint.\n      inverse.resize(n + 1);\n      for (int\
+    \ i = prev; i <= n; ++i) {\n        inverse[i] = -inverse[M % i] * raw(M / i);\n\
+    \      }\n      return inverse[n];\n    }\n    int u = 1, v = 0;\n    for (unsigned\
+    \ int a = n, b = M; b;) {\n      const unsigned int q = a / b;\n      std::swap(a\
+    \ -= q * b, b);\n      std::swap(u -= q * v, v);\n    }\n    return u;\n  }\n\n\
+    \  static MInt fact(const int n) {\n    static std::vector<MInt> factorial{1};\n\
+    \    if (const int prev = factorial.size(); n >= prev) {\n      factorial.resize(n\
+    \ + 1);\n      for (int i = prev; i <= n; ++i) {\n        factorial[i] = factorial[i\
+    \ - 1] * i;\n      }\n    }\n    return factorial[n];\n  }\n\n  static MInt fact_inv(const\
     \ int n) {\n    static std::vector<MInt> f_inv{1};\n    if (const int prev = f_inv.size();\
     \ n >= prev) {\n      f_inv.resize(n + 1);\n      f_inv[n] = inv(fact(n).v);\n\
     \      for (int i = n; i > prev; --i) {\n        f_inv[i - 1] = f_inv[i] * i;\n\
@@ -207,36 +218,66 @@ data:
     \ ModInt tmp = (*a)[i + j + block] * omega[den][j];\n          (*a)[i + j + block]\
     \ = (*a)[i + j] - tmp;\n          (*a)[i + j] += tmp;\n        }\n      }\n  \
     \  }\n  }\n};\n\n#endif  // __has_include(<atcoder/convolution>)\n\n}  // namespace\
-    \ emthrm\n\n\n#line 12 \"test/math/convolution/number_theoretic_transform.test.cpp\"\
-    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
-    \  int n, m;\n  std::cin >> n >> m;\n  std::vector<int> a(n), b(m);\n  for (int\
-    \ i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  for (int i = 0; i < m; ++i)\
-    \ {\n    std::cin >> b[i];\n  }\n  const std::vector<ModInt> ans =\n      emthrm::NumberTheoreticTransform<MOD>().convolution(a,\
-    \ b);\n  for (int i = 0; i <= (n - 1) + (m - 1); ++i) {\n    std::cout << ans[i]\
-    \ << \" \\n\"[i == (n - 1) + (m - 1)];\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB\
-    \n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/convolution_mod\n\
-    \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
-    \n#include \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 998244353;\n\
-    \  using ModInt = emthrm::MInt<MOD>;\n  int n, m;\n  std::cin >> n >> m;\n  std::vector<int>\
-    \ a(n), b(m);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n \
-    \ for (int i = 0; i < m; ++i) {\n    std::cin >> b[i];\n  }\n  const std::vector<ModInt>\
-    \ ans =\n      emthrm::NumberTheoreticTransform<MOD>().convolution(a, b);\n  for\
-    \ (int i = 0; i <= (n - 1) + (m - 1); ++i) {\n    std::cout << ans[i] << \" \\\
-    n\"[i == (n - 1) + (m - 1)];\n  }\n  return 0;\n}\n"
+    \ emthrm\n\n\n#line 13 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T = std::string>\nrequires requires\
+    \ { typename T::value_type; }\nstd::vector<int> wildcard_pattern_matching(\n \
+    \   const T& text, const T& pattern, const typename T::value_type wildcard) {\n\
+    \  if (text.size() < pattern.size()) [[unlikely]] return {};\n  const auto generate\
+    \ = [wildcard](const T& str)\n      -> std::tuple<std::vector<long long>,\n  \
+    \                  std::vector<long long>,\n                    std::vector<long\
+    \ long>> {\n    using Char = T::value_type;\n    static std::map<Char, int> characters{{wildcard,\
+    \ 0}};\n    std::vector<long long> v1(str.size());\n    std::ranges::transform(\n\
+    \        str, v1.begin(),\n        [](const Char c) -> int {\n          if (const\
+    \ auto it = characters.find(c); it != characters.end()) {\n            return\
+    \ it->second;\n          }\n          const int next_index = characters.size();\n\
+    \          assert(characters.emplace(c, next_index).second);\n          return\
+    \ next_index;\n        });\n    std::vector<long long> v2 = v1;\n    std::ranges::transform(\n\
+    \        v2, v2.begin(),\n        [](const long long ch) -> long long { return\
+    \ ch * ch; });\n    std::vector<long long> v3 = v1;\n    std::ranges::transform(\n\
+    \        v3, v3.begin(),\n        [](const long long ch) -> long long { return\
+    \ ch * ch * ch; });\n    return {v1, v2, v3};\n  };\n  const auto [t1, t2, t3]\
+    \ = generate(text);\n  auto [p1, p2, p3] = generate(pattern);\n  std::ranges::reverse(p1);\n\
+    \  std::ranges::reverse(p2);\n  std::ranges::reverse(p3);\n  const int l = text.size()\
+    \ - pattern.size() + 1;\n  std::vector<int> ans(l);\n  std::iota(ans.begin(),\
+    \ ans.end(), 0);\n  const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3,\
+    \ l, &ans]\n      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) ->\
+    \ void {\n    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static\
+    \ const int offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 =\
+    \ ntt.convolution(t3, p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2,\
+    \ p2);\n    const std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int>\
+    \ next_ans;\n    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n\
+    \      const ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n\
+    \                            + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
+    \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
+    \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
+    \  return ans;\n}\n\n}  // namespace emthrm\n\n\n#line 11 \"test/string/wildcard_pattern_matching.test.cpp\"\
+    \n\nint main() {\n  int l, w;\n  std::string s, p;\n  std::cin >> l >> w >> s\
+    \ >> p;\n  s = s + std::string(w - 1, '.') + s;\n  if (l == w) {\n    s.pop_back();\n\
+    \  } else {\n    s += std::string(w - (l + 1), '.');\n  }\n  std::cout << emthrm::wildcard_pattern_matching(s,\
+    \ p, '_').size() << '\\n';\n  return 0;\n}\n"
+  code: "/*\n * @title \u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\
+    \ ? \u3092\u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\
+    \n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc305/tasks/abc305_h\n\
+    \ */\n\n#include <iostream>\n#include <string>\n\n#include \"emthrm/string/wildcard_pattern_matching.hpp\"\
+    \n\nint main() {\n  int l, w;\n  std::string s, p;\n  std::cin >> l >> w >> s\
+    \ >> p;\n  s = s + std::string(w - 1, '.') + s;\n  if (l == w) {\n    s.pop_back();\n\
+    \  } else {\n    s += std::string(w - (l + 1), '.');\n  }\n  std::cout << emthrm::wildcard_pattern_matching(s,\
+    \ p, '_').size() << '\\n';\n  return 0;\n}\n"
   dependsOn:
+  - include/emthrm/string/wildcard_pattern_matching.hpp
   - include/emthrm/math/convolution/number_theoretic_transform.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
-  path: test/math/convolution/number_theoretic_transform.test.cpp
+  path: test/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
   timestamp: '2023-07-07 12:32:05+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
-documentation_of: test/math/convolution/number_theoretic_transform.test.cpp
+documentation_of: test/string/wildcard_pattern_matching.test.cpp
 layout: document
 redirect_from:
-- /verify/test/math/convolution/number_theoretic_transform.test.cpp
-- /verify/test/math/convolution/number_theoretic_transform.test.cpp.html
-title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
+- /verify/test/string/wildcard_pattern_matching.test.cpp
+- /verify/test/string/wildcard_pattern_matching.test.cpp.html
+title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\
+  \u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---

@@ -57,6 +57,7 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 
 - https://noshi91.github.io/algorithm-encyclopedia/d-edge-shortest-path-monge
 - https://github.com/LumaKernel/lib-cpp/blob/eb360cde5ad3e86a380de5745c7c741cfa165c37/src/dynamic-programming/speedup/AlienDP.md
+- https://hitoare.hatenablog.com/entry/2023/06/22/212634
 - https://twitter.com/kyort0n/status/1378225258289766406
 - https://twitter.com/noshi91/status/1481498494808784901
 - https://twitter.com/noshi91/status/1436696351547412493

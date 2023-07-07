@@ -281,6 +281,7 @@ $$
 
 ## TODO
 
+- https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_fixed_k
 - 小さな素数 $p \in \mathbb{P}$ で割ったあまり
   - https://maspypy.com/stirling-%e6%95%b0%e3%82%92-p-%e3%81%a7%e5%89%b2%e3%81%a3%e3%81%9f%e4%bd%99%e3%82%8a%e3%81%ae%e8%a8%88%e7%ae%97
   - https://judge.yosupo.jp/problem/stirling_number_of_the_first_kind_small_p_large_n

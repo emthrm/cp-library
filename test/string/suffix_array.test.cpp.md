@@ -20,11 +20,11 @@ data:
     #include <iostream>\n#include <string>\n\n#line 1 \"include/emthrm/string/suffix_array.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <numeric>\n#line 7 \"include/emthrm/string/suffix_array.hpp\"\
     \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T = std::string>\n\
-    struct SuffixArray {\n  std::vector<int> sa, rank;\n\n  template <typename U =\
-    \ char>\n  explicit SuffixArray(const T& s_, const U sentinel = 0) : s(s_) {\n\
-    \    const int n = s.size();\n    s.push_back(sentinel);\n    sa.resize(n + 1);\n\
-    \    std::iota(sa.rbegin(), sa.rend(), 0);\n    std::ranges::stable_sort(\n  \
-    \      sa, {}, [this](const int index) -> int { return s[index]; });\n    rank.resize(n\
+    requires requires { typename T::value_type; }\nstruct SuffixArray {\n  std::vector<int>\
+    \ sa, rank;\n\n  explicit SuffixArray(const T& s_, const typename T::value_type\
+    \ sentinel = 0)\n      : s(s_) {\n    const int n = s.size();\n    s.push_back(sentinel);\n\
+    \    sa.resize(n + 1);\n    std::iota(sa.rbegin(), sa.rend(), 0);\n    std::ranges::stable_sort(\n\
+    \        sa, {}, [this](const int index) -> int { return s[index]; });\n    rank.resize(n\
     \ + 1);\n    for (int i = 0; i <= n; ++i) {\n      rank[i] = s[i];\n    }\n  \
     \  std::vector<int> tmp(n + 1), prev_sa(n + 1);\n    for (int len = 1; len <=\
     \ n; len <<= 1) {\n      tmp[sa[0]] = 0;\n      for (int i = 1; i <= n; ++i) {\n\
@@ -62,7 +62,7 @@ data:
   isVerificationFile: true
   path: test/string/suffix_array.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2023-07-07 02:42:02+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/suffix_array.test.cpp

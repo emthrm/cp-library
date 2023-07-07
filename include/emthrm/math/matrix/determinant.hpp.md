@@ -117,6 +117,11 @@ $O(N^3)$
 - 任意の法の下での行列式
   - https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod
   - https://github.com/yosupo06/library-checker-problems/issues/750
+- 巡回行列 (circulant matrix) の行列式
+  - https://ja.wikipedia.org/wiki/%E5%B7%A1%E5%9B%9E%E8%A1%8C%E5%88%97
+  - https://mathlandscape.com/circulant-matrix/
+  - 第59回TechFUL Coding Battle「Techちゃんと魔法の宝石」
+  - https://kotatsugame.hatenablog.com/entry/2023/06/26/235357
 
 
 ## Submissons

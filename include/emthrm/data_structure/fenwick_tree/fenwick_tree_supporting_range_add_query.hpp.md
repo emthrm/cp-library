@@ -57,8 +57,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
   - test/graph/tree/heavy-light_decomposition.1.test.cpp
+  - test/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/fenwick_tree_supporting_range_add_query.hpp
 layout: document
 title: "\u533A\u9593\u52A0\u7B97\u30AF\u30A8\u30EA\u5BFE\u5FDC Fenwick tree"

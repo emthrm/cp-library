@@ -291,12 +291,12 @@ data:
   timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
+  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
   - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
+  - test/data_structure/lazy_segment_tree.test.cpp
   - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   - test/data_structure/range_sum_query_and_range_add_query.test.cpp
-  - test/data_structure/lazy_segment_tree.test.cpp
-  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/lazy_segment_tree.hpp
 layout: document
 title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"

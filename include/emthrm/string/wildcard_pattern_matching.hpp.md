@@ -6,34 +6,30 @@ data:
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
   - icon: ':question:'
-    path: include/emthrm/math/formal_power_series/formal_power_series.hpp
-    title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
-  - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':x:'
+    path: test/string/wildcard_pattern_matching.test.cpp
+    title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
+      \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
   _isVerificationFailed: true
-  _pathExtension: cpp
+  _pathExtension: hpp
   _verificationStatusIcon: ':x:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/exp_of_formal_power_series
-    document_title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-      \u7684\u51AA\u7D1A\u6570\uFF08\u6307\u6570\uFF09"
-    links:
-    - https://judge.yosupo.jp/problem/exp_of_formal_power_series
-  bundledCode: "#line 1 \"test/math/formal_power_series/formal_power_series.1.test.cpp\"\
-    \n/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570\uFF08\u6307\u6570\uFF09\n *\n * verification-helper:\
-    \ PROBLEM https://judge.yosupo.jp/problem/exp_of_formal_power_series\n */\n\n\
-    #include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    links: []
+  bundledCode: "#line 1 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\n\n\
+    \n\n#include <algorithm>\n#include <cassert>\n#include <map>\n#include <numeric>\n\
+    #include <string>\n#include <tuple>\n#include <vector>\n\n#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
     \n\n\n\n#if __has_include(<atcoder/convolution>)\n# include <atcoder/convolution>\n\
-    # include <atcoder/modint>\n#else\n# include <algorithm>\n# include <bit>\n# include\
-    \ <cassert>\n# include <iterator>\n# include <map>\n# include <utility>\n#endif\n\
-    #line 16 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\n\n\
-    #line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n#\
-    \ include <cassert>\n#endif\n#include <compare>\n#line 9 \"include/emthrm/math/modint.hpp\"\
-    \n// #include <numeric>\n#include <utility>\n#line 12 \"include/emthrm/math/modint.hpp\"\
+    # include <atcoder/modint>\n#else\n#line 9 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n# include <bit>\n#line 11 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n# include <iterator>\n#line 13 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n# include <utility>\n#endif\n#line 16 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n\n#line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n\
+    #line 6 \"include/emthrm/math/modint.hpp\"\n#endif\n#include <compare>\n#include\
+    \ <iostream>\n// #include <numeric>\n#include <utility>\n#line 12 \"include/emthrm/math/modint.hpp\"\
     \n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\ntemplate <unsigned int M>\n\
     struct MInt {\n  unsigned int v;\n\n  constexpr MInt() : v(0) {}\n  constexpr\
     \ MInt(const long long x) : v(x >= 0 ? x % M : x % M + M) {}\n  static constexpr\
@@ -212,181 +208,109 @@ data:
     \ ModInt tmp = (*a)[i + j + block] * omega[den][j];\n          (*a)[i + j + block]\
     \ = (*a)[i + j] - tmp;\n          (*a)[i + j] += tmp;\n        }\n      }\n  \
     \  }\n  }\n};\n\n#endif  // __has_include(<atcoder/convolution>)\n\n}  // namespace\
-    \ emthrm\n\n\n#line 1 \"include/emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <functional>\n#include\
-    \ <initializer_list>\n#include <iterator>\n#include <numeric>\n#line 11 \"include/emthrm/math/formal_power_series/formal_power_series.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct FormalPowerSeries {\n\
-    \  std::vector<T> coef;\n\n  explicit FormalPowerSeries(const int deg = 0) : coef(deg\
-    \ + 1, 0) {}\n  explicit FormalPowerSeries(const std::vector<T>& coef) : coef(coef)\
-    \ {}\n  FormalPowerSeries(const std::initializer_list<T> init)\n      : coef(init.begin(),\
-    \ init.end()) {}\n  template <typename InputIter>\n  explicit FormalPowerSeries(const\
-    \ InputIter first, const InputIter last)\n      : coef(first, last) {}\n\n  inline\
-    \ const T& operator[](const int term) const { return coef[term]; }\n  inline T&\
-    \ operator[](const int term) { return coef[term]; }\n\n  using Mult = std::function<std::vector<T>(const\
-    \ std::vector<T>&,\n                                            const std::vector<T>&)>;\n\
-    \  using Sqrt = std::function<bool(const T&, T*)>;\n  static void set_mult(const\
-    \ Mult mult) { get_mult() = mult; }\n  static void set_sqrt(const Sqrt sqrt) {\
-    \ get_sqrt() = sqrt; }\n\n  void resize(const int deg) { coef.resize(deg + 1,\
-    \ 0); }\n  void shrink() {\n    while (coef.size() > 1 && coef.back() == 0) coef.pop_back();\n\
-    \  }\n  int degree() const { return std::ssize(coef) - 1; }\n\n  FormalPowerSeries&\
-    \ operator=(const std::vector<T>& coef_) {\n    coef = coef_;\n    return *this;\n\
-    \  }\n  FormalPowerSeries& operator=(const FormalPowerSeries& x) = default;\n\n\
-    \  FormalPowerSeries& operator+=(const FormalPowerSeries& x) {\n    const int\
-    \ deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n    for (int\
-    \ i = 0; i <= deg_x; ++i) {\n      coef[i] += x[i];\n    }\n    return *this;\n\
-    \  }\n  FormalPowerSeries& operator-=(const FormalPowerSeries& x) {\n    const\
-    \ int deg_x = x.degree();\n    if (deg_x > degree()) resize(deg_x);\n    for (int\
-    \ i = 0; i <= deg_x; ++i) {\n      coef[i] -= x[i];\n    }\n    return *this;\n\
-    \  }\n  FormalPowerSeries& operator*=(const T x) {\n    for (T& e : coef) e *=\
-    \ x;\n    return *this;\n  }\n  FormalPowerSeries& operator*=(const FormalPowerSeries&\
-    \ x) {\n    return *this = get_mult()(coef, x.coef);\n  }\n  FormalPowerSeries&\
-    \ operator/=(const T x) {\n    assert(x != 0);\n    return *this *= static_cast<T>(1)\
-    \ / x;\n  }\n  FormalPowerSeries& operator/=(const FormalPowerSeries& x) {\n \
-    \   const int n = degree() - x.degree() + 1;\n    if (n <= 0) return *this = FormalPowerSeries();\n\
-    \    const std::vector<T> tmp = get_mult()(\n        std::vector<T>(coef.rbegin(),\
-    \ std::next(coef.rbegin(), n)),\n        FormalPowerSeries(\n            x.coef.rbegin(),\n\
-    \            std::next(x.coef.rbegin(), std::min(x.degree() + 1, n)))\n      \
-    \  .inv(n - 1).coef);\n    return *this = FormalPowerSeries(std::prev(tmp.rend(),\
-    \ n), tmp.rend());\n  }\n  FormalPowerSeries& operator%=(const FormalPowerSeries&\
-    \ x) {\n    if (x.degree() == 0) return *this = FormalPowerSeries{0};\n    *this\
-    \ -= *this / x * x;\n    resize(x.degree() - 1);\n    return *this;\n  }\n  FormalPowerSeries&\
-    \ operator<<=(const int n) {\n    coef.insert(coef.begin(), n, 0);\n    return\
-    \ *this;\n  }\n  FormalPowerSeries& operator>>=(const int n) {\n    if (degree()\
-    \ < n) return *this = FormalPowerSeries();\n    coef.erase(coef.begin(), coef.begin()\
-    \ + n);\n    return *this;\n  }\n\n  bool operator==(FormalPowerSeries x) const\
-    \ {\n    x.shrink();\n    FormalPowerSeries y = *this;\n    y.shrink();\n    return\
-    \ x.coef == y.coef;\n  }\n\n  FormalPowerSeries operator+() const { return *this;\
-    \ }\n  FormalPowerSeries operator-() const {\n    FormalPowerSeries res = *this;\n\
-    \    for (T& e : res.coef) e = -e;\n    return res;\n  }\n\n  FormalPowerSeries\
-    \ operator+(const FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this)\
-    \ += x;\n  }\n  FormalPowerSeries operator-(const FormalPowerSeries& x) const\
-    \ {\n    return FormalPowerSeries(*this) -= x;\n  }\n  FormalPowerSeries operator*(const\
-    \ T x) const {\n    return FormalPowerSeries(*this) *= x;\n  }\n  FormalPowerSeries\
-    \ operator*(const FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this)\
-    \ *= x;\n  }\n  FormalPowerSeries operator/(const T x) const {\n    return FormalPowerSeries(*this)\
-    \ /= x;\n  }\n  FormalPowerSeries operator/(const FormalPowerSeries& x) const\
-    \ {\n    return FormalPowerSeries(*this) /= x;\n  }\n  FormalPowerSeries operator%(const\
-    \ FormalPowerSeries& x) const {\n    return FormalPowerSeries(*this) %= x;\n \
-    \ }\n  FormalPowerSeries operator<<(const int n) const {\n    return FormalPowerSeries(*this)\
-    \ <<= n;\n  }\n  FormalPowerSeries operator>>(const int n) const {\n    return\
-    \ FormalPowerSeries(*this) >>= n;\n  }\n\n  T horner(const T x) const {\n    return\
-    \ std::accumulate(\n        coef.rbegin(), coef.rend(), static_cast<T>(0),\n \
-    \       [x](const T l, const T r) -> T { return l * x + r; });\n  }\n\n  FormalPowerSeries\
-    \ differential() const {\n    const int deg = degree();\n    assert(deg >= 0);\n\
-    \    FormalPowerSeries res(std::max(deg - 1, 0));\n    for (int i = 1; i <= deg;\
-    \ ++i) {\n      res[i - 1] = coef[i] * i;\n    }\n    return res;\n  }\n\n  FormalPowerSeries\
-    \ exp(const int deg) const {\n    assert(coef[0] == 0);\n    const int n = coef.size();\n\
-    \    const FormalPowerSeries one{1};\n    FormalPowerSeries res = one;\n    for\
-    \ (int i = 1; i <= deg; i <<= 1) {\n      res *= FormalPowerSeries(coef.begin(),\n\
-    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
-    \             - res.log((i << 1) - 1) + one;\n      res.coef.resize(i << 1);\n\
-    \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries exp()\
-    \ const { return exp(degree()); }\n\n  FormalPowerSeries inv(const int deg) const\
-    \ {\n    assert(coef[0] != 0);\n    const int n = coef.size();\n    FormalPowerSeries\
-    \ res{static_cast<T>(1) / coef[0]};\n    for (int i = 1; i <= deg; i <<= 1) {\n\
-    \      res = res + res - res * res * FormalPowerSeries(\n          coef.begin(),\
-    \ std::next(coef.begin(), std::min(n, i << 1)));\n      res.coef.resize(i << 1);\n\
-    \    }\n    res.resize(deg);\n    return res;\n  }\n  FormalPowerSeries inv()\
-    \ const { return inv(degree()); }\n\n  FormalPowerSeries log(const int deg) const\
-    \ {\n    assert(coef[0] == 1);\n    FormalPowerSeries integrand = differential()\
-    \ * inv(deg - 1);\n    integrand.resize(deg);\n    for (int i = deg; i > 0; --i)\
-    \ {\n      integrand[i] = integrand[i - 1] / i;\n    }\n    integrand[0] = 0;\n\
-    \    return integrand;\n  }\n  FormalPowerSeries log() const { return log(degree());\
-    \ }\n\n  FormalPowerSeries pow(long long exponent, const int deg) const {\n  \
-    \  const int n = coef.size();\n    if (exponent == 0) {\n      FormalPowerSeries\
-    \ res(deg);\n      if (deg != -1) [[unlikely]] res[0] = 1;\n      return res;\n\
-    \    }\n    assert(deg >= 0);\n    for (int i = 0; i < n; ++i) {\n      if (coef[i]\
-    \ == 0) continue;\n      if (i > deg / exponent) break;\n      const long long\
-    \ shift = exponent * i;\n      T tmp = 1, base = coef[i];\n      for (long long\
-    \ e = exponent; e > 0; e >>= 1) {\n        if (e & 1) tmp *= base;\n        base\
-    \ *= base;\n      }\n      const FormalPowerSeries res = ((*this >> i) / coef[i]).log(deg\
-    \ - shift);\n      return ((res * exponent).exp(deg - shift) * tmp) << shift;\n\
-    \    }\n    return FormalPowerSeries(deg);\n  }\n  FormalPowerSeries pow(const\
-    \ long long exponent) const {\n    return pow(exponent, degree());\n  }\n\n  FormalPowerSeries\
-    \ mod_pow(long long exponent,\n                            const FormalPowerSeries&\
-    \ md) const {\n    const int deg = md.degree() - 1;\n    if (deg < 0) [[unlikely]]\
-    \ return FormalPowerSeries(-1);\n    const FormalPowerSeries inv_rev_md =\n  \
-    \      FormalPowerSeries(md.coef.rbegin(), md.coef.rend()).inv();\n    const auto\
-    \ mod_mult = [&md, &inv_rev_md, deg](\n        FormalPowerSeries* multiplicand,\
-    \ const FormalPowerSeries& multiplier)\n        -> void {\n      *multiplicand\
-    \ *= multiplier;\n      if (deg < multiplicand->degree()) {\n        const int\
-    \ n = multiplicand->degree() - deg;\n        const FormalPowerSeries quotient\
-    \ =\n            FormalPowerSeries(multiplicand->coef.rbegin(),\n            \
-    \                  std::next(multiplicand->coef.rbegin(), n))\n            * FormalPowerSeries(\n\
-    \                  inv_rev_md.coef.begin(),\n                  std::next(inv_rev_md.coef.begin(),\
-    \ std::min(deg + 2, n)));\n        *multiplicand -=\n            FormalPowerSeries(std::prev(quotient.coef.rend(),\
-    \ n),\n                              quotient.coef.rend()) * md;\n        multiplicand->resize(deg);\n\
-    \      }\n      multiplicand->shrink();\n    };\n    FormalPowerSeries res{1},\
-    \ base = *this;\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent\
-    \ & 1) mod_mult(&res, base);\n      mod_mult(&base, base);\n    }\n    return\
-    \ res;\n  }\n\n  FormalPowerSeries sqrt(const int deg) const {\n    const int\
-    \ n = coef.size();\n    if (coef[0] == 0) {\n      for (int i = 1; i < n; ++i)\
-    \ {\n        if (coef[i] == 0) continue;\n        if (i & 1) return FormalPowerSeries(-1);\n\
-    \        const int shift = i >> 1;\n        if (deg < shift) break;\n        FormalPowerSeries\
-    \ res = (*this >> i).sqrt(deg - shift);\n        if (res.coef.empty()) return\
-    \ FormalPowerSeries(-1);\n        res <<= shift;\n        res.resize(deg);\n \
-    \       return res;\n      }\n      return FormalPowerSeries(deg);\n    }\n  \
-    \  T s;\n    if (!get_sqrt()(coef.front(), &s)) return FormalPowerSeries(-1);\n\
-    \    FormalPowerSeries res{s};\n    const T half = static_cast<T>(1) / 2;\n  \
-    \  for (int i = 1; i <= deg; i <<= 1) {\n      res = (FormalPowerSeries(coef.begin(),\n\
-    \                               std::next(coef.begin(), std::min(n, i << 1)))\n\
-    \             * res.inv((i << 1) - 1) + res) * half;\n    }\n    res.resize(deg);\n\
-    \    return res;\n  }\n  FormalPowerSeries sqrt() const { return sqrt(degree());\
-    \ }\n\n  FormalPowerSeries translate(const T c) const {\n    const int n = coef.size();\n\
-    \    std::vector<T> fact(n, 1), inv_fact(n, 1);\n    for (int i = 1; i < n; ++i)\
-    \ {\n      fact[i] = fact[i - 1] * i;\n    }\n    inv_fact[n - 1] = static_cast<T>(1)\
-    \ / fact[n - 1];\n    for (int i = n - 1; i > 0; --i) {\n      inv_fact[i - 1]\
-    \ = inv_fact[i] * i;\n    }\n    std::vector<T> g(n), ex(n);\n    for (int i =\
-    \ 0; i < n; ++i) {\n      g[i] = coef[i] * fact[i];\n    }\n    std::reverse(g.begin(),\
-    \ g.end());\n    T pow_c = 1;\n    for (int i = 0; i < n; ++i) {\n      ex[i]\
-    \ = pow_c * inv_fact[i];\n      pow_c *= c;\n    }\n    const std::vector<T> conv\
-    \ = get_mult()(g, ex);\n    FormalPowerSeries res(n - 1);\n    for (int i = 0;\
-    \ i < n; ++i) {\n      res[i] = conv[n - 1 - i] * inv_fact[i];\n    }\n    return\
-    \ res;\n  }\n\n private:\n  static Mult& get_mult() {\n    static Mult mult =\
-    \ [](const std::vector<T>& a, const std::vector<T>& b)\n        -> std::vector<T>\
-    \ {\n      const int n = a.size(), m = b.size();\n      std::vector<T> res(n +\
-    \ m - 1, 0);\n      for (int i = 0; i < n; ++i) {\n        for (int j = 0; j <\
-    \ m; ++j) {\n          res[i + j] += a[i] * b[j];\n        }\n      }\n      return\
-    \ res;\n    };\n    return mult;\n  }\n  static Sqrt& get_sqrt() {\n    static\
-    \ Sqrt sqrt = [](const T&, T*) -> bool { return false; };\n    return sqrt;\n\
-    \  }\n};\n\n}  // namespace emthrm\n\n\n#line 13 \"test/math/formal_power_series/formal_power_series.1.test.cpp\"\
-    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
-    \  emthrm::FormalPowerSeries<ModInt>::set_mult(\n      [](const std::vector<ModInt>&\
-    \ a, const std::vector<ModInt>& b)\n          -> std::vector<ModInt> {\n     \
-    \   static emthrm::NumberTheoreticTransform<MOD> ntt;\n        return ntt.convolution(a,\
-    \ b);\n      });\n  int n;\n  std::cin >> n;\n  emthrm::FormalPowerSeries<ModInt>\
-    \ a(n - 1);\n  for (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  a\
-    \ = a.exp(n - 1);\n  for (int i = 0; i < n; ++i) {\n    std::cout << a[i] << \"\
-    \ \\n\"[i + 1 == n];\n  }\n  return 0;\n}\n"
-  code: "/*\n * @title \u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\
-    \u7684\u51AA\u7D1A\u6570\uFF08\u6307\u6570\uFF09\n *\n * verification-helper:\
-    \ PROBLEM https://judge.yosupo.jp/problem/exp_of_formal_power_series\n */\n\n\
-    #include <iostream>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
-    \n#include \"emthrm/math/formal_power_series/formal_power_series.hpp\"\n#include\
-    \ \"emthrm/math/modint.hpp\"\n\nint main() {\n  constexpr int MOD = 998244353;\n\
-    \  using ModInt = emthrm::MInt<MOD>;\n  emthrm::FormalPowerSeries<ModInt>::set_mult(\n\
-    \      [](const std::vector<ModInt>& a, const std::vector<ModInt>& b)\n      \
-    \    -> std::vector<ModInt> {\n        static emthrm::NumberTheoreticTransform<MOD>\
-    \ ntt;\n        return ntt.convolution(a, b);\n      });\n  int n;\n  std::cin\
-    \ >> n;\n  emthrm::FormalPowerSeries<ModInt> a(n - 1);\n  for (int i = 0; i <\
-    \ n; ++i) {\n    std::cin >> a[i];\n  }\n  a = a.exp(n - 1);\n  for (int i = 0;\
-    \ i < n; ++i) {\n    std::cout << a[i] << \" \\n\"[i + 1 == n];\n  }\n  return\
-    \ 0;\n}\n"
+    \ emthrm\n\n\n#line 13 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T = std::string>\nrequires requires\
+    \ { typename T::value_type; }\nstd::vector<int> wildcard_pattern_matching(\n \
+    \   const T& text, const T& pattern, const typename T::value_type wildcard) {\n\
+    \  if (text.size() < pattern.size()) [[unlikely]] return {};\n  const auto generate\
+    \ = [wildcard](const T& str)\n      -> std::tuple<std::vector<long long>,\n  \
+    \                  std::vector<long long>,\n                    std::vector<long\
+    \ long>> {\n    using Char = T::value_type;\n    static std::map<Char, int> characters{{wildcard,\
+    \ 0}};\n    std::vector<long long> v1(str.size());\n    std::ranges::transform(\n\
+    \        str, v1.begin(),\n        [](const Char c) -> int {\n          if (const\
+    \ auto it = characters.find(c); it != characters.end()) {\n            return\
+    \ it->second;\n          }\n          const int next_index = characters.size();\n\
+    \          assert(characters.emplace(c, next_index).second);\n          return\
+    \ next_index;\n        });\n    std::vector<long long> v2 = v1;\n    std::ranges::transform(\n\
+    \        v2, v2.begin(),\n        [](const long long ch) -> long long { return\
+    \ ch * ch; });\n    std::vector<long long> v3 = v1;\n    std::ranges::transform(\n\
+    \        v3, v3.begin(),\n        [](const long long ch) -> long long { return\
+    \ ch * ch * ch; });\n    return {v1, v2, v3};\n  };\n  const auto [t1, t2, t3]\
+    \ = generate(text);\n  auto [p1, p2, p3] = generate(pattern);\n  std::ranges::reverse(p1);\n\
+    \  std::ranges::reverse(p2);\n  std::ranges::reverse(p3);\n  const int l = text.size()\
+    \ - pattern.size() + 1;\n  std::vector<int> ans(l);\n  std::iota(ans.begin(),\
+    \ ans.end(), 0);\n  const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3,\
+    \ l, &ans]\n      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) ->\
+    \ void {\n    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static\
+    \ const int offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 =\
+    \ ntt.convolution(t3, p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2,\
+    \ p2);\n    const std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int>\
+    \ next_ans;\n    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n\
+    \      const ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n\
+    \                            + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
+    \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
+    \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
+    \  return ans;\n}\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_STRING_WILDCARD_PATTERN_MATCHING_HPP_\n#define EMTHRM_STRING_WILDCARD_PATTERN_MATCHING_HPP_\n\
+    \n#include <algorithm>\n#include <cassert>\n#include <map>\n#include <numeric>\n\
+    #include <string>\n#include <tuple>\n#include <vector>\n\n#include \"emthrm/math/convolution/number_theoretic_transform.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T = std::string>\nrequires requires\
+    \ { typename T::value_type; }\nstd::vector<int> wildcard_pattern_matching(\n \
+    \   const T& text, const T& pattern, const typename T::value_type wildcard) {\n\
+    \  if (text.size() < pattern.size()) [[unlikely]] return {};\n  const auto generate\
+    \ = [wildcard](const T& str)\n      -> std::tuple<std::vector<long long>,\n  \
+    \                  std::vector<long long>,\n                    std::vector<long\
+    \ long>> {\n    using Char = T::value_type;\n    static std::map<Char, int> characters{{wildcard,\
+    \ 0}};\n    std::vector<long long> v1(str.size());\n    std::ranges::transform(\n\
+    \        str, v1.begin(),\n        [](const Char c) -> int {\n          if (const\
+    \ auto it = characters.find(c); it != characters.end()) {\n            return\
+    \ it->second;\n          }\n          const int next_index = characters.size();\n\
+    \          assert(characters.emplace(c, next_index).second);\n          return\
+    \ next_index;\n        });\n    std::vector<long long> v2 = v1;\n    std::ranges::transform(\n\
+    \        v2, v2.begin(),\n        [](const long long ch) -> long long { return\
+    \ ch * ch; });\n    std::vector<long long> v3 = v1;\n    std::ranges::transform(\n\
+    \        v3, v3.begin(),\n        [](const long long ch) -> long long { return\
+    \ ch * ch * ch; });\n    return {v1, v2, v3};\n  };\n  const auto [t1, t2, t3]\
+    \ = generate(text);\n  auto [p1, p2, p3] = generate(pattern);\n  std::ranges::reverse(p1);\n\
+    \  std::ranges::reverse(p2);\n  std::ranges::reverse(p3);\n  const int l = text.size()\
+    \ - pattern.size() + 1;\n  std::vector<int> ans(l);\n  std::iota(ans.begin(),\
+    \ ans.end(), 0);\n  const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3,\
+    \ l, &ans]\n      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) ->\
+    \ void {\n    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static\
+    \ const int offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 =\
+    \ ntt.convolution(t3, p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2,\
+    \ p2);\n    const std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int>\
+    \ next_ans;\n    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n\
+    \      const ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n\
+    \                            + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
+    \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
+    \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
+    \  return ans;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_STRING_WILDCARD_PATTERN_MATCHING_HPP_\n"
   dependsOn:
   - include/emthrm/math/convolution/number_theoretic_transform.hpp
   - include/emthrm/math/modint.hpp
-  - include/emthrm/math/formal_power_series/formal_power_series.hpp
-  isVerificationFile: true
-  path: test/math/formal_power_series/formal_power_series.1.test.cpp
+  isVerificationFile: false
+  path: include/emthrm/string/wildcard_pattern_matching.hpp
   requiredBy: []
   timestamp: '2023-07-07 12:32:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
-  verifiedWith: []
-documentation_of: test/math/formal_power_series/formal_power_series.1.test.cpp
+  verificationStatus: LIBRARY_ALL_WA
+  verifiedWith:
+  - test/string/wildcard_pattern_matching.test.cpp
+documentation_of: include/emthrm/string/wildcard_pattern_matching.hpp
 layout: document
-redirect_from:
-- /verify/test/math/formal_power_series/formal_power_series.1.test.cpp
-- /verify/test/math/formal_power_series/formal_power_series.1.test.cpp.html
-title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
-  \u7D1A\u6570\uFF08\u6307\u6570\uFF09"
+title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
+  \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
 ---
+
+
+## 時間計算量
+
+テキスト長を $N$、パターン長を $M$ とおくと $O((N + M)\log(N + M))$
+
+
+## 仕様
+
+|名前|戻り値|
+|:--|:--|
+|`template <typename T = std::string>`<br>`requires requires { typename T::value_type; }`<br>`std::vector<int> wildcard_pattern_matching(const T& t, const T& p, const typename T::value_type wildcard);`|`T[i:i+\|p\|] = P` を満たすすべての $i$|
+
+
+## 参考文献
+
+- https://qiita.com/MatsuTaku/items/cd5581fab97d7e74a7b3
+- https://atcoder.jp/contests/abc307/editorial/6598
+
+
+## Submissons
+
+https://atcoder.jp/contests/abc307/submissions/43305941

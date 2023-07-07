@@ -38,21 +38,21 @@ data:
     \ T::merge(res_l, dat[left++]);\n      if (right & 1) res_r = T::merge(dat[--right],\
     \ res_r);\n    }\n    return T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const\
     \ int idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
-    \ left, const G g) {\n    if (left >= n) [[unlikely]] return n;\n    Monoid val\
-    \ = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n\
-    \      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n        while\
-    \ (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val, dat[left]);\n\
-    \          if (g(nxt)) {\n            val = nxt;\n            ++left;\n      \
-    \    }\n        }\n        return left - p2;\n      }\n      val = nxt;\n    \
-    \  ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
+    \ left, const G g) const {\n    if (left >= n) [[unlikely]] return n;\n    Monoid\
+    \ val = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>=\
+    \ 1;\n      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n   \
+    \     while (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val,\
+    \ dat[left]);\n          if (g(nxt)) {\n            val = nxt;\n            ++left;\n\
+    \          }\n        }\n        return left - p2;\n      }\n      val = nxt;\n\
+    \      ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
     \    return n;\n  }\n\n  template <typename G>\n  int find_left(int right, const\
-    \ G g) {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val = T::id();\n\
-    \    right += p2;\n    do {\n      --right;\n      while (right > 1 && (right\
-    \ & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if\
-    \ (!g(nxt)) {\n        while (right < p2) {\n          right = (right << 1) +\
-    \ 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n  \
-    \          val = nxt;\n            --right;\n          }\n        }\n        return\
-    \ right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
+    \ G g) const {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val =\
+    \ T::id();\n    right += p2;\n    do {\n      --right;\n      while (right > 1\
+    \ && (right & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n\
+    \      if (!g(nxt)) {\n        while (right < p2) {\n          right = (right\
+    \ << 1) + 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt))\
+    \ {\n            val = nxt;\n            --right;\n          }\n        }\n  \
+    \      return right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
     \ int>(right)));\n    return -1;\n  }\n\n private:\n  const int n, p2;\n  std::vector<Monoid>\
     \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
     \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
@@ -83,21 +83,21 @@ data:
     \ T::merge(res_l, dat[left++]);\n      if (right & 1) res_r = T::merge(dat[--right],\
     \ res_r);\n    }\n    return T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const\
     \ int idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
-    \ left, const G g) {\n    if (left >= n) [[unlikely]] return n;\n    Monoid val\
-    \ = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>= 1;\n\
-    \      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n        while\
-    \ (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val, dat[left]);\n\
-    \          if (g(nxt)) {\n            val = nxt;\n            ++left;\n      \
-    \    }\n        }\n        return left - p2;\n      }\n      val = nxt;\n    \
-    \  ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
+    \ left, const G g) const {\n    if (left >= n) [[unlikely]] return n;\n    Monoid\
+    \ val = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>=\
+    \ 1;\n      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n   \
+    \     while (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val,\
+    \ dat[left]);\n          if (g(nxt)) {\n            val = nxt;\n            ++left;\n\
+    \          }\n        }\n        return left - p2;\n      }\n      val = nxt;\n\
+    \      ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
     \    return n;\n  }\n\n  template <typename G>\n  int find_left(int right, const\
-    \ G g) {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val = T::id();\n\
-    \    right += p2;\n    do {\n      --right;\n      while (right > 1 && (right\
-    \ & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n      if\
-    \ (!g(nxt)) {\n        while (right < p2) {\n          right = (right << 1) +\
-    \ 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt)) {\n  \
-    \          val = nxt;\n            --right;\n          }\n        }\n        return\
-    \ right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
+    \ G g) const {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val =\
+    \ T::id();\n    right += p2;\n    do {\n      --right;\n      while (right > 1\
+    \ && (right & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n\
+    \      if (!g(nxt)) {\n        while (right < p2) {\n          right = (right\
+    \ << 1) + 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt))\
+    \ {\n            val = nxt;\n            --right;\n          }\n        }\n  \
+    \      return right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
     \ int>(right)));\n    return -1;\n  }\n\n private:\n  const int n, p2;\n  std::vector<Monoid>\
     \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
     \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
@@ -113,7 +113,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-05-12 19:52:13+09:00'
+  timestamp: '2023-05-15 12:41:41+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/range_sum_query.test.cpp
