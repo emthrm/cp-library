@@ -302,7 +302,7 @@ title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u3
 
 |名前|戻り値|
 |:--|:--|
-|`template <typename T = std::string>`<br>`requires requires { typename T::value_type; }`<br>`std::vector<int> wildcard_pattern_matching(const T& t, const T& p, const typename T::value_type wildcard);`|`T[i:i+\|p\|] = P` を満たすすべての $i$|
+|`template <typename T = std::string>`<br>`requires requires { typename T::value_type; }`<br>`std::vector<int> wildcard_pattern_matching(const T& t, const T& p, const typename T::value_type wildcard);`|`T[i:i+len(P)] = P` を満たすすべての $i$|
 
 
 ## 参考文献
