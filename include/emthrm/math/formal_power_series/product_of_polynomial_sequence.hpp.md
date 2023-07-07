@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
       \u306E\u76F8\u4E57"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/product_of_polynomial_sequence.hpp\"\
@@ -42,7 +42,7 @@ data:
   path: include/emthrm/math/formal_power_series/product_of_polynomial_sequence.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/product_of_polynomial_sequence.hpp

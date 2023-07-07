@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/dynamic_programming/subset_sum_problem.hpp
     title: "\u90E8\u5206\u548C\u554F\u984C (subset sum problem)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'
@@ -16,9 +16,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/sharp_p_subset_sum
     document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
@@ -314,14 +314,14 @@ data:
     \ n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0;\
     \ i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
     \  std::vector<ModInt> convolution(\n      const std::vector<U>& a, const std::vector<U>&\
-    \ b) const {\n    const int a_size = a.size(), b_size = b.size();\n    const int\
-    \ c_size = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n \
-    \     std::vector<ModInt> c(c_size, 0);\n      if (a_size > b_size) {\n      \
-    \  for (int i = 0; i < a_size; ++i) {\n          for (int j = 0; j < b_size; ++j)\
-    \ {\n            c[i + j] += ModInt(a[i]) * b[j];\n          }\n        }\n  \
-    \    } else {\n        for (int j = 0; j < b_size; ++j) {\n          for (int\
-    \ i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j]) * a[i];\n  \
-    \        }\n        }\n      }\n      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
+    \ b) {\n    const int a_size = a.size(), b_size = b.size();\n    const int c_size\
+    \ = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n      std::vector<ModInt>\
+    \ c(c_size, 0);\n      if (a_size > b_size) {\n        for (int i = 0; i < a_size;\
+    \ ++i) {\n          for (int j = 0; j < b_size; ++j) {\n            c[i + j] +=\
+    \ ModInt(a[i]) * b[j];\n          }\n        }\n      } else {\n        for (int\
+    \ j = 0; j < b_size; ++j) {\n          for (int i = 0; i < a_size; ++i) {\n  \
+    \          c[i + j] += ModInt(b[j]) * a[i];\n          }\n        }\n      }\n\
+    \      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
     \ int>(c_size));\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::ranges::copy(a,\
     \ c.begin());\n    calc(&c);\n    std::ranges::copy(b, d.begin());\n    calc(&d);\n\
     \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
@@ -390,8 +390,8 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/subset_sum_problem.test.cpp
   requiredBy: []
-  timestamp: '2023-07-07 12:32:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-07-07 17:43:03+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/dynamic_programming/subset_sum_problem.test.cpp
 layout: document

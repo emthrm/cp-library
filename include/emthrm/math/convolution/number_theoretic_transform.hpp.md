@@ -10,68 +10,68 @@ data:
     title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
       \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\
       \u30F3\u30E9\u30A4\u30F3\u5909\u63DB"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/subset_sum_problem.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/convolution/number_theoretic_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bernoulli_number.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D9\u30EB\u30CC\u30FC\
       \u30A4\u6570"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.1.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u6307\u6570\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.2.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u9006\u5143\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.3.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u5BFE\u6570\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.7.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 ($f(x + c)$)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/multipoint_evaluation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/multipoint evaluation"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/polynomial_interpolation.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u88DC\
       \u9593"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
       \u306E\u76F8\u4E57"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C1\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
@@ -82,7 +82,7 @@ data:
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
   _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/convolution/number_theoretic_transform.hpp\"\
@@ -224,14 +224,14 @@ data:
     \ n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0;\
     \ i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
     \  std::vector<ModInt> convolution(\n      const std::vector<U>& a, const std::vector<U>&\
-    \ b) const {\n    const int a_size = a.size(), b_size = b.size();\n    const int\
-    \ c_size = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n \
-    \     std::vector<ModInt> c(c_size, 0);\n      if (a_size > b_size) {\n      \
-    \  for (int i = 0; i < a_size; ++i) {\n          for (int j = 0; j < b_size; ++j)\
-    \ {\n            c[i + j] += ModInt(a[i]) * b[j];\n          }\n        }\n  \
-    \    } else {\n        for (int j = 0; j < b_size; ++j) {\n          for (int\
-    \ i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j]) * a[i];\n  \
-    \        }\n        }\n      }\n      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
+    \ b) {\n    const int a_size = a.size(), b_size = b.size();\n    const int c_size\
+    \ = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n      std::vector<ModInt>\
+    \ c(c_size, 0);\n      if (a_size > b_size) {\n        for (int i = 0; i < a_size;\
+    \ ++i) {\n          for (int j = 0; j < b_size; ++j) {\n            c[i + j] +=\
+    \ ModInt(a[i]) * b[j];\n          }\n        }\n      } else {\n        for (int\
+    \ j = 0; j < b_size; ++j) {\n          for (int i = 0; i < a_size; ++i) {\n  \
+    \          c[i + j] += ModInt(b[j]) * a[i];\n          }\n        }\n      }\n\
+    \      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
     \ int>(c_size));\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::ranges::copy(a,\
     \ c.begin());\n    calc(&c);\n    std::ranges::copy(b, d.begin());\n    calc(&d);\n\
     \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
@@ -298,14 +298,14 @@ data:
     \ n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0;\
     \ i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
     \  std::vector<ModInt> convolution(\n      const std::vector<U>& a, const std::vector<U>&\
-    \ b) const {\n    const int a_size = a.size(), b_size = b.size();\n    const int\
-    \ c_size = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n \
-    \     std::vector<ModInt> c(c_size, 0);\n      if (a_size > b_size) {\n      \
-    \  for (int i = 0; i < a_size; ++i) {\n          for (int j = 0; j < b_size; ++j)\
-    \ {\n            c[i + j] += ModInt(a[i]) * b[j];\n          }\n        }\n  \
-    \    } else {\n        for (int j = 0; j < b_size; ++j) {\n          for (int\
-    \ i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j]) * a[i];\n  \
-    \        }\n        }\n      }\n      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
+    \ b) {\n    const int a_size = a.size(), b_size = b.size();\n    const int c_size\
+    \ = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n      std::vector<ModInt>\
+    \ c(c_size, 0);\n      if (a_size > b_size) {\n        for (int i = 0; i < a_size;\
+    \ ++i) {\n          for (int j = 0; j < b_size; ++j) {\n            c[i + j] +=\
+    \ ModInt(a[i]) * b[j];\n          }\n        }\n      } else {\n        for (int\
+    \ j = 0; j < b_size; ++j) {\n          for (int i = 0; i < a_size; ++i) {\n  \
+    \          c[i + j] += ModInt(b[j]) * a[i];\n          }\n        }\n      }\n\
+    \      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
     \ int>(c_size));\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::ranges::copy(a,\
     \ c.begin());\n    calc(&c);\n    std::ranges::copy(b, d.begin());\n    calc(&d);\n\
     \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
@@ -351,8 +351,8 @@ data:
   path: include/emthrm/math/convolution/number_theoretic_transform.hpp
   requiredBy:
   - include/emthrm/string/wildcard_pattern_matching.hpp
-  timestamp: '2023-07-07 12:32:05+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2023-07-07 17:43:03+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/string/wildcard_pattern_matching.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
@@ -416,7 +416,7 @@ struct NumberTheoreticTransform;
 |`NumberTheoreticTransform();`|コンストラクタ||
 |`template <typename U>`<br>`std::vector<ModInt> dft(const std::vector<U>& a);`|整数列 $A$ に対して数論変換を行ったもの||
 |`void idft(std::vector<ModInt>* a);`|$A$ に対して数論変換の逆変換を行う。||
-|`template <typename U>`<br>`std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b) const;`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
+|`template <typename U>`<br>`std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b);`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
 
 #### メンバ型
 

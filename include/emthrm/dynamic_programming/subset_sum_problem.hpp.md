@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/dynamic_programming/subset_sum_problem.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/\u90E8\u5206\u548C\u554F\u984C"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/subset_sum_problem.hpp\"\
@@ -176,7 +176,7 @@ data:
   path: include/emthrm/dynamic_programming/subset_sum_problem.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: include/emthrm/dynamic_programming/subset_sum_problem.hpp

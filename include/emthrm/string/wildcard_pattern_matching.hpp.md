@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
@@ -162,14 +162,14 @@ data:
     \ n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0;\
     \ i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
     \  std::vector<ModInt> convolution(\n      const std::vector<U>& a, const std::vector<U>&\
-    \ b) const {\n    const int a_size = a.size(), b_size = b.size();\n    const int\
-    \ c_size = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n \
-    \     std::vector<ModInt> c(c_size, 0);\n      if (a_size > b_size) {\n      \
-    \  for (int i = 0; i < a_size; ++i) {\n          for (int j = 0; j < b_size; ++j)\
-    \ {\n            c[i + j] += ModInt(a[i]) * b[j];\n          }\n        }\n  \
-    \    } else {\n        for (int j = 0; j < b_size; ++j) {\n          for (int\
-    \ i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j]) * a[i];\n  \
-    \        }\n        }\n      }\n      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
+    \ b) {\n    const int a_size = a.size(), b_size = b.size();\n    const int c_size\
+    \ = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n      std::vector<ModInt>\
+    \ c(c_size, 0);\n      if (a_size > b_size) {\n        for (int i = 0; i < a_size;\
+    \ ++i) {\n          for (int j = 0; j < b_size; ++j) {\n            c[i + j] +=\
+    \ ModInt(a[i]) * b[j];\n          }\n        }\n      } else {\n        for (int\
+    \ j = 0; j < b_size; ++j) {\n          for (int i = 0; i < a_size; ++i) {\n  \
+    \          c[i + j] += ModInt(b[j]) * a[i];\n          }\n        }\n      }\n\
+    \      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
     \ int>(c_size));\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::ranges::copy(a,\
     \ c.begin());\n    calc(&c);\n    std::ranges::copy(b, d.begin());\n    calc(&d);\n\
     \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
@@ -230,14 +230,14 @@ data:
     \  std::ranges::reverse(p2);\n  std::ranges::reverse(p3);\n  const int l = text.size()\
     \ - pattern.size() + 1;\n  std::vector<int> ans(l);\n  std::iota(ans.begin(),\
     \ ans.end(), 0);\n  const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3,\
-    \ l, &ans]\n      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) ->\
-    \ void {\n    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static\
-    \ const int offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 =\
-    \ ntt.convolution(t3, p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2,\
-    \ p2);\n    const std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int>\
-    \ next_ans;\n    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n\
-    \      const ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n\
-    \                            + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
+    \ l, &ans]\n      <unsigned int M>(NumberTheoreticTransform<M> ntt) -> void {\n\
+    \    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static const int\
+    \ offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 = ntt.convolution(t3,\
+    \ p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2, p2);\n    const\
+    \ std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int> next_ans;\n\
+    \    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n      const\
+    \ ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n     \
+    \                       + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
     \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
     \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
     \  return ans;\n}\n\n}  // namespace emthrm\n\n\n"
@@ -265,14 +265,14 @@ data:
     \  std::ranges::reverse(p2);\n  std::ranges::reverse(p3);\n  const int l = text.size()\
     \ - pattern.size() + 1;\n  std::vector<int> ans(l);\n  std::iota(ans.begin(),\
     \ ans.end(), 0);\n  const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3,\
-    \ l, &ans]\n      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) ->\
-    \ void {\n    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static\
-    \ const int offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 =\
-    \ ntt.convolution(t3, p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2,\
-    \ p2);\n    const std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int>\
-    \ next_ans;\n    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n\
-    \      const ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n\
-    \                            + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
+    \ l, &ans]\n      <unsigned int M>(NumberTheoreticTransform<M> ntt) -> void {\n\
+    \    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static const int\
+    \ offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 = ntt.convolution(t3,\
+    \ p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2, p2);\n    const\
+    \ std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int> next_ans;\n\
+    \    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n      const\
+    \ ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n     \
+    \                       + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
     \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
     \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
     \  return ans;\n}\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_STRING_WILDCARD_PATTERN_MATCHING_HPP_\n"
@@ -282,7 +282,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/string/wildcard_pattern_matching.hpp
   requiredBy: []
-  timestamp: '2023-07-07 12:32:05+09:00'
+  timestamp: '2023-07-07 17:43:03+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/wildcard_pattern_matching.test.cpp

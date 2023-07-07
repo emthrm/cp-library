@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/mod_pow.hpp
     title: "\u7E70\u308A\u8FD4\u3057\u4E8C\u4E57\u6CD5 / \u4E8C\u5206\u7D2F\u4E57\u6CD5\
       \ / \u30D0\u30A4\u30CA\u30EA\u6CD5"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/formal_power_series.6.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u5E73\u65B9\u6839\uFF09"
   - icon: ':heavy_check_mark:'
     path: test/math/mod_sqrt.test.cpp
     title: "\u6570\u5B66/\u5E73\u65B9\u5270\u4F59"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/mod_sqrt.hpp\"\n\n\n\n#include <random>\n\
@@ -61,7 +61,7 @@ data:
   path: include/emthrm/math/mod_sqrt.hpp
   requiredBy: []
   timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp

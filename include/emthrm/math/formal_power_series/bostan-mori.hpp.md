@@ -1,22 +1,22 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
     title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217 (linear recurrence sequence) \u306E\
       \u7B2C $N$ \u9805"
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/math/formal_power_series/bostan-mori.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/Bostan\u2013Mori \u306E\
       \u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/bostan-mori.hpp\"\
@@ -194,7 +194,7 @@ data:
   requiredBy:
   - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
   timestamp: '2023-03-11 17:00:55+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/formal_power_series/bostan-mori.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/bostan-mori.hpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
@@ -18,16 +18,16 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':x:'
   attributes:
-    PROBLEM: https://atcoder.jp/contests/abc305/tasks/abc305_h
+    PROBLEM: https://atcoder.jp/contests/abc307/tasks/abc307_h
     document_title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\
       \ ? \u3092\u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
     links:
-    - https://atcoder.jp/contests/abc305/tasks/abc305_h
+    - https://atcoder.jp/contests/abc307/tasks/abc307_h
   bundledCode: "#line 1 \"test/string/wildcard_pattern_matching.test.cpp\"\n/*\n *\
     \ @title \u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
     \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\n *\n\
-    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc305/tasks/abc305_h\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc307/tasks/abc307_h\n\
     \ */\n\n#include <iostream>\n#include <string>\n\n#line 1 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <map>\n#include <numeric>\n\
     #line 9 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\n#include <tuple>\n\
@@ -172,14 +172,14 @@ data:
     \ n = a->size();\n    const ModInt inv_n = ModInt::inv(n);\n    for (int i = 0;\
     \ i < n; ++i) {\n      (*a)[i] *= inv_n;\n    }\n  }\n\n  template <typename U>\n\
     \  std::vector<ModInt> convolution(\n      const std::vector<U>& a, const std::vector<U>&\
-    \ b) const {\n    const int a_size = a.size(), b_size = b.size();\n    const int\
-    \ c_size = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n \
-    \     std::vector<ModInt> c(c_size, 0);\n      if (a_size > b_size) {\n      \
-    \  for (int i = 0; i < a_size; ++i) {\n          for (int j = 0; j < b_size; ++j)\
-    \ {\n            c[i + j] += ModInt(a[i]) * b[j];\n          }\n        }\n  \
-    \    } else {\n        for (int j = 0; j < b_size; ++j) {\n          for (int\
-    \ i = 0; i < a_size; ++i) {\n            c[i + j] += ModInt(b[j]) * a[i];\n  \
-    \        }\n        }\n      }\n      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
+    \ b) {\n    const int a_size = a.size(), b_size = b.size();\n    const int c_size\
+    \ = a_size + b_size - 1;\n    if (std::min(a_size, b_size) <= 60) {\n      std::vector<ModInt>\
+    \ c(c_size, 0);\n      if (a_size > b_size) {\n        for (int i = 0; i < a_size;\
+    \ ++i) {\n          for (int j = 0; j < b_size; ++j) {\n            c[i + j] +=\
+    \ ModInt(a[i]) * b[j];\n          }\n        }\n      } else {\n        for (int\
+    \ j = 0; j < b_size; ++j) {\n          for (int i = 0; i < a_size; ++i) {\n  \
+    \          c[i + j] += ModInt(b[j]) * a[i];\n          }\n        }\n      }\n\
+    \      return c;\n    }\n    const int n = std::bit_ceil(static_cast<unsigned\
     \ int>(c_size));\n    std::vector<ModInt> c(n, 0), d(n, 0);\n    std::ranges::copy(a,\
     \ c.begin());\n    calc(&c);\n    std::ranges::copy(b, d.begin());\n    calc(&d);\n\
     \    for (int i = 0; i < n; ++i) {\n      c[i] *= d[i];\n    }\n    idft(&c);\n\
@@ -240,14 +240,14 @@ data:
     \  std::ranges::reverse(p2);\n  std::ranges::reverse(p3);\n  const int l = text.size()\
     \ - pattern.size() + 1;\n  std::vector<int> ans(l);\n  std::iota(ans.begin(),\
     \ ans.end(), 0);\n  const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3,\
-    \ l, &ans]\n      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) ->\
-    \ void {\n    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static\
-    \ const int offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 =\
-    \ ntt.convolution(t3, p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2,\
-    \ p2);\n    const std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int>\
-    \ next_ans;\n    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n\
-    \      const ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n\
-    \                            + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
+    \ l, &ans]\n      <unsigned int M>(NumberTheoreticTransform<M> ntt) -> void {\n\
+    \    using ModInt = NumberTheoreticTransform<M>::ModInt;\n    static const int\
+    \ offset = pattern.size() - 1;\n    const std::vector<ModInt> t3p1 = ntt.convolution(t3,\
+    \ p1);\n    const std::vector<ModInt> t2p2 = ntt.convolution(t2, p2);\n    const\
+    \ std::vector<ModInt> t1p3 = ntt.convolution(t1, p3);\n    std::vector<int> next_ans;\n\
+    \    next_ans.reserve(ans.size());\n    for (const int i : ans) {\n      const\
+    \ ModInt wmatch = t3p1[i + offset] - t2p2[i + offset] * ModInt::raw(2)\n     \
+    \                       + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
     \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
     \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
     \  return ans;\n}\n\n}  // namespace emthrm\n\n\n#line 11 \"test/string/wildcard_pattern_matching.test.cpp\"\
@@ -257,7 +257,7 @@ data:
     \ p, '_').size() << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\
     \ ? \u3092\u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\
-    \n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc305/tasks/abc305_h\n\
+    \n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc307/tasks/abc307_h\n\
     \ */\n\n#include <iostream>\n#include <string>\n\n#include \"emthrm/string/wildcard_pattern_matching.hpp\"\
     \n\nint main() {\n  int l, w;\n  std::string s, p;\n  std::cin >> l >> w >> s\
     \ >> p;\n  s = s + std::string(w - 1, '.') + s;\n  if (l == w) {\n    s.pop_back();\n\
@@ -270,7 +270,7 @@ data:
   isVerificationFile: true
   path: test/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2023-07-07 12:32:05+09:00'
+  timestamp: '2023-07-07 17:43:03+09:00'
   verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/wildcard_pattern_matching.test.cpp
