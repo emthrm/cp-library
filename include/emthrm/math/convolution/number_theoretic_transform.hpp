@@ -32,8 +32,8 @@ struct NumberTheoreticTransform {
   void idft(std::vector<ModInt>* a);
 
   template <typename U>
-  std::vector<ModInt> convolution(const std::vector<U>& a,
-                                  const std::vector<U>& b) {
+  std::vector<ModInt> convolution(
+      const std::vector<U>& a, const std::vector<U>& b) const {
     const int a_size = a.size(), b_size = b.size();
     std::vector<atcoder::static_modint<T>> c(a_size), d(b_size);
     for (int i = 0; i < a_size; ++i) {
@@ -81,8 +81,8 @@ struct NumberTheoreticTransform {
   }
 
   template <typename U>
-  std::vector<ModInt> convolution(const std::vector<U>& a,
-                                  const std::vector<U>& b) {
+  std::vector<ModInt> convolution(
+      const std::vector<U>& a, const std::vector<U>& b) const {
     const int a_size = a.size(), b_size = b.size();
     const int c_size = a_size + b_size - 1;
     if (std::min(a_size, b_size) <= 60) {

@@ -1,0 +1,27 @@
+---
+title: ワイルドカード ? を用いたパターンマッチング
+documentation_of: //include/emthrm/string/wildcard_pattern_matching.hpp
+---
+
+
+## 時間計算量
+
+テキスト長を $N$、パターン長を $M$ とおくと $O((N + M)\log(N + M))$
+
+
+## 仕様
+
+|名前|戻り値|
+|:--|:--|
+|`template <typename T = std::string>`<br>`requires requires { typename T::value_type; }`<br>`std::vector<int> wildcard_pattern_matching(const T& t, const T& p, const typename T::value_type wildcard);`|`T[i:i+\|p\|] = P` を満たすすべての $i$|
+
+
+## 参考文献
+
+- https://qiita.com/MatsuTaku/items/cd5581fab97d7e74a7b3
+- https://atcoder.jp/contests/abc307/editorial/6598
+
+
+## Submissons
+
+https://atcoder.jp/contests/abc307/submissions/43305941
