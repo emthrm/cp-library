@@ -1,7 +1,7 @@
 /*
  * @title 文字列/ワイルドカード ? を用いたパターンマッチング
  *
- * verification-helper: PROBLEM https://atcoder.jp/contests/abc305/tasks/abc305_h
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc307/tasks/abc307_h
  */
 
 #include <iostream>

@@ -47,7 +47,7 @@ struct NumberTheoreticTransform;
 |`NumberTheoreticTransform();`|コンストラクタ||
 |`template <typename U>`<br>`std::vector<ModInt> dft(const std::vector<U>& a);`|整数列 $A$ に対して数論変換を行ったもの||
 |`void idft(std::vector<ModInt>* a);`|$A$ に対して数論変換の逆変換を行う。||
-|`template <typename U>`<br>`std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b) const;`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
+|`template <typename U>`<br>`std::vector<ModInt> convolution(const std::vector<U>& a, const std::vector<U>& b);`|整数列 $A$ と $B$ の畳み込み|$\max_i{C_i} \leq (\max_i{A_i})(\max_i{B_i})(\min \lbrace \lvert A \rvert, \lvert B \rvert \rbrace)$|
 
 #### メンバ型
 

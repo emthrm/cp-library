@@ -82,7 +82,7 @@ struct NumberTheoreticTransform {
 
   template <typename U>
   std::vector<ModInt> convolution(
-      const std::vector<U>& a, const std::vector<U>& b) const {
+      const std::vector<U>& a, const std::vector<U>& b) {
     const int a_size = a.size(), b_size = b.size();
     const int c_size = a_size + b_size - 1;
     if (std::min(a_size, b_size) <= 60) {

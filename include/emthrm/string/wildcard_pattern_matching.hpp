@@ -54,7 +54,7 @@ std::vector<int> wildcard_pattern_matching(
   std::vector<int> ans(l);
   std::iota(ans.begin(), ans.end(), 0);
   const auto check = [&pattern, &t1, &t2, &t3, &p1, &p2, &p3, l, &ans]
-      <unsigned int M>(const NumberTheoreticTransform<M>& ntt) -> void {
+      <unsigned int M>(NumberTheoreticTransform<M> ntt) -> void {
     using ModInt = NumberTheoreticTransform<M>::ModInt;
     static const int offset = pattern.size() - 1;
     const std::vector<ModInt> t3p1 = ntt.convolution(t3, p1);
