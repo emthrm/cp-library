@@ -337,6 +337,7 @@ $$
   - https://qiita.com/HMMNRST/items/14b990534d7b6d04307d
   - https://scrapbox.io/mrsekut-p/Chirp_Z%E5%A4%89%E6%8F%9B
   - https://judge.yosupo.jp/problem/multipoint_evaluation_on_geometric_sequence
+  - https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
   - https://twitter.com/noshi91/status/1478716471136366593

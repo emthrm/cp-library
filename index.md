@@ -88,9 +88,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/dynamic_programming/2d_cumulative_sum.hpp
     title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
-  - icon: ':warning:'
-    path: include/emthrm/dynamic_programming/aliens_dp.hpp
-    title: Aliens DP
   - icon: ':heavy_check_mark:'
     path: include/emthrm/dynamic_programming/convert_online_dp_to_offline_dp.hpp
     title: "\u30AA\u30D5\u30E9\u30A4\u30F3\u30FB\u30AA\u30F3\u30E9\u30A4\u30F3\u5909\

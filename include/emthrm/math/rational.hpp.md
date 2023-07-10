@@ -122,6 +122,7 @@ title: "\u6709\u7406\u6570 (rational number)"
   - ~~http://www.prefield.com/algorithm/math/stern_brocot_tree.html~~
   - https://tjkendev.github.io/procon-library/python/math/stern-brocot-tree.html
   - https://sotanishy.github.io/cp-library-cpp/math/stern_brocot_tree.hpp
+  - https://judge.yosupo.jp/problem/stern_brocot_tree
   - https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184
   - https://atcoder.jp/contests/abc273/tasks/abc273_h
   - https://yukicoder.me/problems/no/2266
