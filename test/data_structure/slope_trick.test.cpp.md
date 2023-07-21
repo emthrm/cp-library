@@ -1,25 +1,27 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/slope_trick.hpp
     title: slope trick
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/arc123/tasks/arc123_d
     document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/slope trick"
     links:
     - https://atcoder.jp/contests/arc123/tasks/arc123_d
   bundledCode: "#line 1 \"test/data_structure/slope_trick.test.cpp\"\n/*\n * @title\
-    \ \u30C7\u30FC\u30BF\u69CB\u9020/slope trick\n *\n * verification-helper: PROBLEM\
-    \ https://atcoder.jp/contests/arc123/tasks/arc123_d\n */\n\n#include <algorithm>\n\
-    #include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/data_structure/slope_trick.hpp\"\
-    \n\n\n\n#include <cassert>\n#include <functional>\n#include <limits>\n#include\
-    \ <numeric>\n#include <queue>\n#include <utility>\n#line 11 \"include/emthrm/data_structure/slope_trick.hpp\"\
+    \ \u30C7\u30FC\u30BF\u69CB\u9020/slope trick\n *\n * verification-helper: IGNORE\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/arc123/tasks/arc123_d\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <vector>\n\n#line\
+    \ 1 \"include/emthrm/data_structure/slope_trick.hpp\"\n\n\n\n#include <cassert>\n\
+    #include <functional>\n#include <limits>\n#include <numeric>\n#include <queue>\n\
+    #include <utility>\n#line 11 \"include/emthrm/data_structure/slope_trick.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct SlopeTrick {\n  const\
     \ T inf;\n\n  explicit SlopeTrick(\n      const T min_f = 0, const T inf = std::numeric_limits<T>::max())\n\
     \      : inf(inf), added_l(0), added_r(0), min_f(min_f) {}\n\n  T min() const\
@@ -47,7 +49,7 @@ data:
     \ }\n  void emplace_r(const T a) { r.emplace(a - added_r); }\n\n  T top_l() const\
     \ { return l.empty() ? -inf : l.top() + added_l; }\n  T top_r() const { return\
     \ r.empty() ? inf : r.top() + added_r; }\n};\n\n}  // namespace emthrm\n\n\n#line\
-    \ 12 \"test/data_structure/slope_trick.test.cpp\"\n\nint main() {\n  int n;\n\
+    \ 13 \"test/data_structure/slope_trick.test.cpp\"\n\nint main() {\n  int n;\n\
     \  std::cin >> n;\n  std::vector<int> a(n);\n  for (int i = 0; i < n; ++i) {\n\
     \    std::cin >> a[i];\n  }\n  emthrm::SlopeTrick<long long> slope_trick(0);\n\
     \  slope_trick.abs_x_minus_a(0);\n  slope_trick.abs_x_minus_a(a.front());\n  for\
@@ -56,22 +58,22 @@ data:
     \    slope_trick.abs_x_minus_a(a[i]);\n  }\n  std::cout << slope_trick.min() <<\
     \ '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/slope trick\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/arc123/tasks/arc123_d\n */\n\n#include <algorithm>\n\
-    #include <iostream>\n#include <vector>\n\n#include \"emthrm/data_structure/slope_trick.hpp\"\
-    \n\nint main() {\n  int n;\n  std::cin >> n;\n  std::vector<int> a(n);\n  for\
-    \ (int i = 0; i < n; ++i) {\n    std::cin >> a[i];\n  }\n  emthrm::SlopeTrick<long\
-    \ long> slope_trick(0);\n  slope_trick.abs_x_minus_a(0);\n  slope_trick.abs_x_minus_a(a.front());\n\
-    \  for (int i = 1; i < n; ++i) {\n    slope_trick.translate(std::max(a[i] - a[i\
-    \ - 1], 0));\n    slope_trick.cumulative_min();\n    slope_trick.abs_x_minus_a(0);\n\
-    \    slope_trick.abs_x_minus_a(a[i]);\n  }\n  std::cout << slope_trick.min() <<\
-    \ '\\n';\n  return 0;\n}\n"
+    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc123/tasks/arc123_d\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <vector>\n\n#include\
+    \ \"emthrm/data_structure/slope_trick.hpp\"\n\nint main() {\n  int n;\n  std::cin\
+    \ >> n;\n  std::vector<int> a(n);\n  for (int i = 0; i < n; ++i) {\n    std::cin\
+    \ >> a[i];\n  }\n  emthrm::SlopeTrick<long long> slope_trick(0);\n  slope_trick.abs_x_minus_a(0);\n\
+    \  slope_trick.abs_x_minus_a(a.front());\n  for (int i = 1; i < n; ++i) {\n  \
+    \  slope_trick.translate(std::max(a[i] - a[i - 1], 0));\n    slope_trick.cumulative_min();\n\
+    \    slope_trick.abs_x_minus_a(0);\n    slope_trick.abs_x_minus_a(a[i]);\n  }\n\
+    \  std::cout << slope_trick.min() << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/data_structure/slope_trick.hpp
   isVerificationFile: true
   path: test/data_structure/slope_trick.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/data_structure/slope_trick.test.cpp
 layout: document

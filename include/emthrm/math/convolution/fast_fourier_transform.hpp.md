@@ -19,7 +19,7 @@ data:
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u30D5\u30A1\u30A6\u30EB\
       \u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow)"
@@ -340,6 +340,7 @@ $$
   - https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
+  - https://twitter.com/cureskol/status/1679469969028059138
   - https://twitter.com/noshi91/status/1478716471136366593
   - https://judge.yosupo.jp/problem/multivariate_convolution
   - https://judge.yosupo.jp/problem/multivariate_convolution_cyclic

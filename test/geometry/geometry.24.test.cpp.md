@@ -1,16 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     ERROR: 1e-6
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc259/tasks/abc259_b
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
       \ (\u70B9\u306E\u56DE\u8EE2)"
@@ -18,7 +19,7 @@ data:
     - https://atcoder.jp/contests/abc259/tasks/abc259_b
   bundledCode: "#line 1 \"test/geometry/geometry.24.test.cpp\"\n/*\n * @title \u8A08\
     \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\u306E\u56DE\u8EE2\
-    )\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc259/tasks/abc259_b\n\
+    )\n *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc259/tasks/abc259_b\n\
     \ * verification-helper: ERROR 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\
     \n#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n\
     #include <cassert>\n#include <cmath>\n#include <compare>\n#line 9 \"include/emthrm/geometry/geometry.hpp\"\
@@ -236,24 +237,24 @@ data:
     \ == n) *i_or_j = 0;\n    const Real tmp = (a[j] - a[i]).norm();\n    if (sgn(tmp\
     \ - max_norm) == 1) {\n      max_norm = tmp;\n      argmax_i = i; argmax_j = j;\n\
     \    }\n  } while (i != high || j != low);\n  return {a[argmax_i], a[argmax_j]};\n\
-    }\n\n}  // namespace geometry\n\n}  // namespace emthrm\n\n\n#line 12 \"test/geometry/geometry.24.test.cpp\"\
+    }\n\n}  // namespace geometry\n\n}  // namespace emthrm\n\n\n#line 13 \"test/geometry/geometry.24.test.cpp\"\
     \n\nint main() {\n  emthrm::geometry::Point p;\n  int d;\n  std::cin >> p >> d;\n\
     \  p = p.rotate(emthrm::geometry::degree_to_radian(d));\n  std::cout << std::fixed\
     \ << std::setprecision(7) << p.x << ' ' << p.y << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (\u70B9\u306E\u56DE\u8EE2)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc259/tasks/abc259_b\n\
-    \ * verification-helper: ERROR 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\
-    \n#include \"emthrm/geometry/geometry.hpp\"\n\nint main() {\n  emthrm::geometry::Point\
-    \ p;\n  int d;\n  std::cin >> p >> d;\n  p = p.rotate(emthrm::geometry::degree_to_radian(d));\n\
-    \  std::cout << std::fixed << std::setprecision(7) << p.x << ' ' << p.y << '\\\
-    n';\n  return 0;\n}\n"
+    \ (\u70B9\u306E\u56DE\u8EE2)\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc259/tasks/abc259_b\n * verification-helper:\
+    \ ERROR 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\n#include \"emthrm/geometry/geometry.hpp\"\
+    \n\nint main() {\n  emthrm::geometry::Point p;\n  int d;\n  std::cin >> p >> d;\n\
+    \  p = p.rotate(emthrm::geometry::degree_to_radian(d));\n  std::cout << std::fixed\
+    \ << std::setprecision(7) << p.x << ' ' << p.y << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
   isVerificationFile: true
   path: test/geometry/geometry.24.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/geometry/geometry.24.test.cpp
 layout: document

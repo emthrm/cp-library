@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/data_structure/slope_trick.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/slope trick"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/slope_trick.hpp\"\n\n\n\n\
@@ -77,7 +77,7 @@ data:
   path: include/emthrm/data_structure/slope_trick.hpp
   requiredBy: []
   timestamp: '2022-12-15 22:18:37+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/data_structure/slope_trick.test.cpp
 documentation_of: include/emthrm/data_structure/slope_trick.hpp

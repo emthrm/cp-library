@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/geometry/smallest_enclosing_circle.hpp\"\n\
@@ -276,7 +276,7 @@ data:
   path: include/emthrm/geometry/smallest_enclosing_circle.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/geometry/smallest_enclosing_circle.test.cpp
 documentation_of: include/emthrm/geometry/smallest_enclosing_circle.hpp

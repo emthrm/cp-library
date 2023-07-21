@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/string/rolling_hash.test.cpp
     title: "\u6587\u5B57\u5217/rolling hash"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/rolling_hash.hpp\"\n\n\n\n#include\
@@ -67,7 +67,7 @@ data:
   path: include/emthrm/string/rolling_hash.hpp
   requiredBy: []
   timestamp: '2023-02-04 14:26:45+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/string/rolling_hash.test.cpp
 documentation_of: include/emthrm/string/rolling_hash.hpp

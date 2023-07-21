@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/dynamic_programming/2d_cumulative_sum.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/2d_cumulative_sum.hpp\"\
@@ -55,7 +55,7 @@ data:
   path: include/emthrm/dynamic_programming/2d_cumulative_sum.hpp
   requiredBy: []
   timestamp: '2023-02-21 03:04:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/dynamic_programming/2d_cumulative_sum.test.cpp
 documentation_of: include/emthrm/dynamic_programming/2d_cumulative_sum.hpp

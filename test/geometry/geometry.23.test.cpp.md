@@ -1,16 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     ERROR: 1e-6
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc246/tasks/abc246_b
     document_title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
       \ (\u5358\u4F4D\u30D9\u30AF\u30C8\u30EB)"
@@ -18,32 +19,33 @@ data:
     - https://atcoder.jp/contests/abc246/tasks/abc246_b
   bundledCode: "#line 1 \"test/geometry/geometry.23.test.cpp\"\n/*\n * @title \u8A08\
     \u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5358\u4F4D\u30D9\u30AF\
-    \u30C8\u30EB)\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc246/tasks/abc246_b\n\
-    \ * verification-helper: ERROR 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\
-    \n#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <cmath>\n#include <compare>\n#line 9 \"include/emthrm/geometry/geometry.hpp\"\
-    \n#include <iterator>\n#include <limits>\n#include <numbers>\n#include <numeric>\n\
-    #include <tuple>\n#include <utility>\n#include <vector>\n\nnamespace emthrm {\n\
-    \nnamespace geometry {\n\nusing Real = double;\n\nint sgn(const Real x) {\n  static\
-    \ constexpr Real EPS = 1e-8;\n  return x > EPS ? 1 : (x < -EPS ? -1 : 0);\n}\n\
-    \nReal degree_to_radian(const Real d) { return d * std::numbers::pi / 180; }\n\
-    Real radian_to_degree(const Real r) { return r * 180 / std::numbers::pi; }\n\n\
-    struct Point {\n  Real x, y;\n\n  explicit Point(const Real x = 0, const Real\
-    \ y = 0) : x(x), y(y) {}\n\n  Real abs() const { return std::sqrt(norm()); }\n\
-    \n  Real arg() const {\n    const Real res = std::atan2(y, x);\n    return res\
-    \ < 0 ? res + std::numbers::pi * 2 : res;\n  }\n\n  Real norm() const { return\
-    \ x * x + y * y; }\n\n  Point rotate(const Real angle) const {\n    const Real\
-    \ cs = std::cos(angle), sn = std::sin(angle);\n    return Point(x * cs - y * sn,\
-    \ x * sn + y * cs);\n  }\n\n  Point& operator+=(const Point& p) {\n    x += p.x;\
-    \ y += p.y;\n    return *this;\n  }\n  Point& operator-=(const Point& p) {\n \
-    \   x -= p.x; y -= p.y;\n    return *this;\n  }\n  Point& operator*=(const Real\
-    \ k) {\n    x *= k; y *= k;\n    return *this;\n  }\n  Point& operator/=(const\
-    \ Real k) {\n    x /= k; y /= k;\n    return *this;\n  }\n\n  std::partial_ordering\
-    \ operator<=>(const Point& p) const {\n    const int x_sgn = sgn(p.x - x);\n \
-    \   if (x_sgn == 0) return 0 <=> sgn(p.y - y);\n    return x_sgn == 1 ? std::partial_ordering::less\
-    \ :\n                        std::partial_ordering::greater;\n  }\n\n  Point operator+()\
-    \ const { return *this; }\n  Point operator-() const { return Point(-x, -y); }\n\
-    \n  Point operator+(const Point& p) const { return Point(*this) += p; }\n  Point\
+    \u30C8\u30EB)\n *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM\
+    \ https://atcoder.jp/contests/abc246/tasks/abc246_b\n * verification-helper: ERROR\
+    \ 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\n#line 1 \"include/emthrm/geometry/geometry.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
+    #line 9 \"include/emthrm/geometry/geometry.hpp\"\n#include <iterator>\n#include\
+    \ <limits>\n#include <numbers>\n#include <numeric>\n#include <tuple>\n#include\
+    \ <utility>\n#include <vector>\n\nnamespace emthrm {\n\nnamespace geometry {\n\
+    \nusing Real = double;\n\nint sgn(const Real x) {\n  static constexpr Real EPS\
+    \ = 1e-8;\n  return x > EPS ? 1 : (x < -EPS ? -1 : 0);\n}\n\nReal degree_to_radian(const\
+    \ Real d) { return d * std::numbers::pi / 180; }\nReal radian_to_degree(const\
+    \ Real r) { return r * 180 / std::numbers::pi; }\n\nstruct Point {\n  Real x,\
+    \ y;\n\n  explicit Point(const Real x = 0, const Real y = 0) : x(x), y(y) {}\n\
+    \n  Real abs() const { return std::sqrt(norm()); }\n\n  Real arg() const {\n \
+    \   const Real res = std::atan2(y, x);\n    return res < 0 ? res + std::numbers::pi\
+    \ * 2 : res;\n  }\n\n  Real norm() const { return x * x + y * y; }\n\n  Point\
+    \ rotate(const Real angle) const {\n    const Real cs = std::cos(angle), sn =\
+    \ std::sin(angle);\n    return Point(x * cs - y * sn, x * sn + y * cs);\n  }\n\
+    \n  Point& operator+=(const Point& p) {\n    x += p.x; y += p.y;\n    return *this;\n\
+    \  }\n  Point& operator-=(const Point& p) {\n    x -= p.x; y -= p.y;\n    return\
+    \ *this;\n  }\n  Point& operator*=(const Real k) {\n    x *= k; y *= k;\n    return\
+    \ *this;\n  }\n  Point& operator/=(const Real k) {\n    x /= k; y /= k;\n    return\
+    \ *this;\n  }\n\n  std::partial_ordering operator<=>(const Point& p) const {\n\
+    \    const int x_sgn = sgn(p.x - x);\n    if (x_sgn == 0) return 0 <=> sgn(p.y\
+    \ - y);\n    return x_sgn == 1 ? std::partial_ordering::less :\n             \
+    \           std::partial_ordering::greater;\n  }\n\n  Point operator+() const\
+    \ { return *this; }\n  Point operator-() const { return Point(-x, -y); }\n\n \
+    \ Point operator+(const Point& p) const { return Point(*this) += p; }\n  Point\
     \ operator-(const Point& p) const { return Point(*this) -= p; }\n  Point operator*(const\
     \ Real k) const { return Point(*this) *= k; }\n  Point operator/(const Real k)\
     \ const { return Point(*this) /= k; }\n\n  friend std::ostream& operator<<(std::ostream&\
@@ -236,24 +238,25 @@ data:
     \ == n) *i_or_j = 0;\n    const Real tmp = (a[j] - a[i]).norm();\n    if (sgn(tmp\
     \ - max_norm) == 1) {\n      max_norm = tmp;\n      argmax_i = i; argmax_j = j;\n\
     \    }\n  } while (i != high || j != low);\n  return {a[argmax_i], a[argmax_j]};\n\
-    }\n\n}  // namespace geometry\n\n}  // namespace emthrm\n\n\n#line 12 \"test/geometry/geometry.23.test.cpp\"\
+    }\n\n}  // namespace geometry\n\n}  // namespace emthrm\n\n\n#line 13 \"test/geometry/geometry.23.test.cpp\"\
     \n\nint main() {\n  emthrm::geometry::Point p;\n  std::cin >> p;\n  const emthrm::geometry::Point\
     \ ans = emthrm::geometry::unit_vector(p);\n  std::cout << std::fixed << std::setprecision(7)\n\
     \            << ans.x << ' ' << ans.y << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66\
-    \ (\u5358\u4F4D\u30D9\u30AF\u30C8\u30EB)\n *\n * verification-helper: PROBLEM\
-    \ https://atcoder.jp/contests/abc246/tasks/abc246_b\n * verification-helper: ERROR\
-    \ 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\n#include \"emthrm/geometry/geometry.hpp\"\
-    \n\nint main() {\n  emthrm::geometry::Point p;\n  std::cin >> p;\n  const emthrm::geometry::Point\
-    \ ans = emthrm::geometry::unit_vector(p);\n  std::cout << std::fixed << std::setprecision(7)\n\
-    \            << ans.x << ' ' << ans.y << '\\n';\n  return 0;\n}\n"
+    \ (\u5358\u4F4D\u30D9\u30AF\u30C8\u30EB)\n *\n * verification-helper: IGNORE\n\
+    \ * verification-helper: PROBLEM https://atcoder.jp/contests/abc246/tasks/abc246_b\n\
+    \ * verification-helper: ERROR 1e-6\n */\n\n#include <iomanip>\n#include <iostream>\n\
+    \n#include \"emthrm/geometry/geometry.hpp\"\n\nint main() {\n  emthrm::geometry::Point\
+    \ p;\n  std::cin >> p;\n  const emthrm::geometry::Point ans = emthrm::geometry::unit_vector(p);\n\
+    \  std::cout << std::fixed << std::setprecision(7)\n            << ans.x << '\
+    \ ' << ans.y << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/geometry/geometry.hpp
   isVerificationFile: true
   path: test/geometry/geometry.23.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/geometry/geometry.23.test.cpp
 layout: document

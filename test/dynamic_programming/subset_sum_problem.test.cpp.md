@@ -8,7 +8,7 @@ data:
     path: include/emthrm/math/convolution/number_theoretic_transform.hpp
     title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\
       \u4F59\u5909\u63DB (fast modulo transform)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'

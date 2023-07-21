@@ -7,24 +7,24 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/is_bipartite.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5 (bipartite graph) \u5224\u5B9A"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    PROBLEM: https://atcoder.jp/contests/arc099/tasks/arc099_e
+    IGNORE: ''
+    PROBLEM: https://atcoder.jp/contests/arc099/tasks/arc099_c
     document_title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
     links:
     - https://atcoder.jp/contests/arc099/tasks/arc099_c
-    - https://atcoder.jp/contests/arc099/tasks/arc099_e
   bundledCode: "#line 1 \"test/graph/is_bipartite.test.cpp\"\n/*\n * @title \u30B0\
     \u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_e\n * Link: \"https://atcoder.jp/contests/arc099/tasks/arc099_c\"\
-    \n */\n\n#include <algorithm>\n#include <iostream>\n#include <map>\n#include <vector>\n\
+    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_c\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <map>\n#include <vector>\n\
     \n#line 1 \"include/emthrm/data_structure/union-find/union-find.hpp\"\n\n\n\n\
     #include <utility>\n#line 6 \"include/emthrm/data_structure/union-find/union-find.hpp\"\
     \n\nnamespace emthrm {\n\nstruct UnionFind {\n  explicit UnionFind(const int n)\
@@ -76,10 +76,9 @@ data:
     \ {\n    if (dp[i]) ans = std::min(ans, i * (i - 1) / 2 + (n - i) * (n - i - 1)\
     \ / 2);\n  }\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A\
-    \n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_e\n\
-    \ * Link: \"https://atcoder.jp/contests/arc099/tasks/arc099_c\"\n */\n\n#include\
-    \ <algorithm>\n#include <iostream>\n#include <map>\n#include <vector>\n\n#include\
-    \ \"emthrm/data_structure/union-find/union-find.hpp\"\n#include \"emthrm/graph/edge.hpp\"\
+    \n *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_c\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n#include <map>\n#include <vector>\n\
+    \n#include \"emthrm/data_structure/union-find/union-find.hpp\"\n#include \"emthrm/graph/edge.hpp\"\
     \n#include \"emthrm/graph/is_bipartite.hpp\"\n\nint main() {\n  int n, m;\n  std::cin\
     \ >> n >> m;\n  int ans = m;\n  std::vector<std::vector<bool>> is_adjacent(n,\
     \ std::vector<bool>(n, false));\n  while (m--) {\n    int a, b;\n    std::cin\
@@ -105,8 +104,8 @@ data:
   isVerificationFile: true
   path: test/graph/is_bipartite.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/graph/is_bipartite.test.cpp
 layout: document

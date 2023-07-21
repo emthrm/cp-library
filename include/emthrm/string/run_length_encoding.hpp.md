@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/string/run_length_encoding.test.cpp
     title: "\u6587\u5B57\u5217/\u30E9\u30F3\u30EC\u30F3\u30B0\u30B9\u5727\u7E2E"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/run_length_encoding.hpp\"\n\n\n\n\
@@ -36,7 +36,7 @@ data:
   path: include/emthrm/string/run_length_encoding.hpp
   requiredBy: []
   timestamp: '2023-07-07 02:42:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/string/run_length_encoding.test.cpp
 documentation_of: include/emthrm/string/run_length_encoding.hpp

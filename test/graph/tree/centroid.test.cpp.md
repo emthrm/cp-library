@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -14,18 +14,18 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    PROBLEM: https://atcoder.jp/contests/arc087/tasks/arc087_f
+    IGNORE: ''
+    PROBLEM: https://atcoder.jp/contests/arc087/tasks/arc087_d
     document_title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
     links:
     - https://atcoder.jp/contests/arc087/tasks/arc087_d
-    - https://atcoder.jp/contests/arc087/tasks/arc087_f
   bundledCode: "#line 1 \"test/graph/tree/centroid.test.cpp\"\n/*\n * @title \u30B0\
-    \u30E9\u30D5/\u6728/\u91CD\u5FC3\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc087/tasks/arc087_f\n\
-    \ * Link: \"https://atcoder.jp/contests/arc087/tasks/arc087_d\"\n */\n\n#include\
-    \ <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\n\
-    /**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
+    \u30E9\u30D5/\u6728/\u91CD\u5FC3\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/arc087/tasks/arc087_d\n */\n\n#include <iostream>\n\
+    #include <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title\
+    \ \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
     \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
     \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
     \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
@@ -183,8 +183,8 @@ data:
     \ : dp[m][j]) * ModInt::fact(n - j);\n    }\n    std::cout << ans << '\\n';\n\
     \  }\n  return 0;\n}\n"
   code: "/*\n * @title \u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/arc087/tasks/arc087_f\n * Link: \"https://atcoder.jp/contests/arc087/tasks/arc087_d\"\
-    \n */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
+    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc087/tasks/arc087_d\n\
+    \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
     \n#include \"emthrm/graph/tree/centroid.hpp\"\n#include \"emthrm/math/modint.hpp\"\
     \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n;\n  std::cin\
     \ >> n;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n  for (int\
@@ -214,8 +214,8 @@ data:
   isVerificationFile: true
   path: test/graph/tree/centroid.test.cpp
   requiredBy: []
-  timestamp: '2023-05-14 18:31:39+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/graph/tree/centroid.test.cpp
 layout: document

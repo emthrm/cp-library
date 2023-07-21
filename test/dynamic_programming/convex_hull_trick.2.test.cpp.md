@@ -1,15 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/dynamic_programming/convex_hull_trick.hpp
     title: convex hull trick
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/dp/tasks/dp_z
     document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\
       \u5358\u8ABF\u5897\u52A0\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
@@ -18,8 +19,8 @@ data:
   bundledCode: "#line 1 \"test/dynamic_programming/convex_hull_trick.2.test.cpp\"\n\
     /*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\
     \u5358\u8ABF\u5897\u52A0\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09\n *\n\
-    \ * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_z\n */\n\
-    \n#include <iostream>\n\n#line 1 \"include/emthrm/dynamic_programming/convex_hull_trick.hpp\"\
+    \ * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_z\n\
+    \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/dynamic_programming/convex_hull_trick.hpp\"\
     \n\n\n\n#include <cassert>\n#include <deque>\n#include <iterator>\n#include <numeric>\n\
     #include <utility>\n\nnamespace emthrm {\n\ntemplate <typename T, bool IS_MINIMIZED\
     \ = true>\nstruct ConvexHullTrick {\n  ConvexHullTrick() = default;\n\n  void\
@@ -53,7 +54,7 @@ data:
     \ static_cast<long double>(l2.second - l1.second) / (l1.first - l2.first);\n \
     \   return lhs <= rhs;\n#endif  // __SIZEOF_INT128__\n  }\n\n  T f(const Line&\
     \ l, const T x) const { return l.first * x + l.second; }\n};\n\n}  // namespace\
-    \ emthrm\n\n\n#line 10 \"test/dynamic_programming/convex_hull_trick.2.test.cpp\"\
+    \ emthrm\n\n\n#line 11 \"test/dynamic_programming/convex_hull_trick.2.test.cpp\"\
     \n\nint main() {\n  int n;\n  long long c;\n  std::cin >> n >> c;\n  emthrm::ConvexHullTrick<long\
     \ long> convex_hull_trick;\n  for (int i = 0; i < n; ++i) {\n    int h;\n    std::cin\
     \ >> h;\n    if (i == 0) [[unlikely]] {\n      convex_hull_trick.add(-2 * h, static_cast<long\
@@ -64,8 +65,8 @@ data:
     \      }\n    }\n  }\n  return 0;\n}\n"
   code: "/*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\
     \u5358\u8ABF\u5897\u52A0\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09\n *\n\
-    \ * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_z\n */\n\
-    \n#include <iostream>\n\n#include \"emthrm/dynamic_programming/convex_hull_trick.hpp\"\
+    \ * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_z\n\
+    \ */\n\n#include <iostream>\n\n#include \"emthrm/dynamic_programming/convex_hull_trick.hpp\"\
     \n\nint main() {\n  int n;\n  long long c;\n  std::cin >> n >> c;\n  emthrm::ConvexHullTrick<long\
     \ long> convex_hull_trick;\n  for (int i = 0; i < n; ++i) {\n    int h;\n    std::cin\
     \ >> h;\n    if (i == 0) [[unlikely]] {\n      convex_hull_trick.add(-2 * h, static_cast<long\
@@ -79,8 +80,8 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/convex_hull_trick.2.test.cpp
   requiredBy: []
-  timestamp: '2023-02-27 16:52:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/dynamic_programming/convex_hull_trick.2.test.cpp
 layout: document

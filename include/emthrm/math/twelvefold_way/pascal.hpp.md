@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/math/twelvefold_way/pascal.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D1\u30B9\u30AB\u30EB\u306E\u4E09\
       \u89D2\u5F62"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/twelvefold_way/pascal.hpp\"\n\n\n\n\
@@ -29,7 +29,7 @@ data:
   path: include/emthrm/math/twelvefold_way/pascal.hpp
   requiredBy: []
   timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/twelvefold_way/pascal.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/pascal.hpp

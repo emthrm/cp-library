@@ -1,22 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/string/rolling_hash.hpp
     title: rolling hash
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
+    IGNORE: ''
     PROBLEM: https://atcoder.jp/contests/abc141/tasks/abc141_e
     document_title: "\u6587\u5B57\u5217/rolling hash"
     links:
     - https://atcoder.jp/contests/abc141/tasks/abc141_e
   bundledCode: "#line 1 \"test/string/rolling_hash.test.cpp\"\n/*\n * @title \u6587\
-    \u5B57\u5217/rolling hash\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc141/tasks/abc141_e\n\
-    \ */\n\n#include <iostream>\n#include <set>\n#include <string>\n\n#line 1 \"include/emthrm/string/rolling_hash.hpp\"\
+    \u5B57\u5217/rolling hash\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc141/tasks/abc141_e\n */\n\n#include <iostream>\n\
+    #include <set>\n#include <string>\n\n#line 1 \"include/emthrm/string/rolling_hash.hpp\"\
     \n\n\n\n#include <cassert>\n#include <cstdint>\n#include <random>\n#include <vector>\n\
     \nnamespace emthrm {\n\ntemplate <typename T = char>\nstruct RollingHash {\n \
     \ const std::int64_t base;\n  std::vector<T> str;\n\n  template <typename U>\n\
@@ -41,7 +43,7 @@ data:
     \ res = au * bu * 2 + ad * bd + (mid >> 30)\n                       + ((mid &\
     \ ((UINT32_C(1) << 30) - 1)) << 31);\n    res = (res >> MOD_WIDTH) + (res & MOD);\n\
     \    return res >= MOD ? res - MOD : res;\n  }\n};\n\n}  // namespace emthrm\n\
-    \n\n#line 12 \"test/string/rolling_hash.test.cpp\"\n\nint main() {\n  int n;\n\
+    \n\n#line 13 \"test/string/rolling_hash.test.cpp\"\n\nint main() {\n  int n;\n\
     \  std::string s;\n  std::cin >> n >> s;\n  emthrm::RollingHash<> rolling_hash(s);\n\
     \  for (int len = n - 1; len >= 1; --len) {\n    std::set<std::int64_t> hashes;\n\
     \    for (int i = len; i + len <= n; ++i) {\n      hashes.emplace(rolling_hash.get(i\
@@ -49,21 +51,22 @@ data:
     \      std::cout << len << '\\n';\n        return 0;\n      }\n    }\n  }\n  std::cout\
     \ << 0 << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6587\u5B57\u5217/rolling hash\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/abc141/tasks/abc141_e\n */\n\n#include <iostream>\n\
-    #include <set>\n#include <string>\n\n#include \"emthrm/string/rolling_hash.hpp\"\
-    \n\nint main() {\n  int n;\n  std::string s;\n  std::cin >> n >> s;\n  emthrm::RollingHash<>\
-    \ rolling_hash(s);\n  for (int len = n - 1; len >= 1; --len) {\n    std::set<std::int64_t>\
-    \ hashes;\n    for (int i = len; i + len <= n; ++i) {\n      hashes.emplace(rolling_hash.get(i\
-    \ - len, i));\n      if (hashes.contains(rolling_hash.get(i, i + len))) {\n  \
-    \      std::cout << len << '\\n';\n        return 0;\n      }\n    }\n  }\n  std::cout\
-    \ << 0 << '\\n';\n  return 0;\n}\n"
+    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc141/tasks/abc141_e\n\
+    \ */\n\n#include <iostream>\n#include <set>\n#include <string>\n\n#include \"\
+    emthrm/string/rolling_hash.hpp\"\n\nint main() {\n  int n;\n  std::string s;\n\
+    \  std::cin >> n >> s;\n  emthrm::RollingHash<> rolling_hash(s);\n  for (int len\
+    \ = n - 1; len >= 1; --len) {\n    std::set<std::int64_t> hashes;\n    for (int\
+    \ i = len; i + len <= n; ++i) {\n      hashes.emplace(rolling_hash.get(i - len,\
+    \ i));\n      if (hashes.contains(rolling_hash.get(i, i + len))) {\n        std::cout\
+    \ << len << '\\n';\n        return 0;\n      }\n    }\n  }\n  std::cout << 0 <<\
+    \ '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/rolling_hash.hpp
   isVerificationFile: true
   path: test/string/rolling_hash.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/string/rolling_hash.test.cpp
 layout: document

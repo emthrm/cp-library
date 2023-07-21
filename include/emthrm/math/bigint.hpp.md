@@ -22,7 +22,7 @@ data:
     path: test/math/bigint.06.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5270\u4F59\u6F14\u7B97\
       \uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/math/bigint.07.test.cpp
     title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\u6BD4\u8F03\
       \uFF09"

@@ -39,7 +39,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/girth_in_undirected_graph.hpp
     title: "\u5185\u5468 (girth) \u7121\u5411\u30B0\u30E9\u30D5\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/is_bipartite.hpp
     title: "\u4E8C\u90E8\u30B0\u30E9\u30D5 (bipartite graph) \u5224\u5B9A"
   - icon: ':heavy_check_mark:'
@@ -77,7 +77,7 @@ data:
     path: include/emthrm/graph/traveling_salesman_problem.hpp
     title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
       \ salesman problem)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -146,7 +146,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/girth.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5185\u5468"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/graph/is_bipartite.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
   - icon: ':heavy_check_mark:'
@@ -187,7 +187,7 @@ data:
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
   - icon: ':warning:'

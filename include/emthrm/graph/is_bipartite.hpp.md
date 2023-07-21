@@ -6,12 +6,12 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/graph/is_bipartite.test.cpp
     title: "\u30B0\u30E9\u30D5/\u4E8C\u90E8\u30B0\u30E9\u30D5\u5224\u5B9A"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/is_bipartite.hpp\"\n\n\n\n#include\
@@ -48,7 +48,7 @@ data:
   path: include/emthrm/graph/is_bipartite.hpp
   requiredBy: []
   timestamp: '2023-02-24 21:17:22+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/is_bipartite.test.cpp
 documentation_of: include/emthrm/graph/is_bipartite.hpp

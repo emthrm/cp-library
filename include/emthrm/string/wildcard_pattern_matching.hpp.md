@@ -10,13 +10,13 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/string/wildcard_pattern_matching.test.cpp
     title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\n\n\
@@ -283,7 +283,7 @@ data:
   path: include/emthrm/string/wildcard_pattern_matching.hpp
   requiredBy: []
   timestamp: '2023-07-07 17:43:03+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/string/wildcard_pattern_matching.test.cpp
 documentation_of: include/emthrm/string/wildcard_pattern_matching.hpp

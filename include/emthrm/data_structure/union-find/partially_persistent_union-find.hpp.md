@@ -3,13 +3,13 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/data_structure/union-find/partially_persistent_union-find.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\
       \u9020/\u90E8\u5206\u6C38\u7D9A union-find"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp\"\
@@ -50,7 +50,7 @@ data:
   path: include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp
   requiredBy: []
   timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/data_structure/union-find/partially_persistent_union-find.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/partially_persistent_union-find.hpp

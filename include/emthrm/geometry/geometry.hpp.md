@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   _extendedVerifiedWith:
@@ -93,15 +93,15 @@ data:
     path: test/geometry/geometry.22.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u51F8\u591A\
       \u89D2\u5F62\u306E\u76F4\u5F84)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/geometry/geometry.23.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u5358\u4F4D\
       \u30D9\u30AF\u30C8\u30EB)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/geometry/geometry.24.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\u306E\
       \u56DE\u8EE2)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - icon: ':heavy_check_mark:'
@@ -109,7 +109,7 @@ data:
     title: "\u6570\u5B66/\u4E00\u5143\u4E8C\u6B21\u65B9\u7A0B\u5F0F"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/geometry/geometry.hpp\"\n\n\n\n#include <algorithm>\n\
@@ -552,7 +552,7 @@ data:
   requiredBy:
   - include/emthrm/geometry/smallest_enclosing_circle.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/quadratic_equation.test.cpp
   - test/geometry/geometry.17.test.cpp

@@ -1,25 +1,24 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/dynamic_programming/2d_cumulative_sum.hpp
     title: "2\u6B21\u5143\u7D2F\u7A4D\u548C"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    PROBLEM: https://atcoder.jp/contests/arc089/tasks/arc089_d
+    IGNORE: ''
+    PROBLEM: https://atcoder.jp/contests/arc089/tasks/arc089_b
     document_title: "\u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C"
     links:
     - https://atcoder.jp/contests/arc089/tasks/arc089_b
-    - https://atcoder.jp/contests/arc089/tasks/arc089_d
   bundledCode: "#line 1 \"test/dynamic_programming/2d_cumulative_sum.test.cpp\"\n\
     /*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\n\
-    \ *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc089/tasks/arc089_d\n\
-    \ * Link: \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\n */\n\n#include\
-    \ <algorithm>\n#include <iostream>\n\n#line 1 \"include/emthrm/dynamic_programming/2d_cumulative_sum.hpp\"\
+    \ *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc089/tasks/arc089_b\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n\n#line 1 \"include/emthrm/dynamic_programming/2d_cumulative_sum.hpp\"\
     \n\n\n\n#line 5 \"include/emthrm/dynamic_programming/2d_cumulative_sum.hpp\"\n\
     #include <cassert>\n#include <iterator>\n#include <numeric>\n#include <vector>\n\
     \nnamespace emthrm {\n\ntemplate <typename T>\nstruct CumulativeSum2D {\n  explicit\
@@ -63,9 +62,8 @@ data:
     \ * 2 - 1, k * 2 - 1);\n      ans = std::max(ans, b + w);\n    }\n  }\n  std::cout\
     \ << ans << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u52D5\u7684\u8A08\u753B\u6CD5/2\u6B21\u5143\u7D2F\u7A4D\u548C\
-    \n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc089/tasks/arc089_d\n\
-    \ * Link: \"https://atcoder.jp/contests/arc089/tasks/arc089_b\"\n */\n\n#include\
-    \ <algorithm>\n#include <iostream>\n\n#include \"emthrm/dynamic_programming/2d_cumulative_sum.hpp\"\
+    \n *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc089/tasks/arc089_b\n\
+    \ */\n\n#include <algorithm>\n#include <iostream>\n\n#include \"emthrm/dynamic_programming/2d_cumulative_sum.hpp\"\
     \n\nint main() {\n  int n, k;\n  std::cin >> n >> k;\n  emthrm::CumulativeSum2D<int>\
     \ black(k * 2, k * 2), white(k * 2, k * 2);\n  while (n--) {\n    int x, y;\n\
     \    char c;\n    std::cin >> x >> y >> c;\n    x %= k * 2;\n    y %= k * 2;\n\
@@ -94,8 +92,8 @@ data:
   isVerificationFile: true
   path: test/dynamic_programming/2d_cumulative_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/dynamic_programming/2d_cumulative_sum.test.cpp
 layout: document

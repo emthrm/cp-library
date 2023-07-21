@@ -14,7 +14,7 @@ data:
     path: include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
     title: "\u30D5\u30A1\u30A6\u30EB\u30CF\u30FC\u30D0\u30FC\u306E\u516C\u5F0F (Faulhaber's\
       \ formula) \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':question:'

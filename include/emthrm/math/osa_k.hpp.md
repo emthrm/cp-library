@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/prime_sieve.hpp
     title: prime sieve
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/math/osa_k.test.cpp
     title: "\u6570\u5B66/osa_k \u6CD5"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/osa_k.hpp\"\n\n\n\n#include <utility>\n\
@@ -46,7 +46,7 @@ data:
   path: include/emthrm/math/osa_k.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/osa_k.test.cpp
 documentation_of: include/emthrm/math/osa_k.hpp

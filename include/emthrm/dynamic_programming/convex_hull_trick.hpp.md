@@ -3,20 +3,20 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/dynamic_programming/convex_hull_trick.1.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/dynamic_programming/convex_hull_trick.2.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\u5358\
       \u8ABF\u5897\u52A0\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/dynamic_programming/convex_hull_trick.3.test.cpp
     title: "\u52D5\u7684\u8A08\u753B\u6CD5/convex full trick\uFF08$x$ \u304C\u5358\
       \u8ABF\u6E1B\u5C11\u3059\u308B\u89E3\u7B54\u30AF\u30A8\u30EA\uFF09"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/dynamic_programming/convex_hull_trick.hpp\"\
@@ -94,7 +94,7 @@ data:
   path: include/emthrm/dynamic_programming/convex_hull_trick.hpp
   requiredBy: []
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/dynamic_programming/convex_hull_trick.3.test.cpp
   - test/dynamic_programming/convex_hull_trick.2.test.cpp

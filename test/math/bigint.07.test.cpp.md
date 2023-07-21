@@ -8,19 +8,19 @@ data:
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    PROBLEM: https://atcoder.jp/contests/arc072/tasks/abc059_b
+    IGNORE: ''
+    PROBLEM: https://atcoder.jp/contests/abc059/tasks/abc059_b
     document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\
       \u6BD4\u8F03\uFF09"
     links:
     - https://atcoder.jp/contests/abc059/tasks/abc059_b
-    - https://atcoder.jp/contests/arc072/tasks/abc059_b
   bundledCode: "#line 1 \"test/math/bigint.07.test.cpp\"\n/*\n * @title \u6570\u5B66\
     /\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\u6BD4\u8F03\uFF09\n *\n * verification-helper:\
-    \ PROBLEM https://atcoder.jp/contests/arc072/tasks/abc059_b\n * Link: \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\
-    \n */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\
-    \n\n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
+    \ IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc059/tasks/abc059_b\n\
+    \ */\n\n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\
+    \n#include <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n\
     #include <iomanip>\n#line 10 \"include/emthrm/math/bigint.hpp\"\n#include <iterator>\n\
     #include <limits>\n#include <sstream>\n#include <string>\n#include <utility>\n\
     #include <vector>\n\nnamespace emthrm {\n\ntemplate <int LOG_B = 9, int B = 1000000000>\
@@ -171,19 +171,19 @@ data:
     \ \"LESS\\n\";\n  } else if (a == b) {\n    std::cout << \"EQUAL\\n\";\n  }\n\
     \  return 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u5927\u5C0F\
-    \u6BD4\u8F03\uFF09\n *\n * verification-helper: PROBLEM https://atcoder.jp/contests/arc072/tasks/abc059_b\n\
-    \ * Link: \"https://atcoder.jp/contests/abc059/tasks/abc059_b\"\n */\n\n#include\
-    \ <iostream>\n\n#include \"emthrm/math/bigint.hpp\"\n\nint main() {\n  emthrm::BigInt<>\
-    \ a, b;\n  std::cin >> a >> b;\n  if (a > b) {\n    std::cout << \"GREATER\\n\"\
-    ;\n  } else if (a < b) {\n    std::cout << \"LESS\\n\";\n  } else if (a == b)\
-    \ {\n    std::cout << \"EQUAL\\n\";\n  }\n  return 0;\n}\n"
+    \u6BD4\u8F03\uFF09\n *\n * verification-helper: IGNORE\n * verification-helper:\
+    \ PROBLEM https://atcoder.jp/contests/abc059/tasks/abc059_b\n */\n\n#include <iostream>\n\
+    \n#include \"emthrm/math/bigint.hpp\"\n\nint main() {\n  emthrm::BigInt<> a, b;\n\
+    \  std::cin >> a >> b;\n  if (a > b) {\n    std::cout << \"GREATER\\n\";\n  }\
+    \ else if (a < b) {\n    std::cout << \"LESS\\n\";\n  } else if (a == b) {\n \
+    \   std::cout << \"EQUAL\\n\";\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/bigint.hpp
   isVerificationFile: true
   path: test/math/bigint.07.test.cpp
   requiredBy: []
-  timestamp: '2023-02-27 16:57:22+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-07-21 12:14:05+09:00'
+  verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/bigint.07.test.cpp
 layout: document

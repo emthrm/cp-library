@@ -71,7 +71,7 @@ data:
     path: test/math/formal_power_series/formal_power_series.4.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570\uFF08\u7D2F\u4E57\uFF09"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/math/formal_power_series/formal_power_series.5.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u5F62\u5F0F\u7684\u51AA\
       \u7D1A\u6570 (mod_pow)"
@@ -109,7 +109,7 @@ data:
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/formal_power_series/formal_power_series.hpp\"\
@@ -404,7 +404,7 @@ data:
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
   - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/polynomial_interpolation.test.cpp

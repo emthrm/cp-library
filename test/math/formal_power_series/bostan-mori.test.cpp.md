@@ -8,7 +8,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/formal_power_series/bostan-mori.hpp
     title: "Bostan\u2013Mori \u306E\u30A2\u30EB\u30B4\u30EA\u30BA\u30E0"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   - icon: ':heavy_check_mark:'

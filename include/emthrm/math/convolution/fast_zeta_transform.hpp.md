@@ -13,13 +13,13 @@ data:
     path: test/math/convolution/and_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: test/math/convolution/fast_zeta_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\
       \u63DB"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/convolution/fast_zeta_transform.hpp\"\
@@ -49,7 +49,7 @@ data:
   - include/emthrm/math/convolution/and_convolution.hpp
   - include/emthrm/math/convolution/or_convolution.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/convolution/fast_zeta_transform.test.cpp
   - test/math/convolution/and_convolution.test.cpp

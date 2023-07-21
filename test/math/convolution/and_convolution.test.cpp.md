@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/convolution/fast_mobius_transform.hpp
     title: "\u9AD8\u901F\u30E1\u30D3\u30A6\u30B9\u5909\u63DB (fast Mobius transform)"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/math/convolution/fast_zeta_transform.hpp
     title: "\u9AD8\u901F\u30BC\u30FC\u30BF\u5909\u63DB (fast zeta transform)"
   - icon: ':question:'
