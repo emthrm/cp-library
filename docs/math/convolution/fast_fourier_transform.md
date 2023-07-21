@@ -182,6 +182,7 @@ $$
   - https://judge.yosupo.jp/problem/polynomial_interpolation_on_geometric_sequence
 - 多変数の畳み込み
   - https://37zigen.com/truncated-multivariate-convolution/
+  - https://twitter.com/cureskol/status/1679469969028059138
   - https://twitter.com/noshi91/status/1478716471136366593
   - https://judge.yosupo.jp/problem/multivariate_convolution
   - https://judge.yosupo.jp/problem/multivariate_convolution_cyclic
