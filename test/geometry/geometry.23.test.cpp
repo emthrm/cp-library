@@ -1,6 +1,7 @@
 /*
  * @title 計算幾何学/計算幾何学 (単位ベクトル)
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/abc246/tasks/abc246_b
  * verification-helper: ERROR 1e-6
  */

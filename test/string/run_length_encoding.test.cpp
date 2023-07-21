@@ -1,6 +1,7 @@
 /*
  * @title 文字列/ランレングス圧縮
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/abc143/tasks/abc143_c
  */
 

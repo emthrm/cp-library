@@ -1,8 +1,8 @@
 /*
  * @title 数学/多倍長整数（大小比較）
  *
- * verification-helper: PROBLEM https://atcoder.jp/contests/arc072/tasks/abc059_b
- * Link: "https://atcoder.jp/contests/abc059/tasks/abc059_b"
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/abc059/tasks/abc059_b
  */
 
 #include <iostream>

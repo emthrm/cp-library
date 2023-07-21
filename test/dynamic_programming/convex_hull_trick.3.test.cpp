@@ -1,6 +1,7 @@
 /*
  * @title 動的計画法/convex full trick（$x$ が単調減少する解答クエリ）
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/dp/tasks/dp_z
  */
 

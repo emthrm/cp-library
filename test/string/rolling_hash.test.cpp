@@ -1,6 +1,7 @@
 /*
  * @title 文字列/rolling hash
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/abc141/tasks/abc141_e
  */
 

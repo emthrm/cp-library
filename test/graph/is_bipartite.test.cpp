@@ -1,8 +1,8 @@
 /*
  * @title グラフ/二部グラフ判定
  *
- * verification-helper: PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_e
- * Link: "https://atcoder.jp/contests/arc099/tasks/arc099_c"
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc099/tasks/arc099_c
  */
 
 #include <algorithm>

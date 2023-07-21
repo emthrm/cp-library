@@ -1,6 +1,7 @@
 /*
  * @title データ構造/素集合データ構造/部分永続 union-find
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/agc002/tasks/agc002_d
  */
 

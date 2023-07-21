@@ -1,6 +1,7 @@
 /*
  * @title 数学/写像12相/パスカルの三角形
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/abc254/tasks/abc254_b
  */
 

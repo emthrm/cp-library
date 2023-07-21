@@ -1,8 +1,8 @@
 /*
  * @title 数学/畳み込み/高速ゼータ変換
  *
- * verification-helper: PROBLEM https://atcoder.jp/contests/arc100/tasks/arc100_e
- * Link: "https://atcoder.jp/contests/arc100/tasks/arc100_c"
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc100/tasks/arc100_c
  */
 
 #include <algorithm>

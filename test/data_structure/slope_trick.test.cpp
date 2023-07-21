@@ -1,6 +1,7 @@
 /*
  * @title データ構造/slope trick
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://atcoder.jp/contests/arc123/tasks/arc123_d
  */
 

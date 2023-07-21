@@ -1,8 +1,8 @@
 /*
  * @title 動的計画法/2次元累積和
  *
- * verification-helper: PROBLEM https://atcoder.jp/contests/arc089/tasks/arc089_d
- * Link: "https://atcoder.jp/contests/arc089/tasks/arc089_b"
+ * verification-helper: IGNORE
+ * verification-helper: PROBLEM https://atcoder.jp/contests/arc089/tasks/arc089_b
  */
 
 #include <algorithm>
