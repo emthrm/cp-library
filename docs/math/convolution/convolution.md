@@ -129,6 +129,8 @@ $O(N\log{N})$
     - https://judge.yosupo.jp/problem/exp_of_set_power_series
 - 凸性のある畳み込み
   - https://twitter.com/hotmanww/status/1482185138125832192
+  - https://judge.yosupo.jp/problem/min_plus_convolution_convex_convex
+  - https://judge.yosupo.jp/problem/min_plus_convolution_convex_arbitrary
 - relaxed multiplication
   - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
   - https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c
