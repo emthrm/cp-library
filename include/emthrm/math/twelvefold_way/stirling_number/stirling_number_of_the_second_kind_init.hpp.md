@@ -158,8 +158,8 @@ data:
   timestamp: '2023-05-13 18:14:57+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.test.cpp
+  - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init.hpp
 layout: document
 title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number of\

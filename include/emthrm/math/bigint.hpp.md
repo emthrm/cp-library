@@ -144,7 +144,7 @@ data:
     \ <= 32) {\n      for (int i = a_l; i < a_r; ++i) {\n        for (int j = b_l;\
     \ j < b_r; ++j) {\n          res[(i - a_l) + (j - b_l)] += (*a)[i] * (*b)[j];\n\
     \        }\n      }\n    } else {\n      const int mid = (a_len + 1) / 2, n =\
-    \ std::min(a_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
+    \ std::min(b_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
     \   (*a)[i] += (*a)[i + mid];\n      }\n      for (int i = b_l; i + mid < b_r;\
     \ ++i) {\n        (*b)[i] += (*b)[i + mid];\n      }\n      std::ranges::copy(karatsuba(a,\
     \ a_l, a_l + mid, b, b_l, b_l + n),\n                        std::next(res.begin(),\
@@ -291,7 +291,7 @@ data:
     \ <= 32) {\n      for (int i = a_l; i < a_r; ++i) {\n        for (int j = b_l;\
     \ j < b_r; ++j) {\n          res[(i - a_l) + (j - b_l)] += (*a)[i] * (*b)[j];\n\
     \        }\n      }\n    } else {\n      const int mid = (a_len + 1) / 2, n =\
-    \ std::min(a_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
+    \ std::min(b_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
     \   (*a)[i] += (*a)[i + mid];\n      }\n      for (int i = b_l; i + mid < b_r;\
     \ ++i) {\n        (*b)[i] += (*b)[i + mid];\n      }\n      std::ranges::copy(karatsuba(a,\
     \ a_l, a_l + mid, b, b_l, b_l + n),\n                        std::next(res.begin(),\
@@ -338,19 +338,19 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/bigint.hpp
   requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  timestamp: '2023-08-11 13:44:52+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/math/bigint.05.test.cpp
-  - test/math/bigint.10.test.cpp
-  - test/math/bigint.09.test.cpp
-  - test/math/bigint.03.test.cpp
   - test/math/bigint.02.test.cpp
-  - test/math/bigint.04.test.cpp
-  - test/math/bigint.06.test.cpp
-  - test/math/bigint.07.test.cpp
-  - test/math/bigint.01.test.cpp
   - test/math/bigint.08.test.cpp
+  - test/math/bigint.01.test.cpp
+  - test/math/bigint.05.test.cpp
+  - test/math/bigint.06.test.cpp
+  - test/math/bigint.03.test.cpp
+  - test/math/bigint.10.test.cpp
+  - test/math/bigint.04.test.cpp
+  - test/math/bigint.09.test.cpp
+  - test/math/bigint.07.test.cpp
 documentation_of: include/emthrm/math/bigint.hpp
 layout: document
 title: "\u591A\u500D\u9577\u6574\u6570"
@@ -417,9 +417,9 @@ Knuth's Algorithm D
 ## Submissons
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/2679/review/4092735/emthrm/C++14
-- [加算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_A/review/4092738/emthrm/C++14)
+- [加算](https://judge.yosupo.jp/submission/155155)
 - [減算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_B/review/4092740/emthrm/C++14)
-- [乗算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_F/review/4092742/emthrm/C++14)
+- [乗算](https://judge.yosupo.jp/submission/155180)
 - [除算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_D/review/4092743/emthrm/C++14)
 - [剰余演算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_E/review/4092744/emthrm/C++14)
 - [大小比較](https://atcoder.jp/contests/abc059/submissions/9334290)

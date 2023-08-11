@@ -47,8 +47,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
   - test/math/lagrange_interpolation2.test.cpp
+  - test/math/formal_power_series/faulhaber_by_lagrange_interpolation.test.cpp
 documentation_of: include/emthrm/math/lagrange_interpolation2.hpp
 layout: document
 title: "\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 (Lagrange interpolation)\

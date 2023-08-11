@@ -10,29 +10,29 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A
+    PROBLEM: https://judge.yosupo.jp/problem/addition_of_big_integers
     document_title: "\u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u52A0\u7B97\
       \uFF09"
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A
+    - https://judge.yosupo.jp/problem/addition_of_big_integers
   bundledCode: "#line 1 \"test/math/bigint.02.test.cpp\"\n/*\n * @title \u6570\u5B66\
     /\u591A\u500D\u9577\u6574\u6570\uFF08\u52A0\u7B97\uFF09\n *\n * verification-helper:\
-    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A\n */\n\
-    \n#include <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\n#include\
-    \ <algorithm>\n#include <cassert>\n#include <cmath>\n#include <compare>\n#include\
-    \ <iomanip>\n#line 10 \"include/emthrm/math/bigint.hpp\"\n#include <iterator>\n\
-    #include <limits>\n#include <sstream>\n#include <string>\n#include <utility>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <int LOG_B = 9, int B = 1000000000>\
-    \  // B = 10^{LOG_B}\nstruct BigInt {\n  int sgn;\n  std::vector<int> data;\n\n\
-    \  BigInt(const long long val = 0) { *this = val; }\n  BigInt(const std::string&\
-    \ s) { *this = s; }\n\n  std::vector<long long> convert_base(const int next_log_b,\n\
-    \                                      const int next_b) const {\n    assert(next_b\
-    \ == std::llround(std::pow(10, next_log_b)));\n    const int max_base = std::max(LOG_B,\
-    \ next_log_b);\n    std::vector<long long> p(max_base + 1, 1);\n    for (int i\
-    \ = 1; i <= max_base; ++i) {\n      p[i] = p[i - 1] * 10;\n    }\n    std::vector<long\
-    \ long> res;\n    long long cur_val = 0;\n    int cur_log_b = 0;\n    for (const\
-    \ int e : data) {\n      cur_val += p[cur_log_b] * e;\n      cur_log_b += LOG_B;\n\
-    \      for (; cur_log_b >= next_log_b; cur_log_b -= next_log_b) {\n        res.emplace_back(cur_val\
+    \ PROBLEM https://judge.yosupo.jp/problem/addition_of_big_integers\n */\n\n#include\
+    \ <iostream>\n\n#line 1 \"include/emthrm/math/bigint.hpp\"\n\n\n\n#include <algorithm>\n\
+    #include <cassert>\n#include <cmath>\n#include <compare>\n#include <iomanip>\n\
+    #line 10 \"include/emthrm/math/bigint.hpp\"\n#include <iterator>\n#include <limits>\n\
+    #include <sstream>\n#include <string>\n#include <utility>\n#include <vector>\n\
+    \nnamespace emthrm {\n\ntemplate <int LOG_B = 9, int B = 1000000000>  // B = 10^{LOG_B}\n\
+    struct BigInt {\n  int sgn;\n  std::vector<int> data;\n\n  BigInt(const long long\
+    \ val = 0) { *this = val; }\n  BigInt(const std::string& s) { *this = s; }\n\n\
+    \  std::vector<long long> convert_base(const int next_log_b,\n               \
+    \                       const int next_b) const {\n    assert(next_b == std::llround(std::pow(10,\
+    \ next_log_b)));\n    const int max_base = std::max(LOG_B, next_log_b);\n    std::vector<long\
+    \ long> p(max_base + 1, 1);\n    for (int i = 1; i <= max_base; ++i) {\n     \
+    \ p[i] = p[i - 1] * 10;\n    }\n    std::vector<long long> res;\n    long long\
+    \ cur_val = 0;\n    int cur_log_b = 0;\n    for (const int e : data) {\n     \
+    \ cur_val += p[cur_log_b] * e;\n      cur_log_b += LOG_B;\n      for (; cur_log_b\
+    \ >= next_log_b; cur_log_b -= next_log_b) {\n        res.emplace_back(cur_val\
     \ % next_b);\n        cur_val /= next_b;\n      }\n    }\n    res.emplace_back(cur_val);\n\
     \    while (!res.empty() && res.back() == 0) res.pop_back();\n    return res;\n\
     \  }\n\n  int digit_sum() const {\n    assert(sgn == 1);\n    int res = 0;\n \
@@ -122,7 +122,7 @@ data:
     \ <= 32) {\n      for (int i = a_l; i < a_r; ++i) {\n        for (int j = b_l;\
     \ j < b_r; ++j) {\n          res[(i - a_l) + (j - b_l)] += (*a)[i] * (*b)[j];\n\
     \        }\n      }\n    } else {\n      const int mid = (a_len + 1) / 2, n =\
-    \ std::min(a_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
+    \ std::min(b_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
     \   (*a)[i] += (*a)[i + mid];\n      }\n      for (int i = b_l; i + mid < b_r;\
     \ ++i) {\n        (*b)[i] += (*b)[i + mid];\n      }\n      std::ranges::copy(karatsuba(a,\
     \ a_l, a_l + mid, b, b_l, b_l + n),\n                        std::next(res.begin(),\
@@ -165,19 +165,21 @@ data:
     }\n\ntemplate <int LOG_B, int B>\nemthrm::BigInt<LOG_B, B> min(const emthrm::BigInt<LOG_B,\
     \ B>& a,\n                             const emthrm::BigInt<LOG_B, B>& b) {\n\
     \  return a < b ? a : b;\n}\n\n}  // namespace std\n\n\n#line 10 \"test/math/bigint.02.test.cpp\"\
-    \n\nint main() {\n  emthrm::BigInt<> a, b;\n  std::cin >> a >> b;\n  std::cout\
-    \ << a + b << '\\n';\n  return 0;\n}\n"
+    \n\nint main() {\n  int t;\n  std::cin >> t;\n  while (t--) {\n    emthrm::BigInt<>\
+    \ a, b;\n    std::cin >> a >> b;\n    std::cout << a + b << '\\n';\n  }\n  return\
+    \ 0;\n}\n"
   code: "/*\n * @title \u6570\u5B66/\u591A\u500D\u9577\u6574\u6570\uFF08\u52A0\u7B97\
-    \uFF09\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_2_A\n\
+    \uFF09\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/addition_of_big_integers\n\
     \ */\n\n#include <iostream>\n\n#include \"emthrm/math/bigint.hpp\"\n\nint main()\
-    \ {\n  emthrm::BigInt<> a, b;\n  std::cin >> a >> b;\n  std::cout << a + b <<\
-    \ '\\n';\n  return 0;\n}\n"
+    \ {\n  int t;\n  std::cin >> t;\n  while (t--) {\n    emthrm::BigInt<> a, b;\n\
+    \    std::cin >> a >> b;\n    std::cout << a + b << '\\n';\n  }\n  return 0;\n\
+    }\n"
   dependsOn:
   - include/emthrm/math/bigint.hpp
   isVerificationFile: true
   path: test/math/bigint.02.test.cpp
   requiredBy: []
-  timestamp: '2023-02-27 16:57:22+09:00'
+  timestamp: '2023-08-11 13:44:52+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/math/bigint.02.test.cpp

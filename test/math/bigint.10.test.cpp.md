@@ -123,7 +123,7 @@ data:
     \ <= 32) {\n      for (int i = a_l; i < a_r; ++i) {\n        for (int j = b_l;\
     \ j < b_r; ++j) {\n          res[(i - a_l) + (j - b_l)] += (*a)[i] * (*b)[j];\n\
     \        }\n      }\n    } else {\n      const int mid = (a_len + 1) / 2, n =\
-    \ std::min(a_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
+    \ std::min(b_len, mid);\n      for (int i = a_l; i + mid < a_r; ++i) {\n     \
     \   (*a)[i] += (*a)[i + mid];\n      }\n      for (int i = b_l; i + mid < b_r;\
     \ ++i) {\n        (*b)[i] += (*b)[i + mid];\n      }\n      std::ranges::copy(karatsuba(a,\
     \ a_l, a_l + mid, b, b_l, b_l + n),\n                        std::next(res.begin(),\
@@ -182,7 +182,7 @@ data:
   isVerificationFile: true
   path: test/math/bigint.10.test.cpp
   requiredBy: []
-  timestamp: '2023-02-27 16:57:22+09:00'
+  timestamp: '2023-08-11 13:44:52+09:00'
   verificationStatus: TEST_WAITING_JUDGE
   verifiedWith: []
 documentation_of: test/math/bigint.10.test.cpp

@@ -291,12 +291,12 @@ data:
   timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
-  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
-  - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
   - test/data_structure/lazy_segment_tree.test.cpp
-  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   - test/data_structure/range_sum_query_and_range_add_query.test.cpp
+  - test/data_structure/range_sum_query_and_range_update_query.test.cpp
+  - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
+  - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
+  - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/lazy_segment_tree.hpp
 layout: document
 title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
@@ -438,7 +438,7 @@ struct LazySegmentTree;
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_lazy_segment_tree.cpp
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140
   - https://twitter.com/noshi91/status/1338881669525172224
-- 2D セグメント木
+- 2次元セグメント木
   - https://www.hamayanhamayan.com/entry/2017/12/09/015937
   - https://ei1333.github.io/algorithm/segment-tree.html
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
@@ -452,6 +452,7 @@ struct LazySegmentTree;
   - https://codeforces.com/contest/1575/problem/L
   - https://twitter.com/PCTprobability/status/1444372565435170816
   - https://onlinejudge.u-aizu.ac.jp/problems/1068
+  - https://atcoder.jp/contests/abc266/tasks/abc266_h
   - フラクショナルカスケーディング (fractional cascading)
     - https://en.wikipedia.org/wiki/Fractional_cascading
     - http://sntea.hatenablog.com/entry/2017/09/28/003418

@@ -39,6 +39,7 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
   - https://codeforces.com/contest/1279/problem/F
   - https://tiramistercp.hatenablog.com/entry/ecr079-f
   - https://atcoder.jp/contests/abc218/submissions/30355805
+  - https://atcoder.jp/contests/abc305/tasks/abc305_h
 
 
 # Burrows–Wheeler 変換 (Burrows–Wheeler transform)

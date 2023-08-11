@@ -84,15 +84,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/lowlink.hpp
   requiredBy:
-  - include/emthrm/graph/biconnected_component.hpp
   - include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp
+  - include/emthrm/graph/biconnected_component.hpp
   timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/biconnected_component.test.cpp
-  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
   - test/graph/lowlink.1.test.cpp
   - test/graph/lowlink.2.test.cpp
+  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
 documentation_of: include/emthrm/graph/lowlink.hpp
 layout: document
 title: lowlink

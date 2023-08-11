@@ -60,11 +60,11 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/connencted_component_of_complement_graph.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
-  - test/graph/is_bipartite.test.cpp
-  - test/graph/kruskal.test.cpp
   - test/data_structure/union-find/union-find.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/graph/is_bipartite.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/kruskal.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/union-find.hpp
 layout: document
 title: union-find

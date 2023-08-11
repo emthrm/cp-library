@@ -63,8 +63,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/mod_sqrt.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
 documentation_of: include/emthrm/math/mod_sqrt.hpp
 layout: document
 title: "\u5E73\u65B9\u5270\u4F59 (quadratic residue)"
