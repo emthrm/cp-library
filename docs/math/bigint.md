@@ -64,9 +64,9 @@ Knuth's Algorithm D
 ## Submissons
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/2679/review/4092735/emthrm/C++14
-- [加算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_A/review/4092738/emthrm/C++14)
+- [加算](https://judge.yosupo.jp/submission/155155)
 - [減算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_B/review/4092740/emthrm/C++14)
-- [乗算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_F/review/4092742/emthrm/C++14)
+- [乗算](https://judge.yosupo.jp/submission/155180)
 - [除算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_D/review/4092743/emthrm/C++14)
 - [剰余演算](https://onlinejudge.u-aizu.ac.jp/solutions/problem/NTL_2_E/review/4092744/emthrm/C++14)
 - [大小比較](https://atcoder.jp/contests/abc059/submissions/9334290)

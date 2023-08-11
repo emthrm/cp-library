@@ -275,7 +275,7 @@ struct BigInt {
         }
       }
     } else {
-      const int mid = (a_len + 1) / 2, n = std::min(a_len, mid);
+      const int mid = (a_len + 1) / 2, n = std::min(b_len, mid);
       for (int i = a_l; i + mid < a_r; ++i) {
         (*a)[i] += (*a)[i + mid];
       }
