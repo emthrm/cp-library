@@ -59,8 +59,10 @@ jobs:
               "include/emthrm/graph/kruskal.hpp" | \
               "include/emthrm/graph_cost-free/topological_sort.hpp" | \
               "include/emthrm/math/convolution/fast_fourier_transform.hpp" | \
+              "include/emthrm/math/convolution/exp_of_set_power_series.hpp" | \
               "include/emthrm/math/convolution/mod_convolution.hpp" | \
               "include/emthrm/math/convolution/number_theoretic_transform.hpp" | \
+              "include/emthrm/math/convolution/subset_convolution.hpp" | \
               "include/emthrm/math/convolution/xor_convolution.hpp" | \
               "include/emthrm/math/is_primitive_root.hpp" )
                 cpplint --root=./include --filter=-build/include_order,-legal/copyright,-runtime/int $file ;;
