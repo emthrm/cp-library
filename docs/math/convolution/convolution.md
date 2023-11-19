@@ -98,16 +98,20 @@ $O(N\log{N})$
   - https://judge.yosupo.jp/problem/min_plus_convolution_convex_convex
   - https://judge.yosupo.jp/problem/min_plus_convolution_convex_arbitrary
 - relaxed multiplication
-  - https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp
+  - ~~https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp~~
   - https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c
   - https://hotman78.hatenablog.com/entry/2023/01/04/173507
   - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc38
   - https://twitter.com/noshi91/status/1618178939578634240
-  - https://atcoder.jp/contests/abc230/tasks/abc230_h
-  - https://atcoder.jp/contests/abc230/editorial/3036
-  - https://twitter.com/noshi91/status/1466764432961585166
-  - https://codeforces.com/contest/1792/problem/F2
-  - https://twitter.com/SSRS_cp/status/1617927451958718467
+  - https://twitter.com/noshi91/status/1692929472507613594
+  - https://twitter.com/toomerhs/status/1692939919252164723
+  - 問題例 "[Bullion](https://atcoder.jp/contests/abc230/tasks/abc230_h)"
+    - https://atcoder.jp/contests/abc230/editorial/3036
+    - https://twitter.com/noshi91/status/1466764432961585166
+  - 問題例 "[Graph Coloring (hard version)](https://codeforces.com/contest/1792/problem/F2)"
+    - https://twitter.com/SSRS_cp/status/1617927451958718467
+  - 問題例 "[Typical Convolution Problem](https://atcoder.jp/contests/abc315/tasks/abc315_h)"
+    - https://twitter.com/kiri8128/status/1692894996373127280
 
 
 ## Submissons

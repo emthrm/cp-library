@@ -27,15 +27,16 @@ $O(N^3)$
   - https://ja.wikipedia.org/wiki/%E5%9B%BA%E6%9C%89%E5%A4%9A%E9%A0%85%E5%BC%8F
   - https://github.com/yosupo06/library-checker-problems/issues/665
   - https://judge.yosupo.jp/problem/characteristic_polynomial
-  - https://yukicoder.me/problems/no/1907
+  - 問題例 "[DETERMINATION](https://yukicoder.me/problems/no/1907)"
+  - 問題例 "[Inversion of Tree](https://atcoder.jp/contests/abc323/tasks/abc323_g)"
 - 任意の法の下での行列式
   - https://judge.yosupo.jp/problem/matrix_det_arbitrary_mod
   - https://github.com/yosupo06/library-checker-problems/issues/750
 - 巡回行列 (circulant matrix) の行列式
   - https://ja.wikipedia.org/wiki/%E5%B7%A1%E5%9B%9E%E8%A1%8C%E5%88%97
   - https://mathlandscape.com/circulant-matrix/
-  - 第59回TechFUL Coding Battle「Techちゃんと魔法の宝石」
-  - https://kotatsugame.hatenablog.com/entry/2023/06/26/235357
+  - 問題例「第59回TechFUL Coding Battle『Techちゃんと魔法の宝石』」
+    - https://kotatsugame.hatenablog.com/entry/2023/06/26/235357
 
 
 ## Submissons

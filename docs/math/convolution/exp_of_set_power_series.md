@@ -51,6 +51,8 @@ $O(2^N N^2)$
     - 問題例 "[Connectivity 2](https://atcoder.jp/contests/abc213/tasks/abc213_g)"
       - https://maspypy.com/%e9%9b%86%e5%90%88%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0%e9%96%a2%e9%80%a3-4-%e5%95%8f%e9%a1%8c%e4%be%8b#toc2
       - https://atcoder.jp/contests/abc213/submissions/24925408
+    - 問題例 "[Electric Circuit](https://atcoder.jp/contests/abc321/tasks/abc321_g)"
+      - https://atcoder.jp/contests/abc321/tasks/abc321_g
   - 累乗
     - https://twitter.com/_su1sen/status/1425871066916790281
     - 問題例 "[K-Coloring](https://atcoder.jp/contests/abc294/tasks/abc294_h)"
