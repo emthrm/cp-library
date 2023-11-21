@@ -46,8 +46,8 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/fast_zeta_transform.hpp
   requiredBy:
-  - include/emthrm/math/convolution/or_convolution.hpp
   - include/emthrm/math/convolution/and_convolution.hpp
+  - include/emthrm/math/convolution/or_convolution.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:

@@ -90,8 +90,8 @@ data:
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/graph/biconnected_component.test.cpp
-  - test/graph/lowlink.1.test.cpp
   - test/graph/lowlink.2.test.cpp
+  - test/graph/lowlink.1.test.cpp
   - test/graph/2-edge-connected_components_by_lowlink.test.cpp
 documentation_of: include/emthrm/graph/lowlink.hpp
 layout: document

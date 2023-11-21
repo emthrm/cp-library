@@ -30,6 +30,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/convolution/and_convolution.hpp
     title: "\u6DFB\u3048\u5B57 and \u3067\u306E\u7573\u307F\u8FBC\u307F"
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/math/convolution/exp_of_set_power_series.hpp
+    title: "\u96C6\u5408\u51AA\u7D1A\u6570 (set power series) \u306E\u6307\u6570"
   - icon: ':question:'
     path: include/emthrm/math/convolution/fast_fourier_transform.hpp
     title: "\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\u5909\u63DB (fast Fourier transform)"
@@ -59,6 +62,9 @@ data:
   - icon: ':warning:'
     path: include/emthrm/math/convolution/or_convolution.hpp
     title: "\u6DFB\u3048\u5B57 or \u3067\u306E\u7573\u307F\u8FBC\u307F"
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/math/convolution/subset_convolution.hpp
+    title: subset convolution
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/convolution/xor_convolution.hpp
     title: "\u6DFB\u3048\u5B57 xor \u3067\u306E\u7573\u307F\u8FBC\u307F"
@@ -1050,6 +1056,10 @@ data:
     path: test/math/convolution/and_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 and \u3067\u306E\
       \u7573\u307F\u8FBC\u307F"
+  - icon: ':heavy_check_mark:'
+    path: test/math/convolution/exp_of_set_power_series.test.cpp
+    title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u96C6\u5408\u51AA\u7D1A\u6570\u306E\
+      \u6307\u6570"
   - icon: ':warning:'
     path: test/math/convolution/fast_fourier_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u9AD8\u901F\u30D5\u30FC\u30EA\u30A8\
@@ -1081,6 +1091,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/convolution/number_theoretic_transform.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6570\u8AD6\u5909\u63DB"
+  - icon: ':heavy_check_mark:'
+    path: test/math/convolution/subset_convolution.test.cpp
+    title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/subset convolution"
   - icon: ':heavy_check_mark:'
     path: test/math/convolution/xor_convolution.test.cpp
     title: "\u6570\u5B66/\u7573\u307F\u8FBC\u307F/\u6DFB\u3048\u5B57 xor \u3067\u306E\
@@ -1215,6 +1228,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217"
+  - icon: ':heavy_check_mark:'
+    path: test/math/matrix/pow_of_matrix.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u306E\u7D2F\u4E57"
   - icon: ':warning:'
     path: test/math/mobius_mu.test.cpp
     title: "\u6570\u5B66/\u30E1\u30D3\u30A6\u30B9\u95A2\u6570/\u30E1\u30D3\u30A6\u30B9\

@@ -16,16 +16,16 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/number_of_substrings
+    PROBLEM: https://judge.yosupo.jp/problem/longest_common_substring
     document_title: "\u6587\u5B57\u5217/longest common prefix"
     links:
-    - https://judge.yosupo.jp/problem/number_of_substrings
+    - https://judge.yosupo.jp/problem/longest_common_substring
   bundledCode: "#line 1 \"test/string/longest_common_prefix.test.cpp\"\n/*\n * @title\
     \ \u6587\u5B57\u5217/longest common prefix\n *\n * verification-helper: PROBLEM\
-    \ https://judge.yosupo.jp/problem/number_of_substrings\n */\n\n#include <iostream>\n\
-    #include <string>\n\n#line 1 \"include/emthrm/string/longest_common_prefix.hpp\"\
-    \n\n\n\n#include <algorithm>\n#include <cassert>\n#line 7 \"include/emthrm/string/longest_common_prefix.hpp\"\
-    \n#include <utility>\n#include <vector>\n\n#line 1 \"include/emthrm/data_structure/sparse_table.hpp\"\
+    \ https://judge.yosupo.jp/problem/longest_common_substring\n */\n\n#include <iostream>\n\
+    #include <string>\n#include <utility>\n\n#line 1 \"include/emthrm/string/longest_common_prefix.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <cassert>\n#line 8 \"include/emthrm/string/longest_common_prefix.hpp\"\
+    \n#include <vector>\n\n#line 1 \"include/emthrm/data_structure/sparse_table.hpp\"\
     \n\n\n\n#line 5 \"include/emthrm/data_structure/sparse_table.hpp\"\n#include <bit>\n\
     #line 7 \"include/emthrm/data_structure/sparse_table.hpp\"\n#include <functional>\n\
     #line 9 \"include/emthrm/data_structure/sparse_table.hpp\"\n\nnamespace emthrm\
@@ -84,17 +84,28 @@ data:
     \  }\n\n  int query(int i, int j) const {\n    assert(i != j);\n    i = this->rank[i];\n\
     \    j = this->rank[j];\n    if (i > j) std::swap(i, j);\n    return st.query(i,\
     \ j);\n  }\n\n private:\n  SparseTable<int> st;\n};\n\n}  // namespace emthrm\n\
-    \n\n#line 11 \"test/string/longest_common_prefix.test.cpp\"\n\nint main() {\n\
-    \  std::string s;\n  std::cin >> s;\n  const int n = s.length();\n  long long\
-    \ ans = static_cast<long long>(n) * (n + 1) / 2;\n  for (const int e : emthrm::LongestCommonPrefix<>(s).lcp_array)\
-    \ ans -= e;\n  std::cout << ans << '\\n';\n  return 0;\n}\n"
+    \n\n#line 12 \"test/string/longest_common_prefix.test.cpp\"\n\nint main() {\n\
+    \  std::string s, t;\n  std::cin >> s >> t;\n  const int s_len = s.length(), t_len\
+    \ = t.length();\n  const std::string u = s + '$' + t;\n  const emthrm::LongestCommonPrefix\
+    \ lcp(u);\n  int ans = 0, a = -1, c = -1;\n  for (int i = 2; i < s_len + 1 + t_len;\
+    \ ++i) {\n    if ((lcp.sa[i] < s_len) != (lcp.sa[i + 1] < s_len) &&\n        ans\
+    \ < lcp.lcp_array[i]) {\n      ans = lcp.lcp_array[i];\n      a = lcp.sa[i];\n\
+    \      c = lcp.sa[i + 1];\n    }\n  }\n  if (ans == 0) {\n    std::cout << \"\
+    0 0 0 0\\n\";\n  } else {\n    if (a > c) std::swap(a, c);\n    c -= s_len + 1;\n\
+    \    std::cout << a << ' ' << a + ans << ' ' << c << ' ' << c + ans << '\\n';\n\
+    \  }\n  return 0;\n}\n"
   code: "/*\n * @title \u6587\u5B57\u5217/longest common prefix\n *\n * verification-helper:\
-    \ PROBLEM https://judge.yosupo.jp/problem/number_of_substrings\n */\n\n#include\
-    \ <iostream>\n#include <string>\n\n#include \"emthrm/string/longest_common_prefix.hpp\"\
-    \n\nint main() {\n  std::string s;\n  std::cin >> s;\n  const int n = s.length();\n\
-    \  long long ans = static_cast<long long>(n) * (n + 1) / 2;\n  for (const int\
-    \ e : emthrm::LongestCommonPrefix<>(s).lcp_array) ans -= e;\n  std::cout << ans\
-    \ << '\\n';\n  return 0;\n}\n"
+    \ PROBLEM https://judge.yosupo.jp/problem/longest_common_substring\n */\n\n#include\
+    \ <iostream>\n#include <string>\n#include <utility>\n\n#include \"emthrm/string/longest_common_prefix.hpp\"\
+    \n\nint main() {\n  std::string s, t;\n  std::cin >> s >> t;\n  const int s_len\
+    \ = s.length(), t_len = t.length();\n  const std::string u = s + '$' + t;\n  const\
+    \ emthrm::LongestCommonPrefix lcp(u);\n  int ans = 0, a = -1, c = -1;\n  for (int\
+    \ i = 2; i < s_len + 1 + t_len; ++i) {\n    if ((lcp.sa[i] < s_len) != (lcp.sa[i\
+    \ + 1] < s_len) &&\n        ans < lcp.lcp_array[i]) {\n      ans = lcp.lcp_array[i];\n\
+    \      a = lcp.sa[i];\n      c = lcp.sa[i + 1];\n    }\n  }\n  if (ans == 0) {\n\
+    \    std::cout << \"0 0 0 0\\n\";\n  } else {\n    if (a > c) std::swap(a, c);\n\
+    \    c -= s_len + 1;\n    std::cout << a << ' ' << a + ans << ' ' << c << ' '\
+    \ << c + ans << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/longest_common_prefix.hpp
   - include/emthrm/data_structure/sparse_table.hpp
@@ -102,7 +113,7 @@ data:
   isVerificationFile: true
   path: test/string/longest_common_prefix.test.cpp
   requiredBy: []
-  timestamp: '2023-07-07 02:42:02+09:00'
+  timestamp: '2023-11-18 01:22:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/longest_common_prefix.test.cpp

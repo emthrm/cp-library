@@ -97,8 +97,8 @@ data:
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/dynamic_programming/convex_hull_trick.3.test.cpp
-  - test/dynamic_programming/convex_hull_trick.2.test.cpp
   - test/dynamic_programming/convex_hull_trick.1.test.cpp
+  - test/dynamic_programming/convex_hull_trick.2.test.cpp
 documentation_of: include/emthrm/dynamic_programming/convex_hull_trick.hpp
 layout: document
 title: convex hull trick

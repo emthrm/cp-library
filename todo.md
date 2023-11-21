@@ -34,12 +34,17 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
   - https://twitter.com/tko919_/status/1480569460172156929
   - https://twitter.com/noshi91/status/1481285572333551618
   - https://twitter.com/maspy_stars/status/1436701397123096585
-- 例
-  - https://yukicoder.me/problems/no/1867
-  - https://codeforces.com/contest/1279/problem/F
+- 問題例 "[Partitions and Inversions](https://yukicoder.me/problems/no/1867)"
+- 問題例 "[New Year and Handle Change](https://codeforces.com/contest/1279/problem/F)"
   - https://tiramistercp.hatenablog.com/entry/ecr079-f
-  - https://atcoder.jp/contests/abc218/submissions/30355805
-  - https://atcoder.jp/contests/abc305/tasks/abc305_h
+- 問題例 "[Red and Blue Lamps](https://atcoder.jp/contests/abc305/tasks/abc305_h)"
+- 問題例 "[Subsegments with Large Sums](https://atcoder.jp/contests/arc168/tasks/arc168_e)"
+  - https://twitter.com/nok0_kyopro/status/1726239631606505598
+  - https://twitter.com/hitoare1/status/1726239855351599144
+  - https://twitter.com/square10011/status/1726241277426237569
+  - https://twitter.com/noshi91/status/1726241668721258850
+  - https://twitter.com/_su1sen/status/1726242607943364632
+  - https://twitter.com/maspy_stars/status/1726243099733860820
 
 
 # Burrows–Wheeler 変換 (Burrows–Wheeler transform)
@@ -347,6 +352,7 @@ $$
 - $O(\sqrt{M} \log{M})$ に高速化する。
   - ~~https://min-25.hatenablog.com/entry/2017/04/10/215046~~
   - https://ei1333.github.io/luzhiled/snippets/math/factorial.html
+  - https://judge.yosupo.jp/problem/factorial
   - https://codeforces.com/blog/entry/68885
   - https://yukicoder.me/problems/no/502
 - ある素数 $p$ に対して $n! = a p^e$ を満たす $a \bmod p$ を求める。

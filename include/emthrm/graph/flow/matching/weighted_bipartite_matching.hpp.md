@@ -120,8 +120,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/math/bigint.01.test.cpp
   - test/graph/flow/matching/weighted_bipartite_matching.test.cpp
+  - test/math/bigint.01.test.cpp
 documentation_of: include/emthrm/graph/flow/matching/weighted_bipartite_matching.hpp
 layout: document
 title: "\u4E8C\u90E8\u30B0\u30E9\u30D5\u306E\u91CD\u307F\u4ED8\u304D\u6700\u5927\u30DE\

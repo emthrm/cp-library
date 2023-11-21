@@ -64,8 +64,8 @@ data:
   timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/topological_sort.test.cpp
   - test/graph/reachability_on_dag.test.cpp
+  - test/graph/topological_sort.test.cpp
 documentation_of: include/emthrm/graph/topological_sort.hpp
 layout: document
 title: "\u30C8\u30DD\u30ED\u30B8\u30AB\u30EB\u30BD\u30FC\u30C8 (topological sort)"

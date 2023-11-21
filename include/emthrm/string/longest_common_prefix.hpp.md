@@ -152,4 +152,4 @@ struct LongestCommonPrefix : SuffixArray<T>;
 
 ## Submissons
 
-https://judge.yosupo.jp/submission/3244
+https://judge.yosupo.jp/submission/172719

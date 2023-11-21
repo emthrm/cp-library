@@ -87,8 +87,8 @@ data:
   timestamp: '2023-07-07 02:42:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/string/longest_common_prefix.test.cpp
   - test/string/suffix_array.test.cpp
+  - test/string/longest_common_prefix.test.cpp
 documentation_of: include/emthrm/string/suffix_array.hpp
 layout: document
 title: "\u63A5\u5C3E\u8F9E\u914D\u5217 (suffix array)"
