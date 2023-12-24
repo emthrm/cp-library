@@ -11,7 +11,7 @@ struct Matrix {
       : data(m, std::vector<T>(n, def)) {}
 
   int nrow() const { return data.size(); }
-  int ncol() const { return data.front().size(); }
+  int ncol() const { return data.empty() ? 0 : data.front().size(); }
 
   Matrix pow(long long exponent) const {
     const int n = nrow();
