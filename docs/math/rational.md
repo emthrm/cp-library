@@ -17,6 +17,7 @@ documentation_of: //include/emthrm/math/rational.hpp
   - http://satashun.hatenablog.com/entry/2018/12/13/163524
   - http://blue-jam.hatenablog.com/entry/20110306/1299415086
   - https://rsk0315.hatenablog.com/entry/2023/04/17/022705
+  - https://miscalc.hatenablog.com/entry/2023/12/22/213007
   - ~~http://www.prefield.com/algorithm/math/stern_brocot_tree.html~~
   - https://tjkendev.github.io/procon-library/python/math/stern-brocot-tree.html
   - https://sotanishy.github.io/cp-library-cpp/math/stern_brocot_tree.hpp

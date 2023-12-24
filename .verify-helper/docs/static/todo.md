@@ -19,6 +19,10 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 
 ## TODO
 
+- https://noshi91.hatenablog.com/entry/2023/11/20/052227
+- https://r-th.hatenablog.com/entry/2023/11/25/235711
+- https://shino16.github.io/blog/post/algo/aliens_dp/
+- https://twitter.com/shino16_cp/status/1729413813802254627
 - 通る辺の本数を $\lbrack d - k, d \rbrack$ とするとき
   - https://noshi91.hatenablog.com/entry/2022/01/13/001217
   - https://twitter.com/noshi91/status/1481465898062213123
@@ -240,14 +244,16 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 - https://noshi91.hatenablog.com/entry/2022/01/02/004104
 - https://twitter.com/noshi91/status/1477348722099253248
 - https://twitter.com/noshi91/status/1483744348886171651
+- https://zhuanlan.zhihu.com/p/32413108
+- https://twitter.com/noshi91/status/1729086719457395021
 - https://github.com/beet-aizu/library/tree/master/toptree
-- https://yukicoder.me/problems/no/772/editorial
-- https://paper.dropbox.com/doc/Top-Tree-ZWtQdaUh68tou1iu0YdRG
-- https://yukicoder.me/problems/no/902
-- https://yukicoder.me/problems/no/1787
-- https://yukicoder.me/problems/no/1976
-- https://yukicoder.me/submissions/769888
-- https://yukicoder.me/problems/no/2258
+- 問題例 "[Dynamic Distance Sum](https://yukicoder.me/problems/no/772)"
+  - https://paper.dropbox.com/doc/Top-Tree-ZWtQdaUh68tou1iu0YdRG
+- 問題例 "[Query ζone](https://yukicoder.me/problems/no/902)"
+- 問題例 "[Do Use Dynamic Tree](https://yukicoder.me/problems/no/1787)"
+- 問題例 "[Cut then Connect](https://yukicoder.me/problems/no/1976)"
+  - https://yukicoder.me/submissions/769888
+- 問題例 "[The Jikka Tree](https://yukicoder.me/problems/no/2258)"
 
 
 # triangle enumeration
@@ -348,15 +354,27 @@ $$
 $$
 
 ## TODO
-- https://github.com/beet-aizu/library/blob/master/mod/factorial.cpp
 - $O(\sqrt{M} \log{M})$ に高速化する。
+  - https://suisen-kyopro.hatenablog.com/entry/2023/11/22/201600
   - ~~https://min-25.hatenablog.com/entry/2017/04/10/215046~~
   - https://ei1333.github.io/luzhiled/snippets/math/factorial.html
-  - https://judge.yosupo.jp/problem/factorial
   - https://codeforces.com/blog/entry/68885
   - https://yukicoder.me/problems/no/502
+  - https://judge.yosupo.jp/problem/factorial
+  - https://judge.yosupo.jp/problem/many_factorials
 - ある素数 $p$ に対して $n! = a p^e$ を満たす $a \bmod p$ を求める。
   - 秋葉拓哉，岩田陽一，北川宜稔：プログラミングコンテストチャレンジブック \[第2版\]，pp.262-263，マイナビ出版（2012）
+
+
+# ガウス整数 (Gaussian integer)
+
+## TODO
+- https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A6%E3%82%B9%E6%95%B4%E6%95%B0
+- https://mathtrain.jp/gaussianint
+- http://aozoragakuen.sakura.ne.jp/suuron/node56.html
+- ~~http://arimoto.lolipop.jp/%E3%82%AC%E3%82%A6%E3%82%B9%E3%81%AE%E7%B4%A0%E6%95%B0.pdf~~
+- ~~http://www.prefield.com/algorithm/math/isgprime.html~~
+- https://judge.yosupo.jp/problem/gcd_of_gaussian_integers
 
 
 # 簡潔ビットベクトル (succinct indexable dictionaries)
@@ -467,7 +485,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 ## TODO
 - https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%97
 - http://hos.ac/blog/#blog0001
-- https://github.com/ei1333/library/tree/master/structure/heap
+- https://github.com/ei1333/library/tree/ba1135e1610c8fad37bbe5186d0a8442a24fd905/structure/heap
 - 二分ヒープ (binary heap)
   - https://ja.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E3%83%92%E3%83%BC%E3%83%97
   - https://scrapbox.io/data-structures/Binary_Heap
@@ -475,10 +493,11 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - radix heap
   - https://en.wikipedia.org/wiki/Radix_heap
   - https://scrapbox.io/data-structures/Radix_Heap
+  - https://qiita.com/aqualength/items/1b14919c10360544eb41
   - https://github.com/iwiwi/radix-heap
   - https://ei1333.github.io/algorithm/radix-heap.html
   - ~~https://lumakernel.github.io/ecasdqina/data-structure/Heap/RadixHeap~~
-  - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/radix_heap.cc
+  - https://github.com/spaghetti-source/algorithm/blob/4fdac8202e26def25c1baf9127aaaed6a2c9f7c7/data_structure/radix_heap.cc
   - https://ikatakos.com/pot/programming_algorithm/data_structure/radix_heap
 - double-ended priority queue
   - https://en.wikipedia.org/wiki/Double-ended_priority_queue
@@ -489,7 +508,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
   - https://judge.yosupo.jp/problem/double_ended_priority_queue
   - min-max heap
     - https://en.wikipedia.org/wiki/Min-max_heap
-    - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/minmax_heap.cc
+    - https://github.com/spaghetti-source/algorithm/blob/4fdac8202e26def25c1baf9127aaaed6a2c9f7c7/data_structure/minmax_heap.cc
   - dual heap
     - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20121006/1349491389.html
   - interval heap
@@ -498,26 +517,26 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - meldable heap
   - https://en.wikipedia.org/wiki/Randomized_meldable_heap
   - https://topcoder-g-hatena-ne-jp.jag-icpc.org/spaghetti_source/20120831/1346372776.html
-  - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/persistent_heap.cc
+  - https://github.com/spaghetti-source/algorithm/blob/4fdac8202e26def25c1baf9127aaaed6a2c9f7c7/data_structure/persistent_heap.cc
   - https://trap.jp/post/1050/
   - skew heap
     - https://en.wikipedia.org/wiki/Skew_heap
     - https://scrapbox.io/data-structures/Skew_Heap
     - https://ei1333.github.io/algorithm/skew-heap.html
     - https://ei1333.github.io/luzhiled/snippets/structure/skew-heap.html
-    - https://github.com/beet-aizu/library/blob/master/datastructure/skewheap.cpp
+    - https://github.com/beet-aizu/library/blob/4f26a088ff995dd9fc2612dbbafef9b56bdb0c61/datastructure/skewheap.cpp
     - ~~https://lumakernel.github.io/ecasdqina/data-structure/Heap/SkewHeap~~
-    - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/skew_heap.cc
-    - https://github.com/primenumber/ProconLib/blob/master/Structure/SkewHeap.cpp
+    - https://github.com/spaghetti-source/algorithm/blob/4fdac8202e26def25c1baf9127aaaed6a2c9f7c7/data_structure/skew_heap.cc
+    - https://github.com/primenumber/ProconLib/blob/f222b2d5a172cf17766b5abcae1987250a552bb8/Structure/SkewHeap.cpp
     - http://kagamiz.hatenablog.com/entry/2013/06/26/210256
     - https://twitter.com/yamerarenaku/status/1085593085931732992
   - leftist heap
     - https://en.wikipedia.org/wiki/Leftist_tree
     - https://scrapbox.io/data-structures/Leftist_Heap
     - ~~https://lumakernel.github.io/ecasdqina/data-structure/Heap/LeftistHeap~~
-    - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/leftist_heap.cc
-    - https://mugen1337.github.io/procon/Heap/LeftistHeap.cpp
-    - https://mugen1337.github.io/procon/Heap/PersistentLeftistHeap.cpp
+    - https://github.com/spaghetti-source/algorithm/blob/4fdac8202e26def25c1baf9127aaaed6a2c9f7c7/data_structure/leftist_heap.cc
+    - https://mugen1337.github.io/procon/Heap/LeftistHeap.hpp
+    - https://mugen1337.github.io/procon/Heap/PersistentLeftistHeap.hpp
     - https://sotanishy.github.io/cp-library-cpp/data-structure/leftist_heap.cpp
   - pairing heap
     - https://en.wikipedia.org/wiki/Pairing_heap
