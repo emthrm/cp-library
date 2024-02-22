@@ -57,6 +57,10 @@ $n$ を法とする原始根を $g$ とすると、任意の $a \in \mathbb{Z}$ 
   - https://judge.yosupo.jp/problem/primitive_root
 - 位数
   - https://github.com/beet-aizu/library/blob/e480647072b3a5cb2016e9137c024ccc043a897f/mod/order.cpp
+  - 問題例 "[Discrete Logarithm Problems](https://atcoder.jp/contests/abc335/tasks/abc335_g)"
+    - https://twitter.com/laycrs/status/1743628521358926023
+    - https://twitter.com/SSRS_cp/status/1743628563146760264
+    - https://twitter.com/205_series/status/1743628597686882598
 
 
 ## Submissons

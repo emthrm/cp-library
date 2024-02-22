@@ -50,7 +50,8 @@ struct SqrtDecomposition;
   - https://www.slideshare.net/iwiwi/2-12188845/7
   - http://drken1215.hatenablog.com/entry/2018/08/14/193500
   - https://sotanishy.github.io/cp-library-cpp/tree/auxiliary_tree.cpp
-  - https://atcoder.jp/contests/typical90/tasks/typical90_ai
+  - 問題例 "[Preserve Connectivity](https://atcoder.jp/contests/typical90/tasks/typical90_ai)"
+  - 問題例 "[Leaf Color](https://atcoder.jp/contests/abc340/tasks/abc340_g)"
 - 木の平方分割
   - ~~http://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376~~
   - https://tubo28.me/compprog/algorithm/sqrt-decomp-tree/

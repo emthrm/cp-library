@@ -89,11 +89,8 @@ e.g. $(\text{精度}) = 15$ のとき $m \leq 2^{30} = 1073741824$
   - https://github.com/spaghetti-source/algorithm/blob/master/math/fast_modulo_transform.cc
   - https://satanic0258.github.io/snippets/math/NTT.html
   - https://judge.yosupo.jp/problem/convolution_mod_1000000007
-  - https://github.com/yosupo06/library-checker-problems/issues/664
   - https://judge.yosupo.jp/problem/convolution_mod_2_64
   - https://judge.yosupo.jp/problem/convolution_mod_large
-  - https://judge.yosupo.jp/problem/mul_mod2n_convolution
-  - https://github.com/yosupo06/library-checker-problems/issues/728
 
 
 ## Submissons

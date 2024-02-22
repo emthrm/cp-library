@@ -134,6 +134,8 @@ struct LazySegmentTree;
 
 - https://www.hamayanhamayan.com/entry/2017/07/08/173120
 - https://ei1333.hateblo.jp/entry/2017/12/14/000000
+- https://elliptic-shiho.github.io/segtree/segtree.pdf
+- https://elliptic-shiho.hatenablog.com/entry/2024/02/14/033532
 - 動的構築セグメント木
   - https://scrapbox.io/data-structures/Dynamic_Segment_Tree
   - http://kazuma8128.hatenablog.com/entry/2018/11/29/093827
@@ -155,11 +157,11 @@ struct LazySegmentTree;
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp
   - https://algoogle.hadrori.jp/algorithm/2d-segment-tree.html
   - https://judge.yosupo.jp/problem/point_add_rectangle_sum
-  - https://onlinejudge.u-aizu.ac.jp/beta/room.html#ACPC2021Day2/problems/H
-  - https://codeforces.com/contest/1575/problem/L
-  - https://twitter.com/PCTprobability/status/1444372565435170816
-  - https://onlinejudge.u-aizu.ac.jp/problems/1068
-  - https://atcoder.jp/contests/abc266/tasks/abc266_h
+  - 問題例 "[RangeMinimumQuery](https://onlinejudge.u-aizu.ac.jp/beta/room.html#ACPC2021Day2/problems/H)"
+  - 問題例 "[Longest Array Deconstruction](https://codeforces.com/contest/1575/problem/L)"
+    - https://twitter.com/PCTprobability/status/1444372565435170816
+  - 問題例 "[School of Killifish](https://onlinejudge.u-aizu.ac.jp/problems/1068)"
+  - 問題例 "[Snuke Panic (2D)](https://atcoder.jp/contests/abc266/tasks/abc266_h)"
   - フラクショナルカスケーディング (fractional cascading)
     - https://en.wikipedia.org/wiki/Fractional_cascading
     - http://sntea.hatenablog.com/entry/2017/09/28/003418
@@ -172,7 +174,7 @@ struct LazySegmentTree;
     - https://kopricky.github.io/code/SegmentTrees/rangetree_pointupdate.html
     - https://mugen1337.github.io/procon/DataStructure/RangeTree.cpp
     - https://sotanishy.github.io/cp-library-cpp/data-structure/range_tree.cpp
-    - https://yukicoder.me/problems/no/1625
+    - 問題例「[三角形の質問](https://yukicoder.me/problems/no/1625)」
   - 四分木 (quadtree)
     - https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%88%86%E6%9C%A8
     - https://sotanishy.github.io/cp-library-cpp/data-structure/quadtree.cpp
@@ -202,23 +204,30 @@ struct LazySegmentTree;
   - https://mugen1337.github.io/procon/SegmentTree/SegmentTreeBeats.cpp
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/segment_tree_beats.cpp
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
-  - https://onlinejudge.u-aizu.ac.jp/problems/0427
-  - https://atcoder.jp/contests/abc256/tasks/abc256_h
+  - 問題例「[惑星ヤナイヅの資源](https://onlinejudge.u-aizu.ac.jp/problems/0427)」
+  - 問題例 "[I like Query Problem](https://atcoder.jp/contests/abc256/tasks/abc256_h)"
 - 双対セグメント木
   - ~~https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/~~
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
   - https://judge.yosupo.jp/problem/range_affine_point_get
+  - https://judge.yosupo.jp/problem/rectangle_add_point_get
 - 区間等差数列加算クエリ / 区間等差数列更新クエリ
   - https://null-mn.hatenablog.com/entry/2021/08/22/064325
   - https://twitter.com/yosupot/status/1104175527923986432
   - https://twitter.com/kuma_program/status/1358762477589155840
+  - https://judge.yosupo.jp/problem/range_linear_add_range_min
 - $A_{l \oplus x} A_{(l + 1) \oplus x} \cdots A_{(r - 1) \oplus x}$
-  - https://codeforces.com/contest/1401/problem/F
-  - https://codeforces.com/contest/1654/problem/F
-  - https://twitter.com/SSRS_cp/status/1505543549601054720
-  - https://yukicoder.me/problems/no/1891
-  - https://yukicoder.me/problems/no/2265
+  - 問題例 "[Reverse and Swap](https://codeforces.com/contest/1401/problem/F)"
+  - 問題例 "[Minimal String Xoration](https://codeforces.com/contest/1654/problem/F)"
+    - https://twitter.com/SSRS_cp/status/1505543549601054720
+  - 問題例 "[Static Xor Range Composite Query](https://yukicoder.me/problems/no/1891)"
+  - 問題例 "[Xor Range Substring Sum Query](https://yukicoder.me/problems/no/2265)"
+  - 問題例 "[Swap and Maximum Block](https://codeforces.com/contest/1716/problem/E)"
+    - https://twitter.com/SSRS_cp/status/1555231633741332480
+    - https://twitter.com/kude_coder/status/1555244124282159104
+    - https://hotman78.hatenablog.com/entry/2020/06/17/102519
+    - https://kmjp.hatenablog.jp/entry/2023/08/29/0900
 - 定数時間アルゴリズム
   - https://docs.google.com/presentation/d/1AvECxRv7hLbCNdXjERzhuJuYcV5fYFPpLA_S4QppbRI
 - 円環版 `get`
