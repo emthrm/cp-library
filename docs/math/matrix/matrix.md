@@ -67,5 +67,5 @@ struct Matrix;
 
 ## Submissons
 
-- [積](https://judge.yosupo.jp/submission/45071)
+- [乗算](https://judge.yosupo.jp/submission/45071)
 - [累乗](https://judge.yosupo.jp/submission/172720)

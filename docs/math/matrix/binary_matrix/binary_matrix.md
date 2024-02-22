@@ -70,6 +70,7 @@ struct BinaryMatrix;
 
 ## Submissons
 
+- [乗算](https://judge.yosupo.jp/submission/192685)
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
 - [連立一次方程式](https://yukicoder.me/submissions/626481)
