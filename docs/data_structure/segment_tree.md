@@ -152,6 +152,7 @@ struct LazySegmentTree;
   - https://ei1333.github.io/algorithm/segment-tree.html
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://codeforces.com/blog/entry/74181?#comment-583268
+  - https://drive.google.com/file/d/1bSjYiA-nSsHzBbCnLq1GeTpRzs2Ucm0q
   - https://github.com/ei1333/library/blob/master/structure/segment-tree-2d-2.cpp
   - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp

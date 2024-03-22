@@ -310,6 +310,7 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 - https://ferin-tech.hatenablog.com/entry/2019/11/09/yukicoder_No.924_%E7%B4%B2%E6%98%9F
 - ~~https://wiki.kimiyuki.net/wavelet%20matrix~~
 - https://noshi91.hatenablog.com/entry/2021/06/02/165408
+- https://twitter.com/noshi91/status/1767146226783584611
 - https://judge.yosupo.jp/problem/rectangle_sum
 
 

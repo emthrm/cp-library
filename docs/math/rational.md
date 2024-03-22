@@ -22,9 +22,10 @@ documentation_of: //include/emthrm/math/rational.hpp
   - https://tjkendev.github.io/procon-library/python/math/stern-brocot-tree.html
   - https://sotanishy.github.io/cp-library-cpp/math/stern_brocot_tree.hpp
   - https://judge.yosupo.jp/problem/stern_brocot_tree
-  - https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184
-  - https://atcoder.jp/contests/abc273/tasks/abc273_h
-  - https://yukicoder.me/problems/no/2266
+  - https://judge.yosupo.jp/problem/rational_approximation
+  - ~~問題例 "[New Elements: Part 2](https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184)"~~
+  - 問題例 "[Inv(0,1)ving Insert(1,0)n](https://atcoder.jp/contests/abc273/tasks/abc273_h)"
+  - 問題例 "[Fractions (hard)](https://yukicoder.me/problems/no/2266)"
 - ファレイ数列 (Farey sequence)
   - https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%AC%E3%82%A4%E6%95%B0%E5%88%97
   - https://mathtrain.jp/farey

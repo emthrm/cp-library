@@ -98,11 +98,11 @@ Monge property
 - Monge property の確認
   - https://twitter.com/catupper/status/1379083352725024769
   - https://twitter.com/kobae964/status/1400788795268603905
-  - https://atcoder.jp/contests/abc218/tasks/abc218_h
-  - https://atcoder.jp/contests/abc218/editorial/2638
-  - https://twitter.com/noshi91/status/1436688971778519046
-  - https://atcoder.jp/contests/arc129/tasks/arc129_e
-  - https://twitter.com/noshi91/status/1462421876802977792
+  - 問題例 "[Red and Blue Lamps](https://atcoder.jp/contests/abc218/tasks/abc218_h)"
+    - https://atcoder.jp/contests/abc218/editorial/2638
+    - https://twitter.com/noshi91/status/1436688971778519046
+  - 問題例 "[Yet Another Minimization](https://atcoder.jp/contests/arc129/tasks/arc129_e)"
+    - https://twitter.com/noshi91/status/1462421876802977792
 - anti-Monge matrix
   - https://twitter.com/noshi91/status/1499821624266493952
 - monotone minima: monotone な $m \times n$ 型行列 $A$ に対して $j^\prime \in \mathrm{argmin}{\lbrace A{\lbrack i, j \rbrack} \mid j \in \lbrace 1, 2, \ldots, n \rbrace \rbrace}$ ($i = 1, 2, \ldots, m$) を $O(m + n \log{m})$ 時間で求めるアルゴリズム
@@ -126,18 +126,18 @@ Monge property
   - https://noshi91.github.io/Library/algorithm/smawk.cpp
   - https://sotanishy.github.io/cp-library-cpp/dp/smawk.cpp
   - https://twitter.com/noshi91/status/1640731216243740673
-  - https://yukicoder.me/problems/no/912
-  - https://twitter.com/noshi91/status/1185199846061305861
+  - 問題例「[赤黒木](https://yukicoder.me/problems/no/912)」
+    - https://twitter.com/noshi91/status/1185199846061305861
   - 凸性のある $(\max, +)$-convolution
     - https://noshi91.github.io/Library/algorithm/concave_max_plus_convolution.cpp
     - https://twitter.com/noshi91/status/1425502725026942983
-    - https://atcoder.jp/contests/joisc2018/tasks/joisc2018_j
-    - https://maspypy.com/%E9%A3%B4-%EF%BC%88joi%E6%98%A5%E5%90%88%E5%AE%BF-2018-j%EF%BC%89
-    - https://atcoder.jp/contests/abc218/tasks/abc218_h
+    - 問題例「[飴 (Candies)](https://atcoder.jp/contests/joisc2018/tasks/joisc2018_j)」
+      - https://maspypy.com/%E9%A3%B4-%EF%BC%88joi%E6%98%A5%E5%90%88%E5%AE%BF-2018-j%EF%BC%89
+    - 問題例 "[Red and Blue Lamps](https://atcoder.jp/contests/abc218/tasks/abc218_h)"
     - ナップサック問題
       - https://noshi91.github.io/Library/algorithm/axiotis_tzamos_knapsack.cpp.html
-      - https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f
-      - https://atcoder.jp/contests/kupc2021/submissions/26987105
+      - 問題例 "[One Yen Coin](https://atcoder.jp/contests/kupc2021/tasks/kupc2021_f)"
+        - https://atcoder.jp/contests/kupc2021/submissions/26987105
   - トロピカル半環上の Monge matrix multiplication
     - https://twitter.com/noshi91/status/1379752954060677123
     - https://twitter.com/hotmanww/status/1379755525655515140
@@ -146,11 +146,12 @@ Monge property
   - https://noshi91.github.io/algorithm-encyclopedia/larsch-algorithm
   - https://noshi91.github.io/Library/algorithm/larsch.cpp.html
   - https://noshi91.hatenablog.com/entry/2023/02/18/005856
-  - https://atcoder.jp/contests/dp/tasks/dp_z
-  - https://twitter.com/lorent_kyopro/status/1379104326958772226
-  - https://atcoder.jp/contests/abc228/tasks/abc228_h
-  - https://twitter.com/noshi91/status/1462064752759230471
-  - https://twitter.com/hotmanww/status/1462077828422246406
+  - https://twitter.com/noshi91/status/1767589976865407465
+  - 問題例 "[Frog 3](https://atcoder.jp/contests/dp/tasks/dp_z)"
+    - https://twitter.com/lorent_kyopro/status/1379104326958772226
+  - 問題例 "[Histogram](https://atcoder.jp/contests/abc228/tasks/abc228_h)"
+    - https://twitter.com/noshi91/status/1462064752759230471
+    - https://twitter.com/hotmanww/status/1462077828422246406
 - divide and conquer optimization: $\mathrm{dp}(i, j) \mathrel{:=} \min_{k \in \lbrace 1, 2, \ldots, j - 1 \rbrace} \lbrace \mathrm{dp}(i - 1, k) + w(k, j) \rbrace$ ($i = 2, 3, \ldots, m,\ j = 2, 3, \ldots, n$) を考える。任意の $i \in \lbrace 2, 3, \ldots, m \rbrace,\ j \in \lbrace 2, 3, \ldots, n - 1 \rbrace$ に対して $\mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j) \mid k \in \lbrace 1, 2, \ldots, j - 1 \rbrace \rbrace} \leq \mathrm{argmin}{\lbrace \mathrm{dp}(i - 1, k) + w(k, j + 1) \rbrace \mid k \in \lbrace 1, 2, \ldots, j \rbrace}$ が成り立つならば $\mathrm{dp}(i, j)$ ($i = 1, 2, \ldots, m,\ j = 1, 2, \ldots, n$) を $O(nm \log{m})$ 時間で求められる。
   - https://ferin-tech.hatenablog.com/entry/2018/02/23/071343
   - https://www.hamayanhamayan.com/entry/2017/03/20/234711
