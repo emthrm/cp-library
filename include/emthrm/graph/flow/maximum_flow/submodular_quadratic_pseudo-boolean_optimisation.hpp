@@ -1,5 +1,5 @@
-#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_
-#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_
+#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_SUBMODULAR_QUADRATIC_PSEUDO_BOOLEAN_OPTIMISATION_HPP_
+#define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_SUBMODULAR_QUADRATIC_PSEUDO_BOOLEAN_OPTIMISATION_HPP_
 
 #include <cassert>
 #include <limits>
@@ -11,8 +11,8 @@ namespace emthrm {
 
 template <template <typename> class C, typename T>
 requires MaximumFlow<C, T>
-struct ProjectSelectionProblem {
-  explicit ProjectSelectionProblem(const int n)
+struct SubmodularQPBO {
+  explicit SubmodularQPBO(const int n)
       : inf(std::numeric_limits<T>::max()), n(n), res(0) {}
 
   void add_neq(const int u, const int v, const T cost) {
@@ -81,4 +81,4 @@ struct ProjectSelectionProblem {
 
 }  // namespace emthrm
 
-#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_
+#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_SUBMODULAR_QUADRATIC_PSEUDO_BOOLEAN_OPTIMISATION_HPP_
