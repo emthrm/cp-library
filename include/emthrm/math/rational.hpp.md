@@ -119,13 +119,15 @@ title: "\u6709\u7406\u6570 (rational number)"
   - http://satashun.hatenablog.com/entry/2018/12/13/163524
   - http://blue-jam.hatenablog.com/entry/20110306/1299415086
   - https://rsk0315.hatenablog.com/entry/2023/04/17/022705
+  - https://miscalc.hatenablog.com/entry/2023/12/22/213007
   - ~~http://www.prefield.com/algorithm/math/stern_brocot_tree.html~~
   - https://tjkendev.github.io/procon-library/python/math/stern-brocot-tree.html
   - https://sotanishy.github.io/cp-library-cpp/math/stern_brocot_tree.hpp
   - https://judge.yosupo.jp/problem/stern_brocot_tree
-  - https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184
-  - https://atcoder.jp/contests/abc273/tasks/abc273_h
-  - https://yukicoder.me/problems/no/2266
+  - https://judge.yosupo.jp/problem/rational_approximation
+  - ~~問題例 "[New Elements: Part 2](https://codingcompetitions.withgoogle.com/codejam/round/0000000000051679/0000000000146184)"~~
+  - 問題例 "[Inv(0,1)ving Insert(1,0)n](https://atcoder.jp/contests/abc273/tasks/abc273_h)"
+  - 問題例 "[Fractions (hard)](https://yukicoder.me/problems/no/2266)"
 - ファレイ数列 (Farey sequence)
   - https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%83%AC%E3%82%A4%E6%95%B0%E5%88%97
   - https://mathtrain.jp/farey

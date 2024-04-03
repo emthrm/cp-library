@@ -451,8 +451,8 @@ data:
     path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
     title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
-    title: project selection problem
+    path: include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
+    title: submodular quadratic pseudo-Boolean optimisation
   minimumCostFlow:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/flow/minimum_cost_flow/minimum_cost_b-flow.hpp
@@ -911,9 +911,9 @@ data:
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/\u6700\u5C0F\u6D41\
       \u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
-      \ problem"
+    path: test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular quadratic\
+      \ pseudo-Boolean optimisation"
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5C0F\u8CBB\u7528\u6D41/\u6700\
@@ -1204,6 +1204,10 @@ data:
     title: "\u6570\u5B66/\u30E9\u30B0\u30E9\u30F3\u30B8\u30E5\u88DC\u9593 \u8A55\u4FA1\
       \u72482"
   - icon: ':heavy_check_mark:'
+    path: test/math/matrix/binary_matrix/binary_matrix.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30D0\u30A4\
+      \u30CA\u30EA\u884C\u5217"
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30AC\u30A6\
       \u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5 \u30D0\u30A4\
@@ -1219,6 +1223,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
+  - icon: ':heavy_check_mark:'
+    path: test/math/matrix/gauss_jordan.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\
+      \u30F3\u306E\u6D88\u53BB\u6CD5"
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"

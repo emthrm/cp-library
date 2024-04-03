@@ -21,14 +21,14 @@ data:
     \n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Matrix {\n  explicit Matrix(const\
     \ int m, const int n, const T def = 0)\n      : data(m, std::vector<T>(n, def))\
     \ {}\n\n  int nrow() const { return data.size(); }\n  int ncol() const { return\
-    \ data.front().size(); }\n\n  Matrix pow(long long exponent) const {\n    const\
-    \ int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n    for (int i =\
-    \ 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent > 0; exponent\
-    \ >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n    }\n  \
-    \  return res;\n  }\n\n  inline const std::vector<T>& operator[](const int i)\
-    \ const { return data[i]; }\n  inline std::vector<T>& operator[](const int i)\
-    \ { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\n \
-    \ Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
+    \ data.empty() ? 0 : data.front().size(); }\n\n  Matrix pow(long long exponent)\
+    \ const {\n    const int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n\
+    \    for (int i = 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent\
+    \ > 0; exponent >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n\
+    \    }\n    return res;\n  }\n\n  inline const std::vector<T>& operator[](const\
+    \ int i) const { return data[i]; }\n  inline std::vector<T>& operator[](const\
+    \ int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\
+    \n  Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
     \    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
     \    data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix&\
     \ operator-=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for\
@@ -71,7 +71,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
   requiredBy: []
-  timestamp: '2023-02-23 00:46:56+09:00'
+  timestamp: '2023-12-25 04:31:42+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/convolution/kronecker_power-vector_multiplication.test.cpp

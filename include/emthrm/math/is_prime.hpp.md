@@ -65,12 +65,6 @@ $O(\sqrt{N})$
   - https://sotanishy.github.io/cp-library-cpp/math/fast_prime.cpp
   - https://yukicoder.me/problems/1967
   - https://judge.yosupo.jp/problem/primarity_test
-- ガウス素数
-  - https://ja.wikipedia.org/wiki/%E3%82%AC%E3%82%A6%E3%82%B9%E6%95%B4%E6%95%B0
-  - https://mathtrain.jp/gaussianint
-  - http://aozoragakuen.sakura.ne.jp/suuron/node56.html
-  - http://arimoto.lolipop.jp/%E3%82%AC%E3%82%A6%E3%82%B9%E3%81%AE%E7%B4%A0%E6%95%B0.pdf
-  - ~~http://www.prefield.com/algorithm/math/isgprime.html~~
 
 
 ## Submissons

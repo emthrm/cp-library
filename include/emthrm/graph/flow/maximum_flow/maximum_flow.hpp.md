@@ -6,17 +6,17 @@ data:
     path: include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
     title: "\u6700\u5C0F\u6D41\u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
-    title: project selection problem
+    path: include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
+    title: submodular quadratic pseudo-Boolean optimisation
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/\u6700\u5C0F\u6D41\
       \u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
-      \ problem"
+    path: test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular quadratic\
+      \ pseudo-Boolean optimisation"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -42,13 +42,13 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   requiredBy:
-  - include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
   - include/emthrm/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.hpp
+  - include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
   timestamp: '2023-02-24 21:17:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
-  - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  - test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
 documentation_of: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
 layout: document
 redirect_from:

@@ -47,8 +47,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/math/is_primitive_root.test.cpp
-  - test/math/euler_phi.test.cpp
   - test/math/euler_phi_init2.test.cpp
+  - test/math/euler_phi.test.cpp
   - test/math/euler_phi_init.test.cpp
 documentation_of: include/emthrm/math/euler_phi.hpp
 layout: document

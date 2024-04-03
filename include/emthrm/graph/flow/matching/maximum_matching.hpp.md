@@ -28,21 +28,21 @@ data:
     \n\n\n\n#line 5 \"include/emthrm/math/matrix/matrix.hpp\"\n\nnamespace emthrm\
     \ {\n\ntemplate <typename T>\nstruct Matrix {\n  explicit Matrix(const int m,\
     \ const int n, const T def = 0)\n      : data(m, std::vector<T>(n, def)) {}\n\n\
-    \  int nrow() const { return data.size(); }\n  int ncol() const { return data.front().size();\
-    \ }\n\n  Matrix pow(long long exponent) const {\n    const int n = nrow();\n \
-    \   Matrix<T> res(n, n, 0), tmp = *this;\n    for (int i = 0; i < n; ++i) {\n\
-    \      res[i][i] = 1;\n    }\n    for (; exponent > 0; exponent >>= 1) {\n   \
-    \   if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n    }\n    return res;\n\
-    \  }\n\n  inline const std::vector<T>& operator[](const int i) const { return\
-    \ data[i]; }\n  inline std::vector<T>& operator[](const int i) { return data[i];\
-    \ }\n\n  Matrix& operator=(const Matrix& x) = default;\n\n  Matrix& operator+=(const\
-    \ Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for (int i = 0; i <\
-    \ m; ++i) {\n      for (int j = 0; j < n; ++j) {\n        data[i][j] += x[i][j];\n\
-    \      }\n    }\n    return *this;\n  }\n\n  Matrix& operator-=(const Matrix&\
-    \ x) {\n    const int m = nrow(), n = ncol();\n    for (int i = 0; i < m; ++i)\
-    \ {\n      for (int j = 0; j < n; ++j) {\n        data[i][j] -= x[i][j];\n   \
-    \   }\n    }\n    return *this;\n  }\n\n  Matrix& operator*=(const Matrix& x)\
-    \ {\n    const int m = nrow(), l = ncol(), n = x.ncol();\n    std::vector<std::vector<T>>\
+    \  int nrow() const { return data.size(); }\n  int ncol() const { return data.empty()\
+    \ ? 0 : data.front().size(); }\n\n  Matrix pow(long long exponent) const {\n \
+    \   const int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n    for (int\
+    \ i = 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent > 0;\
+    \ exponent >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n\
+    \    }\n    return res;\n  }\n\n  inline const std::vector<T>& operator[](const\
+    \ int i) const { return data[i]; }\n  inline std::vector<T>& operator[](const\
+    \ int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\
+    \n  Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
+    \    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
+    \    data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix&\
+    \ operator-=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for\
+    \ (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n        data[i][j]\
+    \ -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix& operator*=(const\
+    \ Matrix& x) {\n    const int m = nrow(), l = ncol(), n = x.ncol();\n    std::vector<std::vector<T>>\
     \ res(m, std::vector<T>(n, 0));\n    for (int i = 0; i < m; ++i) {\n      for\
     \ (int k = 0; k < l; ++k) {\n        for (int j = 0; j < n; ++j) {\n         \
     \ res[i][j] += data[i][k] * x[k][j];\n        }\n      }\n    }\n    data.swap(res);\n\
@@ -205,7 +205,7 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/flow/matching/maximum_matching.hpp
   requiredBy: []
-  timestamp: '2023-05-13 18:14:57+09:00'
+  timestamp: '2023-12-25 04:31:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/matching/maximum_matching.test.cpp

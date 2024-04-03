@@ -129,8 +129,8 @@ data:
   timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/graph/tree/heavy-light_decomposition.2.test.cpp
+  - test/graph/tree/heavy-light_decomposition.1.test.cpp
 documentation_of: include/emthrm/graph/tree/heavy-light_decomposition.hpp
 layout: document
 title: heavy-light decomposition

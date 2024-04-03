@@ -98,6 +98,11 @@ struct Basis;
 - https://atcoder.jp/contests/kupc2012/submissions/7660727
 
 
+## TODO
+
+- https://noshi91.hatenablog.com/entry/2023/12/06/002723
+
+
 ## Submissons
 
 https://onlinejudge.u-aizu.ac.jp/solutions/problem/2416/review/5214392/emthrm/C++17

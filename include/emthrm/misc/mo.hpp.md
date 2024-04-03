@@ -95,17 +95,18 @@ struct Mo;
 - Rollback 平方分割
   - https://snuke.hatenablog.com/entry/2016/07/01/000000
   - ~~https://lumakernel.github.io/ecasdqina/algorithm/MoEx~~
-  - https://github.com/ei1333/library/blob/master/other/mo-rollback.cpp
+  - https://github.com/ei1333/library/blob/master/other/mo-rollback.hpp
 - 木上の Mo's algorithm、時空間 Mo's algorithm
   - https://ei1333.hateblo.jp/entry/2017/09/11/211011
   - https://ei1333.github.io/algorithm/mo.html
   - ~~https://lumakernel.github.io/ecasdqina/algorithm/Mo~~
   - ~~https://lumakernel.github.io/ecasdqina/algorithm/Mo3D~~
   - https://twitter.com/heno_code/status/1518799816876118016
+  - https://twitter.com/noya2ruler/status/1733116450586648702
   - https://codeforces.com/blog/entry/43230
   - https://codeforces.com/blog/entry/55574
-  - https://codeforces.com/contest/1476/problem/G
-  - https://twitter.com/SSRS_cp/status/1355193120204312576
+  - 問題例 "[Minimum Difference](https://codeforces.com/contest/1476/problem/G)"
+    - https://twitter.com/SSRS_cp/status/1355193120204312576
 
 
 ## Submissons

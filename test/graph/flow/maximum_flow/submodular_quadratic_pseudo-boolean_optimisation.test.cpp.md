@@ -8,8 +8,8 @@ data:
     path: include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
     title: "\u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8"
   - icon: ':heavy_check_mark:'
-    path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
-    title: project selection problem
+    path: include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
+    title: submodular quadratic pseudo-Boolean optimisation
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -17,13 +17,13 @@ data:
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903
-    document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project\
-      \ selection problem"
+    document_title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular\
+      \ quadratic pseudo-Boolean optimisation"
     links:
     - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903
-  bundledCode: "#line 1 \"test/graph/flow/maximum_flow/project_selection_problem.test.cpp\"\
-    \n/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project\
-    \ selection problem\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903\n\
+  bundledCode: "#line 1 \"test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp\"\
+    \n/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular\
+    \ quadratic pseudo-Boolean optimisation\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903\n\
     \ */\n\n#include <iostream>\n#include <string>\n#include <vector>\n\n#line 1 \"\
     include/emthrm/graph/flow/maximum_flow/dinic.hpp\"\n\n\n\n#include <algorithm>\n\
     #include <limits>\n#include <queue>\n#include <utility>\n#line 9 \"include/emthrm/graph/flow/maximum_flow/dinic.hpp\"\
@@ -50,8 +50,8 @@ data:
     \ e.cap > 0) {\n        const T tmp = dfs(e.dst, t, std::min(flow, e.cap));\n\
     \        if (tmp > 0) {\n          e.cap -= tmp;\n          graph[e.dst][e.rev].cap\
     \ += tmp;\n          return tmp;\n        }\n      }\n    }\n    return 0;\n \
-    \ }\n};\n\n}  // namespace emthrm\n\n\n#line 1 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
-    \n\n\n\n#include <cassert>\n#line 7 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    \ }\n};\n\n}  // namespace emthrm\n\n\n#line 1 \"include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp\"\
+    \n\n\n\n#include <cassert>\n#line 7 \"include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp\"\
     \n\n#line 1 \"include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\n/**\n\
     \ * @title \u6700\u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8\n */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
     #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\n#include <concepts>\n\
@@ -60,9 +60,9 @@ data:
     \ = requires (C<T> mf) {\n  {mf.add_edge(std::declval<int>(), std::declval<int>(),\
     \ std::declval<T>())}\n      -> std::same_as<void>;\n  {mf.maximum_flow(std::declval<int>(),\
     \ std::declval<int>())}\n      -> std::same_as<T>;\n};\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#line 9 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    \n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#line 9 \"include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
-    requires MaximumFlow<C, T>\nstruct ProjectSelectionProblem {\n  explicit ProjectSelectionProblem(const\
+    requires MaximumFlow<C, T>\nstruct SubmodularQPBO {\n  explicit SubmodularQPBO(const\
     \ int n)\n      : inf(std::numeric_limits<T>::max()), n(n), res(0) {}\n\n  void\
     \ add_neq(const int u, const int v, const T cost) {\n    assert(cost >= 0);\n\
     \    us.emplace_back(u);\n    vs.emplace_back(v);\n    costs.emplace_back(cost);\n\
@@ -84,48 +84,48 @@ data:
     \ vs[i], costs[i]);\n    }\n    return mf.maximum_flow(n, n + 1, inf) - res;\n\
     \  }\n\n private:\n  const T inf;\n  int n;\n  T res;\n  std::vector<int> us,\
     \ vs;\n  std::vector<T> costs;\n};\n\n}  // namespace emthrm\n\n\n#line 13 \"\
-    test/graph/flow/maximum_flow/project_selection_problem.test.cpp\"\n\nint main()\
-    \ {\n  int r, c;\n  std::cin >> r >> c;\n  std::vector<std::string> s(r);\n  for\
-    \ (int i = 0; i < r; ++i) {\n    std::cin >> s[i];\n  }\n  std::vector<std::vector<int>>\
-    \ id(r, std::vector<int>(c, -1));\n  int n = 0;\n  for (int i = 0; i < r; ++i)\
-    \ {\n    for (int j = 0; j < c; ++j) {\n      if (s[i][j] == '#') id[i][j] = n++;\n\
-    \    }\n  }\n  emthrm::ProjectSelectionProblem<emthrm::Dinic, int>\n      project_selection_problem(n);\n\
-    \  for (int i = 0; i < r; ++i) {\n    for (int j = 0; j < c; ++j) {\n      if\
-    \ (id[i][j] == -1) continue;\n      if (i + 1 < r && id[i + 1][j] != -1) {\n \
-    \       project_selection_problem.add_eq(id[i][j], id[i + 1][j], 0, -1);\n   \
-    \   }\n      if (j + 1 < c && id[i][j + 1] != -1) {\n        project_selection_problem.add_eq(id[i][j],\
-    \ id[i][j + 1], 1, -1);\n      }\n    }\n  }\n  std::cout << n + project_selection_problem.solve()\
-    \ << '\\n';\n  return 0;\n}\n"
-  code: "/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project\
-    \ selection problem\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903\n\
-    \ */\n\n#include <iostream>\n#include <string>\n#include <vector>\n\n#include\
-    \ \"emthrm/graph/flow/maximum_flow/dinic.hpp\"\n#include \"emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp\"\
     \n\nint main() {\n  int r, c;\n  std::cin >> r >> c;\n  std::vector<std::string>\
     \ s(r);\n  for (int i = 0; i < r; ++i) {\n    std::cin >> s[i];\n  }\n  std::vector<std::vector<int>>\
     \ id(r, std::vector<int>(c, -1));\n  int n = 0;\n  for (int i = 0; i < r; ++i)\
     \ {\n    for (int j = 0; j < c; ++j) {\n      if (s[i][j] == '#') id[i][j] = n++;\n\
-    \    }\n  }\n  emthrm::ProjectSelectionProblem<emthrm::Dinic, int>\n      project_selection_problem(n);\n\
+    \    }\n  }\n  emthrm::SubmodularQPBO<emthrm::Dinic, int> submodular_qpbo(n);\n\
     \  for (int i = 0; i < r; ++i) {\n    for (int j = 0; j < c; ++j) {\n      if\
     \ (id[i][j] == -1) continue;\n      if (i + 1 < r && id[i + 1][j] != -1) {\n \
-    \       project_selection_problem.add_eq(id[i][j], id[i + 1][j], 0, -1);\n   \
-    \   }\n      if (j + 1 < c && id[i][j + 1] != -1) {\n        project_selection_problem.add_eq(id[i][j],\
-    \ id[i][j + 1], 1, -1);\n      }\n    }\n  }\n  std::cout << n + project_selection_problem.solve()\
+    \       submodular_qpbo.add_eq(id[i][j], id[i + 1][j], 0, -1);\n      }\n    \
+    \  if (j + 1 < c && id[i][j + 1] != -1) {\n        submodular_qpbo.add_eq(id[i][j],\
+    \ id[i][j + 1], 1, -1);\n      }\n    }\n  }\n  std::cout << n + submodular_qpbo.solve()\
+    \ << '\\n';\n  return 0;\n}\n"
+  code: "/*\n * @title \u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular\
+    \ quadratic pseudo-Boolean optimisation\n *\n * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2903\n\
+    \ */\n\n#include <iostream>\n#include <string>\n#include <vector>\n\n#include\
+    \ \"emthrm/graph/flow/maximum_flow/dinic.hpp\"\n#include \"emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp\"\
+    \n\nint main() {\n  int r, c;\n  std::cin >> r >> c;\n  std::vector<std::string>\
+    \ s(r);\n  for (int i = 0; i < r; ++i) {\n    std::cin >> s[i];\n  }\n  std::vector<std::vector<int>>\
+    \ id(r, std::vector<int>(c, -1));\n  int n = 0;\n  for (int i = 0; i < r; ++i)\
+    \ {\n    for (int j = 0; j < c; ++j) {\n      if (s[i][j] == '#') id[i][j] = n++;\n\
+    \    }\n  }\n  emthrm::SubmodularQPBO<emthrm::Dinic, int> submodular_qpbo(n);\n\
+    \  for (int i = 0; i < r; ++i) {\n    for (int j = 0; j < c; ++j) {\n      if\
+    \ (id[i][j] == -1) continue;\n      if (i + 1 < r && id[i + 1][j] != -1) {\n \
+    \       submodular_qpbo.add_eq(id[i][j], id[i + 1][j], 0, -1);\n      }\n    \
+    \  if (j + 1 < c && id[i][j + 1] != -1) {\n        submodular_qpbo.add_eq(id[i][j],\
+    \ id[i][j + 1], 1, -1);\n      }\n    }\n  }\n  std::cout << n + submodular_qpbo.solve()\
     \ << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/graph/flow/maximum_flow/dinic.hpp
-  - include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
+  - include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
   - include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   isVerificationFile: true
-  path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  path: test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 16:35:06+09:00'
+  timestamp: '2024-04-03 22:42:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+documentation_of: test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
 layout: document
 redirect_from:
-- /verify/test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-- /verify/test/graph/flow/maximum_flow/project_selection_problem.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
-  \ problem"
+- /verify/test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
+- /verify/test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp.html
+title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular quadratic\
+  \ pseudo-Boolean optimisation"
 ---

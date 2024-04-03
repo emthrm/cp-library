@@ -65,8 +65,8 @@ data:
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
   - test/data_structure/fenwick_tree/fenwick_tree.1.test.cpp
+  - test/data_structure/fenwick_tree/fenwick_tree.2.test.cpp
   - test/misc/mo.test.cpp
   - test/misc/inversion_number.test.cpp
 documentation_of: include/emthrm/data_structure/fenwick_tree/fenwick_tree.hpp

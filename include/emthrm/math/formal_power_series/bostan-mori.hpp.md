@@ -235,6 +235,7 @@ $d$ 次多項式同士の乗算の算術計算量を $\mathsf{M}(d)$ とおく�
   - https://qiita.com/ryuhe1/items/c18ddbb834eed724a42b
 - 高速化
   - https://twitter.com/noya2ruler/status/1654157396627927042
+  - https://twitter.com/_su1sen/status/1732977044391407832
 
 
 ## Submissons

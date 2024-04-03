@@ -123,6 +123,19 @@ struct CentroidDecomposition;
 ## TODO
 
 - ~~https://twitter.com/beet_aizu/status/1142651943971540992~~
+- $1/3$ 重心分解
+  - https://maspypy.com/%e9%87%8d%e5%bf%83%e5%88%86%e8%a7%a3%e3%83%bb1-3%e9%87%8d%e5%bf%83%e5%88%86%e8%a7%a3%e3%81%ae%e3%81%8a%e7%b5%b5%e6%8f%8f%e3%81%8d
+  - https://twitter.com/noshi91/status/1549081194859761664
+  - https://twitter.com/NachiaVivias/status/1549184577511788544
+  - https://twitter.com/SSRS_cp/status/1640566437734653953
+  - https://twitter.com/noshi91/status/1640569780100034560
+  - https://twitter.com/noshi91/status/1673744350998851584
+  - https://twitter.com/noshi91/status/1683485568737345543
+  - https://twitter.com/noshi91/status/1720487757238432233
+  - https://twitter.com/noshi91/status/1758542680517476658
+  - 問題例 "[Paken Land](https://atcoder.jp/contests/pakencamp-2022-day1/tasks/pakencamp_2022_day1_o)"
+    - https://atcoder.jp/contests/pakencamp-2022-day1/submissions/40109596
+  - 問題例 "[Tree Distance 3](https://yukicoder.me/problems/no/2634)"
 
 
 ## Submissons

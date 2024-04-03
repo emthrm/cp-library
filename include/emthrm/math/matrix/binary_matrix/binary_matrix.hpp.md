@@ -16,6 +16,10 @@ data:
       \u30CA\u30EA\u884C\u5217\u7248"
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/math/matrix/binary_matrix/binary_matrix.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30D0\u30A4\
+      \u30CA\u30EA\u884C\u5217"
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/binary_matrix/gauss_jordan.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u30D0\u30A4\u30CA\u30EA\u884C\u5217/\u30AC\u30A6\
       \u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\u30F3\u306E\u6D88\u53BB\u6CD5 \u30D0\u30A4\
@@ -83,15 +87,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
   requiredBy:
-  - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
-  - include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
   - include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
+  - include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
+  - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
-  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
+  - test/math/matrix/binary_matrix/binary_matrix.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
 layout: document
 title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
@@ -154,6 +159,7 @@ struct BinaryMatrix;
 
 ## Submissons
 
+- [乗算](https://judge.yosupo.jp/submission/192685)
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
 - [連立一次方程式](https://yukicoder.me/submissions/626481)

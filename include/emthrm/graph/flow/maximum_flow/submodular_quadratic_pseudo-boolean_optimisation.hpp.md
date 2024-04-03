@@ -7,15 +7,15 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
-      \ problem"
+    path: test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular quadratic\
+      \ pseudo-Boolean optimisation"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+  bundledCode: "#line 1 \"include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp\"\
     \n\n\n\n#include <cassert>\n#include <limits>\n#include <vector>\n\n#line 1 \"\
     include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\n/**\n * @title \u6700\
     \u5927\u6D41\u30B3\u30F3\u30BB\u30D7\u30C8\n */\n\n#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n\
@@ -24,9 +24,9 @@ data:
     \ C, typename T>\nconcept MaximumFlow = requires (C<T> mf) {\n  {mf.add_edge(std::declval<int>(),\
     \ std::declval<int>(), std::declval<T>())}\n      -> std::same_as<void>;\n  {mf.maximum_flow(std::declval<int>(),\
     \ std::declval<int>())}\n      -> std::same_as<T>;\n};\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#line 9 \"include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp\"\
+    \n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_MAXIMUM_FLOW_HPP_\n#line 9 \"include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
-    requires MaximumFlow<C, T>\nstruct ProjectSelectionProblem {\n  explicit ProjectSelectionProblem(const\
+    requires MaximumFlow<C, T>\nstruct SubmodularQPBO {\n  explicit SubmodularQPBO(const\
     \ int n)\n      : inf(std::numeric_limits<T>::max()), n(n), res(0) {}\n\n  void\
     \ add_neq(const int u, const int v, const T cost) {\n    assert(cost >= 0);\n\
     \    us.emplace_back(u);\n    vs.emplace_back(v);\n    costs.emplace_back(cost);\n\
@@ -48,11 +48,11 @@ data:
     \ vs[i], costs[i]);\n    }\n    return mf.maximum_flow(n, n + 1, inf) - res;\n\
     \  }\n\n private:\n  const T inf;\n  int n;\n  T res;\n  std::vector<int> us,\
     \ vs;\n  std::vector<T> costs;\n};\n\n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_\n#define\
-    \ EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_\n\n#include <cassert>\n\
-    #include <limits>\n#include <vector>\n\n#include \"emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\
+  code: "#ifndef EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_SUBMODULAR_QUADRATIC_PSEUDO_BOOLEAN_OPTIMISATION_HPP_\n\
+    #define EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_SUBMODULAR_QUADRATIC_PSEUDO_BOOLEAN_OPTIMISATION_HPP_\n\
+    \n#include <cassert>\n#include <limits>\n#include <vector>\n\n#include \"emthrm/graph/flow/maximum_flow/maximum_flow.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <template <typename> class C, typename T>\n\
-    requires MaximumFlow<C, T>\nstruct ProjectSelectionProblem {\n  explicit ProjectSelectionProblem(const\
+    requires MaximumFlow<C, T>\nstruct SubmodularQPBO {\n  explicit SubmodularQPBO(const\
     \ int n)\n      : inf(std::numeric_limits<T>::max()), n(n), res(0) {}\n\n  void\
     \ add_neq(const int u, const int v, const T cost) {\n    assert(cost >= 0);\n\
     \    us.emplace_back(u);\n    vs.emplace_back(v);\n    costs.emplace_back(cost);\n\
@@ -73,19 +73,19 @@ data:
     \ < 0 ? us[i] + n + 2 : us[i],\n                  vs[i] < 0 ? vs[i] + n + 2 :\
     \ vs[i], costs[i]);\n    }\n    return mf.maximum_flow(n, n + 1, inf) - res;\n\
     \  }\n\n private:\n  const T inf;\n  int n;\n  T res;\n  std::vector<int> us,\
-    \ vs;\n  std::vector<T> costs;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_PROJECT_SELECTION_PROBLEM_HPP_\n"
+    \ vs;\n  std::vector<T> costs;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_FLOW_MAXIMUM_FLOW_SUBMODULAR_QUADRATIC_PSEUDO_BOOLEAN_OPTIMISATION_HPP_\n"
   dependsOn:
   - include/emthrm/graph/flow/maximum_flow/maximum_flow.hpp
   isVerificationFile: false
-  path: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
+  path: include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
   requiredBy: []
-  timestamp: '2023-02-24 21:17:22+09:00'
+  timestamp: '2024-04-03 22:42:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-documentation_of: include/emthrm/graph/flow/maximum_flow/project_selection_problem.hpp
+  - test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
+documentation_of: include/emthrm/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.hpp
 layout: document
-title: project selection problem
+title: submodular quadratic pseudo-Boolean optimisation
 ---
 
 
@@ -99,7 +99,7 @@ title: project selection problem
 ```cpp
 template <template <typename> class C, typename T>
 requires MaximumFlow<C, T>
-struct ProjectSelectionProblem;
+struct SubmodularQPBO;
 ```
 
 - `C`：最大流を表す構造体
@@ -109,7 +109,7 @@ struct ProjectSelectionProblem;
 
 |名前|効果・戻り値|
 |:--|:--|
-|`explicit ProjectSelectionProblem(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
+|`explicit SubmodularQPBO(const int n);`|頂点数 $N$ のオブジェクトを構築する。|
 |`void add_neq(const int u, const int v, const T cost);`|$u$ が集合 $0$, $v$ が集合 $1$ に属するならばコスト $\mathrm{cost} \geq 0$ かかると定義する。|
 |`void add(const int v, bool group, T cost);`|$v$ が集合 $\mathrm{group}$ に属するならばコスト $\mathrm{cost}$ かかると定義する。|
 |`void add_or(const std::vector<int>& v, const bool group, const T cost);`|集合 $\mathrm{group}$ に属する頂点 $v \in V$ が存在するならばコスト $\mathrm{cost} \geq 0$ かかると定義する。|
@@ -124,6 +124,7 @@ struct ProjectSelectionProblem;
 - ~~https://kimiyuki.net/blog/2017/12/05/minimum-cut-and-project-selection-problem/~~
 - https://ei1333.github.io/algorithm/dinic.html
 - https://koyumeishi.hatenablog.com/entry/2021/01/14/052223
+- https://twitter.com/noshi91/status/1775286389267124584
 
 
 ## Submissons

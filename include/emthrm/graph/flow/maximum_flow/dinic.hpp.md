@@ -8,9 +8,9 @@ data:
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/\u6700\u5C0F\u6D41\
       \u91CF\u5236\u7D04\u4ED8\u304D\u6700\u5927\u6D41"
   - icon: ':heavy_check_mark:'
-    path: test/graph/flow/maximum_flow/project_selection_problem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/project selection\
-      \ problem"
+    path: test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u6700\u5927\u6D41/submodular quadratic\
+      \ pseudo-Boolean optimisation"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -76,7 +76,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/flow/maximum_flow/maximum_flow_with_lower_bound_constraint.test.cpp
-  - test/graph/flow/maximum_flow/project_selection_problem.test.cpp
+  - test/graph/flow/maximum_flow/submodular_quadratic_pseudo-boolean_optimisation.test.cpp
 documentation_of: include/emthrm/graph/flow/maximum_flow/dinic.hpp
 layout: document
 title: "Dinic \u6CD5"

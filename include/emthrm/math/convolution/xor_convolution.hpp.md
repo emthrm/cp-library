@@ -124,6 +124,7 @@ $O(N\log{N})$
 ## TODO
 
 - https://noshi91.hatenablog.com/entry/2020/10/27/175112
+- https://noshi91.hatenablog.com/entry/2023/12/10/163348
 - 添え字 gcd での畳み込みを $O(N\log{\log{N}})$ に高速化する。
   - http://noshi91.hatenablog.com/entry/2018/12/27/121649
   - https://github.com/drken1215/algorithm/blob/master/MathAlgebra/fast_gcd_convolution.cpp

@@ -106,6 +106,8 @@ struct DisjointSparseTable;
   - https://cp-algorithms.com/data_structures/sqrt-tree.html
   - https://qiita.com/sotanishy/items/89f4dd452bcddd332f24
   - https://sotanishy.github.io/cp-library-cpp/data-structure/sqrt_tree.cpp
+- 木上の disjoint sparse table
+  - https://noshi91.hatenablog.com/entry/2023/12/05/033518
 
 
 ## Submissons

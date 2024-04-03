@@ -42,6 +42,10 @@ data:
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
   - icon: ':heavy_check_mark:'
+    path: test/math/matrix/gauss_jordan.test.cpp
+    title: "\u6570\u5B66/\u884C\u5217/\u30AC\u30A6\u30B9\u30FB\u30B8\u30E7\u30EB\u30C0\
+      \u30F3\u306E\u6D88\u53BB\u6CD5"
+  - icon: ':heavy_check_mark:'
     path: test/math/matrix/inverse_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9006\u884C\u5217"
   - icon: ':heavy_check_mark:'
@@ -62,76 +66,77 @@ data:
     \ <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Matrix {\n \
     \ explicit Matrix(const int m, const int n, const T def = 0)\n      : data(m,\
     \ std::vector<T>(n, def)) {}\n\n  int nrow() const { return data.size(); }\n \
-    \ int ncol() const { return data.front().size(); }\n\n  Matrix pow(long long exponent)\
-    \ const {\n    const int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n\
-    \    for (int i = 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent\
-    \ > 0; exponent >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n\
-    \    }\n    return res;\n  }\n\n  inline const std::vector<T>& operator[](const\
-    \ int i) const { return data[i]; }\n  inline std::vector<T>& operator[](const\
-    \ int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\
-    \n  Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
-    \    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
-    \    data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix&\
-    \ operator-=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for\
-    \ (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n        data[i][j]\
-    \ -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix& operator*=(const\
-    \ Matrix& x) {\n    const int m = nrow(), l = ncol(), n = x.ncol();\n    std::vector<std::vector<T>>\
-    \ res(m, std::vector<T>(n, 0));\n    for (int i = 0; i < m; ++i) {\n      for\
-    \ (int k = 0; k < l; ++k) {\n        for (int j = 0; j < n; ++j) {\n         \
-    \ res[i][j] += data[i][k] * x[k][j];\n        }\n      }\n    }\n    data.swap(res);\n\
-    \    return *this;\n  }\n\n  Matrix operator+(const Matrix& x) const { return\
-    \ Matrix(*this) += x; }\n  Matrix operator-(const Matrix& x) const { return Matrix(*this)\
-    \ -= x; }\n  Matrix operator*(const Matrix& x) const { return Matrix(*this) *=\
-    \ x; }\n\n private:\n  std::vector<std::vector<T>> data;\n};\n\n}  // namespace\
-    \ emthrm\n\n\n"
+    \ int ncol() const { return data.empty() ? 0 : data.front().size(); }\n\n  Matrix\
+    \ pow(long long exponent) const {\n    const int n = nrow();\n    Matrix<T> res(n,\
+    \ n, 0), tmp = *this;\n    for (int i = 0; i < n; ++i) {\n      res[i][i] = 1;\n\
+    \    }\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent & 1) res\
+    \ *= tmp;\n      tmp *= tmp;\n    }\n    return res;\n  }\n\n  inline const std::vector<T>&\
+    \ operator[](const int i) const { return data[i]; }\n  inline std::vector<T>&\
+    \ operator[](const int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix&\
+    \ x) = default;\n\n  Matrix& operator+=(const Matrix& x) {\n    const int m =\
+    \ nrow(), n = ncol();\n    for (int i = 0; i < m; ++i) {\n      for (int j = 0;\
+    \ j < n; ++j) {\n        data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n\
+    \  }\n\n  Matrix& operator-=(const Matrix& x) {\n    const int m = nrow(), n =\
+    \ ncol();\n    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j)\
+    \ {\n        data[i][j] -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n\
+    \  Matrix& operator*=(const Matrix& x) {\n    const int m = nrow(), l = ncol(),\
+    \ n = x.ncol();\n    std::vector<std::vector<T>> res(m, std::vector<T>(n, 0));\n\
+    \    for (int i = 0; i < m; ++i) {\n      for (int k = 0; k < l; ++k) {\n    \
+    \    for (int j = 0; j < n; ++j) {\n          res[i][j] += data[i][k] * x[k][j];\n\
+    \        }\n      }\n    }\n    data.swap(res);\n    return *this;\n  }\n\n  Matrix\
+    \ operator+(const Matrix& x) const { return Matrix(*this) += x; }\n  Matrix operator-(const\
+    \ Matrix& x) const { return Matrix(*this) -= x; }\n  Matrix operator*(const Matrix&\
+    \ x) const { return Matrix(*this) *= x; }\n\n private:\n  std::vector<std::vector<T>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n\n"
   code: "#ifndef EMTHRM_MATH_MATRIX_MATRIX_HPP_\n#define EMTHRM_MATH_MATRIX_MATRIX_HPP_\n\
     \n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nstruct Matrix\
     \ {\n  explicit Matrix(const int m, const int n, const T def = 0)\n      : data(m,\
     \ std::vector<T>(n, def)) {}\n\n  int nrow() const { return data.size(); }\n \
-    \ int ncol() const { return data.front().size(); }\n\n  Matrix pow(long long exponent)\
-    \ const {\n    const int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n\
-    \    for (int i = 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent\
-    \ > 0; exponent >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n\
-    \    }\n    return res;\n  }\n\n  inline const std::vector<T>& operator[](const\
-    \ int i) const { return data[i]; }\n  inline std::vector<T>& operator[](const\
-    \ int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\
-    \n  Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
-    \    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
-    \    data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix&\
-    \ operator-=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for\
-    \ (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n        data[i][j]\
-    \ -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix& operator*=(const\
-    \ Matrix& x) {\n    const int m = nrow(), l = ncol(), n = x.ncol();\n    std::vector<std::vector<T>>\
-    \ res(m, std::vector<T>(n, 0));\n    for (int i = 0; i < m; ++i) {\n      for\
-    \ (int k = 0; k < l; ++k) {\n        for (int j = 0; j < n; ++j) {\n         \
-    \ res[i][j] += data[i][k] * x[k][j];\n        }\n      }\n    }\n    data.swap(res);\n\
-    \    return *this;\n  }\n\n  Matrix operator+(const Matrix& x) const { return\
-    \ Matrix(*this) += x; }\n  Matrix operator-(const Matrix& x) const { return Matrix(*this)\
-    \ -= x; }\n  Matrix operator*(const Matrix& x) const { return Matrix(*this) *=\
-    \ x; }\n\n private:\n  std::vector<std::vector<T>> data;\n};\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_MATH_MATRIX_MATRIX_HPP_\n"
+    \ int ncol() const { return data.empty() ? 0 : data.front().size(); }\n\n  Matrix\
+    \ pow(long long exponent) const {\n    const int n = nrow();\n    Matrix<T> res(n,\
+    \ n, 0), tmp = *this;\n    for (int i = 0; i < n; ++i) {\n      res[i][i] = 1;\n\
+    \    }\n    for (; exponent > 0; exponent >>= 1) {\n      if (exponent & 1) res\
+    \ *= tmp;\n      tmp *= tmp;\n    }\n    return res;\n  }\n\n  inline const std::vector<T>&\
+    \ operator[](const int i) const { return data[i]; }\n  inline std::vector<T>&\
+    \ operator[](const int i) { return data[i]; }\n\n  Matrix& operator=(const Matrix&\
+    \ x) = default;\n\n  Matrix& operator+=(const Matrix& x) {\n    const int m =\
+    \ nrow(), n = ncol();\n    for (int i = 0; i < m; ++i) {\n      for (int j = 0;\
+    \ j < n; ++j) {\n        data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n\
+    \  }\n\n  Matrix& operator-=(const Matrix& x) {\n    const int m = nrow(), n =\
+    \ ncol();\n    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j)\
+    \ {\n        data[i][j] -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n\
+    \  Matrix& operator*=(const Matrix& x) {\n    const int m = nrow(), l = ncol(),\
+    \ n = x.ncol();\n    std::vector<std::vector<T>> res(m, std::vector<T>(n, 0));\n\
+    \    for (int i = 0; i < m; ++i) {\n      for (int k = 0; k < l; ++k) {\n    \
+    \    for (int j = 0; j < n; ++j) {\n          res[i][j] += data[i][k] * x[k][j];\n\
+    \        }\n      }\n    }\n    data.swap(res);\n    return *this;\n  }\n\n  Matrix\
+    \ operator+(const Matrix& x) const { return Matrix(*this) += x; }\n  Matrix operator-(const\
+    \ Matrix& x) const { return Matrix(*this) -= x; }\n  Matrix operator*(const Matrix&\
+    \ x) const { return Matrix(*this) *= x; }\n\n private:\n  std::vector<std::vector<T>>\
+    \ data;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MATH_MATRIX_MATRIX_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/math/matrix/matrix.hpp
   requiredBy:
-  - include/emthrm/graph/matrix_tree_theorem.hpp
-  - include/emthrm/graph/flow/matching/maximum_matching.hpp
-  - include/emthrm/math/matrix/inverse_matrix.hpp
+  - include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
+  - include/emthrm/math/matrix/linear_equation.hpp
   - include/emthrm/math/matrix/determinant.hpp
   - include/emthrm/math/matrix/gauss_jordan.hpp
-  - include/emthrm/math/matrix/linear_equation.hpp
-  - include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
-  timestamp: '2022-12-15 22:18:37+09:00'
+  - include/emthrm/math/matrix/inverse_matrix.hpp
+  - include/emthrm/graph/flow/matching/maximum_matching.hpp
+  - include/emthrm/graph/matrix_tree_theorem.hpp
+  timestamp: '2023-12-25 04:31:42+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/flow/matching/maximum_matching.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
+  - test/math/convolution/kronecker_power-vector_multiplication.test.cpp
+  - test/math/matrix/gauss_jordan.test.cpp
   - test/math/matrix/pow_of_matrix.test.cpp
   - test/math/matrix/inverse_matrix.test.cpp
   - test/math/matrix/linear_equation.test.cpp
-  - test/math/matrix/determinant.test.cpp
   - test/math/matrix/matrix.test.cpp
-  - test/math/convolution/kronecker_power-vector_multiplication.test.cpp
+  - test/math/matrix/determinant.test.cpp
+  - test/graph/flow/matching/maximum_matching.test.cpp
+  - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: include/emthrm/math/matrix/matrix.hpp
 layout: document
 title: "\u884C\u5217 (matrix)"
@@ -201,5 +206,5 @@ struct Matrix;
 
 ## Submissons
 
-- [積](https://judge.yosupo.jp/submission/45071)
+- [乗算](https://judge.yosupo.jp/submission/45071)
 - [累乗](https://judge.yosupo.jp/submission/172720)
