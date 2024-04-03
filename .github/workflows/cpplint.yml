@@ -116,6 +116,8 @@ jobs:
               "test/geometry/geometry.15.test.cpp" | \
               "test/graph/detect_directed_cycle.test.cpp" | \
               "test/math/enumerate_quotients.test.cpp" | \
+              "test/math/matrix/binary_matrix/binary_matrix.test.cpp" | \
+              "test/math/matrix/gauss_jordan.test.cpp" | \
               "test/math/osa_k.test.cpp" )
                 cpplint --filter=-build/include_order,-legal/copyright,-runtime/int,-whitespace/line_length $file ;;
 
