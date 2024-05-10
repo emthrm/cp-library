@@ -135,6 +135,7 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 - https://www.slideshare.net/iwiwi/2-12188845
 - ~~https://topcoder.g.hatena.ne.jp/iwiwi/20111205/1323099376~~
 - https://ei1333.hateblo.jp/entry/2018/05/29/011140
+- https://ngtkana.hatenablog.com/entry/2024/05/11/033439
 - https://smijake3.hatenablog.com/entry/2018/11/19/085919
 - https://kopricky.github.io/code/DataStructure_OnGraph/link_cut_tree.html
 - http://blue-jam.hatenablog.com/entry/2013/06/27/182049
@@ -241,12 +242,37 @@ $G$ 上で始点 $0$、終点 $n - 1$ の最短路長を $O(f(N))$ 時間で求�
 - https://niuez.hatenablog.com/entry/2019/08/04/191420
 - https://niuez.hatenablog.com/entry/2019/06/29/161729
 - https://niuez.hatenablog.com/entry/2019/12/14/000036
+- https://www.mathenachia.blog/top-trees-intro/
 - https://noshi91.hatenablog.com/entry/2022/01/02/004104
 - https://twitter.com/noshi91/status/1477348722099253248
 - https://twitter.com/noshi91/status/1483744348886171651
 - https://zhuanlan.zhihu.com/p/32413108
 - https://twitter.com/noshi91/status/1729086719457395021
+- https://twitter.com/akakimidori/status/1784851756431843656
+- https://twitter.com/noshi91/status/1784870681999544418
+- https://twitter.com/noshi91/status/1784894116771303722
+- https://twitter.com/noshi91/status/1784897010044170643
+- https://twitter.com/noshi91/status/1784903416936014011
+- https://twitter.com/maspy_stars/status/1784905023924670836
+- https://twitter.com/noshi91/status/1784921788176380339
+- https://twitter.com/noshi91/status/1784928169549824395
+- https://twitter.com/noshi91/status/1785033952845234177
+- https://twitter.com/noshi91/status/1785034216767631796
 - https://github.com/beet-aizu/library/tree/master/toptree
+- static top tree
+  - https://nachiavivias.github.io/cp-library/cpp/tree/static-top-tree.html
+  - https://atcoder.jp/contests/abc351/editorial/9910
+  - https://twitter.com/tatyam_prime/status/1784900848759500836
+  - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum_fixed_root
+  - https://judge.yosupo.jp/problem/point_set_tree_path_composite_sum
+  - 問題例 "[Hash on Tree](https://atcoder.jp/contests/abc351/tasks/abc351_g)"
+    - https://twitter.com/kude_coder/status/1784215998616535219
+    - https://twitter.com/ChineristA/status/1784216617955762181
+    - https://twitter.com/tatyam_prime/status/1784217150166856114
+    - https://twitter.com/Cyanmond_mapr/status/1784217270702817383
+    - https://twitter.com/_su1sen/status/1784219137092542696
+    - https://twitter.com/minato2376/status/1784220736418361780
+    - https://twitter.com/kyopro_friends/status/1784221734113362408
 - 問題例 "[Dynamic Distance Sum](https://yukicoder.me/problems/no/772)"
   - https://paper.dropbox.com/doc/Top-Tree-ZWtQdaUh68tou1iu0YdRG
 - 問題例 "[Query ζone](https://yukicoder.me/problems/no/902)"
@@ -571,6 +597,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - https://twitter.com/noimi_kyopro/status/1619940049348616192
 - https://twitter.com/noshi91/status/1425120446169501697
 - https://twitter.com/hotmanww/status/1636877141198639104
+- https://misawa.github.io/others/meld_binary_search_trees.html
 - http://yosupo.hatenablog.com/entry/2014/12/09/222401
 - https://github.com/ei1333/library/tree/master/structure/bbst
 - https://github.com/beet-aizu/library/tree/master/bbst
@@ -632,6 +659,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - スプレー木 (splay tree)
   - https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%97%E3%83%AC%E3%83%BC%E6%9C%A8
   - ~~http://www.prefield.com/algorithm/container/splay_tree.html~~
+  - https://ngtkana.hatenablog.com/entry/2024/04/22/205043
   - https://gist.github.com/hotman78/264dc72248075fcc4b7f85f25ea0c27b
   - https://github.com/spaghetti-source/algorithm/blob/master/data_structure/splay_tree.cc
   - https://www.youtube.com/watch?v=M6LcINhgXeM

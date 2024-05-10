@@ -39,6 +39,7 @@ $O(2^N N^2)$
     - https://suisen-kyopro.hatenablog.com/entry/2023/04/07/041318
     - https://nyaannyaan.github.io/library/set-function/polynomial-composite-set-power-series.hpp
     - https://judge.yosupo.jp/problem/polynomial_composite_set_power_series
+    - https://judge.yosupo.jp/problem/power_projection_of_set_power_series
     - 問題例 "[We Love Forest](https://atcoder.jp/contests/abc253/tasks/abc253_h)"
       - https://atcoder.jp/contests/abc253/editorial/4028
   - 対数

@@ -98,6 +98,13 @@ $O(N\log{N})$
   - https://twitter.com/hotmanww/status/1482185138125832192
   - https://judge.yosupo.jp/problem/min_plus_convolution_convex_convex
   - https://judge.yosupo.jp/problem/min_plus_convolution_convex_arbitrary
+  - 問題例 "[Max (Sum - Max)](https://atcoder.jp/contests/abc348/tasks/abc348_g)"
+    - https://twitter.com/Kuma_TachiRen/status/1776605913891115418
+    - https://twitter.com/kude_coder/status/1776605929800405059
+    - https://twitter.com/_rniya_/status/1776605934690689106
+    - https://twitter.com/m_99kyopro/status/1776606141503471909
+    - https://twitter.com/ChineristA/status/1776606307375603848
+    - https://twitter.com/mt_saka/status/1776606916179030319
 - relaxed multiplication
   - ~~https://hly1204.github.io/library/math/formal_power_series/relaxed_convolution.hpp~~
   - https://qiita.com/Kiri8128/items/1738d5403764a0e26b4c
