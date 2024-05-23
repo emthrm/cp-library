@@ -23,4 +23,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Submissons
 
-https://codeforces.com/contest/1242/submission/113385795
+https://judge.yosupo.jp/submission/209943
