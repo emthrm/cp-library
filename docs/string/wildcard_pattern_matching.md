@@ -24,4 +24,4 @@ documentation_of: //include/emthrm/string/wildcard_pattern_matching.hpp
 
 ## Submissons
 
-https://atcoder.jp/contests/abc307/submissions/43305941
+https://judge.yosupo.jp/submission/209950
