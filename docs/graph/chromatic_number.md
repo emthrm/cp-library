@@ -46,6 +46,7 @@ $O(2^{\lvert V \rvert} \lvert V \rvert)$
   - https://twitter.com/noshi91/status/1637451650402234373
 - 彩色多項式
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23ChromaticPolynomial.cpp~~
+  - https://judge.yosupo.jp/problem/chromatic_polynomial
 
 
 ## Submissons

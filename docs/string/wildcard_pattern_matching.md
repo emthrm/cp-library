@@ -22,6 +22,12 @@ documentation_of: //include/emthrm/string/wildcard_pattern_matching.hpp
 - https://atcoder.jp/contests/abc307/editorial/6598
 
 
+## TODO
+
+- 高速化
+  - https://noshi91.hatenablog.com/entry/2024/05/26/060854
+
+
 ## Submissons
 
 https://judge.yosupo.jp/submission/209950

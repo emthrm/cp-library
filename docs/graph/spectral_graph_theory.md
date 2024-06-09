@@ -77,6 +77,12 @@ Lindström–Gessel–Viennot lemma
 - https://atcoder.jp/contests/abc216/editorial/2561
 
 
+## TODO
+
+- 有向グラフ版の行列木定理
+  - https://judge.yosupo.jp/problem/counting_spanning_tree_directed
+
+
 ## Submissons
 
 - [行列木定理](https://atcoder.jp/contests/jsc2021/submissions/21877707)

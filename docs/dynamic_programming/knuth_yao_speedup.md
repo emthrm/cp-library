@@ -86,6 +86,7 @@ Monge property
 
 - https://home.wakatabe.com/ryo/wiki/index.php?%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0#d1c516d3
 - https://speakerdeck.com/tatyam_prime/monge-noshou-yin-shu
+- https://acompany-ac.notion.site/240604_Monge-a4692e1c4e19472c9914cee7bd05cc95
 - 最適二分探索木問題
   - https://atcoder.jp/contests/atc002/tasks/atc002_c
   - Hu–Tucker algorithm
