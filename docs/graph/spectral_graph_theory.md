@@ -85,4 +85,4 @@ Lindström–Gessel–Viennot lemma
 
 ## Submissons
 
-- [行列木定理](https://atcoder.jp/contests/jsc2021/submissions/21877707)
+- [行列木定理](https://judge.yosupo.jp/submission/213813)
