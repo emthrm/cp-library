@@ -1,52 +1,36 @@
 /*
  * @title 数学/行列/バイナリ行列/逆行列 バイナリ行列版
  *
- * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=2624
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/inverse_matrix_mod_2
  */
 
-#include <bitset>
 #include <iostream>
+#include <string>
 
 #include "emthrm/math/matrix/binary_matrix/binary_matrix.hpp"
-#include "emthrm/math/matrix/binary_matrix/gauss_jordan.hpp"
 #include "emthrm/math/matrix/binary_matrix/inverse_matrix.hpp"
 
 int main() {
-  constexpr int N = 600;
-  using binary_matrix = emthrm::BinaryMatrix<N>;
+  constexpr int kMaxN = (1 << 12) * 2;
   int n;
   std::cin >> n;
-  binary_matrix a(n, n), v(n, 1);
+  emthrm::BinaryMatrix<kMaxN> a(n, n);
   for (int i = 0; i < n; ++i) {
+    std::string a_i;
+    std::cin >> a_i;
     for (int j = 0; j < n; ++j) {
-      int a_ij;
-      std::cin >> a_ij;
-      a[i][j] = a_ij;
+      if (a_i[j] == '1') a[i].set(j);
     }
   }
-  for (int i = 0; i < n; ++i) {
-    int v_i;
-    std::cin >> v_i;
-    v[i][0] = v_i;
-  }
-  int t;
-  std::cin >> t;
-  binary_matrix inv = emthrm::inverse_matrix(a);
-  if (inv.nrow() == 0) {
-    a = a.pow(t);
-    binary_matrix av(n, n + 1);
+  a = inverse_matrix(a);
+  if (a.nrow() == 0) {
+    std::cout << "-1\n";
+  } else {
     for (int i = 0; i < n; ++i) {
       for (int j = 0; j < n; ++j) {
-        av[i][j] = a[i][j];
+        std::cout << a[i][j];
       }
-      av[i][n] = v[i][0];
-    }
-    std::cout << (emthrm::gauss_jordan(&a) == emthrm::gauss_jordan(&av) ?
-                  "ambiguous\n" : "none\n");
-  } else {
-    inv = inv.pow(t) * v;
-    for (int i = 0; i < n; ++i) {
-      std::cout << inv[i][0] << " \n"[i + 1 == n];
+      std::cout << '\n';
     }
   }
   return 0;
