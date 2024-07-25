@@ -30,6 +30,8 @@ $O(NM)$
   - https://en.wikipedia.org/wiki/Method_of_Four_Russians#:~:text=In%20computer%20science%2C%20the%20Method,bounded%20number%20of%20possible%20values.
   - https://qiita.com/okateim/items/a1b0523c1c862009e81f
   - https://echizen-tm.hatenadiary.org/entry/20120520/1337516536
+- 高速化
+  - https://rian.hatenablog.jp/entry/2024/07/23/195951
 
 
 ## Submissons

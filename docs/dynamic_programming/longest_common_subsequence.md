@@ -30,6 +30,8 @@ $O(NM)$
 - https://github.com/yosupo06/library-checker-problems/issues/732
 - 高速化
   - ~~http://www.prefield.com/algorithm/dp/lcs_hs.html~~
+  - https://rian.hatenablog.jp/entry/2024/07/14/215634
+  - https://rogi52.hatenablog.jp/entry/2024/07/20/064211
 
 
 ## Submissons

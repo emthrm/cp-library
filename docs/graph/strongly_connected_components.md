@@ -57,6 +57,7 @@ Kosaraju's algorithm
 
 ## TODO
 
+- https://judge.yosupo.jp/problem/incremental_scc
 - Tarjan's algorithm
   - ~~http://www.prefield.com/algorithm/graph/strongly_connected_components.html~~
   - https://github.com/spaghetti-source/algorithm/blob/master/graph/strongly_connected_component_tarjan.cc

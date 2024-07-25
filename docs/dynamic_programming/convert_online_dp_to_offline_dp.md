@@ -66,11 +66,13 @@ $f_i(I)$ に対してある $j \in I$ が存在して $\mathrm{dp}(j)$ に依存
   - https://ei1333.github.io/luzhiled/snippets/dp/monotone-minima.html
   - https://fumofumofuni.hatenablog.com/entry/2021/10/29/002145
 - 下限・上限制約付き単調増加列の数え上げ
+  - https://noshi91.hatenablog.com/entry/2023/07/21/235339
   - https://twitter.com/nok0_kyopro/status/1529832533042802694
   - https://twitter.com/noimi_kyopro/status/1639567295570919425
   - https://twitter.com/pctprobability/status/1639951979358334977
-  - https://codeforces.com/gym/102220/problem/I
-  - https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/L
+  - https://judge.yosupo.jp/problem/number_of_increasing_sequences_between_two_sequences
+  - 問題例 "[Temperature Survey](https://codeforces.com/gym/102220/problem/I)"
+  - 問題例 "[01 Swap](https://onlinejudge.u-aizu.ac.jp/beta/room.html#HUPC2023Day1/problems/L)"
 
 
 ## Submissons

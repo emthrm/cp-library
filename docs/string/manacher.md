@@ -46,6 +46,7 @@ struct Manacher;
   - https://mugen1337.github.io/procon/String/PalindromicTree.cpp
   - https://sotanishy.github.io/cp-library-cpp/string/palindromic_tree.hpp
   - https://judge.yosupo.jp/problem/palindromes_in_deque
+  - https://judge.yosupo.jp/problem/eertree
   - 問題例 "[Mirror Relay](https://yukicoder.me/problems/no/2606)"
     - https://twitter.com/SSRS_cp/status/1745821698988109931
     - https://twitter.com/m_99kyopro/status/1745821743397405017

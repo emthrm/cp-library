@@ -331,6 +331,8 @@ Information Processing Letters*, Vol. 9, No. 5, pp. 216–219 (1979). https://do
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/random_ball_cover.cc
 - On Finding the Maxima of a Set of Vectors
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/coordinate_domination.cc
+- 最遠点対
+  - https://judge.yosupo.jp/problem/furthest_pair
 - タクシー幾何学 (taxicab geometry)
   - https://en.wikipedia.org/wiki/Taxicab_geometry
 - 問題集
