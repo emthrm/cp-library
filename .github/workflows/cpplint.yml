@@ -57,6 +57,7 @@ jobs:
               "include/emthrm/graph/2-edge-connected_components_by_imos.hpp" | \
               "include/emthrm/graph/eulerian_trail_in_directed_graph.hpp" | \
               "include/emthrm/graph/kruskal.hpp" | \
+              "include/emthrm`graph/minimum_steiner_tree.hpp" | \
               "include/emthrm/graph_cost-free/topological_sort.hpp" | \
               "include/emthrm/math/convolution/fast_fourier_transform.hpp" | \
               "include/emthrm/math/convolution/exp_of_set_power_series.hpp" | \
