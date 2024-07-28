@@ -159,6 +159,6 @@ undo 可能 union-find
 ## Submissons
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
-- [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)
+- [重みつき union-find](https://judge.yosupo.jp/submission/224231)
 - [部分永続 union-find](https://atcoder.jp/contests/agc002/submissions/26061193)
 - [undo 可能 union-find](https://codeforces.com/contest/1444/submission/129693159)
