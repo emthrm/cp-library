@@ -54,6 +54,7 @@ jobs:
               "include/emthrm/data_structure/segment_tree.hpp" | \
               "include/emthrm/dynamic_programming/li_chao_tree.hpp" | \
               "include/emthrm/graph/tree/centroid.hpp" | \
+              "include/emthrm/graph/tree/auxiliary_tree.hpp" | \
               "include/emthrm/graph/2-edge-connected_components_by_imos.hpp" | \
               "include/emthrm/graph/eulerian_trail_in_directed_graph.hpp" | \
               "include/emthrm/graph/kruskal.hpp" | \
@@ -115,6 +116,7 @@ jobs:
               "test/geometry/geometry.07.test.cpp" | \
               "test/geometry/geometry.10.test.cpp" | \
               "test/geometry/geometry.15.test.cpp" | \
+              "test/graph/tree/auxiliary_tree.test.cpp" | \
               "test/graph/detect_directed_cycle.test.cpp" | \
               "test/math/enumerate_quotients.test.cpp" | \
               "test/math/matrix/binary_matrix/binary_matrix.test.cpp" | \
