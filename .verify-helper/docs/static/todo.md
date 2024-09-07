@@ -477,7 +477,8 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 ## TODO
 - https://nyaannyaan.github.io/library/multiplicative-function/sum-of-multiplicative-function.hpp.html
 - https://rsk0315.github.io/slides/prime-counting.pdf
-- https://atcoder.jp/contests/abc239/tasks/abc239_h
+- 問題例 "[Dice Product 2](https://atcoder.jp/contests/abc239/tasks/abc239_h)"
+- 問題例 "[Divisible by 3](https://atcoder.jp/contests/abc370/tasks/abc370_g)"
 
 
 # 線形マトロイドパリティ問題
