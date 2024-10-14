@@ -4,124 +4,121 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/data_structure/range_minimum_query.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range\
-      \ minimum query)"
-  - icon: ':heavy_check_mark:'
-    path: test/data_structure/range_sum_query.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (range\
-      \ sum query)"
-  - icon: ':heavy_check_mark:'
-    path: test/data_structure/segment_tree.test.cpp
-    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+    path: test/data_structure/dual_segment_tree.test.cpp
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\
+      \u6728"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"include/emthrm/data_structure/segment_tree.hpp\"\n\n\n\n\
-    #include <algorithm>\n#include <bit>\n#include <limits>\n#include <type_traits>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nrequires requires\
-    \ {\n  typename T::Monoid;\n  {T::id()} -> std::same_as<typename T::Monoid>;\n\
-    \  {T::merge(std::declval<typename T::Monoid>(),\n            std::declval<typename\
-    \ T::Monoid>())}\n      -> std::same_as<typename T::Monoid>;\n}\nstruct SegmentTree\
-    \ {\n  using Monoid = typename T::Monoid;\n\n  explicit SegmentTree(const int\
-    \ n)\n      : SegmentTree(std::vector<Monoid>(n, T::id())) {}\n\n  explicit SegmentTree(const\
-    \ std::vector<Monoid>& a)\n      : n(a.size()), p2(std::bit_ceil(a.size())) {\n\
-    \    dat.assign(p2 << 1, T::id());\n    std::copy(a.begin(), a.end(), dat.begin()\
-    \ + p2);\n    for (int i = p2 - 1; i > 0; --i) {\n      dat[i] = T::merge(dat[i\
-    \ << 1], dat[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val)\
-    \ {\n    idx += p2;\n    dat[idx] = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx\
-    \ << 1], dat[(idx << 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const\
-    \ {\n    Monoid res_l = T::id(), res_r = T::id();\n    for (left += p2, right\
-    \ += p2; left < right; left >>= 1, right >>= 1) {\n      if (left & 1) res_l =\
-    \ T::merge(res_l, dat[left++]);\n      if (right & 1) res_r = T::merge(dat[--right],\
-    \ res_r);\n    }\n    return T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const\
-    \ int idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
-    \ left, const G g) const {\n    if (left >= n) [[unlikely]] return n;\n    Monoid\
-    \ val = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>=\
-    \ 1;\n      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n   \
-    \     while (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val,\
-    \ dat[left]);\n          if (g(nxt)) {\n            val = nxt;\n            ++left;\n\
-    \          }\n        }\n        return left - p2;\n      }\n      val = nxt;\n\
-    \      ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
-    \    return n;\n  }\n\n  template <typename G>\n  int find_left(int right, const\
-    \ G g) const {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val =\
-    \ T::id();\n    right += p2;\n    do {\n      --right;\n      while (right > 1\
-    \ && (right & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n\
-    \      if (!g(nxt)) {\n        while (right < p2) {\n          right = (right\
-    \ << 1) + 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt))\
-    \ {\n            val = nxt;\n            --right;\n          }\n        }\n  \
-    \      return right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
-    \ int>(right)));\n    return -1;\n  }\n\n private:\n  const int n, p2;\n  std::vector<Monoid>\
-    \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
-    \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
-    \ }\n  static Monoid merge(const Monoid& a, const Monoid& b) {\n    return std::min(a,\
-    \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeMaximumQuery {\n  using Monoid\
-    \ = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::lowest();\
-    \ }\n  static Monoid merge(const Monoid& a, const Monoid& b) {\n    return std::max(a,\
-    \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeSumQuery {\n  using Monoid\
-    \ = T;\n  static constexpr Monoid id() { return 0; }\n  static Monoid merge(const\
-    \ Monoid& a, const Monoid& b) { return a + b; }\n};\n\n}  // namespace monoid\n\
-    \n}  // namespace emthrm\n\n\n"
-  code: "#ifndef EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n\
-    \n#include <algorithm>\n#include <bit>\n#include <limits>\n#include <type_traits>\n\
-    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nrequires requires\
-    \ {\n  typename T::Monoid;\n  {T::id()} -> std::same_as<typename T::Monoid>;\n\
-    \  {T::merge(std::declval<typename T::Monoid>(),\n            std::declval<typename\
-    \ T::Monoid>())}\n      -> std::same_as<typename T::Monoid>;\n}\nstruct SegmentTree\
-    \ {\n  using Monoid = typename T::Monoid;\n\n  explicit SegmentTree(const int\
-    \ n)\n      : SegmentTree(std::vector<Monoid>(n, T::id())) {}\n\n  explicit SegmentTree(const\
-    \ std::vector<Monoid>& a)\n      : n(a.size()), p2(std::bit_ceil(a.size())) {\n\
-    \    dat.assign(p2 << 1, T::id());\n    std::copy(a.begin(), a.end(), dat.begin()\
-    \ + p2);\n    for (int i = p2 - 1; i > 0; --i) {\n      dat[i] = T::merge(dat[i\
-    \ << 1], dat[(i << 1) + 1]);\n    }\n  }\n\n  void set(int idx, const Monoid val)\
-    \ {\n    idx += p2;\n    dat[idx] = val;\n    while (idx >>= 1) dat[idx] = T::merge(dat[idx\
-    \ << 1], dat[(idx << 1) + 1]);\n  }\n\n  Monoid get(int left, int right) const\
-    \ {\n    Monoid res_l = T::id(), res_r = T::id();\n    for (left += p2, right\
-    \ += p2; left < right; left >>= 1, right >>= 1) {\n      if (left & 1) res_l =\
-    \ T::merge(res_l, dat[left++]);\n      if (right & 1) res_r = T::merge(dat[--right],\
-    \ res_r);\n    }\n    return T::merge(res_l, res_r);\n  }\n\n  Monoid operator[](const\
-    \ int idx) const { return dat[idx + p2]; }\n\n  template <typename G>\n  int find_right(int\
-    \ left, const G g) const {\n    if (left >= n) [[unlikely]] return n;\n    Monoid\
-    \ val = T::id();\n    left += p2;\n    do {\n      while (!(left & 1)) left >>=\
-    \ 1;\n      Monoid nxt = T::merge(val, dat[left]);\n      if (!g(nxt)) {\n   \
-    \     while (left < p2) {\n          left <<= 1;\n          nxt = T::merge(val,\
-    \ dat[left]);\n          if (g(nxt)) {\n            val = nxt;\n            ++left;\n\
-    \          }\n        }\n        return left - p2;\n      }\n      val = nxt;\n\
-    \      ++left;\n    } while (!std::has_single_bit(static_cast<unsigned int>(left)));\n\
-    \    return n;\n  }\n\n  template <typename G>\n  int find_left(int right, const\
-    \ G g) const {\n    if (right <= 0) [[unlikely]] return -1;\n    Monoid val =\
-    \ T::id();\n    right += p2;\n    do {\n      --right;\n      while (right > 1\
-    \ && (right & 1)) right >>= 1;\n      Monoid nxt = T::merge(dat[right], val);\n\
-    \      if (!g(nxt)) {\n        while (right < p2) {\n          right = (right\
-    \ << 1) + 1;\n          nxt = T::merge(dat[right], val);\n          if (g(nxt))\
-    \ {\n            val = nxt;\n            --right;\n          }\n        }\n  \
-    \      return right - p2;\n      }\n      val = nxt;\n    } while (!std::has_single_bit(static_cast<unsigned\
-    \ int>(right)));\n    return -1;\n  }\n\n private:\n  const int n, p2;\n  std::vector<Monoid>\
-    \ dat;\n};\n\nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeMinimumQuery\
-    \ {\n  using Monoid = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::max();\
-    \ }\n  static Monoid merge(const Monoid& a, const Monoid& b) {\n    return std::min(a,\
-    \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeMaximumQuery {\n  using Monoid\
-    \ = T;\n  static constexpr Monoid id() { return std::numeric_limits<Monoid>::lowest();\
-    \ }\n  static Monoid merge(const Monoid& a, const Monoid& b) {\n    return std::max(a,\
-    \ b);\n  }\n};\n\ntemplate <typename T>\nstruct RangeSumQuery {\n  using Monoid\
-    \ = T;\n  static constexpr Monoid id() { return 0; }\n  static Monoid merge(const\
-    \ Monoid& a, const Monoid& b) { return a + b; }\n};\n\n}  // namespace monoid\n\
-    \n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_SEGMENT_TREE_HPP_\n"
+  bundledCode: "#line 1 \"include/emthrm/data_structure/dual_segment_tree.hpp\"\n\n\
+    \n\n#include <bit>\n#include <concepts>\n#include <cstdint>\n#include <optional>\n\
+    #include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nrequires requires {\n  typename T::Elem;\n  typename T::OperatorMonoid;\n\
+    \  {T::id()} -> std::same_as<typename T::OperatorMonoid>;\n  {T::merge(std::declval<typename\
+    \ T::OperatorMonoid>(),\n            std::declval<typename T::OperatorMonoid>())}\n\
+    \      -> std::same_as<typename T::OperatorMonoid>;\n  {T::apply(std::declval<typename\
+    \ T::Elem>(),\n            std::declval<typename T::OperatorMonoid>())}\n    \
+    \  -> std::same_as<typename T::Elem>;\n}\nstruct DualSegmentTree {\n  using Elem\
+    \ = typename T::Elem;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\n\
+    \  explicit DualSegmentTree(const std::vector<Elem>& data)\n      : n(data.size()),\
+    \ height(std::countr_zero(std::bit_ceil(data.size()))),\n        p2(1 << height),\
+    \ data(data), lazy(p2, T::id()) {}\n\n  void set(const int idx, const Elem val)\
+    \ {\n    propagate_line(idx);\n    data[idx] = val;\n  }\n\n  void apply(const\
+    \ int idx, const OperatorMonoid val) {\n    propagate_line(idx);\n    data[idx]\
+    \ = T::apply(data[idx], val);\n  }\n\n  void apply(int left, int right, const\
+    \ OperatorMonoid val) {\n    if (right <= left) [[unlikely]] return;\n    propagate_line(left,\
+    \ std::countr_zero(static_cast<unsigned int>(left)));\n    propagate_line(right,\
+    \ std::countr_zero(static_cast<unsigned int>(right)));\n    left += p2;\n    right\
+    \ += p2;\n    if (left & 1) {\n      data[left - p2] = T::apply(data[left - p2],\
+    \ val);\n      ++left;\n    }\n    if (right & 1) {\n      --right;\n      data[right\
+    \ - p2] = T::apply(data[right - p2], val);\n    }\n    for (left >>= 1, right\
+    \ >>= 1; left < right; left >>= 1, right >>= 1) {\n      if (left & 1) {\n   \
+    \     lazy[left] = T::merge(lazy[left], val);\n        ++left;\n      }\n    \
+    \  if (right & 1) {\n        --right;\n        lazy[right] = T::merge(lazy[right],\
+    \ val);\n      }\n    }\n  }\n\n  Elem operator[](const int idx) {\n    propagate_line(idx);\n\
+    \    return data[idx];\n  }\n\n private:\n  const int n, height, p2;\n  std::vector<Elem>\
+    \ data;\n  std::vector<OperatorMonoid> lazy;\n\n  void propagate(const int idx)\
+    \ {\n    if (lazy[idx] == T::id()) return;\n    const int child = idx << 1;\n\
+    \    if (child >= p2) {\n      if (child - p2 < n) {\n        data[child - p2]\
+    \ = T::apply(data[child - p2], lazy[idx]);\n        if (child - p2 + 1 < n) {\n\
+    \          data[child - p2 + 1] = T::apply(data[child - p2 + 1], lazy[idx]);\n\
+    \        }\n      }\n    } else {\n      lazy[child] = T::merge(lazy[child], lazy[idx]);\n\
+    \      lazy[child + 1] = T::merge(lazy[child + 1], lazy[idx]);\n    }\n    lazy[idx]\
+    \ = T::id();\n  }\n\n  void propagate_line(const int idx, const int until = 0)\
+    \ {\n    const int node = idx + p2;\n    for (int i = height; i > until; --i)\
+    \ {\n      propagate(node >> i);\n    }\n  }\n};\n\nnamespace monoid {\n\ntemplate\
+    \ <typename T>\nstruct RangeUpdateQuery {\n  using Elem = T;\n  using OperatorMonoid\
+    \ = std::optional<Elem>;\n  static constexpr OperatorMonoid id() { return std::nullopt;\
+    \ }\n  static OperatorMonoid merge(const OperatorMonoid& a,\n                \
+    \              const OperatorMonoid& b) {\n    return b.has_value() ? b : a;\n\
+    \  }\n  static Elem apply(const Elem& a, const OperatorMonoid& b) {\n    return\
+    \ b.has_value() ? b.value() : a;\n  }\n};\n\ntemplate <typename T>\nstruct RangeAddQuery\
+    \ {\n  using Elem = T;\n  using OperatorMonoid = T;\n  static constexpr OperatorMonoid\
+    \ id() { return 0; }\n  static OperatorMonoid merge(const OperatorMonoid& a,\n\
+    \                              const OperatorMonoid& b) {\n    return a + b;\n\
+    \  }\n  static Elem apply(const Elem& a, const OperatorMonoid& b) { return a +\
+    \ b; }\n};\n\n}  // namespace monoid\n\n}  // namespace emthrm\n\n\n"
+  code: "#ifndef EMTHRM_DATA_STRUCTURE_DUAL_SEGMENT_TREE_HPP_\n#define EMTHRM_DATA_STRUCTURE_DUAL_SEGMENT_TREE_HPP_\n\
+    \n#include <bit>\n#include <concepts>\n#include <cstdint>\n#include <optional>\n\
+    #include <utility>\n#include <vector>\n\nnamespace emthrm {\n\ntemplate <typename\
+    \ T>\nrequires requires {\n  typename T::Elem;\n  typename T::OperatorMonoid;\n\
+    \  {T::id()} -> std::same_as<typename T::OperatorMonoid>;\n  {T::merge(std::declval<typename\
+    \ T::OperatorMonoid>(),\n            std::declval<typename T::OperatorMonoid>())}\n\
+    \      -> std::same_as<typename T::OperatorMonoid>;\n  {T::apply(std::declval<typename\
+    \ T::Elem>(),\n            std::declval<typename T::OperatorMonoid>())}\n    \
+    \  -> std::same_as<typename T::Elem>;\n}\nstruct DualSegmentTree {\n  using Elem\
+    \ = typename T::Elem;\n  using OperatorMonoid = typename T::OperatorMonoid;\n\n\
+    \  explicit DualSegmentTree(const std::vector<Elem>& data)\n      : n(data.size()),\
+    \ height(std::countr_zero(std::bit_ceil(data.size()))),\n        p2(1 << height),\
+    \ data(data), lazy(p2, T::id()) {}\n\n  void set(const int idx, const Elem val)\
+    \ {\n    propagate_line(idx);\n    data[idx] = val;\n  }\n\n  void apply(const\
+    \ int idx, const OperatorMonoid val) {\n    propagate_line(idx);\n    data[idx]\
+    \ = T::apply(data[idx], val);\n  }\n\n  void apply(int left, int right, const\
+    \ OperatorMonoid val) {\n    if (right <= left) [[unlikely]] return;\n    propagate_line(left,\
+    \ std::countr_zero(static_cast<unsigned int>(left)));\n    propagate_line(right,\
+    \ std::countr_zero(static_cast<unsigned int>(right)));\n    left += p2;\n    right\
+    \ += p2;\n    if (left & 1) {\n      data[left - p2] = T::apply(data[left - p2],\
+    \ val);\n      ++left;\n    }\n    if (right & 1) {\n      --right;\n      data[right\
+    \ - p2] = T::apply(data[right - p2], val);\n    }\n    for (left >>= 1, right\
+    \ >>= 1; left < right; left >>= 1, right >>= 1) {\n      if (left & 1) {\n   \
+    \     lazy[left] = T::merge(lazy[left], val);\n        ++left;\n      }\n    \
+    \  if (right & 1) {\n        --right;\n        lazy[right] = T::merge(lazy[right],\
+    \ val);\n      }\n    }\n  }\n\n  Elem operator[](const int idx) {\n    propagate_line(idx);\n\
+    \    return data[idx];\n  }\n\n private:\n  const int n, height, p2;\n  std::vector<Elem>\
+    \ data;\n  std::vector<OperatorMonoid> lazy;\n\n  void propagate(const int idx)\
+    \ {\n    if (lazy[idx] == T::id()) return;\n    const int child = idx << 1;\n\
+    \    if (child >= p2) {\n      if (child - p2 < n) {\n        data[child - p2]\
+    \ = T::apply(data[child - p2], lazy[idx]);\n        if (child - p2 + 1 < n) {\n\
+    \          data[child - p2 + 1] = T::apply(data[child - p2 + 1], lazy[idx]);\n\
+    \        }\n      }\n    } else {\n      lazy[child] = T::merge(lazy[child], lazy[idx]);\n\
+    \      lazy[child + 1] = T::merge(lazy[child + 1], lazy[idx]);\n    }\n    lazy[idx]\
+    \ = T::id();\n  }\n\n  void propagate_line(const int idx, const int until = 0)\
+    \ {\n    const int node = idx + p2;\n    for (int i = height; i > until; --i)\
+    \ {\n      propagate(node >> i);\n    }\n  }\n};\n\nnamespace monoid {\n\ntemplate\
+    \ <typename T>\nstruct RangeUpdateQuery {\n  using Elem = T;\n  using OperatorMonoid\
+    \ = std::optional<Elem>;\n  static constexpr OperatorMonoid id() { return std::nullopt;\
+    \ }\n  static OperatorMonoid merge(const OperatorMonoid& a,\n                \
+    \              const OperatorMonoid& b) {\n    return b.has_value() ? b : a;\n\
+    \  }\n  static Elem apply(const Elem& a, const OperatorMonoid& b) {\n    return\
+    \ b.has_value() ? b.value() : a;\n  }\n};\n\ntemplate <typename T>\nstruct RangeAddQuery\
+    \ {\n  using Elem = T;\n  using OperatorMonoid = T;\n  static constexpr OperatorMonoid\
+    \ id() { return 0; }\n  static OperatorMonoid merge(const OperatorMonoid& a,\n\
+    \                              const OperatorMonoid& b) {\n    return a + b;\n\
+    \  }\n  static Elem apply(const Elem& a, const OperatorMonoid& b) { return a +\
+    \ b; }\n};\n\n}  // namespace monoid\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_DATA_STRUCTURE_DUAL_SEGMENT_TREE_HPP_\n"
   dependsOn: []
   isVerificationFile: false
-  path: include/emthrm/data_structure/segment_tree.hpp
+  path: include/emthrm/data_structure/dual_segment_tree.hpp
   requiredBy: []
-  timestamp: '2023-05-15 12:41:41+09:00'
+  timestamp: '2024-08-10 01:47:36+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/data_structure/range_minimum_query.test.cpp
-  - test/data_structure/segment_tree.test.cpp
-  - test/data_structure/range_sum_query.test.cpp
-documentation_of: include/emthrm/data_structure/segment_tree.hpp
+  - test/data_structure/dual_segment_tree.test.cpp
+documentation_of: include/emthrm/data_structure/dual_segment_tree.hpp
 layout: document
-title: "\u30BB\u30B0\u30E1\u30F3\u30C8\u6728 (segment tree)"
+title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
 ---
 
 # セグメント木 (segment tree)

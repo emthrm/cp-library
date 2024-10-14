@@ -118,6 +118,7 @@ Kruskal 法
   - https://www.slideshare.net/maroonrk/ss-65378126
   - http://tokoharuland.hateblo.jp/entry/2018/04/01/155743
   - https://github.com/beet-aizu/library/blob/master/graph/voronoiminimumspanningtree.cpp
+  - https://judge.yosupo.jp/problem/euclidean_mst
 - 最小シュタイナー木
   - https://ja.wikipedia.org/wiki/%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%8A%E3%83%BC%E6%9C%A8
   - https://www.slideshare.net/wata_orz/ss-12131479

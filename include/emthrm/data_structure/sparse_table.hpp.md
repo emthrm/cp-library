@@ -2,7 +2,12 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: include/emthrm/graph/tree/auxiliary_tree.hpp
+    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
+      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
+      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
       \ technique \u7248"
@@ -13,6 +18,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/sparse_table.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/sparse table"
+  - icon: ':warning:'
+    path: test/graph/tree/auxiliary_tree.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\
+      \u3061\u306E\u6700\u5C0F\u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\
+      \u3066\u6728\u3092\u5727\u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\
+      \u306A\u6728"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 Euler tour\
@@ -22,7 +33,7 @@ data:
     title: "\u6587\u5B57\u5217/longest common prefix"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/data_structure/sparse_table.hpp\"\n\n\n\n\
@@ -65,11 +76,13 @@ data:
   requiredBy:
   - include/emthrm/string/longest_common_prefix.hpp
   - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
+  - include/emthrm/graph/tree/auxiliary_tree.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/string/longest_common_prefix.test.cpp
   - test/data_structure/sparse_table.test.cpp
+  - test/string/longest_common_prefix.test.cpp
+  - test/graph/tree/auxiliary_tree.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/data_structure/sparse_table.hpp
 layout: document

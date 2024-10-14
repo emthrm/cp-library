@@ -5,18 +5,29 @@ data:
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
+    path: include/emthrm/graph/tree/auxiliary_tree.hpp
+    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
+      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
+      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
       \ technique \u7248"
   _extendedVerifiedWith:
+  - icon: ':warning:'
+    path: test/graph/tree/auxiliary_tree.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\
+      \u3061\u306E\u6700\u5C0F\u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\
+      \u3066\u6728\u3092\u5727\u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\
+      \u306A\u6728"
   - icon: ':heavy_check_mark:'
     path: test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u6700\u5C0F\u5171\u901A\u7956\u5148 Euler tour\
       \ technique \u7248"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/tree/euler_tour_technique.hpp\"\n\n\
@@ -81,9 +92,11 @@ data:
   path: include/emthrm/graph/tree/euler_tour_technique.hpp
   requiredBy:
   - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
+  - include/emthrm/graph/tree/auxiliary_tree.hpp
   timestamp: '2023-05-12 15:57:02+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
+  - test/graph/tree/auxiliary_tree.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
 documentation_of: include/emthrm/graph/tree/euler_tour_technique.hpp
 layout: document

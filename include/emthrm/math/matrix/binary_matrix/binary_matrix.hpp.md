@@ -87,16 +87,16 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
   requiredBy:
+  - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   - include/emthrm/math/matrix/binary_matrix/linear_equation.hpp
   - include/emthrm/math/matrix/binary_matrix/gauss_jordan.hpp
-  - include/emthrm/math/matrix/binary_matrix/inverse_matrix.hpp
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
+  - test/math/matrix/binary_matrix/binary_matrix.test.cpp
   - test/math/matrix/binary_matrix/inverse_matrix.test.cpp
   - test/math/matrix/binary_matrix/linear_equation.test.cpp
-  - test/math/matrix/binary_matrix/binary_matrix.test.cpp
+  - test/math/matrix/binary_matrix/gauss_jordan.test.cpp
 documentation_of: include/emthrm/math/matrix/binary_matrix/binary_matrix.hpp
 layout: document
 title: "\u30D0\u30A4\u30CA\u30EA\u884C\u5217"
@@ -163,4 +163,4 @@ struct BinaryMatrix;
 - [行列累乗](https://atcoder.jp/contests/utpc2014/submissions/9308568)
 - [ガウス・ジョルダンの消去法](https://yukicoder.me/submissions/414183)
 - [連立一次方程式](https://yukicoder.me/submissions/626481)
-- [逆行列](https://onlinejudge.u-aizu.ac.jp/solutions/problem/2624/review/4088806/emthrm/C++14)
+- [逆行列](https://judge.yosupo.jp/submission/216369)

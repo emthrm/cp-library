@@ -9,13 +9,13 @@ data:
     title: "\u8FBA"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/connencted_component_of_complement_graph.hpp\"\
@@ -69,7 +69,7 @@ data:
   path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
   requiredBy: []
   timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/connencted_component_of_complement_graph.test.cpp
 documentation_of: include/emthrm/graph/connencted_component_of_complement_graph.hpp
@@ -97,4 +97,4 @@ $O(\lvert V \rvert + \lvert E \rvert)$
 
 ## Submissons
 
-https://codeforces.com/contest/1242/submission/113385795
+https://judge.yosupo.jp/submission/209943

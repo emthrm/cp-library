@@ -10,13 +10,13 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/string/wildcard_pattern_matching.test.cpp
     title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\n\n\
@@ -283,7 +283,7 @@ data:
   path: include/emthrm/string/wildcard_pattern_matching.hpp
   requiredBy: []
   timestamp: '2023-07-07 17:43:03+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/string/wildcard_pattern_matching.test.cpp
 documentation_of: include/emthrm/string/wildcard_pattern_matching.hpp
@@ -311,6 +311,12 @@ title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u3
 - https://atcoder.jp/contests/abc307/editorial/6598
 
 
+## TODO
+
+- 高速化
+  - https://noshi91.hatenablog.com/entry/2024/05/26/060854
+
+
 ## Submissons
 
-https://atcoder.jp/contests/abc307/submissions/43305941
+https://judge.yosupo.jp/submission/209950

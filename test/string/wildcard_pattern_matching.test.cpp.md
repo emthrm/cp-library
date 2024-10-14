@@ -8,27 +8,26 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/string/wildcard_pattern_matching.hpp
     title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
       \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':x:'
   attributes:
-    IGNORE: ''
-    PROBLEM: https://atcoder.jp/contests/abc307/tasks/abc307_h
+    PROBLEM: https://judge.yosupo.jp/problem/wildcard_pattern_matching
     document_title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\
       \ ? \u3092\u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\
       \u30B0"
     links:
-    - https://atcoder.jp/contests/abc307/tasks/abc307_h
+    - https://judge.yosupo.jp/problem/wildcard_pattern_matching
   bundledCode: "#line 1 \"test/string/wildcard_pattern_matching.test.cpp\"\n/*\n *\
     \ @title \u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
     \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\n *\n\
-    \ * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc307/tasks/abc307_h\n\
+    \ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/wildcard_pattern_matching\n\
     \ */\n\n#include <iostream>\n#include <string>\n\n#line 1 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <map>\n#include <numeric>\n\
     #line 9 \"include/emthrm/string/wildcard_pattern_matching.hpp\"\n#include <tuple>\n\
@@ -251,19 +250,17 @@ data:
     \                       + t1p3[i + offset];\n      if (wmatch == 0) next_ans.emplace_back(i);\n\
     \    }\n    ans.swap(next_ans);\n  };\n  check(NumberTheoreticTransform<998244353>());\n\
     \  check(NumberTheoreticTransform<1004535809>());\n  check(NumberTheoreticTransform<1007681537>());\n\
-    \  return ans;\n}\n\n}  // namespace emthrm\n\n\n#line 12 \"test/string/wildcard_pattern_matching.test.cpp\"\
-    \n\nint main() {\n  int l, w;\n  std::string s, p;\n  std::cin >> l >> w >> s\
-    \ >> p;\n  s = s + std::string(w - 1, '.') + s;\n  if (l == w) {\n    s.pop_back();\n\
-    \  } else {\n    s += std::string(w - (l + 1), '.');\n  }\n  std::cout << emthrm::wildcard_pattern_matching(s,\
-    \ p, '_').size() << '\\n';\n  return 0;\n}\n"
+    \  return ans;\n}\n\n}  // namespace emthrm\n\n\n#line 11 \"test/string/wildcard_pattern_matching.test.cpp\"\
+    \n\nint main() {\n  std::string s, t;\n  std::cin >> s >> t;\n  std::string w(s.length()\
+    \ - t.length() + 1, '0');\n  for (const int i : emthrm::wildcard_pattern_matching(s,\
+    \ t, '*')) w[i] = '1';\n  std::cout << w << '\\n';\n  return 0;\n}\n"
   code: "/*\n * @title \u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\
     \ ? \u3092\u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0\
-    \n *\n * verification-helper: IGNORE\n * verification-helper: PROBLEM https://atcoder.jp/contests/abc307/tasks/abc307_h\n\
+    \n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/wildcard_pattern_matching\n\
     \ */\n\n#include <iostream>\n#include <string>\n\n#include \"emthrm/string/wildcard_pattern_matching.hpp\"\
-    \n\nint main() {\n  int l, w;\n  std::string s, p;\n  std::cin >> l >> w >> s\
-    \ >> p;\n  s = s + std::string(w - 1, '.') + s;\n  if (l == w) {\n    s.pop_back();\n\
-    \  } else {\n    s += std::string(w - (l + 1), '.');\n  }\n  std::cout << emthrm::wildcard_pattern_matching(s,\
-    \ p, '_').size() << '\\n';\n  return 0;\n}\n"
+    \n\nint main() {\n  std::string s, t;\n  std::cin >> s >> t;\n  std::string w(s.length()\
+    \ - t.length() + 1, '0');\n  for (const int i : emthrm::wildcard_pattern_matching(s,\
+    \ t, '*')) w[i] = '1';\n  std::cout << w << '\\n';\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/wildcard_pattern_matching.hpp
   - include/emthrm/math/convolution/number_theoretic_transform.hpp
@@ -271,8 +268,8 @@ data:
   isVerificationFile: true
   path: test/string/wildcard_pattern_matching.test.cpp
   requiredBy: []
-  timestamp: '2023-07-21 12:14:05+09:00'
-  verificationStatus: TEST_WAITING_JUDGE
+  timestamp: '2024-05-23 20:03:13+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/string/wildcard_pattern_matching.test.cpp
 layout: document

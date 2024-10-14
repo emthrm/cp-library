@@ -4,16 +4,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/data_structure/lazy_segment_tree.hpp
     title: "\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/euler_tour_technique.hpp
     title: Euler tour technique
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
       \ technique \u7248"

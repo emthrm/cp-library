@@ -291,9 +291,9 @@ data:
   timestamp: '2023-05-12 19:52:13+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/data_structure/lazy_segment_tree.test.cpp
   - test/data_structure/range_sum_query_and_range_add_query.test.cpp
   - test/data_structure/range_sum_query_and_range_update_query.test.cpp
-  - test/data_structure/lazy_segment_tree.test.cpp
   - test/data_structure/range_minimum_query_and_range_update_query.test.cpp
   - test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
@@ -405,6 +405,49 @@ struct LazySegmentTree;
 |`OperatorMonoid`|`T::OperatorMonoid`|
 
 
+### 双対セグメント木
+
+```cpp
+template <typename T>
+requires requires {
+  typename T::Elem;
+  typename T::OperatorMonoid;
+  {T::id()} -> std::same_as<typename T::OperatorMonoid>;
+  {T::merge(std::declval<typename T::OperatorMonoid>(),
+            std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::OperatorMonoid>;
+  {T::apply(std::declval<typename T::Elem>(),
+            std::declval<typename T::OperatorMonoid>())}
+      -> std::same_as<typename T::Elem>;
+}
+struct DualSegmentTree;
+```
+
+- `T`：以下の型エイリアスと静的メンバ関数を必要とする。
+  - `Eval`：要素型
+  - `OperatorMonoid`：作用素モノイドの要素型
+  - `static constexpr OperatorMonoid id();`：作用素モノイドの単位元
+  - `static OperatorMonoid merge(const OperatorMonoid&, const OperatorMonoid&);`
+  - `static Elem apply(const Elem&, const OperatorMonoid&);`
+
+#### メンバ関数
+
+|名前|効果・戻り値|
+|:--|:--|
+|`explicit DualSegmentTree(const std::vector<Elem>& a);`|$A$ に対してオブジェクトを構築する。|
+|`void set(const int idx, const Elem val);`|$A_{\mathrm{idx}} \gets \mathrm{val}$|
+|`void apply(const int idx, const OperatorMonoid val);`|$\mathrm{idx}$ における変更クエリ|
+|`void apply(int left, int right, const OperatorMonoid val);`|$[\mathrm{left}, \mathrm{right})$ における変更クエリ|
+|`Elem operator[](const int idx);`|$A_{\mathrm{idx}}$|
+
+#### メンバ型
+
+|名前|説明|
+|:--|:--|
+|`Elem`|`T::Elem`|
+|`OperatorMonoid`|`T::OperatorMonoid`|
+
+
 ## 参考文献
 
 - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
@@ -421,6 +464,10 @@ struct LazySegmentTree;
 - https://kazuma8128.hatenablog.com/entry/2017/12/29/081929
 - https://smijake3.hatenablog.com/entry/2018/11/03/100133
 - https://github.com/atcoder/ac-library/blob/0dd2c18e8bfc41f5f7a4a985b78c47aae945e9aa/atcoder/lazysegtree.hpp
+
+双対セグメント木
+- ~~https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/~~
+- https://hackmd.io/@tatyam-prime/DualSegmentTree
 
 
 ## TODO
@@ -446,11 +493,13 @@ struct LazySegmentTree;
   - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
   - https://codeforces.com/blog/entry/74181?#comment-583268
   - https://drive.google.com/file/d/1bSjYiA-nSsHzBbCnLq1GeTpRzs2Ucm0q
+  - https://noshi91.hatenablog.com/entry/2024/04/07/055028
   - https://github.com/ei1333/library/blob/master/structure/segment-tree-2d-2.cpp
   - ~~https://lumakernel.github.io/ecasdqina/data-structure/SegmentTree/SegmentTree2D~~
   - https://github.com/primenumber/ProconLib/blob/master/Structure/SegmentTree2D.cpp
   - https://algoogle.hadrori.jp/algorithm/2d-segment-tree.html
   - https://judge.yosupo.jp/problem/point_add_rectangle_sum
+  - https://judge.yosupo.jp/problem/rectangle_add_point_get
   - 問題例 "[RangeMinimumQuery](https://onlinejudge.u-aizu.ac.jp/beta/room.html#ACPC2021Day2/problems/H)"
   - 問題例 "[Longest Array Deconstruction](https://codeforces.com/contest/1575/problem/L)"
     - https://twitter.com/PCTprobability/status/1444372565435170816
@@ -500,12 +549,6 @@ struct LazySegmentTree;
   - https://judge.yosupo.jp/problem/range_chmin_chmax_add_range_sum
   - 問題例「[惑星ヤナイヅの資源](https://onlinejudge.u-aizu.ac.jp/problems/0427)」
   - 問題例 "[I like Query Problem](https://atcoder.jp/contests/abc256/tasks/abc256_h)"
-- 双対セグメント木
-  - ~~https://kimiyuki.net/blog/2019/02/22/dual-segment-tree/~~
-  - https://ei1333.github.io/luzhiled/snippets/structure/segment-tree.html
-  - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dual_segment_tree.cpp
-  - https://judge.yosupo.jp/problem/range_affine_point_get
-  - https://judge.yosupo.jp/problem/rectangle_add_point_get
 - 区間等差数列加算クエリ / 区間等差数列更新クエリ
   - https://null-mn.hatenablog.com/entry/2021/08/22/064325
   - https://twitter.com/yosupot/status/1104175527923986432
@@ -541,3 +584,4 @@ struct LazySegmentTree;
   - range maximum query and range add query
   - [range sum query and range update query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_I/review/4899787/emthrm/C++17)
   - [range sum query and range add query](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_2_G/review/4899788/emthrm/C++17)
+- [双対セグメント木](https://judge.yosupo.jp/submission/227174)

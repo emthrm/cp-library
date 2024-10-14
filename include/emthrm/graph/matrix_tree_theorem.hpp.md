@@ -12,12 +12,12 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/matrix_tree_theorem.hpp\"\n\n\n\n#include\
@@ -97,7 +97,7 @@ data:
   path: include/emthrm/graph/matrix_tree_theorem.hpp
   requiredBy: []
   timestamp: '2023-12-25 04:31:42+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: include/emthrm/graph/matrix_tree_theorem.hpp
@@ -179,6 +179,12 @@ Lindström–Gessel–Viennot lemma
 - https://atcoder.jp/contests/abc216/editorial/2561
 
 
+## TODO
+
+- 有向グラフ版の行列木定理
+  - https://judge.yosupo.jp/problem/counting_spanning_tree_directed
+
+
 ## Submissons
 
-- [行列木定理](https://atcoder.jp/contests/jsc2021/submissions/21877707)
+- [行列木定理](https://judge.yosupo.jp/submission/213813)

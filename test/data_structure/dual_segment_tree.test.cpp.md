@@ -1,105 +1,82 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
-    path: include/emthrm/graph/edge.hpp
-    title: "\u8FBA"
-  - icon: ':x:'
-    path: include/emthrm/graph/matrix_tree_theorem.hpp
-    title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
-  - icon: ':question:'
-    path: include/emthrm/math/matrix/determinant.hpp
-    title: "\u884C\u5217\u5F0F (determinant)"
-  - icon: ':question:'
-    path: include/emthrm/math/matrix/matrix.hpp
-    title: "\u884C\u5217 (matrix)"
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/data_structure/dual_segment_tree.hpp
+    title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://judge.yosupo.jp/problem/counting_spanning_tree_undirected
-    document_title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
+    PROBLEM: https://judge.yosupo.jp/problem/range_affine_point_get
+    document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u53CC\u5BFE\u30BB\u30B0\u30E1\
+      \u30F3\u30C8\u6728"
     links:
-    - https://judge.yosupo.jp/problem/counting_spanning_tree_undirected
-  bundledCode: "#line 1 \"test/graph/matrix_tree_theorem.test.cpp\"\n/*\n * @title\
-    \ \u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406\n *\n * verification-helper:\
-    \ PROBLEM https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\n\
-    \ */\n\n#include <iostream>\n#include <vector>\n\n#line 1 \"include/emthrm/graph/edge.hpp\"\
-    \n/**\n * @title \u8FBA\n */\n\n#ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\
-    \n#include <compare>\n\nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct\
-    \ Edge {\n  CostType cost;\n  int src, dst;\n\n  explicit Edge(const int src,\
-    \ const int dst, const CostType cost = 0)\n      : cost(cost), src(src), dst(dst)\
-    \ {}\n\n  auto operator<=>(const Edge& x) const = default;\n};\n\n}  // namespace\
-    \ emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n#line 1 \"include/emthrm/graph/matrix_tree_theorem.hpp\"\
-    \n\n\n\n#include <algorithm>\n#include <iterator>\n#line 7 \"include/emthrm/graph/matrix_tree_theorem.hpp\"\
-    \n\n#line 1 \"include/emthrm/graph/edge.hpp\"\n/**\n * @title \u8FBA\n */\n\n\
-    #ifndef EMTHRM_GRAPH_EDGE_HPP_\n#define EMTHRM_GRAPH_EDGE_HPP_\n\n#include <compare>\n\
-    \nnamespace emthrm {\n\ntemplate <typename CostType>\nstruct Edge {\n  CostType\
-    \ cost;\n  int src, dst;\n\n  explicit Edge(const int src, const int dst, const\
-    \ CostType cost = 0)\n      : cost(cost), src(src), dst(dst) {}\n\n  auto operator<=>(const\
-    \ Edge& x) const = default;\n};\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_GRAPH_EDGE_HPP_\n\
-    #line 1 \"include/emthrm/math/matrix/determinant.hpp\"\n\n\n\n#line 5 \"include/emthrm/math/matrix/determinant.hpp\"\
-    \n#include <utility>\n\n#line 1 \"include/emthrm/math/matrix/matrix.hpp\"\n\n\n\
-    \n#line 5 \"include/emthrm/math/matrix/matrix.hpp\"\n\nnamespace emthrm {\n\n\
-    template <typename T>\nstruct Matrix {\n  explicit Matrix(const int m, const int\
-    \ n, const T def = 0)\n      : data(m, std::vector<T>(n, def)) {}\n\n  int nrow()\
-    \ const { return data.size(); }\n  int ncol() const { return data.empty() ? 0\
-    \ : data.front().size(); }\n\n  Matrix pow(long long exponent) const {\n    const\
-    \ int n = nrow();\n    Matrix<T> res(n, n, 0), tmp = *this;\n    for (int i =\
-    \ 0; i < n; ++i) {\n      res[i][i] = 1;\n    }\n    for (; exponent > 0; exponent\
-    \ >>= 1) {\n      if (exponent & 1) res *= tmp;\n      tmp *= tmp;\n    }\n  \
-    \  return res;\n  }\n\n  inline const std::vector<T>& operator[](const int i)\
-    \ const { return data[i]; }\n  inline std::vector<T>& operator[](const int i)\
-    \ { return data[i]; }\n\n  Matrix& operator=(const Matrix& x) = default;\n\n \
-    \ Matrix& operator+=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n\
-    \    for (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n    \
-    \    data[i][j] += x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix&\
-    \ operator-=(const Matrix& x) {\n    const int m = nrow(), n = ncol();\n    for\
-    \ (int i = 0; i < m; ++i) {\n      for (int j = 0; j < n; ++j) {\n        data[i][j]\
-    \ -= x[i][j];\n      }\n    }\n    return *this;\n  }\n\n  Matrix& operator*=(const\
-    \ Matrix& x) {\n    const int m = nrow(), l = ncol(), n = x.ncol();\n    std::vector<std::vector<T>>\
-    \ res(m, std::vector<T>(n, 0));\n    for (int i = 0; i < m; ++i) {\n      for\
-    \ (int k = 0; k < l; ++k) {\n        for (int j = 0; j < n; ++j) {\n         \
-    \ res[i][j] += data[i][k] * x[k][j];\n        }\n      }\n    }\n    data.swap(res);\n\
-    \    return *this;\n  }\n\n  Matrix operator+(const Matrix& x) const { return\
-    \ Matrix(*this) += x; }\n  Matrix operator-(const Matrix& x) const { return Matrix(*this)\
-    \ -= x; }\n  Matrix operator*(const Matrix& x) const { return Matrix(*this) *=\
-    \ x; }\n\n private:\n  std::vector<std::vector<T>> data;\n};\n\n}  // namespace\
-    \ emthrm\n\n\n#line 8 \"include/emthrm/math/matrix/determinant.hpp\"\n\nnamespace\
-    \ emthrm {\n\ntemplate <typename T, typename U>\nU det(const Matrix<T>& a, const\
-    \ U eps) {\n  const int n = a.nrow();\n  Matrix<U> b(n, n);\n  for (int i = 0;\
-    \ i < n; ++i) {\n    std::copy(a[i].begin(), a[i].end(), b[i].begin());\n  }\n\
-    \  U res = 1;\n  for (int j = 0; j < n; ++j) {\n    int pivot = -1;\n    U mx\
-    \ = eps;\n    for (int i = j; i < n; ++i) {\n      const U abs = (b[i][j] < 0\
-    \ ? -b[i][j] : b[i][j]);\n      if (abs > mx) {\n        pivot = i;\n        mx\
-    \ = abs;\n      }\n    }\n    if (pivot == -1) return 0;\n    if (pivot != j)\
-    \ {\n      std::swap(b[j], b[pivot]);\n      res = -res;\n    }\n    res *= b[j][j];\n\
-    \    for (int k = j + 1; k < n; ++k) {\n      b[j][k] /= b[j][j];\n    }\n   \
-    \ for (int i = j + 1; i < n; ++i) {\n      for (int k = j + 1; k < n; ++k) {\n\
-    \        b[i][k] -= b[i][j] * b[j][k];\n      }\n    }\n  }\n  return res;\n}\n\
-    \n}  // namespace emthrm\n\n\n#line 11 \"include/emthrm/graph/matrix_tree_theorem.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <typename T, typename CostType>\nT matrix_tree_theorem(const\
-    \ std::vector<std::vector<Edge<CostType>>>& graph,\n                      const\
-    \ T eps = 1e-8) {\n  const int n = graph.size();\n  if (n == 1) [[unlikely]] return\
-    \ 1;\n  Matrix<int> laplacian(n, n, 0);\n  for (int i = 0; i < n; ++i) {\n   \
-    \ for (const Edge<CostType>& e : graph[i]) {\n      ++laplacian[e.src][e.src];\n\
-    \      --laplacian[e.src][e.dst];\n    }\n  }\n  Matrix<int> cofactor(n - 1, n\
-    \ - 1);\n  for (int i = 0; i < n - 1; ++i) {\n    std::copy(std::next(laplacian[i\
-    \ + 1].begin()), laplacian[i + 1].end(),\n              cofactor[i].begin());\n\
-    \  }\n  return det(cofactor, eps);\n}\n\n}  // namespace emthrm\n\n\n#line 1 \"\
-    include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n# include <cassert>\n\
-    #endif\n#include <compare>\n#line 9 \"include/emthrm/math/modint.hpp\"\n// #include\
-    \ <numeric>\n#line 12 \"include/emthrm/math/modint.hpp\"\n\nnamespace emthrm {\n\
-    \n#ifndef ARBITRARY_MODINT\ntemplate <unsigned int M>\nstruct MInt {\n  unsigned\
-    \ int v;\n\n  constexpr MInt() : v(0) {}\n  constexpr MInt(const long long x)\
-    \ : v(x >= 0 ? x % M : x % M + M) {}\n  static constexpr MInt raw(const int x)\
-    \ {\n    MInt x_;\n    x_.v = x;\n    return x_;\n  }\n\n  static constexpr int\
-    \ get_mod() { return M; }\n  static constexpr void set_mod(const int divisor)\
+    - https://judge.yosupo.jp/problem/range_affine_point_get
+  bundledCode: "#line 1 \"test/data_structure/dual_segment_tree.test.cpp\"\n/*\n *\
+    \ @title \u30C7\u30FC\u30BF\u69CB\u9020/\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\
+    \u6728\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/range_affine_point_get\n\
+    \ */\n\n#include <iostream>\n#include <utility>\n#include <vector>\n\n#line 1\
+    \ \"include/emthrm/data_structure/dual_segment_tree.hpp\"\n\n\n\n#include <bit>\n\
+    #include <concepts>\n#include <cstdint>\n#include <optional>\n#line 10 \"include/emthrm/data_structure/dual_segment_tree.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename T>\nrequires requires {\n  typename\
+    \ T::Elem;\n  typename T::OperatorMonoid;\n  {T::id()} -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::merge(std::declval<typename T::OperatorMonoid>(),\n\
+    \            std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::OperatorMonoid>;\n  {T::apply(std::declval<typename T::Elem>(),\n       \
+    \     std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
+    \ T::Elem>;\n}\nstruct DualSegmentTree {\n  using Elem = typename T::Elem;\n \
+    \ using OperatorMonoid = typename T::OperatorMonoid;\n\n  explicit DualSegmentTree(const\
+    \ std::vector<Elem>& data)\n      : n(data.size()), height(std::countr_zero(std::bit_ceil(data.size()))),\n\
+    \        p2(1 << height), data(data), lazy(p2, T::id()) {}\n\n  void set(const\
+    \ int idx, const Elem val) {\n    propagate_line(idx);\n    data[idx] = val;\n\
+    \  }\n\n  void apply(const int idx, const OperatorMonoid val) {\n    propagate_line(idx);\n\
+    \    data[idx] = T::apply(data[idx], val);\n  }\n\n  void apply(int left, int\
+    \ right, const OperatorMonoid val) {\n    if (right <= left) [[unlikely]] return;\n\
+    \    propagate_line(left, std::countr_zero(static_cast<unsigned int>(left)));\n\
+    \    propagate_line(right, std::countr_zero(static_cast<unsigned int>(right)));\n\
+    \    left += p2;\n    right += p2;\n    if (left & 1) {\n      data[left - p2]\
+    \ = T::apply(data[left - p2], val);\n      ++left;\n    }\n    if (right & 1)\
+    \ {\n      --right;\n      data[right - p2] = T::apply(data[right - p2], val);\n\
+    \    }\n    for (left >>= 1, right >>= 1; left < right; left >>= 1, right >>=\
+    \ 1) {\n      if (left & 1) {\n        lazy[left] = T::merge(lazy[left], val);\n\
+    \        ++left;\n      }\n      if (right & 1) {\n        --right;\n        lazy[right]\
+    \ = T::merge(lazy[right], val);\n      }\n    }\n  }\n\n  Elem operator[](const\
+    \ int idx) {\n    propagate_line(idx);\n    return data[idx];\n  }\n\n private:\n\
+    \  const int n, height, p2;\n  std::vector<Elem> data;\n  std::vector<OperatorMonoid>\
+    \ lazy;\n\n  void propagate(const int idx) {\n    if (lazy[idx] == T::id()) return;\n\
+    \    const int child = idx << 1;\n    if (child >= p2) {\n      if (child - p2\
+    \ < n) {\n        data[child - p2] = T::apply(data[child - p2], lazy[idx]);\n\
+    \        if (child - p2 + 1 < n) {\n          data[child - p2 + 1] = T::apply(data[child\
+    \ - p2 + 1], lazy[idx]);\n        }\n      }\n    } else {\n      lazy[child]\
+    \ = T::merge(lazy[child], lazy[idx]);\n      lazy[child + 1] = T::merge(lazy[child\
+    \ + 1], lazy[idx]);\n    }\n    lazy[idx] = T::id();\n  }\n\n  void propagate_line(const\
+    \ int idx, const int until = 0) {\n    const int node = idx + p2;\n    for (int\
+    \ i = height; i > until; --i) {\n      propagate(node >> i);\n    }\n  }\n};\n\
+    \nnamespace monoid {\n\ntemplate <typename T>\nstruct RangeUpdateQuery {\n  using\
+    \ Elem = T;\n  using OperatorMonoid = std::optional<Elem>;\n  static constexpr\
+    \ OperatorMonoid id() { return std::nullopt; }\n  static OperatorMonoid merge(const\
+    \ OperatorMonoid& a,\n                              const OperatorMonoid& b) {\n\
+    \    return b.has_value() ? b : a;\n  }\n  static Elem apply(const Elem& a, const\
+    \ OperatorMonoid& b) {\n    return b.has_value() ? b.value() : a;\n  }\n};\n\n\
+    template <typename T>\nstruct RangeAddQuery {\n  using Elem = T;\n  using OperatorMonoid\
+    \ = T;\n  static constexpr OperatorMonoid id() { return 0; }\n  static OperatorMonoid\
+    \ merge(const OperatorMonoid& a,\n                              const OperatorMonoid&\
+    \ b) {\n    return a + b;\n  }\n  static Elem apply(const Elem& a, const OperatorMonoid&\
+    \ b) { return a + b; }\n};\n\n}  // namespace monoid\n\n}  // namespace emthrm\n\
+    \n\n#line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n\
+    # include <cassert>\n#endif\n#include <compare>\n#line 9 \"include/emthrm/math/modint.hpp\"\
+    \n// #include <numeric>\n#line 12 \"include/emthrm/math/modint.hpp\"\n\nnamespace\
+    \ emthrm {\n\n#ifndef ARBITRARY_MODINT\ntemplate <unsigned int M>\nstruct MInt\
+    \ {\n  unsigned int v;\n\n  constexpr MInt() : v(0) {}\n  constexpr MInt(const\
+    \ long long x) : v(x >= 0 ? x % M : x % M + M) {}\n  static constexpr MInt raw(const\
+    \ int x) {\n    MInt x_;\n    x_.v = x;\n    return x_;\n  }\n\n  static constexpr\
+    \ int get_mod() { return M; }\n  static constexpr void set_mod(const int divisor)\
     \ {\n    assert(std::cmp_equal(divisor, M));\n  }\n\n  static void init(const\
     \ int x) {\n    inv<true>(x);\n    fact(x);\n    fact_inv(x);\n  }\n\n  template\
     \ <bool MEMOIZES = false>\n  static MInt inv(const int n) {\n    // assert(0 <=\
@@ -204,37 +181,50 @@ data:
     \ is, MInt& x) {\n    long long v;\n    is >> v;\n    x = MInt(v);\n    return\
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
-    }  // namespace emthrm\n\n\n#line 13 \"test/graph/matrix_tree_theorem.test.cpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, m;\n  std::cin\
-    \ >> n >> m;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n  while\
-    \ (m--) {\n    int u, v;\n    std::cin >> u >> v;\n    graph[u].emplace_back(u,\
-    \ v);\n    graph[v].emplace_back(v, u);\n  }\n  std::cout << emthrm::matrix_tree_theorem(graph,\
-    \ ModInt()) << '\\n';\n  return 0;\n}\n"
-  code: "/*\n * @title \u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406\n *\n * verification-helper:\
-    \ PROBLEM https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\n\
-    \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
-    \n#include \"emthrm/graph/matrix_tree_theorem.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, m;\n  std::cin\
-    \ >> n >> m;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n  while\
-    \ (m--) {\n    int u, v;\n    std::cin >> u >> v;\n    graph[u].emplace_back(u,\
-    \ v);\n    graph[v].emplace_back(v, u);\n  }\n  std::cout << emthrm::matrix_tree_theorem(graph,\
-    \ ModInt()) << '\\n';\n  return 0;\n}\n"
+    }  // namespace emthrm\n\n\n#line 13 \"test/data_structure/dual_segment_tree.test.cpp\"\
+    \n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n  int n, q;\n  std::cin\
+    \ >> n >> q;\n  std::vector<ModInt> a(n);\n  for (ModInt& a_i : a) std::cin >>\
+    \ a_i;\n  struct M {\n    using Elem = ModInt;\n    using OperatorMonoid = std::pair<ModInt,\
+    \ ModInt>;\n    static OperatorMonoid id() { return {ModInt::raw(1), ModInt::raw(0)};\
+    \ }\n    static OperatorMonoid merge(const OperatorMonoid& a,\n              \
+    \                  const OperatorMonoid& b) {\n      return {a.first * b.first,\
+    \ a.second * b.first + b.second};\n    }\n    static Elem apply(const Elem& a,\
+    \ const OperatorMonoid& b) {\n      return a * b.first + b.second;\n    }\n  };\n\
+    \  emthrm::DualSegmentTree<M> dst(a);\n  while (q--) {\n    int type;\n    std::cin\
+    \ >> type;\n    if (type == 0) {\n      int l, r;\n      ModInt b, c;\n      std::cin\
+    \ >> l >> r >> b >> c;\n      dst.apply(l, r, {b, c});\n    } else if (type ==\
+    \ 1) {\n      int i;\n      std::cin >> i;\n      std::cout << dst[i] << '\\n';\n\
+    \    }\n  }\n  return 0;\n}\n"
+  code: "/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/\u53CC\u5BFE\u30BB\u30B0\u30E1\
+    \u30F3\u30C8\u6728\n *\n * verification-helper: PROBLEM https://judge.yosupo.jp/problem/range_affine_point_get\n\
+    \ */\n\n#include <iostream>\n#include <utility>\n#include <vector>\n\n#include\
+    \ \"emthrm/data_structure/dual_segment_tree.hpp\"\n#include \"emthrm/math/modint.hpp\"\
+    \n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n  int n, q;\n  std::cin\
+    \ >> n >> q;\n  std::vector<ModInt> a(n);\n  for (ModInt& a_i : a) std::cin >>\
+    \ a_i;\n  struct M {\n    using Elem = ModInt;\n    using OperatorMonoid = std::pair<ModInt,\
+    \ ModInt>;\n    static OperatorMonoid id() { return {ModInt::raw(1), ModInt::raw(0)};\
+    \ }\n    static OperatorMonoid merge(const OperatorMonoid& a,\n              \
+    \                  const OperatorMonoid& b) {\n      return {a.first * b.first,\
+    \ a.second * b.first + b.second};\n    }\n    static Elem apply(const Elem& a,\
+    \ const OperatorMonoid& b) {\n      return a * b.first + b.second;\n    }\n  };\n\
+    \  emthrm::DualSegmentTree<M> dst(a);\n  while (q--) {\n    int type;\n    std::cin\
+    \ >> type;\n    if (type == 0) {\n      int l, r;\n      ModInt b, c;\n      std::cin\
+    \ >> l >> r >> b >> c;\n      dst.apply(l, r, {b, c});\n    } else if (type ==\
+    \ 1) {\n      int i;\n      std::cin >> i;\n      std::cout << dst[i] << '\\n';\n\
+    \    }\n  }\n  return 0;\n}\n"
   dependsOn:
-  - include/emthrm/graph/edge.hpp
-  - include/emthrm/graph/matrix_tree_theorem.hpp
-  - include/emthrm/math/matrix/determinant.hpp
-  - include/emthrm/math/matrix/matrix.hpp
+  - include/emthrm/data_structure/dual_segment_tree.hpp
   - include/emthrm/math/modint.hpp
   isVerificationFile: true
-  path: test/graph/matrix_tree_theorem.test.cpp
+  path: test/data_structure/dual_segment_tree.test.cpp
   requiredBy: []
-  timestamp: '2024-06-09 19:16:13+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-08-10 01:47:36+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/graph/matrix_tree_theorem.test.cpp
+documentation_of: test/data_structure/dual_segment_tree.test.cpp
 layout: document
 redirect_from:
-- /verify/test/graph/matrix_tree_theorem.test.cpp
-- /verify/test/graph/matrix_tree_theorem.test.cpp.html
-title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
+- /verify/test/data_structure/dual_segment_tree.test.cpp
+- /verify/test/data_structure/dual_segment_tree.test.cpp.html
+title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
 ---

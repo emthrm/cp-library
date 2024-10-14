@@ -5,7 +5,7 @@ data:
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/string/wildcard_pattern_matching.hpp
     title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
       \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -76,11 +76,11 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/string/wildcard_pattern_matching.test.cpp
     title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -352,26 +352,26 @@ data:
   requiredBy:
   - include/emthrm/string/wildcard_pattern_matching.hpp
   timestamp: '2023-07-07 17:43:03+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
+  - test/math/formal_power_series/formal_power_series.3.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
+  - test/math/convolution/number_theoretic_transform.test.cpp
   - test/string/wildcard_pattern_matching.test.cpp
   - test/dynamic_programming/subset_sum_problem.test.cpp
   - test/dynamic_programming/convert_online_dp_to_offline_dp.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
-  - test/math/formal_power_series/formal_power_series.3.test.cpp
-  - test/math/convolution/number_theoretic_transform.test.cpp
-  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
 documentation_of: include/emthrm/math/convolution/number_theoretic_transform.hpp
 layout: document
 title: "\u6570\u8AD6\u5909\u63DB (number theoretic transform) / \u9AD8\u901F\u5270\

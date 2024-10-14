@@ -555,31 +555,31 @@ data:
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/quadratic_equation.test.cpp
-  - test/geometry/geometry.07.test.cpp
-  - test/geometry/geometry.23.test.cpp
-  - test/geometry/geometry.16.test.cpp
-  - test/geometry/geometry.11.test.cpp
-  - test/geometry/geometry.19.test.cpp
+  - test/geometry/geometry.18.test.cpp
+  - test/geometry/geometry.22.test.cpp
   - test/geometry/geometry.03.test.cpp
-  - test/geometry/geometry.09.test.cpp
-  - test/geometry/geometry.06.test.cpp
-  - test/geometry/geometry.14.test.cpp
-  - test/geometry/geometry.05.test.cpp
-  - test/geometry/geometry.04.test.cpp
-  - test/geometry/geometry.10.test.cpp
-  - test/geometry/geometry.13.test.cpp
-  - test/geometry/smallest_enclosing_circle.test.cpp
-  - test/geometry/geometry.21.test.cpp
-  - test/geometry/geometry.20.test.cpp
-  - test/geometry/geometry.02.test.cpp
   - test/geometry/geometry.08.test.cpp
+  - test/geometry/geometry.23.test.cpp
+  - test/geometry/smallest_enclosing_circle.test.cpp
+  - test/geometry/geometry.19.test.cpp
+  - test/geometry/geometry.21.test.cpp
+  - test/geometry/geometry.11.test.cpp
+  - test/geometry/geometry.02.test.cpp
+  - test/geometry/geometry.07.test.cpp
+  - test/geometry/geometry.09.test.cpp
+  - test/geometry/geometry.12.test.cpp
+  - test/geometry/geometry.04.test.cpp
+  - test/geometry/geometry.17.test.cpp
+  - test/geometry/geometry.10.test.cpp
+  - test/geometry/geometry.20.test.cpp
   - test/geometry/geometry.24.test.cpp
   - test/geometry/geometry.01.test.cpp
-  - test/geometry/geometry.22.test.cpp
-  - test/geometry/geometry.17.test.cpp
-  - test/geometry/geometry.12.test.cpp
+  - test/geometry/geometry.14.test.cpp
   - test/geometry/geometry.15.test.cpp
-  - test/geometry/geometry.18.test.cpp
+  - test/geometry/geometry.05.test.cpp
+  - test/geometry/geometry.06.test.cpp
+  - test/geometry/geometry.13.test.cpp
+  - test/geometry/geometry.16.test.cpp
 documentation_of: include/emthrm/geometry/geometry.hpp
 layout: document
 title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
@@ -913,6 +913,8 @@ Information Processing Letters*, Vol. 9, No. 5, pp. 216–219 (1979). https://do
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/random_ball_cover.cc
 - On Finding the Maxima of a Set of Vectors
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/coordinate_domination.cc
+- 最遠点対
+  - https://judge.yosupo.jp/problem/furthest_pair
 - タクシー幾何学 (taxicab geometry)
   - https://en.wikipedia.org/wiki/Taxicab_geometry
 - 問題集

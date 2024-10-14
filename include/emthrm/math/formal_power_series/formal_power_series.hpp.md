@@ -393,36 +393,36 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
-  - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
-  - include/emthrm/math/formal_power_series/bernoulli_number.hpp
-  - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
-  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
-  - include/emthrm/math/formal_power_series/bostan-mori.hpp
-  - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
+  - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
+  - include/emthrm/math/formal_power_series/bernoulli_number.hpp
+  - include/emthrm/math/formal_power_series/bostan-mori.hpp
+  - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
+  - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
+  - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
+  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/dynamic_programming/subset_sum_problem.test.cpp
-  - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.7.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/math/formal_power_series/bostan-mori.test.cpp
-  - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
+  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.1.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
-  - test/math/twelvefold_way/partition_function_by_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.4.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
+  - test/math/formal_power_series/formal_power_series.7.test.cpp
+  - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/bernoulli_number.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
+  - test/dynamic_programming/subset_sum_problem.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
@@ -594,6 +594,7 @@ struct FormalPowerSeries;
   - https://noshi91.hatenablog.com/entry/2024/03/16/224034
   - https://twitter.com/noshi91/status/1768995970056908988
   - https://scrapbox.io/nachia-cp/FPS_composition_f(g(x))_%E3%81%AE%E5%AE%9F%E8%A3%85%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6
+  - https://maspypy.com/fps-%e5%90%88%e6%88%90%e3%83%bb%e9%80%86%e9%96%a2%e6%95%b0%e3%81%ae%e8%a7%a3%e8%aa%ac-1-%e9%80%86%e9%96%a2%e6%95%b0%e3%81%a8-power-projection
   - https://qiita.com/ryuhe1/items/23d79bb84b270f7359e0
   - https://maspypy.com/%e5%a4%9a%e9%a0%85%e5%bc%8f%e3%83%bb%e5%bd%a2%e5%bc%8f%e7%9a%84%e3%81%b9%e3%81%8d%e7%b4%9a%e6%95%b0-%e9%ab%98%e9%80%9f%e3%81%ab%e8%a8%88%e7%ae%97%e3%81%a7%e3%81%8d%e3%82%8b%e3%82%82%e3%81%ae#toc9
   - http://www.eecs.harvard.edu/~htk/publication/1978-jacm-brent-kung.pdf

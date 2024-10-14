@@ -5,17 +5,17 @@ data:
     path: include/emthrm/math/matrix/matrix.hpp
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
   _extendedVerifiedWith:
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/determinant.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u5F0F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -80,7 +80,7 @@ data:
   requiredBy:
   - include/emthrm/graph/matrix_tree_theorem.hpp
   timestamp: '2023-12-25 04:31:42+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/math/matrix/determinant.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp

@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
@@ -13,7 +13,7 @@ data:
     path: test/data_structure/union-find/union-find.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u7D20\u96C6\u5408\u30C7\u30FC\u30BF\u69CB\
       \u9020/union-find"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
@@ -23,9 +23,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/kruskal.test.cpp
     title: "\u30B0\u30E9\u30D5/Kruskal \u6CD5"
-  - icon: ':warning:'
-    path: test/graph/matrix_tree_theorem.test.cpp
-    title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
@@ -55,16 +52,15 @@ data:
   isVerificationFile: false
   path: include/emthrm/data_structure/union-find/union-find.hpp
   requiredBy:
-  - include/emthrm/graph/kruskal.hpp
   - include/emthrm/graph/connencted_component_of_complement_graph.hpp
+  - include/emthrm/graph/kruskal.hpp
   timestamp: '2023-02-25 16:35:06+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/data_structure/union-find/union-find.test.cpp
   - test/graph/kruskal.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/is_bipartite.test.cpp
-  - test/graph/matrix_tree_theorem.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/union-find.hpp
 layout: document
 title: union-find
@@ -216,6 +212,6 @@ undo 可能 union-find
 ## Submissons
 
 - [union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_A/review/4083481/emthrm/C++14)
-- [重みつき union-find](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DSL_1_B/review/4083499/emthrm/C++14)
+- [重みつき union-find](https://judge.yosupo.jp/submission/224231)
 - [部分永続 union-find](https://atcoder.jp/contests/agc002/submissions/26061193)
 - [undo 可能 union-find](https://codeforces.com/contest/1444/submission/129693159)

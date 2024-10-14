@@ -96,8 +96,8 @@ data:
   timestamp: '2023-12-25 04:31:42+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/matrix/gauss_jordan.test.cpp
   - test/math/matrix/linear_equation.test.cpp
+  - test/math/matrix/gauss_jordan.test.cpp
   - test/graph/flow/matching/maximum_matching.test.cpp
 documentation_of: include/emthrm/math/matrix/gauss_jordan.hpp
 layout: document

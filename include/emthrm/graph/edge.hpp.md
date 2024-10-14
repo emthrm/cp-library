@@ -17,7 +17,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/chromatic_number.hpp
     title: "\u5F69\u8272\u6570 (chromatic number)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
@@ -48,9 +48,13 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/lowlink.hpp
     title: lowlink
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
+  - icon: ':warning:'
+    path: include/emthrm/graph/minimum_steiner_tree.hpp
+    title: "\u6700\u5C0F\u30B7\u30E5\u30BF\u30A4\u30CA\u30FC\u6728 (minimum Steiner\
+      \ tree)"
   - icon: ':question:'
     path: include/emthrm/graph/noshi_graph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
@@ -78,6 +82,11 @@ data:
     title: "\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\u984C (traveling\
       \ salesman problem)"
   - icon: ':question:'
+    path: include/emthrm/graph/tree/auxiliary_tree.hpp
+    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
+      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
+      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
+  - icon: ':question:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
   - icon: ':question:'
@@ -86,7 +95,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/double_sweep.hpp
     title: double sweep
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/euler_tour_technique.hpp
     title: Euler tour technique
   - icon: ':heavy_check_mark:'
@@ -96,7 +105,7 @@ data:
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
       \ technique \u7248"
@@ -122,7 +131,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/chromatic_number.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F69\u8272\u6570"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
@@ -158,7 +167,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
     title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':warning:'
@@ -187,6 +196,12 @@ data:
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
+  - icon: ':warning:'
+    path: test/graph/tree/auxiliary_tree.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\
+      \u3061\u306E\u6700\u5C0F\u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\
+      \u3066\u6728\u3092\u5727\u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\
+      \u306A\u6728"
   - icon: ':warning:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
@@ -223,7 +238,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -246,76 +261,79 @@ data:
   isVerificationFile: false
   path: include/emthrm/graph/edge.hpp
   requiredBy:
-  - include/emthrm/graph/reachability_on_dag.hpp
-  - include/emthrm/graph/eulerian_trail_in_directed_graph.hpp
-  - include/emthrm/graph/traveling_salesman_problem.hpp
-  - include/emthrm/graph/lowlink.hpp
-  - include/emthrm/graph/shortest_path/bellman-ford.hpp
-  - include/emthrm/graph/shortest_path/dijkstra.hpp
-  - include/emthrm/graph/matrix_tree_theorem.hpp
-  - include/emthrm/graph/biconnected_component.hpp
   - include/emthrm/graph/prim.hpp
-  - include/emthrm/graph/detect_path.hpp
-  - include/emthrm/graph/detect_directed_cycle.hpp
-  - include/emthrm/graph/2-edge-connected_components_by_imos.hpp
-  - include/emthrm/graph/unicyclic_graph.hpp
-  - include/emthrm/graph/enumerate_bridges.hpp
-  - include/emthrm/graph/noshi_graph.hpp
-  - include/emthrm/graph/kruskal.hpp
   - include/emthrm/graph/girth_in_directed_graph.hpp
-  - include/emthrm/graph/girth_in_undirected_graph.hpp
+  - include/emthrm/graph/shortest_path/dijkstra.hpp
+  - include/emthrm/graph/shortest_path/bellman-ford.hpp
+  - include/emthrm/graph/traveling_salesman_problem.hpp
+  - include/emthrm/graph/enumerate_bridges.hpp
+  - include/emthrm/graph/detect_directed_cycle.hpp
   - include/emthrm/graph/is_bipartite.hpp
-  - include/emthrm/graph/topological_sort.hpp
   - include/emthrm/graph/chromatic_number.hpp
-  - include/emthrm/graph/tree/euler_tour_technique.hpp
+  - include/emthrm/graph/girth_in_undirected_graph.hpp
+  - include/emthrm/graph/matrix_tree_theorem.hpp
+  - include/emthrm/graph/unicyclic_graph.hpp
+  - include/emthrm/graph/eulerian_trail_in_directed_graph.hpp
+  - include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp
+  - include/emthrm/graph/connencted_component_of_complement_graph.hpp
+  - include/emthrm/graph/tree/centroid.hpp
   - include/emthrm/graph/tree/double_sweep.hpp
   - include/emthrm/graph/tree/rerooting_dp.hpp
   - include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
-  - include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
   - include/emthrm/graph/tree/heavy-light_decomposition.hpp
+  - include/emthrm/graph/tree/euler_tour_technique.hpp
   - include/emthrm/graph/tree/centroid_decomposition.hpp
-  - include/emthrm/graph/tree/centroid.hpp
-  - include/emthrm/graph/connencted_component_of_complement_graph.hpp
-  - include/emthrm/graph/2-edge-connected_components_by_lowlink.hpp
+  - include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
+  - include/emthrm/graph/tree/auxiliary_tree.hpp
+  - include/emthrm/graph/minimum_steiner_tree.hpp
+  - include/emthrm/graph/2-edge-connected_components_by_imos.hpp
+  - include/emthrm/graph/kruskal.hpp
+  - include/emthrm/graph/biconnected_component.hpp
+  - include/emthrm/graph/reachability_on_dag.hpp
+  - include/emthrm/graph/lowlink.hpp
+  - include/emthrm/graph/detect_path.hpp
   - include/emthrm/graph/strongly_connected_components.hpp
+  - include/emthrm/graph/topological_sort.hpp
+  - include/emthrm/graph/noshi_graph.hpp
   timestamp: '2023-02-24 21:17:22+09:00'
-  verificationStatus: LIBRARY_PARTIAL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
-  - test/math/basis.test.cpp
   - test/math/matrix/linear_equation.test.cpp
-  - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
-  - test/graph/prim.test.cpp
-  - test/graph/enumerate_bridges.test.cpp
-  - test/graph/kruskal.test.cpp
-  - test/graph/lowlink.1.test.cpp
-  - test/graph/eulerian_trail_in_directed_graph.test.cpp
-  - test/graph/lowlink.2.test.cpp
-  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/math/basis.test.cpp
   - test/graph/detect_directed_cycle.test.cpp
-  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
-  - test/graph/shortest_path/dijkstra.test.cpp
-  - test/graph/shortest_path/bellman-ford.test.cpp
-  - test/graph/reachability_on_dag.test.cpp
-  - test/graph/biconnected_component.test.cpp
   - test/graph/strongly_connected_components.test.cpp
+  - test/graph/shortest_path/bellman-ford.test.cpp
+  - test/graph/shortest_path/dijkstra.test.cpp
   - test/graph/detect_path.test.cpp
-  - test/graph/is_bipartite.test.cpp
-  - test/graph/noshi_graph.test.cpp
   - test/graph/girth.test.cpp
-  - test/graph/unicyclic_graph.test.cpp
-  - test/graph/traveling_salesman_problem.test.cpp
-  - test/graph/topological_sort.test.cpp
+  - test/graph/reachability_on_dag.test.cpp
+  - test/graph/enumerate_bridges.test.cpp
+  - test/graph/eulerian_trail_in_directed_graph.test.cpp
+  - test/graph/kruskal.test.cpp
   - test/graph/matrix_tree_theorem.test.cpp
   - test/graph/2-edge-connected_components_by_imos.test.cpp
+  - test/graph/prim.test.cpp
+  - test/graph/lowlink.2.test.cpp
+  - test/graph/2-edge-connected_components_by_lowlink.test.cpp
+  - test/graph/biconnected_component.test.cpp
+  - test/graph/is_bipartite.test.cpp
+  - test/graph/unicyclic_graph.test.cpp
+  - test/graph/connencted_component_of_complement_graph.test.cpp
+  - test/graph/topological_sort.test.cpp
+  - test/graph/lowlink.1.test.cpp
+  - test/graph/tree/centroid_decomposition.test.cpp
+  - test/graph/tree/auxiliary_tree.test.cpp
+  - test/graph/tree/heavy-light_decomposition.1.test.cpp
+  - test/graph/tree/centroid.test.cpp
   - test/graph/tree/rerooting_dp.test.cpp
   - test/graph/tree/double_sweep.test.cpp
-  - test/graph/tree/centroid_decomposition.test.cpp
-  - test/graph/tree/centroid.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_doubling.test.cpp
-  - test/graph/tree/heavy-light_decomposition.2.test.cpp
-  - test/graph/tree/heavy-light_decomposition.1.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
+  - test/graph/tree/heavy-light_decomposition.2.test.cpp
+  - test/graph/flow/minimum_cost_flow/minimum_cost_flow_with_lower_bound_constraint.test.cpp
+  - test/graph/noshi_graph.test.cpp
   - test/graph/chromatic_number.test.cpp
+  - test/graph/traveling_salesman_problem.test.cpp
 documentation_of: include/emthrm/graph/edge.hpp
 layout: document
 redirect_from:

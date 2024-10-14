@@ -65,19 +65,19 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/prime_sieve.hpp
   requiredBy:
-  - include/emthrm/math/enumerate_k-th_power.hpp
-  - include/emthrm/math/euler_phi_init2.hpp
-  - include/emthrm/math/carmichael_function_init.hpp
   - include/emthrm/math/mobius_mu_init2.hpp
+  - include/emthrm/math/euler_phi_init2.hpp
+  - include/emthrm/math/enumerate_k-th_power.hpp
+  - include/emthrm/math/carmichael_function_init.hpp
   - include/emthrm/math/osa_k.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/enumerate_k-th_power.test.cpp
   - test/math/prime_sieve.test.cpp
-  - test/math/euler_phi_init2.test.cpp
-  - test/math/mobius_mu_init2.test.cpp
   - test/math/osa_k.test.cpp
+  - test/math/mobius_mu_init2.test.cpp
+  - test/math/euler_phi_init2.test.cpp
 documentation_of: include/emthrm/math/prime_sieve.hpp
 layout: document
 title: prime sieve

@@ -76,6 +76,9 @@ data:
     path: include/emthrm/data_structure/disjoint_sparse_table.hpp
     title: disjoint sparse table
   - icon: ':heavy_check_mark:'
+    path: include/emthrm/data_structure/dual_segment_tree.hpp
+    title: "\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\u6728"
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/data_structure/intervals_managed_by_set.hpp
     title: "\u533A\u9593\u3092 std::set \u3067\u7BA1\u7406\u3059\u308B\u3084\u3064"
   - icon: ':heavy_check_mark:'
@@ -87,7 +90,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/data_structure/slope_trick.hpp
     title: slope trick
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/data_structure/sparse_table.hpp
     title: sparse table
   dynamicProgramming:
@@ -214,7 +217,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/chromatic_number.hpp
     title: "\u5F69\u8272\u6570 (chromatic number)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/connencted_component_of_complement_graph.hpp
     title: "\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\u5206\u89E3"
   - icon: ':heavy_check_mark:'
@@ -252,9 +255,13 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/lowlink.hpp
     title: lowlink
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
+  - icon: ':warning:'
+    path: include/emthrm/graph/minimum_steiner_tree.hpp
+    title: "\u6700\u5C0F\u30B7\u30E5\u30BF\u30A4\u30CA\u30FC\u6728 (minimum Steiner\
+      \ tree)"
   - icon: ':question:'
     path: include/emthrm/graph/noshi_graph.hpp
     title: "\u533A\u9593\u306B\u8FBA\u3092\u5F35\u308B\u30C6\u30AF"
@@ -548,7 +555,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/string/trie.hpp
     title: "\u30C8\u30E9\u30A4\u6728 (trie)"
-  - icon: ':question:'
+  - icon: ':x:'
     path: include/emthrm/string/wildcard_pattern_matching.hpp
     title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
       \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -556,6 +563,11 @@ data:
     path: include/emthrm/string/z_algorithm.hpp
     title: Z algorithm
   tree:
+  - icon: ':question:'
+    path: include/emthrm/graph/tree/auxiliary_tree.hpp
+    title: "\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\u3061\u306E\u6700\u5C0F\
+      \u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\u3066\u6728\u3092\u5727\
+      \u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\u306A\u6728"
   - icon: ':question:'
     path: include/emthrm/graph/tree/centroid.hpp
     title: "\u91CD\u5FC3 (centroid)"
@@ -565,7 +577,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/tree/double_sweep.hpp
     title: double sweep
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/euler_tour_technique.hpp
     title: Euler tour technique
   - icon: ':heavy_check_mark:'
@@ -575,7 +587,7 @@ data:
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_doubling.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) \u30C0\u30D6\
       \u30EA\u30F3\u30B0\u7248"
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
     title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour\
       \ technique \u7248"
@@ -623,6 +635,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/disjoint_sparse_table.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/disjoint sparse table"
+  - icon: ':heavy_check_mark:'
+    path: test/data_structure/dual_segment_tree.test.cpp
+    title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u53CC\u5BFE\u30BB\u30B0\u30E1\u30F3\u30C8\
+      \u6728"
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/2d_fenwick_tree.test.cpp
     title: "\u30C7\u30FC\u30BF\u69CB\u9020/Fenwick tree/2\u6B21\u5143 Fenwick tree"
@@ -864,7 +880,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/chromatic_number.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5F69\u8272\u6570"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/connencted_component_of_complement_graph.test.cpp
     title: "\u30B0\u30E9\u30D5/\u88DC\u30B0\u30E9\u30D5\u306E\u9023\u7D50\u6210\u5206\
       \u5206\u89E3"
@@ -948,7 +964,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
     title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':warning:'
@@ -981,6 +997,12 @@ data:
     path: test/graph/traveling_salesman_problem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u5DE1\u56DE\u30BB\u30FC\u30EB\u30B9\u30DE\u30F3\u554F\
       \u984C"
+  - icon: ':warning:'
+    path: test/graph/tree/auxiliary_tree.test.cpp
+    title: "\u30B0\u30E9\u30D5/\u6728/\u6307\u5B9A\u3055\u308C\u305F\u9802\u70B9\u305F\
+      \u3061\u306E\u6700\u5C0F\u5171\u901A\u7956\u5148\u95A2\u4FC2\u3092\u4FDD\u3063\
+      \u3066\u6728\u3092\u5727\u7E2E\u3057\u3066\u3067\u304D\u308B\u88DC\u52A9\u7684\
+      \u306A\u6728"
   - icon: ':warning:'
     path: test/graph/tree/centroid.test.cpp
     title: "\u30B0\u30E9\u30D5/\u6728/\u91CD\u5FC3"
@@ -1387,7 +1409,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/string/suffix_array.test.cpp
     title: "\u6587\u5B57\u5217/\u63A5\u5C3E\u8F9E\u914D\u5217"
-  - icon: ':warning:'
+  - icon: ':x:'
     path: test/string/wildcard_pattern_matching.test.cpp
     title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
