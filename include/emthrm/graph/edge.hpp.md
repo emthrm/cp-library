@@ -48,7 +48,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/lowlink.hpp
     title: lowlink
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
   - icon: ':warning:'
@@ -167,7 +167,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
     title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':warning:'
@@ -238,7 +238,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/linear_equation.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u9023\u7ACB\u4E00\u6B21\u65B9\u7A0B\u5F0F"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -296,7 +296,7 @@ data:
   - include/emthrm/graph/topological_sort.hpp
   - include/emthrm/graph/noshi_graph.hpp
   timestamp: '2023-02-24 21:17:22+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
   - test/math/basis.test.cpp

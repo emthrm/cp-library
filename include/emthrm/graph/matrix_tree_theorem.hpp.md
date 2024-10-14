@@ -4,7 +4,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'
@@ -12,12 +12,12 @@ data:
     title: "\u884C\u5217 (matrix)"
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/graph/matrix_tree_theorem.hpp\"\n\n\n\n#include\
@@ -97,7 +97,7 @@ data:
   path: include/emthrm/graph/matrix_tree_theorem.hpp
   requiredBy: []
   timestamp: '2023-12-25 04:31:42+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/matrix_tree_theorem.test.cpp
 documentation_of: include/emthrm/graph/matrix_tree_theorem.hpp

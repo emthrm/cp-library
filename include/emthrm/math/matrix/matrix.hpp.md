@@ -6,14 +6,14 @@ data:
     path: include/emthrm/graph/flow/matching/maximum_matching.hpp
     title: "\u4E00\u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\
       \u30B0 (maximum matching)"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
   - icon: ':question:'
     path: include/emthrm/math/convolution/kronecker_power-vector_multiplication.hpp
     title: "\u30AF\u30ED\u30CD\u30C3\u30AB\u30FC\u51AA (Kronecker power) \u3068\u30D9\
       \u30AF\u30C8\u30EB\u306E\u7A4D"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':heavy_check_mark:'
@@ -31,7 +31,7 @@ data:
     path: test/graph/flow/matching/maximum_matching.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
       \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':warning:'
@@ -57,7 +57,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/math/matrix/pow_of_matrix.test.cpp
     title: "\u6570\u5B66/\u884C\u5217/\u884C\u5217\u306E\u7D2F\u4E57"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -126,7 +126,7 @@ data:
   - include/emthrm/graph/matrix_tree_theorem.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
   timestamp: '2023-12-25 04:31:42+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/matrix/determinant.test.cpp
   - test/math/matrix/matrix.test.cpp

@@ -84,7 +84,7 @@ data:
     path: test/graph/flow/matching/maximum_matching.test.cpp
     title: "\u30B0\u30E9\u30D5/\u30D5\u30ED\u30FC/\u30DE\u30C3\u30C1\u30F3\u30B0/\u4E00\
       \u822C\u30B0\u30E9\u30D5\u306E\u6700\u5927\u30DE\u30C3\u30C1\u30F3\u30B0"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':warning:'

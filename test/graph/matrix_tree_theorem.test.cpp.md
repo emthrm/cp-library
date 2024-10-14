@@ -4,10 +4,10 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/edge.hpp
     title: "\u8FBA"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':question:'
@@ -18,9 +18,9 @@ data:
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     PROBLEM: https://judge.yosupo.jp/problem/counting_spanning_tree_undirected
     document_title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
@@ -205,7 +205,7 @@ data:
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
     }  // namespace emthrm\n\n\n#line 13 \"test/graph/matrix_tree_theorem.test.cpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, m;\n  std::cin\
+    \n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n  int n, m;\n  std::cin\
     \ >> n >> m;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n  while\
     \ (m--) {\n    int u, v;\n    std::cin >> u >> v;\n    graph[u].emplace_back(u,\
     \ v);\n    graph[v].emplace_back(v, u);\n  }\n  std::cout << emthrm::matrix_tree_theorem(graph,\
@@ -214,7 +214,7 @@ data:
     \ PROBLEM https://judge.yosupo.jp/problem/counting_spanning_tree_undirected\n\
     \ */\n\n#include <iostream>\n#include <vector>\n\n#include \"emthrm/graph/edge.hpp\"\
     \n#include \"emthrm/graph/matrix_tree_theorem.hpp\"\n#include \"emthrm/math/modint.hpp\"\
-    \n\nint main() {\n  using ModInt = emthrm::MInt<1000000007>;\n  int n, m;\n  std::cin\
+    \n\nint main() {\n  using ModInt = emthrm::MInt<998244353>;\n  int n, m;\n  std::cin\
     \ >> n >> m;\n  std::vector<std::vector<emthrm::Edge<bool>>> graph(n);\n  while\
     \ (m--) {\n    int u, v;\n    std::cin >> u >> v;\n    graph[u].emplace_back(u,\
     \ v);\n    graph[v].emplace_back(v, u);\n  }\n  std::cout << emthrm::matrix_tree_theorem(graph,\
@@ -228,8 +228,8 @@ data:
   isVerificationFile: true
   path: test/graph/matrix_tree_theorem.test.cpp
   requiredBy: []
-  timestamp: '2024-06-09 19:16:13+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2024-10-14 21:12:56+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/matrix_tree_theorem.test.cpp
 layout: document

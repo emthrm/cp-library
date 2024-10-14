@@ -255,7 +255,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/graph/lowlink.hpp
     title: lowlink
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/graph/matrix_tree_theorem.hpp
     title: "\u884C\u5217\u6728\u5B9A\u7406 (Kirchhoff's matrix tree theorem)"
   - icon: ':warning:'
@@ -428,7 +428,7 @@ data:
     path: include/emthrm/math/simultaneous_linear_congruence.hpp
     title: "\u9023\u7ACB\u7DDA\u5F62\u5408\u540C\u5F0F (simultaneous linear congruence)"
   matrix:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/matrix/determinant.hpp
     title: "\u884C\u5217\u5F0F (determinant)"
   - icon: ':heavy_check_mark:'
@@ -964,7 +964,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/graph/lowlink.2.test.cpp
     title: "\u30B0\u30E9\u30D5/lowlink\uFF08\u95A2\u7BC0\u70B9\uFF09"
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/matrix_tree_theorem.test.cpp
     title: "\u30B0\u30E9\u30D5/\u884C\u5217\u6728\u5B9A\u7406"
   - icon: ':warning:'
