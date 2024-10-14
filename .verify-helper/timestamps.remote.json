@@ -71,6 +71,7 @@
 "test/graph/kruskal.test.cpp": "2023-02-25 16:35:06 +0900",
 "test/graph/lowlink.1.test.cpp": "2023-02-27 16:57:22 +0900",
 "test/graph/lowlink.2.test.cpp": "2023-02-27 16:57:22 +0900",
+"test/graph/matrix_tree_theorem.test.cpp": "2024-10-14 21:12:56 +0900",
 "test/graph/prim.test.cpp": "2023-02-25 16:35:06 +0900",
 "test/graph/shortest_path/bellman-ford.test.cpp": "2023-02-25 16:35:06 +0900",
 "test/graph/shortest_path/dijkstra.test.cpp": "2023-02-25 16:35:06 +0900",
