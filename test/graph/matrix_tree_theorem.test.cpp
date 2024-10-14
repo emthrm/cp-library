@@ -12,7 +12,7 @@
 #include "emthrm/math/modint.hpp"
 
 int main() {
-  using ModInt = emthrm::MInt<1000000007>;
+  using ModInt = emthrm::MInt<998244353>;
   int n, m;
   std::cin >> n >> m;
   std::vector<std::vector<emthrm::Edge<bool>>> graph(n);
