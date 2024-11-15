@@ -1,6 +1,6 @@
 # cp-library
 
-[![Actions Status](https://github.com/emthrm/cp-library/workflows/verify/badge.svg)](https://github.com/emthrm/cp-library/actions)
+[![Actions Status](https://github.com/emthrm/cp-library/actions/workflows/verify.yml/badge.svg)](https://github.com/emthrm/cp-library/actions/workflows/verify.yml)
 [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://emthrm.github.io/cp-library/)
 
 C++ Library for Competitive Programming
