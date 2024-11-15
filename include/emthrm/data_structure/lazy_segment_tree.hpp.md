@@ -487,6 +487,7 @@ struct DualSegmentTree;
   - https://sotanishy.github.io/cp-library-cpp/data-structure/segtree/dynamic_lazy_segment_tree.cpp
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140
   - https://twitter.com/noshi91/status/1338881669525172224
+  - https://judge.yosupo.jp/problem/point_set_range_composite_large_array
 - 2次元セグメント木
   - https://www.hamayanhamayan.com/entry/2017/12/09/015937
   - https://ei1333.github.io/algorithm/segment-tree.html

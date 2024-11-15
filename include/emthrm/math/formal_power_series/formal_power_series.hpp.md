@@ -22,7 +22,7 @@ data:
     path: include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
     title: "\u7DDA\u5F62\u56DE\u5E30\u6570\u5217 (linear recurrence sequence) \u306E\
       \u7B2C $N$ \u9805"
-  - icon: ':warning:'
+  - icon: ':question:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
     title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   - icon: ':heavy_check_mark:'
@@ -94,6 +94,10 @@ data:
     path: test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
     title: "\u6570\u5B66/\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570/\u591A\u9805\u5F0F\u5217\
       \u306E\u76F8\u4E57"
+  - icon: ':warning:'
+    path: test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
+      \ (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"
@@ -409,6 +413,7 @@ data:
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
+  - test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
   - test/math/formal_power_series/formal_power_series.6.test.cpp

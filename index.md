@@ -7,7 +7,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init.hpp
     title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868"
-  - icon: ':warning:'
+  - icon: ':question:'
     path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
     title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   binaryMatrix:
@@ -555,7 +555,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: include/emthrm/string/trie.hpp
     title: "\u30C8\u30E9\u30A4\u6728 (trie)"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/string/wildcard_pattern_matching.hpp
     title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
       \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -1320,6 +1320,10 @@ data:
     path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
       \u306E\u6570\u8868"
+  - icon: ':warning:'
+    path: test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
+      \ (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/binomial_coefficients.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570"
@@ -1409,7 +1413,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/string/suffix_array.test.cpp
     title: "\u6587\u5B57\u5217/\u63A5\u5C3E\u8F9E\u914D\u5217"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/string/wildcard_pattern_matching.test.cpp
     title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"

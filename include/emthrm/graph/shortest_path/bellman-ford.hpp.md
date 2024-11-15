@@ -178,8 +178,9 @@ Dijkstra 法
   - https://en.wikipedia.org/wiki/Yen%27s_algorithm
   - https://noshi91.github.io/algorithm-encyclopedia/yen-algorithm
   - http://inarizuuuushi.hatenablog.com/entry/2018/08/30/222605
-  - https://mugen1337.github.io/procon/Graph2/Yen.cpp
-  - https://yukicoder.me/problems/no/1069
+  - https://frosted-english-119.notion.site/Undirected-K-Shortest-Paths-86a6c9a076d942c9b6e1058859ccf566
+  - https://mugen1337.github.io/procon/Graph2/Yen.hpp
+  - 問題例「[電柱 / Pole (Hard)](https://yukicoder.me/problems/no/1069)」
 - k shortest walk (Eppstein's algorithm)
   - https://en.wikipedia.org/wiki/K_shortest_path_routing#Variations
   - https://noshi91.github.io/algorithm-encyclopedia/eppstein-algorithm
@@ -199,7 +200,7 @@ Dijkstra 法
 - shortest non-zero path in group-labeled graphs
   - https://ygussany.hatenablog.com/entry/2019/12/04/000000
   - https://gist.github.com/wata-orz/d3037bd0b919c76dd9ddc0379e1e3192
-  - https://yukicoder.me/problems/no/1602
+  - 問題例 "[With Animals into Institute 2](https://yukicoder.me/problems/no/1602)"
 
 
 ## Submissons

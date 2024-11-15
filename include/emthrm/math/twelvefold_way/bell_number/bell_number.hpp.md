@@ -229,4 +229,4 @@ $$
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_5_G/review/4088882/emthrm/C++14
 - [数表](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_5_G/review/4088892/emthrm/C++14)
-- 数表 $n = k$ 版
+- [数表 $n = k$ 版](https://judge.yosupo.jp/submission/249770)

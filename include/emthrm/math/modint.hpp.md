@@ -53,7 +53,7 @@ data:
     title: "\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570 (Stirling number\
       \ of the second kind) \u306E\u6570\u8868 \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\
       \u7248"
-  - icon: ':x:'
+  - icon: ':question:'
     path: include/emthrm/string/wildcard_pattern_matching.hpp
     title: "\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\u7528\u3044\u305F\u30D1\
       \u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
@@ -237,6 +237,10 @@ data:
     path: test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
       \u306E\u6570\u8868"
+  - icon: ':warning:'
+    path: test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
+      \ (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/binomial_coefficients.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570"
@@ -275,11 +279,11 @@ data:
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\
       \u6570/\u7B2C2\u7A2E\u30B9\u30BF\u30FC\u30EA\u30F3\u30B0\u6570\u306E\u6570\u8868\
       \ \u5F62\u5F0F\u7684\u51AA\u7D1A\u6570\u7248"
-  - icon: ':x:'
+  - icon: ':warning:'
     path: test/string/wildcard_pattern_matching.test.cpp
     title: "\u6587\u5B57\u5217/\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9 ? \u3092\
       \u7528\u3044\u305F\u30D1\u30BF\u30FC\u30F3\u30DE\u30C3\u30C1\u30F3\u30B0"
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':question:'
   attributes:
@@ -529,7 +533,7 @@ data:
   - include/emthrm/string/wildcard_pattern_matching.hpp
   - include/emthrm/graph/flow/matching/maximum_matching.hpp
   timestamp: '2023-05-13 18:14:57+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/mobius_mu_init.test.cpp
   - test/math/twelvefold_way/lucas.test.cpp
@@ -543,6 +547,7 @@ data:
   - test/math/twelvefold_way/large_nCk_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number_init.test.cpp
   - test/math/twelvefold_way/bell_number/bell_number.test.cpp
+  - test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
   - test/math/twelvefold_way/partition_function_init.test.cpp
   - test/math/matrix/determinant.test.cpp
   - test/math/matrix/matrix.test.cpp

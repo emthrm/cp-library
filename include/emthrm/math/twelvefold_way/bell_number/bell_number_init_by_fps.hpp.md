@@ -5,10 +5,14 @@ data:
     path: include/emthrm/math/formal_power_series/formal_power_series.hpp
     title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':warning:'
+    path: test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u30D9\u30EB\u6570/\u30D9\u30EB\u6570\
+      \ (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp\"\
@@ -169,8 +173,9 @@ data:
   path: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   requiredBy: []
   timestamp: '2023-02-25 16:35:06+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_PARTIAL_AC
+  verifiedWith:
+  - test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
 documentation_of: include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
 layout: document
 title: "\u30D9\u30EB\u6570 (Bell number) \u306E\u6570\u8868 $n = k$ \u7248"
@@ -245,4 +250,4 @@ $$
 
 - https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_5_G/review/4088882/emthrm/C++14
 - [数表](https://onlinejudge.u-aizu.ac.jp/solutions/problem/DPL_5_G/review/4088892/emthrm/C++14)
-- 数表 $n = k$ 版
+- [数表 $n = k$ 版](https://judge.yosupo.jp/submission/249770)
