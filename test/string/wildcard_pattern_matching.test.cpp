@@ -1,6 +1,7 @@
 /*
  * @title 文字列/ワイルドカード ? を用いたパターンマッチング
  *
+ * verification-helper: IGNORE
  * verification-helper: PROBLEM https://judge.yosupo.jp/problem/wildcard_pattern_matching
  */
 
