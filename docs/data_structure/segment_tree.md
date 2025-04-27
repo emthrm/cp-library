@@ -197,6 +197,7 @@ struct DualSegmentTree;
   - https://www.hamayanhamayan.com/entry/2019/02/09/103140
   - https://twitter.com/noshi91/status/1338881669525172224
   - https://judge.yosupo.jp/problem/point_set_range_composite_large_array
+  - https://atcoder.jp/contests/abc403/tasks/abc403_g
 - 2次元セグメント木
   - https://www.hamayanhamayan.com/entry/2017/12/09/015937
   - https://ei1333.github.io/algorithm/segment-tree.html

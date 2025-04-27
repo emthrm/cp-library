@@ -622,6 +622,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
   - http://wwwa.pikara.ne.jp/okojisan/rb-tree/index.html
   - https://wiki.bit-hive.com/north/pg/%E8%B5%A4%E9%BB%92%E6%9C%A8
   - http://fujimura2.fiw-web.net/java/mutter/tree/red-black-tree.html
+  - https://acompany-ac.notion.site/250114_-176269d85586800aaebbdf3fa9ef7a1b
   - https://ei1333.github.io/luzhiled/snippets/structure/red-black-tree.html
   - ~~https://lumakernel.github.io/ecasdqina/data-structure/BBST/Red-Black-Tree~~
   - ~~https://github.com/eandbsoftware/libraryCPP/blob/master/%23RedBlackTree.cpp~~
@@ -632,6 +633,7 @@ $n \in \mathbb{N}^+$ に対して定義される数論的関数 $f(n)$ の内、
 - treap
   - https://ja.wikipedia.org/wiki/Treap
   - https://xuzijian629.hatenablog.com/entry/2018/12/08/000452
+  - https://codeforces.com/blog/entry/136858
   - ~~https://lumakernel.github.io/ecasdqina/data-structure/BBST/Treap~~
   - ~~http://www.prefield.com/algorithm/container/treap.html~~
   - https://tubo28.me/compprog/algorithm/treap/

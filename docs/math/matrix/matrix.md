@@ -63,6 +63,7 @@ struct Matrix;
   - https://en.wikipedia.org/wiki/Hafnian
   - https://github.com/yosupo06/library-checker-problems/issues/467
   - https://judge.yosupo.jp/problem/hafnian_of_matrix
+  - https://judge.yosupo.jp/problem/pfaffian_of_matrix
 
 
 ## Submissons
