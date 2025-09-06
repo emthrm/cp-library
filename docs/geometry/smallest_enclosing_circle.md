@@ -27,4 +27,4 @@ expected $O(N)$
 
 ## Submissons
 
-- https://atcoder.jp/contests/abc151/submissions/11968904
+- https://judge.yosupo.jp/submission/312942

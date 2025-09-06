@@ -1,12 +1,9 @@
 /*
  * @title 計算幾何学/最小包含円
  *
- * verification-helper: IGNORE
- * verification-helper: PROBLEM https://atcoder.jp/contests/abc151/tasks/abc151_f
- * verification-helper: ERROR 1e-6
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/minimum_enclosing_circle
  */
 
-#include <iomanip>
 #include <iostream>
 #include <vector>
 
@@ -17,10 +14,13 @@ int main() {
   int n;
   std::cin >> n;
   std::vector<emthrm::geometry::Point> p(n);
-  for (int i = 0; i < n; ++i) {
-    std::cin >> p[i];
+  for (auto& p_i : p) {
+    std::cin >> p_i;
   }
-  std::cout << std::fixed << std::setprecision(6)
-            << emthrm::geometry::smallest_enclosing_circle(p).r << '\n';
+  const auto c = emthrm::geometry::smallest_enclosing_circle(p);
+  for (const auto& p_i : p) {
+    std::cout << (emthrm::geometry::has_intersected(c, p_i) ? '1' : '0');
+  }
+  std::cout << '\n';
   return 0;
 }
