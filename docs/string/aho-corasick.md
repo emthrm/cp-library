@@ -48,4 +48,4 @@ struct AhoCorasick : Trie<Sigma + 1>;
 
 ## Submissons
 
-https://yukicoder.me/submissions/575927
+https://judge.yosupo.jp/submission/312944
