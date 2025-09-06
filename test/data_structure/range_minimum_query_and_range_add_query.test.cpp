@@ -1,12 +1,11 @@
 /*
  * @title データ構造/遅延伝播セグメント木 (range minimum query and range add query)
  *
- * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H
+ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/range_add_range_min
  */
 
 #include <iostream>
 #include <limits>
-#include <vector>
 
 #include "emthrm/data_structure/lazy_segment_tree.hpp"
 
@@ -14,17 +13,21 @@ int main() {
   int n, q;
   std::cin >> n >> q;
   emthrm::LazySegmentTree<emthrm::monoid::RangeMinimumAndAddQuery<
-      long long, std::numeric_limits<long long>::max()>> rmq(
-          std::vector<long long>(n, 0));
+      int64_t, std::numeric_limits<int64_t>::max()>> a(n);
+  for (int i = 0; i < n; ++i) {
+    int a_i;
+    std::cin >> a_i;
+    a.set(i, a_i);
+  }
   while (q--) {
-    int query, s, t;
-    std::cin >> query >> s >> t;
-    if (query == 0) {
+    int type, l, r;
+    std::cin >> type >> l >> r;
+    if (type == 0) {
       int x;
       std::cin >> x;
-      rmq.apply(s, t + 1, x);
-    } else if (query == 1) {
-      std::cout << rmq.get(s, t + 1) << '\n';
+      a.apply(l, r, x);
+    } else if (type == 1) {
+      std::cout << a.get(l, r) << '\n';
     }
   }
   return 0;
