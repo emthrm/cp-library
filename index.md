@@ -198,7 +198,7 @@ data:
   - icon: ':question:'
     path: include/emthrm/geometry/geometry.hpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   graph:
@@ -862,7 +862,7 @@ data:
     path: test/geometry/geometry.24.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\u306E\
       \u56DE\u8EE2)"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - icon: ':heavy_check_mark:'

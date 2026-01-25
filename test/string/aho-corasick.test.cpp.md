@@ -13,17 +13,17 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: https://yukicoder.me/problems/no/430
+    PROBLEM: https://judge.yosupo.jp/problem/aho_corasick
     document_title: "\u6587\u5B57\u5217/Aho\u2013Corasick algorithm"
     links:
-    - https://yukicoder.me/problems/no/430
+    - https://judge.yosupo.jp/problem/aho_corasick
   bundledCode: "#line 1 \"test/string/aho-corasick.test.cpp\"\n/*\n * @title \u6587\
     \u5B57\u5217/Aho\u2013Corasick algorithm\n *\n * verification-helper: PROBLEM\
-    \ https://yukicoder.me/problems/no/430\n */\n\n#include <iostream>\n#include <string>\n\
-    \n#line 1 \"include/emthrm/string/aho-corasick.hpp\"\n\n\n\n#include <algorithm>\n\
-    #include <cassert>\n#include <iterator>\n#include <map>\n#include <queue>\n#line\
-    \ 10 \"include/emthrm/string/aho-corasick.hpp\"\n#include <vector>\n\n#line 1\
-    \ \"include/emthrm/string/trie.hpp\"\n\n\n\n#line 5 \"include/emthrm/string/trie.hpp\"\
+    \ https://judge.yosupo.jp/problem/aho_corasick\n */\n\n#include <iostream>\n#include\
+    \ <ranges>\n#include <string>\n#include <vector>\n\n#line 1 \"include/emthrm/string/aho-corasick.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <cassert>\n#include <iterator>\n#include\
+    \ <map>\n#include <queue>\n#line 11 \"include/emthrm/string/aho-corasick.hpp\"\
+    \n\n#line 1 \"include/emthrm/string/trie.hpp\"\n\n\n\n#line 5 \"include/emthrm/string/trie.hpp\"\
     \n#include <array>\n#include <functional>\n#line 9 \"include/emthrm/string/trie.hpp\"\
     \n\nnamespace emthrm {\n\ntemplate <int Sigma = 26>\nstruct Trie {\n  struct Node\
     \ {\n    char c;\n    std::array<int, Sigma> nxt;\n    std::vector<int> tails;\n\
@@ -71,26 +71,39 @@ data:
     \ std::string& t, int pos = 0) const {\n    static_assert(IS_FULL_VER);\n    std::map<int,\
     \ int> mp;\n    for (const char c : t) {\n      pos = move(c, pos);\n      for\
     \ (const int id : this->nodes[pos].tails) ++mp[id];\n    }\n    return mp;\n \
-    \ }\n};\n\n}  // namespace emthrm\n\n\n#line 11 \"test/string/aho-corasick.test.cpp\"\
-    \n\nint main() {\n  std::string s;\n  std::cin >> s;\n  emthrm::AhoCorasick<>\
-    \ aho([](const char c) -> int { return c - 'A'; });\n  int m;\n  std::cin >> m;\n\
-    \  for (int i = 0; i < m; ++i) {\n    std::string p;\n    std::cin >> p;\n   \
-    \ aho.add(p, i);\n  }\n  aho.build();\n  std::cout << aho.match(s) << '\\n';\n\
-    \  return 0;\n}\n"
+    \ }\n};\n\n}  // namespace emthrm\n\n\n#line 13 \"test/string/aho-corasick.test.cpp\"\
+    \n\nint main() {\n  int n;\n  std::cin >> n;\n  emthrm::AhoCorasick aho_corasick;\n\
+    \  std::vector<int> v(n);\n  for (const int i : std::views::iota(0, n)) {\n  \
+    \  std::string s;\n    std::cin >> s;\n    aho_corasick.add(s, i);\n    v[i] =\
+    \ aho_corasick.find(s);\n  }\n  const int ans = std::ranges::ssize(aho_corasick.nodes);\n\
+    \  std::vector<int> p(ans, -1);\n  for (const int i : std::views::iota(0, ans))\
+    \ {\n    for (const int nxt : aho_corasick.nodes[i].nxt) {\n      if (nxt != -1)\
+    \ p[nxt] = i;\n    }\n  }\n  aho_corasick.build();\n  std::cout << ans << '\\\
+    n';\n  for (const int i : std::views::iota(1, ans)) {\n    std::cout << p[i] <<\
+    \ ' ' << aho_corasick.nodes[i].nxt.back() << '\\n';\n  }\n  for (const int i :\
+    \ std::views::iota(0, n)) {\n    std::cout << v[i] << \" \\n\"[i + 1 == n];\n\
+    \  }\n  return 0;\n}\n"
   code: "/*\n * @title \u6587\u5B57\u5217/Aho\u2013Corasick algorithm\n *\n * verification-helper:\
-    \ PROBLEM https://yukicoder.me/problems/no/430\n */\n\n#include <iostream>\n#include\
-    \ <string>\n\n#include \"emthrm/string/aho-corasick.hpp\"\n\nint main() {\n  std::string\
-    \ s;\n  std::cin >> s;\n  emthrm::AhoCorasick<> aho([](const char c) -> int {\
-    \ return c - 'A'; });\n  int m;\n  std::cin >> m;\n  for (int i = 0; i < m; ++i)\
-    \ {\n    std::string p;\n    std::cin >> p;\n    aho.add(p, i);\n  }\n  aho.build();\n\
-    \  std::cout << aho.match(s) << '\\n';\n  return 0;\n}\n"
+    \ PROBLEM https://judge.yosupo.jp/problem/aho_corasick\n */\n\n#include <iostream>\n\
+    #include <ranges>\n#include <string>\n#include <vector>\n\n#include \"emthrm/string/aho-corasick.hpp\"\
+    \n\nint main() {\n  int n;\n  std::cin >> n;\n  emthrm::AhoCorasick aho_corasick;\n\
+    \  std::vector<int> v(n);\n  for (const int i : std::views::iota(0, n)) {\n  \
+    \  std::string s;\n    std::cin >> s;\n    aho_corasick.add(s, i);\n    v[i] =\
+    \ aho_corasick.find(s);\n  }\n  const int ans = std::ranges::ssize(aho_corasick.nodes);\n\
+    \  std::vector<int> p(ans, -1);\n  for (const int i : std::views::iota(0, ans))\
+    \ {\n    for (const int nxt : aho_corasick.nodes[i].nxt) {\n      if (nxt != -1)\
+    \ p[nxt] = i;\n    }\n  }\n  aho_corasick.build();\n  std::cout << ans << '\\\
+    n';\n  for (const int i : std::views::iota(1, ans)) {\n    std::cout << p[i] <<\
+    \ ' ' << aho_corasick.nodes[i].nxt.back() << '\\n';\n  }\n  for (const int i :\
+    \ std::views::iota(0, n)) {\n    std::cout << v[i] << \" \\n\"[i + 1 == n];\n\
+    \  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/string/aho-corasick.hpp
   - include/emthrm/string/trie.hpp
   isVerificationFile: true
   path: test/string/aho-corasick.test.cpp
   requiredBy: []
-  timestamp: '2023-02-25 01:48:23+09:00'
+  timestamp: '2025-09-07 03:26:43+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/string/aho-corasick.test.cpp

@@ -397,37 +397,37 @@ data:
   isVerificationFile: false
   path: include/emthrm/math/formal_power_series/formal_power_series.hpp
   requiredBy:
-  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
+  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
+  - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_by_fps.hpp
   - include/emthrm/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_by_fps.hpp
-  - include/emthrm/math/twelvefold_way/bell_number/bell_number_init_by_fps.hpp
-  - include/emthrm/math/formal_power_series/bernoulli_number.hpp
-  - include/emthrm/math/formal_power_series/bostan-mori.hpp
+  - include/emthrm/math/twelvefold_way/partition_function_by_fps.hpp
   - include/emthrm/math/formal_power_series/faulhaber_by_fps.hpp
+  - include/emthrm/math/formal_power_series/bostan-mori.hpp
+  - include/emthrm/math/formal_power_series/bernoulli_number.hpp
   - include/emthrm/math/formal_power_series/eulerian_number_by_fps.hpp
   - include/emthrm/math/formal_power_series/nth_term_of_linear_recurrence_sequence.hpp
-  - include/emthrm/dynamic_programming/subset_sum_problem.hpp
   timestamp: '2023-02-23 21:59:12+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
+  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
   - test/math/twelvefold_way/partition_function_by_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_first_kind_init_with_fps.test.cpp
   - test/math/twelvefold_way/stirling_number/stirling_number_of_the_second_kind_init_with_fps.test.cpp
-  - test/math/twelvefold_way/bell_number/bell_number_init_by_fps.test.cpp
   - test/math/formal_power_series/faulhaber_by_fps.test.cpp
+  - test/math/formal_power_series/formal_power_series.2.test.cpp
   - test/math/formal_power_series/formal_power_series.1.test.cpp
-  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/formal_power_series/formal_power_series.3.test.cpp
   - test/math/formal_power_series/formal_power_series.4.test.cpp
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
-  - test/math/formal_power_series/formal_power_series.5.test.cpp
   - test/math/formal_power_series/multipoint_evaluation.test.cpp
-  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
   - test/math/formal_power_series/formal_power_series.7.test.cpp
   - test/math/formal_power_series/bostan-mori.test.cpp
+  - test/math/formal_power_series/formal_power_series.6.test.cpp
   - test/math/formal_power_series/bernoulli_number.test.cpp
-  - test/math/formal_power_series/formal_power_series.2.test.cpp
-  - test/dynamic_programming/subset_sum_problem.test.cpp
+  - test/math/formal_power_series/formal_power_series.5.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
+  - test/math/formal_power_series/product_of_polynomial_sequence.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/formal_power_series.hpp
 layout: document
 title: "\u5F62\u5F0F\u7684\u51AA\u7D1A\u6570 (formal power series)"
@@ -654,9 +654,13 @@ struct FormalPowerSeries;
   - https://maspypy.com/%e6%95%b0%e5%ad%a6-%e7%95%b3%e3%81%bf%e8%be%bc%e3%81%bf%e5%85%a5%e9%96%80%ef%bc%9adirichlet%e7%a9%8d%e3%81%a8%e3%82%bc%e3%83%bc%e3%82%bf%e5%a4%89%e6%8f%9b%e3%83%bb%e3%83%a1%e3%83%93%e3%82%a6
   - https://maspypy.com/dirichlet-%e7%a9%8d%e3%81%a8%e3%80%81%e6%95%b0%e8%ab%96%e9%96%a2%e6%95%b0%e3%81%ae%e7%b4%af%e7%a9%8d%e5%92%8c
   - https://twitter.com/cureskol/status/1377226831359701006
+  - https://judge.yosupo.jp/problem/dirichlet_convolution_and_prefix_sums
+  - https://judge.yosupo.jp/problem/dirichlet_inverse_and_prefix_sums
   - https://yukicoder.me/problems/no/1532
   - https://atcoder.jp/contests/arc116/submissions/21399687
   - https://atcoder.jp/contests/abc020/submissions/21426601
+- 2変数形式的冪級数
+  - https://judge.yosupo.jp/problem/inv_of_formal_power_series_2d
 - 桁 DP
   - https://qiita.com/ryuhe1/items/185e1a283f13ac638a53
   - https://atcoder.jp/contests/abc300/editorial/6269

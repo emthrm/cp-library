@@ -10,22 +10,21 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    PROBLEM: http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H
+    PROBLEM: https://judge.yosupo.jp/problem/range_add_range_min
     document_title: "\u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\
       \u30B0\u30E1\u30F3\u30C8\u6728 (range minimum query and range add query)"
     links:
-    - http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H
+    - https://judge.yosupo.jp/problem/range_add_range_min
   bundledCode: "#line 1 \"test/data_structure/range_minimum_query_and_range_add_query.test.cpp\"\
     \n/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\u30B0\
     \u30E1\u30F3\u30C8\u6728 (range minimum query and range add query)\n *\n * verification-helper:\
-    \ PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H\n */\n\
-    \n#include <iostream>\n#include <limits>\n#include <vector>\n\n#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\
+    \ PROBLEM https://judge.yosupo.jp/problem/range_add_range_min\n */\n\n#include\
+    \ <iostream>\n#include <limits>\n\n#line 1 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\
     \n\n\n\n#include <algorithm>\n#include <bit>\n// #include <cassert>\n#line 8 \"\
     include/emthrm/data_structure/lazy_segment_tree.hpp\"\n#include <type_traits>\n\
-    #line 10 \"include/emthrm/data_structure/lazy_segment_tree.hpp\"\n\nnamespace\
-    \ emthrm {\n\ntemplate <typename T>\nrequires requires {\n  typename T::Monoid;\n\
-    \  typename T::OperatorMonoid;\n  {T::m_id()} -> std::same_as<typename T::Monoid>;\n\
-    \  {T::o_id()} -> std::same_as<typename T::OperatorMonoid>;\n  {T::m_merge(std::declval<typename\
+    #include <vector>\n\nnamespace emthrm {\n\ntemplate <typename T>\nrequires requires\
+    \ {\n  typename T::Monoid;\n  typename T::OperatorMonoid;\n  {T::m_id()} -> std::same_as<typename\
+    \ T::Monoid>;\n  {T::o_id()} -> std::same_as<typename T::OperatorMonoid>;\n  {T::m_merge(std::declval<typename\
     \ T::Monoid>(),\n              std::declval<typename T::Monoid>())}\n      ->\
     \ std::same_as<typename T::Monoid>;\n  {T::o_merge(std::declval<typename T::OperatorMonoid>(),\n\
     \              std::declval<typename T::OperatorMonoid>())}\n      -> std::same_as<typename\
@@ -145,30 +144,31 @@ data:
     \              const OperatorMonoid& b) {\n    return a + b;\n  }\n  static Monoid\
     \ apply(const Monoid& a, const OperatorMonoid& b) {\n    return Monoid{a.sum +\
     \ b * a.len, a.len};\n  }\n};\n\n}  // namespace monoid\n\n}  // namespace emthrm\n\
-    \n\n#line 12 \"test/data_structure/range_minimum_query_and_range_add_query.test.cpp\"\
+    \n\n#line 11 \"test/data_structure/range_minimum_query_and_range_add_query.test.cpp\"\
     \n\nint main() {\n  int n, q;\n  std::cin >> n >> q;\n  emthrm::LazySegmentTree<emthrm::monoid::RangeMinimumAndAddQuery<\n\
-    \      long long, std::numeric_limits<long long>::max()>> rmq(\n          std::vector<long\
-    \ long>(n, 0));\n  while (q--) {\n    int query, s, t;\n    std::cin >> query\
-    \ >> s >> t;\n    if (query == 0) {\n      int x;\n      std::cin >> x;\n    \
-    \  rmq.apply(s, t + 1, x);\n    } else if (query == 1) {\n      std::cout << rmq.get(s,\
-    \ t + 1) << '\\n';\n    }\n  }\n  return 0;\n}\n"
+    \      int64_t, std::numeric_limits<int64_t>::max()>> a(n);\n  for (int i = 0;\
+    \ i < n; ++i) {\n    int a_i;\n    std::cin >> a_i;\n    a.set(i, a_i);\n  }\n\
+    \  while (q--) {\n    int type, l, r;\n    std::cin >> type >> l >> r;\n    if\
+    \ (type == 0) {\n      int x;\n      std::cin >> x;\n      a.apply(l, r, x);\n\
+    \    } else if (type == 1) {\n      std::cout << a.get(l, r) << '\\n';\n    }\n\
+    \  }\n  return 0;\n}\n"
   code: "/*\n * @title \u30C7\u30FC\u30BF\u69CB\u9020/\u9045\u5EF6\u4F1D\u64AD\u30BB\
     \u30B0\u30E1\u30F3\u30C8\u6728 (range minimum query and range add query)\n *\n\
-    \ * verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=DSL_2_H\n\
-    \ */\n\n#include <iostream>\n#include <limits>\n#include <vector>\n\n#include\
-    \ \"emthrm/data_structure/lazy_segment_tree.hpp\"\n\nint main() {\n  int n, q;\n\
-    \  std::cin >> n >> q;\n  emthrm::LazySegmentTree<emthrm::monoid::RangeMinimumAndAddQuery<\n\
-    \      long long, std::numeric_limits<long long>::max()>> rmq(\n          std::vector<long\
-    \ long>(n, 0));\n  while (q--) {\n    int query, s, t;\n    std::cin >> query\
-    \ >> s >> t;\n    if (query == 0) {\n      int x;\n      std::cin >> x;\n    \
-    \  rmq.apply(s, t + 1, x);\n    } else if (query == 1) {\n      std::cout << rmq.get(s,\
-    \ t + 1) << '\\n';\n    }\n  }\n  return 0;\n}\n"
+    \ * verification-helper: PROBLEM https://judge.yosupo.jp/problem/range_add_range_min\n\
+    \ */\n\n#include <iostream>\n#include <limits>\n\n#include \"emthrm/data_structure/lazy_segment_tree.hpp\"\
+    \n\nint main() {\n  int n, q;\n  std::cin >> n >> q;\n  emthrm::LazySegmentTree<emthrm::monoid::RangeMinimumAndAddQuery<\n\
+    \      int64_t, std::numeric_limits<int64_t>::max()>> a(n);\n  for (int i = 0;\
+    \ i < n; ++i) {\n    int a_i;\n    std::cin >> a_i;\n    a.set(i, a_i);\n  }\n\
+    \  while (q--) {\n    int type, l, r;\n    std::cin >> type >> l >> r;\n    if\
+    \ (type == 0) {\n      int x;\n      std::cin >> x;\n      a.apply(l, r, x);\n\
+    \    } else if (type == 1) {\n      std::cout << a.get(l, r) << '\\n';\n    }\n\
+    \  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/data_structure/lazy_segment_tree.hpp
   isVerificationFile: true
   path: test/data_structure/range_minimum_query_and_range_add_query.test.cpp
   requiredBy: []
-  timestamp: '2023-05-12 19:52:13+09:00'
+  timestamp: '2025-09-07 03:06:20+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/data_structure/range_minimum_query_and_range_add_query.test.cpp

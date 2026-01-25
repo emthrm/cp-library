@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/geometry/smallest_enclosing_circle.hpp
     title: "\u6700\u5C0F\u5305\u542B\u5186 (smallest enclosing circle)"
   _extendedVerifiedWith:
@@ -101,7 +101,7 @@ data:
     path: test/geometry/geometry.24.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u8A08\u7B97\u5E7E\u4F55\u5B66 (\u70B9\u306E\
       \u56DE\u8EE2)"
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: test/geometry/smallest_enclosing_circle.test.cpp
     title: "\u8A08\u7B97\u5E7E\u4F55\u5B66/\u6700\u5C0F\u5305\u542B\u5186"
   - icon: ':heavy_check_mark:'
@@ -555,31 +555,31 @@ data:
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/quadratic_equation.test.cpp
-  - test/geometry/geometry.18.test.cpp
-  - test/geometry/geometry.22.test.cpp
-  - test/geometry/geometry.03.test.cpp
-  - test/geometry/geometry.08.test.cpp
-  - test/geometry/geometry.23.test.cpp
-  - test/geometry/smallest_enclosing_circle.test.cpp
-  - test/geometry/geometry.19.test.cpp
-  - test/geometry/geometry.21.test.cpp
-  - test/geometry/geometry.11.test.cpp
-  - test/geometry/geometry.02.test.cpp
-  - test/geometry/geometry.07.test.cpp
-  - test/geometry/geometry.09.test.cpp
   - test/geometry/geometry.12.test.cpp
-  - test/geometry/geometry.04.test.cpp
-  - test/geometry/geometry.17.test.cpp
-  - test/geometry/geometry.10.test.cpp
-  - test/geometry/geometry.20.test.cpp
-  - test/geometry/geometry.24.test.cpp
+  - test/geometry/geometry.02.test.cpp
   - test/geometry/geometry.01.test.cpp
-  - test/geometry/geometry.14.test.cpp
-  - test/geometry/geometry.15.test.cpp
-  - test/geometry/geometry.05.test.cpp
   - test/geometry/geometry.06.test.cpp
   - test/geometry/geometry.13.test.cpp
+  - test/geometry/geometry.22.test.cpp
+  - test/geometry/geometry.21.test.cpp
+  - test/geometry/geometry.04.test.cpp
+  - test/geometry/geometry.07.test.cpp
+  - test/geometry/geometry.17.test.cpp
+  - test/geometry/geometry.14.test.cpp
+  - test/geometry/geometry.19.test.cpp
+  - test/geometry/geometry.03.test.cpp
+  - test/geometry/geometry.08.test.cpp
+  - test/geometry/geometry.09.test.cpp
+  - test/geometry/geometry.18.test.cpp
+  - test/geometry/geometry.10.test.cpp
+  - test/geometry/geometry.05.test.cpp
   - test/geometry/geometry.16.test.cpp
+  - test/geometry/geometry.24.test.cpp
+  - test/geometry/geometry.15.test.cpp
+  - test/geometry/geometry.23.test.cpp
+  - test/geometry/smallest_enclosing_circle.test.cpp
+  - test/geometry/geometry.11.test.cpp
+  - test/geometry/geometry.20.test.cpp
 documentation_of: include/emthrm/geometry/geometry.hpp
 layout: document
 title: "\u8A08\u7B97\u5E7E\u4F55\u5B66 (computational geometry)"

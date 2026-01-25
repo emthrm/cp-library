@@ -118,6 +118,7 @@ Kruskal 法
   - ~~http://www.prefield.com/algorithm/dp/steiner_tree.html~~
   - http://monyone.github.io/teihen_library/#MinimumSteinerTree
   - https://sotanishy.github.io/cp-library-cpp/graph/minimum_steiner_tree.hpp
+  - https://judge.yosupo.jp/problem/minimum_steiner_tree
 - 最小全域有向木
   - https://37zigen.com/gabow-galil-spencer-tarjan/
   - https://noshi91.github.io/algorithm-encyclopedia/chu-liu-edmonds

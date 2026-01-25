@@ -127,8 +127,8 @@ data:
   timestamp: '2023-05-12 15:57:02+09:00'
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
-  - test/graph/tree/auxiliary_tree.test.cpp
   - test/graph/tree/lowest_common_ancestor_by_euler_tour.test.cpp
+  - test/graph/tree/auxiliary_tree.test.cpp
 documentation_of: include/emthrm/graph/tree/lowest_common_ancestor_by_euler_tour_technique.hpp
 layout: document
 title: "\u6700\u5C0F\u5171\u901A\u7956\u5148 (lowest common ancestor) Euler tour technique\

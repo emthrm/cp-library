@@ -53,8 +53,8 @@ data:
   timestamp: '2023-02-21 03:04:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/formal_power_series/polynomial_interpolation.test.cpp
   - test/math/formal_power_series/multipoint_evaluation.test.cpp
+  - test/math/formal_power_series/polynomial_interpolation.test.cpp
 documentation_of: include/emthrm/math/formal_power_series/multipoint_evaluation.hpp
 layout: document
 title: multipoint evaluation
