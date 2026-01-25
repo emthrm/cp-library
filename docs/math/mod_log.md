@@ -36,6 +36,8 @@ $O(\sqrt{P} \log{P})$
   - https://yukicoder.me/problems/no/950
   - https://twitter.com/nuo_chocorusk/status/1205509988912783360
   - https://twitter.com/maspy_stars/status/1205499459993362432
+- 高速化
+  - https://judge.yosupo.jp/problem/discrete_logarithm_fixed_mod
 
 
 ## Submissons
