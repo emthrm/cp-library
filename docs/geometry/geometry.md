@@ -333,6 +333,7 @@ Information Processing Letters*, Vol. 9, No. 5, pp. 216–219 (1979). https://do
   - https://github.com/spaghetti-source/algorithm/blob/master/geometry/coordinate_domination.cc
 - 最遠点対
   - https://judge.yosupo.jp/problem/furthest_pair
+  - https://judge.yosupo.jp/problem/all_furthest_neighbors
 - タクシー幾何学 (taxicab geometry)
   - https://en.wikipedia.org/wiki/Taxicab_geometry
 - 問題集
