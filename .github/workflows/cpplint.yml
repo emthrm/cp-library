@@ -109,6 +109,9 @@ jobs:
               "include/emthrm/math/rational.hpp" )
                 cpplint --root=./include --filter=-build/include_what_you_use,-legal/copyright,-runtime/explicit,-runtime/int $file ;;
 
+              "include/emthrm/misc/mo.hpp" )
+                cpplint --root=./include --filter=-legal/copyright,-runtime/int,-whitespace/indent_namespace $file ;;
+
               "include/emthrm/util/timer.hpp" )
                 cpplint --root=./include --filter=-build/c++11,-legal/copyright,-runtime/int $file ;;
 

@@ -18,6 +18,8 @@ documentation_of: //include/emthrm/misc/mo.hpp
 ## 仕様
 
 ```cpp
+template <typename AddLeft, typename AddRight,
+          typename DelLeft, typename DelRight>
 struct Mo;
 ```
 
@@ -25,10 +27,8 @@ struct Mo;
 
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs);`|クエリ集合 $\lbrace \lbrack \mathrm{ls}_i, \mathrm{rs}_i) \rbrace$ のオブジェクトを構築する。||
-|`int process();`|現在のクエリのインデックス。ただし存在しないときは $-1$ を返す。|
-|`void add(const int idx) const;`|$A_{\mathrm{idx}}$ をクエリの範囲に追加する。|関数プロトタイプ|
-|`void del(const int idx) const;`|$A_{\mathrm{idx}}$ をクエリの範囲から削除する。|関数プロトタイプ|
+|`explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs, const AddLeft& add_left, const AddRight& add_right, const DelLeft& del_left, const DelRight& del_right);`|クエリ集合 $\lbrace \lbrack \mathrm{ls}_i, \mathrm{rs}_i) \rbrace$ と、区間の左端・右端に対する追加・削除をそれぞれ指定してオブジェクトを構築する。||
+|`int process();`|次のクエリを処理し、そのインデックスを返す。ただし存在しないときは $-1$ を返す。||
 
 
 ## 参考文献
@@ -60,4 +60,4 @@ struct Mo;
 
 ## Submissons
 
-https://judge.yosupo.jp/submission/17371
+https://judge.yosupo.jp/submission/404491
