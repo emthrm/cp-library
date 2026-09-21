@@ -58,9 +58,9 @@ data:
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/data_structure/union-find/union-find.test.cpp
+  - test/graph/kruskal.test.cpp
   - test/graph/connencted_component_of_complement_graph.test.cpp
   - test/graph/is_bipartite.test.cpp
-  - test/graph/kruskal.test.cpp
 documentation_of: include/emthrm/data_structure/union-find/union-find.hpp
 layout: document
 title: union-find

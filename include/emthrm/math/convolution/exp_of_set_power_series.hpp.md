@@ -118,6 +118,7 @@ $O(2^N N^2)$
     - 問題例 "[We Love Forest](https://atcoder.jp/contests/abc253/tasks/abc253_h)"
       - https://atcoder.jp/contests/abc253/editorial/4028
   - 対数
+    - https://judge.yosupo.jp/problem/log_of_set_power_series
     - 問題例 "[Lights Out on Connected Graph](https://atcoder.jp/contests/arc105/tasks/arc105_f)"
       - https://twitter.com/noshi91/status/1315347967990140928
       - https://twitter.com/noshi91/status/1315504267927584768

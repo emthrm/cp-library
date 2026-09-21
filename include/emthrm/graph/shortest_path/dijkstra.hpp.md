@@ -79,8 +79,8 @@ data:
   verificationStatus: LIBRARY_PARTIAL_AC
   verifiedWith:
   - test/math/matrix/linear_equation.test.cpp
-  - test/graph/shortest_path/dijkstra.test.cpp
   - test/graph/noshi_graph.test.cpp
+  - test/graph/shortest_path/dijkstra.test.cpp
 documentation_of: include/emthrm/graph/shortest_path/dijkstra.hpp
 layout: document
 title: "Dijkstra \u6CD5"

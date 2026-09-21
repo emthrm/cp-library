@@ -1,8 +1,15 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp
+    title: "\u4E8C\u9805\u4FC2\u6570\u306E prefix sum \u306E\u591A\u70B9\u8A55\u4FA1"
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E prefix\
+      \ sum \u306E\u591A\u70B9\u8A55\u4FA1"
   - icon: ':heavy_check_mark:'
     path: test/misc/mo.test.cpp
     title: "\u305D\u306E\u4ED6/Mo's algorithm"
@@ -13,41 +20,61 @@ data:
     links: []
   bundledCode: "#line 1 \"include/emthrm/misc/mo.hpp\"\n\n\n\n#include <algorithm>\n\
     #include <cmath>\n#include <numeric>\n#include <vector>\n\nnamespace emthrm {\n\
-    \nstruct Mo {\n  explicit Mo(const std::vector<int>& ls, const std::vector<int>&\
-    \ rs)\n      : n(ls.size()), ptr(0), nl(0), nr(0), ls(ls), rs(rs) {\n    const\
-    \ int width = std::round(std::sqrt(n));\n    order.resize(n);\n    std::iota(order.begin(),\
-    \ order.end(), 0);\n    std::sort(order.begin(), order.end(),\n              [&ls,\
-    \ &rs, width](const int a, const int b) -> bool {\n                  if (ls[a]\
-    \ / width != ls[b] / width) return ls[a] < ls[b];\n                  return (ls[a]\
-    \ / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n              });\n  }\n\n  int\
-    \ process() {\n    if (ptr == n) [[unlikely]] return -1;\n    const int id = order[ptr++];\n\
-    \    while (ls[id] < nl) add(--nl);\n    while (nr < rs[id]) add(nr++);\n    while\
-    \ (nl < ls[id]) del(nl++);\n    while (rs[id] < nr) del(--nr);\n    return id;\n\
-    \  }\n\n  void add(const int idx) const;\n\n  void del(const int idx) const;\n\
-    \n private:\n  const int n;\n  int ptr, nl, nr;\n  std::vector<int> ls, rs, order;\n\
-    };\n\n}  // namespace emthrm\n\n\n"
+    \ntemplate <typename AddLeft, typename AddRight,\n          typename DelLeft,\
+    \ typename DelRight>\nstruct Mo {\n  explicit Mo(const std::vector<int>& ls, const\
+    \ std::vector<int>& rs,\n              const AddLeft& add_left, const AddRight&\
+    \ add_right,\n              const DelLeft& del_left, const DelRight& del_right)\n\
+    \      : n(ls.size()), ptr(0), nl(0), nr(0), ls(ls), rs(rs),\n        add_left(add_left),\
+    \ add_right(add_right),\n        del_left(del_left), del_right(del_right) {\n\
+    \    const int width = (\n        n == 0 ? 1\n               : std::max(std::llround(std::ranges::max(rs)\
+    \ / std::sqrt(n)),\n                          1LL));\n    order.resize(n);\n \
+    \   std::iota(order.begin(), order.end(), 0);\n    std::sort(order.begin(), order.end(),\n\
+    \              [&ls, &rs, width](const int a, const int b) -> bool {\n       \
+    \           if (ls[a] / width != ls[b] / width) return ls[a] < ls[b];\n      \
+    \            return (ls[a] / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n   \
+    \           });\n  }\n\n  int process() {\n    if (ptr == n) [[unlikely]] return\
+    \ -1;\n    const int id = order[ptr++];\n    while (ls[id] < nl) {\n      const\
+    \ int idx = --nl;\n      add_left(idx, nl, nr);\n    }\n    while (nr < rs[id])\
+    \ {\n      const int idx = nr++;\n      add_right(idx, nl, nr);\n    }\n    while\
+    \ (nl < ls[id]) {\n      const int idx = nl++;\n      del_left(idx, nl, nr);\n\
+    \    }\n    while (rs[id] < nr) {\n      const int idx = --nr;\n      del_right(idx,\
+    \ nl, nr);\n    }\n    return id;\n  }\n\n private:\n  const int n;\n  int ptr,\
+    \ nl, nr;\n  std::vector<int> ls, rs, order;\n  AddLeft add_left;\n  AddRight\
+    \ add_right;\n  DelLeft del_left;\n  DelRight del_right;\n};\n\n}  // namespace\
+    \ emthrm\n\n\n"
   code: "#ifndef EMTHRM_MISC_MO_HPP_\n#define EMTHRM_MISC_MO_HPP_\n\n#include <algorithm>\n\
     #include <cmath>\n#include <numeric>\n#include <vector>\n\nnamespace emthrm {\n\
-    \nstruct Mo {\n  explicit Mo(const std::vector<int>& ls, const std::vector<int>&\
-    \ rs)\n      : n(ls.size()), ptr(0), nl(0), nr(0), ls(ls), rs(rs) {\n    const\
-    \ int width = std::round(std::sqrt(n));\n    order.resize(n);\n    std::iota(order.begin(),\
-    \ order.end(), 0);\n    std::sort(order.begin(), order.end(),\n              [&ls,\
-    \ &rs, width](const int a, const int b) -> bool {\n                  if (ls[a]\
-    \ / width != ls[b] / width) return ls[a] < ls[b];\n                  return (ls[a]\
-    \ / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n              });\n  }\n\n  int\
-    \ process() {\n    if (ptr == n) [[unlikely]] return -1;\n    const int id = order[ptr++];\n\
-    \    while (ls[id] < nl) add(--nl);\n    while (nr < rs[id]) add(nr++);\n    while\
-    \ (nl < ls[id]) del(nl++);\n    while (rs[id] < nr) del(--nr);\n    return id;\n\
-    \  }\n\n  void add(const int idx) const;\n\n  void del(const int idx) const;\n\
-    \n private:\n  const int n;\n  int ptr, nl, nr;\n  std::vector<int> ls, rs, order;\n\
-    };\n\n}  // namespace emthrm\n\n#endif  // EMTHRM_MISC_MO_HPP_\n"
+    \ntemplate <typename AddLeft, typename AddRight,\n          typename DelLeft,\
+    \ typename DelRight>\nstruct Mo {\n  explicit Mo(const std::vector<int>& ls, const\
+    \ std::vector<int>& rs,\n              const AddLeft& add_left, const AddRight&\
+    \ add_right,\n              const DelLeft& del_left, const DelRight& del_right)\n\
+    \      : n(ls.size()), ptr(0), nl(0), nr(0), ls(ls), rs(rs),\n        add_left(add_left),\
+    \ add_right(add_right),\n        del_left(del_left), del_right(del_right) {\n\
+    \    const int width = (\n        n == 0 ? 1\n               : std::max(std::llround(std::ranges::max(rs)\
+    \ / std::sqrt(n)),\n                          1LL));\n    order.resize(n);\n \
+    \   std::iota(order.begin(), order.end(), 0);\n    std::sort(order.begin(), order.end(),\n\
+    \              [&ls, &rs, width](const int a, const int b) -> bool {\n       \
+    \           if (ls[a] / width != ls[b] / width) return ls[a] < ls[b];\n      \
+    \            return (ls[a] / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n   \
+    \           });\n  }\n\n  int process() {\n    if (ptr == n) [[unlikely]] return\
+    \ -1;\n    const int id = order[ptr++];\n    while (ls[id] < nl) {\n      const\
+    \ int idx = --nl;\n      add_left(idx, nl, nr);\n    }\n    while (nr < rs[id])\
+    \ {\n      const int idx = nr++;\n      add_right(idx, nl, nr);\n    }\n    while\
+    \ (nl < ls[id]) {\n      const int idx = nl++;\n      del_left(idx, nl, nr);\n\
+    \    }\n    while (rs[id] < nr) {\n      const int idx = --nr;\n      del_right(idx,\
+    \ nl, nr);\n    }\n    return id;\n  }\n\n private:\n  const int n;\n  int ptr,\
+    \ nl, nr;\n  std::vector<int> ls, rs, order;\n  AddLeft add_left;\n  AddRight\
+    \ add_right;\n  DelLeft del_left;\n  DelRight del_right;\n};\n\n}  // namespace\
+    \ emthrm\n\n#endif  // EMTHRM_MISC_MO_HPP_\n"
   dependsOn: []
   isVerificationFile: false
   path: include/emthrm/misc/mo.hpp
-  requiredBy: []
-  timestamp: '2023-02-23 21:59:12+09:00'
+  requiredBy:
+  - include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp
+  timestamp: '2026-09-21 19:26:16+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp
   - test/misc/mo.test.cpp
 documentation_of: include/emthrm/misc/mo.hpp
 layout: document
@@ -69,6 +96,8 @@ title: Mo's algorithm
 ## 仕様
 
 ```cpp
+template <typename AddLeft, typename AddRight,
+          typename DelLeft, typename DelRight>
 struct Mo;
 ```
 
@@ -76,10 +105,8 @@ struct Mo;
 
 |名前|効果・戻り値|備考|
 |:--|:--|:--|
-|`explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs);`|クエリ集合 $\lbrace \lbrack \mathrm{ls}_i, \mathrm{rs}_i) \rbrace$ のオブジェクトを構築する。||
-|`int process();`|現在のクエリのインデックス。ただし存在しないときは $-1$ を返す。|
-|`void add(const int idx) const;`|$A_{\mathrm{idx}}$ をクエリの範囲に追加する。|関数プロトタイプ|
-|`void del(const int idx) const;`|$A_{\mathrm{idx}}$ をクエリの範囲から削除する。|関数プロトタイプ|
+|`explicit Mo(const std::vector<int>& ls, const std::vector<int>& rs, const AddLeft& add_left, const AddRight& add_right, const DelLeft& del_left, const DelRight& del_right);`|クエリ集合 $\lbrace \lbrack \mathrm{ls}_i, \mathrm{rs}_i) \rbrace$ と、区間の左端・右端に対する追加・削除をそれぞれ指定してオブジェクトを構築する。||
+|`int process();`|次のクエリを処理し、そのインデックスを返す。ただし存在しないときは $-1$ を返す。||
 
 
 ## 参考文献
@@ -111,4 +138,4 @@ struct Mo;
 
 ## Submissons
 
-https://judge.yosupo.jp/submission/17371
+https://judge.yosupo.jp/submission/404491

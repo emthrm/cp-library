@@ -4,21 +4,30 @@ data:
   - icon: ':question:'
     path: include/emthrm/math/modint.hpp
     title: "\u30E2\u30B8\u30E5\u30E9\u8A08\u7B97"
-  _extendedRequiredBy: []
-  _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
-    path: test/math/twelvefold_way/large_nCk_init.test.cpp
-    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\u6570\
-      \u8868 \u5DE8\u5927\u306A $n$ \u7248"
+    path: include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp
+    title: "\u4E8C\u9805\u4FC2\u6570\u306E prefix sum \u306E\u591A\u70B9\u8A55\u4FA1"
+  - icon: ':heavy_check_mark:'
+    path: include/emthrm/misc/mo.hpp
+    title: Mo's algorithm
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
   _isVerificationFailed: false
-  _pathExtension: hpp
+  _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    links: []
-  bundledCode: "#line 1 \"include/emthrm/math/twelvefold_way/large_nCk_init.hpp\"\n\
-    \n\n\n#include <algorithm>\n#include <vector>\n\n#line 1 \"include/emthrm/math/modint.hpp\"\
-    \n\n\n\n#ifndef ARBITRARY_MODINT\n# include <cassert>\n#endif\n#include <compare>\n\
-    #include <iostream>\n// #include <numeric>\n#include <utility>\n#line 12 \"include/emthrm/math/modint.hpp\"\
+    PROBLEM: https://yukicoder.me/problems/no/2206
+    document_title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\
+      \ prefix sum \u306E\u591A\u70B9\u8A55\u4FA1"
+    links:
+    - https://yukicoder.me/problems/no/2206
+  bundledCode: "#line 1 \"test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp\"\
+    \n/*\n * @title \u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\
+    \ prefix sum \u306E\u591A\u70B9\u8A55\u4FA1\n *\n * verification-helper: PROBLEM\
+    \ https://yukicoder.me/problems/no/2206\n */\n\n#include <iostream>\n#include\
+    \ <vector>\n\n#line 1 \"include/emthrm/math/modint.hpp\"\n\n\n\n#ifndef ARBITRARY_MODINT\n\
+    # include <cassert>\n#endif\n#include <compare>\n#line 9 \"include/emthrm/math/modint.hpp\"\
+    \n// #include <numeric>\n#include <utility>\n#line 12 \"include/emthrm/math/modint.hpp\"\
     \n\nnamespace emthrm {\n\n#ifndef ARBITRARY_MODINT\ntemplate <unsigned int M>\n\
     struct MInt {\n  unsigned int v;\n\n  constexpr MInt() : v(0) {}\n  constexpr\
     \ MInt(const long long x) : v(x >= 0 ? x % M : x % M + M) {}\n  static constexpr\
@@ -128,95 +137,79 @@ data:
     \ is, MInt& x) {\n    long long v;\n    is >> v;\n    x = MInt(v);\n    return\
     \ is;\n  }\n\n private:\n  static unsigned int& mod() {\n    static unsigned int\
     \ divisor = 0;\n    return divisor;\n  }\n};\n#endif  // ARBITRARY_MODINT\n\n\
-    }  // namespace emthrm\n\n\n#line 8 \"include/emthrm/math/twelvefold_way/large_nCk_init.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <unsigned int T>\nstd::vector<MInt<T>> large_nCk_init(long\
-    \ long n, const int k) {\n  using ModInt = MInt<T>;\n  const int tmp = std::min(n,\
-    \ static_cast<long long>(k));\n  ModInt::template inv<true>(tmp);\n  std::vector<ModInt>\
-    \ c(k + 1, 0);\n  c.front() = 1;\n  for (int i = 1; i <= tmp; ++i) {\n    c[i]\
-    \ = c[i - 1] * n-- * ModInt::inv(i);\n  }\n  return c;\n}\n\n}  // namespace emthrm\n\
-    \n\n"
-  code: "#ifndef EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_\n#define EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_\n\
-    \n#include <algorithm>\n#include <vector>\n\n#include \"emthrm/math/modint.hpp\"\
-    \n\nnamespace emthrm {\n\ntemplate <unsigned int T>\nstd::vector<MInt<T>> large_nCk_init(long\
-    \ long n, const int k) {\n  using ModInt = MInt<T>;\n  const int tmp = std::min(n,\
-    \ static_cast<long long>(k));\n  ModInt::template inv<true>(tmp);\n  std::vector<ModInt>\
-    \ c(k + 1, 0);\n  c.front() = 1;\n  for (int i = 1; i <= tmp; ++i) {\n    c[i]\
-    \ = c[i - 1] * n-- * ModInt::inv(i);\n  }\n  return c;\n}\n\n}  // namespace emthrm\n\
-    \n#endif  // EMTHRM_MATH_TWELVEFOLD_WAY_LARGE_NCK_INIT_HPP_\n"
+    }  // namespace emthrm\n\n\n#line 1 \"include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp\"\
+    \n\n\n\n#include <algorithm>\n#include <cassert>\n#line 7 \"include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp\"\
+    \n\n#line 1 \"include/emthrm/misc/mo.hpp\"\n\n\n\n#line 5 \"include/emthrm/misc/mo.hpp\"\
+    \n#include <cmath>\n#include <numeric>\n#line 8 \"include/emthrm/misc/mo.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <typename AddLeft, typename AddRight,\n   \
+    \       typename DelLeft, typename DelRight>\nstruct Mo {\n  explicit Mo(const\
+    \ std::vector<int>& ls, const std::vector<int>& rs,\n              const AddLeft&\
+    \ add_left, const AddRight& add_right,\n              const DelLeft& del_left,\
+    \ const DelRight& del_right)\n      : n(ls.size()), ptr(0), nl(0), nr(0), ls(ls),\
+    \ rs(rs),\n        add_left(add_left), add_right(add_right),\n        del_left(del_left),\
+    \ del_right(del_right) {\n    const int width = (\n        n == 0 ? 1\n      \
+    \         : std::max(std::llround(std::ranges::max(rs) / std::sqrt(n)),\n    \
+    \                      1LL));\n    order.resize(n);\n    std::iota(order.begin(),\
+    \ order.end(), 0);\n    std::sort(order.begin(), order.end(),\n              [&ls,\
+    \ &rs, width](const int a, const int b) -> bool {\n                  if (ls[a]\
+    \ / width != ls[b] / width) return ls[a] < ls[b];\n                  return (ls[a]\
+    \ / width) & 1 ? rs[a] < rs[b] : rs[a] > rs[b];\n              });\n  }\n\n  int\
+    \ process() {\n    if (ptr == n) [[unlikely]] return -1;\n    const int id = order[ptr++];\n\
+    \    while (ls[id] < nl) {\n      const int idx = --nl;\n      add_left(idx, nl,\
+    \ nr);\n    }\n    while (nr < rs[id]) {\n      const int idx = nr++;\n      add_right(idx,\
+    \ nl, nr);\n    }\n    while (nl < ls[id]) {\n      const int idx = nl++;\n  \
+    \    del_left(idx, nl, nr);\n    }\n    while (rs[id] < nr) {\n      const int\
+    \ idx = --nr;\n      del_right(idx, nl, nr);\n    }\n    return id;\n  }\n\n private:\n\
+    \  const int n;\n  int ptr, nl, nr;\n  std::vector<int> ls, rs, order;\n  AddLeft\
+    \ add_left;\n  AddRight add_right;\n  DelLeft del_left;\n  DelRight del_right;\n\
+    };\n\n}  // namespace emthrm\n\n\n#line 10 \"include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp\"\
+    \n\nnamespace emthrm {\n\ntemplate <unsigned int T>\nstd::vector<MInt<T>> multipoint_binomial_prefix_sum(\n\
+    \    const std::vector<int>& ns, const std::vector<int>& ms) {\n  using ModInt\
+    \ = MInt<T>;\n  assert(ns.size() == ms.size());\n  if (ns.empty()) [[unlikely]]\
+    \ return {};\n  assert(T % 2 == 1);\n  const int q = ns.size();\n  for (int i\
+    \ = 0; i < q; ++i) {\n    assert(0 <= ms[i] && ms[i] <= ns[i]);\n  }\n  ModInt::init(std::ranges::max(ns));\n\
+    \  ModInt sum = 1;\n  Mo mo(ms, ns,\n        // S(n, m) -> S(n, m - 1)\n     \
+    \   [&sum](const int, const int m, const int n) {\n          sum -= ModInt::nCk(n,\
+    \ m + 1);\n        },\n        // S(n, m) -> S(n + 1, m)\n        [&sum](const\
+    \ int, const int m, const int n) {\n          sum += sum - ModInt::nCk(n - 1,\
+    \ m);\n        },\n        // S(n, m) -> S(n, m + 1)\n        [&sum](const int,\
+    \ const int m, const int n) {\n          sum += ModInt::nCk(n, m);\n        },\n\
+    \        // S(n, m) -> S(n - 1, m)\n        [&sum](const int, const int m, const\
+    \ int n) {\n          static const ModInt inv2 = ModInt::inv(2);\n          sum\
+    \ = (sum + ModInt::nCk(n, m)) * inv2;\n        });\n  std::vector<ModInt> ans(q);\n\
+    \  for (int i = 0; i < q; ++i) {\n    const int idx = mo.process();\n    ans[idx]\
+    \ = sum;\n  }\n  return ans;\n}\n\n}  // namespace emthrm\n\n\n#line 12 \"test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp\"\
+    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
+    \  int t;\n  std::cin >> t;\n  std::vector<int> n(t), m(t);\n  for (int i = 0;\
+    \ i < t; ++i) {\n    std::cin >> n[i] >> m[i];\n    --n[i];\n    --m[i];\n  }\n\
+    \  const std::vector<ModInt> sums =\n      emthrm::multipoint_binomial_prefix_sum<MOD>(n,\
+    \ m);\n  for (int i = 0; i < t; ++i) {\n    std::cout << (ModInt::raw(2).pow(n[i]\
+    \ + 1) - 1) * sums[i] << '\\n';\n  }\n  return 0;\n}\n"
+  code: "/*\n * @title \u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E\
+    \ prefix sum \u306E\u591A\u70B9\u8A55\u4FA1\n *\n * verification-helper: PROBLEM\
+    \ https://yukicoder.me/problems/no/2206\n */\n\n#include <iostream>\n#include\
+    \ <vector>\n\n#include \"emthrm/math/modint.hpp\"\n#include \"emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp\"\
+    \n\nint main() {\n  constexpr int MOD = 998244353;\n  using ModInt = emthrm::MInt<MOD>;\n\
+    \  int t;\n  std::cin >> t;\n  std::vector<int> n(t), m(t);\n  for (int i = 0;\
+    \ i < t; ++i) {\n    std::cin >> n[i] >> m[i];\n    --n[i];\n    --m[i];\n  }\n\
+    \  const std::vector<ModInt> sums =\n      emthrm::multipoint_binomial_prefix_sum<MOD>(n,\
+    \ m);\n  for (int i = 0; i < t; ++i) {\n    std::cout << (ModInt::raw(2).pow(n[i]\
+    \ + 1) - 1) * sums[i] << '\\n';\n  }\n  return 0;\n}\n"
   dependsOn:
   - include/emthrm/math/modint.hpp
-  isVerificationFile: false
-  path: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
+  - include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp
+  - include/emthrm/misc/mo.hpp
+  isVerificationFile: true
+  path: test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp
   requiredBy: []
-  timestamp: '2023-05-13 18:14:57+09:00'
-  verificationStatus: LIBRARY_ALL_AC
-  verifiedWith:
-  - test/math/twelvefold_way/large_nCk_init.test.cpp
-documentation_of: include/emthrm/math/twelvefold_way/large_nCk_init.hpp
+  timestamp: '2026-09-21 19:26:16+09:00'
+  verificationStatus: TEST_ACCEPTED
+  verifiedWith: []
+documentation_of: test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp
 layout: document
-title: "\u4E8C\u9805\u4FC2\u6570 (binomial coefficients) \u306E\u6570\u8868 \u5DE8\
-  \u5927\u306A $n$ \u7248"
+redirect_from:
+- /verify/test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp
+- /verify/test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp.html
+title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E prefix sum\
+  \ \u306E\u591A\u70B9\u8A55\u4FA1"
 ---
-
-# 二項係数 (binomial coefficients)
-
-$$
-  \binom{n}{k} = \binom{n - 1}{r - 1} + \binom{n - 1}{r} = \frac{n!}{k!\,(n - k)!}
-$$
-
-
-## 時間計算量
-
-||時間計算量|
-|:--|:--|
-|パスカルの三角形|$O(N^2)$|
-|二項係数|$\langle O(N + \log{M}), O(1) \rangle$|
-|二項係数 巨大な $n$ 版|$O(K + \log{M})$|
-|二項係数の数表 巨大な $n$ 版|$O(K)$|
-
-
-## 仕様
-
-### パスカルの三角形
-
-|名前|戻り値|
-|:--|:--|
-|`template <typename T>`<br>`std::vector<std::vector<T>> pascal(const int n);`|$n$ 段のパスカルの三角形|
-
-
-### [二項係数](../../../include/emthrm/math/modint.hpp)
-
-
-### [二項係数 巨大な $n$ 版](../../../include/emthrm/math/modint.hpp)
-
-
-### 二項係数の数表 巨大な $n$ 版
-
-|名前|戻り値|
-|:--|:--|
-|`template <unsigned int T>`<br>`std::vector<MInt<T>> large_nCk_init(long long n, const int k);`|$\binom{n}{r}$ ($0 \leq r \leq k$) の数表|
-
-
-## 参考文献
-
-http://drken1215.hatenablog.com/entry/2018/06/08/210000
-
-パスカルの三角形
-- Blaise Pascal: Traité du triangle arithmétique , avec quelques autres petits traitez sur la mesme matière (1665).
-
-
-## TODO
-
-- https://w.atwiki.jp/uwicoder/pages/2118.html
-- https://ferin-tech.hatenablog.com/entry/2018/01/17/010829
-- https://qiita.com/Kiri8128/items/dfdadf85ba2ea14026b6
-- https://judge.yosupo.jp/problem/binomial_coefficient
-- https://yukicoder.me/problems/no/3394
-
-
-## Submissons
-
-- [パスカルの三角形](https://atcoder.jp/contests/abc254/submissions/32252670)
-- [二項係数](https://yukicoder.me/submissions/625071)
-- [二項係数 巨大な $n$ 版](https://onlinejudge.u-aizu.ac.jp/solutions/problem/3071/review/5265683/emthrm/C++17)
-- [二項係数の数表 巨大な $n$ 版](https://yukicoder.me/submissions/820076)

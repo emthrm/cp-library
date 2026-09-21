@@ -603,6 +603,9 @@ data:
     path: include/emthrm/math/twelvefold_way/lucas.hpp
     title: "Lucas \u306E\u5B9A\u7406 (Lucas's theorem)"
   - icon: ':heavy_check_mark:'
+    path: include/emthrm/math/twelvefold_way/multipoint_binomial_prefix_sum.hpp
+    title: "\u4E8C\u9805\u4FC2\u6570\u306E prefix sum \u306E\u591A\u70B9\u8A55\u4FA1"
+  - icon: ':heavy_check_mark:'
     path: include/emthrm/math/twelvefold_way/partition_function.hpp
     title: "\u5206\u5272\u6570 (partition function)"
   - icon: ':heavy_check_mark:'
@@ -1338,6 +1341,10 @@ data:
   - icon: ':warning:'
     path: test/math/twelvefold_way/lucas.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/Lucas \u306E\u5B9A\u7406"
+  - icon: ':heavy_check_mark:'
+    path: test/math/twelvefold_way/multipoint_binomial_prefix_sum.test.cpp
+    title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u4E8C\u9805\u4FC2\u6570\u306E prefix\
+      \ sum \u306E\u591A\u70B9\u8A55\u4FA1"
   - icon: ':heavy_check_mark:'
     path: test/math/twelvefold_way/partition_function_by_fps.test.cpp
     title: "\u6570\u5B66/\u5199\u50CF12\u76F8/\u5206\u5272\u6570 $n = m$ \u7248"

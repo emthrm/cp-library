@@ -76,8 +76,8 @@ data:
   timestamp: '2023-08-15 15:09:21+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/math/convolution/exp_of_set_power_series.test.cpp
   - test/math/convolution/subset_convolution.test.cpp
+  - test/math/convolution/exp_of_set_power_series.test.cpp
 documentation_of: include/emthrm/math/convolution/subset_convolution.hpp
 layout: document
 title: subset convolution
